@@ -13,7 +13,7 @@ Programs in this repository:
 <img src="screenshots/tab1.png" width="714" height="490">
 <img src="screenshots/tab2.png" width="587" height="532">
 
-FAPMAP CONTAINS:
+# FAPMAP CONTAINS:
 - custom video player UI (uses WMP binaries)
 <img src="screenshots/wmp.png" width="909" height="503">
 - custom image/gif viewer UI
@@ -29,6 +29,6 @@ FAPMAP CONTAINS:
 - settings (./data/fapmap.ini)
 <img src="screenshots/settings.png" width="792" height="598">
 
-OTHER INFO:
+# OTHER INFO:
 - Some of the icons/images used in the GUI can be found on the web...
 - HINT: hover over buttons to see what they do... (tooltip)

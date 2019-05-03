@@ -1,0 +1,82 @@
+#=======================================
+#
+#  FapMap -> URL BOARD
+#
+#  TYPE|NAME|URL
+#
+#  TYPES:
+#        SITE - has log-in options
+#        NLIO - no log-in options (blog alike)
+#        DOWN - media converter SITE
+#        USER - user from a SITE
+#        BLOG - blog, NLIO
+#        STAR - pornstar
+#
+#=======================================
+#
+# ======[ SITE ]======
+#
+SITE|Google|https://www.google.com
+SITE|xVideos|https://www.xvideos.com
+SITE|PornHub|https://www.pornhub.com
+SITE|xHamster|https://xhamster.com
+SITE|YouPorn|https://www.youporn.com
+SITE|YouJizz|https://www.youjizz.com
+SITE|Spankbang|https://www.spankbang.com
+SITE|nHentai|https://nhentai.net
+SITE|oHentai|https://ohentai.org/
+SITE|Hentai Dude|https://hentaidude.com
+SITE|NEWGROUNDS|https://www.newgrounds.com/
+SITE|Gelbooru|https://gelbooru.com
+SITE|Rule34 XXX|https://rule34.xxx/index.php?page=post&s=list&tags=all
+SITE|Rule34 Paheal|https://rule34.paheal.net/post/list/1
+SITE|Rule34 Hentai|https://rule34hentai.net/post/list/1
+SITE|LAH|http://lah.li
+SITE|Lolibooru|https://lolibooru.moe/post?tags=&commit=Search
+SITE|MUCHoHENTAI|https://muchohentai.com
+SITE|Sankaku Complex|https://www.sankakucomplex.com/?pg=X
+SITE|Hentai Foundry|http://www.hentai-foundry.com/?enterAgree=1
+SITE|Image Fap|https://www.imagefap.com
+SITE|ThatPervert|http://thatpervert.com
+SITE|3D Hentai Video|http://www.3dhentaivideo.com
+#
+# ======[ NLIO ]======
+#
+NLIO|XNXX|https://www.xnxx.com
+NLIO|Hentai Haven|http://hentaihaven.org
+NLIO|oHentai|http://ohentai.org
+NLIO|G-E Hentai Gallery|https://e-hentai.org
+NLIO|Overwatch Porn|http://overwatchporn.xxx
+NLIO|/b/|http://boards.4chan.org/b
+NLIO|/gif/|https://boards.4chan.org/gif
+NLIO|/s/|http://boards.4chan.org/s
+NLIO|/h/|https://boards.4chan.org/h
+NLIO|SwfChan|http://swfchan.org/fap.shtml
+NLIO|Hitomi|https://hitomi.la
+#
+# ======[ DOWN ]======
+#
+DOWN|ClipConverter|http://www.clipconverter.cc
+DOWN|OnlineVideoConverter|https://www.onlinevideoconverter.com/video-converter
+DOWN|OnlineConvert|http://www.online-convert.com
+DOWN|Savido|http://www.savido.net/sites/pornhub
+DOWN|TubeOffline|http://www.tubeoffline.com/download-PornHub-videos.php#.WMwOiVXyuUl
+#
+# ======[ USER ]======
+#
+USER|Udonmania|http://www.pornhub.com/users/udonmania/videos/public
+USER|Master69|http://www.pornhub.com/users/master69/videos/public
+USER|Rahrahrasputin|http://www.pornhub.com/users/rahrahrasputin/videos/public
+USER|FireBoxStudio|https://www.pornhub.com/users/fireboxstudio/videos/public
+USER|TheGameMaster|http://www.pornhub.com/users/the-game-master/videos/public
+USER|ZaryaMain|https://www.pornhub.com/users/zarya_main/videos/public
+USER|CMHentai|http://www.pornhub.com/users/cmhentai/videos/public
+USER|BlackJrXIII|https://www.pornhub.com/users/blackjrxiii/videos/public
+#
+# ======[ BLOG ]======
+#
+BLOG|ShadBase|http://www.shadbase.com/
+BLOG|Likkezg|http://likkezg.com/
+BLOG|Premium Hentai|http://premium-hentai.biz/
+BLOG|Liang xing|https://www.artstation.com/liangxing
+BLOG|Tarakanovich|https://tarakanovich.newgrounds.com/art/

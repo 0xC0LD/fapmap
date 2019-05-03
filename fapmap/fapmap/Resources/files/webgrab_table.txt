@@ -1,0 +1,6 @@
+4chan|@agent,@valid,@media,@nodupes,-s.,@skip_all
+xvideos|@agent,@valid,/mp4/,@nodupes
+xnxx|@agent,@valid,/mp4/,@nodupes
+xhamster|@agent,@valid,.mp4,@nodupes
+youporn|@agent,@valid,.mp4,@nodupes
+rule34.paheal|@agent,@valid,@media,@nodupes,-thumb,-/themes/,-/banner/,-/widget/,-favicon,-icon.png

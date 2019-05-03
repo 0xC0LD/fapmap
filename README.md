@@ -1,13 +1,14 @@
 # fapmap
 Hidden personal gallery of erotica (C#, GUI)
 
-Programs in this repository:
-- fapmaper ("fapmaper" is the "installation" program... all it really does is copy the contents from the "data" folder to the given location, then it hides the destination folder):
+# Programs in this repository:
+- <p> fapmaper ("fapmaper" is the "installation" program... all it really does is copy the contents from the "data" folder to the given location, then it hides the destination folder):
 <img src="screenshots/fapmaper.png" width="866" height="764">
+</p>
 
-- Lock (LockedFolder) (password GUI) ("Lock" should be the entry point of your gallery. The program is supposed to be accessed through a shortcut on your desktop. When open the user should be prompted with a password GUI (the password is stored in the data/password.dll file)):
+- <p> Lock (LockedFolder) (password GUI) ("Lock" should be the entry point of your gallery. The program is supposed to be accessed through a shortcut on your desktop. When open the user should be prompted with a password GUI (the password is stored in the data/password.dll file)):
 <img src="screenshots/lock.png" width="376" height="84">
-
+</p>
 
 - fapmap ("fapmap" is the file browser, ... (see below for more info)):
 <img src="screenshots/tab1.png" width="714" height="490">
@@ -29,6 +30,6 @@ Programs in this repository:
 - settings (./data/fapmap.ini)
 <img src="screenshots/settings.png" width="792" height="598">
 
-# OTHER INFO:
+# OTHER INFO
 - Some of the icons/images used in the GUI can be found on the web...
 - HINT: hover over buttons to see what they do... (tooltip)

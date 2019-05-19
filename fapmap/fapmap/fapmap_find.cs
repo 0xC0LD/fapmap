@@ -28,8 +28,7 @@ namespace fapmap
 
         private void Find_Load(object sender, EventArgs e)
         {
-            //SET CURRENT WORKING DIRECTORY
-            Directory.SetCurrentDirectory(fapmap.GlobalVariables.Path.Dir.MainFolder);
+            fapmap.fapmap_cd();
         }
 
         #region Graphics

@@ -25,9 +25,7 @@ namespace fapmap
 
         private void fapmap_board_Load(object sender, EventArgs e)
         {
-            //SET CURRENT WORKING DIRECTORY
-            Directory.SetCurrentDirectory(fapmap.GlobalVariables.Path.Dir.MainFolder);
-            
+            fapmap.fapmap_cd();
             board_load();
         }
 

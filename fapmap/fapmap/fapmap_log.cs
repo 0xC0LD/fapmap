@@ -23,9 +23,7 @@ namespace fapmap
 
         private void fapmap_log_Load(object sender, EventArgs e)
         {
-            //SET CURRENT WORKING DIRECTORY
-            Directory.SetCurrentDirectory(fapmap.GlobalVariables.Path.Dir.MainFolder);
-
+            fapmap.fapmap_cd();
             get_logs();
         }
 
@@ -53,8 +51,7 @@ namespace fapmap
                         string action = index[1];
                         string text = index[2];
 
-                        ListViewItem lvi = new ListViewItem(new string[] { count.ToString(), time, action, text });
-                        lvi.Tag = text;
+                        ListViewItem lvi = new ListViewItem(new string[] { count.ToString(), time, action, text }) { Tag = text };
                         switch (action)
                         {
                             case "OPEN": lvi.ForeColor = Color.Yellow; break;

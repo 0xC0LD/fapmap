@@ -27,9 +27,8 @@ namespace fapmap
 
         private void fapmap_ffmpeg_Load(object sender, EventArgs e)
         {
-            //SET CURRENT WORKING DIRECTORY
-            Directory.SetCurrentDirectory(fapmap.GlobalVariables.Path.Dir.MainFolder);
-            
+            fapmap.fapmap_cd();
+
             if (!File.Exists(fapmap.GlobalVariables.Path.File.Exe.Ffmpeg))
             {
                 fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, fapmap.GlobalVariables.Path.File.Exe.Ffmpeg);
@@ -116,9 +115,7 @@ namespace fapmap
                     {
                         if (File.Exists(file.Text))
                         {
-                            Thread th = new Thread(conv);
-                            th.IsBackground = true;
-                            th.Start();
+                            new Thread(conv) { IsBackground = true }.Start();
                         }
                         else
                         {

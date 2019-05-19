@@ -38,9 +38,7 @@ namespace fapmap
 
         private void fapmap_download_Load(object sender, EventArgs e)
         {
-            //SET CURRENT WORKING DIRECTORY
-            Directory.SetCurrentDirectory(fapmap.GlobalVariables.Path.Dir.MainFolder);
-            
+            fapmap.fapmap_cd();
             file_location.Text = fapmap.GlobalVariables.Path.Dir.MainFolder + "\\";
 
             //hide ext
@@ -420,9 +418,12 @@ namespace fapmap
                                     //COUNT
                                     update_count(links.Items.Count);;
                                     
-                                    //CREATE ALL FOLDERS
-                                    Directory.CreateDirectory(Directory.GetParent(file_location.Text).ToString());
-                                    file_location_TextChanged(null, null); //change color of created folder
+                                    if (!string.IsNullOrEmpty(file_location.Text))
+                                    {
+                                        //CREATE ALL FOLDERS
+                                        Directory.CreateDirectory(Directory.GetParent(file_location.Text).ToString());
+                                        file_location_TextChanged(null, null); //change color of created folder
+                                    }
 
                                     //show speed
                                     speed.Enabled = true;

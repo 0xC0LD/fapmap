@@ -26,9 +26,8 @@ namespace fapmap
         
         private void GalleryInfo_Load(object sender, EventArgs e)
         {
-            //SET CURRENT WORKING DIRECTORY
-            Directory.SetCurrentDirectory(fapmap.GlobalVariables.Path.Dir.MainFolder);
-            
+            fapmap.fapmap_cd();
+
             fapmap.file_export_all();
 
             //LOAD SETTINGS

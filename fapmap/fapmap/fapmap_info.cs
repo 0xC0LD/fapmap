@@ -23,8 +23,7 @@ namespace fapmap
 
         private void fapmap_info_Load(object sender, EventArgs e)
         {
-            //SET CURRENT WORKING DIRECTORY
-            Directory.SetCurrentDirectory(fapmap.GlobalVariables.Path.Dir.MainFolder);
+            fapmap.fapmap_cd();
 
             if (string.IsNullOrEmpty(path))
             {
@@ -36,9 +35,7 @@ namespace fapmap
 
         private void getAll_Click(object sender, EventArgs e)
         {
-            Thread thread = new Thread(RefreshThread);
-            thread.IsBackground = true;
-            thread.Start();
+            new Thread(RefreshThread) { IsBackground = true }.Start();
 
             count_files_panel.Focus();
             this.ActiveControl = count_files_panel;

@@ -34,9 +34,6 @@ namespace fapmap
         public fapmap() //MAIN LOOP
         {
             InitializeComponent();
-
-            //BOARDLESS FORM
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
         }
 
         public class GlobalVariables
@@ -153,11 +150,8 @@ namespace fapmap
         public static bool this_selected = false;
         private void fapmap_Load(object sender, EventArgs e)
         {
-            //DRAW TEXT
-            this.Text = "Personal Gallery of Erotica (FapMap)";
-            
-            // //WINDOWS STYLE FOR TREEVIEW
-            // SetTreeViewTheme(faftv.Handle);
+            //SET CURRENT WORKING DIRECTORY
+            fapmap_cd();
 
             //Export All
             file_export_all();
@@ -180,10 +174,7 @@ namespace fapmap
             //resize
             this.Size = this.MinimumSize;
             this.CenterToScreen();
-
-            //SET CURRENT WORKING DIRECTORY
-            Directory.SetCurrentDirectory(fapmap.GlobalVariables.Path.Dir.MainFolder);
-
+            
             //REMOVE TEXTBOX FOCUS
             this.ActiveControl = menu;
             menu.Focus();
@@ -1046,6 +1037,13 @@ namespace fapmap
             }
         }
 
+        public static void fapmap_cd()
+        {
+            if (!Directory.Exists(GlobalVariables.Path.Dir.MainFolder)) { Directory.CreateDirectory(GlobalVariables.Path.Dir.MainFolder); }
+            if (!Directory.Exists(GlobalVariables.Path.Dir.DataFolder)) { Directory.CreateDirectory(GlobalVariables.Path.Dir.DataFolder); }
+            Directory.SetCurrentDirectory(fapmap.GlobalVariables.Path.Dir.MainFolder);
+        }
+
         public static void file_export_all()
         {
             if (!Directory.Exists(GlobalVariables.Path.Dir.MainFolder)) { Directory.CreateDirectory(GlobalVariables.Path.Dir.MainFolder); }
@@ -1083,7 +1081,7 @@ namespace fapmap
                     w.WriteLine(GlobalVariables.Settings.Common.Comment                + "");
                     w.WriteLine(GlobalVariables.Settings.Common.Comment                + "===[MOVE (FILE) TO]");
                     w.WriteLine(GlobalVariables.Settings.Common.Comment                + "");
-                    w.WriteLine(GlobalVariables.Settings.Other.MoveFileToLines_        + GlobalVariables.Settings.Common.Equal + GlobalVariables.Path.Dir.MainFolder + "\\trash");
+                    w.WriteLine(GlobalVariables.Settings.Other.MoveFileToLines_        + GlobalVariables.Settings.Common.Equal + ".\\trash");
                     w.WriteLine(GlobalVariables.Settings.Common.Comment                + "");
                     w.WriteLine(GlobalVariables.Settings.Common.Comment                + "===[OTHER]");
                     w.WriteLine(GlobalVariables.Settings.Common.Comment                + "");

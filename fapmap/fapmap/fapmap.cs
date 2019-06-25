@@ -2345,7 +2345,18 @@ namespace fapmap
                 //CLEAR, SHOW ANOTHER FILE
                 media_remove(true);
 
-                load_file();
+                if (faftv_path.Text.EndsWith(".lst")
+                 || faftv_path.Text.EndsWith(".txt")
+                )
+                {
+                    menu_changeTabs_MouseUp(null, new MouseEventArgs(MouseButtons.Right, 1, 0, 0, 0));
+                    links_reload();
+                }
+                else
+                {
+                    load_file();
+                }
+                
 
                 return;
             }
@@ -3799,32 +3810,34 @@ namespace fapmap
                     switch (file.Extension)
                     {
                         case ".exe": node_file.ImageIndex = node_file.SelectedImageIndex = 1; break;
-                        case ".mp4": node_file.ImageIndex = node_file.SelectedImageIndex = 2; break;
-                        case ".wmv": node_file.ImageIndex = node_file.SelectedImageIndex = 2; break;
-                        case ".mkv": node_file.ImageIndex = node_file.SelectedImageIndex = 2; break;
-                        case ".mpeg": node_file.ImageIndex = node_file.SelectedImageIndex = 2; break;
+                        case ".mp4":
+                        case ".wmv":
+                        case ".mkv":
+                        case ".mpeg":
                         case ".mpg": node_file.ImageIndex = node_file.SelectedImageIndex = 2; break;
-                        case ".webm": node_file.ImageIndex = node_file.SelectedImageIndex = 3; break;
-                        case ".avi": node_file.ImageIndex = node_file.SelectedImageIndex = 3; break;
+                        case ".webm":
+                        case ".avi":
                         case ".mov": node_file.ImageIndex = node_file.SelectedImageIndex = 3; break;
-                        case ".swf": node_file.ImageIndex = node_file.SelectedImageIndex = 4; break;
+                        case ".swf":
                         case ".flv": node_file.ImageIndex = node_file.SelectedImageIndex = 4; break;
                         case ".gif": node_file.ImageIndex = node_file.SelectedImageIndex = 5; break;
-                        case ".png": node_file.ImageIndex = node_file.SelectedImageIndex = 6; break;
-                        case ".svg": node_file.ImageIndex = node_file.SelectedImageIndex = 6; break;
+                        case ".png":
+                        case ".svg":
                         case ".ico": node_file.ImageIndex = node_file.SelectedImageIndex = 6; break;
-                        case ".jpg": node_file.ImageIndex = node_file.SelectedImageIndex = 7; break;
-                        case ".jpeg": node_file.ImageIndex = node_file.SelectedImageIndex = 7; break;
-                        case ".jpe": node_file.ImageIndex = node_file.SelectedImageIndex = 7; break;
-                        case ".jiff": node_file.ImageIndex = node_file.SelectedImageIndex = 7; break;
-                        case ".jfif": node_file.ImageIndex = node_file.SelectedImageIndex = 7; break;
-                        case ".bmp": node_file.ImageIndex = node_file.SelectedImageIndex = 7; break;
-                        case ".dib": node_file.ImageIndex = node_file.SelectedImageIndex = 7; break;
-                        case ".tif": node_file.ImageIndex = node_file.SelectedImageIndex = 7; break;
+                        case ".jpg":
+                        case ".jpeg":
+                        case ".jpe":
+                        case ".jiff":
+                        case ".jfif":
+                        case ".bmp":
+                        case ".dib":
+                        case ".tif":
                         case ".tiff": node_file.ImageIndex = node_file.SelectedImageIndex = 7; break;
-                        case ".mp3": node_file.ImageIndex = node_file.SelectedImageIndex = 8; break;
+                        case ".mp3":
                         case ".ogg": node_file.ImageIndex = node_file.SelectedImageIndex = 8; break;
                         case ".html": node_file.ImageIndex = node_file.SelectedImageIndex = 9; break;
+                        case ".lst":
+                        case ".webgrab_skip":
                         case ".txt": node_file.ImageIndex = node_file.SelectedImageIndex = 10; break;
                         case ".bat": node_file.ImageIndex = node_file.SelectedImageIndex = 11; break;
                         case ".reg": node_file.ImageIndex = node_file.SelectedImageIndex = 12; break;
@@ -3842,6 +3855,8 @@ namespace fapmap
         //RELOAD
         private void faftv_reload()
         {
+            this.Text = "FAPMAP: Loading...";
+            if (!reloadedOnce) { lstfile = string.Empty; links_reload(); reloadedOnce = true; }
             faftv.SelectedNode = null;
             faftv_path.Text = GlobalVariables.Path.Dir.MainFolder;
             faftv_ListDirectory(faftv, GlobalVariables.Path.Dir.MainFolder);
@@ -3966,7 +3981,7 @@ namespace fapmap
             {
                 case Keys.Enter:
                     {
-                        e.SuppressKeyPress = true; faftv_startFile();
+                        e.SuppressKeyPress = true; load_file_or_dir(faftv_path.Text);
 
                         try
                         {
@@ -4054,13 +4069,18 @@ namespace fapmap
         //DOUBLE CLICK TREEVIEW = OPEN FILE
         private void faftv_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            faftv_startFile();
+            load_file_or_dir(faftv_path.Text);
         }
-        
+
         //VIEW SLECTED
+        private bool reloadedOnce = false;
         private void faftv_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            load_file_or_dir(faftv.SelectedNode.Tag.ToString());
+            faftv_path.Text = faftv.SelectedNode.Tag.ToString();
+            if (faftv_path.Text.EndsWith(".lst")
+             || faftv_path.Text.EndsWith(".txt"))
+            { lstfile = faftv_path.Text; }
+            else if (!reloadedOnce) { lstfile = string.Empty; links_reload(); reloadedOnce = true; }
         }
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
@@ -4211,42 +4231,104 @@ namespace fapmap
 
         #region Links -> Functions
 
+        private string lstfile = string.Empty;
         private void links_reload()
         {
             file_export_all();
-
+            
             string file = GlobalVariables.Path.File.Links;
-
+            if (lstfile != string.Empty) { file = lstfile; reloadedOnce = false; }
+            
             //REMOVE NULL LINES
-            using (FileStream fs = new FileStream(fapmap.GlobalVariables.Path.File.Links, FileMode.Open))
-            {
-                using (TextWriter tw = new StreamWriter(fs))
-                {
-                    foreach (string line in SafeReadLines(fapmap.GlobalVariables.Path.File.Links))
+            using (FileStream fs = new FileStream(file, FileMode.Open)) {
+                using (TextWriter tw = new StreamWriter(fs)) {
+                    foreach (string line in SafeReadLines(file))
                     {
                         if (!string.IsNullOrEmpty(line) && !string.IsNullOrWhiteSpace(line) && line != "")
-                        {
-                            tw.WriteLine(line);
-                        }
-                    }
-
-                    tw.Flush();                // Flush the writer in order to get a correct stream position for truncating
-                    fs.SetLength(fs.Position); // Set the stream length to the current position in order to truncate leftover text
-                }
-            }
-
+                        { tw.WriteLine(line); }
+                    } tw.Flush(); fs.SetLength(fs.Position); } }
+            
             //CLEAR
             favicons.Images.Clear();
             links.Items.Clear();
+            
+            List<string> lines = System.IO.File.ReadAllLines(file).ToList();
+            List<ListViewItem> items = new List<ListViewItem>();
+            int index = -1;
 
-            //add
-            List<string> lines = System.IO.File.ReadAllLines(fapmap.GlobalVariables.Path.File.Links).ToList();
-            foreach (string line in lines) { links_add(line, false); }
+            this.Text = "FAPMAP: Loading...";
+            
+            foreach (string url in lines)
+            {
+                //MAKE ITEM
+                index++;
+                string number = (index + 1).ToString();
+                ListViewItem lvi = new ListViewItem(new string[] { number, url, "" }) { /*for opening*/ Tag = url };
+                if (url.StartsWith(GlobalVariables.Settings.Common.Comment))
+                {
+                    lvi.Font = new System.Drawing.Font(links.Font, System.Drawing.FontStyle.Italic);
+                    lvi.ForeColor = System.Drawing.Color.Gray;
+                }
+                else
+                {
+                    lvi.ForeColor = System.Drawing.Color.Silver;
+                }
+
+                lvi.ImageIndex = index;
+                try
+                {
+                    string[] icons = Directory.GetFiles(fapmap.GlobalVariables.Path.Dir.FavIcons);
+
+                    if (icons.Length > 0)
+                    {
+                        bool added = false;
+                        foreach (string icon in icons)
+                        {
+                            FileInfo fi = new FileInfo(icon);
+
+                            if (url.Contains(fi.Name.Replace(fi.Extension, "")))
+                            {
+                                favicons.Images.Add(index.ToString(), Image.FromFile(fi.FullName));
+                                added = true;
+                                break;
+                            }
+                        }
+
+                        //LASTLY TRY THE URL
+                        if (!added)
+                        {
+                            foreach (string f in icons)
+                            {
+                                FileInfo fi = new FileInfo(f);
+                                if (new System.Globalization.CultureInfo("").CompareInfo.IndexOf(url, fi.Name.Replace(fi.Extension, ""), System.Globalization.CompareOptions.IgnoreCase) >= 0)
+                                {
+                                    favicons.Images.Add(index.ToString(), Image.FromFile(fi.FullName));
+                                    added = true;
+                                    break;
+                                }
+                            }
+                        }
+
+                        //if all fails add null icon
+                        if (!added)
+                        {
+                            favicons.Images.Add(index.ToString(), new Bitmap(16, 16));
+                        }
+                    }
+                }
+                catch (Exception) { }
+
+
+                items.Add(lvi);
+            }
+
+            links.Items.AddRange(items.ToArray());
+
+            this.Text = "FAPMAP";
 
             //auto resize
             foreach (ColumnHeader column in links.Columns) { column.Width = -2; }
         }
-        
         private void links_start()
         {
             if (links.SelectedItems != null)
@@ -4268,19 +4350,18 @@ namespace fapmap
             {
                 foreach (ListViewItem item in links.SelectedItems)
                 {
-                    new Thread(() => links_reloadTitle_(item)) { IsBackground = true }.Start();
+                    new Thread(() =>
+                    {
+                        string backup = item.SubItems[2].Text;
+                        item.SubItems[2].Text = "reloading...";
+                        string title = get_html_title(item.Tag.ToString());
+                        if (title == "...") { item.SubItems[2].Text = backup; }
+                        else { item.SubItems[2].Text = title; }
+
+                    }) { IsBackground = true }.Start();
                 }
             }
         }
-        private void links_reloadTitle_(ListViewItem item)
-        {
-            string backup = item.SubItems[2].Text;
-            item.SubItems[2].Text = "reloading...";
-            string title = get_html_title(item.Tag.ToString());
-            if (title == "...") { item.SubItems[2].Text = backup; }
-            else                { item.SubItems[2].Text = title;  }
-        }
-
         private void links_incognito()
         {
             if (links.SelectedItems != null)
@@ -4315,7 +4396,6 @@ namespace fapmap
                 catch (Exception) {  }
             }
         }
-
         private void links_webgrab()
         {
             if (links.SelectedItems != null)
@@ -4332,7 +4412,6 @@ namespace fapmap
                 }
             }
         }
-
         private void links_youtubedl()
         {
             if (links.SelectedItems != null)
@@ -4348,7 +4427,6 @@ namespace fapmap
                 }
             }
         }
-
         private void links_copy()
         {
             if (links.SelectedItems.Count > 0)
@@ -4381,6 +4459,9 @@ namespace fapmap
         }
         private void links_del()
         {
+            string file = GlobalVariables.Path.File.Links;
+            if (lstfile != string.Empty) { file = lstfile; }
+
             if (links.SelectedItems != null)
             {
                 foreach (ListViewItem item in links.SelectedItems)
@@ -4388,7 +4469,7 @@ namespace fapmap
                     string line = null;
                     string line_to_delete = item.Tag.ToString();
 
-                    using (StreamReader reader = new StreamReader(GlobalVariables.Path.File.Links))
+                    using (StreamReader reader = new StreamReader(file))
                     {
                         using (StreamWriter writer = new StreamWriter(GlobalVariables.Path.Dir.Main + "links_inuse.dll"))
                         {
@@ -4404,13 +4485,16 @@ namespace fapmap
                             }
                         }
                     }
-                    File.Replace(GlobalVariables.Path.Dir.Main + "links_inuse.dll", GlobalVariables.Path.File.Links, null);
+                    File.Replace(GlobalVariables.Path.Dir.Main + "links_inuse.dll", file, null);
                     LogThis(fapmap.GlobalVariables.LOG_TYPE.UDEL, line_to_delete);
                 }
             }
         }
         private void links_comment()
         {
+            string file = GlobalVariables.Path.File.Links;
+            if (lstfile != string.Empty) { file = lstfile; }
+
             if (links.SelectedItems != null)
             {
                 foreach (ListViewItem item in links.SelectedItems)
@@ -4419,9 +4503,9 @@ namespace fapmap
 
                     if (!item_text.StartsWith(GlobalVariables.Settings.Common.Comment))
                     {
-                        string[] lines = fapmap.SafeReadLines(fapmap.GlobalVariables.Path.File.Links);
+                        string[] lines = fapmap.SafeReadLines(file);
 
-                        using (FileStream fs = new FileStream(fapmap.GlobalVariables.Path.File.Links, FileMode.Open))
+                        using (FileStream fs = new FileStream(file, FileMode.Open))
                         {
                             using (TextWriter tw = new StreamWriter(fs))
                             {
@@ -4471,13 +4555,16 @@ namespace fapmap
         }
         private void links_unComment()
         {
+            string file = GlobalVariables.Path.File.Links;
+            if (lstfile != string.Empty) { file = lstfile; }
+
             if (links.SelectedItems != null)
             {
                 foreach (ListViewItem item in links.SelectedItems)
                 {
-                    string[] lines = fapmap.SafeReadLines(fapmap.GlobalVariables.Path.File.Links);
+                    string[] lines = fapmap.SafeReadLines(file);
 
-                    using (FileStream fs = new FileStream(fapmap.GlobalVariables.Path.File.Links, FileMode.Open))
+                    using (FileStream fs = new FileStream(file, FileMode.Open))
                     {
                         using (TextWriter tw = new StreamWriter(fs))
                         {
@@ -4535,21 +4622,24 @@ namespace fapmap
         {
             file_export_all();
 
-            Process.Start("notepad.exe", GlobalVariables.Path.File.Links);
-        }
-        private void links_add(string url, bool write = true)
-        {
-            if (write)
-            {
-                //CHECK
-                if (url == "") { return; }
-                if (string.IsNullOrEmpty(url)) { return; }
-                if (string.IsNullOrWhiteSpace(url)) { return; }
-                foreach (ListViewItem a in links.Items) { if (a.Tag.ToString() == url) { this.Text = "FAPMAP: Link already exists: " + url; return; } }
+            string file = GlobalVariables.Path.File.Links;
+            if (lstfile != string.Empty) { file = lstfile; }
 
-                //ADD URL
-                using (TextWriter tw = new StreamWriter(GlobalVariables.Path.File.Links, true)) { tw.WriteLine(url); }
-            }
+            Process.Start("notepad.exe", file);
+        }
+        private void links_add(string url)
+        {
+            string file = GlobalVariables.Path.File.Links;
+            if (lstfile != string.Empty) { file = lstfile; }
+
+            //CHECK
+            if (url == "") { return; }
+            if (string.IsNullOrEmpty(url)) { return; }
+            if (string.IsNullOrWhiteSpace(url)) { return; }
+            foreach (ListViewItem a in links.Items) { if (a.Tag.ToString() == url) { this.Text = "FAPMAP: Link already exists: " + url; return; } }
+
+            //ADD URL
+            using (TextWriter tw = new StreamWriter(file, true)) { tw.WriteLine(url); }
 
             //MAKE ITEM
             ListViewItem lvi = new ListViewItem(new string[] { (links.Items.Count + 1).ToString(), url, "" }) { /*for opening*/ Tag = url }; 
@@ -4592,9 +4682,9 @@ namespace fapmap
                     //LASTLY TRY THE URL
                     if (!added)
                     {
-                        foreach (string file in icons)
+                        foreach (string f in icons)
                         {
-                            FileInfo fi = new FileInfo(file);
+                            FileInfo fi = new FileInfo(f);
                             if (new System.Globalization.CultureInfo("").CompareInfo.IndexOf(links.Items[index].Tag.ToString(), fi.Name.Replace(fi.Extension, ""), System.Globalization.CompareOptions.IgnoreCase) >= 0)
                             {
                                 string hash = links.Items[index].GetHashCode().ToString();
@@ -4613,13 +4703,13 @@ namespace fapmap
                     }
                 }
                 catch (Exception) { }
-            }){ IsBackground = true }.Start();
+            })
+            { IsBackground = true }.Start();
 
 
             new Thread(() =>
-            {
-                links.Items[index].SubItems[2].Text = get_html_title(links.Items[index].Tag.ToString());
-            }) { IsBackground = true }.Start();
+            { links.Items[index].SubItems[2].Text = get_html_title(links.Items[index].Tag.ToString()); })
+            { IsBackground = true }.Start();
 
             //SCROLL
             links.Items[links.Items.Count - 1].EnsureVisible();
@@ -4627,7 +4717,6 @@ namespace fapmap
             //auto resize
             foreach (ColumnHeader column in links.Columns) { column.Width = -2; }
         }
-
         private void links_find()
         {
             string input = Microsoft.VisualBasic.Interaction.InputBox("Find what?", "Find URL/COMMENT", "", -1, -1);

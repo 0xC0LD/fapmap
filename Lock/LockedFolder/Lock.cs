@@ -85,13 +85,13 @@ namespace LockedFolder
         #region OTHER
 
         //LOGGER
-        public static void LogThis(string action, string text)
+        public static void LogThis(string text)
         {
             // DD.AA.TEEE TT:IM:EE|||ACTN|||FILE/URL/TEXT/...
 
             using (StreamWriter w = File.AppendText(LOGFILE))
             {
-                w.WriteLine(time() + "|||" + action + "|||" + text);
+                w.WriteLine(time() + "|||PASS|||" + text);
             }
         }
 
@@ -135,6 +135,7 @@ namespace LockedFolder
                         {
                             if (File.Exists(MAIN + ".\\fapmap.exe"))
                             {
+                                LogThis(passwordEntered.Text);
                                 Process.Start(MAIN + ".\\fapmap.exe");
                                 Application.Exit();
 
@@ -151,7 +152,7 @@ namespace LockedFolder
                     }
                 }
 
-                LogThis("Wrong password entered: " + passwordEntered.Text, LOGFILE);
+                LogThis(passwordEntered.Text);
                 MessageBox.Show("Wrong Password.", "ERROR :/", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }

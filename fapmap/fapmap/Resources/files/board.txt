@@ -64,19 +64,14 @@ DOWN|TubeOffline|http://www.tubeoffline.com/download-PornHub-videos.php#.WMwOiVX
 #
 # ======[ USER ]======
 #
-USER|Udonmania|http://www.pornhub.com/users/udonmania/videos/public
-USER|Master69|http://www.pornhub.com/users/master69/videos/public
-USER|Rahrahrasputin|http://www.pornhub.com/users/rahrahrasputin/videos/public
-USER|FireBoxStudio|https://www.pornhub.com/users/fireboxstudio/videos/public
-USER|TheGameMaster|http://www.pornhub.com/users/the-game-master/videos/public
-USER|ZaryaMain|https://www.pornhub.com/users/zarya_main/videos/public
-USER|CMHentai|http://www.pornhub.com/users/cmhentai/videos/public
-USER|BlackJrXIII|https://www.pornhub.com/users/blackjrxiii/videos/public
+
 #
 # ======[ BLOG ]======
 #
 BLOG|ShadBase|http://www.shadbase.com/
 BLOG|Likkezg|http://likkezg.com/
-BLOG|Premium Hentai|http://premium-hentai.biz/
 BLOG|Liang xing|https://www.artstation.com/liangxing
 BLOG|Tarakanovich|https://tarakanovich.newgrounds.com/art/
+#
+# ======[ STAR ]======
+#

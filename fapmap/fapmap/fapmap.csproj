@@ -345,6 +345,7 @@
     <Content Include="image_icon_fapmap_mediumblue.ico" />
     <Content Include="image_icon_fapmap_visible.ico" />
     <Content Include="image_icon_fapmap_visible_32.ico" />
+    <None Include="Resources\images\image_selection_browser.png" />
     <None Include="Resources\files\webgrab_table.txt" />
     <None Include="Resources\files\passwords.txt" />
     <None Include="Resources\files\keywords.txt" />

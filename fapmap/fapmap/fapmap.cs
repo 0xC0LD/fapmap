@@ -61,7 +61,7 @@ namespace fapmap
                 {
                     public static string Browser = "firefox.exe"; public const string Browser_ = "browser";
                     public static string BrowserArguments = "-private-window"; public const string BrowserArguments_ = "browser_arguments";
-                    public static string FapMapURL = "https://www.google.com"; public const string FapMapURL_ = "fapmap_url";
+                    public static string FapMapURL = "https://duckduckgo.com"; public const string FapMapURL_ = "fapmap_url";
                 }
 
                 public class Media
@@ -1109,7 +1109,7 @@ namespace fapmap
                 {
                     w.WriteLine(GlobalVariables.Settings.Common.Comment + " <- use this to comment");
                     w.WriteLine(GlobalVariables.Settings.Common.Comment + " comments can't be opened (with double click)");
-                    w.WriteLine(@"https://www.google.com");
+                    w.WriteLine(@"https://duckduckgo.com/");
                     w.WriteLine(GlobalVariables.Settings.Common.Comment + " however the link above can...");
                 }
             }
@@ -1361,7 +1361,7 @@ namespace fapmap
         
         //OPEN
         private void menu_open_explorer_Click(object sender, EventArgs e) { file_export_all(); Process.Start("explorer.exe", GlobalVariables.Path.Dir.MainFolder); }
-        private void menu_open_google_Click(object sender, EventArgs e) { Incognito("https://www.google.com"); }
+        private void menu_open_browser_Click(object sender, EventArgs e) { Incognito(); }
         private void menu_open_finder_Click(object sender, EventArgs e) { fapmap_find fi = new fapmap_find(); fi.Show(); }
         private void menu_open_videoPlayer_Click(object sender, EventArgs e)
         {
@@ -4069,7 +4069,10 @@ namespace fapmap
         //DOUBLE CLICK TREEVIEW = OPEN FILE
         private void faftv_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            load_file_or_dir(faftv_path.Text);
+            if (menu_cb_fapmap_outside.Checked)
+            {
+                open_file(faftv_path.Text);
+            }
         }
 
         //VIEW SLECTED
@@ -4081,6 +4084,8 @@ namespace fapmap
              || faftv_path.Text.EndsWith(".txt"))
             { lstfile = faftv_path.Text; }
             else if (!reloadedOnce) { lstfile = string.Empty; links_reload(); reloadedOnce = true; }
+
+            load_file_or_dir(faftv_path.Text);
         }
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
@@ -4100,13 +4105,13 @@ namespace fapmap
             Process.Start(file);
         }
 
-        public static void Incognito(string link)
+        public static void Incognito(string link = "")
         {
             string url = link;
 
-            if (!Uri.IsWellFormedUriString(link, UriKind.Absolute))
+            if (link != "" && !Uri.IsWellFormedUriString(link, UriKind.Absolute))
             {
-                url = "https://www.google.com/search?q=" + link.Replace(" ", "+");
+                url = "https://duckduckgo.com/?q=" + link.Replace(" ", "+");
             }
 
             try

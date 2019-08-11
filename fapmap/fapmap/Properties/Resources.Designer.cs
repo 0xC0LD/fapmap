@@ -68,8 +68,8 @@ namespace fapmap.Properties {
         ///#  TYPE|NAME|URL
         ///#
         ///#  TYPES:
-        ///#        SITE - has log in options
-        ///#        NLIO - no log in options (blog alike)
+        ///#        SITE - has log-in options
+        ///#        NLIO - no log-in options (blog alike)
         ///#        DOWN - media converter SITE
         ///#        USER - user from a SITE
         ///#        BLOG - blog, NLIO
@@ -481,6 +481,16 @@ namespace fapmap.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap image_selection_browser {
+            get {
+                object obj = ResourceManager.GetObject("image_selection_browser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon image_selection_download {
@@ -506,16 +516,6 @@ namespace fapmap.Properties {
         internal static System.Drawing.Icon image_selection_find {
             get {
                 object obj = ResourceManager.GetObject("image_selection_find", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon image_selection_google {
-            get {
-                object obj = ResourceManager.GetObject("image_selection_google", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

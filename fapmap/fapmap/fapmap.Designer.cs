@@ -144,7 +144,7 @@
             this.menu_changeTabs = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_open = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_open_explorer = new System.Windows.Forms.ToolStripMenuItem();
-            this.menu_open_google = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_open_browser = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_open_finder = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_open_videoPlayer = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_open_imageViewer = new System.Windows.Forms.ToolStripMenuItem();
@@ -1481,7 +1481,7 @@
             // 
             this.menu_open.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menu_open_explorer,
-            this.menu_open_google,
+            this.menu_open_browser,
             this.menu_open_finder,
             this.menu_open_videoPlayer,
             this.menu_open_imageViewer,
@@ -1504,13 +1504,14 @@
             this.menu_open_explorer.Name = "menu_open_explorer";
             this.menu_open_explorer.Click += new System.EventHandler(this.menu_open_explorer_Click);
             // 
-            // menu_open_google
+            // menu_open_browser
             // 
-            this.menu_open_google.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            resources.ApplyResources(this.menu_open_google, "menu_open_google");
-            this.menu_open_google.ForeColor = System.Drawing.Color.Silver;
-            this.menu_open_google.Name = "menu_open_google";
-            this.menu_open_google.Click += new System.EventHandler(this.menu_open_google_Click);
+            this.menu_open_browser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            resources.ApplyResources(this.menu_open_browser, "menu_open_browser");
+            this.menu_open_browser.ForeColor = System.Drawing.Color.Silver;
+            this.menu_open_browser.Image = global::fapmap.Properties.Resources.image_selection_browser;
+            this.menu_open_browser.Name = "menu_open_browser";
+            this.menu_open_browser.Click += new System.EventHandler(this.menu_open_browser_Click);
             // 
             // menu_open_finder
             // 
@@ -1974,7 +1975,7 @@
         private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem menu_open;
         private System.Windows.Forms.ToolStripMenuItem menu_open_explorer;
-        private System.Windows.Forms.ToolStripMenuItem menu_open_google;
+        private System.Windows.Forms.ToolStripMenuItem menu_open_browser;
         private System.Windows.Forms.ToolStripMenuItem menu_open_finder;
         private System.Windows.Forms.ToolStripMenuItem menu_open_urlDownloader;
         private System.Windows.Forms.ToolStripMenuItem menu_open_settings;

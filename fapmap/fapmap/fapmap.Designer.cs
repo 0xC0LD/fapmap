@@ -78,7 +78,6 @@
             this.fileDisplay_btn_root = new System.Windows.Forms.Button();
             this.wb_btn_open = new System.Windows.Forms.Button();
             this.wb_btn_pin = new System.Windows.Forms.Button();
-            this.wb_btn_navigate = new System.Windows.Forms.Button();
             this.fileDisplay_btn_trashFile = new System.Windows.Forms.Button();
             this.fileDisplay_btn_open = new System.Windows.Forms.Button();
             this.showMedia_video_skip = new System.Windows.Forms.Button();
@@ -97,7 +96,6 @@
             this.showMedia_video_sound = new ColorSlider.ColorSlider();
             this.showMedia_video_panel = new System.Windows.Forms.Panel();
             this.showMedia_video_panel2 = new System.Windows.Forms.Panel();
-            this.showMedia_video = new AxWMPLib.AxWindowsMediaPlayer();
             this.showMedia_video_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showMedia_video_RMB_close = new System.Windows.Forms.ToolStripMenuItem();
             this.showMedia_video_RMB_repeat = new System.Windows.Forms.ToolStripMenuItem();
@@ -182,13 +180,13 @@
             this.showMedia_video_ctrlsPanel_pos_timer = new System.Windows.Forms.Timer(this.components);
             this.wb_url_autoCompleteMenu = new AutocompleteMenuNS.AutocompleteMenu();
             this.audio_timer = new System.Windows.Forms.Timer(this.components);
+            this.showMedia_video = new AxWMPLib.AxWindowsMediaPlayer();
             this.faftv_RMB.SuspendLayout();
             this.links_RMB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.showMedia_image)).BeginInit();
             this.showMedia_image_RMB.SuspendLayout();
             this.showMedia_video_panel.SuspendLayout();
             this.showMedia_video_panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.showMedia_video)).BeginInit();
             this.showMedia_video_RMB.SuspendLayout();
             this.showMedia_video_ctrlsPanel.SuspendLayout();
             this.showMedia_video_audioPanel.SuspendLayout();
@@ -206,6 +204,7 @@
             this.splitContainer_main.Panel1.SuspendLayout();
             this.splitContainer_main.Panel2.SuspendLayout();
             this.splitContainer_main.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.showMedia_video)).BeginInit();
             this.SuspendLayout();
             // 
             // this_trayicon
@@ -683,22 +682,6 @@
             this.wb_btn_pin.UseVisualStyleBackColor = false;
             this.wb_btn_pin.Click += new System.EventHandler(this.wb_btn_pin_Click);
             // 
-            // wb_btn_navigate
-            // 
-            resources.ApplyResources(this.wb_btn_navigate, "wb_btn_navigate");
-            this.wb_btn_navigate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.wb_btn_navigate.BackgroundImage = global::fapmap.Properties.Resources.image_button_arrow_left;
-            this.wb_btn_navigate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.wb_btn_navigate.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.wb_btn_navigate.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
-            this.wb_btn_navigate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.wb_btn_navigate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.wb_btn_navigate.ForeColor = System.Drawing.Color.DimGray;
-            this.wb_btn_navigate.Name = "wb_btn_navigate";
-            this.HelpBalloon.SetToolTip(this.wb_btn_navigate, resources.GetString("wb_btn_navigate.ToolTip"));
-            this.wb_btn_navigate.UseVisualStyleBackColor = false;
-            this.wb_btn_navigate.Click += new System.EventHandler(this.wb_btn_navigate_Click);
-            // 
             // fileDisplay_btn_trashFile
             // 
             resources.ApplyResources(this.fileDisplay_btn_trashFile, "fileDisplay_btn_trashFile");
@@ -1003,15 +986,6 @@
             this.showMedia_video_panel2.Controls.Add(this.showMedia_video);
             this.showMedia_video_panel2.Controls.Add(this.showMedia_video_ctrlsPanel);
             this.showMedia_video_panel2.Name = "showMedia_video_panel2";
-            // 
-            // showMedia_video
-            // 
-            this.showMedia_video.ContextMenuStrip = this.showMedia_video_RMB;
-            resources.ApplyResources(this.showMedia_video, "showMedia_video");
-            this.showMedia_video.Name = "showMedia_video";
-            this.showMedia_video.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("showMedia_video.OcxState")));
-            this.showMedia_video.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.showMedia_video_PlayStateChange);
-            this.showMedia_video.MouseUpEvent += new AxWMPLib._WMPOCXEvents_MouseUpEventHandler(this.showMedia_video_MouseUpEvent);
             // 
             // showMedia_video_RMB
             // 
@@ -1407,7 +1381,7 @@
             this.links.AutoArrange = false;
             this.links.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.links.BackgroundImageTiled = true;
-            this.links.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.links.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.links.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.links_clm_num,
             this.links_clm_url,
@@ -1864,7 +1838,6 @@
             this.splitContainer_main.Panel2.Controls.Add(this.wb_url);
             this.splitContainer_main.Panel2.Controls.Add(this.wb_btn_pin);
             this.splitContainer_main.Panel2.Controls.Add(this.wb_btn_open);
-            this.splitContainer_main.Panel2.Controls.Add(this.wb_btn_navigate);
             // 
             // wb_url
             // 
@@ -1897,6 +1870,15 @@
             this.wb_url_autoCompleteMenu.MaximumSize = new System.Drawing.Size(150, 300);
             this.wb_url_autoCompleteMenu.TargetControlWrapper = null;
             // 
+            // showMedia_video
+            // 
+            this.showMedia_video.ContextMenuStrip = this.showMedia_video_RMB;
+            resources.ApplyResources(this.showMedia_video, "showMedia_video");
+            this.showMedia_video.Name = "showMedia_video";
+            this.showMedia_video.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("showMedia_video.OcxState")));
+            this.showMedia_video.PlayStateChange += new AxWMPLib._WMPOCXEvents_PlayStateChangeEventHandler(this.showMedia_video_PlayStateChange);
+            this.showMedia_video.MouseUpEvent += new AxWMPLib._WMPOCXEvents_MouseUpEventHandler(this.showMedia_video_MouseUpEvent);
+            // 
             // fapmap
             // 
             resources.ApplyResources(this, "$this");
@@ -1922,7 +1904,6 @@
             this.showMedia_image_RMB.ResumeLayout(false);
             this.showMedia_video_panel.ResumeLayout(false);
             this.showMedia_video_panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.showMedia_video)).EndInit();
             this.showMedia_video_RMB.ResumeLayout(false);
             this.showMedia_video_ctrlsPanel.ResumeLayout(false);
             this.showMedia_video_ctrlsPanel.PerformLayout();
@@ -1945,6 +1926,7 @@
             this.splitContainer_main.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_main)).EndInit();
             this.splitContainer_main.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.showMedia_video)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1999,7 +1981,6 @@
         private System.Windows.Forms.Button fileDisplay_btn_root;
         private System.Windows.Forms.Button wb_btn_pin;
         private System.Windows.Forms.Button wb_btn_open;
-        private System.Windows.Forms.Button wb_btn_navigate;
         private System.Windows.Forms.Button fileDisplay_btn_trashFile;
         private System.Windows.Forms.ToolStripMenuItem links_RMB_uncomment;
         private System.Windows.Forms.Button fileDisplay_btn_open;

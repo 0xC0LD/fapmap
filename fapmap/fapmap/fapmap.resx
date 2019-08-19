@@ -2901,7 +2901,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABE
-        NQAAAk1TRnQBSQFMAgEBDwEAAcgBFAHIARQBEAEAARABAAT/AREBAAj/AUIBTQE2BwABNgMAASgDAAFA
+        NQAAAk1TRnQBSQFMAgEBDwEAAdgBFAHYARQBEAEAARABAAT/AREBAAj/AUIBTQE2BwABNgMAASgDAAFA
         AwABQAMAAQEBAAEQBgABIBQAAUsBJQHIARQByAEUAcgBFAHIARQByAEUAcgBFAHIARQByAEUAcgBFAHI
         ARQByAEUAcgBFAFLASUMAAHTAQAB0wEAAdMBAAHTAQAB0wEAAdMNAAFLASUByAEUAcgBFAHIARQByAEU
         AcgBFAHIARQByAEUAcgBFAHIARQByAEUAcgBFAHIARQBSwElJAABrgExAf8BfwH/AX8B/wF/Af8BfwH/
@@ -3210,7 +3210,7 @@
     <value>0</value>
   </data>
   <data name="faftv.Size" type="System.Drawing.Size, System.Drawing">
-    <value>157, 342</value>
+    <value>157, 341</value>
   </data>
   <data name="faftv.TabIndex" type="System.Int32, mscorlib">
     <value>141</value>
@@ -3880,7 +3880,7 @@
     <value>NoControl</value>
   </data>
   <data name="wb_btn_open.Location" type="System.Drawing.Point, System.Drawing">
-    <value>278, 3</value>
+    <value>277, 3</value>
   </data>
   <data name="wb_btn_open.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 4, 2, 4</value>
@@ -3922,7 +3922,7 @@
     <value>NoControl</value>
   </data>
   <data name="wb_btn_pin.Location" type="System.Drawing.Point, System.Drawing">
-    <value>301, 3</value>
+    <value>300, 3</value>
   </data>
   <data name="wb_btn_pin.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 4, 2, 4</value>
@@ -3947,48 +3947,6 @@
   </data>
   <data name="&gt;&gt;wb_btn_pin.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="wb_btn_navigate.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="wb_btn_navigate.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="wb_btn_navigate.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="wb_btn_navigate.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Consolas, 6.75pt, style=Bold</value>
-  </data>
-  <data name="wb_btn_navigate.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="wb_btn_navigate.Location" type="System.Drawing.Point, System.Drawing">
-    <value>255, 3</value>
-  </data>
-  <data name="wb_btn_navigate.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 4, 2, 4</value>
-  </data>
-  <data name="wb_btn_navigate.Size" type="System.Drawing.Size, System.Drawing">
-    <value>21, 21</value>
-  </data>
-  <data name="wb_btn_navigate.TabIndex" type="System.Int32, mscorlib">
-    <value>162</value>
-  </data>
-  <data name="wb_btn_navigate.ToolTip" xml:space="preserve">
-    <value>Navigate URL</value>
-  </data>
-  <data name="&gt;&gt;wb_btn_navigate.Name" xml:space="preserve">
-    <value>wb_btn_navigate</value>
-  </data>
-  <data name="&gt;&gt;wb_btn_navigate.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;wb_btn_navigate.Parent" xml:space="preserve">
-    <value>splitContainer_main.Panel2</value>
-  </data>
-  <data name="&gt;&gt;wb_btn_navigate.ZOrder" xml:space="preserve">
-    <value>5</value>
   </data>
   <data name="fileDisplay_btn_trashFile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -4552,7 +4510,7 @@
     <value>NoControl</value>
   </data>
   <data name="wb_btn_dragOut.Location" type="System.Drawing.Point, System.Drawing">
-    <value>324, 3</value>
+    <value>323, 3</value>
   </data>
   <data name="wb_btn_dragOut.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 4, 2, 4</value>
@@ -4724,44 +4682,6 @@
   </data>
   <data name="&gt;&gt;showMedia_video_RMB.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="showMedia_video.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="showMedia_video.Enabled" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="showMedia_video.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="showMedia_video.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
-        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAtwAAAAIB
-        AAAAAQAAAAAAAAAAAAAAAKIAAAAAAwAACAAAAAAABQAAAAAAAADwPwMAAAAAAAUAAAAAAAAAAAAIAAIA
-        AAAAAAMAAQAAAAsA//8DAAAAAAALAP//CAACAAAAAAADADIAAAALAAAACAAKAAAAZgB1AGwAbAAAAAsA
-        AAALAAAACwD//wsA//8LAAAACAACAAAAAAAIAAIAAAAAAAgAAgAAAAAACAACAAAAAAALAAAAvjgAAMUa
-        AAAL
-</value>
-  </data>
-  <data name="showMedia_video.Size" type="System.Drawing.Size, System.Drawing">
-    <value>452, 121</value>
-  </data>
-  <data name="showMedia_video.TabIndex" type="System.Int32, mscorlib">
-    <value>155</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video.Name" xml:space="preserve">
-    <value>showMedia_video</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video.Type" xml:space="preserve">
-    <value>AxWMPLib.AxWindowsMediaPlayer, AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video.Parent" xml:space="preserve">
-    <value>showMedia_video_panel2</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <data name="showMedia_video_RMB_close.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
@@ -5262,7 +5182,7 @@
     <value>0, 0</value>
   </data>
   <data name="fileDisplay.Size" type="System.Drawing.Size, System.Drawing">
-    <value>265, 342</value>
+    <value>265, 341</value>
   </data>
   <data name="fileDisplay.TabIndex" type="System.Int32, mscorlib">
     <value>159</value>
@@ -5292,7 +5212,7 @@
     <value>1</value>
   </data>
   <data name="splitContainer_files.Size" type="System.Drawing.Size, System.Drawing">
-    <value>430, 344</value>
+    <value>430, 343</value>
   </data>
   <data name="splitContainer_files.SplitterDistance" type="System.Int32, mscorlib">
     <value>159</value>
@@ -5424,10 +5344,10 @@
     <value>16, 16</value>
   </data>
   <data name="links.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 27</value>
+    <value>3, 26</value>
   </data>
   <data name="links.Size" type="System.Drawing.Size, System.Drawing">
-    <value>341, 342</value>
+    <value>341, 343</value>
   </data>
   <data name="links.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -6249,7 +6169,7 @@
     <value>3, 3</value>
   </data>
   <data name="wb_url.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 21</value>
+    <value>272, 21</value>
   </data>
   <data name="wb_url.TabIndex" type="System.Int32, mscorlib">
     <value>165</value>
@@ -6308,6 +6228,44 @@
   <metadata name="audio_timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="showMedia_video.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="showMedia_video.Enabled" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="showMedia_video.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="showMedia_video.OcxState" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
+        LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACFTeXN0
+        ZW0uV2luZG93cy5Gb3Jtcy5BeEhvc3QrU3RhdGUBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAtwAAAAIB
+        AAAAAQAAAAAAAAAAAAAAAKIAAAAAAwAACAAAAAAABQAAAAAAAADwPwMAAAAAAAUAAAAAAAAAAAAIAAIA
+        AAAAAAMAAQAAAAsA//8DAAAAAAALAP//CAACAAAAAAADADIAAAALAAAACAAKAAAAZgB1AGwAbAAAAAsA
+        AAALAAAACwD//wsA//8LAAAACAACAAAAAAAIAAIAAAAAAAgAAgAAAAAACAACAAAAAAALAAAAvjgAAMUa
+        AAAL
+</value>
+  </data>
+  <data name="showMedia_video.Size" type="System.Drawing.Size, System.Drawing">
+    <value>452, 121</value>
+  </data>
+  <data name="showMedia_video.TabIndex" type="System.Int32, mscorlib">
+    <value>155</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video.Name" xml:space="preserve">
+    <value>showMedia_video</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video.Type" xml:space="preserve">
+    <value>AxWMPLib.AxWindowsMediaPlayer, AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video.Parent" xml:space="preserve">
+    <value>showMedia_video_panel2</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -8540,6 +8498,9 @@
         AAAAAAAAAAAAAAAAAAAAAAAA8AcAAMADAADAAQAAgAAAAAAAAAAAHgAAAHsAAAD5AAAA8AAAAfkAAAGb
         AAABHwAAgJ8AAMD/AADAfwAA8D8AAA==
 </value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>570, 350</value>

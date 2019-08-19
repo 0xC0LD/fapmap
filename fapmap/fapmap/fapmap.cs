@@ -4184,11 +4184,7 @@ namespace fapmap
             }
             
         }
-
-        private void wb_btn_navigate_Click(object sender, EventArgs e)
-        {
-            Incognito(wb_url.Text);
-        }
+        
         private void wb_btn_open_Click(object sender, EventArgs e)
         {
             Incognito(wb_url.Text);

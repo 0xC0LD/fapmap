@@ -5,7 +5,7 @@ Programs in this repository:
 - fapmaper ("fapmaper" is the "installation" program... all it really does is copy the contents from the "data" folder to the given location, then it hides the destination folder):
 <img src="screenshots/fapmaper.png" width="866" height="764">
 
-- Lock (LockedFolder) (password GUI) ("Lock" should be the entry point of your gallery. The program is supposed to be accessed through a shortcut on your desktop. When open the user should be prompted with a password GUI (the password is stored in the data/password.dll file)):
+- Lock (LockedFolder) (password GUI) ("Lock" should be the entry point of your gallery. The program is supposed to be accessed through a shortcut on your desktop. When opened, the user should be prompted with a password GUI (the password is stored in the data/password.dll file)):
 <img src="screenshots/lock.png" width="376" height="84">
 
 
@@ -32,3 +32,4 @@ FAPMAP CONTAINS:
 OTHER INFO:
 - Some of the icons/images used in the GUI can be found on the web...
 - HINT: hover over buttons to see what they do... (tooltip)
+- More info: [here](https://github.com/0xC0LD/fapmap/blob/master/fapmaper/fapmaper/bin/Release/data/ReadMe.txt)

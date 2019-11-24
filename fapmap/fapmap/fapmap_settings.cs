@@ -19,9 +19,6 @@ namespace fapmap
         public fapmap_settings()
         {
             InitializeComponent();
-
-            //BOARDLESS FORM
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
         }
         
         private void GalleryInfo_Load(object sender, EventArgs e)

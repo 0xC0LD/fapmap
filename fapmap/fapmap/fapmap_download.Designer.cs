@@ -45,6 +45,7 @@
             this.cb_uncheckAuto = new System.Windows.Forms.CheckBox();
             this.cb_auto_dl = new System.Windows.Forms.CheckBox();
             this.cb_auto_clip = new System.Windows.Forms.CheckBox();
+            this.cb_auto = new System.Windows.Forms.CheckBox();
             this.file_location = new System.Windows.Forms.TextBox();
             this.file_open = new System.Windows.Forms.Button();
             this.links_dl = new System.Windows.Forms.Button();
@@ -82,7 +83,6 @@
             this.links_clm_url = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.auto = new System.Windows.Forms.Timer(this.components);
             this.speed = new System.Windows.Forms.Timer(this.components);
-            this.cb_auto = new System.Windows.Forms.CheckBox();
             this.cb_panel.SuspendLayout();
             this.links_RMB.SuspendLayout();
             this.webgrab_panel.SuspendLayout();
@@ -102,6 +102,7 @@
             // 
             this.cb_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cb_panel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.cb_panel.BackgroundImage = global::fapmap.Properties.Resources.bg3;
             this.cb_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cb_panel.Controls.Add(this.cb_youtubedl);
             this.cb_panel.Controls.Add(this.rb_shutdown);
@@ -121,7 +122,7 @@
             this.cb_panel.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.cb_panel.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cb_panel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.cb_panel.Location = new System.Drawing.Point(2, 150);
+            this.cb_panel.Location = new System.Drawing.Point(2, 174);
             this.cb_panel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_panel.Name = "cb_panel";
             this.cb_panel.Size = new System.Drawing.Size(165, 72);
@@ -130,10 +131,10 @@
             // cb_youtubedl
             // 
             this.cb_youtubedl.AutoSize = true;
-            this.cb_youtubedl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.cb_youtubedl.BackColor = System.Drawing.Color.Transparent;
             this.cb_youtubedl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_youtubedl.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cb_youtubedl.ForeColor = System.Drawing.Color.Silver;
+            this.cb_youtubedl.ForeColor = System.Drawing.Color.Teal;
             this.cb_youtubedl.Location = new System.Drawing.Point(4, 38);
             this.cb_youtubedl.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_youtubedl.Name = "cb_youtubedl";
@@ -147,10 +148,10 @@
             // rb_shutdown
             // 
             this.rb_shutdown.AutoSize = true;
-            this.rb_shutdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.rb_shutdown.BackColor = System.Drawing.Color.Transparent;
             this.rb_shutdown.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rb_shutdown.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rb_shutdown.ForeColor = System.Drawing.Color.Silver;
+            this.rb_shutdown.ForeColor = System.Drawing.Color.Teal;
             this.rb_shutdown.Location = new System.Drawing.Point(106, 49);
             this.rb_shutdown.Name = "rb_shutdown";
             this.rb_shutdown.Size = new System.Drawing.Size(41, 19);
@@ -164,10 +165,10 @@
             // rb_exit
             // 
             this.rb_exit.AutoSize = true;
-            this.rb_exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.rb_exit.BackColor = System.Drawing.Color.Transparent;
             this.rb_exit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rb_exit.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rb_exit.ForeColor = System.Drawing.Color.Silver;
+            this.rb_exit.ForeColor = System.Drawing.Color.Teal;
             this.rb_exit.Location = new System.Drawing.Point(106, 33);
             this.rb_exit.Name = "rb_exit";
             this.rb_exit.Size = new System.Drawing.Size(47, 19);
@@ -181,10 +182,10 @@
             // rb_close
             // 
             this.rb_close.AutoSize = true;
-            this.rb_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.rb_close.BackColor = System.Drawing.Color.Transparent;
             this.rb_close.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rb_close.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rb_close.ForeColor = System.Drawing.Color.Silver;
+            this.rb_close.ForeColor = System.Drawing.Color.Teal;
             this.rb_close.Location = new System.Drawing.Point(106, 16);
             this.rb_close.Name = "rb_close";
             this.rb_close.Size = new System.Drawing.Size(53, 19);
@@ -198,11 +199,11 @@
             // rb_null
             // 
             this.rb_null.AutoSize = true;
-            this.rb_null.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.rb_null.BackColor = System.Drawing.Color.Transparent;
             this.rb_null.Checked = true;
             this.rb_null.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rb_null.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rb_null.ForeColor = System.Drawing.Color.Silver;
+            this.rb_null.ForeColor = System.Drawing.Color.Teal;
             this.rb_null.Location = new System.Drawing.Point(106, 0);
             this.rb_null.Name = "rb_null";
             this.rb_null.Size = new System.Drawing.Size(41, 19);
@@ -218,9 +219,9 @@
             // 
             this.links_count.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.links_count.AutoSize = true;
-            this.links_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.links_count.BackColor = System.Drawing.Color.Transparent;
             this.links_count.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.links_count.ForeColor = System.Drawing.Color.Silver;
+            this.links_count.ForeColor = System.Drawing.Color.Teal;
             this.links_count.Location = new System.Drawing.Point(1, 55);
             this.links_count.Name = "links_count";
             this.links_count.Size = new System.Drawing.Size(14, 14);
@@ -230,10 +231,10 @@
             // cb_webgrab
             // 
             this.cb_webgrab.AutoSize = true;
-            this.cb_webgrab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.cb_webgrab.BackColor = System.Drawing.Color.Transparent;
             this.cb_webgrab.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_webgrab.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cb_webgrab.ForeColor = System.Drawing.Color.Silver;
+            this.cb_webgrab.ForeColor = System.Drawing.Color.Teal;
             this.cb_webgrab.Location = new System.Drawing.Point(4, 21);
             this.cb_webgrab.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_webgrab.Name = "cb_webgrab";
@@ -247,10 +248,10 @@
             // cb_nonFile
             // 
             this.cb_nonFile.AutoSize = true;
-            this.cb_nonFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.cb_nonFile.BackColor = System.Drawing.Color.Transparent;
             this.cb_nonFile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_nonFile.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cb_nonFile.ForeColor = System.Drawing.Color.Silver;
+            this.cb_nonFile.ForeColor = System.Drawing.Color.Teal;
             this.cb_nonFile.Location = new System.Drawing.Point(55, 21);
             this.cb_nonFile.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_nonFile.Name = "cb_nonFile";
@@ -267,13 +268,13 @@
             this.cb_conflict_replace.AutoSize = true;
             this.cb_conflict_replace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.cb_conflict_replace.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_conflict_replace.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.cb_conflict_replace.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.cb_conflict_replace.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.cb_conflict_replace.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.cb_conflict_replace.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.cb_conflict_replace.FlatAppearance.CheckedBackColor = System.Drawing.Color.SlateBlue;
+            this.cb_conflict_replace.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateBlue;
+            this.cb_conflict_replace.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateBlue;
             this.cb_conflict_replace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_conflict_replace.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cb_conflict_replace.ForeColor = System.Drawing.Color.Silver;
+            this.cb_conflict_replace.ForeColor = System.Drawing.Color.YellowGreen;
             this.cb_conflict_replace.Location = new System.Drawing.Point(156, 56);
             this.cb_conflict_replace.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_conflict_replace.Name = "cb_conflict_replace";
@@ -290,13 +291,13 @@
             this.cb_conflict_rename.AutoSize = true;
             this.cb_conflict_rename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.cb_conflict_rename.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_conflict_rename.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.cb_conflict_rename.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.cb_conflict_rename.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.cb_conflict_rename.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.cb_conflict_rename.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.cb_conflict_rename.FlatAppearance.CheckedBackColor = System.Drawing.Color.SlateBlue;
+            this.cb_conflict_rename.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateBlue;
+            this.cb_conflict_rename.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateBlue;
             this.cb_conflict_rename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_conflict_rename.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cb_conflict_rename.ForeColor = System.Drawing.Color.Silver;
+            this.cb_conflict_rename.ForeColor = System.Drawing.Color.YellowGreen;
             this.cb_conflict_rename.Location = new System.Drawing.Point(156, 63);
             this.cb_conflict_rename.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_conflict_rename.Name = "cb_conflict_rename";
@@ -313,13 +314,13 @@
             this.cb_conflict_skip.AutoSize = true;
             this.cb_conflict_skip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.cb_conflict_skip.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_conflict_skip.FlatAppearance.BorderColor = System.Drawing.Color.Silver;
-            this.cb_conflict_skip.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.cb_conflict_skip.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Silver;
-            this.cb_conflict_skip.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.cb_conflict_skip.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.cb_conflict_skip.FlatAppearance.CheckedBackColor = System.Drawing.Color.SlateBlue;
+            this.cb_conflict_skip.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SlateBlue;
+            this.cb_conflict_skip.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SlateBlue;
             this.cb_conflict_skip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_conflict_skip.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cb_conflict_skip.ForeColor = System.Drawing.Color.Silver;
+            this.cb_conflict_skip.ForeColor = System.Drawing.Color.YellowGreen;
             this.cb_conflict_skip.Location = new System.Drawing.Point(156, 49);
             this.cb_conflict_skip.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_conflict_skip.Name = "cb_conflict_skip";
@@ -332,12 +333,12 @@
             // cb_uncheckAuto
             // 
             this.cb_uncheckAuto.AutoSize = true;
-            this.cb_uncheckAuto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.cb_uncheckAuto.BackColor = System.Drawing.Color.Transparent;
             this.cb_uncheckAuto.Checked = true;
             this.cb_uncheckAuto.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_uncheckAuto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_uncheckAuto.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cb_uncheckAuto.ForeColor = System.Drawing.Color.Silver;
+            this.cb_uncheckAuto.ForeColor = System.Drawing.Color.Teal;
             this.cb_uncheckAuto.Location = new System.Drawing.Point(87, 4);
             this.cb_uncheckAuto.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_uncheckAuto.Name = "cb_uncheckAuto";
@@ -349,12 +350,12 @@
             // cb_auto_dl
             // 
             this.cb_auto_dl.AutoSize = true;
-            this.cb_auto_dl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.cb_auto_dl.BackColor = System.Drawing.Color.Transparent;
             this.cb_auto_dl.Checked = true;
             this.cb_auto_dl.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_auto_dl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_auto_dl.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cb_auto_dl.ForeColor = System.Drawing.Color.Silver;
+            this.cb_auto_dl.ForeColor = System.Drawing.Color.Teal;
             this.cb_auto_dl.Location = new System.Drawing.Point(55, 4);
             this.cb_auto_dl.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_auto_dl.Name = "cb_auto_dl";
@@ -366,10 +367,10 @@
             // cb_auto_clip
             // 
             this.cb_auto_clip.AutoSize = true;
-            this.cb_auto_clip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.cb_auto_clip.BackColor = System.Drawing.Color.Transparent;
             this.cb_auto_clip.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_auto_clip.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cb_auto_clip.ForeColor = System.Drawing.Color.Silver;
+            this.cb_auto_clip.ForeColor = System.Drawing.Color.Teal;
             this.cb_auto_clip.Location = new System.Drawing.Point(71, 4);
             this.cb_auto_clip.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_auto_clip.Name = "cb_auto_clip";
@@ -378,6 +379,23 @@
             this.HelpBalloon.SetToolTip(this.cb_auto_clip, "Add every link that is copied to download list");
             this.cb_auto_clip.UseVisualStyleBackColor = false;
             // 
+            // cb_auto
+            // 
+            this.cb_auto.AutoSize = true;
+            this.cb_auto.BackColor = System.Drawing.Color.Transparent;
+            this.cb_auto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_auto.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_auto.ForeColor = System.Drawing.Color.Teal;
+            this.cb_auto.Location = new System.Drawing.Point(4, 4);
+            this.cb_auto.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.cb_auto.Name = "cb_auto";
+            this.cb_auto.Size = new System.Drawing.Size(56, 17);
+            this.cb_auto.TabIndex = 31;
+            this.cb_auto.Text = "Auto:";
+            this.HelpBalloon.SetToolTip(this.cb_auto, "Automatically...");
+            this.cb_auto.UseVisualStyleBackColor = false;
+            this.cb_auto.CheckedChanged += new System.EventHandler(this.auto_CheckedChanged);
+            // 
             // file_location
             // 
             this.file_location.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -385,8 +403,8 @@
             this.file_location.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.file_location.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.file_location.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.file_location.ForeColor = System.Drawing.Color.Silver;
-            this.file_location.Location = new System.Drawing.Point(2, 106);
+            this.file_location.ForeColor = System.Drawing.Color.SlateBlue;
+            this.file_location.Location = new System.Drawing.Point(2, 130);
             this.file_location.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.file_location.Name = "file_location";
             this.file_location.Size = new System.Drawing.Size(480, 20);
@@ -398,7 +416,7 @@
             // 
             this.file_open.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.file_open.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.file_open.BackgroundImage = global::fapmap.Properties.Resources.image_button_arrow_up;
+            this.file_open.BackgroundImage = global::fapmap.Properties.Resources.open;
             this.file_open.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.file_open.Cursor = System.Windows.Forms.Cursors.Hand;
             this.file_open.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -408,7 +426,7 @@
             this.file_open.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.file_open.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.file_open.ForeColor = System.Drawing.Color.DimGray;
-            this.file_open.Location = new System.Drawing.Point(462, 128);
+            this.file_open.Location = new System.Drawing.Point(462, 152);
             this.file_open.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.file_open.Name = "file_open";
             this.file_open.Size = new System.Drawing.Size(20, 20);
@@ -421,7 +439,7 @@
             // 
             this.links_dl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.links_dl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.links_dl.BackgroundImage = global::fapmap.Properties.Resources.image_button_arrow_down;
+            this.links_dl.BackgroundImage = global::fapmap.Properties.Resources.download;
             this.links_dl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.links_dl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.links_dl.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -431,7 +449,7 @@
             this.links_dl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.links_dl.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.links_dl.ForeColor = System.Drawing.Color.DimGray;
-            this.links_dl.Location = new System.Drawing.Point(440, 128);
+            this.links_dl.Location = new System.Drawing.Point(440, 152);
             this.links_dl.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.links_dl.Name = "links_dl";
             this.links_dl.Size = new System.Drawing.Size(20, 20);
@@ -448,8 +466,8 @@
             // 
             // HelpBalloon
             // 
-            this.HelpBalloon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.HelpBalloon.ForeColor = System.Drawing.Color.Silver;
+            this.HelpBalloon.BackColor = System.Drawing.Color.Black;
+            this.HelpBalloon.ForeColor = System.Drawing.Color.SlateBlue;
             this.HelpBalloon.OwnerDraw = true;
             this.HelpBalloon.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.toolTip1_Draw);
             // 
@@ -457,7 +475,7 @@
             // 
             this.links_append.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.links_append.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.links_append.BackgroundImage = global::fapmap.Properties.Resources.image_button_arrow_down;
+            this.links_append.BackgroundImage = global::fapmap.Properties.Resources.arrow_down;
             this.links_append.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.links_append.Cursor = System.Windows.Forms.Cursors.Hand;
             this.links_append.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -481,7 +499,7 @@
             // 
             this.webgrab_start.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.webgrab_start.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.webgrab_start.BackgroundImage = global::fapmap.Properties.Resources.image_button_arrow_left;
+            this.webgrab_start.BackgroundImage = global::fapmap.Properties.Resources.arrow_left;
             this.webgrab_start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.webgrab_start.Cursor = System.Windows.Forms.Cursors.Hand;
             this.webgrab_start.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -504,7 +522,7 @@
             // 
             this.youtubedl_start.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.youtubedl_start.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.youtubedl_start.BackgroundImage = global::fapmap.Properties.Resources.image_button_arrow_left;
+            this.youtubedl_start.BackgroundImage = global::fapmap.Properties.Resources.arrow_left;
             this.youtubedl_start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.youtubedl_start.Cursor = System.Windows.Forms.Cursors.Hand;
             this.youtubedl_start.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -529,7 +547,7 @@
             this.info.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.info.Dock = System.Windows.Forms.DockStyle.Fill;
             this.info.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.info.ForeColor = System.Drawing.Color.ForestGreen;
+            this.info.ForeColor = System.Drawing.Color.Teal;
             this.info.Location = new System.Drawing.Point(0, 0);
             this.info.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.info.Multiline = true;
@@ -542,7 +560,8 @@
             // 
             // links_RMB
             // 
-            this.links_RMB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.links_RMB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.links_RMB.BackgroundImage = global::fapmap.Properties.Resources.bg4;
             this.links_RMB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.links_RMB_refresh,
             this.links_RMB_incognito,
@@ -556,77 +575,85 @@
             this.links_RMB.Name = "contextMenuStrip1";
             this.links_RMB.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.links_RMB.ShowItemToolTips = false;
-            this.links_RMB.Size = new System.Drawing.Size(231, 180);
+            this.links_RMB.Size = new System.Drawing.Size(230, 180);
             // 
             // links_RMB_refresh
             // 
-            this.links_RMB_refresh.ForeColor = System.Drawing.Color.Silver;
-            this.links_RMB_refresh.Image = global::fapmap.Properties.Resources.image_menu_restart;
+            this.links_RMB_refresh.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.links_RMB_refresh.ForeColor = System.Drawing.Color.SlateBlue;
+            this.links_RMB_refresh.Image = global::fapmap.Properties.Resources.restart;
             this.links_RMB_refresh.Name = "links_RMB_refresh";
-            this.links_RMB_refresh.Size = new System.Drawing.Size(230, 22);
+            this.links_RMB_refresh.Size = new System.Drawing.Size(229, 22);
             this.links_RMB_refresh.Text = "Refresh (CTRL+R/F5)";
             this.links_RMB_refresh.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // links_RMB_incognito
             // 
-            this.links_RMB_incognito.ForeColor = System.Drawing.Color.Silver;
-            this.links_RMB_incognito.Image = global::fapmap.Properties.Resources.image_button_incognito;
+            this.links_RMB_incognito.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.links_RMB_incognito.ForeColor = System.Drawing.Color.SlateBlue;
+            this.links_RMB_incognito.Image = global::fapmap.Properties.Resources.incognito;
             this.links_RMB_incognito.Name = "links_RMB_incognito";
-            this.links_RMB_incognito.Size = new System.Drawing.Size(230, 22);
+            this.links_RMB_incognito.Size = new System.Drawing.Size(229, 22);
             this.links_RMB_incognito.Text = "Incognito (CTRL+U)";
             this.links_RMB_incognito.Click += new System.EventHandler(this.incognitoENTERToolStripMenuItem_Click);
             // 
             // links_RMB_copy
             // 
-            this.links_RMB_copy.ForeColor = System.Drawing.Color.Silver;
-            this.links_RMB_copy.Image = global::fapmap.Properties.Resources.image_button_copy;
+            this.links_RMB_copy.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.links_RMB_copy.ForeColor = System.Drawing.Color.SlateBlue;
+            this.links_RMB_copy.Image = global::fapmap.Properties.Resources.copy;
             this.links_RMB_copy.Name = "links_RMB_copy";
-            this.links_RMB_copy.Size = new System.Drawing.Size(230, 22);
+            this.links_RMB_copy.Size = new System.Drawing.Size(229, 22);
             this.links_RMB_copy.Text = "Copy URL (CTRL+C)";
             this.links_RMB_copy.Click += new System.EventHandler(this.copyLinksToolStripMenuItem_Click);
             // 
             // links_RMB_cut
             // 
-            this.links_RMB_cut.ForeColor = System.Drawing.Color.Silver;
-            this.links_RMB_cut.Image = global::fapmap.Properties.Resources.image_button_cut;
+            this.links_RMB_cut.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.links_RMB_cut.ForeColor = System.Drawing.Color.SlateBlue;
+            this.links_RMB_cut.Image = global::fapmap.Properties.Resources.cut;
             this.links_RMB_cut.Name = "links_RMB_cut";
-            this.links_RMB_cut.Size = new System.Drawing.Size(230, 22);
+            this.links_RMB_cut.Size = new System.Drawing.Size(229, 22);
             this.links_RMB_cut.Text = "Cut URL (CTRL+X)";
             this.links_RMB_cut.Click += new System.EventHandler(this.cutLinksToolStripMenuItem_Click);
             // 
             // links_RMB_paste
             // 
-            this.links_RMB_paste.ForeColor = System.Drawing.Color.Silver;
-            this.links_RMB_paste.Image = global::fapmap.Properties.Resources.image_button_paste;
+            this.links_RMB_paste.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.links_RMB_paste.ForeColor = System.Drawing.Color.SlateBlue;
+            this.links_RMB_paste.Image = global::fapmap.Properties.Resources.paste;
             this.links_RMB_paste.Name = "links_RMB_paste";
-            this.links_RMB_paste.Size = new System.Drawing.Size(230, 22);
+            this.links_RMB_paste.Size = new System.Drawing.Size(229, 22);
             this.links_RMB_paste.Text = "Paste URL (CTRL+V)";
             this.links_RMB_paste.Click += new System.EventHandler(this.pasteFromClipBoardCTRLVToolStripMenuItem_Click);
             // 
             // links_RMB_delete
             // 
-            this.links_RMB_delete.ForeColor = System.Drawing.Color.Silver;
-            this.links_RMB_delete.Image = global::fapmap.Properties.Resources.image_button_delete;
+            this.links_RMB_delete.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.links_RMB_delete.ForeColor = System.Drawing.Color.SlateBlue;
+            this.links_RMB_delete.Image = global::fapmap.Properties.Resources.delete;
             this.links_RMB_delete.Name = "links_RMB_delete";
-            this.links_RMB_delete.Size = new System.Drawing.Size(230, 22);
+            this.links_RMB_delete.Size = new System.Drawing.Size(229, 22);
             this.links_RMB_delete.Text = "Remove URL (DEL)";
             this.links_RMB_delete.Click += new System.EventHandler(this.deleteSelectedLinkDELToolStripMenuItem_Click);
             // 
             // links_RMB_deleteAll
             // 
-            this.links_RMB_deleteAll.ForeColor = System.Drawing.Color.Silver;
-            this.links_RMB_deleteAll.Image = global::fapmap.Properties.Resources.image_button_delete;
+            this.links_RMB_deleteAll.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.links_RMB_deleteAll.ForeColor = System.Drawing.Color.SlateBlue;
+            this.links_RMB_deleteAll.Image = global::fapmap.Properties.Resources.delete;
             this.links_RMB_deleteAll.Name = "links_RMB_deleteAll";
-            this.links_RMB_deleteAll.Size = new System.Drawing.Size(230, 22);
+            this.links_RMB_deleteAll.Size = new System.Drawing.Size(229, 22);
             this.links_RMB_deleteAll.Text = "Remove All URLs (CTRL+DEL)";
             this.links_RMB_deleteAll.Click += new System.EventHandler(this.deleteAllURLsCTRLADELToolStripMenuItem_Click);
             // 
             // links_RMB_deleteSome
             // 
-            this.links_RMB_deleteSome.ForeColor = System.Drawing.Color.Silver;
-            this.links_RMB_deleteSome.Image = global::fapmap.Properties.Resources.image_button_delete;
+            this.links_RMB_deleteSome.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.links_RMB_deleteSome.ForeColor = System.Drawing.Color.SlateBlue;
+            this.links_RMB_deleteSome.Image = global::fapmap.Properties.Resources.delete;
             this.links_RMB_deleteSome.Name = "links_RMB_deleteSome";
-            this.links_RMB_deleteSome.Size = new System.Drawing.Size(230, 22);
+            this.links_RMB_deleteSome.Size = new System.Drawing.Size(229, 22);
             this.links_RMB_deleteSome.Text = "Remove Only (SHIFT+DEL)";
             this.links_RMB_deleteSome.Click += new System.EventHandler(this.removeOnlySHIFTDELToolStripMenuItem_Click);
             // 
@@ -655,7 +682,7 @@
             this.process_url.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.process_url.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.process_url.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.process_url.Location = new System.Drawing.Point(0, 227);
+            this.process_url.Location = new System.Drawing.Point(0, 250);
             this.process_url.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.process_url.Name = "process_url";
             this.process_url.ReadOnly = true;
@@ -682,7 +709,7 @@
             this.webgrab_options.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.webgrab_options.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.webgrab_options.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.webgrab_options.ForeColor = System.Drawing.Color.Silver;
+            this.webgrab_options.ForeColor = System.Drawing.Color.Teal;
             this.webgrab_options.Location = new System.Drawing.Point(151, 2);
             this.webgrab_options.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.webgrab_options.Name = "webgrab_options";
@@ -698,7 +725,7 @@
             this.webgrab_url.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.webgrab_url.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.webgrab_url.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.webgrab_url.ForeColor = System.Drawing.Color.Silver;
+            this.webgrab_url.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.webgrab_url.Location = new System.Drawing.Point(2, 2);
             this.webgrab_url.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.webgrab_url.Name = "webgrab_url";
@@ -725,7 +752,7 @@
             // 
             this.sc_webgrab.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.sc_webgrab.Panel2.Controls.Add(this.sc_youtubedl);
-            this.sc_webgrab.Size = new System.Drawing.Size(484, 319);
+            this.sc_webgrab.Size = new System.Drawing.Size(484, 342);
             this.sc_webgrab.SplitterDistance = 25;
             this.sc_webgrab.SplitterWidth = 1;
             this.sc_webgrab.TabIndex = 155;
@@ -759,7 +786,7 @@
             this.sc_youtubedl.Panel2.Controls.Add(this.links_append);
             this.sc_youtubedl.Panel2.Controls.Add(this.file_open);
             this.sc_youtubedl.Panel2.Controls.Add(this.file_location);
-            this.sc_youtubedl.Size = new System.Drawing.Size(484, 293);
+            this.sc_youtubedl.Size = new System.Drawing.Size(484, 316);
             this.sc_youtubedl.SplitterDistance = 25;
             this.sc_youtubedl.SplitterWidth = 1;
             this.sc_youtubedl.TabIndex = 156;
@@ -771,7 +798,7 @@
             this.youtubedl_url.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.youtubedl_url.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.youtubedl_url.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.youtubedl_url.ForeColor = System.Drawing.Color.Silver;
+            this.youtubedl_url.ForeColor = System.Drawing.Color.SteelBlue;
             this.youtubedl_url.Location = new System.Drawing.Point(2, 2);
             this.youtubedl_url.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.youtubedl_url.Name = "youtubedl_url";
@@ -787,7 +814,7 @@
             this.info_panel.Controls.Add(this.speed_echo);
             this.info_panel.Controls.Add(this.info);
             this.info_panel.Controls.Add(this.info_progress);
-            this.info_panel.Location = new System.Drawing.Point(170, 150);
+            this.info_panel.Location = new System.Drawing.Point(170, 174);
             this.info_panel.Name = "info_panel";
             this.info_panel.Size = new System.Drawing.Size(312, 72);
             this.info_panel.TabIndex = 154;
@@ -799,7 +826,7 @@
             this.speed_echo.AutoSize = true;
             this.speed_echo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.speed_echo.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.speed_echo.ForeColor = System.Drawing.Color.Silver;
+            this.speed_echo.ForeColor = System.Drawing.Color.SlateBlue;
             this.speed_echo.Location = new System.Drawing.Point(5, 40);
             this.speed_echo.Name = "speed_echo";
             this.speed_echo.Size = new System.Drawing.Size(0, 15);
@@ -824,8 +851,8 @@
             this.filename_changeBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.filename_changeBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.filename_changeBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.filename_changeBox.ForeColor = System.Drawing.Color.Silver;
-            this.filename_changeBox.Location = new System.Drawing.Point(2, 128);
+            this.filename_changeBox.ForeColor = System.Drawing.Color.SlateBlue;
+            this.filename_changeBox.Location = new System.Drawing.Point(2, 152);
             this.filename_changeBox.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.filename_changeBox.Name = "filename_changeBox";
             this.filename_changeBox.ReadOnly = true;
@@ -841,7 +868,7 @@
             this.process_location.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.process_location.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.process_location.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.process_location.Location = new System.Drawing.Point(0, 247);
+            this.process_location.Location = new System.Drawing.Point(0, 270);
             this.process_location.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.process_location.Name = "process_location";
             this.process_location.ReadOnly = true;
@@ -856,6 +883,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.links.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.links.BackgroundImage = global::fapmap.Properties.Resources.bg3;
             this.links.BackgroundImageTiled = true;
             this.links.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.links.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -863,13 +891,14 @@
             this.links_clm_name,
             this.links_clm_url});
             this.links.ContextMenuStrip = this.links_RMB;
-            this.links.ForeColor = System.Drawing.Color.Silver;
+            this.links.ForeColor = System.Drawing.Color.SlateBlue;
             this.links.FullRowSelect = true;
             this.links.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.links.HideSelection = false;
             this.links.Location = new System.Drawing.Point(2, 24);
             this.links.MultiSelect = false;
             this.links.Name = "links";
-            this.links.Size = new System.Drawing.Size(480, 80);
+            this.links.Size = new System.Drawing.Size(480, 104);
             this.links.TabIndex = 155;
             this.links.UseCompatibleStateImageBehavior = false;
             this.links.View = System.Windows.Forms.View.Details;
@@ -901,33 +930,16 @@
             this.speed.Interval = 1000;
             this.speed.Tick += new System.EventHandler(this.speed_Tick);
             // 
-            // cb_auto
-            // 
-            this.cb_auto.AutoSize = true;
-            this.cb_auto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.cb_auto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_auto.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cb_auto.ForeColor = System.Drawing.Color.Silver;
-            this.cb_auto.Location = new System.Drawing.Point(4, 4);
-            this.cb_auto.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.cb_auto.Name = "cb_auto";
-            this.cb_auto.Size = new System.Drawing.Size(56, 17);
-            this.cb_auto.TabIndex = 31;
-            this.cb_auto.Text = "Auto:";
-            this.HelpBalloon.SetToolTip(this.cb_auto, "Automatically...");
-            this.cb_auto.UseVisualStyleBackColor = false;
-            this.cb_auto.CheckedChanged += new System.EventHandler(this.auto_CheckedChanged);
-            // 
             // fapmap_download
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.ClientSize = new System.Drawing.Size(484, 319);
+            this.ClientSize = new System.Drawing.Size(484, 342);
             this.Controls.Add(this.sc_webgrab);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ForeColor = System.Drawing.Color.Silver;
+            this.ForeColor = System.Drawing.Color.SlateBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.MinimumSize = new System.Drawing.Size(390, 320);

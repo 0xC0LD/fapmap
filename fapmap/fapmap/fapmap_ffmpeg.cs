@@ -18,9 +18,6 @@ namespace fapmap
         public fapmap_ffmpeg()
         {
             InitializeComponent();
-
-            //BOARDLESS FORM
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
         }
 
         public static string passed_location = string.Empty; 
@@ -296,7 +293,7 @@ namespace fapmap
             }
             else
             {
-                file.ForeColor = Color.Red;
+                file.ForeColor = Color.DarkOrchid;
             }
         }
 

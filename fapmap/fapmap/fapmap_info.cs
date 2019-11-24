@@ -33,6 +33,13 @@ namespace fapmap
             getAll_Click(null, null);
         }
 
+        private void HelpBalloon_Draw(object sender, DrawToolTipEventArgs e)
+        {
+            e.DrawBackground();
+            e.DrawBorder();
+            e.DrawText();
+        }
+
         private void getAll_Click(object sender, EventArgs e)
         {
             new Thread(RefreshThread) { IsBackground = true }.Start();

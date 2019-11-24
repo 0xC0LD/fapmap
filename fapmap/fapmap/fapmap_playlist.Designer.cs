@@ -42,15 +42,14 @@
             // cb_random
             // 
             this.cb_random.AutoSize = true;
-            this.cb_random.BackColor = System.Drawing.Color.Black;
+            this.cb_random.BackColor = System.Drawing.Color.Transparent;
             this.cb_random.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_random.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_random.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cb_random.ForeColor = System.Drawing.Color.Silver;
+            this.cb_random.ForeColor = System.Drawing.Color.SlateBlue;
             this.cb_random.Location = new System.Drawing.Point(11, 83);
             this.cb_random.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_random.Name = "cb_random";
-            this.cb_random.Size = new System.Drawing.Size(67, 17);
+            this.cb_random.Size = new System.Drawing.Size(70, 17);
             this.cb_random.TabIndex = 32;
             this.cb_random.Text = "Shuffled";
             this.cb_random.UseVisualStyleBackColor = false;
@@ -59,15 +58,14 @@
             // cb_rmlogs
             // 
             this.cb_rmlogs.AutoSize = true;
-            this.cb_rmlogs.BackColor = System.Drawing.Color.Black;
+            this.cb_rmlogs.BackColor = System.Drawing.Color.Transparent;
             this.cb_rmlogs.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_rmlogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_rmlogs.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cb_rmlogs.ForeColor = System.Drawing.Color.Silver;
+            this.cb_rmlogs.ForeColor = System.Drawing.Color.SlateBlue;
             this.cb_rmlogs.Location = new System.Drawing.Point(11, 52);
             this.cb_rmlogs.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_rmlogs.Name = "cb_rmlogs";
-            this.cb_rmlogs.Size = new System.Drawing.Size(172, 30);
+            this.cb_rmlogs.Size = new System.Drawing.Size(175, 30);
             this.cb_rmlogs.TabIndex = 33;
             this.cb_rmlogs.Text = "Remove Already Played Files\r\n(from logs)";
             this.cb_rmlogs.UseVisualStyleBackColor = false;
@@ -76,15 +74,14 @@
             // cb_keyword
             // 
             this.cb_keyword.AutoSize = true;
-            this.cb_keyword.BackColor = System.Drawing.Color.Black;
+            this.cb_keyword.BackColor = System.Drawing.Color.Transparent;
             this.cb_keyword.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_keyword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_keyword.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cb_keyword.ForeColor = System.Drawing.Color.Silver;
+            this.cb_keyword.ForeColor = System.Drawing.Color.SlateBlue;
             this.cb_keyword.Location = new System.Drawing.Point(11, 34);
             this.cb_keyword.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_keyword.Name = "cb_keyword";
-            this.cb_keyword.Size = new System.Drawing.Size(184, 17);
+            this.cb_keyword.Size = new System.Drawing.Size(187, 17);
             this.cb_keyword.TabIndex = 34;
             this.cb_keyword.Text = "Must Have In File Path (string):";
             this.cb_keyword.UseVisualStyleBackColor = false;
@@ -98,7 +95,7 @@
             this.tb_keyword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_keyword.Enabled = false;
             this.tb_keyword.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tb_keyword.ForeColor = System.Drawing.Color.Silver;
+            this.tb_keyword.ForeColor = System.Drawing.Color.SlateBlue;
             this.tb_keyword.Location = new System.Drawing.Point(199, 34);
             this.tb_keyword.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.tb_keyword.Name = "tb_keyword";
@@ -158,7 +155,7 @@
             this.tb_path.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tb_path.Enabled = false;
             this.tb_path.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tb_path.ForeColor = System.Drawing.Color.Silver;
+            this.tb_path.ForeColor = System.Drawing.Color.SlateBlue;
             this.tb_path.Location = new System.Drawing.Point(51, 6);
             this.tb_path.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.tb_path.Name = "tb_path";
@@ -179,15 +176,14 @@
             // cb_reverse
             // 
             this.cb_reverse.AutoSize = true;
-            this.cb_reverse.BackColor = System.Drawing.Color.Black;
+            this.cb_reverse.BackColor = System.Drawing.Color.Transparent;
             this.cb_reverse.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_reverse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_reverse.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cb_reverse.ForeColor = System.Drawing.Color.Silver;
+            this.cb_reverse.ForeColor = System.Drawing.Color.SlateBlue;
             this.cb_reverse.Location = new System.Drawing.Point(11, 101);
             this.cb_reverse.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_reverse.Name = "cb_reverse";
-            this.cb_reverse.Size = new System.Drawing.Size(95, 17);
+            this.cb_reverse.Size = new System.Drawing.Size(98, 17);
             this.cb_reverse.TabIndex = 164;
             this.cb_reverse.Text = "Reverse Order";
             this.cb_reverse.UseVisualStyleBackColor = false;
@@ -197,7 +193,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.BackgroundImage = global::fapmap.Properties.Resources.bg4;
             this.ClientSize = new System.Drawing.Size(384, 131);
             this.Controls.Add(this.cb_reverse);
             this.Controls.Add(this.label_path);
@@ -209,7 +206,7 @@
             this.Controls.Add(this.cb_rmlogs);
             this.Controls.Add(this.cb_random);
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.ForeColor = System.Drawing.Color.Silver;
+            this.ForeColor = System.Drawing.Color.SlateBlue;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(400, 170);

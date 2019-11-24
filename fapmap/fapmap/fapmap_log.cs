@@ -138,13 +138,6 @@ namespace fapmap
         }
         
         #endregion
-
-        private void HelpBalloon_Draw(object sender, DrawToolTipEventArgs e)
-        {
-            e.DrawBackground();
-            e.DrawBorder();
-            e.DrawText();
-        }
         
         private void logs_MouseDoubleClick(object sender, MouseEventArgs e)
         {

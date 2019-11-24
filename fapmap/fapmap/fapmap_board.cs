@@ -19,8 +19,7 @@ namespace fapmap
         {
             InitializeComponent();
 
-            //BOARDLESS FORM
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            board_RMB.Renderer = new fapmap_res.color.fToolStripProfessionalRenderer();
         }
 
         private void fapmap_board_Load(object sender, EventArgs e)
@@ -161,29 +160,27 @@ namespace fapmap
 
         private void board_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Close();
-            }
-            else if (e.Control && e.KeyCode == Keys.R || e.KeyCode == Keys.F5)
+            if (e.KeyCode == Keys.Escape) { this.Close(); return;  }
+            
+            if (e.Control && e.KeyCode == Keys.R || e.KeyCode == Keys.F5)
             {
                 board_load();
             }
+            else if (e.Control && e.KeyCode == Keys.Q)
+            {
+                open(false);
+            }
             else if(e.KeyCode == Keys.Enter || e.Control && e.KeyCode == Keys.W)
             {
-                e.SuppressKeyPress = true;
-
-                open();
-                this.Close();
+                open(true);
             }
             else if(e.Control && e.KeyCode == Keys.C)
             {
                 copy();
-                this.Close();
             }
             else if (e.Control && e.KeyCode == Keys.E)
             {
-                Process.Start("notepad.exe", fapmap.GlobalVariables.Path.File.Board);
+                edit();
             }
             else if (e.Control != true && e.Shift != true)
             {
@@ -198,8 +195,10 @@ namespace fapmap
                     }
                 }
             }
+
+            e.SuppressKeyPress = true;
         }
-        private void open()
+        private void open(bool close)
         {
             if (board.SelectedItems != null)
             {
@@ -208,6 +207,8 @@ namespace fapmap
                     fapmap.Incognito(item.Tag.ToString());
                 }
             }
+
+            if (close) { this.Close(); }
         }
         private void copy()
         {
@@ -218,15 +219,13 @@ namespace fapmap
                     System.Windows.Forms.Clipboard.SetText(item.Tag.ToString());
                 }
             }
+
+            this.Close();
         }
-        private void board_MouseUp(object sender, MouseEventArgs e)
+        private void edit()
         {
-            if (e.Button == MouseButtons.Right)
-            {
-                copy();
-            }
+            Process.Start("notepad.exe", fapmap.GlobalVariables.Path.File.Board);
         }
-        
 
         #region fx
 
@@ -266,7 +265,6 @@ namespace fapmap
             e.DrawBackground();
             e.DrawText();
         }
-
         private void board_Leave(object sender, EventArgs e)
         {
             // Set the global int variable (gListView1LostFocusItem) to
@@ -285,10 +283,12 @@ namespace fapmap
         }
         private void board_MouseDown(object sender, MouseEventArgs e)
         {
+            if (e.Button == MouseButtons.Right) { return; }
+
             if (board.SelectedItems.Count > 0)
             {
-                if (e.Clicks == 2 && e.Button == MouseButtons.Left) { open(); this.Close(); }
-                else if (e.Button == MouseButtons.Middle) { open(); }
+                if (e.Clicks == 2 && e.Button == MouseButtons.Left) { open(false); return; }
+                else if (e.Button == MouseButtons.Middle) { open(true); return; }
 
                 foreach (ListViewItem lvi in board.SelectedItems)
                 {
@@ -315,7 +315,25 @@ namespace fapmap
             }
         }
 
-
-
+        private void board_RMB_refresh_Click(object sender, EventArgs e)
+        {
+            board_load();
+        }
+        private void board_RMB_openAndExit_Click(object sender, EventArgs e)
+        {
+            open(true);
+        }
+        private void board_RMB_open_Click(object sender, EventArgs e)
+        {
+            open(false);
+        }
+        private void board_RMB_copy_Click(object sender, EventArgs e)
+        {
+            copy();
+        }
+        private void board_RMB_edit_Click(object sender, EventArgs e)
+        {
+            edit();
+        }
     }
 }

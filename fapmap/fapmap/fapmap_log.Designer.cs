@@ -28,22 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fapmap_log));
-            this.HelpBalloon = new System.Windows.Forms.ToolTip(this.components);
             this.logs = new System.Windows.Forms.ListView();
             this.logs_clm_num = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.logs_clm_time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.logs_clm_action = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.logs_clm_text = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
-            // 
-            // HelpBalloon
-            // 
-            this.HelpBalloon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.HelpBalloon.ForeColor = System.Drawing.Color.MediumPurple;
-            this.HelpBalloon.OwnerDraw = true;
-            this.HelpBalloon.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.HelpBalloon_Draw);
             // 
             // logs
             // 
@@ -52,13 +43,15 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.logs.AutoArrange = false;
             this.logs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.logs.BackgroundImage = global::fapmap.Properties.Resources.bg3;
+            this.logs.BackgroundImageTiled = true;
             this.logs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.logs.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.logs_clm_num,
             this.logs_clm_time,
             this.logs_clm_action,
             this.logs_clm_text});
-            this.logs.ForeColor = System.Drawing.Color.Silver;
+            this.logs.ForeColor = System.Drawing.Color.SlateBlue;
             this.logs.FullRowSelect = true;
             this.logs.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.logs.HideSelection = false;
@@ -96,11 +89,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BackgroundImage = global::fapmap.Properties.Resources.bg4;
             this.ClientSize = new System.Drawing.Size(814, 262);
             this.Controls.Add(this.logs);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.ForeColor = System.Drawing.Color.Silver;
+            this.ForeColor = System.Drawing.Color.SlateBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(500, 220);
             this.Name = "fapmap_log";
@@ -112,7 +106,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.ToolTip HelpBalloon;
         private System.Windows.Forms.ListView logs;
         private System.Windows.Forms.ColumnHeader logs_clm_num;
         private System.Windows.Forms.ColumnHeader logs_clm_action;

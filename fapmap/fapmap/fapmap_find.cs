@@ -19,10 +19,7 @@ namespace fapmap
         public fapmap_find()
         {
             InitializeComponent();
-
-            //BOARDLESS FORM
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
-
+            
             RMB_output.Renderer = new fapmap_res.color.fToolStripProfessionalRenderer();
         }
 
@@ -50,8 +47,8 @@ namespace fapmap
                         e.Bounds,
                         e.Index,
                         e.State ^ DrawItemState.Selected,
-                        Color.White,
-                        Color.FromArgb(35, 35, 35)
+                        Color.MediumSlateBlue,
+                        Color.FromArgb(25, 25, 25)
                     );
                 }
 
@@ -432,6 +429,5 @@ namespace fapmap
 
             zoomed = !zoomed;
         }
-        
     }
 }

@@ -67,6 +67,7 @@
             // 
             this.showImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.showImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.showImage.BackgroundImage = global::fapmap.Properties.Resources.bg3;
             this.showImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.showImage.Location = new System.Drawing.Point(379, 91);
             this.showImage.Name = "showImage";
@@ -85,7 +86,7 @@
             this.Output.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Output.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.Output.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Output.ForeColor = System.Drawing.Color.Silver;
+            this.Output.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.Output.FormattingEnabled = true;
             this.Output.Location = new System.Drawing.Point(0, 0);
             this.Output.Name = "Output";
@@ -100,7 +101,8 @@
             // 
             // RMB_output
             // 
-            this.RMB_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.RMB_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.RMB_output.BackgroundImage = global::fapmap.Properties.Resources.bg4;
             this.RMB_output.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.RMB_output_refresh,
             this.RMB_output_open,
@@ -111,50 +113,55 @@
             this.RMB_output.Name = "contextMenuStrip1";
             this.RMB_output.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.RMB_output.ShowItemToolTips = false;
-            this.RMB_output.Size = new System.Drawing.Size(249, 114);
+            this.RMB_output.Size = new System.Drawing.Size(247, 114);
             // 
             // RMB_output_refresh
             // 
-            this.RMB_output_refresh.ForeColor = System.Drawing.Color.Silver;
-            this.RMB_output_refresh.Image = global::fapmap.Properties.Resources.image_menu_restart;
+            this.RMB_output_refresh.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.RMB_output_refresh.ForeColor = System.Drawing.Color.SlateBlue;
+            this.RMB_output_refresh.Image = global::fapmap.Properties.Resources.restart;
             this.RMB_output_refresh.Name = "RMB_output_refresh";
-            this.RMB_output_refresh.Size = new System.Drawing.Size(248, 22);
+            this.RMB_output_refresh.Size = new System.Drawing.Size(246, 22);
             this.RMB_output_refresh.Text = "Refresh (CTRL+R/F5)";
             this.RMB_output_refresh.Click += new System.EventHandler(this.refreshCTRLRF5ToolStripMenuItem_Click);
             // 
             // RMB_output_open
             // 
-            this.RMB_output_open.ForeColor = System.Drawing.Color.Silver;
-            this.RMB_output_open.Image = global::fapmap.Properties.Resources.image_button_arrow_up;
+            this.RMB_output_open.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.RMB_output_open.ForeColor = System.Drawing.Color.SlateBlue;
+            this.RMB_output_open.Image = global::fapmap.Properties.Resources.open;
             this.RMB_output_open.Name = "RMB_output_open";
-            this.RMB_output_open.Size = new System.Drawing.Size(248, 22);
+            this.RMB_output_open.Size = new System.Drawing.Size(246, 22);
             this.RMB_output_open.Text = "Open Selected (ENTER/CTRL+W)";
             this.RMB_output_open.Click += new System.EventHandler(this.openOutputToolStripMenuItem_Click);
             // 
             // RMB_output_explorer
             // 
-            this.RMB_output_explorer.ForeColor = System.Drawing.Color.Silver;
-            this.RMB_output_explorer.Image = global::fapmap.Properties.Resources.image_button_home;
+            this.RMB_output_explorer.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.RMB_output_explorer.ForeColor = System.Drawing.Color.SlateBlue;
+            this.RMB_output_explorer.Image = global::fapmap.Properties.Resources.folder;
             this.RMB_output_explorer.Name = "RMB_output_explorer";
-            this.RMB_output_explorer.Size = new System.Drawing.Size(248, 22);
+            this.RMB_output_explorer.Size = new System.Drawing.Size(246, 22);
             this.RMB_output_explorer.Text = "Open in Explorer (CTRL+U)";
             this.RMB_output_explorer.Click += new System.EventHandler(this.openInExplorerCTRLUToolStripMenuItem_Click);
             // 
             // RMB_output_copy
             // 
-            this.RMB_output_copy.ForeColor = System.Drawing.Color.Silver;
-            this.RMB_output_copy.Image = global::fapmap.Properties.Resources.image_button_copy;
+            this.RMB_output_copy.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.RMB_output_copy.ForeColor = System.Drawing.Color.SlateBlue;
+            this.RMB_output_copy.Image = global::fapmap.Properties.Resources.copy;
             this.RMB_output_copy.Name = "RMB_output_copy";
-            this.RMB_output_copy.Size = new System.Drawing.Size(248, 22);
+            this.RMB_output_copy.Size = new System.Drawing.Size(246, 22);
             this.RMB_output_copy.Text = "Copy Location (CTRL+C)";
             this.RMB_output_copy.Click += new System.EventHandler(this.copyOuputToolStripMenuItem_Click);
             // 
             // RMB_output_delete
             // 
-            this.RMB_output_delete.ForeColor = System.Drawing.Color.Silver;
-            this.RMB_output_delete.Image = global::fapmap.Properties.Resources.image_button_delete;
+            this.RMB_output_delete.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.RMB_output_delete.ForeColor = System.Drawing.Color.SlateBlue;
+            this.RMB_output_delete.Image = global::fapmap.Properties.Resources.delete;
             this.RMB_output_delete.Name = "RMB_output_delete";
-            this.RMB_output_delete.Size = new System.Drawing.Size(248, 22);
+            this.RMB_output_delete.Size = new System.Drawing.Size(246, 22);
             this.RMB_output_delete.Text = "Delete File (DEL)";
             this.RMB_output_delete.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -162,7 +169,7 @@
             // 
             this.findStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.findStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.findStart.BackgroundImage = global::fapmap.Properties.Resources.image_button_arrow_left;
+            this.findStart.BackgroundImage = global::fapmap.Properties.Resources.find;
             this.findStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.findStart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.findStart.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -188,17 +195,16 @@
             this.searchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.searchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.searchBox.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.searchBox.ForeColor = System.Drawing.Color.Silver;
+            this.searchBox.ForeColor = System.Drawing.Color.Teal;
             this.searchBox.Location = new System.Drawing.Point(12, 12);
             this.searchBox.Name = "searchBox";
             this.searchBox.Size = new System.Drawing.Size(418, 20);
             this.searchBox.TabIndex = 150;
-            this.searchBox.Text = "porn .gif";
             this.searchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchBox_KeyDown);
             // 
             // HelpBalloon
             // 
-            this.HelpBalloon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.HelpBalloon.BackColor = System.Drawing.Color.Black;
             this.HelpBalloon.ForeColor = System.Drawing.Color.MediumPurple;
             this.HelpBalloon.OwnerDraw = true;
             this.HelpBalloon.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.HelpBalloon_Draw);
@@ -243,9 +249,9 @@
             // 
             this.resultNum.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.resultNum.AutoSize = true;
-            this.resultNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.resultNum.BackColor = System.Drawing.Color.Transparent;
             this.resultNum.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.resultNum.ForeColor = System.Drawing.Color.Silver;
+            this.resultNum.ForeColor = System.Drawing.Color.SlateBlue;
             this.resultNum.Location = new System.Drawing.Point(12, 203);
             this.resultNum.Name = "resultNum";
             this.resultNum.Size = new System.Drawing.Size(25, 13);
@@ -256,6 +262,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BackgroundImage = global::fapmap.Properties.Resources.bg3;
             this.ClientSize = new System.Drawing.Size(468, 225);
             this.Controls.Add(this.cb_showImage);
             this.Controls.Add(this.searchBox);
@@ -264,7 +271,7 @@
             this.Controls.Add(this.OutputBorder);
             this.Controls.Add(this.resultNum);
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.ForeColor = System.Drawing.Color.Silver;
+            this.ForeColor = System.Drawing.Color.SlateBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(365, 200);

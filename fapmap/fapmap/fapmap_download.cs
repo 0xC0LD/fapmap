@@ -105,8 +105,8 @@ namespace fapmap
                 }
                 else
                 {
-                    this.Icon = Properties.Resources.image_icon_download_hidden;
-                    this.SystemTrayIcon.Icon = Properties.Resources.image_icon_download_hidden;
+                    this.Icon = Properties.Resources.download_hidden;
+                    this.SystemTrayIcon.Icon = Properties.Resources.download_hidden;
                 }
 
                 this.Hide();
@@ -123,8 +123,8 @@ namespace fapmap
                 }
                 else
                 {
-                    this.Icon = Properties.Resources.image_icon_download_visible;
-                    this.SystemTrayIcon.Icon = Properties.Resources.image_icon_download_visible;
+                    this.Icon = Properties.Resources.download_visible;
+                    this.SystemTrayIcon.Icon = Properties.Resources.download_visible;
                 }
             }
         }
@@ -221,7 +221,7 @@ namespace fapmap
             if (e.Button == MouseButtons.Left)
             {
                 info.Text = "...";
-                info.ForeColor = Color.ForestGreen;
+                info.ForeColor = Color.Teal;
             }
         }
 
@@ -378,17 +378,17 @@ namespace fapmap
                                             update_count(links.Items.Count);;
 
                                             //canceld replace
-                                            info.ForeColor = System.Drawing.Color.Red;
+                                            info.ForeColor = System.Drawing.Color.DarkOrchid;
                                             info.Text = "Replacement canceled...";
 
                                             //cancel
                                             client_busy = false;
-                                            links_dl.BackgroundImage = Properties.Resources.image_button_close;
+                                            links_dl.BackgroundImage = Properties.Resources.close;
                                             return;
                                         }
                                     }
 
-                                    info.ForeColor = System.Drawing.Color.Silver;
+                                    info.ForeColor = System.Drawing.Color.SlateBlue;
                                     info.Text = "Downloading... ";
 
                                     // //CHANGE ICON
@@ -429,7 +429,7 @@ namespace fapmap
                                     speed.Enabled = true;
 
                                     //CHANGE BUTTON TO CANCL
-                                    links_dl.BackgroundImage = Properties.Resources.image_button_close; //button change
+                                    links_dl.BackgroundImage = Properties.Resources.close; //button change
 
                                     //UPDATE DOWNLOADING...
                                     process_url.Text = link;
@@ -443,38 +443,38 @@ namespace fapmap
                                         //DOWNLOAD
                                         client.DownloadFileAsync(new Uri(link), path);
                                     }
-                                    catch (ArgumentException) { info.ForeColor = System.Drawing.Color.Red; info.Text = "Argument Exception"; }
-                                    catch (WebException e) { info.ForeColor = System.Drawing.Color.Red; info.Text = e.Message; }
-                                    catch (InvalidOperationException) { info.ForeColor = System.Drawing.Color.Red; info.Text = "Invalid Operation Exception"; }
-                                    catch (Exception) { info.ForeColor = System.Drawing.Color.Red; info.Text = "Unknown Error Occurred"; }
+                                    catch (ArgumentException) { info.ForeColor = System.Drawing.Color.DarkOrchid; info.Text = "Argument Exception"; }
+                                    catch (WebException e) { info.ForeColor = System.Drawing.Color.DarkOrchid; info.Text = e.Message; }
+                                    catch (InvalidOperationException) { info.ForeColor = System.Drawing.Color.DarkOrchid; info.Text = "Invalid Operation Exception"; }
+                                    catch (Exception) { info.ForeColor = System.Drawing.Color.DarkOrchid; info.Text = "Unknown Error Occurred"; }
 
                                     return;
                                 }
                                 else
                                 {
                                     //path not valid
-                                    info.ForeColor = System.Drawing.Color.Red;
+                                    info.ForeColor = System.Drawing.Color.DarkOrchid;
                                     info.Text = "Path not valid!";
                                 }
                             }
                             else
                             {
                                 //path empty
-                                info.ForeColor = System.Drawing.Color.Red;
+                                info.ForeColor = System.Drawing.Color.DarkOrchid;
                                 info.Text = "Path is empty!";
                             }
                         }
                         else
                         {
                             //url not valid
-                            info.ForeColor = System.Drawing.Color.Red;
+                            info.ForeColor = System.Drawing.Color.DarkOrchid;
                             info.Text = "URL not valid!";
                         }
                     }
                     else
                     {
                         //url empty
-                        info.ForeColor = System.Drawing.Color.Red;
+                        info.ForeColor = System.Drawing.Color.DarkOrchid;
                         info.Text = "URL is empty!";
                     }
                 }
@@ -487,7 +487,7 @@ namespace fapmap
 
                 //failed
                 client_busy = false;
-                links_dl.BackgroundImage = Properties.Resources.image_button_arrow_down;
+                links_dl.BackgroundImage = Properties.Resources.arrow_down;
                 return;
             }
         }
@@ -511,10 +511,10 @@ namespace fapmap
             string bytesIn_CONVERTED_STRING = fapmap.ROund(now);
             string totalBytes_CONVERTED_STRING = fapmap.ROund(max);
             
-            fapmap.draw_progressBar(progress, info_progress, Color.Silver);
+            fapmap.draw_progressBar(progress, info_progress, Color.DarkSlateBlue);
             fapmap.draw_progressBar_icon(SystemTrayIcon, progress, this.Visible ? Brushes.MediumSlateBlue : Brushes.RoyalBlue);
 
-            info.ForeColor = System.Drawing.Color.Silver;
+            info.ForeColor = System.Drawing.Color.SlateBlue;
             info.Text = progress + "% = " + bytesIn_CONVERTED_STRING + " (" + now + " bytes)" + Environment.NewLine + "100% = " + totalBytes_CONVERTED_STRING + " (" + max + " bytes)";
             SystemTrayIcon.Text = (links.Items.Count + 1).ToString() + ": " + progress.ToString() + "%";
         }
@@ -560,11 +560,11 @@ namespace fapmap
                 file_open_location = process_location.Text;
                 HelpBalloon.SetToolTip(file_open, process_location.Text);
 
-                info.ForeColor = System.Drawing.Color.ForestGreen;
+                info.ForeColor = System.Drawing.Color.Teal;
             }
             else
             {
-                info.ForeColor = System.Drawing.Color.Red;
+                info.ForeColor = System.Drawing.Color.DarkOrchid;
                 info.Text = "Download Canceled...";
             }
             
@@ -574,13 +574,13 @@ namespace fapmap
             //CHANGE ICON TO NORMAL
             if (this.Visible)
             {
-                this.Icon = Properties.Resources.image_icon_download_visible;
-                this.SystemTrayIcon.Icon = Properties.Resources.image_icon_download_visible;
+                this.Icon = Properties.Resources.download_visible;
+                this.SystemTrayIcon.Icon = Properties.Resources.download_visible;
             }
             else
             {
-                this.Icon = Properties.Resources.image_icon_download_hidden;
-                this.SystemTrayIcon.Icon = Properties.Resources.image_icon_download_hidden;
+                this.Icon = Properties.Resources.download_hidden;
+                this.SystemTrayIcon.Icon = Properties.Resources.download_hidden;
             }
 
             fapmap.draw_progressBar(0, info_progress, Color.Transparent); //clear progressbar
@@ -595,7 +595,7 @@ namespace fapmap
                 
             }
 
-            links_dl.BackgroundImage = Properties.Resources.image_button_arrow_down;
+            links_dl.BackgroundImage = Properties.Resources.arrow_down;
             client_busy = false;
         }
 
@@ -676,14 +676,13 @@ namespace fapmap
                 {
                     Process.Start(file_open_location);
                     fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.OPEN, file_open_location);
-                }
-                else
-                {
-                    info.ForeColor = System.Drawing.Color.Red;
-                    info.Text = "File Not Found!";
-                    fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, file_open_location);
+                    return;
                 }
             }
+
+            info.ForeColor = System.Drawing.Color.DarkOrchid;
+            info.Text = "File Not Found!";
+            fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, file_open_location);
         }
         
         //AUTO DOWNLOADER CHECKBOX
@@ -934,13 +933,13 @@ namespace fapmap
                     {
                         if (cb_nonFile.Checked)
                         {
-                            info.ForeColor = System.Drawing.Color.Red;
+                            info.ForeColor = System.Drawing.Color.DarkOrchid;
                             info.Text = "WARNING: " + link;
                             isFile = true;
                         }
                         else
                         {
-                            info.ForeColor = System.Drawing.Color.Red;
+                            info.ForeColor = System.Drawing.Color.DarkOrchid;
                             info.Text = link;
                             return;
                         }
@@ -982,13 +981,13 @@ namespace fapmap
                     }
                     else
                     {
-                        info.ForeColor = System.Drawing.Color.Red;
+                        info.ForeColor = System.Drawing.Color.DarkOrchid;
                         info.Text = "DUPE: " + link;
                     }
                 }
                 else
                 {
-                    info.ForeColor = System.Drawing.Color.Red;
+                    info.ForeColor = System.Drawing.Color.DarkOrchid;
                     info.Text = link;
                 }
             }
@@ -1160,13 +1159,13 @@ namespace fapmap
             {
                 //UNSELECT
                 filename_changeBox.ReadOnly = true;
-                filename_changeBox.ForeColor = Color.DimGray;
+                filename_changeBox.ForeColor = Color.DarkSlateBlue;
             }
             else
             {
                 //SELECT
                 filename_changeBox.ReadOnly = false;
-                filename_changeBox.ForeColor = Color.Silver;
+                filename_changeBox.ForeColor = Color.SlateBlue;
 
                 foreach (ListViewItem item in links.SelectedItems)
                 {
@@ -1267,8 +1266,8 @@ namespace fapmap
             if (!WEBGRAB_busy)
             {
                 //check shit
-                if (string.IsNullOrEmpty(this_url)) { info.ForeColor = System.Drawing.Color.Red; info.Text = "No input...";  return; }
-                if (!File.Exists(fapmap.GlobalVariables.Path.File.Exe.Webgrab)) { info.ForeColor = System.Drawing.Color.Red; info.Text = "webgrab.exe not found..."; fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, fapmap.GlobalVariables.Path.File.Exe.Webgrab); return; }
+                if (string.IsNullOrEmpty(this_url)) { info.ForeColor = System.Drawing.Color.DarkOrchid; info.Text = "No input...";  return; }
+                if (!File.Exists(fapmap.GlobalVariables.Path.File.Exe.Webgrab)) { info.ForeColor = System.Drawing.Color.DarkOrchid; info.Text = "webgrab.exe not found..."; fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, fapmap.GlobalVariables.Path.File.Exe.Webgrab); return; }
 
                 WEBGRAB_busy = true;
 
@@ -1308,7 +1307,7 @@ namespace fapmap
 
                 links.EndUpdate();
                 
-                info.ForeColor = System.Drawing.Color.ForestGreen;
+                info.ForeColor = System.Drawing.Color.Teal;
                 info.Text = "...";
 
                 WEBGRAB_busy = false;
@@ -1394,8 +1393,8 @@ namespace fapmap
             if (!YOUTUBEDL_busy)
             {
                 //check shit
-                if (string.IsNullOrEmpty(this_url)) { info.ForeColor = System.Drawing.Color.Red; info.Text = "No input..."; return; }
-                if (!File.Exists(fapmap.GlobalVariables.Path.File.Exe.Youtubedl)) { info.ForeColor = System.Drawing.Color.Red; info.Text = "youtube-dl.exe not found..."; fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, fapmap.GlobalVariables.Path.File.Exe.Youtubedl); return; }
+                if (string.IsNullOrEmpty(this_url)) { info.ForeColor = System.Drawing.Color.DarkOrchid; info.Text = "No input..."; return; }
+                if (!File.Exists(fapmap.GlobalVariables.Path.File.Exe.Youtubedl)) { info.ForeColor = System.Drawing.Color.DarkOrchid; info.Text = "youtube-dl.exe not found..."; fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, fapmap.GlobalVariables.Path.File.Exe.Youtubedl); return; }
 
 
                 YOUTUBEDL_busy = true;
@@ -1433,19 +1432,19 @@ namespace fapmap
                 }
 
                 //end
-                info.ForeColor = System.Drawing.Color.ForestGreen;
+                info.ForeColor = System.Drawing.Color.Teal;
                 info.Text += Environment.NewLine + this_url;
 
                 //CHANGE ICON TO NORMAL
                 if (this.Visible)
                 {
-                    this.Icon = Properties.Resources.image_icon_download_visible;
-                    this.SystemTrayIcon.Icon = Properties.Resources.image_icon_download_visible;
+                    this.Icon = Properties.Resources.download_visible;
+                    this.SystemTrayIcon.Icon = Properties.Resources.download_visible;
                 }
                 else
                 {
-                    this.Icon = Properties.Resources.image_icon_download_hidden;
-                    this.SystemTrayIcon.Icon = Properties.Resources.image_icon_download_hidden;
+                    this.Icon = Properties.Resources.download_hidden;
+                    this.SystemTrayIcon.Icon = Properties.Resources.download_hidden;
                 }
 
                 fapmap.draw_progressBar(0, info_progress, Color.Transparent); //clear progressbar
@@ -1464,7 +1463,7 @@ namespace fapmap
             {
                 if (e.Data.Contains("[download]"))
                 {
-                    info.ForeColor = System.Drawing.Color.Silver;
+                    info.ForeColor = System.Drawing.Color.SlateBlue;
                     info.Text = e.Data;
                     SystemTrayIcon.Text = e.Data;
 
@@ -1473,7 +1472,7 @@ namespace fapmap
                     
                     if (int.TryParse(str, out int progress))
                     {
-                        fapmap.draw_progressBar((int)progress, info_progress, Color.Silver);
+                        fapmap.draw_progressBar((int)progress, info_progress, Color.DarkSlateBlue);
                         fapmap.draw_progressBar_icon(SystemTrayIcon, (int)progress, this.Visible ? Brushes.MediumSlateBlue : Brushes.RoyalBlue);
                     }
                 }
@@ -1587,7 +1586,7 @@ namespace fapmap
             }
             else
             {
-                file_location.ForeColor = Color.Silver;
+                file_location.ForeColor = Color.SlateBlue;
             }
         }
 

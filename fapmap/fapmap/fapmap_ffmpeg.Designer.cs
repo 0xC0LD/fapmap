@@ -85,7 +85,7 @@
             this.output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.output.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.output.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.output.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(200)))));
+            this.output.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.output.Location = new System.Drawing.Point(0, 0);
             this.output.Name = "output";
             this.output.ReadOnly = true;
@@ -110,7 +110,7 @@
             // 
             this.convert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.convert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.convert.BackgroundImage = global::fapmap.Properties.Resources.image_button_arrow_left;
+            this.convert.BackgroundImage = global::fapmap.Properties.Resources.ffmpeg;
             this.convert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.convert.Cursor = System.Windows.Forms.Cursors.Hand;
             this.convert.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -137,7 +137,7 @@
             this.options.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.options.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.options.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold);
-            this.options.ForeColor = System.Drawing.Color.Silver;
+            this.options.ForeColor = System.Drawing.Color.SlateBlue;
             this.options.Location = new System.Drawing.Point(245, 168);
             this.options.Name = "options";
             this.options.Size = new System.Drawing.Size(343, 20);
@@ -149,8 +149,8 @@
             // 
             this.info.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.info.AutoSize = true;
-            this.info.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.info.ForeColor = System.Drawing.Color.Silver;
+            this.info.BackColor = System.Drawing.Color.Transparent;
+            this.info.ForeColor = System.Drawing.Color.SlateBlue;
             this.info.Location = new System.Drawing.Point(12, 178);
             this.info.Name = "info";
             this.info.Size = new System.Drawing.Size(25, 13);
@@ -161,7 +161,7 @@
             // 
             this.open_file_new.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.open_file_new.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.open_file_new.BackgroundImage = global::fapmap.Properties.Resources.image_button_arrow_up;
+            this.open_file_new.BackgroundImage = global::fapmap.Properties.Resources.open;
             this.open_file_new.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.open_file_new.Cursor = System.Windows.Forms.Cursors.Hand;
             this.open_file_new.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -184,7 +184,7 @@
             // 
             this.open_file.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.open_file.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.open_file.BackgroundImage = global::fapmap.Properties.Resources.image_button_arrow_up;
+            this.open_file.BackgroundImage = global::fapmap.Properties.Resources.open;
             this.open_file.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.open_file.Cursor = System.Windows.Forms.Cursors.Hand;
             this.open_file.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -205,7 +205,7 @@
             // 
             // HelpBalloon
             // 
-            this.HelpBalloon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.HelpBalloon.BackColor = System.Drawing.Color.Black;
             this.HelpBalloon.ForeColor = System.Drawing.Color.MediumPurple;
             this.HelpBalloon.OwnerDraw = true;
             this.HelpBalloon.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.HelpBalloon_Draw);
@@ -214,7 +214,7 @@
             // 
             this.del_file.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.del_file.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.del_file.BackgroundImage = global::fapmap.Properties.Resources.image_button_delete;
+            this.del_file.BackgroundImage = global::fapmap.Properties.Resources.delete;
             this.del_file.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.del_file.Cursor = System.Windows.Forms.Cursors.Hand;
             this.del_file.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -237,7 +237,7 @@
             // 
             this.del_file_new.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.del_file_new.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.del_file_new.BackgroundImage = global::fapmap.Properties.Resources.image_button_delete;
+            this.del_file_new.BackgroundImage = global::fapmap.Properties.Resources.delete;
             this.del_file_new.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.del_file_new.Cursor = System.Windows.Forms.Cursors.Hand;
             this.del_file_new.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -259,7 +259,7 @@
             // file_dragOut
             // 
             this.file_dragOut.AllowDrop = true;
-            this.file_dragOut.BackgroundImage = global::fapmap.Properties.Resources.image_menu_hidegallery;
+            this.file_dragOut.BackgroundImage = global::fapmap.Properties.Resources.image;
             this.file_dragOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.file_dragOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.file_dragOut.Location = new System.Drawing.Point(12, 12);
@@ -272,7 +272,7 @@
             // file_new_dragOut
             // 
             this.file_new_dragOut.AllowDrop = true;
-            this.file_new_dragOut.BackgroundImage = global::fapmap.Properties.Resources.image_menu_hidegallery;
+            this.file_new_dragOut.BackgroundImage = global::fapmap.Properties.Resources.image;
             this.file_new_dragOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.file_new_dragOut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.file_new_dragOut.Location = new System.Drawing.Point(12, 37);
@@ -287,6 +287,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
             this.ClientSize = new System.Drawing.Size(600, 200);
             this.Controls.Add(this.file_dragOut);
             this.Controls.Add(this.file);
@@ -303,7 +304,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.ForeColor = System.Drawing.Color.Silver;
+            this.ForeColor = System.Drawing.Color.SlateBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(320, 150);
             this.Name = "fapmap_ffmpeg";

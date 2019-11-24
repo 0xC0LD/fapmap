@@ -40,7 +40,6 @@
             this.pb_3 = new System.Windows.Forms.PictureBox();
             this.pb_0 = new System.Windows.Forms.PictureBox();
             this.HelpBalloon = new System.Windows.Forms.ToolTip(this.components);
-            this.info = new System.Windows.Forms.Label();
             this.label_graphicDesigner = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pb_1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_2)).BeginInit();
@@ -51,7 +50,7 @@
             // label_programmers
             // 
             this.label_programmers.AutoSize = true;
-            this.label_programmers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.label_programmers.BackColor = System.Drawing.Color.Transparent;
             this.label_programmers.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_programmers.ForeColor = System.Drawing.Color.YellowGreen;
             this.label_programmers.Location = new System.Drawing.Point(12, 9);
@@ -63,7 +62,7 @@
             // label_betaTesters
             // 
             this.label_betaTesters.AutoSize = true;
-            this.label_betaTesters.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.label_betaTesters.BackColor = System.Drawing.Color.Transparent;
             this.label_betaTesters.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.label_betaTesters.ForeColor = System.Drawing.Color.YellowGreen;
             this.label_betaTesters.Location = new System.Drawing.Point(12, 295);
@@ -76,7 +75,7 @@
             // 
             this.link_1.ActiveLinkColor = System.Drawing.Color.CornflowerBlue;
             this.link_1.AutoSize = true;
-            this.link_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.link_1.BackColor = System.Drawing.Color.Transparent;
             this.link_1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.link_1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.link_1.LinkColor = System.Drawing.Color.CornflowerBlue;
@@ -93,7 +92,7 @@
             // 
             this.link_2.ActiveLinkColor = System.Drawing.Color.CornflowerBlue;
             this.link_2.AutoSize = true;
-            this.link_2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.link_2.BackColor = System.Drawing.Color.Transparent;
             this.link_2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.link_2.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.link_2.LinkColor = System.Drawing.Color.CornflowerBlue;
@@ -109,7 +108,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.Gold;
             this.label2.Location = new System.Drawing.Point(125, 49);
@@ -124,7 +123,7 @@
             this.pb_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pb_1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pb_1.Image = ((System.Drawing.Image)(resources.GetObject("pb_1.Image")));
+            this.pb_1.Image = global::fapmap.Properties.Resources.image;
             this.pb_1.Location = new System.Drawing.Point(125, 335);
             this.pb_1.Name = "pb_1";
             this.pb_1.Size = new System.Drawing.Size(100, 100);
@@ -143,7 +142,7 @@
             this.pb_2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pb_2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pb_2.Image = ((System.Drawing.Image)(resources.GetObject("pb_2.Image")));
+            this.pb_2.Image = global::fapmap.Properties.Resources.image;
             this.pb_2.Location = new System.Drawing.Point(19, 335);
             this.pb_2.Name = "pb_2";
             this.pb_2.Size = new System.Drawing.Size(100, 100);
@@ -162,7 +161,7 @@
             this.pb_3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pb_3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pb_3.Image = global::fapmap.Properties.Resources.image_menu_hidegallery;
+            this.pb_3.Image = global::fapmap.Properties.Resources.image;
             this.pb_3.Location = new System.Drawing.Point(19, 192);
             this.pb_3.Name = "pb_3";
             this.pb_3.Size = new System.Drawing.Size(100, 100);
@@ -181,7 +180,7 @@
             this.pb_0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pb_0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pb_0.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pb_0.Image = global::fapmap.Properties.Resources.image_menu_hidegallery;
+            this.pb_0.Image = global::fapmap.Properties.Resources.image;
             this.pb_0.Location = new System.Drawing.Point(19, 49);
             this.pb_0.Name = "pb_0";
             this.pb_0.Size = new System.Drawing.Size(100, 100);
@@ -196,25 +195,15 @@
             // 
             // HelpBalloon
             // 
-            this.HelpBalloon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.HelpBalloon.BackColor = System.Drawing.Color.Black;
             this.HelpBalloon.ForeColor = System.Drawing.Color.MediumPurple;
             this.HelpBalloon.OwnerDraw = true;
             this.HelpBalloon.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.HelpBalloon_Draw);
             // 
-            // info
-            // 
-            this.info.AutoSize = true;
-            this.info.ForeColor = System.Drawing.Color.Silver;
-            this.info.Location = new System.Drawing.Point(12, 490);
-            this.info.Name = "info";
-            this.info.Size = new System.Drawing.Size(25, 13);
-            this.info.TabIndex = 221;
-            this.info.Text = "...";
-            // 
             // label_graphicDesigner
             // 
             this.label_graphicDesigner.AutoSize = true;
-            this.label_graphicDesigner.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.label_graphicDesigner.BackColor = System.Drawing.Color.Transparent;
             this.label_graphicDesigner.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold);
             this.label_graphicDesigner.ForeColor = System.Drawing.Color.YellowGreen;
             this.label_graphicDesigner.Location = new System.Drawing.Point(12, 152);
@@ -229,11 +218,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.ClientSize = new System.Drawing.Size(364, 511);
+            this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
+            this.ClientSize = new System.Drawing.Size(364, 491);
             this.Controls.Add(this.label_graphicDesigner);
             this.Controls.Add(this.label_programmers);
             this.Controls.Add(this.label_betaTesters);
-            this.Controls.Add(this.info);
             this.Controls.Add(this.link_1);
             this.Controls.Add(this.pb_3);
             this.Controls.Add(this.link_2);
@@ -244,9 +233,9 @@
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
             this.ForeColor = System.Drawing.Color.Silver;
-            this.Icon = global::fapmap.Properties.Resources.image_icon_credit;
-            this.MaximumSize = new System.Drawing.Size(380, 550);
-            this.MinimumSize = new System.Drawing.Size(380, 550);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(380, 530);
+            this.MinimumSize = new System.Drawing.Size(380, 530);
             this.Name = "fapmap_credit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FAPMAP - CREDITS";
@@ -272,7 +261,6 @@
         private System.Windows.Forms.PictureBox pb_3;
         private System.Windows.Forms.PictureBox pb_0;
         private System.Windows.Forms.ToolTip HelpBalloon;
-        private System.Windows.Forms.Label info;
         private System.Windows.Forms.Label label_graphicDesigner;
     }
 }

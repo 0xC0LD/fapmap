@@ -15,9 +15,9 @@ Programs in this repository:
 
 FAPMAP CONTAINS:
 - custom video player UI (uses WMP binaries)
-<img src="screenshots/wmp.png" width="1232" height="554">
+<img src="screenshots/wmp.png" width="616" height="277">
 - custom image/gif viewer UI
-<img src="screenshots/imageViewer.png" width="1141" height="658">
+<img src="screenshots/imageViewer.png" width="570,5‬" height="329">
 - a file downloader (equipped with a webpage scanner for files (webgrab) and an UI for youtube-dl)
 <img src="screenshots/downloader.png" width="721" height="625">
 - a video converter (uses ffmpeg)

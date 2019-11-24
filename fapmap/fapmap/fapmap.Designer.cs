@@ -975,6 +975,7 @@
             this.showMedia_image.LoadCompleted += new System.ComponentModel.AsyncCompletedEventHandler(this.showMedia_image_LoadCompleted);
             this.showMedia_image.LoadProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.showMedia_image_LoadProgressChanged);
             this.showMedia_image.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.showMedia_image_title_MouseDoubleClick);
+            this.showMedia_image.MouseUp += new System.Windows.Forms.MouseEventHandler(this.showMedia_image_gif_play_MouseUp);
             // 
             // showMedia_image_RMB
             // 
@@ -1100,7 +1101,7 @@
             // 
             resources.ApplyResources(this.showMedia_image_gif_play, "showMedia_image_gif_play");
             this.showMedia_image_gif_play.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.showMedia_image_gif_play.BackgroundImage = global::fapmap.Properties.Resources.arrow_right;
+            this.showMedia_image_gif_play.BackgroundImage = global::fapmap.Properties.Resources.pause;
             this.showMedia_image_gif_play.Cursor = System.Windows.Forms.Cursors.Hand;
             this.showMedia_image_gif_play.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.showMedia_image_gif_play.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;

@@ -10,24 +10,24 @@ Programs in this repository:
 
 
 - fapmap ("fapmap" is the file browser, ... (see below for more info)):
-<img src="screenshots/tab1.png" width="714" height="490">
-<img src="screenshots/tab2.png" width="587" height="532">
+<img src="screenshots/tab1.png" width="807" height="450">
+<img src="screenshots/tab2.png" width="868" height="629">
 
 FAPMAP CONTAINS:
 - custom video player UI (uses WMP binaries)
-<img src="screenshots/wmp.png" width="909" height="503">
+<img src="screenshots/wmp.png" width="1049" height="764">
 - custom image/gif viewer UI
-<img src="screenshots/imageViewer.png" width="599" height="373">
+<img src="screenshots/imageViewer.png" width="1014" height="710">
 - a file downloader (equipped with a webpage scanner for files (webgrab) and an UI for youtube-dl)
-<img src="screenshots/downloader.png" width="779" height="476">
+<img src="screenshots/downloader.png" width="721" height="625">
 - a video converter (uses ffmpeg)
-<img src="screenshots/ffmpeg.png" width="761" height="302">
+<img src="screenshots/ffmpeg.png" width="739" height="368">
 - a file/dir finder
-<img src="screenshots/finder.png" width="494" height="273">
+<img src="screenshots/finder.png" width="687" height="406">
 - an editable URL/website board with favicons
-<img src="screenshots/board.png" width="889" height="714">
+<img src="screenshots/board.png" width="872" height="700">
 - settings (./data/fapmap.ini)
-<img src="screenshots/settings.png" width="792" height="598">
+<img src="screenshots/settings.png" width="784" height="592">
 
 OTHER INFO:
 - Some of the icons/images used in the GUI can be found on the web...

@@ -1200,7 +1200,11 @@ namespace fapmap
         }
         private void menu_open_urlBoard_Click(object sender, EventArgs e) { fapmap_board fb = new fapmap_board(); fb.Show(); }
         private void menu_open_converter_Click(object sender, EventArgs e) { fapmap_ffmpeg ff = new fapmap_ffmpeg(); ff.Show(); }
-        private void menu_open_urlDownloader_Click(object sender, EventArgs e) { fapmap_download fd = new fapmap_download(); fd.Show(); }
+        private void menu_open_urlDownloader_Click(object sender, EventArgs e)
+        {
+            fapmap_download fd = new fapmap_download() { pass_path = faftv_path.Text };
+            fd.Show();
+        }
         private void menu_open_logViewer_Click(object sender, EventArgs e) { fapmap_log fl = new fapmap_log(); fl.Show(); }
         private void menu_open_credits_Click(object sender, EventArgs e) { fapmap_credit fc = new fapmap_credit(); fc.Show(); }
         private void menu_open_settings_Click(object sender, EventArgs e) { fapmap_settings fs = new fapmap_settings(); fs.Show(); }
@@ -1599,10 +1603,6 @@ namespace fapmap
         {
             load_file_or_dir(GlobalVariables.Path.Dir.MainFolder);
         }
-        private void fileDisplay_btn_rename_Click(object sender, EventArgs e)
-        {
-            fileDisplay_renameFile();
-        }
         private void fileDisplay_btn_trashFile_Click(object sender, EventArgs e)
         {
             fileDisplay_trashFile();
@@ -1632,6 +1632,7 @@ namespace fapmap
                 case Keys.Enter: e.SuppressKeyPress = true; fileDisplay_startFile(); break;
                 case Keys.Back: fileDisplay_backDir(); break;
                 case Keys.Delete: fileDisplay_delete(); break;
+                case Keys.F2: fileDisplay_renameFile(); break;
             }
 
             if (e.Control)
@@ -1780,6 +1781,10 @@ namespace fapmap
         private void fileDisplay_RMB_newFolder_Click(object sender, EventArgs e)
         {
             fileDisplay_newFolder();
+        }
+        private void fileDisplay_RMB_rename_Click(object sender, EventArgs e)
+        {
+            fileDisplay_renameFile();
         }
         private void fileDisplay_RMB_properties_Click(object sender, EventArgs e)
         {
@@ -2216,7 +2221,7 @@ namespace fapmap
                     dest = parent + "\\" + di.Name;
                     try
                     {
-                        Microsoft.VisualBasic.FileIO.FileSystem.CopyDirectory(di.FullName, dest);
+                        Microsoft.VisualBasic.FileIO.FileSystem.CopyDirectory(di.FullName, dest, Microsoft.VisualBasic.FileIO.UIOption.AllDialogs);
                     }
                     catch (ArgumentException) { MessageBox.Show("ERRO[ArgumentException]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
                     catch (DirectoryNotFoundException) { MessageBox.Show("ERRO[DirectoryNotFoundException]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
@@ -2234,7 +2239,7 @@ namespace fapmap
                     dest = parent + "\\" + fi.Name;
                     try
                     {
-                        Microsoft.VisualBasic.FileIO.FileSystem.CopyFile(fi.FullName, dest);
+                        Microsoft.VisualBasic.FileIO.FileSystem.CopyFile(fi.FullName, dest, Microsoft.VisualBasic.FileIO.UIOption.AllDialogs);
                     }
                     catch (ArgumentException) { MessageBox.Show("ERRO[ArgumentException]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
                     catch (FileNotFoundException) { MessageBox.Show("ERRO[FileNotFoundException]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
@@ -2249,8 +2254,96 @@ namespace fapmap
 
             load_dir();
         }
+        
+        private void faftv_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = System.Windows.Forms.DragDropEffects.All;
+        }
 
-        //... not finished ...
+        private void faftv_DragDrop(object sender, DragEventArgs e)
+        {
+            string url = e.Data.GetData(DataFormats.StringFormat) as string;
+
+            if (!string.IsNullOrEmpty(url) && Uri.IsWellFormedUriString(url, UriKind.Absolute))
+            {
+                try
+                {
+
+                    fapmap_download fd = new fapmap_download() { pass_path = faftv_path.Text };
+                    fd.links_pass_download.Add(url);
+                    fd.Show();
+                }
+                catch (Exception) { }
+                return;
+            }
+
+            string[] FileList = (string[])e.Data.GetData(System.Windows.DataFormats.FileDrop, false);
+            foreach (string item in FileList)
+            {
+                string parent = faftv_path.Text;
+                string dest = "";
+
+                //get parent if file is txt_path.Text
+                if (File.Exists(faftv_path.Text)) { parent = Directory.GetParent(faftv_path.Text).ToString(); }
+
+                if (Directory.Exists(item)) //copy dir
+                {
+                    DirectoryInfo di = new DirectoryInfo(item);
+                    dest = parent + "\\" + di.Name;
+                    try
+                    {
+                        Microsoft.VisualBasic.FileIO.FileSystem.CopyDirectory(di.FullName, dest, Microsoft.VisualBasic.FileIO.UIOption.AllDialogs);
+                    }
+                    catch (ArgumentException) { MessageBox.Show("ERRO[ArgumentException]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    catch (DirectoryNotFoundException) { MessageBox.Show("ERRO[DirectoryNotFoundException]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    catch (IOException) { MessageBox.Show("ERRO[IOException]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    catch (InvalidOperationException) { MessageBox.Show("ERRO[InvalidOperationException]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    catch (NotSupportedException) { MessageBox.Show("ERRO[NotSupportedException]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    catch (System.Security.SecurityException) { MessageBox.Show("ERRO[SecurityException]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    catch (UnauthorizedAccessException) { MessageBox.Show("ERRO[UnauthorizedAccessException]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    catch (Exception) { MessageBox.Show("ERRO[Exception]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+
+                    if (faftv.SelectedNode != null)
+                    {
+                        faftv.SelectedNode.Nodes.Add(faftv_CreateDirectoryNode(new DirectoryInfo(dest)));
+                    }
+                }
+                else if (File.Exists(item))
+                {
+                    //copy file
+                    FileInfo fi = new FileInfo(item);
+                    dest = parent + "\\" + fi.Name;
+                    try
+                    {
+                        Microsoft.VisualBasic.FileIO.FileSystem.CopyFile(fi.FullName, dest, Microsoft.VisualBasic.FileIO.UIOption.AllDialogs);
+                    }
+                    catch (ArgumentException) { MessageBox.Show("ERRO[ArgumentException]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    catch (FileNotFoundException) { MessageBox.Show("ERRO[FileNotFoundException]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    catch (IOException) { MessageBox.Show("ERRO[IOException]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    catch (InvalidOperationException) { MessageBox.Show("ERRO[InvalidOperationException]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    catch (NotSupportedException) { MessageBox.Show("ERRO[NotSupportedException]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    catch (System.Security.SecurityException) { MessageBox.Show("ERRO[SecurityException]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    catch (UnauthorizedAccessException) { MessageBox.Show("ERRO[UnauthorizedAccessException]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    catch (Exception) { MessageBox.Show("ERRO[Exception]", this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error); }
+
+                    if (faftv.SelectedNode != null)
+                    {
+                        FileInfo fi2 = new FileInfo(dest);
+                        TreeNode tn = new TreeNode()
+                        {
+                            Text = fi2.Name,
+                            Tag = fi2.FullName
+                        };
+
+                        faftv_setImage(fi.Extension, tn);
+                        faftv.SelectedNode.Nodes.Add(tn);
+                    }
+                }
+
+
+            }
+
+        }
 
         #endregion
 
@@ -2974,7 +3067,7 @@ namespace fapmap
 
         //VIDEO POS SCROLL
         private bool showMedia_video_ctrlsPanel_pos_scrolling = false;
-        private bool showMedia_video_ctrlsPanel_pos_hovering = false;
+        //private bool showMedia_video_ctrlsPanel_pos_hovering = false;
         private void showMedia_video_ctrlsPanel_pos_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -2997,7 +3090,7 @@ namespace fapmap
 
         private void showMedia_video_ctrlsPanel_pos_MouseMove(object sender, MouseEventArgs e)
         {
-            showMedia_video_ctrlsPanel_pos_hovering = true;
+            //showMedia_video_ctrlsPanel_pos_hovering = true;
 
             double dblValue = ((double)e.X / (double)showMedia_video_ctrlsPanel_pos.Width) * (showMedia_video_ctrlsPanel_pos.Maximum - showMedia_video_ctrlsPanel_pos.Minimum);
             int dblValue_int = Convert.ToInt32(dblValue);
@@ -3010,19 +3103,15 @@ namespace fapmap
                 );
             TimeSpan t = TimeSpan.FromSeconds(Convert.ToInt32(dblValue_int) / showMedia_video_ctrlsPanel_pos_times);
 
-            // showMedia_video_ctrlsPanel_pos_cur.Text = string.Format("{0:D2}h:{1:D2}m:{2:D2}s:{3:D3}ms",
-            //                 t.Hours,
-            //                 t.Minutes,
-            //                 t.Seconds,
-            //                 t.Milliseconds);
-
-            showMedia_video_ctrlsPanel_pos_cur.ForeColor = Color.Teal;
-            showMedia_video_ctrlsPanel_pos_cur.Text = string.Format("{0:D2}:{1:D2}:{2:D2}", t.Hours, t.Minutes, t.Seconds);
+            string str = string.Format("{0:D2}:{1:D2}:{2:D2}", t.Hours, t.Minutes, t.Seconds);
+            //showMedia_video_ctrlsPanel_pos_cur.ForeColor = Color.Teal;
+            //showMedia_video_ctrlsPanel_pos_cur.Text = str;
+            HelpBalloon.SetToolTip(showMedia_video_ctrlsPanel_pos, str);
         }
         private void showMedia_video_ctrlsPanel_pos_MouseLeave(object sender, EventArgs e)
         {
-            showMedia_video_ctrlsPanel_pos_hovering = false;
-            showMedia_video_ctrlsPanel_pos_cur.ForeColor = Color.SlateBlue;
+            //showMedia_video_ctrlsPanel_pos_hovering = false;
+            //showMedia_video_ctrlsPanel_pos_cur.ForeColor = Color.SlateBlue;
         }
         private void showMedia_video_ctrlsPanel_pos_MouseUp(object sender, MouseEventArgs e)
         {
@@ -3084,7 +3173,7 @@ namespace fapmap
             {
                 try
                 {
-                    if (!showMedia_video_ctrlsPanel_pos_hovering)
+                    //if (!showMedia_video_ctrlsPanel_pos_hovering)
                     {
                         showMedia_video_ctrlsPanel_pos_cur.Text
                             = showMedia_video.Ctlcontrols.currentPositionString.Length == 5 ?
@@ -3261,6 +3350,7 @@ namespace fapmap
         private void showMedia_video_sound_ValueChanged(object sender, EventArgs e)
         {
             showMedia_video.settings.volume = showMedia_video_sound.Value;
+            HelpBalloon.SetToolTip(showMedia_video_sound, "Player Volume ("+ showMedia_video_sound.Value + "%)");
         }
         
         private void showMedia_video_RMB_autoRand_main_CheckedChanged(object sender, EventArgs e)
@@ -3536,10 +3626,7 @@ namespace fapmap
             //GET DIRS
             foreach (DirectoryInfo directory in di.GetDirectories())
             {
-                //SET IMAGE TO DIR
                 node_dir.ImageIndex = node_dir.SelectedImageIndex = 0;
-
-                //ADD DIR
                 node_dir.Nodes.Add(faftv_CreateDirectoryNode(directory));
             }
 
@@ -3548,56 +3635,55 @@ namespace fapmap
             {
                 if (file.Extension != ".ini") //ignore desktop.ini
                 {
-
-                    //ADD FILE
-                    node_dir.Nodes.Add(node_file = new TreeNode(file.Name));
-
-                    //SET THE PATH OF THE FILE TO TAG
-                    node_file.Tag = file.FullName;
-
-                    switch (file.Extension)
-                    {
-                        case ".exe": node_file.ImageIndex = node_file.SelectedImageIndex = 1; break;
-                        case ".mp4":
-                        case ".wmv":
-                        case ".mkv":
-                        case ".mpeg":
-                        case ".mpg": node_file.ImageIndex = node_file.SelectedImageIndex = 2; break;
-                        case ".webm":
-                        case ".avi":
-                        case ".mov": node_file.ImageIndex = node_file.SelectedImageIndex = 3; break;
-                        case ".swf":
-                        case ".flv": node_file.ImageIndex = node_file.SelectedImageIndex = 4; break;
-                        case ".gif": node_file.ImageIndex = node_file.SelectedImageIndex = 5; break;
-                        case ".png":
-                        case ".svg":
-                        case ".ico": node_file.ImageIndex = node_file.SelectedImageIndex = 6; break;
-                        case ".jpg":
-                        case ".jpeg":
-                        case ".jpe":
-                        case ".jiff":
-                        case ".jfif":
-                        case ".bmp":
-                        case ".dib":
-                        case ".tif":
-                        case ".tiff": node_file.ImageIndex = node_file.SelectedImageIndex = 7; break;
-                        case ".mp3":
-                        case ".ogg": node_file.ImageIndex = node_file.SelectedImageIndex = 8; break;
-                        case ".html": node_file.ImageIndex = node_file.SelectedImageIndex = 9; break;
-                        case ".lst":
-                        case ".webgrab_skip":
-                        case ".txt": node_file.ImageIndex = node_file.SelectedImageIndex = 10; break;
-                        case ".bat": node_file.ImageIndex = node_file.SelectedImageIndex = 11; break;
-                        case ".reg": node_file.ImageIndex = node_file.SelectedImageIndex = 12; break;
-
-                        default: node_file.ImageIndex = node_file.SelectedImageIndex = 14; break;
-                    }
-
-                    
+                    node_file = new TreeNode() { Text = file.Name, Tag = file.FullName };
+                    faftv_setImage(file.Extension, node_file);
+                    node_dir.Nodes.Add(node_file);
                 }
             }
 
             return node_dir;
+        }
+
+
+        private void faftv_setImage(string ext, TreeNode node_file)
+        {
+            switch (ext)
+            {
+                case ".exe": node_file.ImageIndex = node_file.SelectedImageIndex = 1; break;
+                case ".mp4":
+                case ".wmv":
+                case ".mkv":
+                case ".mpeg":
+                case ".mpg": node_file.ImageIndex = node_file.SelectedImageIndex = 2; break;
+                case ".webm":
+                case ".avi":
+                case ".mov": node_file.ImageIndex = node_file.SelectedImageIndex = 3; break;
+                case ".swf":
+                case ".flv": node_file.ImageIndex = node_file.SelectedImageIndex = 4; break;
+                case ".gif": node_file.ImageIndex = node_file.SelectedImageIndex = 5; break;
+                case ".png":
+                case ".svg":
+                case ".ico": node_file.ImageIndex = node_file.SelectedImageIndex = 6; break;
+                case ".jpg":
+                case ".jpeg":
+                case ".jpe":
+                case ".jiff":
+                case ".jfif":
+                case ".bmp":
+                case ".dib":
+                case ".tif":
+                case ".tiff": node_file.ImageIndex = node_file.SelectedImageIndex = 7; break;
+                case ".mp3":
+                case ".ogg": node_file.ImageIndex = node_file.SelectedImageIndex = 8; break;
+                case ".html": node_file.ImageIndex = node_file.SelectedImageIndex = 9; break;
+                case ".lst":
+                case ".webgrab_skip":
+                case ".txt": node_file.ImageIndex = node_file.SelectedImageIndex = 10; break;
+                case ".bat": node_file.ImageIndex = node_file.SelectedImageIndex = 11; break;
+                case ".reg": node_file.ImageIndex = node_file.SelectedImageIndex = 12; break;
+
+                default: node_file.ImageIndex = node_file.SelectedImageIndex = 14; break;
+            }
         }
 
         //RELOAD
@@ -3770,6 +3856,37 @@ namespace fapmap
             }
         }
 
+        private void faftv_newFolder()
+        {
+            if (faftv.SelectedNode != null)
+            {
+                string path = faftv.SelectedNode.Tag.ToString();
+                
+                if (File.Exists(path)) { path = Directory.GetParent(path).ToString(); }
+
+                string input = Microsoft.VisualBasic.Interaction.InputBox("New Folder in: " + path, "Create New Folder", "New Folder", -1, -1);
+
+                if (!string.IsNullOrEmpty(input) && !string.IsNullOrEmpty(path))
+                {
+                    string fullpath = path + "\\" + input;
+                    Directory.CreateDirectory(fullpath);
+
+                    TreeNode tn = new TreeNode()
+                    {
+                        Text = input,
+                        Tag = fullpath
+                    };
+
+                    tn.ImageIndex = tn.SelectedImageIndex = 0;
+                    faftv.SelectedNode.Nodes.Add(tn);
+                    
+                    //DISPLAY
+                    LogThis(GlobalVariables.LOG_TYPE.MDIR, path + "\\" + input);
+                    this.Text = "FAPMAP: MKDIR: " + path + "\\" + input;
+                }
+            }
+        }
+
         public static void open_script(string file)
         {
             string input = Microsoft.VisualBasic.Interaction.InputBox
@@ -3820,21 +3937,25 @@ namespace fapmap
                     }
                 case Keys.Delete: faftv_delete(); break;
                 case Keys.F5: faftv_reload(); break;
+                case Keys.F2: fileDisplay_renameFile(); break;
             }
 
             if (e.Control)
             {
                 switch (e.KeyCode)
                 {
-                    case Keys.R: faftv_reload(); e.SuppressKeyPress = true; break;
-                    case Keys.Q: faftv.CollapseAll(); break;
-                    case Keys.E: faftv.ExpandAll(); break;
-                    case Keys.W: Process.Start(@"explorer.exe", faftv_path.Text); break;
-                    case Keys.P: if (faftv.SelectedNode != null) { start_fapmap_info(faftv.SelectedNode.Tag.ToString()); } break;
-                    case Keys.F: fapmap_find fi = new fapmap_find(); fi.Show(); break;
-                    case Keys.H: this_hide(); break;
-                    case Keys.N: fileDisplay_newFolder(); break;
+                    case Keys.R: faftv_reload(); e.SuppressKeyPress = true;       e.SuppressKeyPress = true; break;
+                    case Keys.Q: faftv.CollapseAll();                             e.SuppressKeyPress = true; break;
+                    case Keys.E: faftv.ExpandAll();                               e.SuppressKeyPress = true; break;
+                    case Keys.W: Process.Start(@"explorer.exe", faftv_path.Text); e.SuppressKeyPress = true; break;
+                    case Keys.P: if (faftv.SelectedNode != null)
+                    { start_fapmap_info(faftv.SelectedNode.Tag.ToString()); }     e.SuppressKeyPress = true; break;
+                    case Keys.F: fapmap_find fi = new fapmap_find(); fi.Show();   e.SuppressKeyPress = true; break;
+                    case Keys.H: this_hide();                                     e.SuppressKeyPress = true; break;
+                    case Keys.N: faftv_newFolder();                               e.SuppressKeyPress = true; break;
                 }
+
+                e.SuppressKeyPress = true;
             }
             
         }
@@ -3866,28 +3987,7 @@ namespace fapmap
         {
             Process.Start(@"explorer.exe", GlobalVariables.Path.Dir.MainFolder);
         }
-        //RAND VID
-        private void randomVideoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Random_VOI(faftv_path.Text, "video", true);
-        }
-        //RAND IMG
-        private void randomImageGifToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Random_VOI(faftv_path.Text, "image", true);
-        }
-
-        //RAND VID file display
-        private void fileDisplay_RMB_randVideo_Click(object sender, EventArgs e)
-        {
-            Random_VOI(faftv_path.Text, "video", true);
-        }
-        //RAND IMG file display
-        private void fileDisplay_RMB_randImage_Click(object sender, EventArgs e)
-        {
-            Random_VOI(faftv_path.Text, "image", true);
-        }
-
+        
         #endregion
 
         #region faftv -> CTRLS
@@ -4222,8 +4322,7 @@ namespace fapmap
                 try
                 {
 
-                    fapmap_download fd = new fapmap_download();
-
+                    fapmap_download fd = new fapmap_download() { pass_path = faftv_path.Text };
                     foreach (ListViewItem item in links.SelectedItems)
                     {
                         fd.links_pass_download.Add(item.Tag.ToString());
@@ -4242,9 +4341,7 @@ namespace fapmap
                 {
                     try
                     {
-                        new fapmap_download() { links_pass_webgrab = item.Tag.ToString() }.Show();
-
-                        Thread.Sleep(100);
+                        new fapmap_download() { pass_path = faftv_path.Text, links_pass_webgrab = item.Tag.ToString() }.Show();
                     }
                     catch (Exception) {  }
                 }
@@ -4258,8 +4355,7 @@ namespace fapmap
                 {
                     try
                     {
-                        new fapmap_download() { links_pass_youtubedl = item.Tag.ToString() }.Show();
-                        Thread.Sleep(100);
+                        new fapmap_download() { pass_path = faftv_path.Text, links_pass_youtubedl = item.Tag.ToString() }.Show();
                     }
                     catch (Exception) {  }
                 }
@@ -4604,9 +4700,6 @@ namespace fapmap
         
         private void links_KeyDown(object sender, KeyEventArgs e)
         {
-            fileDisplay_ctrl = e.Control;
-            fileDisplay_shift = e.Shift;
-
             switch (e.KeyCode)
             {
                 case Keys.Enter: e.SuppressKeyPress = true; links_start(); break;
@@ -4635,11 +4728,6 @@ namespace fapmap
             }
             
             
-        }
-        private void links_KeyUp(object sender, KeyEventArgs e)
-        {
-            fileDisplay_ctrl = false;
-            fileDisplay_shift = false;
         }
 
         private void links_RMB_refresh_Click(object sender, EventArgs e)
@@ -4768,7 +4856,7 @@ namespace fapmap
             // node is selected
             if (!e.Node.TreeView.Focused && e.Node == e.Node.TreeView.SelectedNode)
             {
-                foreColor = Color.SkyBlue;
+                foreColor = Color.CornflowerBlue;
                 using (Brush background = new SolidBrush(backColor))
                 {
                     e.Graphics.FillRectangle(background, e.Bounds);
@@ -4777,7 +4865,7 @@ namespace fapmap
             }
             else if ((state & TreeNodeStates.Selected) == TreeNodeStates.Selected)
             {
-                foreColor = Color.CornflowerBlue;
+                foreColor = Color.SkyBlue;
                 using (Brush background = new SolidBrush(backColor))
                 {
                     e.Graphics.FillRectangle(background, e.Bounds);
@@ -5029,11 +5117,13 @@ namespace fapmap
                 video_playList_disable();
             }
         }
-
-        private void links_RMB_Opening(object sender, CancelEventArgs e)
+        
+        private void faftv_RMB_newFolder_Click(object sender, EventArgs e)
         {
-
+            faftv_newFolder();
         }
+
+        
 
         public static void shuffle_string_list(List<string> list)
         {

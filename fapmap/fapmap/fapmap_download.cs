@@ -24,6 +24,8 @@ namespace fapmap
         public string links_pass_webgrab = string.Empty;
         public string links_pass_youtubedl = string.Empty;
 
+        public string pass_path = string.Empty;
+
         public fapmap_download()
         {
             InitializeComponent();
@@ -41,6 +43,11 @@ namespace fapmap
             fapmap.fapmap_cd();
             file_location.Text = fapmap.GlobalVariables.Path.Dir.MainFolder + "\\";
 
+            if (pass_path != string.Empty && Directory.Exists(pass_path))
+            {
+                file_location.Text = pass_path + "\\";
+            }
+
             //hide ext
             webgrab_sw();
             youtubedl_sw();
@@ -56,10 +63,6 @@ namespace fapmap
                     links_add(item);
                 }
                 
-                cb_auto.Checked = true;
-                cb_auto_dl.Checked = true;
-                //rb_close.Checked = true;
-
                 links_pass_download.Clear();
             }
 
@@ -1407,7 +1410,7 @@ namespace fapmap
                 //settings
                 Process youtubedl = new Process();
                 youtubedl.StartInfo.FileName = fapmap.GlobalVariables.Path.File.Exe.Youtubedl;
-                youtubedl.StartInfo.Arguments = "\"" + this_url + "\" -o \"%(title)s.%(ext)s\"";
+                youtubedl.StartInfo.Arguments = "\"" + this_url + "\" -o \"" + file_location.Text + "%(title)s.%(ext)s\"";
                 if (Directory.Exists(file_location.Text)) { youtubedl.StartInfo.WorkingDirectory = file_location.Text; }
                 else { youtubedl.StartInfo.WorkingDirectory = fapmap.GlobalVariables.Path.Dir.MainFolder; }
                 youtubedl.StartInfo.UseShellExecute = false;
@@ -1636,6 +1639,18 @@ namespace fapmap
                     }
                 }
             }
+        }
+
+        private void open_pathSelector_Click(object sender, EventArgs e)
+        {
+            fapmap_downloadPathSelect fp = new fapmap_downloadPathSelect();
+
+            if (fp.ShowDialog(this) == DialogResult.OK)
+            {
+                file_location.Text = fp.path + "\\";
+            }
+
+            fp.Dispose();
         }
     }
 }

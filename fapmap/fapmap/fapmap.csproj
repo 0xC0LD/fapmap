@@ -113,6 +113,12 @@
     <Compile Include="fapmap_credit.Designer.cs">
       <DependentUpon>fapmap_credit.cs</DependentUpon>
     </Compile>
+    <Compile Include="fapmap_downloadPathSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fapmap_downloadPathSelect.Designer.cs">
+      <DependentUpon>fapmap_downloadPathSelect.cs</DependentUpon>
+    </Compile>
     <Compile Include="fapmap_playlist.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fapmap_credit.resx">
       <DependentUpon>fapmap_credit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fapmap_downloadPathSelect.resx">
+      <DependentUpon>fapmap_downloadPathSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fapmap_ffmpeg.resx">
       <DependentUpon>fapmap_ffmpeg.cs</DependentUpon>

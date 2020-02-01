@@ -66,8 +66,8 @@ namespace fapmap
         //LISTBOX 1 CHANGE COLOR
         private void Output_MeasureItem(object sender, MeasureItemEventArgs e)
         {
-            // //word wrap
-            // e.ItemHeight = (int)e.Graphics.MeasureString(Output.Items[e.Index].ToString(), Output.Font, Output.Width).Height;
+            // word wrap
+            //e.ItemHeight = (int)e.Graphics.MeasureString(Output.Items[e.Index].ToString(), Output.Font, Output.Width).Height;
         }
         
         //TOOLTIP
@@ -107,7 +107,8 @@ namespace fapmap
             Output.SelectedItem = null;
             Output.Items.Clear();
 
-            
+            Output.BeginUpdate();
+
             string[] dirs = Directory.GetDirectories(fapmap.GlobalVariables.Path.Dir.MainFolder, "*.*", SearchOption.AllDirectories);
             string[] files = Directory.GetFiles(fapmap.GlobalVariables.Path.Dir.MainFolder, "*.*", SearchOption.AllDirectories);
 
@@ -173,7 +174,8 @@ namespace fapmap
                     }
                 }
             }
-            
+
+            Output.EndUpdate();
 
             //show result
             resultNum.Text = Output.Items.Count + " result(s) found!";
@@ -418,12 +420,12 @@ namespace fapmap
 
             if (!zoomed) //zoom
             {
-                showImage.Location = new Point(showImage.Location.X - resize, showImage.Location.Y - resize);
+                showImage.Location = new Point(showImage.Location.X, showImage.Location.Y - resize);
                 showImage.Size = new Size(showImage.Size.Width + resize, showImage.Size.Height + resize);
             }
             else //unzoom
             {
-                showImage.Location = new Point(showImage.Location.X + resize, showImage.Location.Y + resize);
+                showImage.Location = new Point(showImage.Location.X, showImage.Location.Y + resize);
                 showImage.Size = new Size(showImage.Size.Width - resize, showImage.Size.Height - resize);
             }
 

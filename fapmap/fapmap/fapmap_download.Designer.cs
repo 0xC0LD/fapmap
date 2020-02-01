@@ -54,6 +54,7 @@
             this.links_append = new System.Windows.Forms.Button();
             this.webgrab_start = new System.Windows.Forms.Button();
             this.youtubedl_start = new System.Windows.Forms.Button();
+            this.open_pathSelector = new System.Windows.Forms.Button();
             this.info = new System.Windows.Forms.TextBox();
             this.links_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.links_RMB_refresh = new System.Windows.Forms.ToolStripMenuItem();
@@ -122,7 +123,7 @@
             this.cb_panel.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.cb_panel.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cb_panel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.cb_panel.Location = new System.Drawing.Point(2, 174);
+            this.cb_panel.Location = new System.Drawing.Point(2, 172);
             this.cb_panel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_panel.Name = "cb_panel";
             this.cb_panel.Size = new System.Drawing.Size(165, 72);
@@ -404,10 +405,10 @@
             this.file_location.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.file_location.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.file_location.ForeColor = System.Drawing.Color.SlateBlue;
-            this.file_location.Location = new System.Drawing.Point(2, 130);
+            this.file_location.Location = new System.Drawing.Point(2, 128);
             this.file_location.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.file_location.Name = "file_location";
-            this.file_location.Size = new System.Drawing.Size(480, 20);
+            this.file_location.Size = new System.Drawing.Size(458, 20);
             this.file_location.TabIndex = 21;
             this.file_location.TextChanged += new System.EventHandler(this.file_location_TextChanged);
             this.file_location.KeyDown += new System.Windows.Forms.KeyEventHandler(this.file_location_KeyDown);
@@ -426,7 +427,7 @@
             this.file_open.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.file_open.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.file_open.ForeColor = System.Drawing.Color.DimGray;
-            this.file_open.Location = new System.Drawing.Point(462, 152);
+            this.file_open.Location = new System.Drawing.Point(462, 150);
             this.file_open.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.file_open.Name = "file_open";
             this.file_open.Size = new System.Drawing.Size(20, 20);
@@ -449,7 +450,7 @@
             this.links_dl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.links_dl.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.links_dl.ForeColor = System.Drawing.Color.DimGray;
-            this.links_dl.Location = new System.Drawing.Point(440, 152);
+            this.links_dl.Location = new System.Drawing.Point(440, 150);
             this.links_dl.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.links_dl.Name = "links_dl";
             this.links_dl.Size = new System.Drawing.Size(20, 20);
@@ -540,6 +541,29 @@
             this.HelpBalloon.SetToolTip(this.youtubedl_start, "Download video with youtube-dl.exe");
             this.youtubedl_start.UseVisualStyleBackColor = false;
             this.youtubedl_start.Click += new System.EventHandler(this.youtubedl_start_Click);
+            // 
+            // open_pathSelector
+            // 
+            this.open_pathSelector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.open_pathSelector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.open_pathSelector.BackgroundImage = global::fapmap.Properties.Resources.folder;
+            this.open_pathSelector.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.open_pathSelector.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.open_pathSelector.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.open_pathSelector.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.open_pathSelector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.open_pathSelector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.open_pathSelector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.open_pathSelector.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.open_pathSelector.ForeColor = System.Drawing.Color.SlateBlue;
+            this.open_pathSelector.Location = new System.Drawing.Point(462, 128);
+            this.open_pathSelector.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.open_pathSelector.Name = "open_pathSelector";
+            this.open_pathSelector.Size = new System.Drawing.Size(20, 20);
+            this.open_pathSelector.TabIndex = 160;
+            this.HelpBalloon.SetToolTip(this.open_pathSelector, "Select folder");
+            this.open_pathSelector.UseVisualStyleBackColor = false;
+            this.open_pathSelector.Click += new System.EventHandler(this.open_pathSelector_Click);
             // 
             // info
             // 
@@ -775,6 +799,7 @@
             // sc_youtubedl.Panel2
             // 
             this.sc_youtubedl.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.sc_youtubedl.Panel2.Controls.Add(this.open_pathSelector);
             this.sc_youtubedl.Panel2.Controls.Add(this.info_panel);
             this.sc_youtubedl.Panel2.Controls.Add(this.cb_panel);
             this.sc_youtubedl.Panel2.Controls.Add(this.process_url);
@@ -814,7 +839,7 @@
             this.info_panel.Controls.Add(this.speed_echo);
             this.info_panel.Controls.Add(this.info);
             this.info_panel.Controls.Add(this.info_progress);
-            this.info_panel.Location = new System.Drawing.Point(170, 174);
+            this.info_panel.Location = new System.Drawing.Point(170, 172);
             this.info_panel.Name = "info_panel";
             this.info_panel.Size = new System.Drawing.Size(312, 72);
             this.info_panel.TabIndex = 154;
@@ -852,7 +877,7 @@
             this.filename_changeBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.filename_changeBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.filename_changeBox.ForeColor = System.Drawing.Color.SlateBlue;
-            this.filename_changeBox.Location = new System.Drawing.Point(2, 152);
+            this.filename_changeBox.Location = new System.Drawing.Point(2, 150);
             this.filename_changeBox.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.filename_changeBox.Name = "filename_changeBox";
             this.filename_changeBox.ReadOnly = true;
@@ -898,7 +923,7 @@
             this.links.Location = new System.Drawing.Point(2, 24);
             this.links.MultiSelect = false;
             this.links.Name = "links";
-            this.links.Size = new System.Drawing.Size(480, 104);
+            this.links.Size = new System.Drawing.Size(480, 102);
             this.links.TabIndex = 155;
             this.links.UseCompatibleStateImageBehavior = false;
             this.links.View = System.Windows.Forms.View.Details;
@@ -1026,5 +1051,6 @@
         private System.Windows.Forms.Button youtubedl_start;
         private System.Windows.Forms.CheckBox cb_youtubedl;
         private System.Windows.Forms.CheckBox cb_auto;
+        private System.Windows.Forms.Button open_pathSelector;
     }
 }

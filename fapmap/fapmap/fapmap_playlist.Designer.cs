@@ -205,6 +205,7 @@
             this.Controls.Add(this.cb_keyword);
             this.Controls.Add(this.cb_rmlogs);
             this.Controls.Add(this.cb_random);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
             this.ForeColor = System.Drawing.Color.SlateBlue;
             this.MaximizeBox = false;

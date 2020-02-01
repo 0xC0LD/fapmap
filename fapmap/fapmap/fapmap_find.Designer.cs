@@ -65,11 +65,11 @@
             // 
             // showImage
             // 
-            this.showImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.showImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.showImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.showImage.BackgroundImage = global::fapmap.Properties.Resources.bg3;
             this.showImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.showImage.Location = new System.Drawing.Point(379, 91);
+            this.showImage.Location = new System.Drawing.Point(-1, 91);
             this.showImage.Name = "showImage";
             this.showImage.Size = new System.Drawing.Size(64, 64);
             this.showImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -86,7 +86,7 @@
             this.Output.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Output.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
             this.Output.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Output.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.Output.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(82)))), ((int)(((byte)(189)))));
             this.Output.FormattingEnabled = true;
             this.Output.Location = new System.Drawing.Point(0, 0);
             this.Output.Name = "Output";
@@ -270,6 +270,7 @@
             this.Controls.Add(this.findStart);
             this.Controls.Add(this.OutputBorder);
             this.Controls.Add(this.resultNum);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
             this.ForeColor = System.Drawing.Color.SlateBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

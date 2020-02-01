@@ -125,49 +125,6 @@
   <data name="splitContainer_main.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 27</value>
   </data>
-  <metadata name="HelpBalloon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>914, 17</value>
-  </metadata>
-  <data name="fileDisplay_btn_rename.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="fileDisplay_btn_rename.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="fileDisplay_btn_rename.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="fileDisplay_btn_rename.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="fileDisplay_btn_rename.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="fileDisplay_btn_rename.Location" type="System.Drawing.Point, System.Drawing">
-    <value>343, 3</value>
-  </data>
-  <data name="fileDisplay_btn_rename.Size" type="System.Drawing.Size, System.Drawing">
-    <value>21, 21</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="fileDisplay_btn_rename.TabIndex" type="System.Int32, mscorlib">
-    <value>171</value>
-  </data>
-  <data name="fileDisplay_btn_rename.ToolTip" xml:space="preserve">
-    <value>Rename</value>
-  </data>
-  <data name="&gt;&gt;fileDisplay_btn_rename.Name" xml:space="preserve">
-    <value>fileDisplay_btn_rename</value>
-  </data>
-  <data name="&gt;&gt;fileDisplay_btn_rename.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fileDisplay_btn_rename.Parent" xml:space="preserve">
-    <value>splitContainer_main.Panel1</value>
-  </data>
-  <data name="&gt;&gt;fileDisplay_btn_rename.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="fileDisplay_btn_reload.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
@@ -186,9 +143,13 @@
   <data name="fileDisplay_btn_reload.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="fileDisplay_btn_reload.TabIndex" type="System.Int32, mscorlib">
     <value>170</value>
   </data>
+  <metadata name="HelpBalloon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>734, 17</value>
+  </metadata>
   <data name="fileDisplay_btn_reload.ToolTip" xml:space="preserve">
     <value>Reload</value>
   </data>
@@ -202,85 +163,7 @@
     <value>splitContainer_main.Panel1</value>
   </data>
   <data name="&gt;&gt;fileDisplay_btn_reload.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="fileDisplay_btn_open.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="fileDisplay_btn_open.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="fileDisplay_btn_open.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="fileDisplay_btn_open.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="fileDisplay_btn_open.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="fileDisplay_btn_open.Location" type="System.Drawing.Point, System.Drawing">
-    <value>389, 3</value>
-  </data>
-  <data name="fileDisplay_btn_open.Size" type="System.Drawing.Size, System.Drawing">
-    <value>21, 21</value>
-  </data>
-  <data name="fileDisplay_btn_open.TabIndex" type="System.Int32, mscorlib">
-    <value>169</value>
-  </data>
-  <data name="fileDisplay_btn_open.ToolTip" xml:space="preserve">
-    <value>Open File (File Only, LMB = OPEN/RMB = OPEN IN EXPLORER)</value>
-  </data>
-  <data name="&gt;&gt;fileDisplay_btn_open.Name" xml:space="preserve">
-    <value>fileDisplay_btn_open</value>
-  </data>
-  <data name="&gt;&gt;fileDisplay_btn_open.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fileDisplay_btn_open.Parent" xml:space="preserve">
-    <value>splitContainer_main.Panel1</value>
-  </data>
-  <data name="&gt;&gt;fileDisplay_btn_open.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="fileDisplay_btn_trashFile.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="fileDisplay_btn_trashFile.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="fileDisplay_btn_trashFile.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="fileDisplay_btn_trashFile.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 8.25pt</value>
-  </data>
-  <data name="fileDisplay_btn_trashFile.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="fileDisplay_btn_trashFile.Location" type="System.Drawing.Point, System.Drawing">
-    <value>366, 3</value>
-  </data>
-  <data name="fileDisplay_btn_trashFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>21, 21</value>
-  </data>
-  <data name="fileDisplay_btn_trashFile.TabIndex" type="System.Int32, mscorlib">
-    <value>168</value>
-  </data>
-  <data name="fileDisplay_btn_trashFile.ToolTip" xml:space="preserve">
-    <value>Trash File (File Only)</value>
-  </data>
-  <data name="&gt;&gt;fileDisplay_btn_trashFile.Name" xml:space="preserve">
-    <value>fileDisplay_btn_trashFile</value>
-  </data>
-  <data name="&gt;&gt;fileDisplay_btn_trashFile.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fileDisplay_btn_trashFile.Parent" xml:space="preserve">
-    <value>splitContainer_main.Panel1</value>
-  </data>
-  <data name="&gt;&gt;fileDisplay_btn_trashFile.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>0</value>
   </data>
   <data name="splitContainer_files.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -289,10 +172,82 @@
     <value>4, 26</value>
   </data>
   <metadata name="faftv_RMB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>670, 17</value>
+    <value>490, 17</value>
   </metadata>
+  <data name="faftv_RMB_refresh.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="faftv_RMB_refresh.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 22</value>
+  </data>
+  <data name="faftv_RMB_refresh.Text" xml:space="preserve">
+    <value>Refresh (CTRL+R/F5)</value>
+  </data>
+  <data name="faftv_RMB_collapseTree.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="faftv_RMB_collapseTree.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 22</value>
+  </data>
+  <data name="faftv_RMB_collapseTree.Text" xml:space="preserve">
+    <value>Collapse Tree (CTRL+Q)</value>
+  </data>
+  <data name="faftv_RMB_expandTree.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="faftv_RMB_expandTree.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 22</value>
+  </data>
+  <data name="faftv_RMB_expandTree.Text" xml:space="preserve">
+    <value>Expand Tree (CTRL+E)</value>
+  </data>
+  <data name="faftv_RMB_open.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="faftv_RMB_open.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 22</value>
+  </data>
+  <data name="faftv_RMB_open.Text" xml:space="preserve">
+    <value>Open Selected (ENTER)</value>
+  </data>
+  <data name="faftv_RMB_explorer.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="faftv_RMB_explorer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 22</value>
+  </data>
+  <data name="faftv_RMB_explorer.Text" xml:space="preserve">
+    <value>Open Windows Explorer (CTRL+W)</value>
+  </data>
+  <data name="faftv_RMB_newFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 22</value>
+  </data>
+  <data name="faftv_RMB_newFolder.Text" xml:space="preserve">
+    <value>New Folder (CTRL+N)</value>
+  </data>
+  <data name="faftv_RMB_rename.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 22</value>
+  </data>
+  <data name="faftv_RMB_rename.Text" xml:space="preserve">
+    <value>Rename (F2)</value>
+  </data>
+  <data name="faftv_RMB_delete.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="faftv_RMB_delete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 22</value>
+  </data>
+  <data name="faftv_RMB_delete.Text" xml:space="preserve">
+    <value>Trash File/Folder (DEL) </value>
+  </data>
+  <data name="faftv_RMB_properties.Size" type="System.Drawing.Size, System.Drawing">
+    <value>258, 22</value>
+  </data>
+  <data name="faftv_RMB_properties.Text" xml:space="preserve">
+    <value>Properties (CTRL+P)</value>
+  </data>
   <data name="faftv_RMB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>259, 180</value>
+    <value>259, 202</value>
   </data>
   <data name="&gt;&gt;faftv_RMB.Name" xml:space="preserve">
     <value>faftv_RMB</value>
@@ -317,7 +272,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABE
-        NQAAAk1TRnQBSQFMAgEBDwEAARABFgEQARYBEAEAARABAAT/AREBAAj/AUIBTQE2BwABNgMAASgDAAFA
+        NQAAAk1TRnQBSQFMAgEBDwEAAYABFgGAARYBEAEAARABAAT/AREBAAj/AUIBTQE2BwABNgMAASgDAAFA
         AwABQAMAAQEBAAEQBgABIBQAAUsBJQHIARQByAEUAcgBFAHIARQByAEUAcgBFAHIARQByAEUAcgBFAHI
         ARQByAEUAcgBFAFLASUMAAHTAQAB0wEAAdMBAAHTAQAB0wEAAdMNAAFLASUByAEUAcgBFAHIARQByAEU
         AcgBFAHIARQByAEUAcgBFAHIARQByAEUAcgBFAHIARQBSwElJAABrgExAf8BfwH/AX8B/wF/Af8BfwH/
@@ -590,10 +545,76 @@
     <value>Default</value>
   </data>
   <metadata name="fileDisplay_RMB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>776, 17</value>
+    <value>596, 17</value>
   </metadata>
+  <data name="fileDisplay_RMB_refresh.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="fileDisplay_RMB_refresh.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_refresh.Text" xml:space="preserve">
+    <value>Refresh (CTRL+R/F5)</value>
+  </data>
+  <data name="fileDisplay_RMB_open.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="fileDisplay_RMB_open.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_open.Text" xml:space="preserve">
+    <value>Open Selected (ENTER)</value>
+  </data>
+  <data name="fileDisplay_RMB_explorer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_explorer.Text" xml:space="preserve">
+    <value>Open in Explorer (CTRL+U)</value>
+  </data>
+  <data name="fileDisplay_RMB_explorer2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="fileDisplay_RMB_explorer2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_explorer2.Text" xml:space="preserve">
+    <value>Open Windows Explorer (CTRL+W)</value>
+  </data>
+  <data name="fileDisplay_RMB_newFolder.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="fileDisplay_RMB_newFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_newFolder.Text" xml:space="preserve">
+    <value>New Folder (CTRL+E)</value>
+  </data>
+  <data name="fileDisplay_RMB_rename.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="fileDisplay_RMB_rename.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_rename.Text" xml:space="preserve">
+    <value>Rename (F2)</value>
+  </data>
+  <data name="fileDisplay_RMB_delete.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="fileDisplay_RMB_delete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_delete.Text" xml:space="preserve">
+    <value>Trash File/Folder (DEL)</value>
+  </data>
+  <data name="fileDisplay_RMB_properties.Size" type="System.Drawing.Size, System.Drawing">
+    <value>253, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_properties.Text" xml:space="preserve">
+    <value>Properties (CTRL+P)</value>
+  </data>
   <data name="fileDisplay_RMB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>254, 202</value>
+    <value>254, 180</value>
   </data>
   <data name="&gt;&gt;fileDisplay_RMB.Name" xml:space="preserve">
     <value>fileDisplay_RMB</value>
@@ -662,7 +683,7 @@
     <value>splitContainer_main.Panel1</value>
   </data>
   <data name="&gt;&gt;splitContainer_files.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>1</value>
   </data>
   <data name="fileDisplay_btn_randImage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -701,7 +722,7 @@
     <value>splitContainer_main.Panel1</value>
   </data>
   <data name="&gt;&gt;fileDisplay_btn_randImage.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>2</value>
   </data>
   <data name="faftv_path.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
@@ -721,19 +742,19 @@
         c3RlbS5EcmF3aW5nLkNvbG9yAwAAABRTeXN0ZW0uRHJhd2luZy5Db2xvcgMAAAAUU3lzdGVtLkRyYXdp
         bmcuQ29sb3IDAAAAFFN5c3RlbS5EcmF3aW5nLkNvbG9yAwAAABRTeXN0ZW0uRHJhd2luZy5Db2xvcgMA
         AAAUU3lzdGVtLkRyYXdpbmcuQ29sb3IDAAAAAgAAAAX8////FFN5c3RlbS5EcmF3aW5nLkNvbG9yBAAA
-        AARuYW1lBXZhbHVlCmtub3duQ29sb3IFc3RhdGUBAAAACQcHAwAAAAoAAAAAAAAAAJYAAQAB+/////z/
-        //8KAAAAAAAAAAAjAAEAAfr////8////CgAAAAAAAAAAlgABAAH5/////P///woAAAAAAAAAAEQAAQAB
-        +P////z///8KAAAAAAAAAABEAAEAAff////8////CgAAAAAAAAAAlgABAAs=
+        AARuYW1lBXZhbHVlCmtub3duQ29sb3IFc3RhdGUBAAAACQcHAwAAAAoAAAAAAAAAAJ4AAQAB+/////z/
+        //8KAAAAAAAAAAAjAAEAAfr////8////CgAAAAAAAAAAHgABAAH5/////P///woAAAAAAAAAAJ4AAQAB
+        +P////z///8KAAAAAAAAAACeAAEAAff////8////CgAAAAAAAAAAngABAAs=
 </value>
   </data>
   <data name="faftv_path.Font" type="System.Drawing.Font, System.Drawing">
     <value>Verdana, 8.25pt</value>
   </data>
   <data name="faftv_path.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 3</value>
+    <value>73, 3</value>
   </data>
   <data name="faftv_path.Size" type="System.Drawing.Size, System.Drawing">
-    <value>268, 21</value>
+    <value>337, 21</value>
   </data>
   <data name="faftv_path.TabIndex" type="System.Int32, mscorlib">
     <value>142</value>
@@ -751,10 +772,7 @@
     <value>splitContainer_main.Panel1</value>
   </data>
   <data name="&gt;&gt;faftv_path.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="fileDisplay_btn_root.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
+    <value>3</value>
   </data>
   <data name="fileDisplay_btn_root.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -769,7 +787,7 @@
     <value>NoControl</value>
   </data>
   <data name="fileDisplay_btn_root.Location" type="System.Drawing.Point, System.Drawing">
-    <value>320, 3</value>
+    <value>50, 3</value>
   </data>
   <data name="fileDisplay_btn_root.Size" type="System.Drawing.Size, System.Drawing">
     <value>21, 21</value>
@@ -790,7 +808,7 @@
     <value>splitContainer_main.Panel1</value>
   </data>
   <data name="&gt;&gt;fileDisplay_btn_root.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>4</value>
   </data>
   <data name="fileDisplay_btn_backDir.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -826,7 +844,7 @@
     <value>splitContainer_main.Panel1</value>
   </data>
   <data name="&gt;&gt;fileDisplay_btn_backDir.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>5</value>
   </data>
   <data name="fileDisplay_btn_randVideo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -865,7 +883,7 @@
     <value>splitContainer_main.Panel1</value>
   </data>
   <data name="&gt;&gt;fileDisplay_btn_randVideo.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;splitContainer_main.Panel1.Name" xml:space="preserve">
     <value>splitContainer_main.Panel1</value>
@@ -946,10 +964,154 @@
     <value>93</value>
   </data>
   <metadata name="links_RMB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>563, 17</value>
+    <value>383, 17</value>
   </metadata>
+  <data name="links_RMB_refresh.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="links_RMB_refresh.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 22</value>
+  </data>
+  <data name="links_RMB_refresh.Text" xml:space="preserve">
+    <value>Refresh (CTRL+R/F5)</value>
+  </data>
+  <data name="links_RMB_edit.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="links_RMB_edit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 22</value>
+  </data>
+  <data name="links_RMB_edit.Text" xml:space="preserve">
+    <value>Edit Links (CTRL+E)</value>
+  </data>
+  <data name="links_RMB_open.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="links_RMB_open.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 22</value>
+  </data>
+  <data name="links_RMB_open.Text" xml:space="preserve">
+    <value>Open Selected (ENTER)</value>
+  </data>
+  <data name="links_RMB_incognito.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="links_RMB_incognito.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 22</value>
+  </data>
+  <data name="links_RMB_incognito.Text" xml:space="preserve">
+    <value>Incognito (CTRL+W)</value>
+  </data>
+  <data name="links_RMB_commentOut.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="links_RMB_commentOut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 22</value>
+  </data>
+  <data name="links_RMB_commentOut.Text" xml:space="preserve">
+    <value>Comment Out (CTRL+Q)</value>
+  </data>
+  <data name="links_RMB_uncomment.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="links_RMB_uncomment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 22</value>
+  </data>
+  <data name="links_RMB_uncomment.Text" xml:space="preserve">
+    <value>Uncomment (CTRL+T)</value>
+  </data>
+  <data name="links_RMB_copy.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="links_RMB_copy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 22</value>
+  </data>
+  <data name="links_RMB_copy.Text" xml:space="preserve">
+    <value>Copy Selected (CTRL+C)</value>
+  </data>
+  <data name="links_RMB_cut.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="links_RMB_cut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 22</value>
+  </data>
+  <data name="links_RMB_cut.Text" xml:space="preserve">
+    <value>Cut Selected (CTRL+X)</value>
+  </data>
+  <data name="links_RMB_paste.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="links_RMB_paste.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 22</value>
+  </data>
+  <data name="links_RMB_paste.Text" xml:space="preserve">
+    <value>Paste From Clipboard (CTRL+V)</value>
+  </data>
+  <data name="links_RMB_find.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="links_RMB_find.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 22</value>
+  </data>
+  <data name="links_RMB_find.Text" xml:space="preserve">
+    <value>Find (CTRL+F)</value>
+  </data>
+  <data name="links_RMB_reloadTitle.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="links_RMB_reloadTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 22</value>
+  </data>
+  <data name="links_RMB_reloadTitle.Text" xml:space="preserve">
+    <value>Reload Title (CTRL+S)</value>
+  </data>
+  <data name="links_RMB_urlBoard.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="links_RMB_urlBoard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 22</value>
+  </data>
+  <data name="links_RMB_urlBoard.Text" xml:space="preserve">
+    <value>URL Board (CTRL+B)</value>
+  </data>
+  <data name="links_RMB_youtubedl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="links_RMB_youtubedl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 22</value>
+  </data>
+  <data name="links_RMB_youtubedl.Text" xml:space="preserve">
+    <value>Download Video (in CD) (youtube-dl.exe) (CTRL+Y)</value>
+  </data>
+  <data name="links_RMB_webgrab.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="links_RMB_webgrab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 22</value>
+  </data>
+  <data name="links_RMB_webgrab.Text" xml:space="preserve">
+    <value>Scan Web Page (in CD) (webgrab.exe) (CTRL+SHIFT+D)</value>
+  </data>
+  <data name="links_RMB_download.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="links_RMB_download.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 22</value>
+  </data>
+  <data name="links_RMB_download.Text" xml:space="preserve">
+    <value>Download (File) URL (in CD) (CTRL+D)</value>
+  </data>
+  <data name="links_RMB_delete.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="links_RMB_delete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>365, 22</value>
+  </data>
+  <data name="links_RMB_delete.Text" xml:space="preserve">
+    <value>Delete Selected Link (DEL)</value>
+  </data>
   <data name="links_RMB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>326, 356</value>
+    <value>366, 356</value>
   </data>
   <data name="&gt;&gt;links_RMB.Name" xml:space="preserve">
     <value>links_RMB</value>
@@ -964,7 +1126,7 @@
     <value>False</value>
   </data>
   <metadata name="favicons.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
+    <value>137, 56</value>
   </metadata>
   <data name="favicons.ImageSize" type="System.Drawing.Size, System.Drawing">
     <value>16, 16</value>
@@ -1179,293 +1341,8 @@
   <data name="&gt;&gt;splitContainer_main.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="faftv_RMB_refresh.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="faftv_RMB_refresh.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
-  </data>
-  <data name="faftv_RMB_refresh.Text" xml:space="preserve">
-    <value>Refresh (CTRL+R/F5)</value>
-  </data>
-  <data name="faftv_RMB_collapseTree.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="faftv_RMB_collapseTree.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
-  </data>
-  <data name="faftv_RMB_collapseTree.Text" xml:space="preserve">
-    <value>Collapse Tree (CTRL+Q)</value>
-  </data>
-  <data name="faftv_RMB_expandTree.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="faftv_RMB_expandTree.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
-  </data>
-  <data name="faftv_RMB_expandTree.Text" xml:space="preserve">
-    <value>Expand Tree (CTRL+E)</value>
-  </data>
-  <data name="faftv_RMB_open.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="faftv_RMB_open.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
-  </data>
-  <data name="faftv_RMB_open.Text" xml:space="preserve">
-    <value>Open Selected (ENTER)</value>
-  </data>
-  <data name="faftv_RMB_explorer.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="faftv_RMB_explorer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
-  </data>
-  <data name="faftv_RMB_explorer.Text" xml:space="preserve">
-    <value>Open Windows Explorer (CTRL+W)</value>
-  </data>
-  <data name="faftv_RMB_delete.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="faftv_RMB_delete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
-  </data>
-  <data name="faftv_RMB_delete.Text" xml:space="preserve">
-    <value>Trash File/Folder (DEL) </value>
-  </data>
-  <data name="faftv_RMB_newFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
-  </data>
-  <data name="faftv_RMB_newFolder.Text" xml:space="preserve">
-    <value>New Folder (CTRL+N)</value>
-  </data>
-  <data name="faftv_RMB_properties.Size" type="System.Drawing.Size, System.Drawing">
-    <value>258, 22</value>
-  </data>
-  <data name="faftv_RMB_properties.Text" xml:space="preserve">
-    <value>Properties (CTRL+P)</value>
-  </data>
-  <data name="fileDisplay_RMB_refresh.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8.25pt</value>
-  </data>
-  <data name="fileDisplay_RMB_refresh.Size" type="System.Drawing.Size, System.Drawing">
-    <value>253, 22</value>
-  </data>
-  <data name="fileDisplay_RMB_refresh.Text" xml:space="preserve">
-    <value>Refresh (CTRL+R/F5)</value>
-  </data>
-  <data name="fileDisplay_RMB_open.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8.25pt</value>
-  </data>
-  <data name="fileDisplay_RMB_open.Size" type="System.Drawing.Size, System.Drawing">
-    <value>253, 22</value>
-  </data>
-  <data name="fileDisplay_RMB_open.Text" xml:space="preserve">
-    <value>Open Selected (ENTER)</value>
-  </data>
-  <data name="fileDisplay_RMB_explorer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>253, 22</value>
-  </data>
-  <data name="fileDisplay_RMB_explorer.Text" xml:space="preserve">
-    <value>Open in Explorer (CTRL+U)</value>
-  </data>
-  <data name="fileDisplay_RMB_explorer2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8.25pt</value>
-  </data>
-  <data name="fileDisplay_RMB_explorer2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>253, 22</value>
-  </data>
-  <data name="fileDisplay_RMB_explorer2.Text" xml:space="preserve">
-    <value>Open Windows Explorer (CTRL+W)</value>
-  </data>
-  <data name="fileDisplay_RMB_randVideo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8.25pt</value>
-  </data>
-  <data name="fileDisplay_RMB_randVideo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>253, 22</value>
-  </data>
-  <data name="fileDisplay_RMB_randVideo.Text" xml:space="preserve">
-    <value>Random Video (CTRL+Z)</value>
-  </data>
-  <data name="fileDisplay_RMB_randImage.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8.25pt</value>
-  </data>
-  <data name="fileDisplay_RMB_randImage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>253, 22</value>
-  </data>
-  <data name="fileDisplay_RMB_randImage.Text" xml:space="preserve">
-    <value>Random Image/Gif (CTRL+X)</value>
-  </data>
-  <data name="fileDisplay_RMB_delete.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8.25pt</value>
-  </data>
-  <data name="fileDisplay_RMB_delete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>253, 22</value>
-  </data>
-  <data name="fileDisplay_RMB_delete.Text" xml:space="preserve">
-    <value>Trash File/Folder (DEL)</value>
-  </data>
-  <data name="fileDisplay_RMB_newFolder.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8.25pt</value>
-  </data>
-  <data name="fileDisplay_RMB_newFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>253, 22</value>
-  </data>
-  <data name="fileDisplay_RMB_newFolder.Text" xml:space="preserve">
-    <value>New Folder (CTRL+E)</value>
-  </data>
-  <data name="fileDisplay_RMB_properties.Size" type="System.Drawing.Size, System.Drawing">
-    <value>253, 22</value>
-  </data>
-  <data name="fileDisplay_RMB_properties.Text" xml:space="preserve">
-    <value>Properties (CTRL+P)</value>
-  </data>
-  <data name="links_RMB_refresh.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_refresh.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_refresh.Text" xml:space="preserve">
-    <value>Refresh (CTRL+R/F5)</value>
-  </data>
-  <data name="links_RMB_edit.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_edit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_edit.Text" xml:space="preserve">
-    <value>Edit Links (CTRL+E)</value>
-  </data>
-  <data name="links_RMB_open.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_open.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_open.Text" xml:space="preserve">
-    <value>Open Selected (ENTER)</value>
-  </data>
-  <data name="links_RMB_incognito.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_incognito.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_incognito.Text" xml:space="preserve">
-    <value>Incognito (CTRL+W)</value>
-  </data>
-  <data name="links_RMB_commentOut.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_commentOut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_commentOut.Text" xml:space="preserve">
-    <value>Comment Out (CTRL+Q)</value>
-  </data>
-  <data name="links_RMB_uncomment.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_uncomment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_uncomment.Text" xml:space="preserve">
-    <value>Uncomment (CTRL+T)</value>
-  </data>
-  <data name="links_RMB_copy.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_copy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_copy.Text" xml:space="preserve">
-    <value>Copy Selected (CTRL+C)</value>
-  </data>
-  <data name="links_RMB_cut.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_cut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_cut.Text" xml:space="preserve">
-    <value>Cut Selected (CTRL+X)</value>
-  </data>
-  <data name="links_RMB_paste.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_paste.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_paste.Text" xml:space="preserve">
-    <value>Paste From Clipboard (CTRL+V)</value>
-  </data>
-  <data name="links_RMB_find.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_find.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_find.Text" xml:space="preserve">
-    <value>Find (CTRL+F)</value>
-  </data>
-  <data name="links_RMB_reloadTitle.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_reloadTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_reloadTitle.Text" xml:space="preserve">
-    <value>Reload Title (CTRL+S)</value>
-  </data>
-  <data name="links_RMB_urlBoard.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_urlBoard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_urlBoard.Text" xml:space="preserve">
-    <value>URL Board (CTRL+B)</value>
-  </data>
-  <data name="links_RMB_youtubedl.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_youtubedl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_youtubedl.Text" xml:space="preserve">
-    <value>Download Video (youtube-dl.exe) (CTRL+Y)</value>
-  </data>
-  <data name="links_RMB_webgrab.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_webgrab.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_webgrab.Text" xml:space="preserve">
-    <value>Scan Web Page (webgrab.exe) (CTRL+SHIFT+D)</value>
-  </data>
-  <data name="links_RMB_download.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_download.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_download.Text" xml:space="preserve">
-    <value>Download (File) URL (CTRL+D)</value>
-  </data>
-  <data name="links_RMB_delete.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_delete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_delete.Text" xml:space="preserve">
-    <value>Delete Selected Link (DEL)</value>
-  </data>
   <metadata name="this_trayicon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1115, 17</value>
+    <value>17, 56</value>
   </metadata>
   <data name="this_trayicon.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4245,44 +4122,8 @@
     <value>None</value>
   </data>
   <metadata name="showMedia_image_RMB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>319, 56</value>
+    <value>439, 56</value>
   </metadata>
-  <data name="showMedia_image_RMB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 158</value>
-  </data>
-  <data name="&gt;&gt;showMedia_image_RMB.Name" xml:space="preserve">
-    <value>showMedia_image_RMB</value>
-  </data>
-  <data name="&gt;&gt;showMedia_image_RMB.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="showMedia_image.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="showMedia_image.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-1, 25</value>
-  </data>
-  <data name="showMedia_image.Size" type="System.Drawing.Size, System.Drawing">
-    <value>454, 123</value>
-  </data>
-  <data name="showMedia_image.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>Zoom</value>
-  </data>
-  <data name="showMedia_image.TabIndex" type="System.Int32, mscorlib">
-    <value>154</value>
-  </data>
-  <data name="&gt;&gt;showMedia_image.Name" xml:space="preserve">
-    <value>showMedia_image</value>
-  </data>
-  <data name="&gt;&gt;showMedia_image.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_image.Parent" xml:space="preserve">
-    <value>showMedia_image_panel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_image.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="showMedia_image_RMB_close.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 9pt</value>
   </data>
@@ -4346,9 +4187,42 @@
   <data name="showMedia_image_RMB_properties.Text" xml:space="preserve">
     <value>Properties</value>
   </data>
-  <metadata name="HelpBalloon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>914, 17</value>
-  </metadata>
+  <data name="showMedia_image_RMB.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 158</value>
+  </data>
+  <data name="&gt;&gt;showMedia_image_RMB.Name" xml:space="preserve">
+    <value>showMedia_image_RMB</value>
+  </data>
+  <data name="&gt;&gt;showMedia_image_RMB.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="showMedia_image.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="showMedia_image.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-1, 25</value>
+  </data>
+  <data name="showMedia_image.Size" type="System.Drawing.Size, System.Drawing">
+    <value>454, 123</value>
+  </data>
+  <data name="showMedia_image.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="showMedia_image.TabIndex" type="System.Int32, mscorlib">
+    <value>154</value>
+  </data>
+  <data name="&gt;&gt;showMedia_image.Name" xml:space="preserve">
+    <value>showMedia_image</value>
+  </data>
+  <data name="&gt;&gt;showMedia_image.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;showMedia_image.Parent" xml:space="preserve">
+    <value>showMedia_image_panel</value>
+  </data>
+  <data name="&gt;&gt;showMedia_image.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="showMedia_video_skip.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
@@ -4758,7 +4632,7 @@
     <value>185</value>
   </data>
   <data name="showMedia_video_sound.ToolTip" xml:space="preserve">
-    <value>Player Volume</value>
+    <value>Player Volume (100%)</value>
   </data>
   <data name="&gt;&gt;showMedia_video_sound.Name" xml:space="preserve">
     <value>showMedia_video_sound</value>
@@ -4775,110 +4649,128 @@
   <data name="showMedia_video_panel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;showMedia_video_panel2.Name" xml:space="preserve">
-    <value>showMedia_video_panel2</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel2.Parent" xml:space="preserve">
-    <value>showMedia_video_panel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_title.Name" xml:space="preserve">
-    <value>showMedia_video_title</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_title.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_title.Parent" xml:space="preserve">
-    <value>showMedia_video_panel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_title.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="showMedia_video_panel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>300, 85</value>
-  </data>
-  <data name="showMedia_video_panel.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>230, 200</value>
-  </data>
-  <data name="showMedia_video_panel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>458, 200</value>
-  </data>
-  <data name="showMedia_video_panel.TabIndex" type="System.Int32, mscorlib">
-    <value>156</value>
-  </data>
-  <data name="showMedia_video_panel.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel.Name" xml:space="preserve">
-    <value>showMedia_video_panel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
   <data name="showMedia_video_panel2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;showMedia_video.Name" xml:space="preserve">
-    <value>showMedia_video</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video.Type" xml:space="preserve">
-    <value>AxWMPLib.AxWindowsMediaPlayer, AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video.Parent" xml:space="preserve">
-    <value>showMedia_video_panel2</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel.Name" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel.Parent" xml:space="preserve">
-    <value>showMedia_video_panel2</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="showMedia_video_panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-1, 25</value>
-  </data>
-  <data name="showMedia_video_panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>454, 170</value>
-  </data>
-  <data name="showMedia_video_panel2.TabIndex" type="System.Int32, mscorlib">
-    <value>157</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel2.Name" xml:space="preserve">
-    <value>showMedia_video_panel2</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel2.Parent" xml:space="preserve">
-    <value>showMedia_video_panel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="showMedia_video_RMB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>383, 17</value>
+    <value>218, 95</value>
   </metadata>
   <data name="showMedia_video_RMB.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="showMedia_video_RMB_close.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="showMedia_video_RMB_close.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_close.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="showMedia_video_RMB_repeat.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="showMedia_video_RMB_repeat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_repeat.Text" xml:space="preserve">
+    <value>Repeat</value>
+  </data>
+  <data name="showMedia_video_RMB_moveTo.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="showMedia_video_RMB_moveTo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_moveTo.Text" xml:space="preserve">
+    <value>Move To</value>
+  </data>
+  <data name="showMedia_video_RMB_autoRand_main.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_autoRand_main.Text" xml:space="preserve">
+    <value>Main Folder</value>
+  </data>
+  <data name="showMedia_video_RMB_autoRand_dir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_autoRand_dir.Text" xml:space="preserve">
+    <value>Here</value>
+  </data>
+  <data name="showMedia_video_RMB_autoRand.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="showMedia_video_RMB_autoRand.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_autoRand.Text" xml:space="preserve">
+    <value>Auto Random</value>
+  </data>
+  <data name="showMedia_video_RMB_playList_make.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_playList_make.Text" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="showMedia_video_RMB_playList_skip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_playList_skip.Text" xml:space="preserve">
+    <value>Go To</value>
+  </data>
+  <data name="showMedia_video_RMB_playList.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="showMedia_video_RMB_playList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_playList.Text" xml:space="preserve">
+    <value>Playlist</value>
+  </data>
+  <data name="showMedia_video_RMB_openFile.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="showMedia_video_RMB_openFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_openFile.Text" xml:space="preserve">
+    <value>Open File</value>
+  </data>
+  <data name="showMedia_video_RMB_explorer.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="showMedia_video_RMB_explorer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_explorer.Text" xml:space="preserve">
+    <value>Open in Explorer</value>
+  </data>
+  <data name="showMedia_video_RMB_convert.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="showMedia_video_RMB_convert.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_convert.Text" xml:space="preserve">
+    <value>Convert (ffmpeg.exe)</value>
+  </data>
+  <data name="showMedia_video_RMB_delete.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="showMedia_video_RMB_delete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_delete.Text" xml:space="preserve">
+    <value>Delete File</value>
+  </data>
+  <data name="showMedia_video_RMB_properties.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 9pt</value>
+  </data>
+  <data name="showMedia_video_RMB_properties.Size" type="System.Drawing.Size, System.Drawing">
+    <value>187, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_properties.Text" xml:space="preserve">
+    <value>Properties</value>
   </data>
   <data name="showMedia_video_RMB.Size" type="System.Drawing.Size, System.Drawing">
     <value>188, 224</value>
@@ -4926,216 +4818,6 @@
   </data>
   <data name="&gt;&gt;showMedia_video.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="showMedia_video_RMB_close.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_close.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_close.Text" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="showMedia_video_RMB_repeat.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_repeat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_repeat.Text" xml:space="preserve">
-    <value>Repeat</value>
-  </data>
-  <data name="showMedia_video_RMB_moveTo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_moveTo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_moveTo.Text" xml:space="preserve">
-    <value>Move To</value>
-  </data>
-  <data name="showMedia_video_RMB_autoRand.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_autoRand.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_autoRand.Text" xml:space="preserve">
-    <value>Auto Random</value>
-  </data>
-  <data name="showMedia_video_RMB_autoRand_main.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_autoRand_main.Text" xml:space="preserve">
-    <value>Main Folder</value>
-  </data>
-  <data name="showMedia_video_RMB_autoRand_dir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_autoRand_dir.Text" xml:space="preserve">
-    <value>Here</value>
-  </data>
-  <data name="showMedia_video_RMB_playList.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_playList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_playList.Text" xml:space="preserve">
-    <value>Playlist</value>
-  </data>
-  <data name="showMedia_video_RMB_playList_make.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_playList_make.Text" xml:space="preserve">
-    <value>Create</value>
-  </data>
-  <data name="showMedia_video_RMB_playList_skip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_playList_skip.Text" xml:space="preserve">
-    <value>Go To</value>
-  </data>
-  <data name="showMedia_video_RMB_openFile.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_openFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_openFile.Text" xml:space="preserve">
-    <value>Open File</value>
-  </data>
-  <data name="showMedia_video_RMB_explorer.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_explorer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_explorer.Text" xml:space="preserve">
-    <value>Open in Explorer</value>
-  </data>
-  <data name="showMedia_video_RMB_convert.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_convert.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_convert.Text" xml:space="preserve">
-    <value>Convert (ffmpeg.exe)</value>
-  </data>
-  <data name="showMedia_video_RMB_delete.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_delete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_delete.Text" xml:space="preserve">
-    <value>Delete File</value>
-  </data>
-  <data name="showMedia_video_RMB_properties.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_properties.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_properties.Text" xml:space="preserve">
-    <value>Properties</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_playlistIndex.Name" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel_playlistIndex</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_playlistIndex.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_playlistIndex.Parent" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_playlistIndex.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_cur.Name" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel_pos_cur</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_cur.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_cur.Parent" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_cur.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_max.Name" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel_pos_max</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_max.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_max.Parent" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_max.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_audioPanel.Name" xml:space="preserve">
-    <value>showMedia_video_audioPanel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_audioPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_audioPanel.Parent" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_audioPanel.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_slash.Name" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel_pos_slash</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_slash.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_slash.Parent" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_slash.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos.Name" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel_pos</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos.Type" xml:space="preserve">
-    <value>ColorSlider.ColorSlider, ColorSlider, Version=1.0.0.2, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos.Parent" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="showMedia_video_ctrlsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="showMedia_video_ctrlsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 121</value>
-  </data>
-  <data name="showMedia_video_ctrlsPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>452, 47</value>
-  </data>
-  <data name="showMedia_video_ctrlsPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>158</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel.Name" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel.Parent" xml:space="preserve">
-    <value>showMedia_video_panel2</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="showMedia_video_ctrlsPanel_playlistIndex.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -5335,6 +5017,51 @@
   <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
+  <data name="showMedia_video_ctrlsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="showMedia_video_ctrlsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 121</value>
+  </data>
+  <data name="showMedia_video_ctrlsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>452, 47</value>
+  </data>
+  <data name="showMedia_video_ctrlsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>158</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_ctrlsPanel.Name" xml:space="preserve">
+    <value>showMedia_video_ctrlsPanel</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_ctrlsPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_ctrlsPanel.Parent" xml:space="preserve">
+    <value>showMedia_video_panel2</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_ctrlsPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="showMedia_video_panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-1, 25</value>
+  </data>
+  <data name="showMedia_video_panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>454, 170</value>
+  </data>
+  <data name="showMedia_video_panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>157</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_panel2.Name" xml:space="preserve">
+    <value>showMedia_video_panel2</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_panel2.Parent" xml:space="preserve">
+    <value>showMedia_video_panel</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_panel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="showMedia_video_title.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
@@ -5359,30 +5086,36 @@
   <data name="&gt;&gt;showMedia_video_title.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <metadata name="menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1032, 17</value>
-  </metadata>
-  <data name="menu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="showMedia_video_panel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>300, 85</value>
   </data>
-  <data name="menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>789, 27</value>
+  <data name="showMedia_video_panel.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>230, 200</value>
   </data>
-  <data name="menu.TabIndex" type="System.Int32, mscorlib">
-    <value>194</value>
+  <data name="showMedia_video_panel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>458, 200</value>
   </data>
-  <data name="&gt;&gt;menu.Name" xml:space="preserve">
-    <value>menu</value>
+  <data name="showMedia_video_panel.TabIndex" type="System.Int32, mscorlib">
+    <value>156</value>
   </data>
-  <data name="&gt;&gt;menu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="showMedia_video_panel.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;menu.Parent" xml:space="preserve">
+  <data name="&gt;&gt;showMedia_video_panel.Name" xml:space="preserve">
+    <value>showMedia_video_panel</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_panel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_panel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;menu.ZOrder" xml:space="preserve">
-    <value>8</value>
+  <data name="&gt;&gt;showMedia_video_panel.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
+  <metadata name="menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>852, 17</value>
+  </metadata>
   <data name="menu_hideWindow.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 12pt</value>
   </data>
@@ -5413,41 +5146,32 @@
   <data name="menu_changeTabs.Text" xml:space="preserve">
     <value>Change Tabs</value>
   </data>
-  <data name="menu_open.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt</value>
-  </data>
-  <data name="menu_open.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 23</value>
-  </data>
-  <data name="menu_open.Text" xml:space="preserve">
-    <value>Open</value>
-  </data>
   <data name="menu_open_explorer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 24</value>
+    <value>208, 24</value>
   </data>
   <data name="menu_open_explorer.Text" xml:space="preserve">
     <value>Gallery (explorer)</value>
   </data>
   <data name="menu_open_browser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 24</value>
+    <value>208, 24</value>
   </data>
   <data name="menu_open_browser.Text" xml:space="preserve">
     <value>Default Browser</value>
   </data>
   <data name="menu_open_finder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 24</value>
+    <value>208, 24</value>
   </data>
   <data name="menu_open_finder.Text" xml:space="preserve">
     <value>Folders/Files Finder</value>
   </data>
   <data name="menu_open_videoPlayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 24</value>
+    <value>208, 24</value>
   </data>
   <data name="menu_open_videoPlayer.Text" xml:space="preserve">
     <value>Video Player (WMP)</value>
   </data>
   <data name="menu_open_imageViewer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 24</value>
+    <value>208, 24</value>
   </data>
   <data name="menu_open_imageViewer.Text" xml:space="preserve">
     <value>Image/Gif Viewer</value>
@@ -5664,49 +5388,49 @@
 </value>
   </data>
   <data name="menu_open_urlBoard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 24</value>
+    <value>208, 24</value>
   </data>
   <data name="menu_open_urlBoard.Text" xml:space="preserve">
     <value>URL Board</value>
   </data>
   <data name="menu_open_converter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 24</value>
+    <value>208, 24</value>
   </data>
   <data name="menu_open_converter.Text" xml:space="preserve">
     <value>Converter (ffmpeg)</value>
   </data>
   <data name="menu_open_urlDownloader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 24</value>
+    <value>208, 24</value>
   </data>
   <data name="menu_open_urlDownloader.Text" xml:space="preserve">
-    <value>Downloader (webgrab, youtube-dl)</value>
+    <value>Downloader (In CD)</value>
   </data>
   <data name="menu_open_logViewer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 24</value>
+    <value>208, 24</value>
   </data>
   <data name="menu_open_logViewer.Text" xml:space="preserve">
     <value>Log Viewer</value>
   </data>
   <data name="menu_open_credits.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 24</value>
+    <value>208, 24</value>
   </data>
   <data name="menu_open_credits.Text" xml:space="preserve">
     <value>Credits</value>
   </data>
   <data name="menu_open_settings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>303, 24</value>
+    <value>208, 24</value>
   </data>
   <data name="menu_open_settings.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="menu_hideGallery.Font" type="System.Drawing.Font, System.Drawing">
+  <data name="menu_open.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 12pt</value>
   </data>
-  <data name="menu_hideGallery.Size" type="System.Drawing.Size, System.Drawing">
-    <value>101, 23</value>
+  <data name="menu_open.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 23</value>
   </data>
-  <data name="menu_hideGallery.Text" xml:space="preserve">
-    <value>Hide Files</value>
+  <data name="menu_open.Text" xml:space="preserve">
+    <value>Open</value>
   </data>
   <data name="menu_hideGallery_0.Font" type="System.Drawing.Font, System.Drawing">
     <value>Consolas, 12pt</value>
@@ -5765,6 +5489,15 @@
   <data name="menu_hideGallery_2.Text" xml:space="preserve">
     <value>FULL   (attrib.exe +s +h /d /s)</value>
   </data>
+  <data name="menu_hideGallery.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt</value>
+  </data>
+  <data name="menu_hideGallery.Size" type="System.Drawing.Size, System.Drawing">
+    <value>101, 23</value>
+  </data>
+  <data name="menu_hideGallery.Text" xml:space="preserve">
+    <value>Hide Files</value>
+  </data>
   <data name="menu_restart.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 12pt</value>
   </data>
@@ -5773,37 +5506,6 @@
   </data>
   <data name="menu_restart.Text" xml:space="preserve">
     <value>Restart</value>
-  </data>
-  <data name="menu_cb.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt</value>
-  </data>
-  <data name="menu_cb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 23</value>
-  </data>
-  <data name="menu_cb.Text" xml:space="preserve">
-    <value>Settings</value>
-  </data>
-  <data name="menu_cb_fapmap.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wwAADsMBx2+oZAAAAlVJREFUOE99U0tvElEUxkd8rOxKu3Xl3l/gLzAYF+5d6A9QF25KtGCBMlJKW2SY
-        YV4MA3d4t1JoobyshVYCaY3a1kptY3DduGqaHO+9TlqkhC+ZzDk553z33O+ca+oHmkGjwgQ/xtvYDdEe
-        /BNxa7WSUBoxwsOhMOJTcSJ4hAlAdooQ8+rfl/3LN4zwcKguZVyyCyDZg4BtSM8loSgu3TfCw6Ey8kPZ
-        QYoF0BgVkt4YVEMrXUDoEokffDy4ThMHASF0RXYKP/8VhyDh1WGRXYBPicZ7EgeAC/uVHy8Oa517tKAf
-        qks2S/j00KQMMU8U5n1pKAhLsLXQRkaKqdvu3iREhmsCBLQzCtkuThMC2vpMnJ5elovwObtZN1LOoZFq
-        PNjJ7lyljmjnM6T96NswpGcTkOeyUFFWYCvTPt5b27tFk3qwX9m9W9dXt2taOdBKtkYGEpSkAqzra7Cd
-        /+o26v5DM9N81Cl1rlFn0BWKWINqqAytVPNkt/DNTBN7ACW4bJh9Ik4REVOQC2RPSTbi9ePN+fbL0zv3
-        gApLxqiQMdIu8BindUpCOslzi3gieShjTT6Eq12sDZvjc88yvuTziEcTdU/0MWWS8SIRArJMhISMkywT
-        0SQ9m4QU/iewj6Y02ilZ9aCN+xJlomcLRlaZBPBbAMUpQdgVggjWhXzEVhwiCG944KwscOP+34qDu2OU
-        ngHr8SRoCxxxVj/w1gA5hX6kiH3tA/+rOWy/W5Un2dtGyXkgpzCqMsqY5lbXkSeCn3P4JOJWfymMHMdX
-        NFsslotGKobJ9BfnQrvi308xPAAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="menu_cb_fapmap.Size" type="System.Drawing.Size, System.Drawing">
-    <value>170, 24</value>
-  </data>
-  <data name="menu_cb_fapmap.Text" xml:space="preserve">
-    <value>FapMap</value>
   </data>
   <data name="menu_cb_fapmap_xhide.Size" type="System.Drawing.Size, System.Drawing">
     <value>290, 24</value>
@@ -5829,11 +5531,27 @@
   <data name="menu_cb_fapmap_outside.Text" xml:space="preserve">
     <value>Open Files Outside of FapMap</value>
   </data>
-  <data name="menu_cb_players.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="menu_cb_fapmap.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAlVJREFUOE99U0tvElEUxkd8rOxKu3Xl3l/gLzAYF+5d6A9QF25KtGCBMlJKW2SY
+        YV4MA3d4t1JoobyshVYCaY3a1kptY3DduGqaHO+9TlqkhC+ZzDk553z33O+ca+oHmkGjwgQ/xtvYDdEe
+        /BNxa7WSUBoxwsOhMOJTcSJ4hAlAdooQ8+rfl/3LN4zwcKguZVyyCyDZg4BtSM8loSgu3TfCw6Ey8kPZ
+        QYoF0BgVkt4YVEMrXUDoEokffDy4ThMHASF0RXYKP/8VhyDh1WGRXYBPicZ7EgeAC/uVHy8Oa517tKAf
+        qks2S/j00KQMMU8U5n1pKAhLsLXQRkaKqdvu3iREhmsCBLQzCtkuThMC2vpMnJ5elovwObtZN1LOoZFq
+        PNjJ7lyljmjnM6T96NswpGcTkOeyUFFWYCvTPt5b27tFk3qwX9m9W9dXt2taOdBKtkYGEpSkAqzra7Cd
+        /+o26v5DM9N81Cl1rlFn0BWKWINqqAytVPNkt/DNTBN7ACW4bJh9Ik4REVOQC2RPSTbi9ePN+fbL0zv3
+        gApLxqiQMdIu8BindUpCOslzi3gieShjTT6Eq12sDZvjc88yvuTziEcTdU/0MWWS8SIRArJMhISMkywT
+        0SQ9m4QU/iewj6Y02ilZ9aCN+xJlomcLRlaZBPBbAMUpQdgVggjWhXzEVhwiCG944KwscOP+34qDu2OU
+        ngHr8SRoCxxxVj/w1gA5hX6kiH3tA/+rOWy/W5Un2dtGyXkgpzCqMsqY5lbXkSeCn3P4JOJWfymMHMdX
+        NFsslotGKobJ9BfnQrvi308xPAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="menu_cb_fapmap.Size" type="System.Drawing.Size, System.Drawing">
     <value>170, 24</value>
   </data>
-  <data name="menu_cb_players.Text" xml:space="preserve">
-    <value>Media Players</value>
+  <data name="menu_cb_fapmap.Text" xml:space="preserve">
+    <value>FapMap</value>
   </data>
   <data name="menu_cb_players_enable.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -5905,8 +5623,62 @@
   <data name="menu_cb_players_autoHide.Text" xml:space="preserve">
     <value>AutoHide</value>
   </data>
+  <data name="menu_cb_players.Size" type="System.Drawing.Size, System.Drawing">
+    <value>170, 24</value>
+  </data>
+  <data name="menu_cb_players.Text" xml:space="preserve">
+    <value>Media Players</value>
+  </data>
+  <data name="menu_cb.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 12pt</value>
+  </data>
+  <data name="menu_cb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>89, 23</value>
+  </data>
+  <data name="menu_cb.Text" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="menu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>789, 27</value>
+  </data>
+  <data name="menu.TabIndex" type="System.Int32, mscorlib">
+    <value>194</value>
+  </data>
+  <data name="&gt;&gt;menu.Name" xml:space="preserve">
+    <value>menu</value>
+  </data>
+  <data name="&gt;&gt;menu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menu.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
   <data name="showMedia_image_panel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="showMedia_image_gif_trackbar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="showMedia_image_gif_trackbar.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 6pt</value>
+  </data>
+  <data name="showMedia_image_gif_trackbar.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="showMedia_image_gif_trackbar.Size" type="System.Drawing.Size, System.Drawing">
+    <value>454, 14</value>
+  </data>
+  <data name="showMedia_image_gif_trackbar.TabIndex" type="System.Int32, mscorlib">
+    <value>177</value>
+  </data>
+  <data name="showMedia_image_gif_trackbar.Text" xml:space="preserve">
+    <value>showMedia_image_gif_trackbar</value>
   </data>
   <data name="&gt;&gt;showMedia_image_gif_trackbar.Name" xml:space="preserve">
     <value>showMedia_image_gif_trackbar</value>
@@ -5919,6 +5691,30 @@
   </data>
   <data name="&gt;&gt;showMedia_image_gif_trackbar.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="showMedia_image_gif_frame.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="showMedia_image_gif_frame.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="showMedia_image_gif_frame.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 8.25pt</value>
+  </data>
+  <data name="showMedia_image_gif_frame.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="showMedia_image_gif_frame.Location" type="System.Drawing.Point, System.Drawing">
+    <value>31, 26</value>
+  </data>
+  <data name="showMedia_image_gif_frame.Size" type="System.Drawing.Size, System.Drawing">
+    <value>25, 13</value>
+  </data>
+  <data name="showMedia_image_gif_frame.TabIndex" type="System.Int32, mscorlib">
+    <value>164</value>
+  </data>
+  <data name="showMedia_image_gif_frame.Text" xml:space="preserve">
+    <value>...</value>
   </data>
   <data name="&gt;&gt;showMedia_image_gif_frame.Name" xml:space="preserve">
     <value>showMedia_image_gif_frame</value>
@@ -6008,79 +5804,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;showMedia_image_panel.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="showMedia_image_gif_trackbar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="showMedia_image_gif_trackbar.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 6pt</value>
-  </data>
-  <data name="showMedia_image_gif_trackbar.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
-  </data>
-  <data name="showMedia_image_gif_trackbar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>454, 14</value>
-  </data>
-  <data name="showMedia_image_gif_trackbar.TabIndex" type="System.Int32, mscorlib">
-    <value>177</value>
-  </data>
-  <data name="showMedia_image_gif_trackbar.Text" xml:space="preserve">
-    <value>showMedia_image_gif_trackbar</value>
-  </data>
-  <data name="&gt;&gt;showMedia_image_gif_trackbar.Name" xml:space="preserve">
-    <value>showMedia_image_gif_trackbar</value>
-  </data>
-  <data name="&gt;&gt;showMedia_image_gif_trackbar.Type" xml:space="preserve">
-    <value>ColorSlider.ColorSlider, ColorSlider, Version=1.0.0.2, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;showMedia_image_gif_trackbar.Parent" xml:space="preserve">
-    <value>showMedia_image_ctrlbox</value>
-  </data>
-  <data name="&gt;&gt;showMedia_image_gif_trackbar.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="showMedia_image_gif_frame.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Left</value>
-  </data>
-  <data name="showMedia_image_gif_frame.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="showMedia_image_gif_frame.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Consolas, 8.25pt</value>
-  </data>
-  <data name="showMedia_image_gif_frame.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="showMedia_image_gif_frame.Location" type="System.Drawing.Point, System.Drawing">
-    <value>31, 26</value>
-  </data>
-  <data name="showMedia_image_gif_frame.Size" type="System.Drawing.Size, System.Drawing">
-    <value>25, 13</value>
-  </data>
-  <data name="showMedia_image_gif_frame.TabIndex" type="System.Int32, mscorlib">
-    <value>164</value>
-  </data>
-  <data name="showMedia_image_gif_frame.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="&gt;&gt;showMedia_image_gif_frame.Name" xml:space="preserve">
-    <value>showMedia_image_gif_frame</value>
-  </data>
-  <data name="&gt;&gt;showMedia_image_gif_frame.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_image_gif_frame.Parent" xml:space="preserve">
-    <value>showMedia_image_ctrlbox</value>
-  </data>
-  <data name="&gt;&gt;showMedia_image_gif_frame.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>6</value>
   </data>
   <metadata name="showMedia_image_gif_timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>113, 56</value>
+    <value>233, 56</value>
   </metadata>
   <metadata name="showMedia_video_ctrlsPanel_pos_timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>503, 56</value>
+    <value>623, 56</value>
   </metadata>
   <metadata name="audio_timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -8357,16 +8087,22 @@
   <data name="&gt;&gt;faftv_RMB_explorer.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;faftv_RMB_delete.Name" xml:space="preserve">
-    <value>faftv_RMB_delete</value>
-  </data>
-  <data name="&gt;&gt;faftv_RMB_delete.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;faftv_RMB_newFolder.Name" xml:space="preserve">
     <value>faftv_RMB_newFolder</value>
   </data>
   <data name="&gt;&gt;faftv_RMB_newFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;faftv_RMB_rename.Name" xml:space="preserve">
+    <value>faftv_RMB_rename</value>
+  </data>
+  <data name="&gt;&gt;faftv_RMB_rename.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;faftv_RMB_delete.Name" xml:space="preserve">
+    <value>faftv_RMB_delete</value>
+  </data>
+  <data name="&gt;&gt;faftv_RMB_delete.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;faftv_RMB_properties.Name" xml:space="preserve">
@@ -8405,28 +8141,22 @@
   <data name="&gt;&gt;fileDisplay_RMB_explorer2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;fileDisplay_RMB_randVideo.Name" xml:space="preserve">
-    <value>fileDisplay_RMB_randVideo</value>
+  <data name="&gt;&gt;fileDisplay_RMB_newFolder.Name" xml:space="preserve">
+    <value>fileDisplay_RMB_newFolder</value>
   </data>
-  <data name="&gt;&gt;fileDisplay_RMB_randVideo.Type" xml:space="preserve">
+  <data name="&gt;&gt;fileDisplay_RMB_newFolder.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;fileDisplay_RMB_randImage.Name" xml:space="preserve">
-    <value>fileDisplay_RMB_randImage</value>
+  <data name="&gt;&gt;fileDisplay_RMB_rename.Name" xml:space="preserve">
+    <value>fileDisplay_RMB_rename</value>
   </data>
-  <data name="&gt;&gt;fileDisplay_RMB_randImage.Type" xml:space="preserve">
+  <data name="&gt;&gt;fileDisplay_RMB_rename.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;fileDisplay_RMB_delete.Name" xml:space="preserve">
     <value>fileDisplay_RMB_delete</value>
   </data>
   <data name="&gt;&gt;fileDisplay_RMB_delete.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fileDisplay_RMB_newFolder.Name" xml:space="preserve">
-    <value>fileDisplay_RMB_newFolder</value>
-  </data>
-  <data name="&gt;&gt;fileDisplay_RMB_newFolder.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;fileDisplay_RMB_properties.Name" xml:space="preserve">

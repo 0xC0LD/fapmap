@@ -156,6 +156,7 @@
             this.Controls.Add(this.cb_count);
             this.Controls.Add(this.count_files_panel);
             this.Controls.Add(this.fileSizeText);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
             this.ForeColor = System.Drawing.Color.SlateBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

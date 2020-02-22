@@ -20,177 +20,107 @@ namespace fapmap
             InitializeComponent();
         }
 
-        public static string passed_location = string.Empty; 
-
+        public string pass_path = string.Empty;
         private void fapmap_ffmpeg_Load(object sender, EventArgs e)
         {
-            fapmap.fapmap_cd();
-
-            if (!File.Exists(fapmap.GlobalVariables.Path.File.Exe.Ffmpeg))
-            {
-                fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, fapmap.GlobalVariables.Path.File.Exe.Ffmpeg);
-                DialogResult di = MessageBox.Show(
-                    "Unable to find ffmpeg.exe" + Environment.NewLine + Environment.NewLine + "Do you want to download ffmpeg? Click [Yes] to open URL: https://ffmpeg.zeranoe.com/builds/",
-                    fapmap.GlobalVariables.Path.File.Exe.Ffmpeg,
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Error
-                    );
-
-                if (di == DialogResult.Yes) { fapmap.Incognito("https://ffmpeg.zeranoe.com/builds/"); }
-                this.Close();
-            }
-
-            if (!string.IsNullOrEmpty(passed_location))
-            {
-                file.Text = passed_location;
-                
-                //clear
-                passed_location = string.Empty;
-            }
+            if (!fapmap.checkForApp(fapmap.GlobalVariables.Path.File.Exe.FFMPEG, "https://ffmpeg.zeranoe.com/builds/"))
+            { this.Close(); return; }
+            
+            if (!string.IsNullOrEmpty(pass_path)) { txt_file.Text = pass_path; }
         }
 
-        //TOOLTIP COLOR FIX
+        #region window and fx
+
+        private void fapmap_ffmpeg_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ffmpeg_die();
+        }
+
         private void HelpBalloon_Draw(object sender, DrawToolTipEventArgs e)
         {
             e.DrawBackground();
             e.DrawBorder();
             e.DrawText();
         }
-
-        //VARS
-        private static string this_file = "";
-        private static string new_file = "";
-
-        //BTNS
-        private void convert_Click(object sender, EventArgs e)
-        {
-            conv_thread();
-        }
-        private void open_file_Click(object sender, EventArgs e)
-        {
-            if (File.Exists(file.Text))
-            {
-                Process.Start(file.Text);
-                fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.OPEN, file.Text);
-            }
-            else
-            {
-                info.Text = "File not found!";
-                fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, file.Text);
-            }
-        }
-        private void open_file_new_Click(object sender, EventArgs e)
-        {
-            if (File.Exists(new_file))
-            {
-                Process.Start(new_file);
-                fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.OPEN, new_file);
-            }
-            else
-            {
-                if (File.Exists(file_new.Text))
-                {
-                    Process.Start(file_new.Text);
-                    fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.OPEN, new_file);
-                }
-                else
-                {
-                    info.Text = "File not found!";
-                    fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, new_file);
-                }
-            }
-        }
         
-        private bool conv_busy = false;
-        private void conv_thread()
-        {
-            if (!conv_busy)
-            {
-                if (File.Exists(fapmap.GlobalVariables.Path.File.Exe.Ffmpeg))
-                {
-                    if (!string.IsNullOrEmpty(file.Text))
-                    {
-                        if (File.Exists(file.Text))
-                        {
-                            new Thread(conv) { IsBackground = true }.Start();
-                        }
-                        else
-                        {
-                            info.Text = "File not found...";
-                            fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, file.Text);
-                        }
-                    }
-                    else
-                    {
-                        info.Text = "No input...";
-                    }
-                }
-                else
-                {
-                    fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, fapmap.GlobalVariables.Path.File.Exe.Ffmpeg);
-                    DialogResult di = MessageBox.Show(
-                        "Unable to find ffmpeg.exe" + Environment.NewLine + Environment.NewLine + "Do you want to download ffmpeg? Click [Yes] to open URL: https://ffmpeg.zeranoe.com/builds/",
-                        fapmap.GlobalVariables.Path.File.Exe.Ffmpeg,
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Error
-                        );
 
-                    if (di == DialogResult.Yes) { fapmap.Incognito("https://ffmpeg.zeranoe.com/builds/"); }
-                    this.Close();
-                }
+        #endregion
+        
+        private string gl_file = "";
+        private string gl_fileNew = "";
+        private string gl_options = "";
+
+       
+        private Process fscanProcess = null;
+        private void ffmpeg_die()
+        {
+            try
+            {
+                if (fscanProcess != null && !fscanProcess.HasExited) { fscanProcess.Kill(); }
             }
+            catch (Exception) { }
         }
-        private void conv()
+        private bool ffmpeg_busy = false;
+        private void ffmpeg()
         {
-            if (!conv_busy)
-            {
-                conv_busy = true;
+            if (ffmpeg_busy) { ffmpeg_die(); return; }
 
+            ffmpeg_busy = true;
+            
+            new Thread(() =>
+            {
                 //focus on output
                 this.ActiveControl = output;
                 output.Focus();
 
-                //disable controls
-                file_new.Enabled = false;
-                file.Enabled = false;
-                convert.Enabled = false;
-                options.Enabled = false;
-
-                //setup
-                info.Text = "Converting...";
-                output.Text = ""; //clear output
+                if (!fapmap.checkForApp(fapmap.GlobalVariables.Path.File.Exe.FFMPEG, "https://ffmpeg.zeranoe.com/builds/"))
+                { this.Close(); return; }
 
                 //set
-                this_file = file.Text;
-                new_file = file_new.Text;
+                gl_file = txt_file.Text;
+                gl_fileNew = txt_fileNew.Text;
+                gl_options = txt_options.Text;
 
+                if (string.IsNullOrEmpty(gl_file)) { label_status.Text = "No input..."; ffmpeg_busy = false; return; }
+
+                if (!File.Exists(gl_file))
+                {
+                    label_status.Text = "File not found...";
+                    fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, gl_file);
+                    ffmpeg_busy = false;
+                    return;
+                }
+
+                //setup
+                label_status.Text = "Converting...";
+                output.Text = ""; //clear output
+                
                 //more_opts for replace
                 string more_opts = "";
 
                 //if file exists
-                if (File.Exists(new_file))
+                if (File.Exists(gl_fileNew))
                 {
                     DialogResult dialogResult = MessageBox.Show(
-                        "A file with the name " + file_new.Text + " already exists." + Environment.NewLine
+                        "A file with the name " + gl_fileNew + " already exists." + Environment.NewLine
                         + Environment.NewLine + "YES          = REPLACE"
                         + Environment.NewLine + "NO          = NEW NAME"
                         + Environment.NewLine + "CANCEL = ABORT",
-                        this.Text, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question
+                        "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question
                     );
 
                     if (dialogResult == DialogResult.Yes)
                     {
-                        //ECHO
-                        info.Text = "Replacing...";
+                        label_status.Text = "Replacing...";
 
                         more_opts = "-y ";
                     }
                     else if (dialogResult == DialogResult.No)
                     {
                         //ECHO
-                        info.Text = "Converting (renamed)...";
+                        label_status.Text = "Converting (renamed)...";
 
-                        FileInfo fi = new FileInfo(new_file);
+                        FileInfo fi = new FileInfo(gl_fileNew);
 
                         int c = 1;
                         string newFilename = fi.FullName.Replace(fi.Name, "") + fi.Name.Replace(fi.Extension, "") + " [" + c + "]" + fi.Extension;
@@ -202,124 +132,122 @@ namespace fapmap
                         }
 
                         //new filename
-                        new_file = newFilename;
+                        gl_fileNew = newFilename;
                     }
                     else if (dialogResult == DialogResult.Cancel)
                     {
-                        //enable controls
-                        file_new.Enabled = true;
-                        file.Enabled = true;
-                        convert.Enabled = true;
-                        options.Enabled = true;
-
                         //ECHO
-                        info.Text = "Aborted.";
-
-                        conv_busy = false;
+                        label_status.Text = "Aborted.";
+                        ffmpeg_busy = false;
                         return;
                     }
                 }
 
-                //set tool tip for new file
-                HelpBalloon.SetToolTip(open_file_new, "Open File: " + new_file);
+                fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.EXEC, fapmap.GlobalVariables.Path.File.Exe.FFMPEG + " " + more_opts + gl_options + " \"" + gl_file + "\" \"" + gl_fileNew + "\"");
 
-                fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.EXEC, fapmap.GlobalVariables.Path.File.Exe.Ffmpeg + " " + more_opts + options.Text + " \"" + this_file + "\" \"" + new_file + "\"");
+                btn_convert.BackgroundImage = Properties.Resources.close;
 
-                //FFMPEG
-                Process ffmpeg = new Process();
-                ffmpeg.StartInfo.FileName = fapmap.GlobalVariables.Path.File.Exe.Ffmpeg;
-                ffmpeg.StartInfo.Arguments = more_opts + options.Text + " \"" + this_file + "\" \"" + new_file + "\"";
-                ffmpeg.StartInfo.UseShellExecute = false;
-                ffmpeg.StartInfo.CreateNoWindow = true;
-                ffmpeg.StartInfo.RedirectStandardOutput = true;
-                ffmpeg.StartInfo.RedirectStandardError = true;
-                //output and error (asynchronous) handlers
-                ffmpeg.OutputDataReceived += new DataReceivedEventHandler(OutputHandler);
-                ffmpeg.ErrorDataReceived += new DataReceivedEventHandler(OutputHandler);
-                //start and wait
-                ffmpeg.Start();
-                ffmpeg.BeginOutputReadLine();
-                ffmpeg.BeginErrorReadLine();
-                ffmpeg.WaitForExit();
+                // ffmpeg
+                fscanProcess = new Process();
+                fscanProcess.StartInfo.FileName = fapmap.GlobalVariables.Path.File.Exe.FFMPEG;
+                fscanProcess.StartInfo.Arguments = more_opts + gl_options + " \"" + gl_file + "\" \"" + gl_fileNew + "\"";
+                fscanProcess.StartInfo.UseShellExecute = false;
+                fscanProcess.StartInfo.CreateNoWindow = true;
+                fscanProcess.StartInfo.RedirectStandardOutput = true;
+                fscanProcess.StartInfo.RedirectStandardError = true;
+                fscanProcess.OutputDataReceived += ffmpeg_output;
+                fscanProcess.ErrorDataReceived += ffmpeg_output;
+                fscanProcess.Start();
+                fscanProcess.BeginOutputReadLine();
+                fscanProcess.BeginErrorReadLine();
+                fscanProcess.WaitForExit();
+                fscanProcess.Close();
 
-                //enable controls
-                file_new.Enabled = true;
-                file.Enabled = true;
-                convert.Enabled = true;
-                options.Enabled = true;
+                btn_convert.BackgroundImage = Properties.Resources.ffmpeg;
 
-                //ECHO
-                info.Text = "Done!";
+                // end
+                label_status.Text = "Done!";
 
-                conv_busy = false;
+                ffmpeg_busy = false;
+            })
+            { IsBackground = true }.Start();
+        }
+
+        private void ffmpeg_output(object sender, DataReceivedEventArgs e)
+        {
+            try
+            {
+                output.Text += e.Data + Environment.NewLine;
             }
+            catch (Exception) { }
         }
         
-        //output
-        private void OutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
+        private void btn_convert_MouseClick(object sender, MouseEventArgs e)
         {
-            output.Text += outLine.Data + Environment.NewLine;
+            if (e.Button == MouseButtons.Left) { ffmpeg(); }
         }
-
-        //auto fill
-        private void file_TextChanged(object sender, EventArgs e)
+        private void btn_openFile_MouseClick(object sender, MouseEventArgs e)
         {
-            if (!string.IsNullOrEmpty(file.Text))
+            label_status.Text = fapmap.Open(gl_file) ? "Opened file." : "Failed to open file.";
+        }
+        private void btn_openFileNew_MouseClick(object sender, MouseEventArgs e)
+        {
+            label_status.Text = fapmap.Open(gl_fileNew) ? "Opened file." : "Failed to open file.";
+        }
+        private void btn_delFile_MouseClick(object sender, MouseEventArgs e)
+        {
+            label_status.Text = fapmap.TrashFile(gl_file) ? "Deleted file." : "Failed to delete file.";
+        }
+        private void btn_delFileNew_MouseClick(object sender, MouseEventArgs e)
+        {
+            label_status.Text = fapmap.TrashFile(gl_fileNew) ? "Deleted file." : "Failed to delete file.";
+        }
+        
+        private void txt_file_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txt_file.Text)) { return; }
+
+            txt_file.ForeColor = File.Exists(txt_file.Text) ? Color.FromArgb(0, 120, 200) : Color.DarkOrchid;
+            
+            HelpBalloon.SetToolTip(btn_openFile, "Open File: " + txt_file.Text);
+
+            if (File.Exists(txt_file.Text))
             {
-                //update tool tip
-                HelpBalloon.SetToolTip(open_file, "Open File: " + this_file);
+                FileInfo fi = new FileInfo(txt_file.Text);
 
-                if (File.Exists(file.Text))
+                switch (fi.Extension)
                 {
-                    FileInfo fi = new FileInfo(file.Text);
-                    switch (fi.Extension)
-                    {
-                        case ".webm": file_new.Text = fi.FullName.Replace(fi.Extension, ".mp4"); break;
-                        case ".mp4": file_new.Text = fi.FullName.Replace(fi.Extension, ".webm"); break;
+                    case ".webm": txt_fileNew.Text = fi.Directory.FullName + "\\" + Path.GetFileNameWithoutExtension(txt_file.Text) + ".mp4"; break;
+                    case ".mp4":  txt_fileNew.Text = fi.Directory.FullName + "\\" + Path.GetFileNameWithoutExtension(txt_file.Text) + ".webm"; break;
+                    case ".jpg":  txt_fileNew.Text = fi.Directory.FullName + "\\" + Path.GetFileNameWithoutExtension(txt_file.Text) + ".png"; break;
+                    case ".png":  txt_fileNew.Text = fi.Directory.FullName + "\\" + Path.GetFileNameWithoutExtension(txt_file.Text) + ".jpg"; break;
 
-                        case ".gif": file_new.Text = fi.FullName.Replace(fi.Extension, ".jpg"); break;
-                        case ".jpg": file_new.Text = fi.FullName.Replace(fi.Extension, ".png"); break;
-
-
-                        default: file_new.Text = fi.FullName; break;
-                    }
-                    
+                    default: txt_fileNew.Text = txt_file.Text; break;
                 }
             }
-
-            if (File.Exists(file.Text))
-            {
-                file.ForeColor = Color.FromArgb(0, 120, 200);
-            }
-            else
-            {
-                file.ForeColor = Color.DarkOrchid;
-            }
         }
-
-        //scroll output
         private void output_TextChanged(object sender, EventArgs e)
         {
             output.SelectionStart = output.Text.Length;
             output.ScrollToCaret();
         }
-
-        //jump to file_new
-        private void file_KeyDown(object sender, KeyEventArgs e)
+        
+        private void txt_file_KeyDown(object sender, KeyEventArgs e)
         {
             //update tool tip
-            HelpBalloon.SetToolTip(open_file, "Open File: " + this_file);
+            HelpBalloon.SetToolTip(btn_openFile, "Open File: " + txt_file.Text);
 
             if (e.KeyCode == Keys.Enter)
             {
-                e.SuppressKeyPress = true;
-
-                this.ActiveControl = file_new;
-                file_new.Focus();
-                if (file_new.Text.Length > 5)
+                this.ActiveControl = txt_fileNew;
+                txt_fileNew.Focus();
+                if (txt_fileNew.Text.Length > 5)
                 {
-                    file_new.Select(file_new.Text.Length - 3, file_new.Text.Length);
+                    txt_fileNew.Select(txt_fileNew.Text.Length - new FileInfo(txt_fileNew.Text).Extension.Length+1, txt_fileNew.Text.Length);
                 }
+
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
 
             if (e.Control && e.KeyCode == Keys.Back)
@@ -327,119 +255,53 @@ namespace fapmap
                 e.SuppressKeyPress = true;
             }
         }
+        private void txt_fileNew_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ffmpeg();
 
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+
+            if (e.Control && e.KeyCode == Keys.Back)
+            {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+        }
         private void options_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.Back)
             {
+                e.Handled = true;
                 e.SuppressKeyPress = true;
             }
         }
 
-        private void file_new_KeyDown(object sender, KeyEventArgs e)
+        // drag n drop
+        private void dnd_file_DragOver(object sender, DragEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-
-                convert_Click(null, null);
-            }
-
-            if (e.Control && e.KeyCode == Keys.Back)
-            {
-                e.SuppressKeyPress = true;
-            }
+            if (string.IsNullOrEmpty(txt_file.Text)) { return; }
+            e.Effect = DragDropEffects.Copy;
+        }
+        private void dnd_file_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txt_file.Text)) { return; }
+            this.txt_file.DoDragDrop(new System.Windows.Forms.DataObject(System.Windows.Forms.DataFormats.StringFormat, txt_file.Text), DragDropEffects.Copy);
+        }
+        private void dnd_fileNew_DragOver(object sender, DragEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txt_fileNew.Text)) { return; }
+            e.Effect = DragDropEffects.Copy;
+        }
+        private void dnd_fileNew_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txt_fileNew.Text)) { return; }
+            this.txt_fileNew.DoDragDrop(new System.Windows.Forms.DataObject(System.Windows.Forms.DataFormats.StringFormat, txt_fileNew.Text), DragDropEffects.Copy);
         }
 
-        private void file_dragOut_DragOver(object sender, DragEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(file.Text))
-            {
-                e.Effect = DragDropEffects.Copy;
-            }
-        }
-
-        private void file_dragOut_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(file.Text))
-            {
-                this.file.DoDragDrop(new System.Windows.Forms.DataObject(System.Windows.Forms.DataFormats.StringFormat, file.Text), DragDropEffects.Copy);
-            }
-        }
-
-        private void file_new_dragOut_DragOver(object sender, DragEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(file_new.Text))
-            {
-                e.Effect = DragDropEffects.Copy;
-            }
-        }
-
-        private void file_new_dragOut_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (!string.IsNullOrEmpty(file_new.Text))
-            {
-                this.file_new.DoDragDrop(new System.Windows.Forms.DataObject(System.Windows.Forms.DataFormats.StringFormat, file_new.Text), DragDropEffects.Copy);
-            }
-        }
-
-        private void del_file_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(file.Text))
-            {
-                if (File.Exists(file.Text))
-                {
-                    FileInfo fi = new FileInfo(file.Text);
-                    
-                    try
-                    {
-                        // txt_path.Text = Directory.GetParent(fi.FullName).ToString();
-                        Microsoft.VisualBasic.FileIO.FileSystem.DeleteFile(fi.FullName, Microsoft.VisualBasic.FileIO.UIOption.AllDialogs, Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin);
-                    }
-                    catch (System.OperationCanceledException) { return; }
-                    catch (IOException) { return; }
-                    catch (UnauthorizedAccessException) { return; }
-
-                    //DISPLAY
-                    fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.RMVD, fi.FullName);
-                    this.Text = "FAPMAP: REMOVED: " + fi.FullName;
-                }
-                else
-                {
-                    fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, file.Text);
-                    this.Text = "FAPMAP: File not found: " + file.Text;
-                }
-            }
-        }
-
-        private void del_file_new_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(file_new.Text))
-            {
-                if (File.Exists(file_new.Text))
-                {
-                    FileInfo fi = new FileInfo(file_new.Text);
-
-                    try
-                    {
-                        // txt_path.Text = Directory.GetParent(fi.FullName).ToString();
-                        Microsoft.VisualBasic.FileIO.FileSystem.DeleteFile(fi.FullName, Microsoft.VisualBasic.FileIO.UIOption.AllDialogs, Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin);
-                    }
-                    catch (System.OperationCanceledException) { return; }
-                    catch (IOException) { return; }
-                    catch (UnauthorizedAccessException) { return; }
-
-                    //DISPLAY
-                    fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.RMVD, fi.FullName);
-                    this.Text = "FAPMAP: REMOVED: " + fi.FullName;
-                }
-                else
-                {
-                    fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, file_new.Text);
-                    this.Text = "FAPMAP: File not found: " + file_new.Text;
-                }
-            }
-        }
         
     }
 }

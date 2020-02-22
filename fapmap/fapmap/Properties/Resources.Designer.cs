@@ -253,30 +253,20 @@ namespace fapmap.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap download {
+        internal static System.Drawing.Bitmap dir {
             get {
-                object obj = ResourceManager.GetObject("download", resourceCulture);
+                object obj = ResourceManager.GetObject("dir", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Icon download_hidden {
+        internal static System.Drawing.Bitmap download {
             get {
-                object obj = ResourceManager.GetObject("download_hidden", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon download_visible {
-            get {
-                object obj = ResourceManager.GetObject("download_visible", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                object obj = ResourceManager.GetObject("download", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -549,6 +539,36 @@ namespace fapmap.Properties {
         internal static System.Drawing.Icon icon_download {
             get {
                 object obj = ResourceManager.GetObject("icon_download", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon icon_downloadHidden {
+            get {
+                object obj = ResourceManager.GetObject("icon_downloadHidden", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon icon_downloadHiddenIdle {
+            get {
+                object obj = ResourceManager.GetObject("icon_downloadHiddenIdle", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon icon_downloadIdle {
+            get {
+                object obj = ResourceManager.GetObject("icon_downloadIdle", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

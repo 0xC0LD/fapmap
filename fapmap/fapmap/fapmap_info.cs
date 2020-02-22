@@ -23,14 +23,8 @@ namespace fapmap
 
         private void fapmap_info_Load(object sender, EventArgs e)
         {
-            fapmap.fapmap_cd();
-
-            if (string.IsNullOrEmpty(path))
-            {
-                this.Close();
-            }
-
-            getAll_Click(null, null);
+            if (string.IsNullOrEmpty(path)) { this.Close(); }
+            getInfo();
         }
 
         private void HelpBalloon_Draw(object sender, DrawToolTipEventArgs e)
@@ -39,27 +33,25 @@ namespace fapmap
             e.DrawBorder();
             e.DrawText();
         }
-
-        private void getAll_Click(object sender, EventArgs e)
+        
+        private bool getInfo_busy = false;
+        private void getInfo()
         {
-            new Thread(RefreshThread) { IsBackground = true }.Start();
+            new Thread(getInfo_thread) { IsBackground = true }.Start();
 
             count_files_panel.Focus();
             this.ActiveControl = count_files_panel;
         }
-
-        private static bool RefreshThread_busy = false;
-        private void RefreshThread()
+        private void getInfo_thread()
         {
-            if (!RefreshThread_busy)
+            if (!getInfo_busy)
             {
-                RefreshThread_busy = true;
+                getInfo_busy = true;
                 getAll.Enabled = false;
                 
                 fileSizeText.Text = "...";
                 count_files.Text = "...";
-
-                this.Text = "FAPMAP - INFO: SCANNING: " + path;
+                
                 path_txt.Text = path;
                 path_txt.ForeColor = Color.DarkSlateBlue;
 
@@ -85,11 +77,10 @@ namespace fapmap
                     this.Close();
                 }
                 
-                this.Text = "FAPMAP - INFO: " + path;
-                path_txt.ForeColor = Color.Silver;
+                path_txt.ForeColor = Color.SlateBlue;
 
                 getAll.Enabled = true;
-                RefreshThread_busy = false;
+                getInfo_busy = false;
             }
         }
         
@@ -160,7 +151,6 @@ namespace fapmap
             }
             count_files.Text += Environment.NewLine;
         }
-
         private void CountAll()
         {
             //CLEAR
@@ -176,6 +166,11 @@ namespace fapmap
             CountAll_print("VIDEO", fapmap.GlobalVariables.FileTypes.Video);
             CountAll_print("IMAGE", fapmap.GlobalVariables.FileTypes.Image);
             CountAll_print("OTHER", fapmap.GlobalVariables.FileTypes.Other);
+        }
+
+        private void getAll_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left) { getInfo(); }
         }
     }
 }

@@ -19,144 +19,134 @@ namespace fapmap
         public fapmap_log()
         {
             InitializeComponent();
+
+            logs_RMB.Renderer = new fapmap_res.color.fToolStripProfessionalRenderer();
         }
 
         private void fapmap_log_Load(object sender, EventArgs e)
         {
-            fapmap.fapmap_cd();
-            get_logs();
+            logs_refresh();
         }
-
-
-        #region Logs
-
-        private bool GetLogsFromFile(string log)
+        
+        private bool readLogs(string logPath)
         {
-            if (File.Exists(log))
-            {
-                logs.SelectedItems.Clear(); //CLEAR SELECTION
-                logs.Items.Clear(); //CLEAR LOGS
-
-                //VARS
-                int count = 0;
-
-                foreach (string line in File.ReadAllLines(log))
-                {
-                    string[] index = line.Split(new string[] { "|||" }, StringSplitOptions.None);
-
-                    if (index.Length == 3)
-                    {
-                        count++; //count
-                        string time = index[0];
-                        string action = index[1];
-                        string text = index[2];
-
-                        ListViewItem lvi = new ListViewItem(new string[] { count.ToString(), time, action, text }) { Tag = text };
-                        switch (action)
-                        {
-                            case "OPEN": lvi.ForeColor = Color.Yellow; break;
-                            case "PLAY": lvi.ForeColor = Color.SkyBlue; break;
-                            case "EXEC": lvi.ForeColor = Color.Orange; break;
-                            case "MOVE": lvi.ForeColor = Color.Yellow; break;
-                            case "RMVD": lvi.ForeColor = Color.IndianRed; break;
-                            case "MDIR": lvi.ForeColor = Color.SteelBlue; break;
-                            case "RENM": lvi.ForeColor = Color.DarkSeaGreen; break;
-
-                            case "404E": lvi.ForeColor = Color.Red; break;
-                            case "LOAD": lvi.ForeColor = Color.OrangeRed; break;
-                        
-                            case "UDEL": lvi.ForeColor = Color.PaleVioletRed; break;
-                            case "FMWB": lvi.ForeColor = Color.MediumSlateBlue; break;
-                        
-                            case "DING": lvi.ForeColor = Color.DarkGreen; break;
-                            case "DLED": lvi.ForeColor = Color.Lime; break;
-
-                            default: lvi.ForeColor = Color.Silver; break;
-                        }
-                        
-                        logs.Items.Add(lvi); //add
-                    }
-                }
-
-                this.Text = "lines: " + logs.Items.Count;
-
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("File not found: " + log, this.Text, MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            if (!File.Exists(logPath)) {
+                MessageBox.Show("File not found: " + logPath, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-        }
-        
-        private void get_logs()
-        {
-            //DISABLE ALL
-            this.Text = "Loading...";
 
-            logs.BeginUpdate();
-
-            string file = fapmap.GlobalVariables.Path.File.Log;
+            logs.SelectedItems.Clear();
+            logs.Items.Clear();
             
-            if (!GetLogsFromFile(file))
-            {
-                this.Text = "File not found...";
-            }
+            int count = 0;
+            List<ListViewItem> items = new List<ListViewItem>();
 
-            logs.EndUpdate();
-            
-            //scroll down
-            if (logs.Items.Count > 0) { logs.EnsureVisible(logs.Items.Count - 1); }
-
-            //auto resize
-            foreach (ColumnHeader column in logs.Columns)
+            foreach (string line in File.ReadAllLines(logPath))
             {
-                column.Width = -2;
-            }
-        }
+                string[] index = line.Split(new string[] { "|||" }, StringSplitOptions.None);
 
-        private void Logs_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Control && e.KeyCode == Keys.C)
-            {
-                if (logs.SelectedItems != null)
+                if (index.Length == 3)
                 {
-                    string clip = string.Empty;
-                    foreach(ListViewItem item in logs.SelectedItems)
+                    count++;
+                    string time = index[0];
+                    string action = index[1];
+                    string text = index[2].Replace("\n", String.Empty);
+
+                    ListViewItem lvi = new ListViewItem(new string[] { count.ToString(), time, action, text }) { Tag = text };
+                    switch (action)
                     {
-                        clip = clip + item.Tag.ToString() + Environment.NewLine;
+                        case fapmap.GlobalVariables.LOG_TYPE.OPEN: lvi.ForeColor = Color.Yellow; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.PLAY: lvi.ForeColor = Color.SkyBlue; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.EXEC: lvi.ForeColor = Color.Orange; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.MOVE: lvi.ForeColor = Color.Yellow; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.LOAD: lvi.ForeColor = Color.OrangeRed; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.NTFD: lvi.ForeColor = Color.Red; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.DING: lvi.ForeColor = Color.DarkGreen; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.DLED: lvi.ForeColor = Color.Lime; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.RENM: lvi.ForeColor = Color.DarkSeaGreen; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.MKDR: lvi.ForeColor = Color.SteelBlue; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.RMVD: lvi.ForeColor = Color.IndianRed; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.UDEL: lvi.ForeColor = Color.PaleVioletRed; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.PASS: lvi.ForeColor = Color.Crimson; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.FAIL: lvi.ForeColor = Color.DarkOrchid; break;
+                        default: lvi.ForeColor = Color.Silver; break;
                     }
-                    System.Windows.Forms.Clipboard.SetText(clip);
+                    items.Add(lvi);
                 }
             }
 
-            if (e.Control && e.KeyCode == Keys.E)
-            {
-                Process.Start("notepad.exe", fapmap.GlobalVariables.Path.File.Log);
-            }
+            logs.Items.AddRange(items.ToArray());
+            lable_status.Text = "lines: " + logs.Items.Count;
+
+            return true;
         }
         
-        #endregion
-        
+        private void logs_refresh()
+        {
+            lable_status.Text = "Loading...";
+
+            logs.BeginUpdate();
+            if (!readLogs(fapmap.GlobalVariables.Path.File.Log)) { lable_status.Text = "File not found..."; }
+            logs.EndUpdate();
+
+            if (logs.Items.Count > 0) { logs.EnsureVisible(logs.Items.Count - 1); }
+            foreach (ColumnHeader column in logs.Columns) { column.Width = -2; }
+        }
+        private void logs_open()
+        {
+            foreach (ListViewItem lvi in logs.SelectedItems)
+            {
+                if (lvi.Tag == null) { continue; }
+                string text = lvi.Tag.ToString();
+                if (string.IsNullOrEmpty(text)) { continue; }
+                if (File.Exists(text)) { fapmap.Open(text); }
+                else if (Uri.IsWellFormedUriString(text, UriKind.Absolute)) { fapmap.Incognito(text); }
+            }
+        }
+        private void logs_copy()
+        {
+            if (logs.SelectedItems != null)
+            {
+                string clip = string.Empty;
+                foreach (ListViewItem item in logs.SelectedItems) { clip = clip + item.Tag.ToString() + Environment.NewLine; }
+                System.Windows.Forms.Clipboard.SetText(clip);
+            }
+        }
+        private void logs_edit()
+        {
+            fapmap.Open(fapmap.GlobalVariables.Path.File.Log);
+        }
+
+        private void logs_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch(e.KeyCode)
+            {
+                case Keys.Enter: logs_open(); e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.F5: logs_refresh(); break;
+            }
+
+            if (e.Control)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.W: logs_open(); break;
+                    case Keys.R: logs_refresh(); break;
+                    case Keys.C: logs_copy(); break;
+                    case Keys.E: logs_edit(); break;
+                }
+            }
+        }
         private void logs_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
-                foreach(ListViewItem lvi in logs.SelectedItems)
-                {
-                    string text = lvi.Tag.ToString();
-
-                    if (File.Exists(text))
-                    {
-                        fapmap.Open(text);
-                    }
-                    else if (Uri.IsWellFormedUriString(text, UriKind.Absolute))
-                    {
-                        fapmap.Incognito(text);
-                    }
-                }
+                logs_open();
             }
         }
+        
+        private void logs_RMB_refresh_Click(object sender, EventArgs e) { logs_refresh(); }
+        private void logs_RMB_open_Click(object sender, EventArgs e) { logs_open(); }
+        private void logs_RMB_copy_Click(object sender, EventArgs e) { logs_copy(); }
+        private void logs_RMB_edit_Click(object sender, EventArgs e) { logs_edit(); }
     }
 }

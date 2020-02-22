@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="statusOutput.Text" xml:space="preserve">
+  <data name="txt_output.Text" xml:space="preserve">
     <value>COPIED: C:\Users\user\Desktop\data\fapmap.exe -&gt; E:\{H321-2314-JH34-H43J}\fapmap.exe
 COPIED: C:\Users\user\Desktop\data\fapmap.ico -&gt; E:\{H321-2314-JH34-H43J}\fapmap.ico
 COPIED: C:\Users\user\Desktop\data\ffmpeg.exe -&gt; E:\{H321-2314-JH34-H43J}\ffmpeg.exe

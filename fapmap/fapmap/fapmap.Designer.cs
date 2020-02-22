@@ -52,18 +52,17 @@
             this.fileDisplay_RMB_refresh = new System.Windows.Forms.ToolStripMenuItem();
             this.fileDisplay_RMB_open = new System.Windows.Forms.ToolStripMenuItem();
             this.fileDisplay_RMB_explorer = new System.Windows.Forms.ToolStripMenuItem();
-            this.fileDisplay_RMB_explorer2 = new System.Windows.Forms.ToolStripMenuItem();
             this.fileDisplay_RMB_newFolder = new System.Windows.Forms.ToolStripMenuItem();
             this.fileDisplay_RMB_rename = new System.Windows.Forms.ToolStripMenuItem();
             this.fileDisplay_RMB_delete = new System.Windows.Forms.ToolStripMenuItem();
             this.fileDisplay_RMB_properties = new System.Windows.Forms.ToolStripMenuItem();
             this.fileDisplay_icons = new System.Windows.Forms.ImageList(this.components);
             this.fileDisplay_btn_randImage = new System.Windows.Forms.Button();
-            this.faftv_path = new System.Windows.Forms.TextBox();
+            this.txt_path = new System.Windows.Forms.TextBox();
             this.fileDisplay_btn_root = new System.Windows.Forms.Button();
             this.fileDisplay_btn_backDir = new System.Windows.Forms.Button();
             this.fileDisplay_btn_randVideo = new System.Windows.Forms.Button();
-            this.wb_btn_start = new System.Windows.Forms.Button();
+            this.btn_startURL = new System.Windows.Forms.Button();
             this.links = new System.Windows.Forms.ListView();
             this.links_clm_num = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.links_clm_url = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -81,15 +80,15 @@
             this.links_RMB_find = new System.Windows.Forms.ToolStripMenuItem();
             this.links_RMB_reloadTitle = new System.Windows.Forms.ToolStripMenuItem();
             this.links_RMB_urlBoard = new System.Windows.Forms.ToolStripMenuItem();
+            this.links_RMB_download = new System.Windows.Forms.ToolStripMenuItem();
             this.links_RMB_youtubedl = new System.Windows.Forms.ToolStripMenuItem();
             this.links_RMB_webgrab = new System.Windows.Forms.ToolStripMenuItem();
-            this.links_RMB_download = new System.Windows.Forms.ToolStripMenuItem();
             this.links_RMB_delete = new System.Windows.Forms.ToolStripMenuItem();
             this.favicons = new System.Windows.Forms.ImageList(this.components);
-            this.wb_btn_dragOut = new System.Windows.Forms.Button();
-            this.wb_url = new System.Windows.Forms.TextBox();
-            this.wb_btn_pin = new System.Windows.Forms.Button();
-            this.wb_btn_open = new System.Windows.Forms.Button();
+            this.btn_dragOutURL = new System.Windows.Forms.Button();
+            this.txt_url = new System.Windows.Forms.TextBox();
+            this.btn_saveURL = new System.Windows.Forms.Button();
+            this.btn_openURL = new System.Windows.Forms.Button();
             this.this_trayicon = new System.Windows.Forms.NotifyIcon(this.components);
             this.showMedia_image = new System.Windows.Forms.PictureBox();
             this.showMedia_image_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -128,7 +127,7 @@
             this.showMedia_video_RMB_openFile = new System.Windows.Forms.ToolStripMenuItem();
             this.showMedia_video_RMB_explorer = new System.Windows.Forms.ToolStripMenuItem();
             this.showMedia_video_RMB_convert = new System.Windows.Forms.ToolStripMenuItem();
-            this.showMedia_video_RMB_delete = new System.Windows.Forms.ToolStripMenuItem();
+            this.showMedia_video_RMB_trashFile = new System.Windows.Forms.ToolStripMenuItem();
             this.showMedia_video_RMB_properties = new System.Windows.Forms.ToolStripMenuItem();
             this.showMedia_video_ctrlsPanel = new System.Windows.Forms.Panel();
             this.showMedia_video_ctrlsPanel_playlistIndex = new System.Windows.Forms.Label();
@@ -145,11 +144,13 @@
             this.menu_open_explorer = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_open_browser = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_open_finder = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_open_fscan = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_open_videoPlayer = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_open_imageViewer = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_open_urlBoard = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_open_converter = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_open_urlDownloader = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu_open_youtubedl = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_open_logViewer = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_open_credits = new System.Windows.Forms.ToolStripMenuItem();
             this.menu_open_settings = new System.Windows.Forms.ToolStripMenuItem();
@@ -217,7 +218,7 @@
             this.splitContainer_main.Panel1.Controls.Add(this.fileDisplay_btn_reload);
             this.splitContainer_main.Panel1.Controls.Add(this.splitContainer_files);
             this.splitContainer_main.Panel1.Controls.Add(this.fileDisplay_btn_randImage);
-            this.splitContainer_main.Panel1.Controls.Add(this.faftv_path);
+            this.splitContainer_main.Panel1.Controls.Add(this.txt_path);
             this.splitContainer_main.Panel1.Controls.Add(this.fileDisplay_btn_root);
             this.splitContainer_main.Panel1.Controls.Add(this.fileDisplay_btn_backDir);
             this.splitContainer_main.Panel1.Controls.Add(this.fileDisplay_btn_randVideo);
@@ -225,12 +226,12 @@
             // splitContainer_main.Panel2
             // 
             this.splitContainer_main.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.splitContainer_main.Panel2.Controls.Add(this.wb_btn_start);
+            this.splitContainer_main.Panel2.Controls.Add(this.btn_startURL);
             this.splitContainer_main.Panel2.Controls.Add(this.links);
-            this.splitContainer_main.Panel2.Controls.Add(this.wb_btn_dragOut);
-            this.splitContainer_main.Panel2.Controls.Add(this.wb_url);
-            this.splitContainer_main.Panel2.Controls.Add(this.wb_btn_pin);
-            this.splitContainer_main.Panel2.Controls.Add(this.wb_btn_open);
+            this.splitContainer_main.Panel2.Controls.Add(this.btn_dragOutURL);
+            this.splitContainer_main.Panel2.Controls.Add(this.txt_url);
+            this.splitContainer_main.Panel2.Controls.Add(this.btn_saveURL);
+            this.splitContainer_main.Panel2.Controls.Add(this.btn_openURL);
             // 
             // fileDisplay_btn_reload
             // 
@@ -271,9 +272,9 @@
             this.faftv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.faftv.ContextMenuStrip = this.faftv_RMB;
             resources.ApplyResources(this.faftv, "faftv");
-            this.faftv.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
             this.faftv.ForeColor = System.Drawing.Color.SlateBlue;
             this.faftv.FullRowSelect = true;
+            this.faftv.HideSelection = false;
             this.faftv.HotTracking = true;
             this.faftv.ImageList = this.faftv_icons;
             this.faftv.ItemHeight = 16;
@@ -284,6 +285,7 @@
             this.faftv.DragDrop += new System.Windows.Forms.DragEventHandler(this.faftv_DragDrop);
             this.faftv.DragEnter += new System.Windows.Forms.DragEventHandler(this.faftv_DragEnter);
             this.faftv.KeyDown += new System.Windows.Forms.KeyEventHandler(this.faftv_KeyDown);
+            this.faftv.KeyUp += new System.Windows.Forms.KeyEventHandler(this.faftv_KeyUp);
             this.faftv.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.faftv_MouseDoubleClick);
             // 
             // faftv_RMB
@@ -367,7 +369,7 @@
             this.faftv_RMB_rename.Image = global::fapmap.Properties.Resources.edit;
             this.faftv_RMB_rename.Name = "faftv_RMB_rename";
             resources.ApplyResources(this.faftv_RMB_rename, "faftv_RMB_rename");
-            this.faftv_RMB_rename.Click += new System.EventHandler(this.fileDisplay_RMB_rename_Click);
+            this.faftv_RMB_rename.Click += new System.EventHandler(this.faftv_RMB_rename_Click);
             // 
             // faftv_RMB_delete
             // 
@@ -443,7 +445,6 @@
             this.fileDisplay_RMB_refresh,
             this.fileDisplay_RMB_open,
             this.fileDisplay_RMB_explorer,
-            this.fileDisplay_RMB_explorer2,
             this.fileDisplay_RMB_newFolder,
             this.fileDisplay_RMB_rename,
             this.fileDisplay_RMB_delete,
@@ -479,15 +480,6 @@
             this.fileDisplay_RMB_explorer.Name = "fileDisplay_RMB_explorer";
             resources.ApplyResources(this.fileDisplay_RMB_explorer, "fileDisplay_RMB_explorer");
             this.fileDisplay_RMB_explorer.Click += new System.EventHandler(this.fileDisplay_RMB_explorer_Click);
-            // 
-            // fileDisplay_RMB_explorer2
-            // 
-            this.fileDisplay_RMB_explorer2.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            resources.ApplyResources(this.fileDisplay_RMB_explorer2, "fileDisplay_RMB_explorer2");
-            this.fileDisplay_RMB_explorer2.ForeColor = System.Drawing.Color.SlateBlue;
-            this.fileDisplay_RMB_explorer2.Image = global::fapmap.Properties.Resources.folder;
-            this.fileDisplay_RMB_explorer2.Name = "fileDisplay_RMB_explorer2";
-            this.fileDisplay_RMB_explorer2.Click += new System.EventHandler(this.fileDisplay_RMB_explorer2_Click);
             // 
             // fileDisplay_RMB_newFolder
             // 
@@ -546,20 +538,20 @@
             this.fileDisplay_btn_randImage.UseVisualStyleBackColor = false;
             this.fileDisplay_btn_randImage.MouseUp += new System.Windows.Forms.MouseEventHandler(this.fileDisplay_btn_randImage_MouseUp);
             // 
-            // faftv_path
+            // txt_path
             // 
-            this.faftv_path.AllowDrop = true;
-            resources.ApplyResources(this.faftv_path, "faftv_path");
-            this.wb_url_autoCompleteMenu.SetAutocompleteMenu(this.faftv_path, null);
-            this.faftv_path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.faftv_path.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.faftv_path.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.faftv_path.ForeColor = System.Drawing.Color.YellowGreen;
-            this.faftv_path.Name = "faftv_path";
-            this.faftv_path.TextChanged += new System.EventHandler(this.txt_path_TextChanged);
-            this.faftv_path.DragDrop += new System.Windows.Forms.DragEventHandler(this.txt_path_DragDrop);
-            this.faftv_path.DragEnter += new System.Windows.Forms.DragEventHandler(this.txt_path_DragEnter);
-            this.faftv_path.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_path_KeyDown);
+            this.txt_path.AllowDrop = true;
+            resources.ApplyResources(this.txt_path, "txt_path");
+            this.wb_url_autoCompleteMenu.SetAutocompleteMenu(this.txt_path, null);
+            this.txt_path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_path.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_path.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txt_path.ForeColor = System.Drawing.Color.YellowGreen;
+            this.txt_path.Name = "txt_path";
+            this.txt_path.TextChanged += new System.EventHandler(this.txt_path_TextChanged);
+            this.txt_path.DragDrop += new System.Windows.Forms.DragEventHandler(this.txt_path_DragDrop);
+            this.txt_path.DragEnter += new System.Windows.Forms.DragEventHandler(this.txt_path_DragEnter);
+            this.txt_path.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_path_KeyDown);
             // 
             // fileDisplay_btn_root
             // 
@@ -608,21 +600,21 @@
             this.fileDisplay_btn_randVideo.UseVisualStyleBackColor = false;
             this.fileDisplay_btn_randVideo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.fileDisplay_btn_randVideo_MouseUp);
             // 
-            // wb_btn_start
+            // btn_startURL
             // 
-            resources.ApplyResources(this.wb_btn_start, "wb_btn_start");
-            this.wb_btn_start.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.wb_btn_start.BackgroundImage = global::fapmap.Properties.Resources.arrow_left;
-            this.wb_btn_start.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.wb_btn_start.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.wb_btn_start.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
-            this.wb_btn_start.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.wb_btn_start.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.wb_btn_start.ForeColor = System.Drawing.Color.DimGray;
-            this.wb_btn_start.Name = "wb_btn_start";
-            this.HelpBalloon.SetToolTip(this.wb_btn_start, resources.GetString("wb_btn_start.ToolTip"));
-            this.wb_btn_start.UseVisualStyleBackColor = false;
-            this.wb_btn_start.Click += new System.EventHandler(this.wb_btn_start_Click);
+            resources.ApplyResources(this.btn_startURL, "btn_startURL");
+            this.btn_startURL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_startURL.BackgroundImage = global::fapmap.Properties.Resources.arrow_left;
+            this.btn_startURL.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_startURL.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btn_startURL.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
+            this.btn_startURL.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btn_startURL.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btn_startURL.ForeColor = System.Drawing.Color.DimGray;
+            this.btn_startURL.Name = "btn_startURL";
+            this.HelpBalloon.SetToolTip(this.btn_startURL, resources.GetString("btn_startURL.ToolTip"));
+            this.btn_startURL.UseVisualStyleBackColor = false;
+            this.btn_startURL.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_startURL_MouseClick);
             // 
             // links
             // 
@@ -647,8 +639,8 @@
             this.links.SmallImageList = this.favicons;
             this.links.UseCompatibleStateImageBehavior = false;
             this.links.View = System.Windows.Forms.View.Details;
-            this.links.DragDrop += new System.Windows.Forms.DragEventHandler(this.Links_DragDrop);
-            this.links.DragEnter += new System.Windows.Forms.DragEventHandler(this.Links_DragEnter);
+            this.links.DragDrop += new System.Windows.Forms.DragEventHandler(this.links_DragDrop);
+            this.links.DragEnter += new System.Windows.Forms.DragEventHandler(this.links_DragEnter);
             this.links.KeyDown += new System.Windows.Forms.KeyEventHandler(this.links_KeyDown);
             this.links.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.links_MouseDoubleClick);
             // 
@@ -681,9 +673,9 @@
             this.links_RMB_find,
             this.links_RMB_reloadTitle,
             this.links_RMB_urlBoard,
+            this.links_RMB_download,
             this.links_RMB_youtubedl,
             this.links_RMB_webgrab,
-            this.links_RMB_download,
             this.links_RMB_delete});
             this.links_RMB.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
             this.links_RMB.Name = "contextMenuStrip1";
@@ -799,6 +791,15 @@
             this.links_RMB_urlBoard.Name = "links_RMB_urlBoard";
             this.links_RMB_urlBoard.Click += new System.EventHandler(this.links_RMB_urlBoard_Click);
             // 
+            // links_RMB_download
+            // 
+            this.links_RMB_download.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            resources.ApplyResources(this.links_RMB_download, "links_RMB_download");
+            this.links_RMB_download.ForeColor = System.Drawing.Color.SlateBlue;
+            this.links_RMB_download.Image = global::fapmap.Properties.Resources.download;
+            this.links_RMB_download.Name = "links_RMB_download";
+            this.links_RMB_download.Click += new System.EventHandler(this.links_RMB_download_Click);
+            // 
             // links_RMB_youtubedl
             // 
             this.links_RMB_youtubedl.BackgroundImage = global::fapmap.Properties.Resources.bg4;
@@ -817,15 +818,6 @@
             this.links_RMB_webgrab.Name = "links_RMB_webgrab";
             this.links_RMB_webgrab.Click += new System.EventHandler(this.links_RMB_webgrab_Click);
             // 
-            // links_RMB_download
-            // 
-            this.links_RMB_download.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            resources.ApplyResources(this.links_RMB_download, "links_RMB_download");
-            this.links_RMB_download.ForeColor = System.Drawing.Color.SlateBlue;
-            this.links_RMB_download.Image = global::fapmap.Properties.Resources.download;
-            this.links_RMB_download.Name = "links_RMB_download";
-            this.links_RMB_download.Click += new System.EventHandler(this.links_RMB_download_Click);
-            // 
             // links_RMB_delete
             // 
             this.links_RMB_delete.BackgroundImage = global::fapmap.Properties.Resources.bg4;
@@ -841,74 +833,74 @@
             resources.ApplyResources(this.favicons, "favicons");
             this.favicons.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // wb_btn_dragOut
+            // btn_dragOutURL
             // 
-            this.wb_btn_dragOut.AllowDrop = true;
-            resources.ApplyResources(this.wb_btn_dragOut, "wb_btn_dragOut");
-            this.wb_btn_dragOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.wb_btn_dragOut.BackgroundImage = global::fapmap.Properties.Resources.image;
-            this.wb_btn_dragOut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.wb_btn_dragOut.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.wb_btn_dragOut.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
-            this.wb_btn_dragOut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.wb_btn_dragOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.wb_btn_dragOut.ForeColor = System.Drawing.Color.DimGray;
-            this.wb_btn_dragOut.Name = "wb_btn_dragOut";
-            this.HelpBalloon.SetToolTip(this.wb_btn_dragOut, resources.GetString("wb_btn_dragOut.ToolTip"));
-            this.wb_btn_dragOut.UseVisualStyleBackColor = false;
-            this.wb_btn_dragOut.DragOver += new System.Windows.Forms.DragEventHandler(this.wb_btn_dragOut_DragOver);
-            this.wb_btn_dragOut.MouseDown += new System.Windows.Forms.MouseEventHandler(this.wb_btn_dragOut_MouseDown);
+            this.btn_dragOutURL.AllowDrop = true;
+            resources.ApplyResources(this.btn_dragOutURL, "btn_dragOutURL");
+            this.btn_dragOutURL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_dragOutURL.BackgroundImage = global::fapmap.Properties.Resources.image;
+            this.btn_dragOutURL.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_dragOutURL.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btn_dragOutURL.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
+            this.btn_dragOutURL.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btn_dragOutURL.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btn_dragOutURL.ForeColor = System.Drawing.Color.DimGray;
+            this.btn_dragOutURL.Name = "btn_dragOutURL";
+            this.HelpBalloon.SetToolTip(this.btn_dragOutURL, resources.GetString("btn_dragOutURL.ToolTip"));
+            this.btn_dragOutURL.UseVisualStyleBackColor = false;
+            this.btn_dragOutURL.DragOver += new System.Windows.Forms.DragEventHandler(this.wb_btn_dragOut_DragOver);
+            this.btn_dragOutURL.MouseDown += new System.Windows.Forms.MouseEventHandler(this.wb_btn_dragOut_MouseDown);
             // 
-            // wb_url
+            // txt_url
             // 
-            this.wb_url.AllowDrop = true;
-            resources.ApplyResources(this.wb_url, "wb_url");
-            this.wb_url_autoCompleteMenu.SetAutocompleteMenu(this.wb_url, this.wb_url_autoCompleteMenu);
-            this.wb_url.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.wb_url.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.wb_url.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.wb_url.ForeColor = System.Drawing.Color.Teal;
-            this.wb_url.Name = "wb_url";
-            this.wb_url.DragDrop += new System.Windows.Forms.DragEventHandler(this.wb_url_DragDrop);
-            this.wb_url.DragEnter += new System.Windows.Forms.DragEventHandler(this.wb_url_DragEnter);
-            this.wb_url.KeyDown += new System.Windows.Forms.KeyEventHandler(this.wb_url_KeyDown);
+            this.txt_url.AllowDrop = true;
+            resources.ApplyResources(this.txt_url, "txt_url");
+            this.wb_url_autoCompleteMenu.SetAutocompleteMenu(this.txt_url, this.wb_url_autoCompleteMenu);
+            this.txt_url.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_url.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_url.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txt_url.ForeColor = System.Drawing.Color.Teal;
+            this.txt_url.Name = "txt_url";
+            this.txt_url.DragDrop += new System.Windows.Forms.DragEventHandler(this.txt_url_DragDrop);
+            this.txt_url.DragEnter += new System.Windows.Forms.DragEventHandler(this.txt_url_DragEnter);
+            this.txt_url.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_url_KeyDown);
             // 
-            // wb_btn_pin
+            // btn_saveURL
             // 
-            resources.ApplyResources(this.wb_btn_pin, "wb_btn_pin");
-            this.wb_btn_pin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.wb_btn_pin.BackgroundImage = global::fapmap.Properties.Resources.arrow_down;
-            this.wb_btn_pin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.wb_btn_pin.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.wb_btn_pin.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
-            this.wb_btn_pin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.wb_btn_pin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.wb_btn_pin.ForeColor = System.Drawing.Color.DimGray;
-            this.wb_btn_pin.Name = "wb_btn_pin";
-            this.HelpBalloon.SetToolTip(this.wb_btn_pin, resources.GetString("wb_btn_pin.ToolTip"));
-            this.wb_btn_pin.UseVisualStyleBackColor = false;
-            this.wb_btn_pin.Click += new System.EventHandler(this.wb_btn_pin_Click);
+            resources.ApplyResources(this.btn_saveURL, "btn_saveURL");
+            this.btn_saveURL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_saveURL.BackgroundImage = global::fapmap.Properties.Resources.arrow_down;
+            this.btn_saveURL.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_saveURL.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btn_saveURL.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
+            this.btn_saveURL.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btn_saveURL.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btn_saveURL.ForeColor = System.Drawing.Color.DimGray;
+            this.btn_saveURL.Name = "btn_saveURL";
+            this.HelpBalloon.SetToolTip(this.btn_saveURL, resources.GetString("btn_saveURL.ToolTip"));
+            this.btn_saveURL.UseVisualStyleBackColor = false;
+            this.btn_saveURL.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_saveURL_MouseClick);
             // 
-            // wb_btn_open
+            // btn_openURL
             // 
-            resources.ApplyResources(this.wb_btn_open, "wb_btn_open");
-            this.wb_btn_open.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.wb_btn_open.BackgroundImage = global::fapmap.Properties.Resources.open;
-            this.wb_btn_open.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.wb_btn_open.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.wb_btn_open.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
-            this.wb_btn_open.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.wb_btn_open.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.wb_btn_open.ForeColor = System.Drawing.Color.DimGray;
-            this.wb_btn_open.Name = "wb_btn_open";
-            this.HelpBalloon.SetToolTip(this.wb_btn_open, resources.GetString("wb_btn_open.ToolTip"));
-            this.wb_btn_open.UseVisualStyleBackColor = false;
-            this.wb_btn_open.Click += new System.EventHandler(this.wb_btn_open_Click);
+            resources.ApplyResources(this.btn_openURL, "btn_openURL");
+            this.btn_openURL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_openURL.BackgroundImage = global::fapmap.Properties.Resources.open;
+            this.btn_openURL.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_openURL.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btn_openURL.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
+            this.btn_openURL.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btn_openURL.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btn_openURL.ForeColor = System.Drawing.Color.DimGray;
+            this.btn_openURL.Name = "btn_openURL";
+            this.HelpBalloon.SetToolTip(this.btn_openURL, resources.GetString("btn_openURL.ToolTip"));
+            this.btn_openURL.UseVisualStyleBackColor = false;
+            this.btn_openURL.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_openURL_MouseClick);
             // 
             // this_trayicon
             // 
             resources.ApplyResources(this.this_trayicon, "this_trayicon");
-            this.this_trayicon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SystemTrayIcon_MouseClick);
+            this.this_trayicon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.this_trayicon_MouseClick);
             // 
             // showMedia_image
             // 
@@ -966,7 +958,7 @@
             this.showMedia_image_RMB_open.ForeColor = System.Drawing.Color.SlateBlue;
             this.showMedia_image_RMB_open.Image = global::fapmap.Properties.Resources.open;
             this.showMedia_image_RMB_open.Name = "showMedia_image_RMB_open";
-            this.showMedia_image_RMB_open.Click += new System.EventHandler(this.showMedia_openFile);
+            this.showMedia_image_RMB_open.Click += new System.EventHandler(this.showMedia_RMB_openFile_Click);
             // 
             // showMedia_image_RMB_explorer
             // 
@@ -975,7 +967,7 @@
             this.showMedia_image_RMB_explorer.ForeColor = System.Drawing.Color.SlateBlue;
             this.showMedia_image_RMB_explorer.Image = global::fapmap.Properties.Resources.folder;
             this.showMedia_image_RMB_explorer.Name = "showMedia_image_RMB_explorer";
-            this.showMedia_image_RMB_explorer.Click += new System.EventHandler(this.showMedia_explorer);
+            this.showMedia_image_RMB_explorer.Click += new System.EventHandler(this.showMedia_RMB_explorer_Click);
             // 
             // showMedia_image_RMB_convert
             // 
@@ -984,7 +976,7 @@
             this.showMedia_image_RMB_convert.ForeColor = System.Drawing.Color.SlateBlue;
             this.showMedia_image_RMB_convert.Image = global::fapmap.Properties.Resources.ffmpeg;
             this.showMedia_image_RMB_convert.Name = "showMedia_image_RMB_convert";
-            this.showMedia_image_RMB_convert.Click += new System.EventHandler(this.showMedia_convert);
+            this.showMedia_image_RMB_convert.Click += new System.EventHandler(this.showMedia_RMB_convert_Click);
             // 
             // showMedia_image_RMB_trashFile
             // 
@@ -993,7 +985,7 @@
             this.showMedia_image_RMB_trashFile.ForeColor = System.Drawing.Color.SlateBlue;
             this.showMedia_image_RMB_trashFile.Image = global::fapmap.Properties.Resources.delete;
             this.showMedia_image_RMB_trashFile.Name = "showMedia_image_RMB_trashFile";
-            this.showMedia_image_RMB_trashFile.Click += new System.EventHandler(this.fileDisplay_btn_trashFile_Click);
+            this.showMedia_image_RMB_trashFile.Click += new System.EventHandler(this.showMedia_RMB_trashFile_Click);
             // 
             // showMedia_image_RMB_properties
             // 
@@ -1002,7 +994,7 @@
             this.showMedia_image_RMB_properties.ForeColor = System.Drawing.Color.SlateBlue;
             this.showMedia_image_RMB_properties.Image = global::fapmap.Properties.Resources.settings;
             this.showMedia_image_RMB_properties.Name = "showMedia_image_RMB_properties";
-            this.showMedia_image_RMB_properties.Click += new System.EventHandler(this.showMedia_info);
+            this.showMedia_image_RMB_properties.Click += new System.EventHandler(this.showMedia_RMB_info);
             // 
             // HelpBalloon
             // 
@@ -1192,10 +1184,10 @@
             this.showMedia_video_sound.ElapsedInnerColor = System.Drawing.Color.Teal;
             this.showMedia_video_sound.ElapsedPenColorBottom = System.Drawing.Color.Transparent;
             this.showMedia_video_sound.ElapsedPenColorTop = System.Drawing.Color.Transparent;
-            this.showMedia_video_sound.ForeColor = System.Drawing.Color.SpringGreen;
+            this.showMedia_video_sound.ForeColor = System.Drawing.Color.MediumSeaGreen;
             this.showMedia_video_sound.LargeChange = ((uint)(5u));
             this.showMedia_video_sound.MouseEffects = false;
-            this.showMedia_video_sound.MouseWheelBarPartitions = 100;
+            this.showMedia_video_sound.MouseWheelBarPartitions = 25;
             this.showMedia_video_sound.Name = "showMedia_video_sound";
             this.showMedia_video_sound.ScaleDivisions = 10;
             this.showMedia_video_sound.ScaleSubDivisions = 9;
@@ -1259,7 +1251,7 @@
             this.showMedia_video_RMB_openFile,
             this.showMedia_video_RMB_explorer,
             this.showMedia_video_RMB_convert,
-            this.showMedia_video_RMB_delete,
+            this.showMedia_video_RMB_trashFile,
             this.showMedia_video_RMB_properties});
             this.showMedia_video_RMB.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
             this.showMedia_video_RMB.Name = "contextMenuStrip1";
@@ -1364,7 +1356,7 @@
             this.showMedia_video_RMB_openFile.ForeColor = System.Drawing.Color.SlateBlue;
             this.showMedia_video_RMB_openFile.Image = global::fapmap.Properties.Resources.open;
             this.showMedia_video_RMB_openFile.Name = "showMedia_video_RMB_openFile";
-            this.showMedia_video_RMB_openFile.Click += new System.EventHandler(this.showMedia_openFile);
+            this.showMedia_video_RMB_openFile.Click += new System.EventHandler(this.showMedia_RMB_openFile_Click);
             // 
             // showMedia_video_RMB_explorer
             // 
@@ -1373,7 +1365,7 @@
             this.showMedia_video_RMB_explorer.ForeColor = System.Drawing.Color.SlateBlue;
             this.showMedia_video_RMB_explorer.Image = global::fapmap.Properties.Resources.folder;
             this.showMedia_video_RMB_explorer.Name = "showMedia_video_RMB_explorer";
-            this.showMedia_video_RMB_explorer.Click += new System.EventHandler(this.showMedia_explorer);
+            this.showMedia_video_RMB_explorer.Click += new System.EventHandler(this.showMedia_RMB_explorer_Click);
             // 
             // showMedia_video_RMB_convert
             // 
@@ -1382,16 +1374,16 @@
             this.showMedia_video_RMB_convert.ForeColor = System.Drawing.Color.SlateBlue;
             this.showMedia_video_RMB_convert.Image = global::fapmap.Properties.Resources.ffmpeg;
             this.showMedia_video_RMB_convert.Name = "showMedia_video_RMB_convert";
-            this.showMedia_video_RMB_convert.Click += new System.EventHandler(this.showMedia_convert);
+            this.showMedia_video_RMB_convert.Click += new System.EventHandler(this.showMedia_RMB_convert_Click);
             // 
-            // showMedia_video_RMB_delete
+            // showMedia_video_RMB_trashFile
             // 
-            this.showMedia_video_RMB_delete.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            resources.ApplyResources(this.showMedia_video_RMB_delete, "showMedia_video_RMB_delete");
-            this.showMedia_video_RMB_delete.ForeColor = System.Drawing.Color.SlateBlue;
-            this.showMedia_video_RMB_delete.Image = global::fapmap.Properties.Resources.delete;
-            this.showMedia_video_RMB_delete.Name = "showMedia_video_RMB_delete";
-            this.showMedia_video_RMB_delete.Click += new System.EventHandler(this.fileDisplay_btn_trashFile_Click);
+            this.showMedia_video_RMB_trashFile.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.showMedia_video_RMB_trashFile.ForeColor = System.Drawing.Color.SlateBlue;
+            this.showMedia_video_RMB_trashFile.Image = global::fapmap.Properties.Resources.delete;
+            this.showMedia_video_RMB_trashFile.Name = "showMedia_video_RMB_trashFile";
+            resources.ApplyResources(this.showMedia_video_RMB_trashFile, "showMedia_video_RMB_trashFile");
+            this.showMedia_video_RMB_trashFile.Click += new System.EventHandler(this.showMedia_RMB_trashFile_Click);
             // 
             // showMedia_video_RMB_properties
             // 
@@ -1400,7 +1392,7 @@
             this.showMedia_video_RMB_properties.ForeColor = System.Drawing.Color.SlateBlue;
             this.showMedia_video_RMB_properties.Image = global::fapmap.Properties.Resources.settings;
             this.showMedia_video_RMB_properties.Name = "showMedia_video_RMB_properties";
-            this.showMedia_video_RMB_properties.Click += new System.EventHandler(this.showMedia_info);
+            this.showMedia_video_RMB_properties.Click += new System.EventHandler(this.showMedia_RMB_info);
             // 
             // showMedia_video_ctrlsPanel
             // 
@@ -1548,11 +1540,13 @@
             this.menu_open_explorer,
             this.menu_open_browser,
             this.menu_open_finder,
+            this.menu_open_fscan,
             this.menu_open_videoPlayer,
             this.menu_open_imageViewer,
             this.menu_open_urlBoard,
             this.menu_open_converter,
             this.menu_open_urlDownloader,
+            this.menu_open_youtubedl,
             this.menu_open_logViewer,
             this.menu_open_credits,
             this.menu_open_settings});
@@ -1590,6 +1584,16 @@
             this.menu_open_finder.Name = "menu_open_finder";
             resources.ApplyResources(this.menu_open_finder, "menu_open_finder");
             this.menu_open_finder.Click += new System.EventHandler(this.menu_open_finder_Click);
+            // 
+            // menu_open_fscan
+            // 
+            this.menu_open_fscan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.menu_open_fscan.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.menu_open_fscan.ForeColor = System.Drawing.Color.SlateBlue;
+            this.menu_open_fscan.Image = global::fapmap.Properties.Resources.find;
+            this.menu_open_fscan.Name = "menu_open_fscan";
+            resources.ApplyResources(this.menu_open_fscan, "menu_open_fscan");
+            this.menu_open_fscan.Click += new System.EventHandler(this.menu_open_fscan_Click);
             // 
             // menu_open_videoPlayer
             // 
@@ -1639,6 +1643,16 @@
             this.menu_open_urlDownloader.Name = "menu_open_urlDownloader";
             resources.ApplyResources(this.menu_open_urlDownloader, "menu_open_urlDownloader");
             this.menu_open_urlDownloader.Click += new System.EventHandler(this.menu_open_urlDownloader_Click);
+            // 
+            // menu_open_youtubedl
+            // 
+            this.menu_open_youtubedl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.menu_open_youtubedl.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.menu_open_youtubedl.ForeColor = System.Drawing.Color.SlateBlue;
+            this.menu_open_youtubedl.Image = global::fapmap.Properties.Resources.download;
+            this.menu_open_youtubedl.Name = "menu_open_youtubedl";
+            resources.ApplyResources(this.menu_open_youtubedl, "menu_open_youtubedl");
+            this.menu_open_youtubedl.Click += new System.EventHandler(this.menu_open_youtubedl_Click);
             // 
             // menu_open_logViewer
             // 
@@ -1889,7 +1903,7 @@
             this.showMedia_image_gif_trackbar.Name = "showMedia_image_gif_trackbar";
             this.showMedia_image_gif_trackbar.ScaleDivisions = 9;
             this.showMedia_image_gif_trackbar.ScaleSubDivisions = 5;
-            this.showMedia_image_gif_trackbar.ShowDivisionsText = true;
+            this.showMedia_image_gif_trackbar.ShowDivisionsText = false;
             this.showMedia_image_gif_trackbar.ShowSmallScale = false;
             this.showMedia_image_gif_trackbar.SmallChange = ((uint)(1u));
             this.showMedia_image_gif_trackbar.ThumbInnerColor = System.Drawing.Color.DarkSlateBlue;
@@ -1942,13 +1956,13 @@
             // wb_url_autoCompleteMenu
             // 
             this.wb_url_autoCompleteMenu.AllowsTabKey = true;
-            this.wb_url_autoCompleteMenu.AppearInterval = 10;
+            this.wb_url_autoCompleteMenu.AppearInterval = 100;
             this.wb_url_autoCompleteMenu.Colors = ((AutocompleteMenuNS.Colors)(resources.GetObject("wb_url_autoCompleteMenu.Colors")));
             this.wb_url_autoCompleteMenu.Font = new System.Drawing.Font("Verdana", 8.25F);
             this.wb_url_autoCompleteMenu.ImageList = null;
             this.wb_url_autoCompleteMenu.Items = new string[0];
             this.wb_url_autoCompleteMenu.LeftPadding = 0;
-            this.wb_url_autoCompleteMenu.MaximumSize = new System.Drawing.Size(150, 300);
+            this.wb_url_autoCompleteMenu.MaximumSize = new System.Drawing.Size(600, 300);
             this.wb_url_autoCompleteMenu.TargetControlWrapper = null;
             // 
             // fapmap
@@ -2006,7 +2020,7 @@
         
         #endregion
         private System.Windows.Forms.ImageList faftv_icons;
-        private System.Windows.Forms.TextBox faftv_path;
+        private System.Windows.Forms.TextBox txt_path;
         private System.Windows.Forms.TreeView faftv;
         private System.Windows.Forms.ContextMenuStrip links_RMB;
         private System.Windows.Forms.ToolStripMenuItem links_RMB_refresh;
@@ -2045,14 +2059,13 @@
         private System.Windows.Forms.ContextMenuStrip fileDisplay_RMB;
         private System.Windows.Forms.ToolStripMenuItem fileDisplay_RMB_refresh;
         private System.Windows.Forms.ToolStripMenuItem fileDisplay_RMB_open;
-        private System.Windows.Forms.ToolStripMenuItem fileDisplay_RMB_explorer2;
         private System.Windows.Forms.Panel showMedia_video_title;
         private System.Windows.Forms.ToolStripMenuItem fileDisplay_RMB_delete;
         private System.Windows.Forms.ImageList fileDisplay_icons;
         private System.Windows.Forms.ToolStripMenuItem fileDisplay_RMB_newFolder;
         private System.Windows.Forms.Button fileDisplay_btn_root;
-        private System.Windows.Forms.Button wb_btn_pin;
-        private System.Windows.Forms.Button wb_btn_open;
+        private System.Windows.Forms.Button btn_saveURL;
+        private System.Windows.Forms.Button btn_openURL;
         private System.Windows.Forms.ToolStripMenuItem links_RMB_uncomment;
         private System.Windows.Forms.Button showMedia_video_skip;
         private System.Windows.Forms.Panel showMedia_image_panel;
@@ -2134,24 +2147,26 @@
         private System.Windows.Forms.ToolStripMenuItem menu_hideWindow;
         private System.Windows.Forms.ToolStripMenuItem menu_restart;
         private System.Windows.Forms.ColumnHeader links_clm_title;
-        private System.Windows.Forms.TextBox wb_url;
+        private System.Windows.Forms.TextBox txt_url;
         private AutocompleteMenuNS.AutocompleteMenu wb_url_autoCompleteMenu;
         private System.Windows.Forms.ToolStripMenuItem links_RMB_youtubedl;
         private System.Windows.Forms.ToolStripMenuItem faftv_RMB_properties;
-        private System.Windows.Forms.Button wb_btn_dragOut;
+        private System.Windows.Forms.Button btn_dragOutURL;
         private System.Windows.Forms.Timer audio_timer;
         private System.Windows.Forms.Label showMedia_video_ctrlsPanel_playlistIndex;
         private System.Windows.Forms.ToolStripMenuItem links_RMB_reloadTitle;
         private System.Windows.Forms.ToolStripMenuItem faftv_RMB_newFolder;
         private System.Windows.Forms.ToolStripMenuItem showMedia_video_RMB_openFile;
-        private System.Windows.Forms.ToolStripMenuItem showMedia_video_RMB_delete;
+        private System.Windows.Forms.ToolStripMenuItem showMedia_video_RMB_trashFile;
         private System.Windows.Forms.ToolStripMenuItem showMedia_image_RMB_open;
         private System.Windows.Forms.ToolStripMenuItem showMedia_image_RMB_trashFile;
         private System.Windows.Forms.ImageList favicons;
         private ColorSlider.ColorSlider showMedia_video_sound;
-        private System.Windows.Forms.Button wb_btn_start;
+        private System.Windows.Forms.Button btn_startURL;
         private System.Windows.Forms.ToolStripMenuItem faftv_RMB_rename;
         private System.Windows.Forms.ToolStripMenuItem fileDisplay_RMB_rename;
+        private System.Windows.Forms.ToolStripMenuItem menu_open_fscan;
+        private System.Windows.Forms.ToolStripMenuItem menu_open_youtubedl;
     }
 }
 

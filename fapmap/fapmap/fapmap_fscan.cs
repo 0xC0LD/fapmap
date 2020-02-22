@@ -1,0 +1,172 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+using System.Threading;
+using System.Diagnostics;
+
+namespace fapmap
+{
+    public partial class fapmap_fscan : Form
+    {
+        public fapmap_fscan()
+        {
+            InitializeComponent();
+        }
+
+        public string pass_path = string.Empty;
+
+        private void fapmap_fscan_Load(object sender, EventArgs e)
+        {
+            if (!fapmap.checkForApp(fapmap.GlobalVariables.Path.File.Exe.FSCAN, "https://github.com/0xC0LD/fscan/releases"))
+            { this.Close(); return; }
+
+            txt_path.Text = fapmap.GlobalVariables.Path.Dir.MainFolder;
+            if (!string.IsNullOrEmpty(pass_path) && Directory.Exists(pass_path)) { txt_path.Text = new DirectoryInfo(pass_path).FullName; }
+
+            this.ActiveControl = txt_options;
+        }
+
+        #region window and fx
+
+        private void fapmap_fscan_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            fscan_die();
+        }
+
+        private void HelpBalloon_Draw(object sender, DrawToolTipEventArgs e)
+        {
+            e.DrawBackground();
+            e.DrawBorder();
+            e.DrawText();
+        }
+
+        #endregion
+        
+        #region fscan
+        
+        private Process fscanProcess = null;
+        private void fscan_die()
+        {
+            try
+            {
+                if (fscanProcess != null && !fscanProcess.HasExited) { fscanProcess.Kill(); }
+            }
+            catch (Exception) { }
+        }
+        private bool fscan_busy = false;
+        private void fscan()
+        {
+            if (fscan_busy) { fscan_die(); return; }
+            fscan_busy = true;
+
+            new Thread(() =>
+            {
+                try
+                {
+                    if (!fapmap.checkForApp(fapmap.GlobalVariables.Path.File.Exe.FSCAN, "https://github.com/0xC0LD/fscan/releases"))
+                    { this.Close(); return; }
+
+                    string workingDir = txt_path.Text;
+                    string args = txt_options.Text;
+
+                    if (string.IsNullOrEmpty(workingDir)) { workingDir = fapmap.GlobalVariables.Path.Dir.MainFolder; }
+
+                    if (!Directory.Exists(workingDir))
+                    {
+                        label_status.Text = "Dir not found...";
+                        fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, workingDir);
+                        fscan_busy = false;
+                        return;
+                    }
+                    
+                    label_status.Text = "Searching...";
+                    output.Text = "";
+
+                    fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.EXEC, fapmap.GlobalVariables.Path.File.Exe.FSCAN + " " + args);
+
+                    btn_find.BackgroundImage = Properties.Resources.close;
+
+                    // ffmpeg
+                    fscanProcess = new Process();
+                    fscanProcess.StartInfo.FileName = fapmap.GlobalVariables.Path.File.Exe.FSCAN;
+                    fscanProcess.StartInfo.Arguments = args;
+                    fscanProcess.StartInfo.WorkingDirectory = workingDir;
+                    fscanProcess.StartInfo.UseShellExecute = false;
+                    fscanProcess.StartInfo.CreateNoWindow = true;
+                    fscanProcess.StartInfo.RedirectStandardOutput = true;
+                    fscanProcess.StartInfo.RedirectStandardError = true;
+                    fscanProcess.OutputDataReceived += fscan_output;
+                    fscanProcess.ErrorDataReceived += fscan_output;
+                    fscanProcess.Start();
+                    fscanProcess.BeginOutputReadLine();
+                    fscanProcess.BeginErrorReadLine();
+                    fscanProcess.WaitForExit();
+                    fscanProcess.Close();
+
+                    btn_find.BackgroundImage = Properties.Resources.find;
+
+                    // end
+                    label_status.Text = "Done!";
+
+                    fscan_busy = false;
+                }
+                catch (Exception) { fscan_busy = false; return; }
+            })
+            { IsBackground = true }.Start();
+        }
+        private void fscan_output(object sender, DataReceivedEventArgs e)
+        {
+            try
+            {
+                output.Text += e.Data + Environment.NewLine;
+            }
+            catch (Exception) { }
+        }
+
+        #endregion
+
+        #region ui events
+
+        private void btn_find_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                fscan();
+            }
+        }
+        private void txt_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Enter: fscan(); e.Handled = true; e.SuppressKeyPress = true; break;
+            }
+        }
+        private void txt_path_TextChanged(object sender, EventArgs e)
+        {
+            txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.Teal : Color.DarkOrchid;
+        }
+        private void output_TextChanged(object sender, EventArgs e)
+        {
+            if (cb_scroll.Checked)
+            {
+                output.SelectionStart = output.Text.Length;
+                output.ScrollToCaret();
+            }
+        }
+        private void btn_openPathSelector_MouseClick(object sender, MouseEventArgs e)
+        {
+            fapmap.OpenPathSelector(this, txt_path, false);
+        }
+        
+        #endregion
+
+
+    }
+}

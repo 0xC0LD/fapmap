@@ -19,25 +19,23 @@ namespace fapmap
         public fapmap_find()
         {
             InitializeComponent();
-            
+
             RMB_output.Renderer = new fapmap_res.color.fToolStripProfessionalRenderer();
         }
 
-        private void Find_Load(object sender, EventArgs e)
+        private void fapmap_find_Load(object sender, EventArgs e)
         {
-            fapmap.fapmap_cd();
+
         }
 
-        #region Graphics
+        #region fx
 
-        //must enable DrawMode = OwnerDrawVariable
-        private void Output_DrawItem(object sender, DrawItemEventArgs e)
+        // DrawMode = OwnerDrawVariable
+        private void output_DrawItem(object sender, DrawItemEventArgs e)
         {
             try
             {
                 if (e.Index < 0) { return; }
-
-                //if the item state is selected them change the back color 
                 if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
                 {
                     e = new DrawItemEventArgs
@@ -52,214 +50,119 @@ namespace fapmap
                     );
                 }
 
-                e.DrawBackground(); // Draw the background of the ListBox control for each item.
-
-
-                e.Graphics.DrawString(Output.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds, StringFormat.GenericDefault); // Draw the current item text
-
-
-                e.DrawFocusRectangle(); // If the ListBox has focus, draw a focus rectangle around the selected item.
+                e.DrawBackground();
+                e.Graphics.DrawString(output.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds, StringFormat.GenericDefault);
+                e.DrawFocusRectangle();
             }
             catch (Exception) { }
         }
 
-        //LISTBOX 1 CHANGE COLOR
-        private void Output_MeasureItem(object sender, MeasureItemEventArgs e)
+        private void output_MeasureItem(object sender, MeasureItemEventArgs e)
         {
             // word wrap
             //e.ItemHeight = (int)e.Graphics.MeasureString(Output.Items[e.Index].ToString(), Output.Font, Output.Width).Height;
         }
-        
-        //TOOLTIP
+
         private void HelpBalloon_Draw(object sender, DrawToolTipEventArgs e)
         {
             e.DrawBackground();
             e.DrawBorder();
             e.DrawText();
         }
-        
+
+        private void output_SizeChanged(object sender, EventArgs e)
+        {
+            output.Update();
+            output.Refresh();
+        }
+
         #endregion
 
-        #region Main Functions
-        
-        private string get_splited_path(string path)
-        {
-            string splited_path = "";
-
-            //REMOVE EVERYTHING BEFORE THE END OF "Main Folder\"
-            string[] things = path.Split(new string[] { "Main Folder" }, StringSplitOptions.None);
-            for (int i = 1; i <= things.Length - 1; i++)
-            {
-                splited_path = splited_path + things[i];
-            }
-            splited_path = splited_path.Remove(0, 1); //remove first slash
-
-            return splited_path;
-        }
+        #region functions
 
         private void find()
         {
             //result
             resultNum.Text = "Searching...";
-            this.Text = "FAPMAP - FIND: Searching...";
 
             //CLEAR
-            Output.SelectedItem = null;
-            Output.Items.Clear();
-
-            Output.BeginUpdate();
-
-            string[] dirs = Directory.GetDirectories(fapmap.GlobalVariables.Path.Dir.MainFolder, "*.*", SearchOption.AllDirectories);
-            string[] files = Directory.GetFiles(fapmap.GlobalVariables.Path.Dir.MainFolder, "*.*", SearchOption.AllDirectories);
+            output.SelectedItem = null;
+            output.Items.Clear();
 
             List<string> all = new List<string>();
+            all.AddRange(Directory.GetDirectories(fapmap.GlobalVariables.Path.Dir.MainFolder, "*.*", SearchOption.AllDirectories));
+            all.AddRange(Directory.GetFiles(fapmap.GlobalVariables.Path.Dir.MainFolder, "*.*", SearchOption.AllDirectories));
 
-            foreach (string dir in dirs) { all.Add(dir); }
-            foreach (string file in files) { all.Add(file); }
-            
-            if (searchBox.Text.Contains(' '))
+            List<string> keywords = new List<string>();
+
+            if (searchBox.Text.Contains(' ')) { keywords.AddRange(searchBox.Text.Split(' ')); }
+            else { keywords.Add(searchBox.Text); }
+
+            List<string> itemsToAdd = new List<string>();
+
+            foreach (string f in all)
             {
-                string[] index = searchBox.Text.Split(' ');
-                
-                foreach (string file in all)
+                bool addIt = true;
+                foreach (string key in keywords)
                 {
-                    bool dispose = false;
+                    string file = f.Remove(0, (fapmap.GlobalVariables.Path.Dir.MainFolder + "\\").Length);
 
-                    foreach (string item in index)
-                    {
-                        if (cb_case.Checked)
-                        {
-                            if (!get_splited_path(file).Contains(item))
-                            {
-                                dispose = true;
-                            }
-                        }
-                        else
-                        {
-                            if (new CultureInfo("").CompareInfo.IndexOf(get_splited_path(file), item, CompareOptions.IgnoreCase) >= 0) { } else
-                            {
-                                dispose = true;
-                            }
-                        }
-                    }
-
-                    if (!dispose)
-                    {
-                        Output.Items.Add(file);
-                        Application.DoEvents();
-                    }
+                    if ((cb_case.Checked ? !file.Contains(key) : !(new CultureInfo("").CompareInfo.IndexOf(file, key, CompareOptions.IgnoreCase) >= 0)))
+                    { addIt = false; break; }
                 }
-            }
-            else
-            {
-                string text = searchBox.Text;
 
-                foreach (string file in all)
-                {
-                    if (cb_case.Checked)
-                    {
-                        if (get_splited_path(file).Contains(text))
-                        {
-                            Output.Items.Add(file);
-                            Application.DoEvents();
-                        }
-                    }
-                    else
-                    {
-                        if (new CultureInfo("").CompareInfo.IndexOf(get_splited_path(file), text, CompareOptions.IgnoreCase) >= 0)
-                        {
-                            Output.Items.Add(file);
-                            Application.DoEvents();
-                        }
-                    }
-                }
+                if (addIt) { itemsToAdd.Add(f); }
             }
 
-            Output.EndUpdate();
+            output.Items.AddRange(itemsToAdd.ToArray());
 
             //show result
-            resultNum.Text = Output.Items.Count + " result(s) found!";
-            this.Text = "FAPMAP - FIND: " + Output.Items.Count + " result(s) found!";
+            resultNum.Text = output.Items.Count + " result(s) found!";
         }
-        
-        //OPEN FUNCTION
-        private void OpenFileInOuput()
+        private void output_open()
         {
-            if (Output.SelectedItem != null)
+            if (output.SelectedItem != null)
             {
-                string file = Output.SelectedItem.ToString();
-
-                if (Directory.Exists(file))
-                {
-                    Process.Start("explorer.exe", file);
-                    fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.OPEN, file);
-                }
-                else
-                {
-                    if (File.Exists(file))
-                    {
-                        Process.Start(file);
-                        fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.OPEN, file);
-                    }
-                    else
-                    {
-                        this.Text = "FAPMAP - FIND: File not found: " + file;
-                        fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, file);
-                    }
-                }
+                fapmap.Open(output.SelectedItem.ToString());
             }
         }
-
-        private void open_file_explorer_output()
+        private void output_explorer()
         {
-            if (Output.SelectedItem != null)
+            if (output.SelectedItem != null)
             {
-                fapmap.open_in_explorer(Output.SelectedItem.ToString());
+                fapmap.OpenInExplorer(output.SelectedItem.ToString());
             }
         }
-
-        //COPY FUNCTION
-        private void CopySlected()
+        private void output_copy()
         {
-            if (Output.SelectedItem != null)
+            if (output.SelectedItem != null)
             {
-                System.Windows.Forms.Clipboard.SetText(Output.SelectedItem.ToString());
+                Clipboard.SetText(output.SelectedItem.ToString());
             }
         }
-
-        private void showImage_remove()
+        private void output_deleteFile()
         {
-            showImage.Image = null;
-            showImage.Visible = false;
-        }
+            showImage_dispose();
 
-        //DELETE FILE
-        private void DeleteFile()
-        {
-            showImage_remove();
-
-            if (Output.SelectedItem != null)
+            if (output.SelectedItem != null)
             {
-                string file = Output.SelectedItem.ToString();
+                string file = output.SelectedItem.ToString();
 
                 if (!string.IsNullOrEmpty(file))
                 {
                     if (File.Exists(file))
                     {
                         FileInfo fi = new FileInfo(file);
-                        
+
                         try
                         {
                             Microsoft.VisualBasic.FileIO.FileSystem.DeleteFile(fi.FullName, Microsoft.VisualBasic.FileIO.UIOption.AllDialogs, Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin);
 
-                            Output.Items.Remove(Output.SelectedItem.ToString());
+                            output.Items.Remove(output.SelectedItem.ToString());
                         }
                         catch (System.OperationCanceledException) { }
                         catch (IOException) { }
                         catch (UnauthorizedAccessException) { }
-
-                        //DISPLAY
-                        this.Text = "FAPMAP: REMOVED: " + fi.FullName;
                     }
                 }
             }
@@ -267,169 +170,133 @@ namespace fapmap
 
         #endregion
 
-        //SEARCH BUTTON
-        private void findStart_Click(object sender, EventArgs e)
+        #region ui events
+
+        private void findButton_MouseClick(object sender, MouseEventArgs e)
         {
-            find();
+            if (e.Button == MouseButtons.Left) { find(); }
         }
-        //SEAERCH ENTER
+        
         private void searchBox_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
-                case Keys.Enter: e.SuppressKeyPress = true; find(); break;
+                case Keys.Enter: find(); e.Handled = true; e.SuppressKeyPress = true; break;
                 case Keys.Back: if (e.Control) { e.SuppressKeyPress = true; } break;
                 case Keys.Escape: this.Close(); break;
             }
         }
-
-        private void Output_KeyDown(object sender, KeyEventArgs e)
+        
+        private void output_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F5 || e.Control && e.KeyCode == Keys.R)
+            switch (e.KeyCode)
             {
-                find();
+                case Keys.F5: find(); break;
+                case Keys.Enter: output_open(); e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Escape: this.Close(); break;
+                case Keys.Delete: output_deleteFile(); break;
             }
 
-            if (e.KeyCode == Keys.Enter || e.Control && e.KeyCode == Keys.W)
+            if (e.Control)
             {
-                e.SuppressKeyPress = true;
-
-                OpenFileInOuput();
-            }
-
-            if (e.Control && e.KeyCode == Keys.U)
-            {
-                open_file_explorer_output();
-            }
-
-            if (e.KeyCode == Keys.Escape)
-            {
-                this.Close();
-            }
-
-            if (e.Control && e.KeyCode == Keys.C)
-            {
-                CopySlected();
-            }
-            
-            if (e.KeyCode == Keys.Delete)
-            {
-                DeleteFile();
+                switch (e.KeyCode)
+                {
+                    case Keys.R: find(); break;
+                    case Keys.W: output_open(); e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.U: output_explorer(); break;
+                    case Keys.C: output_copy(); break;
+                }
             }
         }
 
-        #region RMB
-
-        private void refreshCTRLRF5ToolStripMenuItem_Click(object sender, EventArgs e)
+        // drag n drop from output
+        private void output_DragOver(object sender, DragEventArgs e)
         {
-            find();
+            if (output.SelectedItems.Count != 0) { e.Effect = DragDropEffects.Copy; }
         }
-
-        private void openOutputToolStripMenuItem_Click(object sender, EventArgs e)
+        private void output_MouseDown(object sender, MouseEventArgs e)
         {
-            OpenFileInOuput();
+            output_SelectedIndexChanged(null, null);
+
+            if (e.Button != MouseButtons.Left) { return; }
+            if (output.SelectedItems.Count == 0) { return; }
+            if (e.Clicks == 2) { output_open(); return; }
+
+            string text = string.Empty;
+            foreach (string item in output.SelectedItems) { text += item + Environment.NewLine; }
+            this.output.DoDragDrop(new System.Windows.Forms.DataObject(System.Windows.Forms.DataFormats.StringFormat, text), DragDropEffects.Copy);
         }
-
-        private void openInExplorerCTRLUToolStripMenuItem_Click(object sender, EventArgs e)
+        
+        private void showImage_dispose()
         {
-            open_file_explorer_output();
+            showImage.Image = Properties.Resources.image;
+            showImage.Visible = false;
+            GC.Collect();
         }
-
-        private void copyOuputToolStripMenuItem_Click(object sender, EventArgs e)
+        private void output_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CopySlected();
+            if (output.SelectedItem == null) { return; }
+            string item = output.SelectedItem.ToString();
+            if (string.IsNullOrEmpty(item)) { return; }
+            if (!File.Exists(item) && !Directory.Exists(item)) { output.Items.Remove(output.SelectedItem); return; }
+
+            if (!cb_showImage.Checked) { return; }
+            showImage_dispose();
+            if (File.Exists(item))
+            {
+                if (fapmap.GlobalVariables.FileTypes.Image.Contains(new FileInfo(item).Extension))
+                {
+                    showImage.Image = Image.FromFile(item);
+                    showImage.Visible = true;
+                }
+            }
         }
+        
+        private Point showImage_startDraggingPoint;
+        private Size showImage_startSize;
+        private Rectangle showImage_rectProposedSize = Rectangle.Empty;
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private void showImage_MouseDown(object sender, MouseEventArgs e)
         {
-            DeleteFile();
+            switch (e.Button)
+            {
+                case MouseButtons.Right: showImage.Size = showImage.MinimumSize; break;
+                case MouseButtons.Left:
+                    {
+                        // starting size
+                        showImage_startSize = new System.Drawing.Size(e.X, e.Y);
+
+                        // get the location of the picture box
+                        showImage_rectProposedSize = new Rectangle(this.PointToScreen(showImage.Location), showImage_startSize);
+
+                        // start point location
+                        showImage_startDraggingPoint = e.Location;
+
+                        break;
+                    }
+            }
+        }
+        private void showImage_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) { return; }
+
+            // calculate rect new size
+            showImage_rectProposedSize.Width = e.X - this.showImage_startDraggingPoint.X + this.showImage_startSize.Width;
+            showImage_rectProposedSize.Height = e.Y - this.showImage_startDraggingPoint.Y + this.showImage_startSize.Height;
+            showImage.Size = showImage_rectProposedSize.Size;
         }
 
         #endregion
 
-        private void Output_DragOver(object sender, DragEventArgs e)
-        {
-            if (Output.SelectedItems.Count != 0)
-            {
-                e.Effect = DragDropEffects.Copy;
-            }
-        }
+        #region RMB
 
-        private void Output_MouseDown(object sender, MouseEventArgs e)
-        {
-            //select
-            Output_SelectedIndexChanged(null, null);
+        private void RMB_output_refresh_Click (object sender, EventArgs e) { find();              }
+        private void RMB_output_open_Click    (object sender, EventArgs e) { output_open();       }
+        private void RMB_output_explorer_Click(object sender, EventArgs e) { output_explorer();   }
+        private void RMB_output_copy_Click    (object sender, EventArgs e) { output_copy();       }
+        private void RMB_output_delete_Click  (object sender, EventArgs e) { output_deleteFile(); }
 
-            if (e.Button != MouseButtons.Right)
-            {
-                if (Output.SelectedItems.Count != 0)
-                {
-                    if (e.Clicks == 2)
-                    {
-                        OpenFileInOuput();
-
-                        return;
-                    }
-
-                    string text = string.Empty;
-                    foreach (string item in Output.SelectedItems) { text = item; } //get items
-
-                    this.Output.DoDragDrop(new System.Windows.Forms.DataObject(System.Windows.Forms.DataFormats.StringFormat, text), DragDropEffects.Copy);
-                }
-            }
-        }
-
-        private void Output_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //hide
-            showImage_remove();
-
-            if (cb_showImage.Checked)
-            {
-                if (Output.SelectedItem != null)
-                {
-                    string file = Output.SelectedItem.ToString();
-
-                    //CHECK IF IMAGE FILE
-                    foreach (string type in fapmap.GlobalVariables.FileTypes.Image)
-                    {
-                        if (file.EndsWith(type))
-                        {
-                            if (type == ".gif")
-                            {
-                                showImage.Image = Image.FromFile(file);
-                                showImage.Visible = true;
-                            }
-                            else
-                            {
-                                showImage.Image = fapmap.GetImage(file);
-                                showImage.Visible = true;
-                            }
-                            
-                        }
-                    }
-                }
-            }
-        }
-
+        #endregion
         
-        private static bool zoomed = false;
-        private void showImage_Click(object sender, EventArgs e)
-        {
-            int resize = 300;
-
-            if (!zoomed) //zoom
-            {
-                showImage.Location = new Point(showImage.Location.X, showImage.Location.Y - resize);
-                showImage.Size = new Size(showImage.Size.Width + resize, showImage.Size.Height + resize);
-            }
-            else //unzoom
-            {
-                showImage.Location = new Point(showImage.Location.X, showImage.Location.Y + resize);
-                showImage.Size = new Size(showImage.Size.Width - resize, showImage.Size.Height - resize);
-            }
-
-            zoomed = !zoomed;
-        }
     }
 }

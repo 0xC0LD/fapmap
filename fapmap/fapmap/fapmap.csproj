@@ -113,11 +113,23 @@
     <Compile Include="fapmap_credit.Designer.cs">
       <DependentUpon>fapmap_credit.cs</DependentUpon>
     </Compile>
-    <Compile Include="fapmap_downloadPathSelect.cs">
+    <Compile Include="fapmap_dirSelect.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="fapmap_downloadPathSelect.Designer.cs">
-      <DependentUpon>fapmap_downloadPathSelect.cs</DependentUpon>
+    <Compile Include="fapmap_dirSelect.Designer.cs">
+      <DependentUpon>fapmap_dirSelect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fapmap_fscan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fapmap_fscan.Designer.cs">
+      <DependentUpon>fapmap_fscan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fapmap_input.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fapmap_input.Designer.cs">
+      <DependentUpon>fapmap_input.cs</DependentUpon>
     </Compile>
     <Compile Include="fapmap_playlist.cs">
       <SubType>Form</SubType>
@@ -171,6 +183,12 @@
     <Compile Include="fapmap_download.Designer.cs">
       <DependentUpon>fapmap_download.cs</DependentUpon>
     </Compile>
+    <Compile Include="fapmap_youtubedl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fapmap_youtubedl.Designer.cs">
+      <DependentUpon>fapmap_youtubedl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="fapmap_board.resx">
@@ -179,8 +197,8 @@
     <EmbeddedResource Include="fapmap_credit.resx">
       <DependentUpon>fapmap_credit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="fapmap_downloadPathSelect.resx">
-      <DependentUpon>fapmap_downloadPathSelect.cs</DependentUpon>
+    <EmbeddedResource Include="fapmap_dirSelect.resx">
+      <DependentUpon>fapmap_dirSelect.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fapmap_ffmpeg.resx">
       <DependentUpon>fapmap_ffmpeg.cs</DependentUpon>
@@ -190,9 +208,16 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fapmap.resx">
       <DependentUpon>fapmap.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fapmap_fscan.resx">
+      <DependentUpon>fapmap_fscan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fapmap_info.resx">
       <DependentUpon>fapmap_info.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fapmap_input.resx">
+      <DependentUpon>fapmap_input.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fapmap_log.resx">
       <DependentUpon>fapmap_log.cs</DependentUpon>
@@ -205,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fapmap_download.resx">
       <DependentUpon>fapmap_download.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fapmap_youtubedl.resx">
+      <DependentUpon>fapmap_youtubedl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -350,10 +378,11 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fmp4.ico" />
     <Content Include="image_icon_fapmap_mediumblue.ico" />
-    <Content Include="image_icon_fapmap_visible.ico" />
-    <Content Include="image_icon_fapmap_visible_32.ico" />
+    <None Include="Resources\images\icon_downloadIdle.ico" />
+    <None Include="Resources\images\icon_downloadHiddenIdle.ico" />
+    <None Include="Resources\images\icon_downloadHidden.ico" />
+    <None Include="Resources\images\dir.png" />
     <None Include="Resources\images\fapmap_hidden.png" />
     <None Include="Resources\images\fapmap_normal.png" />
     <None Include="Resources\images\fapmap.png" />

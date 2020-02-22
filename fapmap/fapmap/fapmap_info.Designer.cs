@@ -72,7 +72,7 @@
             // cb_count
             // 
             this.cb_count.AutoSize = true;
-            this.cb_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.cb_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.cb_count.Checked = true;
             this.cb_count.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_count.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -82,9 +82,9 @@
             this.cb_count.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.cb_count.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_count.Font = new System.Drawing.Font("Segoe Print", 24F);
-            this.cb_count.ForeColor = System.Drawing.Color.Purple;
+            this.cb_count.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.cb_count.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_count.Location = new System.Drawing.Point(12, 54);
+            this.cb_count.Location = new System.Drawing.Point(12, 47);
             this.cb_count.Name = "cb_count";
             this.cb_count.Size = new System.Drawing.Size(12, 11);
             this.cb_count.TabIndex = 216;
@@ -117,17 +117,15 @@
             // getAll
             // 
             this.getAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.getAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.getAll.BackColor = System.Drawing.Color.Transparent;
             this.getAll.BackgroundImage = global::fapmap.Properties.Resources.arrow_left;
             this.getAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.getAll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.getAll.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.getAll.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.getAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.getAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.getAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.getAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.getAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.getAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.getAll.ForeColor = System.Drawing.Color.DimGray;
             this.getAll.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.getAll.Location = new System.Drawing.Point(322, 12);
             this.getAll.Name = "getAll";
@@ -135,7 +133,7 @@
             this.getAll.TabIndex = 219;
             this.HelpBalloon.SetToolTip(this.getAll, "Get Info About File/Dir");
             this.getAll.UseVisualStyleBackColor = false;
-            this.getAll.Click += new System.EventHandler(this.getAll_Click);
+            this.getAll.MouseClick += new System.Windows.Forms.MouseEventHandler(this.getAll_MouseClick);
             // 
             // HelpBalloon
             // 
@@ -163,7 +161,7 @@
             this.MinimumSize = new System.Drawing.Size(380, 110);
             this.Name = "fapmap_info";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FAPMAP - INFO";
+            this.Text = "FapMap - Info";
             this.Load += new System.EventHandler(this.fapmap_info_Load);
             this.count_files_panel.ResumeLayout(false);
             this.ResumeLayout(false);

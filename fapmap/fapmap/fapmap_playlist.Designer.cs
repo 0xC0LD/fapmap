@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fapmap_playlist));
             this.cb_random = new System.Windows.Forms.CheckBox();
             this.cb_rmlogs = new System.Windows.Forms.CheckBox();
             this.cb_keyword = new System.Windows.Forms.CheckBox();
-            this.tb_keyword = new System.Windows.Forms.TextBox();
+            this.txt_keyword = new System.Windows.Forms.TextBox();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_make = new System.Windows.Forms.Button();
-            this.tb_path = new System.Windows.Forms.TextBox();
+            this.txt_path = new System.Windows.Forms.TextBox();
             this.label_path = new System.Windows.Forms.Label();
             this.cb_reverse = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
@@ -87,81 +88,76 @@
             this.cb_keyword.UseVisualStyleBackColor = false;
             this.cb_keyword.CheckedChanged += new System.EventHandler(this.cb_keyword_CheckedChanged);
             // 
-            // tb_keyword
+            // txt_keyword
             // 
-            this.tb_keyword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_keyword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_keyword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.tb_keyword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_keyword.Enabled = false;
-            this.tb_keyword.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tb_keyword.ForeColor = System.Drawing.Color.SlateBlue;
-            this.tb_keyword.Location = new System.Drawing.Point(199, 34);
-            this.tb_keyword.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.tb_keyword.Name = "tb_keyword";
-            this.tb_keyword.Size = new System.Drawing.Size(174, 20);
-            this.tb_keyword.TabIndex = 159;
-            this.tb_keyword.TextChanged += new System.EventHandler(this.tb_keyword_TextChanged);
+            this.txt_keyword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_keyword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_keyword.Enabled = false;
+            this.txt_keyword.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txt_keyword.ForeColor = System.Drawing.Color.SlateBlue;
+            this.txt_keyword.Location = new System.Drawing.Point(199, 34);
+            this.txt_keyword.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.txt_keyword.Name = "txt_keyword";
+            this.txt_keyword.Size = new System.Drawing.Size(170, 20);
+            this.txt_keyword.TabIndex = 159;
+            this.txt_keyword.TextChanged += new System.EventHandler(this.tb_keyword_TextChanged);
             // 
             // btn_cancel
             // 
             this.btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_cancel.BackColor = System.Drawing.Color.Transparent;
+            this.btn_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_cancel.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btn_cancel.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_cancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_cancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_cancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_cancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_cancel.ForeColor = System.Drawing.Color.DimGray;
-            this.btn_cancel.Location = new System.Drawing.Point(312, 89);
+            this.btn_cancel.Location = new System.Drawing.Point(308, 85);
             this.btn_cancel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(61, 29);
             this.btn_cancel.TabIndex = 160;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = false;
-            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            this.btn_cancel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_cancel_MouseClick);
             // 
             // btn_make
             // 
             this.btn_make.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_make.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_make.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_make.BackColor = System.Drawing.Color.Transparent;
+            this.btn_make.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_make.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_make.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
             this.btn_make.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_make.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_make.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_make.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_make.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_make.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_make.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_make.ForeColor = System.Drawing.Color.DimGray;
-            this.btn_make.Location = new System.Drawing.Point(247, 89);
+            this.btn_make.Location = new System.Drawing.Point(243, 85);
             this.btn_make.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_make.Name = "btn_make";
             this.btn_make.Size = new System.Drawing.Size(61, 29);
             this.btn_make.TabIndex = 161;
             this.btn_make.Text = "Create";
             this.btn_make.UseVisualStyleBackColor = false;
-            this.btn_make.Click += new System.EventHandler(this.btn_make_Click);
+            this.btn_make.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_make_MouseClick);
             // 
-            // tb_path
+            // txt_path
             // 
-            this.tb_path.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_path.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.tb_path.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tb_path.Enabled = false;
-            this.tb_path.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.tb_path.ForeColor = System.Drawing.Color.SlateBlue;
-            this.tb_path.Location = new System.Drawing.Point(51, 6);
-            this.tb_path.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.tb_path.Name = "tb_path";
-            this.tb_path.Size = new System.Drawing.Size(322, 20);
-            this.tb_path.TabIndex = 162;
-            this.tb_path.TextChanged += new System.EventHandler(this.tb_path_TextChanged);
+            this.txt_path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_path.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_path.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txt_path.ForeColor = System.Drawing.Color.SlateBlue;
+            this.txt_path.Location = new System.Drawing.Point(51, 6);
+            this.txt_path.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.txt_path.Name = "txt_path";
+            this.txt_path.Size = new System.Drawing.Size(318, 20);
+            this.txt_path.TabIndex = 162;
+            this.txt_path.TextChanged += new System.EventHandler(this.tb_path_TextChanged);
             // 
             // label_path
             // 
@@ -198,23 +194,24 @@
             this.ClientSize = new System.Drawing.Size(384, 131);
             this.Controls.Add(this.cb_reverse);
             this.Controls.Add(this.label_path);
-            this.Controls.Add(this.tb_path);
+            this.Controls.Add(this.txt_path);
             this.Controls.Add(this.btn_make);
             this.Controls.Add(this.btn_cancel);
-            this.Controls.Add(this.tb_keyword);
+            this.Controls.Add(this.txt_keyword);
             this.Controls.Add(this.cb_keyword);
             this.Controls.Add(this.cb_rmlogs);
             this.Controls.Add(this.cb_random);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
             this.ForeColor = System.Drawing.Color.SlateBlue;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(400, 170);
             this.MinimumSize = new System.Drawing.Size(400, 170);
             this.Name = "fapmap_playlist";
-            this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Create Playlist";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "FapMap - Create Playlist";
             this.Load += new System.EventHandler(this.fapmap_playlist_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -226,10 +223,10 @@
         private System.Windows.Forms.CheckBox cb_random;
         private System.Windows.Forms.CheckBox cb_rmlogs;
         private System.Windows.Forms.CheckBox cb_keyword;
-        private System.Windows.Forms.TextBox tb_keyword;
+        private System.Windows.Forms.TextBox txt_keyword;
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button btn_make;
-        private System.Windows.Forms.TextBox tb_path;
+        private System.Windows.Forms.TextBox txt_path;
         private System.Windows.Forms.Label label_path;
         private System.Windows.Forms.CheckBox cb_reverse;
     }

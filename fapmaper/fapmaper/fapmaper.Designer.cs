@@ -29,132 +29,112 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fapmaper));
-            this.Install = new System.Windows.Forms.Button();
-            this.pathToInstall = new System.Windows.Forms.TextBox();
-            this.hideFolderCB = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.statusOutput = new System.Windows.Forms.TextBox();
-            this.exitLabel = new System.Windows.Forms.Label();
-            this.openFapmap = new System.Windows.Forms.Button();
+            this.btn_install = new System.Windows.Forms.Button();
+            this.txt_path = new System.Windows.Forms.TextBox();
+            this.cb_hideFolder = new System.Windows.Forms.CheckBox();
+            this.label_output = new System.Windows.Forms.Label();
+            this.txt_output = new System.Windows.Forms.TextBox();
+            this.label_status = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // Install
+            // btn_install
             // 
-            this.Install.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Install.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
-            this.Install.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.Install.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.Install.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Install.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Install.ForeColor = System.Drawing.Color.SlateBlue;
-            this.Install.Location = new System.Drawing.Point(505, 12);
-            this.Install.Name = "Install";
-            this.Install.Size = new System.Drawing.Size(106, 24);
-            this.Install.TabIndex = 0;
-            this.Install.Text = "Install / Update";
-            this.Install.UseVisualStyleBackColor = true;
-            this.Install.Click += new System.EventHandler(this.Install_Click);
+            this.btn_install.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_install.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.btn_install.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btn_install.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btn_install.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_install.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_install.ForeColor = System.Drawing.Color.SlateBlue;
+            this.btn_install.Location = new System.Drawing.Point(866, 12);
+            this.btn_install.Name = "btn_install";
+            this.btn_install.Size = new System.Drawing.Size(106, 24);
+            this.btn_install.TabIndex = 0;
+            this.btn_install.Text = "Install / Update";
+            this.btn_install.UseVisualStyleBackColor = true;
+            this.btn_install.Click += new System.EventHandler(this.btn_install_Click);
             // 
-            // pathToInstall
+            // txt_path
             // 
-            this.pathToInstall.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_path.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pathToInstall.BackColor = System.Drawing.Color.Black;
-            this.pathToInstall.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pathToInstall.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.pathToInstall.ForeColor = System.Drawing.Color.SlateBlue;
-            this.pathToInstall.Location = new System.Drawing.Point(12, 12);
-            this.pathToInstall.Name = "pathToInstall";
-            this.pathToInstall.Size = new System.Drawing.Size(487, 25);
-            this.pathToInstall.TabIndex = 1;
-            this.pathToInstall.Text = "C:\\{H321-2314-JH34-H43J}";
+            this.txt_path.BackColor = System.Drawing.Color.Black;
+            this.txt_path.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_path.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txt_path.ForeColor = System.Drawing.Color.SlateBlue;
+            this.txt_path.Location = new System.Drawing.Point(12, 12);
+            this.txt_path.Name = "txt_path";
+            this.txt_path.Size = new System.Drawing.Size(848, 25);
+            this.txt_path.TabIndex = 1;
+            this.txt_path.Text = "C:\\{H321-2314-JH34-H43J}";
             // 
-            // hideFolderCB
+            // cb_hideFolder
             // 
-            this.hideFolderCB.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.hideFolderCB.AutoSize = true;
-            this.hideFolderCB.BackColor = System.Drawing.Color.Black;
-            this.hideFolderCB.Checked = true;
-            this.hideFolderCB.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.hideFolderCB.ForeColor = System.Drawing.Color.SlateBlue;
-            this.hideFolderCB.Location = new System.Drawing.Point(515, 42);
-            this.hideFolderCB.Name = "hideFolderCB";
-            this.hideFolderCB.Size = new System.Drawing.Size(80, 17);
-            this.hideFolderCB.TabIndex = 2;
-            this.hideFolderCB.Text = "Hide Folder";
-            this.hideFolderCB.UseVisualStyleBackColor = false;
+            this.cb_hideFolder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_hideFolder.AutoSize = true;
+            this.cb_hideFolder.BackColor = System.Drawing.Color.Black;
+            this.cb_hideFolder.Checked = true;
+            this.cb_hideFolder.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_hideFolder.ForeColor = System.Drawing.Color.SlateBlue;
+            this.cb_hideFolder.Location = new System.Drawing.Point(876, 42);
+            this.cb_hideFolder.Name = "cb_hideFolder";
+            this.cb_hideFolder.Size = new System.Drawing.Size(80, 17);
+            this.cb_hideFolder.TabIndex = 2;
+            this.cb_hideFolder.Text = "Hide Folder";
+            this.cb_hideFolder.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // label_output
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Consolas", 11.25F);
-            this.label1.ForeColor = System.Drawing.Color.SlateBlue;
-            this.label1.Location = new System.Drawing.Point(12, 64);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 18);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Output:";
+            this.label_output.AutoSize = true;
+            this.label_output.Font = new System.Drawing.Font("Consolas", 11.25F);
+            this.label_output.ForeColor = System.Drawing.Color.SlateBlue;
+            this.label_output.Location = new System.Drawing.Point(12, 64);
+            this.label_output.Name = "label_output";
+            this.label_output.Size = new System.Drawing.Size(64, 18);
+            this.label_output.TabIndex = 18;
+            this.label_output.Text = "Output:";
             // 
-            // statusOutput
+            // txt_output
             // 
-            this.statusOutput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txt_output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.statusOutput.BackColor = System.Drawing.Color.Black;
-            this.statusOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.statusOutput.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.statusOutput.ForeColor = System.Drawing.Color.SlateBlue;
-            this.statusOutput.Location = new System.Drawing.Point(12, 85);
-            this.statusOutput.Multiline = true;
-            this.statusOutput.Name = "statusOutput";
-            this.statusOutput.ReadOnly = true;
-            this.statusOutput.Size = new System.Drawing.Size(599, 136);
-            this.statusOutput.TabIndex = 19;
-            this.statusOutput.Text = resources.GetString("statusOutput.Text");
+            this.txt_output.BackColor = System.Drawing.Color.Black;
+            this.txt_output.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_output.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txt_output.ForeColor = System.Drawing.Color.SlateBlue;
+            this.txt_output.Location = new System.Drawing.Point(12, 85);
+            this.txt_output.Multiline = true;
+            this.txt_output.Name = "txt_output";
+            this.txt_output.ReadOnly = true;
+            this.txt_output.Size = new System.Drawing.Size(960, 232);
+            this.txt_output.TabIndex = 19;
+            this.txt_output.Text = resources.GetString("txt_output.Text");
             // 
-            // exitLabel
+            // label_status
             // 
-            this.exitLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.exitLabel.AutoSize = true;
-            this.exitLabel.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.exitLabel.ForeColor = System.Drawing.Color.Red;
-            this.exitLabel.Location = new System.Drawing.Point(12, 243);
-            this.exitLabel.Name = "exitLabel";
-            this.exitLabel.Size = new System.Drawing.Size(25, 13);
-            this.exitLabel.TabIndex = 20;
-            this.exitLabel.Text = "...";
-            // 
-            // openFapmap
-            // 
-            this.openFapmap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.openFapmap.Enabled = false;
-            this.openFapmap.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
-            this.openFapmap.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.openFapmap.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
-            this.openFapmap.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.openFapmap.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.openFapmap.ForeColor = System.Drawing.Color.SlateBlue;
-            this.openFapmap.Location = new System.Drawing.Point(515, 227);
-            this.openFapmap.Name = "openFapmap";
-            this.openFapmap.Size = new System.Drawing.Size(96, 26);
-            this.openFapmap.TabIndex = 21;
-            this.openFapmap.Text = "Open FapMap";
-            this.openFapmap.UseVisualStyleBackColor = true;
-            this.openFapmap.Click += new System.EventHandler(this.openFapmap_Click);
+            this.label_status.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label_status.AutoSize = true;
+            this.label_status.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_status.ForeColor = System.Drawing.Color.Red;
+            this.label_status.Location = new System.Drawing.Point(12, 339);
+            this.label_status.Name = "label_status";
+            this.label_status.Size = new System.Drawing.Size(25, 13);
+            this.label_status.TabIndex = 20;
+            this.label_status.Text = "...";
             // 
             // fapmaper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(623, 265);
-            this.Controls.Add(this.openFapmap);
-            this.Controls.Add(this.exitLabel);
-            this.Controls.Add(this.statusOutput);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.hideFolderCB);
-            this.Controls.Add(this.pathToInstall);
-            this.Controls.Add(this.Install);
+            this.ClientSize = new System.Drawing.Size(984, 361);
+            this.Controls.Add(this.label_status);
+            this.Controls.Add(this.txt_output);
+            this.Controls.Add(this.label_output);
+            this.Controls.Add(this.cb_hideFolder);
+            this.Controls.Add(this.txt_path);
+            this.Controls.Add(this.btn_install);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -170,13 +150,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Install;
-        private System.Windows.Forms.TextBox pathToInstall;
-        private System.Windows.Forms.CheckBox hideFolderCB;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox statusOutput;
-        private System.Windows.Forms.Label exitLabel;
-        private System.Windows.Forms.Button openFapmap;
+        private System.Windows.Forms.Button btn_install;
+        private System.Windows.Forms.TextBox txt_path;
+        private System.Windows.Forms.CheckBox cb_hideFolder;
+        private System.Windows.Forms.Label label_output;
+        private System.Windows.Forms.TextBox txt_output;
+        private System.Windows.Forms.Label label_status;
     }
 }
 

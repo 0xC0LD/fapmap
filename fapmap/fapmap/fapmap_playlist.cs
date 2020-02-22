@@ -24,41 +24,48 @@ namespace fapmap
 
         private void fapmap_playlist_Load(object sender, EventArgs e)
         {
-            if (File.Exists(path)) { this.tb_path.Text = path = Directory.GetParent(path).ToString(); }
-            else                   { this.tb_path.Text = path; }
+            if (File.Exists(path)) { this.txt_path.Text = path = Directory.GetParent(path).ToString(); }
+            else                   { this.txt_path.Text = path; }
             
             btn_cancel.Focus();
             this.ActiveControl = btn_cancel;
         }
 
-        private void btn_cancel_Click(object sender, EventArgs e) { this.DialogResult = DialogResult.Cancel; this.Close(); }
-        private void btn_make_Click(object sender, EventArgs e)   { this.DialogResult = DialogResult.OK; this.Close(); }
-
+        // options
         private void cb_keyword_CheckedChanged(object sender, EventArgs e)
         {
-            if (cb_keyword.Checked)
-            {
-                keyword = true;
-                tb_keyword.Enabled = true;
-            }
-            else
-            {
-                keyword = false;
-                tb_keyword.Enabled = false;
-            }
+            keyword = txt_keyword.Enabled = cb_keyword.Checked;
         }
-        private void tb_keyword_TextChanged(object sender, EventArgs e) { if (keyword) { keyword_str = tb_keyword.Text; } }
+        private void tb_keyword_TextChanged(object sender, EventArgs e) { if (keyword) { keyword_str = txt_keyword.Text; } }
         private void cb_rmlogs_CheckedChanged(object sender, EventArgs e)  { rmlogs  = cb_rmlogs.Checked  ? true : false; }
         private void cb_random_CheckedChanged(object sender, EventArgs e)  { random  = cb_random.Checked  ? true : false; }
         private void cb_reverse_CheckedChanged(object sender, EventArgs e) { reverse = cb_reverse.Checked ? true : false; }
         private void tb_path_TextChanged(object sender, EventArgs e)
         {
-            if (!Directory.Exists(tb_path.Text)) { tb_path.ForeColor = Color.Red;       }
-            else                                 { tb_path.ForeColor = Color.Silver; }
+            if (!Directory.Exists(txt_path.Text)) { txt_path.ForeColor = Color.Red;       }
+            else                                 { txt_path.ForeColor = Color.SlateBlue; }
 
-            path = this.tb_path.Text;
+            path = this.txt_path.Text;
         }
 
-        
+        // make buttons
+        private void btn_make_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left) {
+
+                if (!Directory.Exists(txt_path.Text))
+                {
+                    MessageBox.Show("Please specify a valid directory path.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+        private void btn_cancel_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left) { this.DialogResult = DialogResult.Cancel; this.Close(); }
+        }
     }
 }

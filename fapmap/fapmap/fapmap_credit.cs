@@ -19,73 +19,55 @@ namespace fapmap
         {
             InitializeComponent();
         }
-
+        
         private void fapmap_credit_Load(object sender, EventArgs e)
         {
-            fapmap.fapmap_cd();
             new Thread(load_images) { IsBackground = true }.Start();
         }
-
+        
         //thumbnails
         private string web_img_url_0 = "https://yt3.ggpht.com/-MpInHIQi5kQ/AAAAAAAAAAI/AAAAAAAAAOo/uMD40-lPnJk/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg";
         private string web_img_url_1 = "https://yt3.ggpht.com/-wmTdd-ozcCw/AAAAAAAAAAI/AAAAAAAAAAA/Jab5AL6CxZ4/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg";
         private string web_img_url_2 = "https://yt3.ggpht.com/-Cz0f2loHk5E/AAAAAAAAAAI/AAAAAAAAAAA/j6ZFt-9xPiA/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg";
         private string web_img_url_3 = "https://yt3.ggpht.com/-iAD_RVsx1I0/AAAAAAAAAAI/AAAAAAAAAAA/aEojIbiyYlA/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg";
-        
         private void load_images()
         {
             try
             {
-                pb_0.LoadAsync(web_img_url_0);
-                pb_1.LoadAsync(web_img_url_1);
-                pb_2.LoadAsync(web_img_url_2);
-                pb_3.LoadAsync(web_img_url_3);
+                pb0.LoadAsync(web_img_url_0);
+                pb3.LoadAsync(web_img_url_1);
+                pb2.LoadAsync(web_img_url_2);
+                pb1.LoadAsync(web_img_url_3);
             }
             catch (Exception) { }
         }
-        
-        private void picture_click(object sender, EventArgs e)
+        private void control_MouseEnter(object sender, EventArgs e)
         {
-            try
+            Control pb = sender as Control;
+            if (pb.Tag == null) { return; }
+            if (pb.Tag.ToString() == "NULL") { return; }
+            label_status.Text = pb.Tag.ToString();
+        }
+        private void control_MouseLeave(object sender, EventArgs e)
+        {
+            label_status.Text = "...";
+        }
+
+        private void picture_MouseClick(object sender, MouseEventArgs e)
+        {
+            return;
+        }
+        private void link_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
             {
                 Control pb = sender as Control;
-
-                if (pb.Tag.ToString() != "NULL")
-                {
-                    fapmap.Incognito(pb.Tag.ToString());
-                }
+                if (pb.Tag == null) { return; }
+                string text = pb.Tag.ToString();
+                if (string.IsNullOrEmpty(text)) { return; }
+                if (pb.Tag.ToString() == "NULL") { return; }
+                fapmap.Incognito(text);
             }
-            catch (Exception) { }
-        }
-        private void picture_click(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            fapmap.Incognito(((Control)sender).Text);
-        }
-
-        // private int expand = 5;
-
-        private void picture_MouseEnter(object sender, EventArgs e)
-        {
-            // //expand
-            // Control btn = (Control)sender;
-            // btn.Size = new Size(btn.Size.Width + expand, btn.Size.Height + expand);
-
-            this.Text = ((Control)sender).Tag.ToString();
-        }
-        private void picture_MouseLeave(object sender, EventArgs e)
-        {
-            // //change back to the size
-            // Control btn = (Control)sender;
-            // btn.Size = new Size(100, 100);
-
-            this.Text = "FAPMAP - CREDITS";
-        }
-        
-        private void HelpBalloon_Draw(object sender, DrawToolTipEventArgs e)
-        {
-            e.DrawBackground();
-            e.DrawBorder();
-            e.DrawText();
         }
     }
 }

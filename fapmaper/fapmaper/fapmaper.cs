@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using System.Diagnostics;
-using IWshRuntimeLibrary;
+//using IWshRuntimeLibrary;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 using System.Threading;
@@ -25,81 +25,95 @@ namespace fapmaper
 
         private void fapmaper_Load(object sender, EventArgs e)
         {
-            openFapmap.Visible = false;
+            txt_output.Text = ""; //clear output
 
-            //clear
-            statusOutput.Text = "";
+            txt_path.Focus();
+            txt_path.SelectionLength = 1;
+            this.ActiveControl = txt_path;
+        }
 
-            pathToInstall.Focus();
-            pathToInstall.SelectionLength = 1;
-            this.ActiveControl = pathToInstall;
+        private bool ran = false;
+        private void btn_install_Click(object sender, EventArgs e)
+        {
+            if (ran) { return; }
+            ran = true;
+            new Thread(SetUp) { IsBackground = true }.Start();
         }
         
-        private void Install_Click(object sender, EventArgs e)
-        {
-            Thread th = new Thread(SetUp);
-            th.IsBackground = true;
-            th.Start();
-        }
-
         private void SetUp()
         {
-            Install.Enabled = false;
-            pathToInstall.ReadOnly = true;
-
-            System.IO.Directory.CreateDirectory(pathToInstall.Text);
-
+            string path = txt_path.Text;
+            Directory.CreateDirectory(path);
+            DirectoryInfo di = new DirectoryInfo(path);
+            
             //COPY ALL FILES
             foreach (string file_in_data in Directory.GetFiles(".\\data"))
             {
-                if (System.IO.File.Exists(file_in_data))
+                if (File.Exists(file_in_data))
                 {
                     FileInfo fid = new FileInfo(file_in_data);
 
-                    string target = pathToInstall.Text + "\\" + fid.Name;
+                    string target = di.FullName + "\\" + fid.Name;
 
-                    if (System.IO.File.Exists(target) == true)
-                    {
-                        System.IO.File.Delete(target);
-                    }
-
-                    System.IO.File.Copy(fid.FullName, target);
-                    statusOutput.Text += "COPIED: " + fid.FullName + " -> " + target + Environment.NewLine;
+                    if (File.Exists(target)) { File.Delete(target); }
+                    File.Copy(fid.FullName, target);
+                    txt_output.Text += "COPIED: " + fid.FullName + " -> " + target + Environment.NewLine;
                 }
             }
             
+            // create shortcut
             string name = "LockedFolder.lnk";
-            string targ = pathToInstall.Text + "\\LockedFolder.exe";
-            string work = pathToInstall.Text;
-            string icon = pathToInstall.Text + "\\lock.ico";
-
+            string targ = di.FullName + "\\LockedFolder.exe";
+            string work = di.FullName;
+            string icon = di.FullName + "\\lock.ico";
             CreateShortcut(name, targ, work, icon);
-            statusOutput.Text += "CREATED: " + Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + "LockedFolder.lnk" + Environment.NewLine;
-
-            if (hideFolderCB.Checked == true)
+            txt_output.Text += "CREATED: " + Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + "LockedFolder.lnk" + Environment.NewLine;
+            
+            // hide folder
+            if (cb_hideFolder.Checked == true)
             {
                 System.Diagnostics.Process process = new System.Diagnostics.Process();
-                System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-                startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-                startInfo.FileName = "attrib.exe";
-                startInfo.Arguments = "+s +h " + pathToInstall.Text;
+                System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo()
+                {
+                    WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden,
+                    FileName = "attrib.exe",
+                    Arguments = "+s +h " + txt_path.Text
+                };
                 process.StartInfo = startInfo;
                 process.Start();
 
-                statusOutput.Text += "HIDDEN: " + pathToInstall.Text;
+                txt_output.Text += "HIDDEN: " + txt_path.Text + Environment.NewLine;
             }
+            
+            txt_output.Text += "Done!" + Environment.NewLine;
 
-            openFapmap.Visible = true;
-            openFapmap.Enabled = true;
-
-            Thread th = new Thread(Quit);
-            th.IsBackground = true;
-            th.Start();
+            label_status.Text = "Exiting Application in 10...";
+            Thread.Sleep(1000);
+            label_status.Text = "Exiting Application in 9...";
+            Thread.Sleep(1000);
+            label_status.Text = "Exiting Application in 8...";
+            Thread.Sleep(1000);
+            label_status.Text = "Exiting Application in 7...";
+            Thread.Sleep(1000);
+            label_status.Text = "Exiting Application in 6...";
+            Thread.Sleep(1000);
+            label_status.Text = "Exiting Application in 5...";
+            Thread.Sleep(1000);
+            label_status.Text = "Exiting Application in 4...";
+            Thread.Sleep(1000);
+            label_status.Text = "Exiting Application in 3...";
+            Thread.Sleep(1000);
+            label_status.Text = "Exiting Application in 2...";
+            Thread.Sleep(1000);
+            label_status.Text = "Exiting Application in 1...";
+            Thread.Sleep(1000);
+            label_status.Text = "Exiting Application...";
+            this.Close();
         }
 
         private void CreateShortcut(string name, string target, string workingdir, string ico)
         {
-            WshShell wsh = new WshShell();
+            IWshRuntimeLibrary.WshShell wsh = new IWshRuntimeLibrary.WshShell();
             IWshRuntimeLibrary.IWshShortcut shortcut = wsh.CreateShortcut(
             Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\" + name) as IWshRuntimeLibrary.IWshShortcut;
             shortcut.Arguments = "";
@@ -110,38 +124,6 @@ namespace fapmaper
             shortcut.WorkingDirectory = workingdir;
             shortcut.IconLocation = ico;
             shortcut.Save();
-        }
-
-        private void Quit()
-        {
-            exitLabel.Text = "Exiting Application in 10...";
-            Thread.Sleep(1000);
-            exitLabel.Text = "Exiting Application in 9...";
-            Thread.Sleep(1000);
-            exitLabel.Text = "Exiting Application in 8...";
-            Thread.Sleep(1000);
-            exitLabel.Text = "Exiting Application in 7...";
-            Thread.Sleep(1000);
-            exitLabel.Text = "Exiting Application in 6...";
-            Thread.Sleep(1000);
-            exitLabel.Text = "Exiting Application in 5...";
-            Thread.Sleep(1000);
-            exitLabel.Text = "Exiting Application in 4...";
-            Thread.Sleep(1000);
-            exitLabel.Text = "Exiting Application in 3...";
-            Thread.Sleep(1000);
-            exitLabel.Text = "Exiting Application in 2...";
-            Thread.Sleep(1000);
-            exitLabel.Text = "Exiting Application in 1...";
-            Thread.Sleep(1000);
-            exitLabel.Text = "Exiting Application...";
-            Application.Exit();
-        }
-
-        private void openFapmap_Click(object sender, EventArgs e)
-        {
-            Process.Start(pathToInstall.Text + "\\LockedFolder.exe");
-            Application.Exit();
         }
     }
 }

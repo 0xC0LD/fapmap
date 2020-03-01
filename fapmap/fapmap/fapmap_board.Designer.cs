@@ -105,7 +105,7 @@
             this.board_RMB.Name = "contextMenuStrip1";
             this.board_RMB.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.board_RMB.ShowItemToolTips = false;
-            this.board_RMB.Size = new System.Drawing.Size(281, 114);
+            this.board_RMB.Size = new System.Drawing.Size(281, 136);
             // 
             // board_RMB_refresh
             // 
@@ -134,7 +134,7 @@
             this.board_RMB_open.Image = global::fapmap.Properties.Resources.incognito;
             this.board_RMB_open.Name = "board_RMB_open";
             this.board_RMB_open.Size = new System.Drawing.Size(280, 22);
-            this.board_RMB_open.Text = "Open (CTRL+Q/2RMB)";
+            this.board_RMB_open.Text = "Open (CTRL+Q/2LMB)";
             this.board_RMB_open.Click += new System.EventHandler(this.board_RMB_open_Click);
             // 
             // board_RMB_copy

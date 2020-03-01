@@ -162,7 +162,7 @@ namespace fapmap
         }
         private void btn_openPathSelector_MouseClick(object sender, MouseEventArgs e)
         {
-            fapmap.OpenPathSelector(this, txt_path, false);
+            fapmap.OpenPathSelectorTXT(this, false, txt_path);
         }
         
         #endregion

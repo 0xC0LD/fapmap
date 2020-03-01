@@ -16,38 +16,46 @@ namespace fapmap
         public fapmap_dirSelect()
         {
             InitializeComponent();
+
+            treeView_RMB.Renderer = new fapmap_res.color.fToolStripProfessionalRenderer();
         }
-
-        public string path { get; set; }
-
+        
+        public string outPath = string.Empty;
         private void fapmap_downloadPathSelect_Load(object sender, EventArgs e)
         {
             load();
+
+            if (treeView.Nodes.Count >= 1)
+            {
+                treeView.Nodes[0].Expand();
+            }
         }
 
         private void load()
         {
+            treeView.Nodes.Clear();
             treeView.Nodes.Add(createDirNode(new DirectoryInfo(fapmap.GlobalVariables.Path.Dir.MainFolder)));
         }
         private TreeNode createDirNode(DirectoryInfo di)
         {
             TreeNode node_dir = new TreeNode() { Text = di.Name, Name = di.FullName, ImageIndex = 0, SelectedImageIndex = 0 };
-            
-            foreach (DirectoryInfo directory in di.GetDirectories())
-            {
-                node_dir.Nodes.Add(createDirNode(directory));
-            }
-
+            foreach (DirectoryInfo directory in di.GetDirectories()) { node_dir.Nodes.Add(createDirNode(directory)); }
             return node_dir;
         }
         
         private void confirm()
         {
+            if (treeView.SelectedNode == null) { return; }
             if (treeView.SelectedNode.Name == null) { return; }
             string text = treeView.SelectedNode.Name;
             if (string.IsNullOrEmpty(text)) { return; }
-            path = text;
+            outPath = text;
             this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+        private void cancel()
+        {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
@@ -62,10 +70,9 @@ namespace fapmap
         {
             switch (e.KeyCode)
             {
+                case Keys.F5: load(); e.Handled = true; e.SuppressKeyPress = true; break;
                 case Keys.Enter:
                     {
-                        
-
                         try
                         {
                             if (treeView.SelectedNode.IsExpanded)
@@ -81,6 +88,16 @@ namespace fapmap
                     }
                 case Keys.Space: confirm(); e.Handled = true; e.SuppressKeyPress = true; break;
             }
+
+            if (e.Control)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.R: load();                 e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.Q: treeView.CollapseAll(); e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.E: treeView.ExpandAll();   e.Handled = true; e.SuppressKeyPress = true; break;
+                }
+            }
         }
         private void btn_ok_MouseClick(object sender, MouseEventArgs e)
         {
@@ -88,7 +105,25 @@ namespace fapmap
         }
         private void btn_cancel_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { this.DialogResult = DialogResult.Cancel; this.Close(); }
+            if (e.Button == MouseButtons.Left) { cancel(); }
+        }
+
+        // RMB
+        private void treeView_RMB_reload_Click(object sender, EventArgs e)
+        {
+            load();
+        }
+        private void faftv_RMB_select_Click(object sender, EventArgs e)
+        {
+            confirm();
+        }
+        private void treeView_RMB_collapseTree_Click(object sender, EventArgs e)
+        {
+            treeView.CollapseAll();
+        }
+        private void treeView_RMB_expandTree_Click(object sender, EventArgs e)
+        {
+            treeView.ExpandAll();
         }
     }
 }

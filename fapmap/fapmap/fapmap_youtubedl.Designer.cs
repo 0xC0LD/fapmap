@@ -79,6 +79,7 @@
             // 
             // txt_url
             // 
+            this.txt_url.AllowDrop = true;
             this.txt_url.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_url.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
@@ -90,6 +91,8 @@
             this.txt_url.Name = "txt_url";
             this.txt_url.Size = new System.Drawing.Size(578, 20);
             this.txt_url.TabIndex = 160;
+            this.txt_url.DragDrop += new System.Windows.Forms.DragEventHandler(this.txt_url_DragDrop);
+            this.txt_url.DragEnter += new System.Windows.Forms.DragEventHandler(this.txt_url_DragEnter);
             this.txt_url.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_url_KeyDown);
             // 
             // label_status

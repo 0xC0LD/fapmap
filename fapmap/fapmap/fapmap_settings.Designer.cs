@@ -250,6 +250,7 @@
             // 
             this.rb_chrome.AutoSize = true;
             this.rb_chrome.BackColor = System.Drawing.Color.Transparent;
+            this.rb_chrome.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rb_chrome.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_chrome.Location = new System.Drawing.Point(41, 30);
             this.rb_chrome.Name = "rb_chrome";
@@ -264,6 +265,7 @@
             // 
             this.rb_firefox.AutoSize = true;
             this.rb_firefox.BackColor = System.Drawing.Color.Transparent;
+            this.rb_firefox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rb_firefox.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_firefox.Location = new System.Drawing.Point(41, 64);
             this.rb_firefox.Name = "rb_firefox";
@@ -278,6 +280,7 @@
             // 
             this.rb_opera.AutoSize = true;
             this.rb_opera.BackColor = System.Drawing.Color.Transparent;
+            this.rb_opera.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rb_opera.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rb_opera.Location = new System.Drawing.Point(41, 98);
             this.rb_opera.Name = "rb_opera";

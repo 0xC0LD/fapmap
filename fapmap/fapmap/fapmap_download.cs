@@ -63,7 +63,6 @@ namespace fapmap
         #region Window and FX
         
         private void fapmap_download_FormClosing(object sender, FormClosingEventArgs e) { Quit(); }
-        private void fapmap_download_FormClosed(object sender, FormClosedEventArgs e) { /* Quit(); */ }
 
         private void Quit()
         {
@@ -72,6 +71,13 @@ namespace fapmap
             client.CancelAsync();
             this_trayicon.Dispose();
             GC.Collect();
+        }
+
+        private void QuitFapmap()
+        {
+            Quit();
+            fapmap.CrashHandler_stop();
+            Application.Exit();
         }
         
         private void this_hide()
@@ -341,6 +347,9 @@ namespace fapmap
                 return false;
             }
 
+            info.ForeColor = System.Drawing.Color.Yellow;
+            info.Text = "Checking if file already exists...";
+
             int downloadMode = 0;
             if (!cb_conflict_replace.Checked && !cb_conflict_rename.Checked && !cb_conflict_skip.Checked)
             {
@@ -388,7 +397,13 @@ namespace fapmap
                             }
                             break;
                         }
-                    case 3: return false; //break;
+                    case 3:
+                        {
+                            info.ForeColor = System.Drawing.Color.Yellow;
+                            info.Text = "Skipped!";
+                            return false; //break;
+                        }
+                        
                 }
             }
 
@@ -459,8 +474,8 @@ namespace fapmap
 
             if (links.Items.Count == 0)
             {
-                     if (rb_shutdown.Checked) { shutdownPC(); System.Environment.Exit(0); }
-                else if (rb_exit.Checked)     { System.Environment.Exit(0); }
+                     if (rb_shutdown.Checked) { shutdownPC(); QuitFapmap(); }
+                else if (rb_exit.Checked)     { QuitFapmap(); }
                 else if (rb_close.Checked)    { this.Close(); }
             }
 
@@ -619,7 +634,7 @@ namespace fapmap
         }
         private void btn_openPathSelector_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { fapmap.OpenPathSelector(this, txt_dir, true); }
+            if (e.Button == MouseButtons.Left) { fapmap.OpenPathSelectorTXT(this, true, txt_dir); }
         }
         private void btn_open_MouseClick(object sender, MouseEventArgs e)
         {
@@ -823,10 +838,6 @@ namespace fapmap
             }
         }
 
-        private void txt_url_DragDrop(object sender, DragEventArgs e)
-        {
-            txt_url.Text = (e.Data.GetData(typeof(string)) as string);
-        }
         private void txt_url_DragEnter(object sender, DragEventArgs e)
         {
             if ((e.AllowedEffect & System.Windows.Forms.DragDropEffects.All) != 0 && e.Data.GetDataPresent(typeof(string)))
@@ -834,6 +845,11 @@ namespace fapmap
                 e.Effect = System.Windows.Forms.DragDropEffects.All;
             }
         }
+        private void txt_url_DragDrop(object sender, DragEventArgs e)
+        {
+            txt_url.Text = (e.Data.GetData(typeof(string)) as string);
+        }
+        
 
         private void txt_filename_DragDrop(object sender, DragEventArgs e)
         {

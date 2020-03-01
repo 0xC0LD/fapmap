@@ -52,7 +52,7 @@ namespace fapmap
                     string action = index[1];
                     string text = index[2].Replace("\n", String.Empty);
 
-                    ListViewItem lvi = new ListViewItem(new string[] { count.ToString(), time, action, text }) { Tag = text };
+                    ListViewItem lvi = new ListViewItem(new string[] { count.ToString(), time, action, text }) { Name = text };
                     switch (action)
                     {
                         case fapmap.GlobalVariables.LOG_TYPE.OPEN: lvi.ForeColor = Color.Yellow; break;
@@ -96,8 +96,8 @@ namespace fapmap
         {
             foreach (ListViewItem lvi in logs.SelectedItems)
             {
-                if (lvi.Tag == null) { continue; }
-                string text = lvi.Tag.ToString();
+                if (lvi.Name == null) { continue; }
+                string text = lvi.Name;
                 if (string.IsNullOrEmpty(text)) { continue; }
                 if (File.Exists(text)) { fapmap.Open(text); }
                 else if (Uri.IsWellFormedUriString(text, UriKind.Absolute)) { fapmap.Incognito(text); }
@@ -108,8 +108,23 @@ namespace fapmap
             if (logs.SelectedItems != null)
             {
                 string clip = string.Empty;
-                foreach (ListViewItem item in logs.SelectedItems) { clip = clip + item.Tag.ToString() + Environment.NewLine; }
-                System.Windows.Forms.Clipboard.SetText(clip);
+                foreach (ListViewItem item in logs.SelectedItems)
+                {
+                    if (item == logs.SelectedItems[logs.SelectedItems.Count - 1])
+                    {
+                        clip += item.Name;
+                    }
+                    else
+                    {
+                        clip += item.Name + Environment.NewLine;
+                    }
+                    
+                }
+                if (!string.IsNullOrEmpty(clip))
+                {
+                    System.Windows.Forms.Clipboard.SetText(clip);
+                }
+                
             }
         }
         private void logs_edit()

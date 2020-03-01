@@ -133,6 +133,11 @@ namespace fapmap
         {
             txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.SteelBlue : Color.DarkOrchid;
         }
+        private void output_TextChanged(object sender, EventArgs e)
+        {
+            output.SelectionStart = output.Text.Length;
+            output.ScrollToCaret();
+        }
 
         private void txt_url_KeyDown(object sender, KeyEventArgs e)
         {
@@ -146,26 +151,25 @@ namespace fapmap
 
         private void btn_start_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                youtubedl();
-            }
+            if (e.Button == MouseButtons.Left) { youtubedl(); }
         }
-
-        private void output_TextChanged(object sender, EventArgs e)
-        {
-            output.SelectionStart = output.Text.Length;
-            output.ScrollToCaret();
-        }
-
         private void btn_openPathSelector_MouseClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { fapmap.OpenPathSelector(this, txt_path, false); }
+            if (e.Button == MouseButtons.Left) { fapmap.OpenPathSelectorTXT(this, false, txt_path); }
         }
 
+        private void txt_url_DragEnter(object sender, DragEventArgs e)
+        {
+            if ((e.AllowedEffect & System.Windows.Forms.DragDropEffects.All) != 0 && e.Data.GetDataPresent(typeof(string)))
+            {
+                e.Effect = System.Windows.Forms.DragDropEffects.All;
+            }
+        }
+        private void txt_url_DragDrop(object sender, DragEventArgs e)
+        {
+            txt_url.Text = (e.Data.GetData(typeof(string)) as string);
+        }
 
         #endregion
-
-        
     }
 }

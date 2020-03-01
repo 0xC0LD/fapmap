@@ -769,7 +769,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FapMap - Downloader (+webgrab.exe)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fapmap_download_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.fapmap_download_FormClosed);
             this.Load += new System.EventHandler(this.fapmap_download_Load);
             this.cb_panel.ResumeLayout(false);
             this.cb_panel.PerformLayout();

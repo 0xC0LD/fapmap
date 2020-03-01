@@ -86,7 +86,7 @@
             this.txt_options.Name = "txt_options";
             this.txt_options.Size = new System.Drawing.Size(149, 20);
             this.txt_options.TabIndex = 153;
-            this.txt_options.Text = "-p -a -v";
+            this.txt_options.Text = "pic all v";
             this.txt_options.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
             // 
             // label_status

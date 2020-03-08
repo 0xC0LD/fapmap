@@ -36,7 +36,7 @@
             this.logs_clm_action = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.logs_clm_text = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.logs_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.logs_RMB_refresh = new System.Windows.Forms.ToolStripMenuItem();
+            this.logs_RMB_reload = new System.Windows.Forms.ToolStripMenuItem();
             this.logs_RMB_open = new System.Windows.Forms.ToolStripMenuItem();
             this.logs_RMB_copy = new System.Windows.Forms.ToolStripMenuItem();
             this.logs_RMB_edit = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,7 +98,7 @@
             this.logs_RMB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.logs_RMB.BackgroundImage = global::fapmap.Properties.Resources.bg4;
             this.logs_RMB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.logs_RMB_refresh,
+            this.logs_RMB_reload,
             this.logs_RMB_open,
             this.logs_RMB_copy,
             this.logs_RMB_edit});
@@ -106,17 +106,17 @@
             this.logs_RMB.Name = "contextMenuStrip1";
             this.logs_RMB.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.logs_RMB.ShowItemToolTips = false;
-            this.logs_RMB.Size = new System.Drawing.Size(200, 92);
+            this.logs_RMB.Size = new System.Drawing.Size(200, 114);
             // 
-            // logs_RMB_refresh
+            // logs_RMB_reload
             // 
-            this.logs_RMB_refresh.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.logs_RMB_refresh.ForeColor = System.Drawing.Color.SlateBlue;
-            this.logs_RMB_refresh.Image = global::fapmap.Properties.Resources.restart;
-            this.logs_RMB_refresh.Name = "logs_RMB_refresh";
-            this.logs_RMB_refresh.Size = new System.Drawing.Size(199, 22);
-            this.logs_RMB_refresh.Text = "Refresh (CTRL+R/F5)";
-            this.logs_RMB_refresh.Click += new System.EventHandler(this.logs_RMB_refresh_Click);
+            this.logs_RMB_reload.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.logs_RMB_reload.ForeColor = System.Drawing.Color.SlateBlue;
+            this.logs_RMB_reload.Image = global::fapmap.Properties.Resources.restart;
+            this.logs_RMB_reload.Name = "logs_RMB_reload";
+            this.logs_RMB_reload.Size = new System.Drawing.Size(199, 22);
+            this.logs_RMB_reload.Text = "Reload (CTRL+R/F5)";
+            this.logs_RMB_reload.Click += new System.EventHandler(this.logs_RMB_reload_Click);
             // 
             // logs_RMB_open
             // 
@@ -190,7 +190,7 @@
         private System.Windows.Forms.ColumnHeader logs_clm_text;
         private System.Windows.Forms.ColumnHeader logs_clm_time;
         private System.Windows.Forms.ContextMenuStrip logs_RMB;
-        private System.Windows.Forms.ToolStripMenuItem logs_RMB_refresh;
+        private System.Windows.Forms.ToolStripMenuItem logs_RMB_reload;
         private System.Windows.Forms.ToolStripMenuItem logs_RMB_open;
         private System.Windows.Forms.ToolStripMenuItem logs_RMB_copy;
         private System.Windows.Forms.ToolStripMenuItem logs_RMB_edit;

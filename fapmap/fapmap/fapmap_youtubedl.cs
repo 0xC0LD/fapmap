@@ -27,10 +27,11 @@ namespace fapmap
             if (!fapmap.checkForApp(fapmap.GlobalVariables.Path.File.Exe.YOUTUBEDL, "https://youtube-dl.org/"))
             { this.Close(); return; }
 
-            if (!string.IsNullOrEmpty(pass_path) && Directory.Exists(pass_path)) { txt_path.Text = new DirectoryInfo(pass_path).FullName + "\\"; }
-            if (!string.IsNullOrEmpty(pass_url)) { txt_url.Text = pass_url; }
+            txt_path.Text = fapmap.GlobalVariables.Path.Dir.MainFolder;
+            if (!string.IsNullOrEmpty(pass_path) && Directory.Exists(pass_path)) { txt_path.Text = new DirectoryInfo(pass_path).FullName; }
 
-            txt_url.Focus();
+            if (!string.IsNullOrEmpty(pass_url)) { txt_url.Text = pass_url; }
+            
             this.ActiveControl = txt_url;
         }
 
@@ -68,51 +69,61 @@ namespace fapmap
             if (youtubedl_busy) { youtubedl_die(); return; }
             youtubedl_busy = true;
 
+            if (!fapmap.checkForApp(fapmap.GlobalVariables.Path.File.Exe.YOUTUBEDL, "https://youtube-dl.org/"))
+            { this.Close(); return; }
+
+            string url = txt_url.Text;
+            string path = txt_path.Text;
+            string options = txt_options.Text;
+
             new Thread(() => {
 
-                if (!fapmap.checkForApp(fapmap.GlobalVariables.Path.File.Exe.YOUTUBEDL, "https://youtube-dl.org/"))
-                { this.Close(); return; }
-
-                string url = txt_url.Text;
-                string path = txt_path.Text;
-                string options = txt_options.Text;
-
-                if (string.IsNullOrEmpty(url))
+                try
                 {
-                    label_status.Text = "No input...";
+                    if (string.IsNullOrEmpty(url))
+                    {
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            label_status.Text = "No input...";
+                        });
+                        youtubedl_busy = false;
+                        return;
+                    }
+
+                    fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.EXEC, fapmap.GlobalVariables.Path.File.Exe.YOUTUBEDL + " \"" + url + "\" -o \"%(title)s.%(ext)s\"");
+
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        label_status.Text = "Downloading...";
+                        txt_output.Text = "";
+                        btn_start.BackgroundImage = Properties.Resources.close;
+                    });
+
+                    youtubedlProcess = new Process();
+                    youtubedlProcess.StartInfo.FileName = fapmap.GlobalVariables.Path.File.Exe.YOUTUBEDL;
+                    youtubedlProcess.StartInfo.Arguments = "\"" + url + "\" " + options;
+                    youtubedlProcess.StartInfo.WorkingDirectory = Directory.Exists(path) ? path : fapmap.GlobalVariables.Path.Dir.MainFolder;
+                    youtubedlProcess.StartInfo.UseShellExecute = false;
+                    youtubedlProcess.StartInfo.CreateNoWindow = true;
+                    youtubedlProcess.StartInfo.RedirectStandardOutput = true;
+                    youtubedlProcess.StartInfo.RedirectStandardError = true;
+                    youtubedlProcess.OutputDataReceived += new DataReceivedEventHandler(youtubedl_output);
+                    youtubedlProcess.ErrorDataReceived += new DataReceivedEventHandler(youtubedl_output);
+                    youtubedlProcess.Start();
+                    youtubedlProcess.BeginOutputReadLine();
+                    youtubedlProcess.BeginErrorReadLine();
+                    youtubedlProcess.WaitForExit();
+                    youtubedlProcess.Close();
+
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        label_status.Text = "Done!";
+                        btn_start.BackgroundImage = Properties.Resources.download;
+                    });
+
                     youtubedl_busy = false;
-                    return;
                 }
-                
-                label_status.Text = "Downloading...";
-                output.Text = "";
-
-                fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.EXEC, fapmap.GlobalVariables.Path.File.Exe.YOUTUBEDL + " \"" + url + "\" -o \"%(title)s.%(ext)s\"");
-
-                btn_start.BackgroundImage = Properties.Resources.close;
-
-                youtubedlProcess = new Process();
-                youtubedlProcess.StartInfo.FileName = fapmap.GlobalVariables.Path.File.Exe.YOUTUBEDL;
-                youtubedlProcess.StartInfo.Arguments = "\"" + url + "\" " + options;
-                youtubedlProcess.StartInfo.WorkingDirectory = Directory.Exists(path) ? path : fapmap.GlobalVariables.Path.Dir.MainFolder;
-                youtubedlProcess.StartInfo.UseShellExecute = false;
-                youtubedlProcess.StartInfo.CreateNoWindow = true;
-                youtubedlProcess.StartInfo.RedirectStandardOutput = true;
-                youtubedlProcess.StartInfo.RedirectStandardError = true;
-                youtubedlProcess.OutputDataReceived += new DataReceivedEventHandler(youtubedl_output);
-                youtubedlProcess.ErrorDataReceived += new DataReceivedEventHandler(youtubedl_output);
-                youtubedlProcess.Start();
-                youtubedlProcess.BeginOutputReadLine();
-                youtubedlProcess.BeginErrorReadLine();
-                youtubedlProcess.WaitForExit();
-                youtubedlProcess.Close();
-
-                btn_start.BackgroundImage = Properties.Resources.download;
-
-                label_status.Text = "Done!";
-                
-                youtubedl_busy = false;
-
+                catch (Exception) { youtubedl_busy = false; return; }
             })
             { IsBackground = true }.Start();
         }
@@ -120,8 +131,12 @@ namespace fapmap
         {
             try
             {
-                output.Text += e.Data + Environment.NewLine;
+                this.Invoke((MethodInvoker)delegate
+                {
+                    txt_output.Text += e.Data + Environment.NewLine;
+                });
             }
+            catch (ObjectDisposedException) { }
             catch (Exception) { }
         }
 
@@ -133,10 +148,10 @@ namespace fapmap
         {
             txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.SteelBlue : Color.DarkOrchid;
         }
-        private void output_TextChanged(object sender, EventArgs e)
+        private void txt_output_TextChanged(object sender, EventArgs e)
         {
-            output.SelectionStart = output.Text.Length;
-            output.ScrollToCaret();
+            txt_output.SelectionStart = txt_output.Text.Length;
+            txt_output.ScrollToCaret();
         }
 
         private void txt_url_KeyDown(object sender, KeyEventArgs e)
@@ -149,13 +164,13 @@ namespace fapmap
             }
         }
 
-        private void btn_start_MouseClick(object sender, MouseEventArgs e)
+        private void btn_start_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left) { youtubedl(); }
         }
-        private void btn_openPathSelector_MouseClick(object sender, MouseEventArgs e)
+        private void btn_openPathSelector_MouseUp(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { fapmap.OpenPathSelectorTXT(this, false, txt_path); }
+            if (e.Button == MouseButtons.Left) { fapmap.OpenPathSelectorTXT(this, txt_path, false); }
         }
 
         private void txt_url_DragEnter(object sender, DragEventArgs e)
@@ -170,6 +185,9 @@ namespace fapmap
             txt_url.Text = (e.Data.GetData(typeof(string)) as string);
         }
 
+
         #endregion
+
+        
     }
 }

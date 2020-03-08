@@ -38,55 +38,77 @@
             this.txt_path = new System.Windows.Forms.TextBox();
             this.label_path = new System.Windows.Forms.Label();
             this.cb_reverse = new System.Windows.Forms.CheckBox();
+            this.btn_openPathSelector = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cb_random
             // 
+            this.cb_random.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_random.AutoSize = true;
             this.cb_random.BackColor = System.Drawing.Color.Transparent;
             this.cb_random.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_random.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.cb_random.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_random.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_random.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_random.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_random.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cb_random.ForeColor = System.Drawing.Color.SlateBlue;
-            this.cb_random.Location = new System.Drawing.Point(11, 83);
+            this.cb_random.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.cb_random.Location = new System.Drawing.Point(11, 97);
             this.cb_random.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_random.Name = "cb_random";
-            this.cb_random.Size = new System.Drawing.Size(70, 17);
+            this.cb_random.Size = new System.Drawing.Size(61, 23);
             this.cb_random.TabIndex = 32;
+            this.cb_random.Tag = "RANDOM";
             this.cb_random.Text = "Shuffled";
             this.cb_random.UseVisualStyleBackColor = false;
-            this.cb_random.CheckedChanged += new System.EventHandler(this.cb_random_CheckedChanged);
+            this.cb_random.CheckedChanged += new System.EventHandler(this.cb_CheckedChanged);
             // 
             // cb_rmlogs
             // 
+            this.cb_rmlogs.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_rmlogs.AutoSize = true;
             this.cb_rmlogs.BackColor = System.Drawing.Color.Transparent;
             this.cb_rmlogs.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_rmlogs.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.cb_rmlogs.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_rmlogs.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_rmlogs.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_rmlogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_rmlogs.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cb_rmlogs.ForeColor = System.Drawing.Color.SlateBlue;
-            this.cb_rmlogs.Location = new System.Drawing.Point(11, 52);
+            this.cb_rmlogs.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.cb_rmlogs.Location = new System.Drawing.Point(11, 59);
             this.cb_rmlogs.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_rmlogs.Name = "cb_rmlogs";
-            this.cb_rmlogs.Size = new System.Drawing.Size(175, 30);
+            this.cb_rmlogs.Size = new System.Drawing.Size(166, 36);
             this.cb_rmlogs.TabIndex = 33;
+            this.cb_rmlogs.Tag = "RMLOGS";
             this.cb_rmlogs.Text = "Remove Already Played Files\r\n(from logs)";
             this.cb_rmlogs.UseVisualStyleBackColor = false;
-            this.cb_rmlogs.CheckedChanged += new System.EventHandler(this.cb_rmlogs_CheckedChanged);
+            this.cb_rmlogs.CheckedChanged += new System.EventHandler(this.cb_CheckedChanged);
             // 
             // cb_keyword
             // 
+            this.cb_keyword.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_keyword.AutoSize = true;
             this.cb_keyword.BackColor = System.Drawing.Color.Transparent;
             this.cb_keyword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_keyword.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.cb_keyword.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_keyword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_keyword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_keyword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_keyword.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cb_keyword.ForeColor = System.Drawing.Color.SlateBlue;
+            this.cb_keyword.ForeColor = System.Drawing.Color.RoyalBlue;
             this.cb_keyword.Location = new System.Drawing.Point(11, 34);
             this.cb_keyword.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_keyword.Name = "cb_keyword";
-            this.cb_keyword.Size = new System.Drawing.Size(187, 17);
+            this.cb_keyword.Size = new System.Drawing.Size(178, 23);
             this.cb_keyword.TabIndex = 34;
+            this.cb_keyword.Tag = "KEYWORD";
             this.cb_keyword.Text = "Must Have In File Path (string):";
             this.cb_keyword.UseVisualStyleBackColor = false;
-            this.cb_keyword.CheckedChanged += new System.EventHandler(this.cb_keyword_CheckedChanged);
+            this.cb_keyword.CheckedChanged += new System.EventHandler(this.cb_CheckedChanged);
             // 
             // txt_keyword
             // 
@@ -100,7 +122,7 @@
             this.txt_keyword.Location = new System.Drawing.Point(199, 34);
             this.txt_keyword.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txt_keyword.Name = "txt_keyword";
-            this.txt_keyword.Size = new System.Drawing.Size(170, 20);
+            this.txt_keyword.Size = new System.Drawing.Size(259, 20);
             this.txt_keyword.TabIndex = 159;
             this.txt_keyword.TextChanged += new System.EventHandler(this.tb_keyword_TextChanged);
             // 
@@ -115,14 +137,14 @@
             this.btn_cancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_cancel.Location = new System.Drawing.Point(308, 85);
+            this.btn_cancel.Location = new System.Drawing.Point(392, 119);
             this.btn_cancel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(61, 29);
             this.btn_cancel.TabIndex = 160;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = false;
-            this.btn_cancel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_cancel_MouseClick);
+            this.btn_cancel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_cancel_MouseUp);
             // 
             // btn_make
             // 
@@ -135,14 +157,14 @@
             this.btn_make.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_make.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_make.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_make.Location = new System.Drawing.Point(243, 85);
+            this.btn_make.Location = new System.Drawing.Point(327, 119);
             this.btn_make.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_make.Name = "btn_make";
             this.btn_make.Size = new System.Drawing.Size(61, 29);
             this.btn_make.TabIndex = 161;
             this.btn_make.Text = "Create";
             this.btn_make.UseVisualStyleBackColor = false;
-            this.btn_make.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_make_MouseClick);
+            this.btn_make.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_make_MouseUp);
             // 
             // txt_path
             // 
@@ -155,13 +177,14 @@
             this.txt_path.Location = new System.Drawing.Point(51, 6);
             this.txt_path.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txt_path.Name = "txt_path";
-            this.txt_path.Size = new System.Drawing.Size(318, 20);
+            this.txt_path.Size = new System.Drawing.Size(383, 20);
             this.txt_path.TabIndex = 162;
             this.txt_path.TextChanged += new System.EventHandler(this.tb_path_TextChanged);
             // 
             // label_path
             // 
             this.label_path.AutoSize = true;
+            this.label_path.BackColor = System.Drawing.Color.Transparent;
             this.label_path.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.label_path.Location = new System.Drawing.Point(12, 9);
             this.label_path.Name = "label_path";
@@ -171,19 +194,48 @@
             // 
             // cb_reverse
             // 
+            this.cb_reverse.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_reverse.AutoSize = true;
             this.cb_reverse.BackColor = System.Drawing.Color.Transparent;
             this.cb_reverse.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_reverse.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.cb_reverse.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_reverse.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_reverse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_reverse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_reverse.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cb_reverse.ForeColor = System.Drawing.Color.SlateBlue;
-            this.cb_reverse.Location = new System.Drawing.Point(11, 101);
+            this.cb_reverse.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.cb_reverse.Location = new System.Drawing.Point(11, 122);
             this.cb_reverse.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_reverse.Name = "cb_reverse";
-            this.cb_reverse.Size = new System.Drawing.Size(98, 17);
+            this.cb_reverse.Size = new System.Drawing.Size(89, 23);
             this.cb_reverse.TabIndex = 164;
+            this.cb_reverse.Tag = "REVERSE";
             this.cb_reverse.Text = "Reverse Order";
             this.cb_reverse.UseVisualStyleBackColor = false;
-            this.cb_reverse.CheckedChanged += new System.EventHandler(this.cb_reverse_CheckedChanged);
+            this.cb_reverse.CheckedChanged += new System.EventHandler(this.cb_CheckedChanged);
+            // 
+            // btn_openPathSelector
+            // 
+            this.btn_openPathSelector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_openPathSelector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_openPathSelector.BackgroundImage = global::fapmap.Properties.Resources.folder;
+            this.btn_openPathSelector.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_openPathSelector.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_openPathSelector.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btn_openPathSelector.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_openPathSelector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_openPathSelector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_openPathSelector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_openPathSelector.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_openPathSelector.ForeColor = System.Drawing.Color.SlateBlue;
+            this.btn_openPathSelector.Location = new System.Drawing.Point(438, 6);
+            this.btn_openPathSelector.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.btn_openPathSelector.Name = "btn_openPathSelector";
+            this.btn_openPathSelector.Size = new System.Drawing.Size(20, 20);
+            this.btn_openPathSelector.TabIndex = 218;
+            this.btn_openPathSelector.UseVisualStyleBackColor = false;
+            this.btn_openPathSelector.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_openPathSelector_MouseUp);
             // 
             // fapmap_playlist
             // 
@@ -191,7 +243,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.ClientSize = new System.Drawing.Size(384, 131);
+            this.ClientSize = new System.Drawing.Size(464, 161);
+            this.Controls.Add(this.btn_openPathSelector);
             this.Controls.Add(this.cb_reverse);
             this.Controls.Add(this.label_path);
             this.Controls.Add(this.txt_path);
@@ -207,8 +260,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(400, 170);
-            this.MinimumSize = new System.Drawing.Size(400, 170);
+            this.MaximumSize = new System.Drawing.Size(700, 200);
+            this.MinimumSize = new System.Drawing.Size(375, 200);
             this.Name = "fapmap_playlist";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FapMap - Create Playlist";
@@ -229,5 +282,6 @@
         private System.Windows.Forms.TextBox txt_path;
         private System.Windows.Forms.Label label_path;
         private System.Windows.Forms.CheckBox cb_reverse;
+        private System.Windows.Forms.Button btn_openPathSelector;
     }
 }

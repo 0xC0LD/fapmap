@@ -172,11 +172,11 @@ namespace fapmap
 
         #region ui events
 
-        private void findButton_MouseClick(object sender, MouseEventArgs e)
+        private void findButton_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left) { find(); }
         }
-        
+
         private void searchBox_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -290,13 +290,14 @@ namespace fapmap
 
         #region RMB
 
-        private void RMB_output_refresh_Click (object sender, EventArgs e) { find();              }
+        private void RMB_output_reload_Click  (object sender, EventArgs e) { find();              }
         private void RMB_output_open_Click    (object sender, EventArgs e) { output_open();       }
         private void RMB_output_explorer_Click(object sender, EventArgs e) { output_explorer();   }
         private void RMB_output_copy_Click    (object sender, EventArgs e) { output_copy();       }
         private void RMB_output_delete_Click  (object sender, EventArgs e) { output_deleteFile(); }
 
         #endregion
+
         
     }
 }

@@ -66,109 +66,131 @@ namespace fapmap
             if (ffmpeg_busy) { ffmpeg_die(); return; }
 
             ffmpeg_busy = true;
-            
+
+            if (!fapmap.checkForApp(fapmap.GlobalVariables.Path.File.Exe.FFMPEG, "https://ffmpeg.zeranoe.com/builds/"))
+            { this.Close(); return; }
+
+            this.ActiveControl = txt_output;
+
+            //set
+            gl_file = txt_file.Text;
+            gl_fileNew = txt_fileNew.Text;
+            gl_options = txt_options.Text;
+
             new Thread(() =>
             {
-                //focus on output
-                this.ActiveControl = output;
-                output.Focus();
-
-                if (!fapmap.checkForApp(fapmap.GlobalVariables.Path.File.Exe.FFMPEG, "https://ffmpeg.zeranoe.com/builds/"))
-                { this.Close(); return; }
-
-                //set
-                gl_file = txt_file.Text;
-                gl_fileNew = txt_fileNew.Text;
-                gl_options = txt_options.Text;
-
-                if (string.IsNullOrEmpty(gl_file)) { label_status.Text = "No input..."; ffmpeg_busy = false; return; }
-
-                if (!File.Exists(gl_file))
+                try
                 {
-                    label_status.Text = "File not found...";
-                    fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, gl_file);
-                    ffmpeg_busy = false;
-                    return;
-                }
-
-                //setup
-                label_status.Text = "Converting...";
-                output.Text = ""; //clear output
-                
-                //more_opts for replace
-                string more_opts = "";
-
-                //if file exists
-                if (File.Exists(gl_fileNew))
-                {
-                    DialogResult dialogResult = MessageBox.Show(
-                        "A file with the name " + gl_fileNew + " already exists." + Environment.NewLine
-                        + Environment.NewLine + "YES          = REPLACE"
-                        + Environment.NewLine + "NO          = NEW NAME"
-                        + Environment.NewLine + "CANCEL = ABORT",
-                        "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question
-                    );
-
-                    if (dialogResult == DialogResult.Yes)
+                    if (string.IsNullOrEmpty(gl_file))
                     {
-                        label_status.Text = "Replacing...";
-
-                        more_opts = "-y ";
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
-                        //ECHO
-                        label_status.Text = "Converting (renamed)...";
-
-                        FileInfo fi = new FileInfo(gl_fileNew);
-
-                        int c = 1;
-                        string newFilename = fi.FullName.Replace(fi.Name, "") + fi.Name.Replace(fi.Extension, "") + " [" + c + "]" + fi.Extension;
-
-                        while (File.Exists(newFilename))
+                        this.Invoke((MethodInvoker)delegate
                         {
-                            c++;
-                            newFilename = fi.FullName.Replace(fi.Name, "") + fi.Name.Replace(fi.Extension, "") + " [" + c + "]" + fi.Extension;
-                        }
-
-                        //new filename
-                        gl_fileNew = newFilename;
-                    }
-                    else if (dialogResult == DialogResult.Cancel)
-                    {
-                        //ECHO
-                        label_status.Text = "Aborted.";
+                            label_status.Text = "No input...";
+                        });
                         ffmpeg_busy = false;
                         return;
                     }
+
+                    if (!File.Exists(gl_file))
+                    {
+                        fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, gl_file);
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            label_status.Text = "File not found...";
+                        });
+                        ffmpeg_busy = false;
+                        return;
+                    }
+
+                    //more_opts for replace
+                    string more_opts = "";
+
+                    //if file exists
+                    if (File.Exists(gl_fileNew))
+                    {
+                        DialogResult dialogResult = MessageBox.Show(
+                            "A file with the name " + gl_fileNew + " already exists." + Environment.NewLine
+                            + Environment.NewLine + "YES          = REPLACE"
+                            + Environment.NewLine + "NO          = NEW NAME"
+                            + Environment.NewLine + "CANCEL = ABORT",
+                            "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question
+                        );
+
+                        if (dialogResult == DialogResult.Yes)
+                        {
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                label_status.Text = "Replacing...";
+                            });
+
+                            more_opts = "-y ";
+                        }
+                        else if (dialogResult == DialogResult.No)
+                        {
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                label_status.Text = "Converting (renamed)...";
+                            });
+
+                            FileInfo fi = new FileInfo(gl_fileNew);
+
+                            int c = 1;
+                            string newFilename = fi.FullName.Replace(fi.Name, "") + fi.Name.Replace(fi.Extension, "") + " [" + c + "]" + fi.Extension;
+
+                            while (File.Exists(newFilename))
+                            {
+                                c++;
+                                newFilename = fi.FullName.Replace(fi.Name, "") + fi.Name.Replace(fi.Extension, "") + " [" + c + "]" + fi.Extension;
+                            }
+
+                            //new filename
+                            gl_fileNew = newFilename;
+                        }
+                        else if (dialogResult == DialogResult.Cancel)
+                        {
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                label_status.Text = "Aborted.";
+                            });
+                            ffmpeg_busy = false;
+                            return;
+                        }
+                    }
+
+                    fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.EXEC, fapmap.GlobalVariables.Path.File.Exe.FFMPEG + " " + more_opts + gl_options + " \"" + gl_file + "\" \"" + gl_fileNew + "\"");
+
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        label_status.Text = "Converting...";
+                        txt_output.Text = "";
+                        btn_convert.BackgroundImage = Properties.Resources.close;
+                    });
+
+                    // ffmpeg
+                    fscanProcess = new Process();
+                    fscanProcess.StartInfo.FileName = fapmap.GlobalVariables.Path.File.Exe.FFMPEG;
+                    fscanProcess.StartInfo.Arguments = more_opts + gl_options + " \"" + gl_file + "\" \"" + gl_fileNew + "\"";
+                    fscanProcess.StartInfo.UseShellExecute = false;
+                    fscanProcess.StartInfo.CreateNoWindow = true;
+                    fscanProcess.StartInfo.RedirectStandardOutput = true;
+                    fscanProcess.StartInfo.RedirectStandardError = true;
+                    fscanProcess.OutputDataReceived += ffmpeg_output;
+                    fscanProcess.ErrorDataReceived += ffmpeg_output;
+                    fscanProcess.Start();
+                    fscanProcess.BeginOutputReadLine();
+                    fscanProcess.BeginErrorReadLine();
+                    fscanProcess.WaitForExit();
+                    fscanProcess.Close();
+
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        label_status.Text = "Done!";
+                        btn_convert.BackgroundImage = Properties.Resources.ffmpeg;
+                    });
+                    
+                    ffmpeg_busy = false;
                 }
-
-                fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.EXEC, fapmap.GlobalVariables.Path.File.Exe.FFMPEG + " " + more_opts + gl_options + " \"" + gl_file + "\" \"" + gl_fileNew + "\"");
-
-                btn_convert.BackgroundImage = Properties.Resources.close;
-
-                // ffmpeg
-                fscanProcess = new Process();
-                fscanProcess.StartInfo.FileName = fapmap.GlobalVariables.Path.File.Exe.FFMPEG;
-                fscanProcess.StartInfo.Arguments = more_opts + gl_options + " \"" + gl_file + "\" \"" + gl_fileNew + "\"";
-                fscanProcess.StartInfo.UseShellExecute = false;
-                fscanProcess.StartInfo.CreateNoWindow = true;
-                fscanProcess.StartInfo.RedirectStandardOutput = true;
-                fscanProcess.StartInfo.RedirectStandardError = true;
-                fscanProcess.OutputDataReceived += ffmpeg_output;
-                fscanProcess.ErrorDataReceived += ffmpeg_output;
-                fscanProcess.Start();
-                fscanProcess.BeginOutputReadLine();
-                fscanProcess.BeginErrorReadLine();
-                fscanProcess.WaitForExit();
-                fscanProcess.Close();
-
-                btn_convert.BackgroundImage = Properties.Resources.ffmpeg;
-
-                // end
-                label_status.Text = "Done!";
-
-                ffmpeg_busy = false;
+                catch (Exception) { ffmpeg_busy = false; return; }
             })
             { IsBackground = true }.Start();
         }
@@ -177,32 +199,37 @@ namespace fapmap
         {
             try
             {
-                output.Text += e.Data + Environment.NewLine;
+                this.Invoke((MethodInvoker)delegate
+                {
+                    txt_output.Text += e.Data + Environment.NewLine;
+                });
             }
+            catch (ObjectDisposedException) { }
             catch (Exception) { }
         }
         
-        private void btn_convert_MouseClick(object sender, MouseEventArgs e)
+        private void btn_convert_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left) { ffmpeg(); }
         }
-        private void btn_openFile_MouseClick(object sender, MouseEventArgs e)
+        private void btn_openFile_MouseUp(object sender, MouseEventArgs e)
         {
             label_status.Text = fapmap.Open(gl_file) ? "Opened file." : "Failed to open file.";
         }
-        private void btn_openFileNew_MouseClick(object sender, MouseEventArgs e)
-        {
-            label_status.Text = fapmap.Open(gl_fileNew) ? "Opened file." : "Failed to open file.";
-        }
-        private void btn_delFile_MouseClick(object sender, MouseEventArgs e)
+        private void btn_delFile_MouseUp(object sender, MouseEventArgs e)
         {
             label_status.Text = fapmap.TrashFile(gl_file) ? "Deleted file." : "Failed to delete file.";
         }
-        private void btn_delFileNew_MouseClick(object sender, MouseEventArgs e)
+        private void btn_openFileNew_MouseUp(object sender, MouseEventArgs e)
+        {
+            label_status.Text = fapmap.Open(gl_fileNew) ? "Opened file." : "Failed to open file.";
+        }
+        private void btn_delFileNew_MouseUp(object sender, MouseEventArgs e)
         {
             label_status.Text = fapmap.TrashFile(gl_fileNew) ? "Deleted file." : "Failed to delete file.";
         }
-        
+
+
         private void txt_file_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txt_file.Text)) { return; }
@@ -226,12 +253,12 @@ namespace fapmap
                 }
             }
         }
-        private void output_TextChanged(object sender, EventArgs e)
+        private void txt_output_TextChanged(object sender, EventArgs e)
         {
-            output.SelectionStart = output.Text.Length;
-            output.ScrollToCaret();
+            txt_output.SelectionStart = txt_output.Text.Length;
+            txt_output.ScrollToCaret();
         }
-        
+
         private void txt_file_KeyDown(object sender, KeyEventArgs e)
         {
             //update tool tip

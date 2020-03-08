@@ -34,10 +34,12 @@
             this.btn_start = new System.Windows.Forms.Button();
             this.txt_url = new System.Windows.Forms.TextBox();
             this.label_status = new System.Windows.Forms.Label();
-            this.output = new System.Windows.Forms.TextBox();
             this.txt_options = new System.Windows.Forms.TextBox();
             this.btn_openPathSelector = new System.Windows.Forms.Button();
             this.HelpBalloon = new System.Windows.Forms.ToolTip(this.components);
+            this.txt_outputBorder = new System.Windows.Forms.Panel();
+            this.txt_output = new System.Windows.Forms.RichTextBox();
+            this.txt_outputBorder.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_path
@@ -75,7 +77,7 @@
             this.btn_start.TabIndex = 161;
             this.HelpBalloon.SetToolTip(this.btn_start, "Start/Stop youtube-dl.exe");
             this.btn_start.UseVisualStyleBackColor = false;
-            this.btn_start.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_start_MouseClick);
+            this.btn_start.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_start_MouseUp);
             // 
             // txt_url
             // 
@@ -107,24 +109,6 @@
             this.label_status.Size = new System.Drawing.Size(25, 13);
             this.label_status.TabIndex = 162;
             this.label_status.Text = "...";
-            // 
-            // output
-            // 
-            this.output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.output.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.output.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.output.ForeColor = System.Drawing.Color.Teal;
-            this.output.Location = new System.Drawing.Point(11, 63);
-            this.output.Multiline = true;
-            this.output.Name = "output";
-            this.output.ReadOnly = true;
-            this.output.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.output.Size = new System.Drawing.Size(602, 158);
-            this.output.TabIndex = 172;
-            this.output.TextChanged += new System.EventHandler(this.output_TextChanged);
             // 
             // txt_options
             // 
@@ -162,7 +146,7 @@
             this.btn_openPathSelector.TabIndex = 217;
             this.HelpBalloon.SetToolTip(this.btn_openPathSelector, "Select Folder");
             this.btn_openPathSelector.UseVisualStyleBackColor = false;
-            this.btn_openPathSelector.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_openPathSelector_MouseClick);
+            this.btn_openPathSelector.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_openPathSelector_MouseUp);
             // 
             // HelpBalloon
             // 
@@ -171,6 +155,35 @@
             this.HelpBalloon.OwnerDraw = true;
             this.HelpBalloon.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.HelpBalloon_Draw);
             // 
+            // txt_outputBorder
+            // 
+            this.txt_outputBorder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_outputBorder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_outputBorder.Controls.Add(this.txt_output);
+            this.txt_outputBorder.Location = new System.Drawing.Point(11, 63);
+            this.txt_outputBorder.Name = "txt_outputBorder";
+            this.txt_outputBorder.Size = new System.Drawing.Size(602, 158);
+            this.txt_outputBorder.TabIndex = 225;
+            // 
+            // txt_output
+            // 
+            this.txt_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_output.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_output.DetectUrls = false;
+            this.txt_output.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txt_output.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_output.ForeColor = System.Drawing.Color.SteelBlue;
+            this.txt_output.Location = new System.Drawing.Point(0, 0);
+            this.txt_output.Name = "txt_output";
+            this.txt_output.ReadOnly = true;
+            this.txt_output.Size = new System.Drawing.Size(600, 156);
+            this.txt_output.TabIndex = 222;
+            this.txt_output.Text = "...";
+            this.txt_output.WordWrap = false;
+            this.txt_output.TextChanged += new System.EventHandler(this.txt_output_TextChanged);
+            // 
             // fapmap_youtubedl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -178,9 +191,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg3;
             this.ClientSize = new System.Drawing.Size(624, 261);
+            this.Controls.Add(this.txt_outputBorder);
             this.Controls.Add(this.btn_openPathSelector);
             this.Controls.Add(this.txt_options);
-            this.Controls.Add(this.output);
             this.Controls.Add(this.label_status);
             this.Controls.Add(this.btn_start);
             this.Controls.Add(this.txt_url);
@@ -194,6 +207,7 @@
             this.Text = "FapMap - Video Downloader (youtube-dl.exe)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fapmap_youtubedl_FormClosing);
             this.Load += new System.EventHandler(this.fapmap_youtubedl_Load);
+            this.txt_outputBorder.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,9 +219,10 @@
         private System.Windows.Forms.Button btn_start;
         private System.Windows.Forms.TextBox txt_url;
         private System.Windows.Forms.Label label_status;
-        private System.Windows.Forms.TextBox output;
         private System.Windows.Forms.TextBox txt_options;
         private System.Windows.Forms.Button btn_openPathSelector;
         private System.Windows.Forms.ToolTip HelpBalloon;
+        private System.Windows.Forms.Panel txt_outputBorder;
+        private System.Windows.Forms.RichTextBox txt_output;
     }
 }

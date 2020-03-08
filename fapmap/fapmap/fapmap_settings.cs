@@ -33,24 +33,32 @@ namespace fapmap
                 case "opera.exe":   rb_opera.Checked = true;   break;
             }
 
-            cb_hideOnX.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.HideOnX;
+            cb_hideOnX.Checked   = fapmap.GlobalVariables.Settings.CheckBoxes.HideOnX;
             cb_focusHide.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.FocusHide;
-            cb_media.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers;
-            cb_autoHideMedia.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.AutoHideMediaPlayers;
-            cb_autoPlay.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.AutoPlayVideoPlayer;
-            cb_autoPause.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.AutoPauseVideoPlayer;
-            cb_trackbar.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.EnableTrackbarForGifViewer;
+
+            cb_logs.Checked        = fapmap.GlobalVariables.Settings.CheckBoxes.EnableLogs;
+            cb_media.Checked       = fapmap.GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers;
+            cb_trackbar.Checked    = fapmap.GlobalVariables.Settings.CheckBoxes.EnableTrackbarForGifViewer;
             cb_fileDisplay.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.EnableFileDisplay;
             cb_openOutside.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.EnableOpenOutsideFapmap;
-            
+
+            cb_autoHideMedia.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.AutoHideMediaPlayers;
+            cb_autoPlay.Checked      = fapmap.GlobalVariables.Settings.CheckBoxes.AutoPlayVideoPlayer;
+            cb_autoPause.Checked     = fapmap.GlobalVariables.Settings.CheckBoxes.AutoPauseVideoPlayer;
+
+            cb_tvSortByDate.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.TreeViewSortByCreationDate;
+            cb_tvIndex.Checked      = fapmap.GlobalVariables.Settings.CheckBoxes.TreeViewShowItemIndex;
+
             passwords_load(txt_passwds, fapmap.GlobalVariables.Path.File.Password);
             
-            //getAll_Click(null, null);
-            
             txt_wbURL.Text = fapmap.GlobalVariables.Settings.WebBrowser.FapMapURL;
-            
+            txt_wbURL.ForeColor = Color.MediumSlateBlue;
+
+            txt_gifDelay.Text = fapmap.GlobalVariables.Settings.Media.GifDelay.ToString();
+            txt_gifDelay.ForeColor = Color.MediumSlateBlue;
+
             txt_size.Text = "...";
-            txt_count.Text = "...";
+            txt_output.Text = "...";
             
             this.ActiveControl = btn_getinfo;
         }
@@ -78,7 +86,6 @@ namespace fapmap
             {
             }
         }
-
         private void passwordsList_MeasureItem(object sender, MeasureItemEventArgs e)
         {
             e.ItemHeight = (int)e.Graphics.MeasureString(txt_passwds.Items[e.Index].ToString(), txt_passwds.Font, txt_passwds.Width).Height;
@@ -93,76 +100,116 @@ namespace fapmap
 
         #endregion
 
-        #region Buttons
-        
-        private void count_button_MouseClick(object sender, MouseEventArgs e)
+        #region Get Info
+
+        private void btn_getinfo_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left) { getInfo(); }
         }
-        
+
         private bool getInfo_busy = false;
         private void getInfo()
         {
-            new Thread(getInfo_thread) { IsBackground = true }.Start();
-        }
-        private void getInfo_thread()
-        {
-            if (!getInfo_busy)
+            new Thread(() =>
             {
-                btn_getinfo.Enabled = false;
-                getInfo_busy = true;
-                panel_info.Focus();
-                this.ActiveControl = panel_info;
+                if (!getInfo_busy)
+                {
+                    getInfo_busy = true;
 
-                txt_size.Text = "...";
-                txt_count.Text = "...";
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        txt_size.Text = "";
+                        txt_output.Text = "";
+                        label_info.Text = "Scanning...";
+                    });
 
-                label_info.Text = "Scanning...";
-                GetSize();
-                CountAll();
-                label_info.Text = "Done!";
+                    // check dir
+                    if (!Directory.Exists(fapmap.GlobalVariables.Path.Dir.MainFolder))
+                    { Directory.CreateDirectory(fapmap.GlobalVariables.Path.Dir.MainFolder); }
+                    DirectoryInfo di = new DirectoryInfo(fapmap.GlobalVariables.Path.Dir.MainFolder);
 
-                getInfo_busy = false;
-                btn_getinfo.Enabled = true;
-            }
+                    /*
+                    ** GET GALLERY SIZE
+                    */
+                    double SIZE_BYTES = unchecked((double)fapmap.DirSize(di));
+                    string FULLSIZE = fapmap.ROund(SIZE_BYTES) + " (" + SIZE_BYTES + " bytes" + ")";
+
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        txt_size.Text = FULLSIZE;
+                        txt_size.SelectionStart = 0;
+                    });
+
+                    /*
+                    ** GET FILE COUNT
+                    */
+                    FileInfo[] TopFiles = di.GetFiles("*.*", SearchOption.TopDirectoryOnly);
+                    FileInfo[] AllFiles = di.GetFiles("*.*", SearchOption.AllDirectories);
+                    DirectoryInfo[] TopDirs = di.GetDirectories("*.*", SearchOption.TopDirectoryOnly);
+                    DirectoryInfo[] AllDirs = di.GetDirectories("*.*", SearchOption.AllDirectories);
+
+                    int total = AllDirs.Length + AllFiles.Length;
+
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        txt_output.Text += "TOTAL......: " + total + Environment.NewLine;
+                        txt_output.Text += "> top dir..: " + TopDirs.Length + Environment.NewLine;
+                        txt_output.Text += "> all dirs.: " + AllDirs.Length + Environment.NewLine;
+                        txt_output.Text += "> top files: " + TopFiles.Length + Environment.NewLine;
+                        txt_output.Text += "> all files: " + AllFiles.Length + Environment.NewLine;
+                        txt_output.Text += Environment.NewLine;
+                    });
+
+                    foreach (Tuple<string, List<string>> tuple in
+                        new List<Tuple<string, List<string>>> {
+                            Tuple.Create("VIDEO", fapmap.GlobalVariables.FileTypes.Video),
+                            Tuple.Create("IMAGE", fapmap.GlobalVariables.FileTypes.Image),
+                            Tuple.Create("OTHER", fapmap.GlobalVariables.FileTypes.Other)
+                        }
+                    )
+                    {
+                        int t = 0;
+                        List<Tuple<string, int>> lfc = new List<Tuple<string, int>>();
+
+                        foreach (string type in tuple.Item2)
+                        {
+                            int count = AllFiles.AsQueryable().Where(s => s.Extension.ToLower().EndsWith(type)).Count();
+                            t += count;
+                            lfc.Add(Tuple.Create(type, count));
+                        }
+
+                        if (cb_noZero.Checked && t <= 0) { continue; }
+
+                        int pad = 9;
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            txt_output.Text += tuple.Item1.PadRight(pad + 2, '.') + ": " + t + Environment.NewLine;
+                        });
+                        foreach (var fc in lfc)
+                        {
+                            if (cb_noZero.Checked && fc.Item2 <= 0) { continue; }
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                txt_output.Text += "> " + fc.Item1.Remove(0, 1).PadRight(pad, '.') + ": " + fc.Item2 + Environment.NewLine;
+                            });
+                        }
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            txt_output.Text += Environment.NewLine;
+                        });
+                    }
+
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        label_info.Text = "Done!";
+                    });
+
+                    getInfo_busy = false;
+                }
+            })
+            { IsBackground = true }.Start(); 
         }
-
-        private void edit_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left) { fapmap.Open(fapmap.GlobalVariables.Path.File.Settings); }
-        }
-
-        #endregion
-
-        #region Gallery Size On Disk
-
-        private static long DirSize(DirectoryInfo d)
-        {
-            long size = 0;
-            // Add file sizes.
-            FileInfo[] fis = d.GetFiles();
-            foreach (FileInfo fi in fis)
-            {
-                size += fi.Length;
-            }
-            // Add subdirectory sizes.
-            DirectoryInfo[] dis = d.GetDirectories();
-            foreach (DirectoryInfo di in dis)
-            {
-                size += DirSize(di);
-            }
-            return size;
-        }
-        private void GetSize()
-        {
-            //GET SIZE
-            double SIZE_BYTES = unchecked((double)DirSize(new DirectoryInfo(fapmap.GlobalVariables.Path.Dir.MainFolder)));
-
-            string FULLSIZE = fapmap.ROund(SIZE_BYTES) + " (" + SIZE_BYTES + " bytes" + ")";
-
-            txt_size.Text = FULLSIZE;
-            txt_size.SelectionStart = 0;
-        }
+        
         private void gallerySize_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.A)
@@ -176,90 +223,29 @@ namespace fapmap
                 e.SuppressKeyPress = true;
             }
         }
-        private void threadGetSize()
-        {
-            new Thread(GetSize) { IsBackground = true }.Start();
-        }
-
-        #endregion
-
-        #region Count Files (Types)
-
-        private class FileCount
-        {
-            public string Type;
-            public int Count;
-
-            public FileCount(string type, int count)
-            {
-                Type = type;
-                Count = count;
-            }
-        }
-        private void CountAll_print(string title, List<string> types)
-        {
-            List<FileCount> lfc = new List<FileCount>(); int total = 0;
-            foreach (string type in types)
-            {
-                int i = Directory.GetFiles(fapmap.GlobalVariables.Path.Dir.MainFolder, "*" + type, SearchOption.AllDirectories).Length;
-                total += i;
-                lfc.Add(new FileCount(type, i));
-            }
-
-            if (total > 0)
-            {
-                txt_count.Text += title + "....: " + total  + Environment.NewLine;
-                foreach (FileCount fc in lfc)
-                {
-                    string dot = "";
-                    switch (fc.Type.Length)
-                    {
-                        case 4: dot = "...."; break;
-                        case 5: dot = "..."; break;
-                        case 6: dot = ".."; break;
-                        case 7: dot = "."; break;
-                    }
-
-                    if (cb_noZero.Checked) { if (fc.Count > 0) { txt_count.Text += "> " + fc.Type.Replace(".", "") + dot + ": " + fc.Count + Environment.NewLine; } }
-                    else { txt_count.Text += "> " + fc.Type.Replace(".", "") + dot + ": " + fc.Count + Environment.NewLine; }
-                }
-            }
-            txt_count.Text += Environment.NewLine;
-        }
-        private void CountAll()
-        {
-            //CLEAR
-            txt_count.Text = "";
-
-            txt_count.Text += "TOTAL:" + Environment.NewLine;
-            txt_count.Text += "> .\\*....: " + Directory.GetFiles(fapmap.GlobalVariables.Path.Dir.MainFolder, "*.*", SearchOption.TopDirectoryOnly).Length + Environment.NewLine;
-            txt_count.Text += "> *.*....: " + Directory.GetFiles(fapmap.GlobalVariables.Path.Dir.MainFolder, "*.*", SearchOption.AllDirectories).Length + Environment.NewLine;
-            txt_count.Text += "> topdir.: " + System.IO.Directory.GetDirectories(fapmap.GlobalVariables.Path.Dir.MainFolder, "*.*", SearchOption.TopDirectoryOnly).Length + Environment.NewLine;
-            txt_count.Text += "> alldir.: " + System.IO.Directory.GetDirectories(fapmap.GlobalVariables.Path.Dir.MainFolder, "*.*", SearchOption.AllDirectories).Length + Environment.NewLine;
-            txt_count.Text += Environment.NewLine;
-            
-            CountAll_print("VIDEO", fapmap.GlobalVariables.FileTypes.Video);
-            CountAll_print("IMAGE", fapmap.GlobalVariables.FileTypes.Image);
-            CountAll_print("OTHER", fapmap.GlobalVariables.FileTypes.Other);
-        }
-
+        
         #endregion
 
         #region Browsers
-
-        private void rb_MouseClick(object sender, MouseEventArgs e)
+        
+        private void rb_CheckedChanged(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                if      (rb_firefox.Checked) { fapmap.settings_edit_browser(0); }
-                else if (rb_chrome.Checked)  { fapmap.settings_edit_browser(1); }
-                else if (rb_opera.Checked)   { fapmap.settings_edit_browser(2); }
-            }
+            RadioButton cb = (RadioButton)sender;
+            cb.ForeColor = cb.Checked ? Color.MediumPurple : Color.SlateBlue;
+
+            if       (rb_firefox.Checked) { fapmap.settings_edit_browser(0); }
+            else if (rb_chrome.Checked)   { fapmap.settings_edit_browser(1); }
+            else if (rb_opera.Checked)    { fapmap.settings_edit_browser(2); }
         }
 
         #endregion
 
         #region Edit passwords
+
+        private void btn_addPasswd_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left) { passwords_append(txt_newPasswd.Text); }
+        }
 
         private void passwords_load(ListBox listBox, string File)
         {
@@ -350,11 +336,7 @@ namespace fapmap
                 passwords_delete(txt_passwds);
             }
         }
-
-        private void pass_add_MouseClick(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left) { passwords_append(txt_newPasswd.Text); }
-        }
+        
         private void newPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -369,12 +351,10 @@ namespace fapmap
         
         #endregion
 
-        #region Main Website
+        #region Text Settings
         
-        private void wb_url_KeyDown(object sender, KeyEventArgs e)
+        private void txt_wbURL_KeyDown(object sender, KeyEventArgs e)
         {
-            txt_wbURL.ForeColor = Color.Red;
-
             if (e.KeyCode == Keys.Enter)
             {
                 if (!Uri.IsWellFormedUriString(txt_wbURL.Text, UriKind.Absolute))
@@ -382,24 +362,54 @@ namespace fapmap
                     txt_wbURL.Text = "https://duckduckgo.com/?q=" + txt_wbURL.Text.Replace(" ", "+");
                 }
 
+                fapmap.GlobalVariables.Settings.WebBrowser.FapMapURL = txt_wbURL.Text;
                 fapmap.settings_edit(
                     fapmap.GlobalVariables.Settings.WebBrowser.FapMapURL_,
                     txt_wbURL.Text
                 );
 
-                this.ActiveControl = panel_wb;
-                panel_wb.Focus();
-
+                panel_txt.Focus();
+                this.ActiveControl = panel_txt;
+                
                 txt_wbURL.ForeColor = Color.MediumSlateBlue;
 
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
+        }
+        private void txt_wbURL_TextChanged(object sender, EventArgs e)
+        {
+            txt_wbURL.ForeColor = Color.Red;
+        }
 
-            if (e.Control && e.KeyCode == Keys.Back)
+        private void txt_gifDelay_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
             {
+                if (!int.TryParse(txt_gifDelay.Text, out int output)) { output = 50; }
+                if (output < 5) { output = 5; }
+                if (output > 1000) { output = 1000; }
+
+                txt_gifDelay.Text = output.ToString();
+
+                fapmap.GlobalVariables.Settings.Media.GifDelay = output;
+                fapmap.settings_edit(
+                    fapmap.GlobalVariables.Settings.Media.GifDelay_,
+                    txt_gifDelay.Text
+                );
+
+                panel_txt.Focus();
+                this.ActiveControl = panel_txt;
+
+                txt_gifDelay.ForeColor = Color.MediumSlateBlue;
+
+                e.Handled = true;
                 e.SuppressKeyPress = true;
             }
+        }
+        private void txt_gifDelay_TextChanged(object sender, EventArgs e)
+        {
+            txt_gifDelay.ForeColor = Color.Red;
         }
 
         #endregion
@@ -409,19 +419,34 @@ namespace fapmap
         private void cb_checkChanged(object sender, EventArgs e)
         {
             CheckBox cb = (CheckBox)sender;
-
+            cb.ForeColor = cb.Checked ? Color.SkyBlue : Color.RoyalBlue;
             switch (cb.Tag.ToString())
             {
-                case "HIDEONX":           fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.HideOnX_,                    fapmap.bool_to_string(cb.Checked)); break;
-                case "FOCUSHIDE":         fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.FocusHide_,                  fapmap.bool_to_string(cb.Checked)); break;
-                case "ENABLEPLAYERS":     fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers_,         fapmap.bool_to_string(cb.Checked)); break;
-                case "AUTOHIDE":          fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.AutoHideMediaPlayers_,       fapmap.bool_to_string(cb.Checked)); break;
-                case "AUTOPLAY":          fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.AutoPlayVideoPlayer_,        fapmap.bool_to_string(cb.Checked)); break;
-                case "AUTOPAUSE":         fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.AutoPauseVideoPlayer_,       fapmap.bool_to_string(cb.Checked)); break;
-                case "ENABLETRACKBAR":    fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.EnableTrackbarForGifViewer_, fapmap.bool_to_string(cb.Checked)); break;
-                case "ENABLEFILEDISPLAY": fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.EnableFileDisplay_,          fapmap.bool_to_string(cb.Checked)); break;
-                case "ENABLEOUTSIDE":     fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.EnableOpenOutsideFapmap_,    fapmap.bool_to_string(cb.Checked)); break;
+                case "HIDEONX":   fapmap.GlobalVariables.Settings.CheckBoxes.HideOnX   = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.HideOnX_,   fapmap.bool_to_string(cb.Checked)); break;
+                case "FOCUSHIDE": fapmap.GlobalVariables.Settings.CheckBoxes.FocusHide = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.FocusHide_, fapmap.bool_to_string(cb.Checked)); break;
+
+                case "ENABLEPLAYERS":     fapmap.GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers         = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers_,         fapmap.bool_to_string(cb.Checked)); break;
+                case "ENABLELOGS":        fapmap.GlobalVariables.Settings.CheckBoxes.EnableLogs                 = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.EnableLogs_,                 fapmap.bool_to_string(cb.Checked)); break;
+                case "ENABLETRACKBAR":    fapmap.GlobalVariables.Settings.CheckBoxes.EnableTrackbarForGifViewer = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.EnableTrackbarForGifViewer_, fapmap.bool_to_string(cb.Checked)); break;
+                case "ENABLEFILEDISPLAY": fapmap.GlobalVariables.Settings.CheckBoxes.EnableFileDisplay          = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.EnableFileDisplay_,          fapmap.bool_to_string(cb.Checked)); break;
+                case "ENABLEOUTSIDE":     fapmap.GlobalVariables.Settings.CheckBoxes.EnableOpenOutsideFapmap    = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.EnableOpenOutsideFapmap_,    fapmap.bool_to_string(cb.Checked)); break;
+
+                case "AUTOHIDE":  fapmap.GlobalVariables.Settings.CheckBoxes.AutoHideMediaPlayers = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.AutoHideMediaPlayers_, fapmap.bool_to_string(cb.Checked)); break;
+                case "AUTOPLAY":  fapmap.GlobalVariables.Settings.CheckBoxes.AutoPlayVideoPlayer  = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.AutoPlayVideoPlayer_,  fapmap.bool_to_string(cb.Checked)); break;
+                case "AUTOPAUSE": fapmap.GlobalVariables.Settings.CheckBoxes.AutoPauseVideoPlayer = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.AutoPauseVideoPlayer_, fapmap.bool_to_string(cb.Checked)); break;
+
+                case "TVSORT":  fapmap.GlobalVariables.Settings.CheckBoxes.TreeViewSortByCreationDate = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.TreeViewSortByCreationDate_, fapmap.bool_to_string(cb.Checked)); break;
+                case "TVINDEX": fapmap.GlobalVariables.Settings.CheckBoxes.TreeViewShowItemIndex      = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.TreeViewShowItemIndex_,      fapmap.bool_to_string(cb.Checked)); break;
             }
+        }
+
+        #endregion
+
+        #region settings
+
+        private void btn_editINI_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left) { fapmap.Open(fapmap.GlobalVariables.Path.File.Settings); }
         }
 
 

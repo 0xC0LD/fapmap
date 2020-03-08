@@ -54,15 +54,14 @@ namespace fapmap
                 case Keys.Escape: cancel(); break;
             }
         }
-        private void btn_ok_MouseClick(object sender, MouseEventArgs e)
+
+        private void btn_ok_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left) { confirm(); }
         }
-        private void btn_cancel_MouseClick(object sender, MouseEventArgs e)
+        private void btn_cancel_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left) { cancel(); }
         }
-
-
     }
 }

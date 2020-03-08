@@ -31,15 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fapmap_dirSelect));
             this.treeView = new System.Windows.Forms.TreeView();
-            this.treeView_icons = new System.Windows.Forms.ImageList(this.components);
-            this.txt_path = new System.Windows.Forms.TextBox();
-            this.btn_ok = new System.Windows.Forms.Button();
-            this.btn_cancel = new System.Windows.Forms.Button();
             this.treeView_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.treeView_RMB_reload = new System.Windows.Forms.ToolStripMenuItem();
             this.treeView_RMB_select = new System.Windows.Forms.ToolStripMenuItem();
             this.treeView_RMB_collapseTree = new System.Windows.Forms.ToolStripMenuItem();
             this.treeView_RMB_expandTree = new System.Windows.Forms.ToolStripMenuItem();
+            this.treeView_icons = new System.Windows.Forms.ImageList(this.components);
+            this.txt_path = new System.Windows.Forms.TextBox();
+            this.btn_ok = new System.Windows.Forms.Button();
+            this.btn_cancel = new System.Windows.Forms.Button();
             this.treeView_RMB.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,64 @@
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
             this.treeView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.treeView_KeyDown);
             // 
+            // treeView_RMB
+            // 
+            this.treeView_RMB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.treeView_RMB.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.treeView_RMB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.treeView_RMB_reload,
+            this.treeView_RMB_select,
+            this.treeView_RMB_collapseTree,
+            this.treeView_RMB_expandTree});
+            this.treeView_RMB.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
+            this.treeView_RMB.Name = "contextMenuStrip2";
+            this.treeView_RMB.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.treeView_RMB.ShowItemToolTips = false;
+            this.treeView_RMB.Size = new System.Drawing.Size(238, 92);
+            // 
+            // treeView_RMB_reload
+            // 
+            this.treeView_RMB_reload.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.treeView_RMB_reload.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.treeView_RMB_reload.ForeColor = System.Drawing.Color.SlateBlue;
+            this.treeView_RMB_reload.Image = global::fapmap.Properties.Resources.restart;
+            this.treeView_RMB_reload.Name = "treeView_RMB_reload";
+            this.treeView_RMB_reload.Size = new System.Drawing.Size(237, 22);
+            this.treeView_RMB_reload.Text = "Reload (CTRL+R/F5)";
+            this.treeView_RMB_reload.Click += new System.EventHandler(this.treeView_RMB_reload_Click);
+            // 
+            // treeView_RMB_select
+            // 
+            this.treeView_RMB_select.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.treeView_RMB_select.ForeColor = System.Drawing.Color.SlateBlue;
+            this.treeView_RMB_select.Image = global::fapmap.Properties.Resources.folder;
+            this.treeView_RMB_select.Name = "treeView_RMB_select";
+            this.treeView_RMB_select.Size = new System.Drawing.Size(237, 22);
+            this.treeView_RMB_select.Text = "Select Folder (CTRL+W/SPACE)";
+            this.treeView_RMB_select.Click += new System.EventHandler(this.faftv_RMB_select_Click);
+            // 
+            // treeView_RMB_collapseTree
+            // 
+            this.treeView_RMB_collapseTree.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.treeView_RMB_collapseTree.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.treeView_RMB_collapseTree.ForeColor = System.Drawing.Color.SlateBlue;
+            this.treeView_RMB_collapseTree.Image = global::fapmap.Properties.Resources.arrow_up;
+            this.treeView_RMB_collapseTree.Name = "treeView_RMB_collapseTree";
+            this.treeView_RMB_collapseTree.Size = new System.Drawing.Size(237, 22);
+            this.treeView_RMB_collapseTree.Text = "Collapse Tree (CTRL+Q)";
+            this.treeView_RMB_collapseTree.Click += new System.EventHandler(this.treeView_RMB_collapseTree_Click);
+            // 
+            // treeView_RMB_expandTree
+            // 
+            this.treeView_RMB_expandTree.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.treeView_RMB_expandTree.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.treeView_RMB_expandTree.ForeColor = System.Drawing.Color.SlateBlue;
+            this.treeView_RMB_expandTree.Image = global::fapmap.Properties.Resources.arrow_down;
+            this.treeView_RMB_expandTree.Name = "treeView_RMB_expandTree";
+            this.treeView_RMB_expandTree.Size = new System.Drawing.Size(237, 22);
+            this.treeView_RMB_expandTree.Text = "Expand Tree (CTRL+E)";
+            this.treeView_RMB_expandTree.Click += new System.EventHandler(this.treeView_RMB_expandTree_Click);
+            // 
             // treeView_icons
             // 
             this.treeView_icons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("treeView_icons.ImageStream")));
@@ -88,9 +146,9 @@
             this.txt_path.ForeColor = System.Drawing.Color.SlateBlue;
             this.txt_path.Location = new System.Drawing.Point(12, 11);
             this.txt_path.Name = "txt_path";
-            this.txt_path.ReadOnly = true;
             this.txt_path.Size = new System.Drawing.Size(580, 21);
             this.txt_path.TabIndex = 143;
+            this.txt_path.TextChanged += new System.EventHandler(this.txt_path_TextChanged);
             // 
             // btn_ok
             // 
@@ -110,7 +168,7 @@
             this.btn_ok.TabIndex = 163;
             this.btn_ok.Text = "OK";
             this.btn_ok.UseVisualStyleBackColor = false;
-            this.btn_ok.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_ok_MouseClick);
+            this.btn_ok.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_ok_MouseUp);
             // 
             // btn_cancel
             // 
@@ -130,65 +188,7 @@
             this.btn_cancel.TabIndex = 162;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = false;
-            this.btn_cancel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_cancel_MouseClick);
-            // 
-            // treeView_RMB
-            // 
-            this.treeView_RMB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.treeView_RMB.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.treeView_RMB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.treeView_RMB_reload,
-            this.treeView_RMB_select,
-            this.treeView_RMB_collapseTree,
-            this.treeView_RMB_expandTree});
-            this.treeView_RMB.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
-            this.treeView_RMB.Name = "contextMenuStrip2";
-            this.treeView_RMB.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.treeView_RMB.ShowItemToolTips = false;
-            this.treeView_RMB.Size = new System.Drawing.Size(199, 92);
-            // 
-            // treeView_RMB_reload
-            // 
-            this.treeView_RMB_reload.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.treeView_RMB_reload.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.treeView_RMB_reload.ForeColor = System.Drawing.Color.SlateBlue;
-            this.treeView_RMB_reload.Image = global::fapmap.Properties.Resources.restart;
-            this.treeView_RMB_reload.Name = "treeView_RMB_reload";
-            this.treeView_RMB_reload.Size = new System.Drawing.Size(198, 22);
-            this.treeView_RMB_reload.Text = "Reload (CTRL+R/F5)";
-            this.treeView_RMB_reload.Click += new System.EventHandler(this.treeView_RMB_reload_Click);
-            // 
-            // faftv_RMB_select
-            // 
-            this.treeView_RMB_select.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.treeView_RMB_select.ForeColor = System.Drawing.Color.SlateBlue;
-            this.treeView_RMB_select.Image = global::fapmap.Properties.Resources.folder;
-            this.treeView_RMB_select.Name = "faftv_RMB_select";
-            this.treeView_RMB_select.Size = new System.Drawing.Size(198, 22);
-            this.treeView_RMB_select.Text = "Select Folder (SPACE)";
-            this.treeView_RMB_select.Click += new System.EventHandler(this.faftv_RMB_select_Click);
-            // 
-            // treeView_RMB_collapseTree
-            // 
-            this.treeView_RMB_collapseTree.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.treeView_RMB_collapseTree.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.treeView_RMB_collapseTree.ForeColor = System.Drawing.Color.SlateBlue;
-            this.treeView_RMB_collapseTree.Image = global::fapmap.Properties.Resources.arrow_up;
-            this.treeView_RMB_collapseTree.Name = "treeView_RMB_collapseTree";
-            this.treeView_RMB_collapseTree.Size = new System.Drawing.Size(198, 22);
-            this.treeView_RMB_collapseTree.Text = "Collapse Tree (CTRL+Q)";
-            this.treeView_RMB_collapseTree.Click += new System.EventHandler(this.treeView_RMB_collapseTree_Click);
-            // 
-            // treeView_RMB_expandTree
-            // 
-            this.treeView_RMB_expandTree.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.treeView_RMB_expandTree.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.treeView_RMB_expandTree.ForeColor = System.Drawing.Color.SlateBlue;
-            this.treeView_RMB_expandTree.Image = global::fapmap.Properties.Resources.arrow_down;
-            this.treeView_RMB_expandTree.Name = "treeView_RMB_expandTree";
-            this.treeView_RMB_expandTree.Size = new System.Drawing.Size(198, 22);
-            this.treeView_RMB_expandTree.Text = "Expand Tree (CTRL+E)";
-            this.treeView_RMB_expandTree.Click += new System.EventHandler(this.treeView_RMB_expandTree_Click);
+            this.btn_cancel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_cancel_MouseUp);
             // 
             // fapmap_dirSelect
             // 

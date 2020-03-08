@@ -68,7 +68,7 @@
             this.btn_ok.TabIndex = 165;
             this.btn_ok.Text = "OK";
             this.btn_ok.UseVisualStyleBackColor = false;
-            this.btn_ok.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_ok_MouseClick);
+            this.btn_ok.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_ok_MouseUp);
             // 
             // btn_cancel
             // 
@@ -88,7 +88,7 @@
             this.btn_cancel.TabIndex = 164;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = false;
-            this.btn_cancel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_cancel_MouseClick);
+            this.btn_cancel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_cancel_MouseUp);
             // 
             // label_prompt
             // 

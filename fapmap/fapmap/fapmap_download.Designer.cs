@@ -43,16 +43,18 @@
             this.cb_conflict_rename = new System.Windows.Forms.CheckBox();
             this.cb_conflict_skip = new System.Windows.Forms.CheckBox();
             this.txt_dir = new System.Windows.Forms.TextBox();
-            this.btn_open = new System.Windows.Forms.Button();
+            this.btn_openFile = new System.Windows.Forms.Button();
             this.btn_dl = new System.Windows.Forms.Button();
             this.this_trayicon = new System.Windows.Forms.NotifyIcon(this.components);
             this.HelpBalloon = new System.Windows.Forms.ToolTip(this.components);
             this.btn_addURL = new System.Windows.Forms.Button();
             this.btn_webgrabStart = new System.Windows.Forms.Button();
             this.btn_openPathSelector = new System.Windows.Forms.Button();
+            this.btn_openURL = new System.Windows.Forms.Button();
             this.info = new System.Windows.Forms.TextBox();
             this.links_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.links_RMB_refresh = new System.Windows.Forms.ToolStripMenuItem();
+            this.links_RMB_download = new System.Windows.Forms.ToolStripMenuItem();
             this.links_RMB_incognito = new System.Windows.Forms.ToolStripMenuItem();
             this.links_RMB_copy = new System.Windows.Forms.ToolStripMenuItem();
             this.links_RMB_cut = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +67,8 @@
             this.txt_webgrabOptions = new System.Windows.Forms.TextBox();
             this.txt_webgrabURL = new System.Windows.Forms.TextBox();
             this.sc_webgrab = new System.Windows.Forms.SplitContainer();
+            this.panel_info = new System.Windows.Forms.Panel();
+            this.pbar = new fapmap_res.ColorProgressBar();
             this.txt_dledPATH = new System.Windows.Forms.TextBox();
             this.txt_filename = new System.Windows.Forms.TextBox();
             this.links = new System.Windows.Forms.ListView();
@@ -78,6 +82,7 @@
             this.sc_webgrab.Panel1.SuspendLayout();
             this.sc_webgrab.Panel2.SuspendLayout();
             this.sc_webgrab.SuspendLayout();
+            this.panel_info.SuspendLayout();
             this.SuspendLayout();
             // 
             // cb_panel
@@ -100,7 +105,7 @@
             this.cb_panel.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.cb_panel.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cb_panel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.cb_panel.Location = new System.Drawing.Point(4, 236);
+            this.cb_panel.Location = new System.Drawing.Point(4, 233);
             this.cb_panel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_panel.Name = "cb_panel";
             this.cb_panel.Size = new System.Drawing.Size(115, 78);
@@ -316,7 +321,7 @@
             this.txt_dir.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_dir.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txt_dir.ForeColor = System.Drawing.Color.SlateBlue;
-            this.txt_dir.Location = new System.Drawing.Point(4, 192);
+            this.txt_dir.Location = new System.Drawing.Point(4, 189);
             this.txt_dir.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txt_dir.Name = "txt_dir";
             this.txt_dir.Size = new System.Drawing.Size(553, 20);
@@ -324,28 +329,28 @@
             this.txt_dir.TextChanged += new System.EventHandler(this.txt_dir_TextChanged);
             this.txt_dir.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_dir_KeyDown);
             // 
-            // btn_open
+            // btn_openFile
             // 
-            this.btn_open.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_open.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_open.BackgroundImage = global::fapmap.Properties.Resources.open;
-            this.btn_open.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btn_open.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_open.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btn_open.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_open.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_open.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_open.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_open.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_open.ForeColor = System.Drawing.Color.DimGray;
-            this.btn_open.Location = new System.Drawing.Point(559, 214);
-            this.btn_open.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.btn_open.Name = "btn_open";
-            this.btn_open.Size = new System.Drawing.Size(20, 20);
-            this.btn_open.TabIndex = 25;
-            this.HelpBalloon.SetToolTip(this.btn_open, "Open last downloaded file");
-            this.btn_open.UseVisualStyleBackColor = false;
-            this.btn_open.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_open_MouseClick);
+            this.btn_openFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_openFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_openFile.BackgroundImage = global::fapmap.Properties.Resources.open;
+            this.btn_openFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_openFile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_openFile.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btn_openFile.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_openFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_openFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_openFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_openFile.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_openFile.ForeColor = System.Drawing.Color.DimGray;
+            this.btn_openFile.Location = new System.Drawing.Point(559, 335);
+            this.btn_openFile.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.btn_openFile.Name = "btn_openFile";
+            this.btn_openFile.Size = new System.Drawing.Size(20, 20);
+            this.btn_openFile.TabIndex = 25;
+            this.HelpBalloon.SetToolTip(this.btn_openFile, "Open last downloaded file");
+            this.btn_openFile.UseVisualStyleBackColor = false;
+            this.btn_openFile.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_open_MouseUp);
             // 
             // btn_dl
             // 
@@ -361,20 +366,20 @@
             this.btn_dl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_dl.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btn_dl.ForeColor = System.Drawing.Color.DimGray;
-            this.btn_dl.Location = new System.Drawing.Point(537, 214);
+            this.btn_dl.Location = new System.Drawing.Point(559, 211);
             this.btn_dl.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_dl.Name = "btn_dl";
             this.btn_dl.Size = new System.Drawing.Size(20, 20);
             this.btn_dl.TabIndex = 24;
             this.HelpBalloon.SetToolTip(this.btn_dl, "Download/Cancel download");
             this.btn_dl.UseVisualStyleBackColor = false;
-            this.btn_dl.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_dl_MouseClick);
+            this.btn_dl.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_dl_MouseUp);
             // 
             // this_trayicon
             // 
             this.this_trayicon.Icon = ((System.Drawing.Icon)(resources.GetObject("this_trayicon.Icon")));
             this.this_trayicon.Visible = true;
-            this.this_trayicon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.this_trayicon_MouseClick);
+            this.this_trayicon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.this_trayicon_MouseUp);
             // 
             // HelpBalloon
             // 
@@ -405,13 +410,13 @@
             this.btn_addURL.TabIndex = 152;
             this.HelpBalloon.SetToolTip(this.btn_addURL, "Add file url to download list");
             this.btn_addURL.UseVisualStyleBackColor = false;
-            this.btn_addURL.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_addURL_MouseClick);
+            this.btn_addURL.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_addURL_MouseUp);
             // 
             // btn_webgrabStart
             // 
             this.btn_webgrabStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_webgrabStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_webgrabStart.BackgroundImage = global::fapmap.Properties.Resources.arrow_left;
+            this.btn_webgrabStart.BackgroundImage = global::fapmap.Properties.Resources.scanPage;
             this.btn_webgrabStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_webgrabStart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_webgrabStart.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -428,7 +433,7 @@
             this.btn_webgrabStart.TabIndex = 153;
             this.HelpBalloon.SetToolTip(this.btn_webgrabStart, "Start/Stop webgrab.exe");
             this.btn_webgrabStart.UseVisualStyleBackColor = false;
-            this.btn_webgrabStart.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_webgrabStart_MouseClick);
+            this.btn_webgrabStart.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_webgrabStart_MouseUp);
             // 
             // btn_openPathSelector
             // 
@@ -444,29 +449,51 @@
             this.btn_openPathSelector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_openPathSelector.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btn_openPathSelector.ForeColor = System.Drawing.Color.SlateBlue;
-            this.btn_openPathSelector.Location = new System.Drawing.Point(559, 192);
+            this.btn_openPathSelector.Location = new System.Drawing.Point(559, 189);
             this.btn_openPathSelector.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_openPathSelector.Name = "btn_openPathSelector";
             this.btn_openPathSelector.Size = new System.Drawing.Size(20, 20);
             this.btn_openPathSelector.TabIndex = 160;
             this.HelpBalloon.SetToolTip(this.btn_openPathSelector, "Select Folder");
             this.btn_openPathSelector.UseVisualStyleBackColor = false;
-            this.btn_openPathSelector.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_openPathSelector_MouseClick);
+            this.btn_openPathSelector.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_openPathSelector_MouseUp);
+            // 
+            // btn_openURL
+            // 
+            this.btn_openURL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_openURL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_openURL.BackgroundImage = global::fapmap.Properties.Resources.incognito;
+            this.btn_openURL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_openURL.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_openURL.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btn_openURL.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_openURL.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_openURL.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_openURL.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_openURL.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_openURL.ForeColor = System.Drawing.Color.DimGray;
+            this.btn_openURL.Location = new System.Drawing.Point(559, 313);
+            this.btn_openURL.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.btn_openURL.Name = "btn_openURL";
+            this.btn_openURL.Size = new System.Drawing.Size(20, 20);
+            this.btn_openURL.TabIndex = 162;
+            this.HelpBalloon.SetToolTip(this.btn_openURL, "Open last downloaded URL");
+            this.btn_openURL.UseVisualStyleBackColor = false;
+            this.btn_openURL.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_openURL_MouseUp);
             // 
             // info
             // 
-            this.info.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.info.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.info.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.info.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.info.Dock = System.Windows.Forms.DockStyle.Fill;
             this.info.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.info.ForeColor = System.Drawing.Color.Teal;
-            this.info.Location = new System.Drawing.Point(121, 236);
+            this.info.Location = new System.Drawing.Point(0, 0);
             this.info.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.info.Multiline = true;
             this.info.Name = "info";
             this.info.ReadOnly = true;
-            this.info.Size = new System.Drawing.Size(458, 78);
+            this.info.Size = new System.Drawing.Size(456, 66);
             this.info.TabIndex = 31;
             this.info.Text = "...";
             // 
@@ -476,6 +503,7 @@
             this.links_RMB.BackgroundImage = global::fapmap.Properties.Resources.bg4;
             this.links_RMB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.links_RMB_refresh,
+            this.links_RMB_download,
             this.links_RMB_incognito,
             this.links_RMB_copy,
             this.links_RMB_cut,
@@ -487,17 +515,27 @@
             this.links_RMB.Name = "contextMenuStrip1";
             this.links_RMB.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.links_RMB.ShowItemToolTips = false;
-            this.links_RMB.Size = new System.Drawing.Size(230, 180);
+            this.links_RMB.Size = new System.Drawing.Size(230, 202);
             // 
             // links_RMB_refresh
             // 
             this.links_RMB_refresh.BackgroundImage = global::fapmap.Properties.Resources.bg4;
             this.links_RMB_refresh.ForeColor = System.Drawing.Color.SlateBlue;
-            this.links_RMB_refresh.Image = global::fapmap.Properties.Resources.restart;
+            this.links_RMB_refresh.Image = global::fapmap.Properties.Resources.refresh;
             this.links_RMB_refresh.Name = "links_RMB_refresh";
             this.links_RMB_refresh.Size = new System.Drawing.Size(229, 22);
             this.links_RMB_refresh.Text = "Refresh (CTRL+R/F5)";
             this.links_RMB_refresh.Click += new System.EventHandler(this.links_RMB_refresh_Click);
+            // 
+            // links_RMB_download
+            // 
+            this.links_RMB_download.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.links_RMB_download.ForeColor = System.Drawing.Color.SlateBlue;
+            this.links_RMB_download.Image = global::fapmap.Properties.Resources.downloadFile;
+            this.links_RMB_download.Name = "links_RMB_download";
+            this.links_RMB_download.Size = new System.Drawing.Size(229, 22);
+            this.links_RMB_download.Text = "Download (ENTER)";
+            this.links_RMB_download.Click += new System.EventHandler(this.links_RMB_download_Click);
             // 
             // links_RMB_incognito
             // 
@@ -506,7 +544,7 @@
             this.links_RMB_incognito.Image = global::fapmap.Properties.Resources.incognito;
             this.links_RMB_incognito.Name = "links_RMB_incognito";
             this.links_RMB_incognito.Size = new System.Drawing.Size(229, 22);
-            this.links_RMB_incognito.Text = "Incognito (CTRL+U)";
+            this.links_RMB_incognito.Text = "Incognito (CTRL+W)";
             this.links_RMB_incognito.Click += new System.EventHandler(this.links_RMB_incognito_Click);
             // 
             // links_RMB_copy
@@ -589,16 +627,17 @@
             // 
             // txt_dledURL
             // 
+            this.txt_dledURL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_dledURL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.txt_dledURL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_dledURL.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txt_dledURL.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txt_dledURL.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.txt_dledURL.Location = new System.Drawing.Point(0, 319);
+            this.txt_dledURL.Location = new System.Drawing.Point(4, 313);
             this.txt_dledURL.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txt_dledURL.Name = "txt_dledURL";
             this.txt_dledURL.ReadOnly = true;
-            this.txt_dledURL.Size = new System.Drawing.Size(583, 20);
+            this.txt_dledURL.Size = new System.Drawing.Size(553, 20);
             this.txt_dledURL.TabIndex = 153;
             this.txt_dledURL.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_dledURL_KeyDown);
             // 
@@ -652,13 +691,14 @@
             // sc_webgrab.Panel2
             // 
             this.sc_webgrab.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.sc_webgrab.Panel2.Controls.Add(this.panel_info);
+            this.sc_webgrab.Panel2.Controls.Add(this.btn_openURL);
             this.sc_webgrab.Panel2.Controls.Add(this.txt_dledURL);
-            this.sc_webgrab.Panel2.Controls.Add(this.info);
             this.sc_webgrab.Panel2.Controls.Add(this.txt_dledPATH);
             this.sc_webgrab.Panel2.Controls.Add(this.btn_openPathSelector);
             this.sc_webgrab.Panel2.Controls.Add(this.btn_dl);
             this.sc_webgrab.Panel2.Controls.Add(this.txt_url);
-            this.sc_webgrab.Panel2.Controls.Add(this.btn_open);
+            this.sc_webgrab.Panel2.Controls.Add(this.btn_openFile);
             this.sc_webgrab.Panel2.Controls.Add(this.btn_addURL);
             this.sc_webgrab.Panel2.Controls.Add(this.cb_panel);
             this.sc_webgrab.Panel2.Controls.Add(this.txt_dir);
@@ -669,18 +709,42 @@
             this.sc_webgrab.SplitterWidth = 1;
             this.sc_webgrab.TabIndex = 155;
             // 
+            // panel_info
+            // 
+            this.panel_info.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_info.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_info.Controls.Add(this.info);
+            this.panel_info.Controls.Add(this.pbar);
+            this.panel_info.Location = new System.Drawing.Point(121, 233);
+            this.panel_info.Name = "panel_info";
+            this.panel_info.Size = new System.Drawing.Size(458, 78);
+            this.panel_info.TabIndex = 163;
+            // 
+            // pbar
+            // 
+            this.pbar.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pbar.ForeColor = System.Drawing.Color.SteelBlue;
+            this.pbar.Location = new System.Drawing.Point(0, 66);
+            this.pbar.Name = "pbar";
+            this.pbar.Size = new System.Drawing.Size(456, 10);
+            this.pbar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.pbar.TabIndex = 161;
+            this.pbar.Visible = false;
+            // 
             // txt_dledPATH
             // 
+            this.txt_dledPATH.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_dledPATH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.txt_dledPATH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_dledPATH.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.txt_dledPATH.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txt_dledPATH.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.txt_dledPATH.Location = new System.Drawing.Point(0, 339);
+            this.txt_dledPATH.Location = new System.Drawing.Point(4, 335);
             this.txt_dledPATH.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txt_dledPATH.Name = "txt_dledPATH";
             this.txt_dledPATH.ReadOnly = true;
-            this.txt_dledPATH.Size = new System.Drawing.Size(583, 20);
+            this.txt_dledPATH.Size = new System.Drawing.Size(553, 20);
             this.txt_dledPATH.TabIndex = 159;
             this.txt_dledPATH.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_dledPATH_KeyDown);
             // 
@@ -693,11 +757,11 @@
             this.txt_filename.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_filename.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txt_filename.ForeColor = System.Drawing.Color.SlateBlue;
-            this.txt_filename.Location = new System.Drawing.Point(4, 214);
+            this.txt_filename.Location = new System.Drawing.Point(4, 211);
             this.txt_filename.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txt_filename.Name = "txt_filename";
             this.txt_filename.ReadOnly = true;
-            this.txt_filename.Size = new System.Drawing.Size(531, 20);
+            this.txt_filename.Size = new System.Drawing.Size(553, 20);
             this.txt_filename.TabIndex = 158;
             this.txt_filename.TextChanged += new System.EventHandler(this.txt_filename_TextChanged);
             this.txt_filename.DragDrop += new System.Windows.Forms.DragEventHandler(this.txt_filename_DragDrop);
@@ -726,7 +790,7 @@
             this.links.Location = new System.Drawing.Point(4, 26);
             this.links.MultiSelect = false;
             this.links.Name = "links";
-            this.links.Size = new System.Drawing.Size(575, 164);
+            this.links.Size = new System.Drawing.Size(575, 160);
             this.links.TabIndex = 155;
             this.links.UseCompatibleStateImageBehavior = false;
             this.links.View = System.Windows.Forms.View.Details;
@@ -779,6 +843,8 @@
             this.sc_webgrab.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sc_webgrab)).EndInit();
             this.sc_webgrab.ResumeLayout(false);
+            this.panel_info.ResumeLayout(false);
+            this.panel_info.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -787,7 +853,7 @@
 
         private System.Windows.Forms.Panel cb_panel;
         private System.Windows.Forms.TextBox txt_dir;
-        private System.Windows.Forms.Button btn_open;
+        private System.Windows.Forms.Button btn_openFile;
         private System.Windows.Forms.Button btn_dl;
         private System.Windows.Forms.NotifyIcon this_trayicon;
         private System.Windows.Forms.ToolTip HelpBalloon;
@@ -827,5 +893,9 @@
         private System.Windows.Forms.Button btn_openPathSelector;
         private System.Windows.Forms.Timer auto;
         private System.Windows.Forms.CheckBox cb_auto;
+        private System.Windows.Forms.ToolStripMenuItem links_RMB_download;
+        private fapmap_res.ColorProgressBar pbar;
+        private System.Windows.Forms.Button btn_openURL;
+        private System.Windows.Forms.Panel panel_info;
     }
 }

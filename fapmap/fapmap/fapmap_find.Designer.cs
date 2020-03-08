@@ -34,7 +34,7 @@
             this.showImage = new System.Windows.Forms.PictureBox();
             this.output = new System.Windows.Forms.ListBox();
             this.RMB_output = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.RMB_output_refresh = new System.Windows.Forms.ToolStripMenuItem();
+            this.RMB_output_reload = new System.Windows.Forms.ToolStripMenuItem();
             this.RMB_output_open = new System.Windows.Forms.ToolStripMenuItem();
             this.RMB_output_explorer = new System.Windows.Forms.ToolStripMenuItem();
             this.RMB_output_copy = new System.Windows.Forms.ToolStripMenuItem();
@@ -105,7 +105,7 @@
             this.RMB_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.RMB_output.BackgroundImage = global::fapmap.Properties.Resources.bg4;
             this.RMB_output.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.RMB_output_refresh,
+            this.RMB_output_reload,
             this.RMB_output_open,
             this.RMB_output_explorer,
             this.RMB_output_copy,
@@ -114,17 +114,17 @@
             this.RMB_output.Name = "contextMenuStrip1";
             this.RMB_output.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.RMB_output.ShowItemToolTips = false;
-            this.RMB_output.Size = new System.Drawing.Size(247, 114);
+            this.RMB_output.Size = new System.Drawing.Size(247, 136);
             // 
-            // RMB_output_refresh
+            // RMB_output_reload
             // 
-            this.RMB_output_refresh.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.RMB_output_refresh.ForeColor = System.Drawing.Color.SlateBlue;
-            this.RMB_output_refresh.Image = global::fapmap.Properties.Resources.restart;
-            this.RMB_output_refresh.Name = "RMB_output_refresh";
-            this.RMB_output_refresh.Size = new System.Drawing.Size(246, 22);
-            this.RMB_output_refresh.Text = "Refresh (CTRL+R/F5)";
-            this.RMB_output_refresh.Click += new System.EventHandler(this.RMB_output_refresh_Click);
+            this.RMB_output_reload.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.RMB_output_reload.ForeColor = System.Drawing.Color.SlateBlue;
+            this.RMB_output_reload.Image = global::fapmap.Properties.Resources.restart;
+            this.RMB_output_reload.Name = "RMB_output_reload";
+            this.RMB_output_reload.Size = new System.Drawing.Size(246, 22);
+            this.RMB_output_reload.Text = "Reload (CTRL+R/F5)";
+            this.RMB_output_reload.Click += new System.EventHandler(this.RMB_output_reload_Click);
             // 
             // RMB_output_open
             // 
@@ -185,7 +185,7 @@
             this.findButton.TabIndex = 151;
             this.HelpBalloon.SetToolTip(this.findButton, "Start Searching...");
             this.findButton.UseVisualStyleBackColor = false;
-            this.findButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.findButton_MouseClick);
+            this.findButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.findButton_MouseUp);
             // 
             // searchBox
             // 
@@ -300,7 +300,7 @@
         private System.Windows.Forms.ToolStripMenuItem RMB_output_copy;
         private System.Windows.Forms.ToolStripMenuItem RMB_output_open;
         private System.Windows.Forms.ToolStripMenuItem RMB_output_delete;
-        private System.Windows.Forms.ToolStripMenuItem RMB_output_refresh;
+        private System.Windows.Forms.ToolStripMenuItem RMB_output_reload;
         private System.Windows.Forms.ToolStripMenuItem RMB_output_explorer;
         private System.Windows.Forms.CheckBox cb_case;
         private System.Windows.Forms.PictureBox showImage;

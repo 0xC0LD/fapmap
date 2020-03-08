@@ -43,8 +43,10 @@
             this.dnd_file = new System.Windows.Forms.Panel();
             this.dnd_fileNew = new System.Windows.Forms.Panel();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.output = new System.Windows.Forms.TextBox();
+            this.txt_outputBorder = new System.Windows.Forms.Panel();
+            this.txt_output = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
+            this.txt_outputBorder.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_file
@@ -101,7 +103,7 @@
             this.btn_convert.TabIndex = 154;
             this.HelpBalloon.SetToolTip(this.btn_convert, "Convert");
             this.btn_convert.UseVisualStyleBackColor = false;
-            this.btn_convert.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_convert_MouseClick);
+            this.btn_convert.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_convert_MouseUp);
             // 
             // txt_options
             // 
@@ -152,7 +154,7 @@
             this.btn_openFileNew.TabIndex = 157;
             this.HelpBalloon.SetToolTip(this.btn_openFileNew, "Open File");
             this.btn_openFileNew.UseVisualStyleBackColor = false;
-            this.btn_openFileNew.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_openFileNew_MouseClick);
+            this.btn_openFileNew.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_openFileNew_MouseUp);
             // 
             // btn_openFile
             // 
@@ -175,7 +177,7 @@
             this.btn_openFile.TabIndex = 158;
             this.HelpBalloon.SetToolTip(this.btn_openFile, "Open File");
             this.btn_openFile.UseVisualStyleBackColor = false;
-            this.btn_openFile.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_openFile_MouseClick);
+            this.btn_openFile.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_openFile_MouseUp);
             // 
             // HelpBalloon
             // 
@@ -205,7 +207,7 @@
             this.btn_delFile.TabIndex = 169;
             this.HelpBalloon.SetToolTip(this.btn_delFile, "Trash File (File Only)");
             this.btn_delFile.UseVisualStyleBackColor = false;
-            this.btn_delFile.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_delFile_MouseClick);
+            this.btn_delFile.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_delFile_MouseUp);
             // 
             // btn_delFileNew
             // 
@@ -228,7 +230,7 @@
             this.btn_delFileNew.TabIndex = 170;
             this.HelpBalloon.SetToolTip(this.btn_delFileNew, "Trash File (File Only)");
             this.btn_delFileNew.UseVisualStyleBackColor = false;
-            this.btn_delFileNew.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_delFileNew_MouseClick);
+            this.btn_delFileNew.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_delFileNew_MouseUp);
             // 
             // dnd_file
             // 
@@ -261,23 +263,34 @@
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
-            // output
+            // txt_outputBorder
             // 
-            this.output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.txt_outputBorder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.output.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.output.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.output.ForeColor = System.Drawing.Color.Teal;
-            this.output.Location = new System.Drawing.Point(12, 64);
-            this.output.Multiline = true;
-            this.output.Name = "output";
-            this.output.ReadOnly = true;
-            this.output.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.output.Size = new System.Drawing.Size(760, 159);
-            this.output.TabIndex = 171;
-            this.output.TextChanged += new System.EventHandler(this.output_TextChanged);
+            this.txt_outputBorder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_outputBorder.Controls.Add(this.txt_output);
+            this.txt_outputBorder.Location = new System.Drawing.Point(12, 63);
+            this.txt_outputBorder.Name = "txt_outputBorder";
+            this.txt_outputBorder.Size = new System.Drawing.Size(760, 160);
+            this.txt_outputBorder.TabIndex = 225;
+            // 
+            // txt_output
+            // 
+            this.txt_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_output.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_output.DetectUrls = false;
+            this.txt_output.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txt_output.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_output.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(200)))));
+            this.txt_output.Location = new System.Drawing.Point(0, 0);
+            this.txt_output.Name = "txt_output";
+            this.txt_output.ReadOnly = true;
+            this.txt_output.Size = new System.Drawing.Size(758, 158);
+            this.txt_output.TabIndex = 222;
+            this.txt_output.Text = "...";
+            this.txt_output.WordWrap = false;
+            this.txt_output.TextChanged += new System.EventHandler(this.txt_output_TextChanged);
             // 
             // fapmap_ffmpeg
             // 
@@ -286,7 +299,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
             this.ClientSize = new System.Drawing.Size(784, 261);
-            this.Controls.Add(this.output);
+            this.Controls.Add(this.txt_outputBorder);
             this.Controls.Add(this.dnd_file);
             this.Controls.Add(this.txt_file);
             this.Controls.Add(this.btn_delFileNew);
@@ -310,6 +323,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.fapmap_ffmpeg_FormClosing);
             this.Load += new System.EventHandler(this.fapmap_ffmpeg_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
+            this.txt_outputBorder.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,6 +344,7 @@
         private System.Windows.Forms.Button btn_delFile;
         private System.Windows.Forms.Button btn_delFileNew;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
-        private System.Windows.Forms.TextBox output;
+        private System.Windows.Forms.Panel txt_outputBorder;
+        private System.Windows.Forms.RichTextBox txt_output;
     }
 }

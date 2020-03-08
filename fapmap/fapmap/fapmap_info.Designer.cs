@@ -30,110 +30,87 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fapmap_info));
-            this.count_files = new System.Windows.Forms.RichTextBox();
-            this.fileSizeText = new System.Windows.Forms.TextBox();
-            this.cb_count = new System.Windows.Forms.CheckBox();
-            this.count_files_panel = new System.Windows.Forms.Panel();
-            this.path_txt = new System.Windows.Forms.Label();
-            this.getAll = new System.Windows.Forms.Button();
+            this.txt_size = new System.Windows.Forms.TextBox();
+            this.cb_noZero = new System.Windows.Forms.CheckBox();
+            this.label_path = new System.Windows.Forms.Label();
+            this.btn_getInfo = new System.Windows.Forms.Button();
             this.HelpBalloon = new System.Windows.Forms.ToolTip(this.components);
-            this.count_files_panel.SuspendLayout();
+            this.label_info = new System.Windows.Forms.Label();
+            this.txt_outputBorder = new System.Windows.Forms.Panel();
+            this.txt_output = new System.Windows.Forms.RichTextBox();
+            this.txt_outputBorder.SuspendLayout();
             this.SuspendLayout();
             // 
-            // count_files
+            // txt_size
             // 
-            this.count_files.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.count_files.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.count_files.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.count_files.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.count_files.ForeColor = System.Drawing.Color.SlateBlue;
-            this.count_files.Location = new System.Drawing.Point(0, 0);
-            this.count_files.Name = "count_files";
-            this.count_files.ReadOnly = true;
-            this.count_files.Size = new System.Drawing.Size(338, 0);
-            this.count_files.TabIndex = 215;
-            this.count_files.Text = "...";
-            // 
-            // fileSizeText
-            // 
-            this.fileSizeText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_size.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.fileSizeText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.fileSizeText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.fileSizeText.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.fileSizeText.ForeColor = System.Drawing.Color.SlateBlue;
-            this.fileSizeText.Location = new System.Drawing.Point(12, 12);
-            this.fileSizeText.Name = "fileSizeText";
-            this.fileSizeText.ReadOnly = true;
-            this.fileSizeText.Size = new System.Drawing.Size(304, 30);
-            this.fileSizeText.TabIndex = 213;
-            this.fileSizeText.Text = "...";
+            this.txt_size.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_size.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_size.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txt_size.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.txt_size.Location = new System.Drawing.Point(12, 12);
+            this.txt_size.Name = "txt_size";
+            this.txt_size.ReadOnly = true;
+            this.txt_size.Size = new System.Drawing.Size(824, 30);
+            this.txt_size.TabIndex = 213;
+            this.txt_size.Text = "...";
             // 
-            // cb_count
+            // cb_noZero
             // 
-            this.cb_count.AutoSize = true;
-            this.cb_count.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.cb_count.Checked = true;
-            this.cb_count.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_count.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_count.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
-            this.cb_count.FlatAppearance.CheckedBackColor = System.Drawing.Color.SlateBlue;
-            this.cb_count.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.cb_count.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.cb_count.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_count.Font = new System.Drawing.Font("Segoe Print", 24F);
-            this.cb_count.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.cb_count.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_count.Location = new System.Drawing.Point(12, 47);
-            this.cb_count.Name = "cb_count";
-            this.cb_count.Size = new System.Drawing.Size(12, 11);
-            this.cb_count.TabIndex = 216;
-            this.HelpBalloon.SetToolTip(this.cb_count, "Don\'t output file types that have a 0 count...");
-            this.cb_count.UseVisualStyleBackColor = false;
+            this.cb_noZero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_noZero.AutoSize = true;
+            this.cb_noZero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.cb_noZero.Checked = true;
+            this.cb_noZero.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_noZero.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_noZero.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.cb_noZero.FlatAppearance.CheckedBackColor = System.Drawing.Color.SlateBlue;
+            this.cb_noZero.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.cb_noZero.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.cb_noZero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_noZero.Font = new System.Drawing.Font("Segoe Print", 24F);
+            this.cb_noZero.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.cb_noZero.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cb_noZero.Location = new System.Drawing.Point(860, 54);
+            this.cb_noZero.Name = "cb_noZero";
+            this.cb_noZero.Size = new System.Drawing.Size(12, 11);
+            this.cb_noZero.TabIndex = 216;
+            this.HelpBalloon.SetToolTip(this.cb_noZero, "Don\'t output file types that have a 0 count...");
+            this.cb_noZero.UseVisualStyleBackColor = false;
             // 
-            // count_files_panel
+            // label_path
             // 
-            this.count_files_panel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.count_files_panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.count_files_panel.Controls.Add(this.count_files);
-            this.count_files_panel.Location = new System.Drawing.Point(12, 70);
-            this.count_files_panel.Name = "count_files_panel";
-            this.count_files_panel.Size = new System.Drawing.Size(340, 0);
-            this.count_files_panel.TabIndex = 217;
+            this.label_path.AutoSize = true;
+            this.label_path.BackColor = System.Drawing.Color.Transparent;
+            this.label_path.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_path.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.label_path.Location = new System.Drawing.Point(14, 50);
+            this.label_path.Name = "label_path";
+            this.label_path.Size = new System.Drawing.Size(28, 15);
+            this.label_path.TabIndex = 218;
+            this.label_path.Text = "...";
             // 
-            // path_txt
+            // btn_getInfo
             // 
-            this.path_txt.AutoSize = true;
-            this.path_txt.BackColor = System.Drawing.Color.Transparent;
-            this.path_txt.ForeColor = System.Drawing.Color.SlateBlue;
-            this.path_txt.Location = new System.Drawing.Point(30, 52);
-            this.path_txt.Name = "path_txt";
-            this.path_txt.Size = new System.Drawing.Size(25, 13);
-            this.path_txt.TabIndex = 218;
-            this.path_txt.Text = "...";
-            // 
-            // getAll
-            // 
-            this.getAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.getAll.BackColor = System.Drawing.Color.Transparent;
-            this.getAll.BackgroundImage = global::fapmap.Properties.Resources.arrow_left;
-            this.getAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.getAll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.getAll.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.getAll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.getAll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.getAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.getAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.getAll.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.getAll.Location = new System.Drawing.Point(322, 12);
-            this.getAll.Name = "getAll";
-            this.getAll.Size = new System.Drawing.Size(30, 30);
-            this.getAll.TabIndex = 219;
-            this.HelpBalloon.SetToolTip(this.getAll, "Get Info About File/Dir");
-            this.getAll.UseVisualStyleBackColor = false;
-            this.getAll.MouseClick += new System.Windows.Forms.MouseEventHandler(this.getAll_MouseClick);
+            this.btn_getInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_getInfo.BackColor = System.Drawing.Color.Transparent;
+            this.btn_getInfo.BackgroundImage = global::fapmap.Properties.Resources.arrow_left;
+            this.btn_getInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_getInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_getInfo.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_getInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_getInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_getInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_getInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_getInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_getInfo.Location = new System.Drawing.Point(842, 12);
+            this.btn_getInfo.Name = "btn_getInfo";
+            this.btn_getInfo.Size = new System.Drawing.Size(30, 30);
+            this.btn_getInfo.TabIndex = 219;
+            this.HelpBalloon.SetToolTip(this.btn_getInfo, "Get Info About File/Dir");
+            this.btn_getInfo.UseVisualStyleBackColor = false;
+            this.btn_getInfo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.getAll_MouseUp);
             // 
             // HelpBalloon
             // 
@@ -142,41 +119,83 @@
             this.HelpBalloon.OwnerDraw = true;
             this.HelpBalloon.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.HelpBalloon_Draw);
             // 
+            // label_info
+            // 
+            this.label_info.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label_info.AutoSize = true;
+            this.label_info.BackColor = System.Drawing.Color.Transparent;
+            this.label_info.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_info.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.label_info.Location = new System.Drawing.Point(12, 637);
+            this.label_info.Name = "label_info";
+            this.label_info.Size = new System.Drawing.Size(28, 15);
+            this.label_info.TabIndex = 221;
+            this.label_info.Text = "...";
+            // 
+            // txt_outputBorder
+            // 
+            this.txt_outputBorder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_outputBorder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_outputBorder.Controls.Add(this.txt_output);
+            this.txt_outputBorder.Location = new System.Drawing.Point(12, 68);
+            this.txt_outputBorder.Name = "txt_outputBorder";
+            this.txt_outputBorder.Size = new System.Drawing.Size(860, 566);
+            this.txt_outputBorder.TabIndex = 224;
+            // 
+            // txt_output
+            // 
+            this.txt_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_output.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_output.DetectUrls = false;
+            this.txt_output.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txt_output.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_output.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.txt_output.Location = new System.Drawing.Point(0, 0);
+            this.txt_output.Name = "txt_output";
+            this.txt_output.ReadOnly = true;
+            this.txt_output.Size = new System.Drawing.Size(858, 564);
+            this.txt_output.TabIndex = 222;
+            this.txt_output.Text = "...";
+            this.txt_output.WordWrap = false;
+            // 
             // fapmap_info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg3;
-            this.ClientSize = new System.Drawing.Size(364, 72);
-            this.Controls.Add(this.getAll);
-            this.Controls.Add(this.path_txt);
-            this.Controls.Add(this.cb_count);
-            this.Controls.Add(this.count_files_panel);
-            this.Controls.Add(this.fileSizeText);
+            this.ClientSize = new System.Drawing.Size(884, 661);
+            this.Controls.Add(this.txt_outputBorder);
+            this.Controls.Add(this.label_info);
+            this.Controls.Add(this.btn_getInfo);
+            this.Controls.Add(this.label_path);
+            this.Controls.Add(this.cb_noZero);
+            this.Controls.Add(this.txt_size);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
             this.ForeColor = System.Drawing.Color.SlateBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(380, 110);
+            this.MinimumSize = new System.Drawing.Size(320, 250);
             this.Name = "fapmap_info";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FapMap - Info";
             this.Load += new System.EventHandler(this.fapmap_info_Load);
-            this.count_files_panel.ResumeLayout(false);
+            this.txt_outputBorder.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox count_files;
-        private System.Windows.Forms.TextBox fileSizeText;
-        private System.Windows.Forms.CheckBox cb_count;
-        private System.Windows.Forms.Panel count_files_panel;
-        private System.Windows.Forms.Label path_txt;
-        private System.Windows.Forms.Button getAll;
+        private System.Windows.Forms.TextBox txt_size;
+        private System.Windows.Forms.CheckBox cb_noZero;
+        private System.Windows.Forms.Label label_path;
+        private System.Windows.Forms.Button btn_getInfo;
         private System.Windows.Forms.ToolTip HelpBalloon;
+        private System.Windows.Forms.Label label_info;
+        private System.Windows.Forms.Panel txt_outputBorder;
+        private System.Windows.Forms.RichTextBox txt_output;
     }
 }

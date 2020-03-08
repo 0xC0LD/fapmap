@@ -66,13 +66,13 @@ namespace fapmap
             if (fscan_busy) { fscan_die(); return; }
             fscan_busy = true;
 
+            if (!fapmap.checkForApp(fapmap.GlobalVariables.Path.File.Exe.FSCAN, "https://github.com/0xC0LD/fscan/releases"))
+            { this.Close(); return; }
+
             new Thread(() =>
             {
                 try
                 {
-                    if (!fapmap.checkForApp(fapmap.GlobalVariables.Path.File.Exe.FSCAN, "https://github.com/0xC0LD/fscan/releases"))
-                    { this.Close(); return; }
-
                     string workingDir = txt_path.Text;
                     string args = txt_options.Text;
 
@@ -80,18 +80,23 @@ namespace fapmap
 
                     if (!Directory.Exists(workingDir))
                     {
-                        label_status.Text = "Dir not found...";
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            label_status.Text = "Dir not found...";
+                        });
                         fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, workingDir);
                         fscan_busy = false;
                         return;
                     }
-                    
-                    label_status.Text = "Searching...";
-                    output.Text = "";
 
                     fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.EXEC, fapmap.GlobalVariables.Path.File.Exe.FSCAN + " " + args);
-
-                    btn_find.BackgroundImage = Properties.Resources.close;
+                    
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        label_status.Text = "Searching...";
+                        txt_output.Text = "";
+                        btn_find.BackgroundImage = Properties.Resources.close;
+                    });
 
                     // ffmpeg
                     fscanProcess = new Process();
@@ -110,10 +115,12 @@ namespace fapmap
                     fscanProcess.WaitForExit();
                     fscanProcess.Close();
 
-                    btn_find.BackgroundImage = Properties.Resources.find;
-
-                    // end
-                    label_status.Text = "Done!";
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        label_status.Text = "Done!";
+                        btn_find.BackgroundImage = Properties.Resources.find;
+                    });
+                    
 
                     fscan_busy = false;
                 }
@@ -125,8 +132,12 @@ namespace fapmap
         {
             try
             {
-                output.Text += e.Data + Environment.NewLine;
+                this.Invoke((MethodInvoker)delegate
+                {
+                    txt_output.Text += e.Data + Environment.NewLine;
+                });
             }
+            catch (ObjectDisposedException) { }
             catch (Exception) { }
         }
 
@@ -134,12 +145,13 @@ namespace fapmap
 
         #region ui events
 
-        private void btn_find_MouseClick(object sender, MouseEventArgs e)
+        private void btn_find_MouseUp(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                fscan();
-            }
+            if (e.Button == MouseButtons.Left) { fscan(); }
+        }
+        private void btn_openPathSelector_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left) { fapmap.OpenPathSelectorTXT(this, txt_path, false); }
         }
         private void txt_KeyDown(object sender, KeyEventArgs e)
         {
@@ -150,21 +162,18 @@ namespace fapmap
         }
         private void txt_path_TextChanged(object sender, EventArgs e)
         {
-            txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.Teal : Color.DarkOrchid;
+            txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.CornflowerBlue : Color.DarkOrchid;
         }
-        private void output_TextChanged(object sender, EventArgs e)
+
+        private void txt_output_TextChanged(object sender, EventArgs e)
         {
             if (cb_scroll.Checked)
             {
-                output.SelectionStart = output.Text.Length;
-                output.ScrollToCaret();
+                txt_output.SelectionStart = txt_output.Text.Length;
+                txt_output.ScrollToCaret();
             }
         }
-        private void btn_openPathSelector_MouseClick(object sender, MouseEventArgs e)
-        {
-            fapmap.OpenPathSelectorTXT(this, false, txt_path);
-        }
-        
+
         #endregion
 
 

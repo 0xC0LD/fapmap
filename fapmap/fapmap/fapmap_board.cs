@@ -70,7 +70,7 @@ namespace fapmap
 
                 ListViewItem lvi = new ListViewItem(new string[] { number, name, url })
                 {
-                    Tag = url,
+                    Name = url,
                     ImageKey = i.ToString()
                 };
 
@@ -123,10 +123,10 @@ namespace fapmap
 
             foreach (ListViewItem item in board.SelectedItems)
             {
-                if (item.Tag == null) { continue; }
-                string text = item.Tag.ToString();
+                if (item.Name == null) { continue; }
+                string text = item.Name;
                 if (string.IsNullOrEmpty(text)) { continue; }
-                fapmap.Incognito(item.Tag.ToString());
+                fapmap.Incognito(text);
             }
 
             if (close) { this.Close(); }
@@ -137,8 +137,8 @@ namespace fapmap
             {
                 foreach (ListViewItem item in board.SelectedItems)
                 {
-                    if (item.Tag == null) { continue; }
-                    string text = item.Tag.ToString();
+                    if (item.Name == null) { continue; }
+                    string text = item.Name;
                     if (string.IsNullOrEmpty(text)) { continue; }
                     System.Windows.Forms.Clipboard.SetText(text);
                 }
@@ -203,9 +203,11 @@ namespace fapmap
                 if (e.Clicks == 2 && e.Button == MouseButtons.Left) { board_open(false); return; }
                 else if (e.Button == MouseButtons.Middle) { board_open(true); return; }
 
-                foreach (ListViewItem lvi in board.SelectedItems)
+                foreach (ListViewItem item in board.SelectedItems)
                 {
-                    string text = lvi.Tag.ToString();
+                    if (item.Name == null) { continue; }
+                    string text = item.Name;
+                    if (string.IsNullOrEmpty(text)) { continue; }
 
                     if (!string.IsNullOrEmpty(text))
                     {

@@ -70,9 +70,46 @@ namespace fapmap_res
             //arrow color
             protected override void OnRenderArrow(ToolStripArrowRenderEventArgs e)
             {
-                var tsMenuItem = e.Item as ToolStripMenuItem;
+                ToolStripMenuItem tsMenuItem = (ToolStripMenuItem)e.Item;
                 if (tsMenuItem != null) { e.ArrowColor = Color.Silver; }
                 base.OnRenderArrow(e);
+            }
+        }
+    }
+
+    public class ColorProgressBar : ProgressBar
+    {
+        public ColorProgressBar()
+        {
+            this.SetStyle(ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer | ControlStyles.SupportsTransparentBackColor, true);
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            const int inset = 2; // A single inset value to control teh sizing of the inner rect.
+
+            using (Image offscreenImage = new Bitmap(this.Width, this.Height))
+            {
+                using (Graphics offscreen = Graphics.FromImage(offscreenImage))
+                {
+                    Rectangle rect = new Rectangle(0, 0, this.Width, this.Height);
+
+                    if (ProgressBarRenderer.IsSupported)
+                        ProgressBarRenderer.DrawHorizontalBar(offscreen, rect);
+
+                    rect.Inflate(new Size(-inset, -inset)); // Deflate inner rect.
+                    rect.Width = (int)(rect.Width * ((double)this.Value / this.Maximum));
+                    if (rect.Width == 0) rect.Width = 1; // Can't draw rec with width of 0.
+                    
+                    offscreen.FillRectangle(new SolidBrush(Color.FromArgb(20, 20, 20)), 0, 0, this.Width, this.Height);
+                    offscreen.FillRectangle(
+                        /*
+                        new System.Drawing.Drawing2D.LinearGradientBrush(rect, this.BackColor, this.ForeColor, System.Drawing.Drawing2D.LinearGradientMode.Vertical), //*/ Brushes.SteelBlue,
+                        inset, inset, rect.Width, rect.Height
+                    );
+
+                    e.Graphics.DrawImage(offscreenImage, 0, 0);
+                }
             }
         }
     }

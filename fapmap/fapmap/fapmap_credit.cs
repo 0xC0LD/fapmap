@@ -52,12 +52,8 @@ namespace fapmap
         {
             label_status.Text = "...";
         }
-
-        private void picture_MouseClick(object sender, MouseEventArgs e)
-        {
-            return;
-        }
-        private void link_MouseClick(object sender, MouseEventArgs e)
+        
+        private void link_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {

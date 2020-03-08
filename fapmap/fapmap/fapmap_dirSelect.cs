@@ -45,13 +45,12 @@ namespace fapmap
         
         private void confirm()
         {
-            if (treeView.SelectedNode == null) { return; }
-            if (treeView.SelectedNode.Name == null) { return; }
-            string text = treeView.SelectedNode.Name;
-            if (string.IsNullOrEmpty(text)) { return; }
-            outPath = text;
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            if (!string.IsNullOrEmpty(txt_path.Text) && Directory.Exists(txt_path.Text))
+            {
+                outPath = txt_path.Text;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
         private void cancel()
         {
@@ -93,17 +92,18 @@ namespace fapmap
             {
                 switch (e.KeyCode)
                 {
-                    case Keys.R: load();                 e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.R: load(); e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.W: confirm();              e.Handled = true; e.SuppressKeyPress = true; break;
                     case Keys.Q: treeView.CollapseAll(); e.Handled = true; e.SuppressKeyPress = true; break;
                     case Keys.E: treeView.ExpandAll();   e.Handled = true; e.SuppressKeyPress = true; break;
                 }
             }
         }
-        private void btn_ok_MouseClick(object sender, MouseEventArgs e)
+        private void btn_ok_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left) { confirm(); }
         }
-        private void btn_cancel_MouseClick(object sender, MouseEventArgs e)
+        private void btn_cancel_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left) { cancel(); }
         }
@@ -124,6 +124,11 @@ namespace fapmap
         private void treeView_RMB_expandTree_Click(object sender, EventArgs e)
         {
             treeView.ExpandAll();
+        }
+
+        private void txt_path_TextChanged(object sender, EventArgs e)
+        {
+            txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.SlateBlue : Color.DarkOrchid;
         }
     }
 }

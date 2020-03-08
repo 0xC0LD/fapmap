@@ -19,12 +19,17 @@ namespace fapmap
             InitializeComponent();
         }
 
-        public string path = string.Empty;
+        public string pass_path = string.Empty;
 
         private void fapmap_info_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(path)) { this.Close(); }
-            getInfo();
+            if (string.IsNullOrEmpty(pass_path)) { this.Close(); }
+            
+            
+            getInfo(pass_path);
+
+            btn_getInfo.Focus();
+            this.ActiveControl = btn_getInfo;
         }
 
         private void HelpBalloon_Draw(object sender, DrawToolTipEventArgs e)
@@ -33,144 +38,140 @@ namespace fapmap
             e.DrawBorder();
             e.DrawText();
         }
-        
+
         private bool getInfo_busy = false;
-        private void getInfo()
+        private void getInfo(string path)
         {
-            new Thread(getInfo_thread) { IsBackground = true }.Start();
-
-            count_files_panel.Focus();
-            this.ActiveControl = count_files_panel;
-        }
-        private void getInfo_thread()
-        {
-            if (!getInfo_busy)
+            new Thread(() =>
             {
-                getInfo_busy = true;
-                getAll.Enabled = false;
-                
-                fileSizeText.Text = "...";
-                count_files.Text = "...";
-                
-                path_txt.Text = path;
-                path_txt.ForeColor = Color.DarkSlateBlue;
-
-                try
+                if (!getInfo_busy)
                 {
-                    //CALCULATE
-                    get_size(path);
-                    if (Directory.Exists(path)) //file count
+                    getInfo_busy = true;
+
+                    this.Invoke((MethodInvoker)delegate
                     {
-                        if (this.Size.Height < 400)
+                        txt_size.Text = "";
+                        txt_output.Text = "";
+                        label_info.Text = "Scanning...";
+                    });
+
+                    if (Directory.Exists(path))
+                    {
+                        DirectoryInfo path_di = new DirectoryInfo(path);
+
+                        this.Invoke((MethodInvoker)delegate
                         {
-                            // this.Location = new Point(this.Location.X, this.Location.Y - (400 / 2));
-                            this.Size = new Size(this.Size.Width, this.Height + 400);
-                            this.CenterToScreen();
+                            label_path.Text = path_di.Name;
+                        });
+
+                        /*
+                        ** GET GALLERY SIZE
+                        */
+                        double SIZE_BYTES = unchecked((double)fapmap.DirSize(path_di));
+                        string FULLSIZE = fapmap.ROund(SIZE_BYTES) + " (" + SIZE_BYTES + " bytes" + ")";
+
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            txt_size.Text = FULLSIZE;
+                            txt_size.SelectionStart = 0;
+                        });
+
+                        /*
+                        ** GET FILE COUNT
+                        */
+                        FileInfo[] TopFiles = path_di.GetFiles("*.*", SearchOption.TopDirectoryOnly);
+                        FileInfo[] AllFiles = path_di.GetFiles("*.*", SearchOption.AllDirectories);
+                        DirectoryInfo[] TopDirs = path_di.GetDirectories("*.*", SearchOption.TopDirectoryOnly);
+                        DirectoryInfo[] AllDirs = path_di.GetDirectories("*.*", SearchOption.AllDirectories);
+
+                        int total = AllDirs.Length + AllFiles.Length;
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            txt_output.Text += "TOTAL......: " + total + Environment.NewLine;
+                            txt_output.Text += "> top dir..: " + TopDirs.Length + Environment.NewLine;
+                            txt_output.Text += "> all dirs.: " + AllDirs.Length + Environment.NewLine;
+                            txt_output.Text += "> top files: " + TopFiles.Length + Environment.NewLine;
+                            txt_output.Text += "> all files: " + AllFiles.Length + Environment.NewLine;
+                            txt_output.Text += Environment.NewLine;
+                        });
+
+                        foreach (Tuple<string, List<string>> tuple in
+                            new List<Tuple<string, List<string>>> {
+                            Tuple.Create("VIDEO", fapmap.GlobalVariables.FileTypes.Video),
+                            Tuple.Create("IMAGE", fapmap.GlobalVariables.FileTypes.Image),
+                            Tuple.Create("OTHER", fapmap.GlobalVariables.FileTypes.Other)
+                            }
+                        )
+                        {
+                            int t = 0;
+                            List<Tuple<string, int>> lfc = new List<Tuple<string, int>>();
+
+                            foreach (string type in tuple.Item2)
+                            {
+                                int count = AllFiles.AsQueryable().Where(s => s.Extension.ToLower().EndsWith(type)).Count();
+                                t += count;
+                                lfc.Add(Tuple.Create(type, count));
+                            }
+
+                            if (cb_noZero.Checked && t <= 0) { continue; }
+
+                            int pad = 9;
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                txt_output.Text += tuple.Item1.PadRight(pad + 2, '.') + ": " + t + Environment.NewLine;
+                            });
+                            foreach (var fc in lfc)
+                            {
+                                if (cb_noZero.Checked && fc.Item2 <= 0) { continue; }
+                                this.Invoke((MethodInvoker)delegate
+                                {
+                                    txt_output.Text += "> " + fc.Item1.Remove(0, 1).PadRight(pad, '.') + ": " + fc.Item2 + Environment.NewLine;
+                                });
+                            }
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                txt_output.Text += Environment.NewLine;
+                            });
                         }
-
-                        CountAll();
                     }
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show("Something went wrong... :/" + Environment.NewLine + Environment.NewLine + e.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    this.Close();
-                }
-                
-                path_txt.ForeColor = Color.SlateBlue;
-
-                getAll.Enabled = true;
-                getInfo_busy = false;
-            }
-        }
-        
-        private void get_size(string path)
-        {
-            double SIZE_BYTES = 0;
-
-            if (Directory.Exists(path))
-            {
-                foreach (string name in Directory.GetFiles(path, "*.*", SearchOption.AllDirectories))
-                {
-                    SIZE_BYTES += new FileInfo(name).Length;
-                }
-            }
-            else if (File.Exists(path))
-            {
-                SIZE_BYTES = new FileInfo(path).Length;
-            }
-            else
-            {
-                return;
-            }
-
-            string FULLSIZE = fapmap.ROund(SIZE_BYTES) + " (" + SIZE_BYTES + " bytes" + ")";
-
-            fileSizeText.Text = FULLSIZE;
-        }
-
-        private class FileCount
-        {
-            public string Type;
-            public int Count;
-
-            public FileCount(string type, int count)
-            {
-                Type = type;
-                Count = count;
-            }
-        }
-
-        private void CountAll_print(string title, List<string> types)
-        {
-            List<FileCount> lfc = new List<FileCount>(); int total = 0;
-            foreach (string type in types)
-            {
-                int i = Directory.GetFiles(path, "*" + type, SearchOption.AllDirectories).Length;
-                total += i;
-                lfc.Add(new FileCount(type, i));
-            }
-
-            if (total > 0)
-            {
-                count_files.Text += title + "....: " + total + Environment.NewLine;
-                foreach (FileCount fc in lfc)
-                {
-                    string dot = "";
-                    switch (fc.Type.Length)
+                    else if (File.Exists(path))
                     {
-                        case 4: dot = "...."; break;
-                        case 5: dot = "..."; break;
-                        case 6: dot = ".."; break;
-                        case 7: dot = "."; break;
+                        FileInfo fi = new FileInfo(path);
+                        label_path.Text = fi.Name;
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            txt_size.Text = fapmap.ROund(fi.Length) + " (" + fi.Length + " bytes" + ")";
+
+                            txt_output.Text +=
+                            "Name..................: " + fi.Name + Environment.NewLine +
+                            "Extension.............: " + fi.Extension + Environment.NewLine +
+                            "Path..................: " + fi.FullName + Environment.NewLine +
+                            "File Attributes.......: " + fi.Attributes + Environment.NewLine +
+                            "IsReadOnly............: " + fi.IsReadOnly + Environment.NewLine +
+                            "Size..................: " + fi.Length + Environment.NewLine +
+                            "Creation Time.........: " + fi.CreationTime + Environment.NewLine +
+                            "Creation Time (Utc)...: " + fi.CreationTimeUtc + Environment.NewLine +
+                            "Last Access Time......: " + fi.LastAccessTime + Environment.NewLine +
+                            "Last Access Time (Utc): " + fi.LastAccessTimeUtc + Environment.NewLine +
+                            "Last Write Time.......: " + fi.LastWriteTime + Environment.NewLine +
+                            "Last Write Time (Utc).: " + fi.LastWriteTimeUtc + Environment.NewLine;
+                        });
                     }
 
-                    if (cb_count.Checked) { if (fc.Count > 0) { count_files.Text += "> " + fc.Type.Replace(".", "") + dot + ": " + fc.Count + Environment.NewLine; } }
-                    else { count_files.Text += "> " + fc.Type.Replace(".", "") + dot + ": " + fc.Count + Environment.NewLine; }
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        label_info.Text = "Done!";
+                    });
+
+                    getInfo_busy = false;
                 }
-            }
-            count_files.Text += Environment.NewLine;
-        }
-        private void CountAll()
-        {
-            //CLEAR
-            count_files.Text = "";
-
-            count_files.Text += "TOTAL:" + Environment.NewLine;
-            count_files.Text += "> .\\*....: " + Directory.GetFiles(path, "*.*", SearchOption.TopDirectoryOnly).Length + Environment.NewLine;
-            count_files.Text += "> *.*....: " + Directory.GetFiles(path, "*.*", SearchOption.AllDirectories).Length + Environment.NewLine;
-            count_files.Text += "> topdir.: " + System.IO.Directory.GetDirectories(path, "*.*", SearchOption.TopDirectoryOnly).Length + Environment.NewLine;
-            count_files.Text += "> alldir.: " + System.IO.Directory.GetDirectories(path, "*.*", SearchOption.AllDirectories).Length + Environment.NewLine;
-            count_files.Text += Environment.NewLine;
-
-            CountAll_print("VIDEO", fapmap.GlobalVariables.FileTypes.Video);
-            CountAll_print("IMAGE", fapmap.GlobalVariables.FileTypes.Image);
-            CountAll_print("OTHER", fapmap.GlobalVariables.FileTypes.Other);
+            })
+            { IsBackground = true }.Start();
         }
 
-        private void getAll_MouseClick(object sender, MouseEventArgs e)
+        private void getAll_MouseUp(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { getInfo(); }
+            if (e.Button == MouseButtons.Left) { getInfo(pass_path); }
         }
     }
 }

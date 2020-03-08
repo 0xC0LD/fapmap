@@ -30,16 +30,24 @@ namespace fapmap
             btn_cancel.Focus();
             this.ActiveControl = btn_cancel;
         }
-
-        // options
-        private void cb_keyword_CheckedChanged(object sender, EventArgs e)
+        
+        private void cb_CheckedChanged(object sender, EventArgs e)
         {
-            keyword = txt_keyword.Enabled = cb_keyword.Checked;
+            CheckBox cb = (CheckBox)sender;
+            if (cb.Tag == null || string.IsNullOrEmpty(cb.Tag.ToString())) { cb.Checked = false; return; }
+
+            switch (cb.Tag.ToString())
+            {
+                case "KEYWORD": keyword = txt_keyword.Enabled = cb.Checked; break;
+                case "RMLOGS":  rmlogs  = cb.Checked;                       break;
+                case "RANDOM":  random  = cb.Checked;                       break;
+                case "REVERSE": reverse = cb.Checked;                       break;
+                default: cb.Checked = false; return;
+            }
+            
+            cb.ForeColor = cb.Checked ? Color.SkyBlue : Color.RoyalBlue;
         }
         private void tb_keyword_TextChanged(object sender, EventArgs e) { if (keyword) { keyword_str = txt_keyword.Text; } }
-        private void cb_rmlogs_CheckedChanged(object sender, EventArgs e)  { rmlogs  = cb_rmlogs.Checked  ? true : false; }
-        private void cb_random_CheckedChanged(object sender, EventArgs e)  { random  = cb_random.Checked  ? true : false; }
-        private void cb_reverse_CheckedChanged(object sender, EventArgs e) { reverse = cb_reverse.Checked ? true : false; }
         private void tb_path_TextChanged(object sender, EventArgs e)
         {
             if (!Directory.Exists(txt_path.Text)) { txt_path.ForeColor = Color.Red;       }
@@ -48,10 +56,14 @@ namespace fapmap
             path = this.txt_path.Text;
         }
 
-        // make buttons
-        private void btn_make_MouseClick(object sender, MouseEventArgs e)
+        private void btn_openPathSelector_MouseUp(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left) {
+            if (e.Button == MouseButtons.Left) { fapmap.OpenPathSelectorTXT(this, txt_path, false); }
+        }
+        private void btn_make_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
 
                 if (!Directory.Exists(txt_path.Text))
                 {
@@ -63,7 +75,7 @@ namespace fapmap
                 this.Close();
             }
         }
-        private void btn_cancel_MouseClick(object sender, MouseEventArgs e)
+        private void btn_cancel_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left) { this.DialogResult = DialogResult.Cancel; this.Close(); }
         }

@@ -80,9 +80,9 @@
             this.link1.Tag = "https://twitter.com/0xC0LD";
             this.link1.Text = "Twitter";
             this.link1.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
-            this.link1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.link_MouseClick);
             this.link1.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.link1.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+            this.link1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.link_MouseUp);
             // 
             // link2
             // 
@@ -100,9 +100,9 @@
             this.link2.Tag = "https://github.com/0xC0LD";
             this.link2.Text = "GitHub";
             this.link2.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
-            this.link2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.link_MouseClick);
             this.link2.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.link2.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+            this.link2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.link_MouseUp);
             // 
             // label1
             // 
@@ -130,7 +130,6 @@
             this.pb3.TabIndex = 206;
             this.pb3.TabStop = false;
             this.pb3.Tag = "babo";
-            this.pb3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picture_MouseClick);
             this.pb3.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.pb3.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
@@ -148,7 +147,6 @@
             this.pb2.TabIndex = 210;
             this.pb2.TabStop = false;
             this.pb2.Tag = "LtSilence";
-            this.pb2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picture_MouseClick);
             this.pb2.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.pb2.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
@@ -166,7 +164,6 @@
             this.pb1.TabIndex = 211;
             this.pb1.TabStop = false;
             this.pb1.Tag = "Cacy";
-            this.pb1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picture_MouseClick);
             this.pb1.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.pb1.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
@@ -184,7 +181,6 @@
             this.pb0.TabIndex = 219;
             this.pb0.TabStop = false;
             this.pb0.Tag = "0xC0LD";
-            this.pb0.MouseClick += new System.Windows.Forms.MouseEventHandler(this.picture_MouseClick);
             this.pb0.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.pb0.MouseLeave += new System.EventHandler(this.control_MouseLeave);
             // 
@@ -229,9 +225,9 @@
             this.link4.Tag = "https://www.youtube.com/channel/UCZYJoXoj7VNsozoj7BgQzuA";
             this.link4.Text = "YouTube";
             this.link4.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
-            this.link4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.link_MouseClick);
             this.link4.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.link4.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+            this.link4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.link_MouseUp);
             // 
             // link3
             // 
@@ -249,9 +245,9 @@
             this.link3.Tag = "https://www.youtube.com/channel/UCY_ZKhENUwwy3L4sq7H0XQg";
             this.link3.Text = "YouTube";
             this.link3.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
-            this.link3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.link_MouseClick);
             this.link3.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.link3.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+            this.link3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.link_MouseUp);
             // 
             // link7
             // 
@@ -269,9 +265,9 @@
             this.link7.Tag = "https://www.youtube.com/channel/UCfyazOMu9xdDwO7gUZ42SRg";
             this.link7.Text = "YouTube";
             this.link7.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
-            this.link7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.link_MouseClick);
             this.link7.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.link7.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+            this.link7.MouseUp += new System.Windows.Forms.MouseEventHandler(this.link_MouseUp);
             // 
             // link8
             // 
@@ -289,9 +285,9 @@
             this.link8.Tag = "https://www.youtube.com/channel/UCSEIztoYFl2IXiVkgfV6D2A";
             this.link8.Text = "YouTube";
             this.link8.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
-            this.link8.MouseClick += new System.Windows.Forms.MouseEventHandler(this.link_MouseClick);
             this.link8.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.link8.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+            this.link8.MouseUp += new System.Windows.Forms.MouseEventHandler(this.link_MouseUp);
             // 
             // label3
             // 
@@ -321,9 +317,9 @@
             this.link5.Tag = "https://www.codeproject.com/articles/365974/autocomplete-menu";
             this.link5.Text = "Autocomplete Menu by Pavel Torgashov";
             this.link5.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
-            this.link5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.link_MouseClick);
             this.link5.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.link5.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+            this.link5.MouseUp += new System.Windows.Forms.MouseEventHandler(this.link_MouseUp);
             // 
             // link6
             // 
@@ -341,9 +337,9 @@
             this.link6.Tag = "https://github.com/fabricelacharme/ColorSlider";
             this.link6.Text = "ColorSlider by fabricelacharme ";
             this.link6.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
-            this.link6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.link_MouseClick);
             this.link6.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.link6.MouseLeave += new System.EventHandler(this.control_MouseLeave);
+            this.link6.MouseUp += new System.Windows.Forms.MouseEventHandler(this.link_MouseUp);
             // 
             // fapmap_credit
             // 
@@ -409,3 +405,4 @@
         private System.Windows.Forms.LinkLabel link6;
     }
 }
+

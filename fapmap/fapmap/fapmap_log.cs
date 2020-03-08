@@ -25,7 +25,7 @@ namespace fapmap
 
         private void fapmap_log_Load(object sender, EventArgs e)
         {
-            logs_refresh();
+            logs_reload();
         }
         
         private bool readLogs(string logPath)
@@ -55,20 +55,20 @@ namespace fapmap
                     ListViewItem lvi = new ListViewItem(new string[] { count.ToString(), time, action, text }) { Name = text };
                     switch (action)
                     {
-                        case fapmap.GlobalVariables.LOG_TYPE.OPEN: lvi.ForeColor = Color.Yellow; break;
-                        case fapmap.GlobalVariables.LOG_TYPE.PLAY: lvi.ForeColor = Color.SkyBlue; break;
-                        case fapmap.GlobalVariables.LOG_TYPE.EXEC: lvi.ForeColor = Color.Orange; break;
-                        case fapmap.GlobalVariables.LOG_TYPE.MOVE: lvi.ForeColor = Color.Yellow; break;
-                        case fapmap.GlobalVariables.LOG_TYPE.LOAD: lvi.ForeColor = Color.OrangeRed; break;
-                        case fapmap.GlobalVariables.LOG_TYPE.NTFD: lvi.ForeColor = Color.Red; break;
-                        case fapmap.GlobalVariables.LOG_TYPE.DING: lvi.ForeColor = Color.DarkGreen; break;
-                        case fapmap.GlobalVariables.LOG_TYPE.DLED: lvi.ForeColor = Color.Lime; break;
-                        case fapmap.GlobalVariables.LOG_TYPE.RENM: lvi.ForeColor = Color.DarkSeaGreen; break;
-                        case fapmap.GlobalVariables.LOG_TYPE.MKDR: lvi.ForeColor = Color.SteelBlue; break;
-                        case fapmap.GlobalVariables.LOG_TYPE.RMVD: lvi.ForeColor = Color.IndianRed; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.OPEN: lvi.ForeColor = Color.Yellow;        break;
+                        case fapmap.GlobalVariables.LOG_TYPE.PLAY: lvi.ForeColor = Color.SkyBlue;       break;
+                        case fapmap.GlobalVariables.LOG_TYPE.EXEC: lvi.ForeColor = Color.Orange;        break;
+                        case fapmap.GlobalVariables.LOG_TYPE.MOVE: lvi.ForeColor = Color.Yellow;        break;
+                        case fapmap.GlobalVariables.LOG_TYPE.LOAD: lvi.ForeColor = Color.OrangeRed;     break;
+                        case fapmap.GlobalVariables.LOG_TYPE.NTFD: lvi.ForeColor = Color.Red;           break;
+                        case fapmap.GlobalVariables.LOG_TYPE.DING: lvi.ForeColor = Color.DarkGreen;     break;
+                        case fapmap.GlobalVariables.LOG_TYPE.DLED: lvi.ForeColor = Color.Lime;          break;
+                        case fapmap.GlobalVariables.LOG_TYPE.RENM: lvi.ForeColor = Color.DarkSeaGreen;  break;
+                        case fapmap.GlobalVariables.LOG_TYPE.MKDR: lvi.ForeColor = Color.SteelBlue;     break;
+                        case fapmap.GlobalVariables.LOG_TYPE.RMVD: lvi.ForeColor = Color.IndianRed;     break;
                         case fapmap.GlobalVariables.LOG_TYPE.UDEL: lvi.ForeColor = Color.PaleVioletRed; break;
-                        case fapmap.GlobalVariables.LOG_TYPE.PASS: lvi.ForeColor = Color.Crimson; break;
-                        case fapmap.GlobalVariables.LOG_TYPE.FAIL: lvi.ForeColor = Color.DarkOrchid; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.PASS: lvi.ForeColor = Color.Crimson;       break;
+                        case fapmap.GlobalVariables.LOG_TYPE.FAIL: lvi.ForeColor = Color.DarkOrchid;    break;
                         default: lvi.ForeColor = Color.Silver; break;
                     }
                     items.Add(lvi);
@@ -81,7 +81,7 @@ namespace fapmap
             return true;
         }
         
-        private void logs_refresh()
+        private void logs_reload()
         {
             lable_status.Text = "Loading...";
 
@@ -105,27 +105,15 @@ namespace fapmap
         }
         private void logs_copy()
         {
-            if (logs.SelectedItems != null)
+            if (logs.SelectedItems == null) { return; }
+            if (logs.SelectedItems.Count == 0) { return; }
+
+            string clip = string.Empty;
+            foreach (ListViewItem item in logs.SelectedItems)
             {
-                string clip = string.Empty;
-                foreach (ListViewItem item in logs.SelectedItems)
-                {
-                    if (item == logs.SelectedItems[logs.SelectedItems.Count - 1])
-                    {
-                        clip += item.Name;
-                    }
-                    else
-                    {
-                        clip += item.Name + Environment.NewLine;
-                    }
-                    
-                }
-                if (!string.IsNullOrEmpty(clip))
-                {
-                    System.Windows.Forms.Clipboard.SetText(clip);
-                }
-                
+                clip += item == logs.SelectedItems[logs.SelectedItems.Count - 1] ? item.Name : item.Name + Environment.NewLine;
             }
+            if (!string.IsNullOrEmpty(clip)) { System.Windows.Forms.Clipboard.SetText(clip); }
         }
         private void logs_edit()
         {
@@ -137,7 +125,7 @@ namespace fapmap
             switch(e.KeyCode)
             {
                 case Keys.Enter: logs_open(); e.Handled = true; e.SuppressKeyPress = true; break;
-                case Keys.F5: logs_refresh(); break;
+                case Keys.F5: logs_reload(); break;
             }
 
             if (e.Control)
@@ -145,7 +133,7 @@ namespace fapmap
                 switch (e.KeyCode)
                 {
                     case Keys.W: logs_open(); break;
-                    case Keys.R: logs_refresh(); break;
+                    case Keys.R: logs_reload(); break;
                     case Keys.C: logs_copy(); break;
                     case Keys.E: logs_edit(); break;
                 }
@@ -153,13 +141,10 @@ namespace fapmap
         }
         private void logs_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
-            {
-                logs_open();
-            }
+            if (e.Button == MouseButtons.Left) { logs_open(); }
         }
         
-        private void logs_RMB_refresh_Click(object sender, EventArgs e) { logs_refresh(); }
+        private void logs_RMB_reload_Click(object sender, EventArgs e) { logs_reload(); }
         private void logs_RMB_open_Click(object sender, EventArgs e) { logs_open(); }
         private void logs_RMB_copy_Click(object sender, EventArgs e) { logs_copy(); }
         private void logs_RMB_edit_Click(object sender, EventArgs e) { logs_edit(); }

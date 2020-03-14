@@ -1,4 +1,9 @@
 # fapmap - Hidden personal gallery of erotica (C#, GUI)
+- A program made for COOMERS!
+- Hide files with a click of a button.
+- Watch/Download files & bookmark urls all inside the program.
+- ...
+### [ENTIRE GUI IN ONE IMAGE](https://github.com/0xC0LD/fapmap/blob/master/fapmap.png)
 
 ## Programs in this repository:
 - fapmaper ("fapmaper" is the "installation" program... all it really does is copy the contents from the "data" folder to the given location, then it hides the destination folder):
@@ -13,21 +18,18 @@
     - an editable URL/website board with favicons (./data/favicons)
     - settings (./data/fapmap.ini)
 
-### EVERY GUI PREVIEW IN ONE [IMAGE](https://github.com/0xC0LD/fapmap/blob/master/fapmap.png)
-
 ## TIPS/HINTS:
 - hover over buttons to see what they do... (tooltip)
 - right click on 'Change Tabs' to see both tabs
 - tray icon: left click = hide the fapmap window, right click = close fapmap
 - fileDisplay: ctrl + scroll = zoom in/out icons
 - you can drag 'n' drop a FILE link in the address bar to open them in a fapmap media player (also works on a media players' titlebar)
-- you can drag 'n' drop a FILE link in the treeview/fileDisplay to open them in a downloader
+- you can drag 'n' drop a FILE link in the treeview/fileDisplay to open the link in a downloader
 - you can drag 'n' drop files in the treeview/fileDisplay to copy them to a selected location
 - before opening downloader/fscan/youtube-dl/... select the working location in the treeview/fileDisplay
 - in the Video Player you can change the audio peak for the audio graph
   by holding down the mouse on the text label and moving it up & down...
   right click on the audio peak label to enable/disable auto peek change...
-
 
 ## STUFF USED IN THE PROJECT:
 - Some of the icons/images used in the GUI can be found on the web...
@@ -35,5 +37,5 @@
 - https://github.com/fabricelacharme/ColorSlider
 
 ## OTHER INFO:
-- More info: [here](https://github.com/0xC0LD/fapmap/blob/master/fapmaper/fapmaper/bin/Release/data/ReadMe.txt)
+- [here](https://github.com/0xC0LD/fapmap/blob/master/fapmaper/fapmaper/bin/Release/data/ReadMe.txt)
 - Ask me on twitter

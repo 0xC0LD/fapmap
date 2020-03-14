@@ -10,9 +10,9 @@
 |	Just add "fapmap_mod" in the name of the file (ex. [youtube-dl fapmap_mod.exe])
 |	and when you open the file fapmap will prompt you with a window allowing
 |	you to input command line arguments (%1, %2, %3, ...)
-| that will be passed onto the script/exe/program/...
+|	that will be passed onto the script/exe/program/...
 |	I have already made some scripts... just extract the "scripts.rar" file
-| and a (scripts) folder should appear in the "Main Folder"
+|	and a (scripts) folder should appear in the "Main Folder"
 |	with all the scripts (Main Folder\scripts\*)...
 
 =====[ ICONS FOR URL BOARD ]=====

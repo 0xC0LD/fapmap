@@ -51,7 +51,7 @@ namespace fapmap
         private void tb_path_TextChanged(object sender, EventArgs e)
         {
             if (!Directory.Exists(txt_path.Text)) { txt_path.ForeColor = Color.Red;       }
-            else                                 { txt_path.ForeColor = Color.SlateBlue; }
+            else                                  { txt_path.ForeColor = Color.SlateBlue; }
 
             path = this.txt_path.Text;
         }

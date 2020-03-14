@@ -33,6 +33,7 @@ namespace fapmap
                 case "opera.exe":   rb_opera.Checked = true;   break;
             }
 
+            //===
             cb_hideOnX.Checked   = fapmap.GlobalVariables.Settings.CheckBoxes.HideOnX;
             cb_focusHide.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.FocusHide;
 
@@ -49,6 +50,10 @@ namespace fapmap
             cb_tvSortByDate.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.TreeViewSortByCreationDate;
             cb_tvIndex.Checked      = fapmap.GlobalVariables.Settings.CheckBoxes.TreeViewShowItemIndex;
 
+            cb_fdSortByDate.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate;
+            cb_fdThumb.Checked      = fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails;
+            //===
+
             passwords_load(txt_passwds, fapmap.GlobalVariables.Path.File.Password);
             
             txt_wbURL.Text = fapmap.GlobalVariables.Settings.WebBrowser.FapMapURL;
@@ -59,7 +64,9 @@ namespace fapmap
 
             txt_size.Text = "...";
             txt_output.Text = "...";
-            
+
+            getInfo();
+
             this.ActiveControl = btn_getinfo;
         }
 
@@ -437,6 +444,9 @@ namespace fapmap
 
                 case "TVSORT":  fapmap.GlobalVariables.Settings.CheckBoxes.TreeViewSortByCreationDate = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.TreeViewSortByCreationDate_, fapmap.bool_to_string(cb.Checked)); break;
                 case "TVINDEX": fapmap.GlobalVariables.Settings.CheckBoxes.TreeViewShowItemIndex      = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.TreeViewShowItemIndex_,      fapmap.bool_to_string(cb.Checked)); break;
+
+                case "FDSORT":  fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate_, fapmap.bool_to_string(cb.Checked)); break;
+                case "FDTHUMB": fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails     = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails_,     fapmap.bool_to_string(cb.Checked)); break;
             }
         }
 

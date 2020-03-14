@@ -20,7 +20,7 @@ namespace fapmap
         {
             InitializeComponent();
 
-            RMB_output.Renderer = new fapmap_res.color.fToolStripProfessionalRenderer();
+            output_RMB.Renderer = new fapmap_res.color.fToolStripProfessionalRenderer();
         }
 
         private void fapmap_find_Load(object sender, EventArgs e)
@@ -29,53 +29,14 @@ namespace fapmap
         }
 
         #region fx
-
-        // DrawMode = OwnerDrawVariable
-        private void output_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            try
-            {
-                if (e.Index < 0) { return; }
-                if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
-                {
-                    e = new DrawItemEventArgs
-                    (
-                        e.Graphics,
-                        e.Font,
-                        e.Bounds,
-                        e.Index,
-                        e.State ^ DrawItemState.Selected,
-                        Color.MediumSlateBlue,
-                        Color.FromArgb(25, 25, 25)
-                    );
-                }
-
-                e.DrawBackground();
-                e.Graphics.DrawString(output.Items[e.Index].ToString(), e.Font, new SolidBrush(e.ForeColor), e.Bounds, StringFormat.GenericDefault);
-                e.DrawFocusRectangle();
-            }
-            catch (Exception) { }
-        }
-
-        private void output_MeasureItem(object sender, MeasureItemEventArgs e)
-        {
-            // word wrap
-            //e.ItemHeight = (int)e.Graphics.MeasureString(Output.Items[e.Index].ToString(), Output.Font, Output.Width).Height;
-        }
-
+        
         private void HelpBalloon_Draw(object sender, DrawToolTipEventArgs e)
         {
             e.DrawBackground();
             e.DrawBorder();
             e.DrawText();
         }
-
-        private void output_SizeChanged(object sender, EventArgs e)
-        {
-            output.Update();
-            output.Refresh();
-        }
-
+        
         #endregion
 
         #region functions
@@ -84,9 +45,7 @@ namespace fapmap
         {
             //result
             resultNum.Text = "Searching...";
-
-            //CLEAR
-            output.SelectedItem = null;
+            
             output.Items.Clear();
 
             List<string> all = new List<string>();
@@ -95,10 +54,10 @@ namespace fapmap
 
             List<string> keywords = new List<string>();
 
-            if (searchBox.Text.Contains(' ')) { keywords.AddRange(searchBox.Text.Split(' ')); }
-            else { keywords.Add(searchBox.Text); }
+            if (txt_searchBox.Text.Contains(' ')) { keywords.AddRange(txt_searchBox.Text.Split(' ')); }
+            else { keywords.Add(txt_searchBox.Text); }
 
-            List<string> itemsToAdd = new List<string>();
+            List<ListViewItem> itemsToAdd = new List<ListViewItem>();
 
             foreach (string f in all)
             {
@@ -111,60 +70,74 @@ namespace fapmap
                     { addIt = false; break; }
                 }
 
-                if (addIt) { itemsToAdd.Add(f); }
+                if (addIt)
+                {
+                    itemsToAdd.Add(new ListViewItem(new string[] { (itemsToAdd.Count +1).ToString(), f }) { Name = f });
+                }
             }
 
             output.Items.AddRange(itemsToAdd.ToArray());
+
+            // resize
+            output.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 
             //show result
             resultNum.Text = output.Items.Count + " result(s) found!";
         }
         private void output_open()
         {
-            if (output.SelectedItem != null)
+            foreach(ListViewItem lvi in output.SelectedItems)
             {
-                fapmap.Open(output.SelectedItem.ToString());
+                if (lvi.Name == null) { continue; }
+                string text = lvi.Name;
+                if (string.IsNullOrEmpty(text)) { continue; }
+
+                fapmap.Open(text);
             }
         }
         private void output_explorer()
         {
-            if (output.SelectedItem != null)
+            foreach (ListViewItem lvi in output.SelectedItems)
             {
-                fapmap.OpenInExplorer(output.SelectedItem.ToString());
+                if (lvi.Name == null) { continue; }
+                string text = lvi.Name;
+                if (string.IsNullOrEmpty(text)) { continue; }
+
+                fapmap.OpenInExplorer(text);
+            }
+        }
+        private void output_explorer2()
+        {
+            foreach (ListViewItem lvi in output.SelectedItems)
+            {
+                if (lvi.Name == null) { continue; }
+                string text = lvi.Name;
+                if (string.IsNullOrEmpty(text)) { continue; }
+
+                fapmap.OpenAndSelectInExplorer(text);
             }
         }
         private void output_copy()
         {
-            if (output.SelectedItem != null)
+            string clip = string.Empty;
+            foreach (ListViewItem item in output.SelectedItems)
             {
-                Clipboard.SetText(output.SelectedItem.ToString());
+                clip += item == output.SelectedItems[output.SelectedItems.Count - 1] ? item.Name : item.Name + Environment.NewLine;
             }
+            if (!string.IsNullOrEmpty(clip)) { System.Windows.Forms.Clipboard.SetText(clip); }
         }
-        private void output_deleteFile()
+        private void output_delete()
         {
             showImage_dispose();
 
-            if (output.SelectedItem != null)
+            foreach (ListViewItem lvi in output.SelectedItems)
             {
-                string file = output.SelectedItem.ToString();
+                if (lvi.Name == null) { continue; }
+                string text = lvi.Name;
+                if (string.IsNullOrEmpty(text)) { continue; }
 
-                if (!string.IsNullOrEmpty(file))
-                {
-                    if (File.Exists(file))
-                    {
-                        FileInfo fi = new FileInfo(file);
-
-                        try
-                        {
-                            Microsoft.VisualBasic.FileIO.FileSystem.DeleteFile(fi.FullName, Microsoft.VisualBasic.FileIO.UIOption.AllDialogs, Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin);
-
-                            output.Items.Remove(output.SelectedItem.ToString());
-                        }
-                        catch (System.OperationCanceledException) { }
-                        catch (IOException) { }
-                        catch (UnauthorizedAccessException) { }
-                    }
-                }
+                if      (File.Exists(text))      { if (fapmap.TrashFile(text)) { lvi.Remove(); } }
+                else if (Directory.Exists(text)) { if (fapmap.TrashDir(text))  { lvi.Remove(); } }
             }
         }
 
@@ -177,13 +150,19 @@ namespace fapmap
             if (e.Button == MouseButtons.Left) { find(); }
         }
 
-        private void searchBox_KeyDown(object sender, KeyEventArgs e)
+        private void txt_searchBox_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
             {
                 case Keys.Enter: find(); e.Handled = true; e.SuppressKeyPress = true; break;
-                case Keys.Back: if (e.Control) { e.SuppressKeyPress = true; } break;
                 case Keys.Escape: this.Close(); break;
+            }
+
+            if (e.Control && e.KeyCode == Keys.Back)
+            {
+                txt_searchBox.Text = "";
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
         
@@ -194,17 +173,19 @@ namespace fapmap
                 case Keys.F5: find(); break;
                 case Keys.Enter: output_open(); e.Handled = true; e.SuppressKeyPress = true; break;
                 case Keys.Escape: this.Close(); break;
-                case Keys.Delete: output_deleteFile(); break;
+                case Keys.Delete: output_delete(); break;
             }
 
             if (e.Control)
             {
+                e.Handled = true; e.SuppressKeyPress = true;
                 switch (e.KeyCode)
                 {
-                    case Keys.R: find(); break;
-                    case Keys.W: output_open(); e.Handled = true; e.SuppressKeyPress = true; break;
-                    case Keys.U: output_explorer(); break;
-                    case Keys.C: output_copy(); break;
+                    case Keys.R: find();             break;
+                    case Keys.W: output_open();      break;
+                    case Keys.E: output_explorer();  break;
+                    case Keys.S: output_explorer2(); break;
+                    case Keys.C: output_copy();      break;
                 }
             }
         }
@@ -223,10 +204,10 @@ namespace fapmap
             if (e.Clicks == 2) { output_open(); return; }
 
             string text = string.Empty;
-            foreach (string item in output.SelectedItems) { text += item + Environment.NewLine; }
+            foreach (ListViewItem item in output.SelectedItems) { text += item.Name + Environment.NewLine; }
             this.output.DoDragDrop(new System.Windows.Forms.DataObject(System.Windows.Forms.DataFormats.StringFormat, text), DragDropEffects.Copy);
         }
-        
+
         private void showImage_dispose()
         {
             showImage.Image = Properties.Resources.image;
@@ -235,19 +216,23 @@ namespace fapmap
         }
         private void output_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (output.SelectedItem == null) { return; }
-            string item = output.SelectedItem.ToString();
-            if (string.IsNullOrEmpty(item)) { return; }
-            if (!File.Exists(item) && !Directory.Exists(item)) { output.Items.Remove(output.SelectedItem); return; }
-
-            if (!cb_showImage.Checked) { return; }
-            showImage_dispose();
-            if (File.Exists(item))
+            foreach (ListViewItem lvi in output.SelectedItems)
             {
-                if (fapmap.GlobalVariables.FileTypes.Image.Contains(new FileInfo(item).Extension))
+                if (lvi.Name == null) { continue; }
+                string item = lvi.Name;
+                if (string.IsNullOrEmpty(item)) { continue; }
+
+                if (!File.Exists(item) && !Directory.Exists(item)) { lvi.Remove(); return; }
+
+                if (!cb_showImage.Checked) { return; }
+                showImage_dispose();
+                if (File.Exists(item))
                 {
-                    showImage.Image = Image.FromFile(item);
-                    showImage.Visible = true;
+                    if (fapmap.GlobalVariables.FileTypes.Image.Contains(new FileInfo(item).Extension))
+                    {
+                        showImage.Image = Image.FromFile(item);
+                        showImage.Visible = true;
+                    }
                 }
             }
         }
@@ -290,12 +275,13 @@ namespace fapmap
 
         #region RMB
 
-        private void RMB_output_reload_Click  (object sender, EventArgs e) { find();              }
-        private void RMB_output_open_Click    (object sender, EventArgs e) { output_open();       }
-        private void RMB_output_explorer_Click(object sender, EventArgs e) { output_explorer();   }
-        private void RMB_output_copy_Click    (object sender, EventArgs e) { output_copy();       }
-        private void RMB_output_delete_Click  (object sender, EventArgs e) { output_deleteFile(); }
-
+        private void output_RMB_reload_Click  (object sender, EventArgs e)  { find();              }
+        private void output_RMB_open_Click    (object sender, EventArgs e)  { output_open();       }
+        private void output_RMB_explorer_Click(object sender, EventArgs e)  { output_explorer();   }
+        private void output_RMB_explorer2_Click(object sender, EventArgs e) { output_explorer2(); }
+        private void output_RMB_copy_Click    (object sender, EventArgs e)  { output_copy();       }
+        private void output_RMB_delete_Click  (object sender, EventArgs e)  { output_delete(); }
+        
         #endregion
 
         

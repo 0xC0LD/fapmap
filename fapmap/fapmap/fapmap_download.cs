@@ -40,10 +40,7 @@ namespace fapmap
             // path
             txt_dir.Text = fapmap.GlobalVariables.Path.Dir.MainFolder + "\\";
             if (!string.IsNullOrEmpty(pass_path) && Directory.Exists(pass_path)) { txt_dir.Text = new DirectoryInfo(pass_path).FullName + "\\"; }
-
-            // hide ext
-            webgrab_sw();
-
+            
             links.Focus();
             this.ActiveControl = links;
 
@@ -58,7 +55,6 @@ namespace fapmap
             if (!string.IsNullOrEmpty(pass_webgrabURL))
             {
                 txt_webgrabURL.Text = pass_webgrabURL;
-                cb_webgrab.Checked = true;
                 webgrab();
             }
         }
@@ -179,7 +175,7 @@ namespace fapmap
             links_updateCount(links.Items.Count);
 
             // resize and scroll
-            foreach (ColumnHeader column in links.Columns) { column.Width = -2; }
+            links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             links.EnsureVisible(links.Items.Count - 1);
         }
         private void links_addRange(string[] list)
@@ -241,7 +237,7 @@ namespace fapmap
                 links_updateCount(links.Items.Count);
 
                 // resize and scroll
-                foreach (ColumnHeader column in links.Columns) { column.Width = -2; }
+                links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
                 links.EnsureVisible(links.Items.Count - 1);
             }
         }
@@ -363,7 +359,7 @@ namespace fapmap
             }
 
             // resize
-            foreach (ColumnHeader column in links.Columns) { column.Width = -2; }
+            links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
         }
 
         #endregion
@@ -534,7 +530,7 @@ namespace fapmap
         {
             fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.DLED, txt_dledURL.Text + " -> " + txt_dledPATH.Text);
             
-            info.ForeColor = System.Drawing.Color.Teal;
+            info.ForeColor = System.Drawing.Color.SpringGreen;
             pbar.Visible = false;
             links_updateCount(links.Items.Count);
             updateIcon(false);
@@ -562,8 +558,27 @@ namespace fapmap
                 {
                     if (fapmap.Open(txt_dledPATH.Text))
                     {
-                        info.ForeColor = System.Drawing.Color.Teal;
+                        info.ForeColor = System.Drawing.Color.SpringGreen;
                         info.Text = "File opened.";
+                    }
+                    else
+                    {
+                        info.ForeColor = System.Drawing.Color.DarkOrchid;
+                        info.Text = "File Not Found!";
+                    }
+                }
+            }
+        }
+        private void openDownloadedFileInExplorer()
+        {
+            if (!string.IsNullOrEmpty(txt_dledPATH.Text))
+            {
+                if (File.Exists(txt_dledPATH.Text))
+                {
+                    if (fapmap.OpenAndSelectInExplorer(txt_dledPATH.Text))
+                    {
+                        info.ForeColor = System.Drawing.Color.SpringGreen;
+                        info.Text = "Opened explorer and selected the file.";
                     }
                     else
                     {
@@ -579,7 +594,7 @@ namespace fapmap
             {
                 if (fapmap.Incognito(txt_dledURL.Text))
                 {
-                    info.ForeColor = System.Drawing.Color.Teal;
+                    info.ForeColor = System.Drawing.Color.SpringGreen;
                     info.Text = "URL opened.";
                 }
                 else
@@ -699,7 +714,7 @@ namespace fapmap
 
                     this.Invoke((MethodInvoker)delegate
                     {
-                        info.ForeColor = System.Drawing.Color.Teal;
+                        info.ForeColor = System.Drawing.Color.SpringGreen;
                         info.Text = "Done!";
                         btn_webgrabStart.BackgroundImage = Properties.Resources.scanPage;
                     });
@@ -714,19 +729,6 @@ namespace fapmap
         {
             try { webgrab_outputLinks.Add(e.Data); }
             catch (Exception) { }
-        }
-        private void webgrab_sw()
-        {
-            if (!cb_webgrab.Checked)
-            {
-                sc_webgrab.Panel1.Hide();
-                sc_webgrab.Panel1Collapsed = true;
-            }
-            else
-            {
-                sc_webgrab.Panel1.Show();
-                sc_webgrab.Panel1Collapsed = false;
-            }
         }
 
         #endregion
@@ -752,6 +754,10 @@ namespace fapmap
         private void btn_openURL_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left) { openDownloadedURL(); }
+        }
+        private void btn_selectFileInExplorer_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left) { openDownloadedFileInExplorer(); }
         }
         private void btn_openPathSelector_MouseUp(object sender, MouseEventArgs e)
         {
@@ -780,11 +786,6 @@ namespace fapmap
             auto.Enabled = cb_auto.Checked;
         }
         
-        private void cb_webgrab_CheckedChanged(object sender, EventArgs e)
-        {
-            webgrab_sw();
-        }
-
         private void cb_replace_CheckedChanged(object sender, EventArgs e)
         {
             if (cb_conflict_replace.Checked)
@@ -816,14 +817,13 @@ namespace fapmap
 
         private void txt_dir_KeyDown(object sender, KeyEventArgs e)
         {
-            //DEL TEXT
             if (e.KeyCode == Keys.Enter)
             {
+                if (!Directory.Exists(txt_dir.Text)) { Directory.CreateDirectory(txt_dir.Text); }
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
-
-            //DEL TEXT
+            
             if (e.Control && e.KeyCode == Keys.Back)
             {
                 txt_dir.Text = fapmap.GlobalVariables.Path.Dir.MainFolder + "\\";
@@ -834,7 +834,6 @@ namespace fapmap
         }
         private void txt_filename_KeyDown(object sender, KeyEventArgs e)
         {
-            //DEL TEXT
             if (e.KeyCode == Keys.Enter)
             {
                 txt_filename.ReadOnly = true;
@@ -844,11 +843,9 @@ namespace fapmap
                 e.SuppressKeyPress = true;
             }
 
-            //DEL TEXT
             if (e.Control && e.KeyCode == Keys.Back)
             {
                 txt_filename.Text = "";
-
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
@@ -861,21 +858,17 @@ namespace fapmap
 
                 links_add(txt_url.Text);
             }
-
-            //DEL TEXT
+            
             if (e.Control && e.KeyCode == Keys.Back)
             {
-                e.SuppressKeyPress = true;
-
                 txt_url.Text = "";
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
         private void txt_dledPATH_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control && e.KeyCode == Keys.A)
-            {
-                txt_dledPATH.Select(0, txt_dledPATH.TextLength);
-            }
+            if (e.Control && e.KeyCode == Keys.A) { txt_dledPATH.Select(0, txt_dledPATH.TextLength); }
         }
         private void txt_dledURL_KeyDown(object sender, KeyEventArgs e)
         {
@@ -886,29 +879,28 @@ namespace fapmap
             if (e.KeyCode == Keys.Enter)
             {
                 webgrab();
+
+                e.Handled = true;
                 e.SuppressKeyPress = true;
             }
 
-            //DEL TEXT
             if (e.Control && e.KeyCode == Keys.Back)
             {
-                e.SuppressKeyPress = true;
-
                 txt_webgrabURL.Text = "";
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
         private void txt_webgrabOptions_KeyDown(object sender, KeyEventArgs e)
         {
-            //DEL TEXT
             if (e.Control && e.KeyCode == Keys.Back)
             {
-                e.SuppressKeyPress = true;
-
                 txt_webgrabOptions.Text = "";
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
-
-
+        
         private void txt_dir_TextChanged(object sender, EventArgs e)
         {
             txt_dir.ForeColor = Directory.Exists(txt_dir.Text) ? Color.SlateBlue : Color.Red;
@@ -950,6 +942,7 @@ namespace fapmap
                 }
             }
         }
+        
 
         private void txt_url_DragEnter(object sender, DragEventArgs e)
         {
@@ -962,7 +955,18 @@ namespace fapmap
         {
             txt_url.Text = (e.Data.GetData(typeof(string)) as string);
         }
-        
+
+        private void txt_webgrabURL_DragEnter(object sender, DragEventArgs e)
+        {
+            if ((e.AllowedEffect & System.Windows.Forms.DragDropEffects.All) != 0 && e.Data.GetDataPresent(typeof(string)))
+            {
+                e.Effect = System.Windows.Forms.DragDropEffects.All;
+            }
+        }
+        private void txt_webgrabURL_DragDrop(object sender, DragEventArgs e)
+        {
+            txt_webgrabURL.Text = (e.Data.GetData(typeof(string)) as string);
+        }
 
         private void txt_filename_DragDrop(object sender, DragEventArgs e)
         {
@@ -978,7 +982,7 @@ namespace fapmap
                 e.Effect = System.Windows.Forms.DragDropEffects.All;
             }
         }
-
+        
         #endregion
 
         #region links
@@ -1037,7 +1041,7 @@ namespace fapmap
                 }
             }
         }
-
+        
         private void links_DragDrop(object sender, DragEventArgs e)
         {
             string stringData = e.Data.GetData(typeof(string)) as string;
@@ -1050,9 +1054,9 @@ namespace fapmap
                 e.Effect = System.Windows.Forms.DragDropEffects.All;
             }
         }
-
-        #endregion
         
+        #endregion
+
         #region RMB
 
         private void links_RMB_refresh_Click(object sender, EventArgs e)
@@ -1094,8 +1098,13 @@ namespace fapmap
             links_deleteSome();
         }
 
+
+
+
         #endregion
 
         #endregion
+
+        
     }
 }

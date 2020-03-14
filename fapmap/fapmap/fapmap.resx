@@ -171,6 +171,87 @@
   <data name="splitContainer_files.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 26</value>
   </data>
+  <data name="faftv_cb_index.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
+    <value>Button</value>
+  </data>
+  <data name="faftv_cb_index.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="faftv_cb_index.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="faftv_cb_index.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt, style=Bold</value>
+  </data>
+  <data name="faftv_cb_index.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="faftv_cb_index.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-1, 4</value>
+  </data>
+  <data name="faftv_cb_index.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 4, 2, 4</value>
+  </data>
+  <data name="faftv_cb_index.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="faftv_cb_index.TabIndex" type="System.Int32, mscorlib">
+    <value>200</value>
+  </data>
+  <data name="faftv_cb_index.ToolTip" xml:space="preserve">
+    <value>Show Item Index</value>
+  </data>
+  <data name="&gt;&gt;faftv_cb_index.Name" xml:space="preserve">
+    <value>faftv_cb_index</value>
+  </data>
+  <data name="&gt;&gt;faftv_cb_index.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;faftv_cb_index.Parent" xml:space="preserve">
+    <value>splitContainer_files.Panel1</value>
+  </data>
+  <data name="&gt;&gt;faftv_cb_index.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="faftv_cb_sort.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
+    <value>Button</value>
+  </data>
+  <data name="faftv_cb_sort.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="faftv_cb_sort.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="faftv_cb_sort.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt, style=Bold</value>
+  </data>
+  <data name="faftv_cb_sort.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-1, -1</value>
+  </data>
+  <data name="faftv_cb_sort.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 4, 2, 4</value>
+  </data>
+  <data name="faftv_cb_sort.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="faftv_cb_sort.TabIndex" type="System.Int32, mscorlib">
+    <value>199</value>
+  </data>
+  <data name="faftv_cb_sort.ToolTip" xml:space="preserve">
+    <value>Sort Items by Creation DateTime</value>
+  </data>
+  <data name="&gt;&gt;faftv_cb_sort.Name" xml:space="preserve">
+    <value>faftv_cb_sort</value>
+  </data>
+  <data name="&gt;&gt;faftv_cb_sort.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;faftv_cb_sort.Parent" xml:space="preserve">
+    <value>splitContainer_files.Panel1</value>
+  </data>
+  <data name="&gt;&gt;faftv_cb_sort.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <metadata name="faftv_RMB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>209, 17</value>
   </metadata>
@@ -296,7 +377,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABE
-        NQAAAk1TRnQBSQFMAgEBDwEAAWABGAFgARgBEAEAARABAAT/AREBAAj/AUIBTQE2BwABNgMAASgDAAFA
+        NQAAAk1TRnQBSQFMAgEBDwEAAYgBGAGIARgBEAEAARABAAT/AREBAAj/AUIBTQE2BwABNgMAASgDAAFA
         AwABQAMAAQEBAAEQBgABIBQAAUsBJQHIARQByAEUAcgBFAHIARQByAEUAcgBFAHIARQByAEUAcgBFAHI
         ARQByAEUAcgBFAFLASUMAAHTAQAB0wEAAdMBAAHTAQAB0wEAAdMNAAFLASUByAEUAcgBFAHIARQByAEU
         AcgBFAHIARQByAEUAcgBFAHIARQByAEUAcgBFAHIARQBSwElJAABrgExAf8BfwH/AX8B/wF/Af8BfwH/
@@ -548,7 +629,7 @@
     <value>splitContainer_files.Panel1</value>
   </data>
   <data name="&gt;&gt;faftv.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;splitContainer_files.Panel1.Name" xml:space="preserve">
     <value>splitContainer_files.Panel1</value>
@@ -565,8 +646,92 @@
   <data name="splitContainer_files.Panel1MinSize" type="System.Int32, mscorlib">
     <value>130</value>
   </data>
+  <data name="fileDisplay_cb_thumb.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
+    <value>Button</value>
+  </data>
+  <data name="fileDisplay_cb_thumb.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="fileDisplay_cb_thumb.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="fileDisplay_cb_thumb.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt, style=Bold</value>
+  </data>
+  <data name="fileDisplay_cb_thumb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="fileDisplay_cb_thumb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-1, 4</value>
+  </data>
+  <data name="fileDisplay_cb_thumb.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 4, 2, 4</value>
+  </data>
+  <data name="fileDisplay_cb_thumb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="fileDisplay_cb_thumb.TabIndex" type="System.Int32, mscorlib">
+    <value>202</value>
+  </data>
+  <data name="fileDisplay_cb_thumb.ToolTip" xml:space="preserve">
+    <value>Show Thumbnails</value>
+  </data>
+  <data name="&gt;&gt;fileDisplay_cb_thumb.Name" xml:space="preserve">
+    <value>fileDisplay_cb_thumb</value>
+  </data>
+  <data name="&gt;&gt;fileDisplay_cb_thumb.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fileDisplay_cb_thumb.Parent" xml:space="preserve">
+    <value>splitContainer_files.Panel2</value>
+  </data>
+  <data name="&gt;&gt;fileDisplay_cb_thumb.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="fileDisplay_cb_sort.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
+    <value>Button</value>
+  </data>
+  <data name="fileDisplay_cb_sort.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="fileDisplay_cb_sort.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="fileDisplay_cb_sort.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt, style=Bold</value>
+  </data>
+  <data name="fileDisplay_cb_sort.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="fileDisplay_cb_sort.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-1, -1</value>
+  </data>
+  <data name="fileDisplay_cb_sort.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 4, 2, 4</value>
+  </data>
+  <data name="fileDisplay_cb_sort.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="fileDisplay_cb_sort.TabIndex" type="System.Int32, mscorlib">
+    <value>201</value>
+  </data>
+  <data name="fileDisplay_cb_sort.ToolTip" xml:space="preserve">
+    <value>Sort Items by Creation DateTime</value>
+  </data>
+  <data name="&gt;&gt;fileDisplay_cb_sort.Name" xml:space="preserve">
+    <value>fileDisplay_cb_sort</value>
+  </data>
+  <data name="&gt;&gt;fileDisplay_cb_sort.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fileDisplay_cb_sort.Parent" xml:space="preserve">
+    <value>splitContainer_files.Panel2</value>
+  </data>
+  <data name="&gt;&gt;fileDisplay_cb_sort.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="fileDisplay.Alignment" type="System.Windows.Forms.ListViewAlignment, System.Windows.Forms">
-    <value>Default</value>
+    <value>SnapToGrid</value>
   </data>
   <metadata name="fileDisplay_RMB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>158, 56</value>
@@ -644,7 +809,7 @@
     <value>Properties (CTRL+P)</value>
   </data>
   <data name="fileDisplay_RMB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 224</value>
+    <value>240, 202</value>
   </data>
   <data name="&gt;&gt;fileDisplay_RMB.Name" xml:space="preserve">
     <value>fileDisplay_RMB</value>
@@ -654,6 +819,9 @@
   </data>
   <data name="fileDisplay.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
+  </data>
+  <data name="fileDisplay.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Calibri, 11.25pt</value>
   </data>
   <metadata name="fileDisplay_icons.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 56</value>
@@ -680,7 +848,7 @@
     <value>splitContainer_files.Panel2</value>
   </data>
   <data name="&gt;&gt;fileDisplay.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;splitContainer_files.Panel2.Name" xml:space="preserve">
     <value>splitContainer_files.Panel2</value>
@@ -1369,7 +1537,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;splitContainer_main.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>11</value>
   </data>
   <metadata name="this_trayicon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>518, 17</value>
@@ -4724,6 +4892,186 @@
   <data name="&gt;&gt;drawAudioThread_maxPeakLabel.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="fapmap_cb_hideOnX.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="fapmap_cb_hideOnX.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
+    <value>Button</value>
+  </data>
+  <data name="fapmap_cb_hideOnX.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="fapmap_cb_hideOnX.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="fapmap_cb_hideOnX.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt, style=Bold</value>
+  </data>
+  <data name="fapmap_cb_hideOnX.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="fapmap_cb_hideOnX.Location" type="System.Drawing.Point, System.Drawing">
+    <value>977, 1</value>
+  </data>
+  <data name="fapmap_cb_hideOnX.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 4, 2, 4</value>
+  </data>
+  <data name="fapmap_cb_hideOnX.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="fapmap_cb_hideOnX.TabIndex" type="System.Int32, mscorlib">
+    <value>203</value>
+  </data>
+  <data name="fapmap_cb_hideOnX.ToolTip" xml:space="preserve">
+    <value>Hide On X</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_hideOnX.Name" xml:space="preserve">
+    <value>fapmap_cb_hideOnX</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_hideOnX.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_hideOnX.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_hideOnX.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="fapmap_cb_hideOnFocus.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="fapmap_cb_hideOnFocus.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
+    <value>Button</value>
+  </data>
+  <data name="fapmap_cb_hideOnFocus.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="fapmap_cb_hideOnFocus.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="fapmap_cb_hideOnFocus.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt, style=Bold</value>
+  </data>
+  <data name="fapmap_cb_hideOnFocus.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="fapmap_cb_hideOnFocus.Location" type="System.Drawing.Point, System.Drawing">
+    <value>977, 8</value>
+  </data>
+  <data name="fapmap_cb_hideOnFocus.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 4, 2, 4</value>
+  </data>
+  <data name="fapmap_cb_hideOnFocus.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="fapmap_cb_hideOnFocus.TabIndex" type="System.Int32, mscorlib">
+    <value>204</value>
+  </data>
+  <data name="fapmap_cb_hideOnFocus.ToolTip" xml:space="preserve">
+    <value>Hide On Lost Focus</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_hideOnFocus.Name" xml:space="preserve">
+    <value>fapmap_cb_hideOnFocus</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_hideOnFocus.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_hideOnFocus.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_hideOnFocus.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="fapmap_cb_media.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="fapmap_cb_media.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
+    <value>Button</value>
+  </data>
+  <data name="fapmap_cb_media.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="fapmap_cb_media.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="fapmap_cb_media.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt, style=Bold</value>
+  </data>
+  <data name="fapmap_cb_media.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="fapmap_cb_media.Location" type="System.Drawing.Point, System.Drawing">
+    <value>970, 1</value>
+  </data>
+  <data name="fapmap_cb_media.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 4, 2, 4</value>
+  </data>
+  <data name="fapmap_cb_media.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="fapmap_cb_media.TabIndex" type="System.Int32, mscorlib">
+    <value>205</value>
+  </data>
+  <data name="fapmap_cb_media.ToolTip" xml:space="preserve">
+    <value>Enable Media Players</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_media.Name" xml:space="preserve">
+    <value>fapmap_cb_media</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_media.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_media.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_media.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="fapmap_cb_fileDisplay.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="fapmap_cb_fileDisplay.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
+    <value>Button</value>
+  </data>
+  <data name="fapmap_cb_fileDisplay.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="fapmap_cb_fileDisplay.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="fapmap_cb_fileDisplay.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt, style=Bold</value>
+  </data>
+  <data name="fapmap_cb_fileDisplay.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="fapmap_cb_fileDisplay.Location" type="System.Drawing.Point, System.Drawing">
+    <value>970, 8</value>
+  </data>
+  <data name="fapmap_cb_fileDisplay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 4, 2, 4</value>
+  </data>
+  <data name="fapmap_cb_fileDisplay.Size" type="System.Drawing.Size, System.Drawing">
+    <value>6, 6</value>
+  </data>
+  <data name="fapmap_cb_fileDisplay.TabIndex" type="System.Int32, mscorlib">
+    <value>206</value>
+  </data>
+  <data name="fapmap_cb_fileDisplay.ToolTip" xml:space="preserve">
+    <value>Enable File Display</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_fileDisplay.Name" xml:space="preserve">
+    <value>fapmap_cb_fileDisplay</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_fileDisplay.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_fileDisplay.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_fileDisplay.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
   <data name="showMedia_video_panel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
@@ -5171,7 +5519,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;showMedia_video_panel.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>9</value>
   </data>
   <metadata name="menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
@@ -5556,7 +5904,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menu.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>12</value>
   </data>
   <data name="showMedia_image_panel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -5703,7 +6051,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;showMedia_image_panel.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>10</value>
   </data>
   <metadata name="showMedia_image_gif_timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>638, 17</value>
@@ -8001,6 +8349,12 @@
   <data name="&gt;&gt;faftv_RMB_newFolder.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;faftv_RMB_move.Name" xml:space="preserve">
+    <value>faftv_RMB_move</value>
+  </data>
+  <data name="&gt;&gt;faftv_RMB_move.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;faftv_RMB_rename.Name" xml:space="preserve">
     <value>faftv_RMB_rename</value>
   </data>
@@ -8053,6 +8407,12 @@
     <value>fileDisplay_RMB_newFolder</value>
   </data>
   <data name="&gt;&gt;fileDisplay_RMB_newFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fileDisplay_RMB_move.Name" xml:space="preserve">
+    <value>fileDisplay_RMB_move</value>
+  </data>
+  <data name="&gt;&gt;fileDisplay_RMB_move.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;fileDisplay_RMB_rename.Name" xml:space="preserve">
@@ -8492,18 +8852,6 @@
   </data>
   <data name="&gt;&gt;wb_url_autoCompleteMenu.Type" xml:space="preserve">
     <value>AutocompleteMenuNS.AutocompleteMenu, AutocompleteMenu, Version=1.3.4.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;faftv_RMB_move.Name" xml:space="preserve">
-    <value>faftv_RMB_move</value>
-  </data>
-  <data name="&gt;&gt;faftv_RMB_move.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;fileDisplay_RMB_move.Name" xml:space="preserve">
-    <value>fileDisplay_RMB_move</value>
-  </data>
-  <data name="&gt;&gt;fileDisplay_RMB_move.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>fapmap</value>

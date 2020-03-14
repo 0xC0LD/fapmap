@@ -114,7 +114,7 @@ namespace fapmap
             board.Items.AddRange(items.ToArray());
 
             //auto resize
-            foreach (ColumnHeader column in board.Columns) { column.Width = -2; }
+            board.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
         }
         private void board_open(bool close)
         {
@@ -133,16 +133,12 @@ namespace fapmap
         }
         private void board_copy()
         {
-            if (board.SelectedItems != null)
+            string clip = string.Empty;
+            foreach (ListViewItem item in board.SelectedItems)
             {
-                foreach (ListViewItem item in board.SelectedItems)
-                {
-                    if (item.Name == null) { continue; }
-                    string text = item.Name;
-                    if (string.IsNullOrEmpty(text)) { continue; }
-                    System.Windows.Forms.Clipboard.SetText(text);
-                }
+                clip += item == board.SelectedItems[board.SelectedItems.Count - 1] ? item.Name : item.Name + Environment.NewLine;
             }
+            if (!string.IsNullOrEmpty(clip)) { System.Windows.Forms.Clipboard.SetText(clip); }
 
             this.Close();
         }

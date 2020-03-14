@@ -53,6 +53,13 @@ namespace fapmap
                 case Keys.Enter: confirm(); break;
                 case Keys.Escape: cancel(); break;
             }
+
+            if (e.Control && e.KeyCode == Keys.Back)
+            {
+                txt_input.Text = "";
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void btn_ok_MouseUp(object sender, MouseEventArgs e)

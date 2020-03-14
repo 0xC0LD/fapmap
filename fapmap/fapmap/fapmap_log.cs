@@ -90,7 +90,7 @@ namespace fapmap
             logs.EndUpdate();
 
             if (logs.Items.Count > 0) { logs.EnsureVisible(logs.Items.Count - 1); }
-            foreach (ColumnHeader column in logs.Columns) { column.Width = -2; }
+            logs.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
         }
         private void logs_open()
         {

@@ -162,6 +162,13 @@ namespace fapmap
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
+
+            if (e.Control && e.KeyCode == Keys.Back)
+            {
+                txt_url.Text = "";
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
         }
 
         private void btn_start_MouseUp(object sender, MouseEventArgs e)

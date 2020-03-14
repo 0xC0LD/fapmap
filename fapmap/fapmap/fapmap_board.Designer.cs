@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fapmap_board));
             this.board = new System.Windows.Forms.ListView();
-            this.board_num = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.board_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.board_url = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.board_clm_num = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.board_clm_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.board_clm_url = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.board_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.board_RMB_refresh = new System.Windows.Forms.ToolStripMenuItem();
             this.board_RMB_openAndExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,18 +53,19 @@
             this.board.BackgroundImageTiled = true;
             this.board.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.board.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.board_num,
-            this.board_name,
-            this.board_url});
+            this.board_clm_num,
+            this.board_clm_name,
+            this.board_clm_url});
             this.board.ContextMenuStrip = this.board_RMB;
             this.board.Dock = System.Windows.Forms.DockStyle.Fill;
             this.board.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.board.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.board.ForeColor = System.Drawing.Color.SlateBlue;
             this.board.FullRowSelect = true;
             this.board.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.board.HideSelection = false;
             this.board.LargeImageList = this.favicons;
             this.board.Location = new System.Drawing.Point(0, 0);
+            this.board.MultiSelect = false;
             this.board.Name = "board";
             this.board.Size = new System.Drawing.Size(684, 661);
             this.board.SmallImageList = this.favicons;
@@ -76,20 +77,20 @@
             this.board.KeyDown += new System.Windows.Forms.KeyEventHandler(this.board_KeyDown);
             this.board.MouseDown += new System.Windows.Forms.MouseEventHandler(this.board_MouseDown);
             // 
-            // board_num
+            // board_clm_num
             // 
-            this.board_num.Text = "";
-            this.board_num.Width = 2;
+            this.board_clm_num.Text = "";
+            this.board_clm_num.Width = 2;
             // 
-            // board_name
+            // board_clm_name
             // 
-            this.board_name.Text = "NAME";
-            this.board_name.Width = 92;
+            this.board_clm_name.Text = "NAME";
+            this.board_clm_name.Width = 92;
             // 
-            // board_url
+            // board_clm_url
             // 
-            this.board_url.Text = "URL";
-            this.board_url.Width = 268;
+            this.board_clm_url.Text = "URL";
+            this.board_clm_url.Width = 268;
             // 
             // board_RMB
             // 
@@ -105,7 +106,7 @@
             this.board_RMB.Name = "contextMenuStrip1";
             this.board_RMB.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.board_RMB.ShowItemToolTips = false;
-            this.board_RMB.Size = new System.Drawing.Size(281, 136);
+            this.board_RMB.Size = new System.Drawing.Size(281, 114);
             // 
             // board_RMB_refresh
             // 
@@ -189,9 +190,9 @@
         #endregion
 
         private System.Windows.Forms.ListView board;
-        private System.Windows.Forms.ColumnHeader board_name;
-        private System.Windows.Forms.ColumnHeader board_url;
-        private System.Windows.Forms.ColumnHeader board_num;
+        private System.Windows.Forms.ColumnHeader board_clm_name;
+        private System.Windows.Forms.ColumnHeader board_clm_url;
+        private System.Windows.Forms.ColumnHeader board_clm_num;
         private System.Windows.Forms.ImageList favicons;
         private System.Windows.Forms.ContextMenuStrip board_RMB;
         private System.Windows.Forms.ToolStripMenuItem board_RMB_refresh;

@@ -30,45 +30,33 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fapmap_find));
-            this.OutputBorder = new System.Windows.Forms.Panel();
             this.showImage = new System.Windows.Forms.PictureBox();
-            this.output = new System.Windows.Forms.ListBox();
-            this.RMB_output = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.RMB_output_reload = new System.Windows.Forms.ToolStripMenuItem();
-            this.RMB_output_open = new System.Windows.Forms.ToolStripMenuItem();
-            this.RMB_output_explorer = new System.Windows.Forms.ToolStripMenuItem();
-            this.RMB_output_copy = new System.Windows.Forms.ToolStripMenuItem();
-            this.RMB_output_delete = new System.Windows.Forms.ToolStripMenuItem();
+            this.output_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.output_RMB_reload = new System.Windows.Forms.ToolStripMenuItem();
+            this.output_RMB_open = new System.Windows.Forms.ToolStripMenuItem();
+            this.output_RMB_explorer = new System.Windows.Forms.ToolStripMenuItem();
+            this.output_RMB_explorer2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.output_RMB_copy = new System.Windows.Forms.ToolStripMenuItem();
+            this.output_RMB_delete = new System.Windows.Forms.ToolStripMenuItem();
             this.findButton = new System.Windows.Forms.Button();
-            this.searchBox = new System.Windows.Forms.TextBox();
+            this.txt_searchBox = new System.Windows.Forms.TextBox();
             this.HelpBalloon = new System.Windows.Forms.ToolTip(this.components);
             this.cb_case = new System.Windows.Forms.CheckBox();
             this.cb_showImage = new System.Windows.Forms.CheckBox();
             this.resultNum = new System.Windows.Forms.Label();
-            this.OutputBorder.SuspendLayout();
+            this.output = new System.Windows.Forms.ListView();
+            this.output_clm_num = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.output_clm_path = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.showImage)).BeginInit();
-            this.RMB_output.SuspendLayout();
+            this.output_RMB.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // OutputBorder
-            // 
-            this.OutputBorder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.OutputBorder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.OutputBorder.Controls.Add(this.showImage);
-            this.OutputBorder.Controls.Add(this.output);
-            this.OutputBorder.Location = new System.Drawing.Point(12, 38);
-            this.OutputBorder.Name = "OutputBorder";
-            this.OutputBorder.Size = new System.Drawing.Size(960, 492);
-            this.OutputBorder.TabIndex = 152;
             // 
             // showImage
             // 
             this.showImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.showImage.BackgroundImage = global::fapmap.Properties.Resources.bg3;
             this.showImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.showImage.Location = new System.Drawing.Point(-1, -1);
+            this.showImage.Location = new System.Drawing.Point(12, 38);
             this.showImage.MinimumSize = new System.Drawing.Size(64, 64);
             this.showImage.Name = "showImage";
             this.showImage.Size = new System.Drawing.Size(64, 64);
@@ -79,92 +67,83 @@
             this.showImage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showImage_MouseDown);
             this.showImage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.showImage_MouseMove);
             // 
-            // output
+            // output_RMB
             // 
-            this.output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.output.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.output.ContextMenuStrip = this.RMB_output;
-            this.output.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.output.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.output.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(82)))), ((int)(((byte)(189)))));
-            this.output.FormattingEnabled = true;
-            this.output.Location = new System.Drawing.Point(0, 0);
-            this.output.Name = "output";
-            this.output.Size = new System.Drawing.Size(958, 490);
-            this.output.TabIndex = 145;
-            this.output.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.output_DrawItem);
-            this.output.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.output_MeasureItem);
-            this.output.SelectedIndexChanged += new System.EventHandler(this.output_SelectedIndexChanged);
-            this.output.SizeChanged += new System.EventHandler(this.output_SizeChanged);
-            this.output.DragOver += new System.Windows.Forms.DragEventHandler(this.output_DragOver);
-            this.output.KeyDown += new System.Windows.Forms.KeyEventHandler(this.output_KeyDown);
-            this.output.MouseDown += new System.Windows.Forms.MouseEventHandler(this.output_MouseDown);
+            this.output_RMB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.output_RMB.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.output_RMB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.output_RMB_reload,
+            this.output_RMB_open,
+            this.output_RMB_explorer,
+            this.output_RMB_explorer2,
+            this.output_RMB_copy,
+            this.output_RMB_delete});
+            this.output_RMB.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
+            this.output_RMB.Name = "contextMenuStrip1";
+            this.output_RMB.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.output_RMB.ShowItemToolTips = false;
+            this.output_RMB.Size = new System.Drawing.Size(247, 136);
             // 
-            // RMB_output
+            // output_RMB_reload
             // 
-            this.RMB_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.RMB_output.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.RMB_output.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.RMB_output_reload,
-            this.RMB_output_open,
-            this.RMB_output_explorer,
-            this.RMB_output_copy,
-            this.RMB_output_delete});
-            this.RMB_output.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
-            this.RMB_output.Name = "contextMenuStrip1";
-            this.RMB_output.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.RMB_output.ShowItemToolTips = false;
-            this.RMB_output.Size = new System.Drawing.Size(247, 136);
+            this.output_RMB_reload.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.output_RMB_reload.ForeColor = System.Drawing.Color.SlateBlue;
+            this.output_RMB_reload.Image = global::fapmap.Properties.Resources.restart;
+            this.output_RMB_reload.Name = "output_RMB_reload";
+            this.output_RMB_reload.Size = new System.Drawing.Size(246, 22);
+            this.output_RMB_reload.Text = "Reload (CTRL+R/F5)";
+            this.output_RMB_reload.Click += new System.EventHandler(this.output_RMB_reload_Click);
             // 
-            // RMB_output_reload
+            // output_RMB_open
             // 
-            this.RMB_output_reload.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.RMB_output_reload.ForeColor = System.Drawing.Color.SlateBlue;
-            this.RMB_output_reload.Image = global::fapmap.Properties.Resources.restart;
-            this.RMB_output_reload.Name = "RMB_output_reload";
-            this.RMB_output_reload.Size = new System.Drawing.Size(246, 22);
-            this.RMB_output_reload.Text = "Reload (CTRL+R/F5)";
-            this.RMB_output_reload.Click += new System.EventHandler(this.RMB_output_reload_Click);
+            this.output_RMB_open.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.output_RMB_open.ForeColor = System.Drawing.Color.SlateBlue;
+            this.output_RMB_open.Image = global::fapmap.Properties.Resources.open;
+            this.output_RMB_open.Name = "output_RMB_open";
+            this.output_RMB_open.Size = new System.Drawing.Size(246, 22);
+            this.output_RMB_open.Text = "Open Selected (ENTER/CTRL+W)";
+            this.output_RMB_open.Click += new System.EventHandler(this.output_RMB_open_Click);
             // 
-            // RMB_output_open
+            // output_RMB_explorer
             // 
-            this.RMB_output_open.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.RMB_output_open.ForeColor = System.Drawing.Color.SlateBlue;
-            this.RMB_output_open.Image = global::fapmap.Properties.Resources.open;
-            this.RMB_output_open.Name = "RMB_output_open";
-            this.RMB_output_open.Size = new System.Drawing.Size(246, 22);
-            this.RMB_output_open.Text = "Open Selected (ENTER/CTRL+W)";
-            this.RMB_output_open.Click += new System.EventHandler(this.RMB_output_open_Click);
+            this.output_RMB_explorer.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.output_RMB_explorer.ForeColor = System.Drawing.Color.SlateBlue;
+            this.output_RMB_explorer.Image = global::fapmap.Properties.Resources.folder;
+            this.output_RMB_explorer.Name = "output_RMB_explorer";
+            this.output_RMB_explorer.Size = new System.Drawing.Size(246, 22);
+            this.output_RMB_explorer.Text = "Open in Explorer (CTRL+E)";
+            this.output_RMB_explorer.Click += new System.EventHandler(this.output_RMB_explorer_Click);
             // 
-            // RMB_output_explorer
+            // output_RMB_explorer2
             // 
-            this.RMB_output_explorer.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.RMB_output_explorer.ForeColor = System.Drawing.Color.SlateBlue;
-            this.RMB_output_explorer.Image = global::fapmap.Properties.Resources.folder;
-            this.RMB_output_explorer.Name = "RMB_output_explorer";
-            this.RMB_output_explorer.Size = new System.Drawing.Size(246, 22);
-            this.RMB_output_explorer.Text = "Open in Explorer (CTRL+U)";
-            this.RMB_output_explorer.Click += new System.EventHandler(this.RMB_output_explorer_Click);
+            this.output_RMB_explorer2.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.output_RMB_explorer2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.output_RMB_explorer2.ForeColor = System.Drawing.Color.SlateBlue;
+            this.output_RMB_explorer2.Image = global::fapmap.Properties.Resources.selectFolder;
+            this.output_RMB_explorer2.Name = "output_RMB_explorer2";
+            this.output_RMB_explorer2.Size = new System.Drawing.Size(246, 22);
+            this.output_RMB_explorer2.Text = "Select in Explorer (CTRL+S)";
+            this.output_RMB_explorer2.Click += new System.EventHandler(this.output_RMB_explorer2_Click);
             // 
-            // RMB_output_copy
+            // output_RMB_copy
             // 
-            this.RMB_output_copy.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.RMB_output_copy.ForeColor = System.Drawing.Color.SlateBlue;
-            this.RMB_output_copy.Image = global::fapmap.Properties.Resources.copy;
-            this.RMB_output_copy.Name = "RMB_output_copy";
-            this.RMB_output_copy.Size = new System.Drawing.Size(246, 22);
-            this.RMB_output_copy.Text = "Copy Location (CTRL+C)";
-            this.RMB_output_copy.Click += new System.EventHandler(this.RMB_output_copy_Click);
+            this.output_RMB_copy.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.output_RMB_copy.ForeColor = System.Drawing.Color.SlateBlue;
+            this.output_RMB_copy.Image = global::fapmap.Properties.Resources.copy;
+            this.output_RMB_copy.Name = "output_RMB_copy";
+            this.output_RMB_copy.Size = new System.Drawing.Size(246, 22);
+            this.output_RMB_copy.Text = "Copy Location (CTRL+C)";
+            this.output_RMB_copy.Click += new System.EventHandler(this.output_RMB_copy_Click);
             // 
-            // RMB_output_delete
+            // output_RMB_delete
             // 
-            this.RMB_output_delete.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.RMB_output_delete.ForeColor = System.Drawing.Color.SlateBlue;
-            this.RMB_output_delete.Image = global::fapmap.Properties.Resources.delete;
-            this.RMB_output_delete.Name = "RMB_output_delete";
-            this.RMB_output_delete.Size = new System.Drawing.Size(246, 22);
-            this.RMB_output_delete.Text = "Delete File (DEL)";
-            this.RMB_output_delete.Click += new System.EventHandler(this.RMB_output_delete_Click);
+            this.output_RMB_delete.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.output_RMB_delete.ForeColor = System.Drawing.Color.SlateBlue;
+            this.output_RMB_delete.Image = global::fapmap.Properties.Resources.delete;
+            this.output_RMB_delete.Name = "output_RMB_delete";
+            this.output_RMB_delete.Size = new System.Drawing.Size(246, 22);
+            this.output_RMB_delete.Text = "Delete (DEL)";
+            this.output_RMB_delete.Click += new System.EventHandler(this.output_RMB_delete_Click);
             // 
             // findButton
             // 
@@ -187,19 +166,19 @@
             this.findButton.UseVisualStyleBackColor = false;
             this.findButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.findButton_MouseUp);
             // 
-            // searchBox
+            // txt_searchBox
             // 
-            this.searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.searchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.searchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchBox.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.searchBox.ForeColor = System.Drawing.Color.Teal;
-            this.searchBox.Location = new System.Drawing.Point(12, 12);
-            this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(934, 20);
-            this.searchBox.TabIndex = 150;
-            this.searchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.searchBox_KeyDown);
+            this.txt_searchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_searchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_searchBox.Font = new System.Drawing.Font("Consolas", 8.25F);
+            this.txt_searchBox.ForeColor = System.Drawing.Color.Teal;
+            this.txt_searchBox.Location = new System.Drawing.Point(12, 12);
+            this.txt_searchBox.Name = "txt_searchBox";
+            this.txt_searchBox.Size = new System.Drawing.Size(934, 20);
+            this.txt_searchBox.TabIndex = 150;
+            this.txt_searchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_searchBox_KeyDown);
             // 
             // HelpBalloon
             // 
@@ -257,6 +236,48 @@
             this.resultNum.TabIndex = 153;
             this.resultNum.Text = "...";
             // 
+            // output
+            // 
+            this.output.AllowDrop = true;
+            this.output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.output.AutoArrange = false;
+            this.output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.output.BackgroundImage = global::fapmap.Properties.Resources.bg3;
+            this.output.BackgroundImageTiled = true;
+            this.output.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.output.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.output_clm_num,
+            this.output_clm_path});
+            this.output.ContextMenuStrip = this.output_RMB;
+            this.output.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.output.ForeColor = System.Drawing.Color.SlateBlue;
+            this.output.FullRowSelect = true;
+            this.output.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.output.HideSelection = false;
+            this.output.Location = new System.Drawing.Point(12, 38);
+            this.output.MultiSelect = false;
+            this.output.Name = "output";
+            this.output.Size = new System.Drawing.Size(960, 492);
+            this.output.TabIndex = 156;
+            this.output.UseCompatibleStateImageBehavior = false;
+            this.output.View = System.Windows.Forms.View.Details;
+            this.output.SelectedIndexChanged += new System.EventHandler(this.output_SelectedIndexChanged);
+            this.output.DragOver += new System.Windows.Forms.DragEventHandler(this.output_DragOver);
+            this.output.KeyDown += new System.Windows.Forms.KeyEventHandler(this.output_KeyDown);
+            this.output.MouseDown += new System.Windows.Forms.MouseEventHandler(this.output_MouseDown);
+            // 
+            // output_clm_num
+            // 
+            this.output_clm_num.Text = "#";
+            this.output_clm_num.Width = 2;
+            // 
+            // output_clm_path
+            // 
+            this.output_clm_path.Text = "PATH";
+            this.output_clm_path.Width = 92;
+            // 
             // fapmap_find
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,11 +285,12 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg3;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.showImage);
+            this.Controls.Add(this.output);
             this.Controls.Add(this.cb_showImage);
-            this.Controls.Add(this.searchBox);
+            this.Controls.Add(this.txt_searchBox);
             this.Controls.Add(this.cb_case);
             this.Controls.Add(this.findButton);
-            this.Controls.Add(this.OutputBorder);
             this.Controls.Add(this.resultNum);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
@@ -280,30 +302,30 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FapMap - Find File/Folder";
             this.Load += new System.EventHandler(this.fapmap_find_Load);
-            this.OutputBorder.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.showImage)).EndInit();
-            this.RMB_output.ResumeLayout(false);
+            this.output_RMB.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel OutputBorder;
-        private System.Windows.Forms.ListBox output;
         private System.Windows.Forms.Button findButton;
-        private System.Windows.Forms.TextBox searchBox;
+        private System.Windows.Forms.TextBox txt_searchBox;
         private System.Windows.Forms.ToolTip HelpBalloon;
         private System.Windows.Forms.Label resultNum;
-        private System.Windows.Forms.ContextMenuStrip RMB_output;
-        private System.Windows.Forms.ToolStripMenuItem RMB_output_copy;
-        private System.Windows.Forms.ToolStripMenuItem RMB_output_open;
-        private System.Windows.Forms.ToolStripMenuItem RMB_output_delete;
-        private System.Windows.Forms.ToolStripMenuItem RMB_output_reload;
-        private System.Windows.Forms.ToolStripMenuItem RMB_output_explorer;
+        private System.Windows.Forms.ContextMenuStrip output_RMB;
+        private System.Windows.Forms.ToolStripMenuItem output_RMB_copy;
+        private System.Windows.Forms.ToolStripMenuItem output_RMB_open;
+        private System.Windows.Forms.ToolStripMenuItem output_RMB_delete;
+        private System.Windows.Forms.ToolStripMenuItem output_RMB_reload;
+        private System.Windows.Forms.ToolStripMenuItem output_RMB_explorer;
         private System.Windows.Forms.CheckBox cb_case;
         private System.Windows.Forms.PictureBox showImage;
         private System.Windows.Forms.CheckBox cb_showImage;
+        private System.Windows.Forms.ListView output;
+        private System.Windows.Forms.ColumnHeader output_clm_num;
+        private System.Windows.Forms.ColumnHeader output_clm_path;
+        private System.Windows.Forms.ToolStripMenuItem output_RMB_explorer2;
     }
 }

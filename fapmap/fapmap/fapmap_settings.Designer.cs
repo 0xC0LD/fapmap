@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fapmap_settings));
             this.txt_size = new System.Windows.Forms.TextBox();
             this.panel_info = new System.Windows.Forms.Panel();
+            this.txt_outputBorder = new System.Windows.Forms.Panel();
             this.txt_output = new System.Windows.Forms.RichTextBox();
             this.btn_getinfo = new System.Windows.Forms.Button();
             this.label_info = new System.Windows.Forms.Label();
@@ -73,14 +74,16 @@
             this.cb_focusHide = new System.Windows.Forms.CheckBox();
             this.label_cb = new System.Windows.Forms.Label();
             this.cb_hideOnX = new System.Windows.Forms.CheckBox();
-            this.txt_outputBorder = new System.Windows.Forms.Panel();
+            this.label_cb_fileDisplay = new System.Windows.Forms.Label();
+            this.cb_fdSortByDate = new System.Windows.Forms.CheckBox();
+            this.cb_fdThumb = new System.Windows.Forms.CheckBox();
             this.panel_info.SuspendLayout();
+            this.txt_outputBorder.SuspendLayout();
             this.panel_browser.SuspendLayout();
             this.txt_passwdsBorder.SuspendLayout();
             this.panel_txt.SuspendLayout();
             this.panel_passwd.SuspendLayout();
             this.panel_cb.SuspendLayout();
-            this.txt_outputBorder.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_size
@@ -117,6 +120,18 @@
             this.panel_info.Name = "panel_info";
             this.panel_info.Size = new System.Drawing.Size(393, 582);
             this.panel_info.TabIndex = 192;
+            // 
+            // txt_outputBorder
+            // 
+            this.txt_outputBorder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_outputBorder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_outputBorder.Controls.Add(this.txt_output);
+            this.txt_outputBorder.Location = new System.Drawing.Point(3, 88);
+            this.txt_outputBorder.Name = "txt_outputBorder";
+            this.txt_outputBorder.Size = new System.Drawing.Size(385, 489);
+            this.txt_outputBorder.TabIndex = 223;
             // 
             // txt_output
             // 
@@ -496,6 +511,9 @@
             this.panel_cb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))), ((int)(((byte)(6)))));
             this.panel_cb.BackgroundImage = global::fapmap.Properties.Resources.bg3;
             this.panel_cb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_cb.Controls.Add(this.cb_fdThumb);
+            this.panel_cb.Controls.Add(this.cb_fdSortByDate);
+            this.panel_cb.Controls.Add(this.label_cb_fileDisplay);
             this.panel_cb.Controls.Add(this.cb_tvIndex);
             this.panel_cb.Controls.Add(this.cb_tvSortByDate);
             this.panel_cb.Controls.Add(this.label_cb_treeView);
@@ -533,7 +551,7 @@
             this.cb_tvIndex.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_tvIndex.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cb_tvIndex.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.cb_tvIndex.Location = new System.Drawing.Point(9, 415);
+            this.cb_tvIndex.Location = new System.Drawing.Point(6, 403);
             this.cb_tvIndex.Name = "cb_tvIndex";
             this.cb_tvIndex.Size = new System.Drawing.Size(107, 23);
             this.cb_tvIndex.TabIndex = 227;
@@ -555,7 +573,7 @@
             this.cb_tvSortByDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_tvSortByDate.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cb_tvSortByDate.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.cb_tvSortByDate.Location = new System.Drawing.Point(9, 390);
+            this.cb_tvSortByDate.Location = new System.Drawing.Point(6, 377);
             this.cb_tvSortByDate.Name = "cb_tvSortByDate";
             this.cb_tvSortByDate.Size = new System.Drawing.Size(203, 23);
             this.cb_tvSortByDate.TabIndex = 226;
@@ -570,7 +588,7 @@
             this.label_cb_treeView.BackColor = System.Drawing.Color.Transparent;
             this.label_cb_treeView.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_cb_treeView.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label_cb_treeView.Location = new System.Drawing.Point(6, 367);
+            this.label_cb_treeView.Location = new System.Drawing.Point(6, 358);
             this.label_cb_treeView.Name = "label_cb_treeView";
             this.label_cb_treeView.Size = new System.Drawing.Size(80, 16);
             this.label_cb_treeView.TabIndex = 225;
@@ -582,7 +600,7 @@
             this.label_cb_enable.BackColor = System.Drawing.Color.Transparent;
             this.label_cb_enable.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_cb_enable.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label_cb_enable.Location = new System.Drawing.Point(6, 118);
+            this.label_cb_enable.Location = new System.Drawing.Point(6, 112);
             this.label_cb_enable.Name = "label_cb_enable";
             this.label_cb_enable.Size = new System.Drawing.Size(62, 16);
             this.label_cb_enable.TabIndex = 224;
@@ -594,7 +612,7 @@
             this.label_cb_auto.BackColor = System.Drawing.Color.Transparent;
             this.label_cb_auto.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_cb_auto.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label_cb_auto.Location = new System.Drawing.Point(6, 267);
+            this.label_cb_auto.Location = new System.Drawing.Point(6, 261);
             this.label_cb_auto.Name = "label_cb_auto";
             this.label_cb_auto.Size = new System.Drawing.Size(47, 16);
             this.label_cb_auto.TabIndex = 223;
@@ -606,7 +624,7 @@
             this.label_cb_hideWindow.BackColor = System.Drawing.Color.Transparent;
             this.label_cb_hideWindow.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_cb_hideWindow.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label_cb_hideWindow.Location = new System.Drawing.Point(6, 42);
+            this.label_cb_hideWindow.Location = new System.Drawing.Point(6, 41);
             this.label_cb_hideWindow.Name = "label_cb_hideWindow";
             this.label_cb_hideWindow.Size = new System.Drawing.Size(204, 16);
             this.label_cb_hideWindow.TabIndex = 222;
@@ -625,7 +643,7 @@
             this.cb_logs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_logs.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cb_logs.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.cb_logs.Location = new System.Drawing.Point(9, 138);
+            this.cb_logs.Location = new System.Drawing.Point(6, 131);
             this.cb_logs.Name = "cb_logs";
             this.cb_logs.Size = new System.Drawing.Size(59, 23);
             this.cb_logs.TabIndex = 221;
@@ -647,7 +665,7 @@
             this.cb_openOutside.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_openOutside.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cb_openOutside.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.cb_openOutside.Location = new System.Drawing.Point(9, 238);
+            this.cb_openOutside.Location = new System.Drawing.Point(6, 235);
             this.cb_openOutside.Name = "cb_openOutside";
             this.cb_openOutside.Size = new System.Drawing.Size(185, 23);
             this.cb_openOutside.TabIndex = 220;
@@ -669,7 +687,7 @@
             this.cb_fileDisplay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_fileDisplay.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cb_fileDisplay.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.cb_fileDisplay.Location = new System.Drawing.Point(9, 213);
+            this.cb_fileDisplay.Location = new System.Drawing.Point(6, 209);
             this.cb_fileDisplay.Name = "cb_fileDisplay";
             this.cb_fileDisplay.Size = new System.Drawing.Size(89, 23);
             this.cb_fileDisplay.TabIndex = 219;
@@ -691,7 +709,7 @@
             this.cb_trackbar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_trackbar.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cb_trackbar.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.cb_trackbar.Location = new System.Drawing.Point(9, 188);
+            this.cb_trackbar.Location = new System.Drawing.Point(6, 183);
             this.cb_trackbar.Name = "cb_trackbar";
             this.cb_trackbar.Size = new System.Drawing.Size(155, 23);
             this.cb_trackbar.TabIndex = 218;
@@ -713,7 +731,7 @@
             this.cb_autoPause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_autoPause.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cb_autoPause.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.cb_autoPause.Location = new System.Drawing.Point(9, 339);
+            this.cb_autoPause.Location = new System.Drawing.Point(6, 332);
             this.cb_autoPause.Name = "cb_autoPause";
             this.cb_autoPause.Size = new System.Drawing.Size(125, 23);
             this.cb_autoPause.TabIndex = 217;
@@ -735,7 +753,7 @@
             this.cb_autoPlay.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_autoPlay.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cb_autoPlay.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.cb_autoPlay.Location = new System.Drawing.Point(9, 314);
+            this.cb_autoPlay.Location = new System.Drawing.Point(6, 306);
             this.cb_autoPlay.Name = "cb_autoPlay";
             this.cb_autoPlay.Size = new System.Drawing.Size(119, 23);
             this.cb_autoPlay.TabIndex = 216;
@@ -757,7 +775,7 @@
             this.cb_autoHideMedia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_autoHideMedia.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cb_autoHideMedia.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.cb_autoHideMedia.Location = new System.Drawing.Point(9, 289);
+            this.cb_autoHideMedia.Location = new System.Drawing.Point(6, 280);
             this.cb_autoHideMedia.Name = "cb_autoHideMedia";
             this.cb_autoHideMedia.Size = new System.Drawing.Size(125, 23);
             this.cb_autoHideMedia.TabIndex = 215;
@@ -779,7 +797,7 @@
             this.cb_media.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_media.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cb_media.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.cb_media.Location = new System.Drawing.Point(9, 163);
+            this.cb_media.Location = new System.Drawing.Point(6, 157);
             this.cb_media.Name = "cb_media";
             this.cb_media.Size = new System.Drawing.Size(95, 23);
             this.cb_media.TabIndex = 214;
@@ -801,7 +819,7 @@
             this.cb_focusHide.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_focusHide.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cb_focusHide.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.cb_focusHide.Location = new System.Drawing.Point(9, 90);
+            this.cb_focusHide.Location = new System.Drawing.Point(6, 86);
             this.cb_focusHide.Name = "cb_focusHide";
             this.cb_focusHide.Size = new System.Drawing.Size(77, 23);
             this.cb_focusHide.TabIndex = 213;
@@ -816,7 +834,7 @@
             this.label_cb.BackColor = System.Drawing.Color.Transparent;
             this.label_cb.Font = new System.Drawing.Font("Verdana", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_cb.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.label_cb.Location = new System.Drawing.Point(3, 6);
+            this.label_cb.Location = new System.Drawing.Point(6, 6);
             this.label_cb.Name = "label_cb";
             this.label_cb.Size = new System.Drawing.Size(219, 32);
             this.label_cb.TabIndex = 212;
@@ -835,7 +853,7 @@
             this.cb_hideOnX.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_hideOnX.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cb_hideOnX.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.cb_hideOnX.Location = new System.Drawing.Point(9, 65);
+            this.cb_hideOnX.Location = new System.Drawing.Point(6, 60);
             this.cb_hideOnX.Name = "cb_hideOnX";
             this.cb_hideOnX.Size = new System.Drawing.Size(35, 23);
             this.cb_hideOnX.TabIndex = 10;
@@ -845,17 +863,61 @@
             this.cb_hideOnX.UseVisualStyleBackColor = false;
             this.cb_hideOnX.CheckedChanged += new System.EventHandler(this.cb_checkChanged);
             // 
-            // txt_outputBorder
+            // label_cb_fileDisplay
             // 
-            this.txt_outputBorder.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_outputBorder.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_outputBorder.Controls.Add(this.txt_output);
-            this.txt_outputBorder.Location = new System.Drawing.Point(3, 88);
-            this.txt_outputBorder.Name = "txt_outputBorder";
-            this.txt_outputBorder.Size = new System.Drawing.Size(385, 489);
-            this.txt_outputBorder.TabIndex = 223;
+            this.label_cb_fileDisplay.AutoSize = true;
+            this.label_cb_fileDisplay.BackColor = System.Drawing.Color.Transparent;
+            this.label_cb_fileDisplay.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_cb_fileDisplay.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label_cb_fileDisplay.Location = new System.Drawing.Point(6, 429);
+            this.label_cb_fileDisplay.Name = "label_cb_fileDisplay";
+            this.label_cb_fileDisplay.Size = new System.Drawing.Size(96, 16);
+            this.label_cb_fileDisplay.TabIndex = 228;
+            this.label_cb_fileDisplay.Text = "File Display:";
+            // 
+            // cb_fdSortByDate
+            // 
+            this.cb_fdSortByDate.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_fdSortByDate.AutoSize = true;
+            this.cb_fdSortByDate.BackColor = System.Drawing.Color.Transparent;
+            this.cb_fdSortByDate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_fdSortByDate.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.cb_fdSortByDate.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_fdSortByDate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_fdSortByDate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_fdSortByDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_fdSortByDate.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_fdSortByDate.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.cb_fdSortByDate.Location = new System.Drawing.Point(6, 448);
+            this.cb_fdSortByDate.Name = "cb_fdSortByDate";
+            this.cb_fdSortByDate.Size = new System.Drawing.Size(203, 23);
+            this.cb_fdSortByDate.TabIndex = 229;
+            this.cb_fdSortByDate.Tag = "FDSORT";
+            this.cb_fdSortByDate.Text = "Sort Items by Creation DateTime";
+            this.cb_fdSortByDate.UseVisualStyleBackColor = false;
+            this.cb_fdSortByDate.CheckedChanged += new System.EventHandler(this.cb_checkChanged);
+            // 
+            // cb_fdThumb
+            // 
+            this.cb_fdThumb.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_fdThumb.AutoSize = true;
+            this.cb_fdThumb.BackColor = System.Drawing.Color.Transparent;
+            this.cb_fdThumb.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_fdThumb.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.cb_fdThumb.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_fdThumb.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_fdThumb.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_fdThumb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_fdThumb.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_fdThumb.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.cb_fdThumb.Location = new System.Drawing.Point(6, 474);
+            this.cb_fdThumb.Name = "cb_fdThumb";
+            this.cb_fdThumb.Size = new System.Drawing.Size(107, 23);
+            this.cb_fdThumb.TabIndex = 230;
+            this.cb_fdThumb.Tag = "FDTHUMB";
+            this.cb_fdThumb.Text = "Show Thumbnails";
+            this.cb_fdThumb.UseVisualStyleBackColor = false;
+            this.cb_fdThumb.CheckedChanged += new System.EventHandler(this.cb_checkChanged);
             // 
             // fapmap_settings
             // 
@@ -880,6 +942,7 @@
             this.Load += new System.EventHandler(this.fapmap_settings_Load);
             this.panel_info.ResumeLayout(false);
             this.panel_info.PerformLayout();
+            this.txt_outputBorder.ResumeLayout(false);
             this.panel_browser.ResumeLayout(false);
             this.panel_browser.PerformLayout();
             this.txt_passwdsBorder.ResumeLayout(false);
@@ -889,7 +952,6 @@
             this.panel_passwd.PerformLayout();
             this.panel_cb.ResumeLayout(false);
             this.panel_cb.PerformLayout();
-            this.txt_outputBorder.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -939,5 +1001,8 @@
         private System.Windows.Forms.TextBox txt_gifDelay;
         private System.Windows.Forms.Label label_gifDelay;
         private System.Windows.Forms.Panel txt_outputBorder;
+        private System.Windows.Forms.CheckBox cb_fdThumb;
+        private System.Windows.Forms.CheckBox cb_fdSortByDate;
+        private System.Windows.Forms.Label label_cb_fileDisplay;
     }
 }

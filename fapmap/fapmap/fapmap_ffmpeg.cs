@@ -261,7 +261,6 @@ namespace fapmap
 
         private void txt_file_KeyDown(object sender, KeyEventArgs e)
         {
-            //update tool tip
             HelpBalloon.SetToolTip(btn_openFile, "Open File: " + txt_file.Text);
 
             if (e.KeyCode == Keys.Enter)
@@ -279,6 +278,8 @@ namespace fapmap
 
             if (e.Control && e.KeyCode == Keys.Back)
             {
+                txt_file.Text = "";
+                e.Handled = true;
                 e.SuppressKeyPress = true;
             }
         }
@@ -294,6 +295,7 @@ namespace fapmap
 
             if (e.Control && e.KeyCode == Keys.Back)
             {
+                txt_fileNew.Text = "";
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
@@ -302,6 +304,13 @@ namespace fapmap
         {
             if (e.Control && e.KeyCode == Keys.Back)
             {
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
+
+            if (e.Control && e.KeyCode == Keys.Back)
+            {
+                txt_options.Text = "";
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }

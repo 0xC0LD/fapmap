@@ -66,7 +66,7 @@
             this.treeView.Name = "treeView";
             this.treeView.SelectedImageIndex = 0;
             this.treeView.Size = new System.Drawing.Size(580, 274);
-            this.treeView.TabIndex = 142;
+            this.treeView.TabIndex = 2;
             this.treeView.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_AfterSelect);
             this.treeView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.treeView_KeyDown);
             // 
@@ -147,7 +147,7 @@
             this.txt_path.Location = new System.Drawing.Point(12, 11);
             this.txt_path.Name = "txt_path";
             this.txt_path.Size = new System.Drawing.Size(580, 21);
-            this.txt_path.TabIndex = 143;
+            this.txt_path.TabIndex = 1;
             this.txt_path.TextChanged += new System.EventHandler(this.txt_path_TextChanged);
             // 
             // btn_ok
@@ -165,10 +165,10 @@
             this.btn_ok.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(61, 29);
-            this.btn_ok.TabIndex = 163;
+            this.btn_ok.TabIndex = 3;
             this.btn_ok.Text = "OK";
             this.btn_ok.UseVisualStyleBackColor = false;
-            this.btn_ok.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_ok_MouseUp);
+            this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
             // 
             // btn_cancel
             // 
@@ -185,10 +185,10 @@
             this.btn_cancel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(61, 29);
-            this.btn_cancel.TabIndex = 162;
+            this.btn_cancel.TabIndex = 4;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = false;
-            this.btn_cancel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_cancel_MouseUp);
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // fapmap_dirSelect
             // 

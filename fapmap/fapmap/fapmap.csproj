@@ -119,6 +119,12 @@
     <Compile Include="fapmap_dirSelect.Designer.cs">
       <DependentUpon>fapmap_dirSelect.cs</DependentUpon>
     </Compile>
+    <Compile Include="fapmap_fileExistsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fapmap_fileExistsDialog.Designer.cs">
+      <DependentUpon>fapmap_fileExistsDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="fapmap_fscan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="fapmap_ffmpeg.resx">
       <DependentUpon>fapmap_ffmpeg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fapmap_fileExistsDialog.resx">
+      <DependentUpon>fapmap_fileExistsDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fapmap_find.resx">
       <DependentUpon>fapmap_find.cs</DependentUpon>
@@ -306,6 +315,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="image_icon_fapmap_mediumblue.ico" />
+    <None Include="Resources\images\treeView.png" />
+    <None Include="Resources\images\home.png" />
+    <None Include="Resources\images\dragNdrop.png" />
+    <None Include="Resources\images\circle_palevioletred .png" />
+    <None Include="Resources\images\bg5.png" />
     <None Include="Resources\images\circle_mediumpurple.png" />
     <None Include="Resources\images\circle_darkorchid.png" />
     <None Include="Resources\images\circle_steelblue.png" />

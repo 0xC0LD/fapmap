@@ -19,9 +19,8 @@ namespace fapmap
         {
             InitializeComponent();
 
-            board_RMB.Renderer = new fapmap_res.color.fToolStripProfessionalRenderer();
+            board_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
         }
-
         
         private void fapmap_board_Load(object sender, EventArgs e)
         {
@@ -48,6 +47,7 @@ namespace fapmap
             { icons.AddRange(Directory.GetFiles(fapmap.GlobalVariables.Path.Dir.FavIcons)); }
             if (icons.Count == 0) { noIcons = true; }
 
+            int count = 0;
             for (int i = 0; i < lines.Count; i++)
             {
                 string line = lines[i];
@@ -62,8 +62,9 @@ namespace fapmap
                     MessageBox.Show("Something is wrong with the " + fapmap.GlobalVariables.Path.File.Board + " file on line: " + i+1, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     continue;
                 }
-                
-                string number = (i + 1).ToString();
+
+                count++;
+                string number = count.ToString();
                 string type = BoardIndex[0];
                 string name = BoardIndex[1];
                 string url = BoardIndex[2];
@@ -147,49 +148,96 @@ namespace fapmap
             fapmap.Open(fapmap.GlobalVariables.Path.File.Board);
         }
 
+        private bool board_ctrl = false;
+        private bool board_shift = false;
         private void board_KeyDown(object sender, KeyEventArgs e)
         {
+            board_ctrl = e.Control;
+            board_shift = e.Shift;
+
             switch (e.KeyCode)
             {
-                case Keys.Enter:  board_open(true); break;
-                case Keys.F5:     board_load();     break;
-                case Keys.Escape: this.Close();     break;
+                case Keys.Enter:  board_open(true); e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.F5:     board_load();     e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Escape: this.Close();     e.Handled = true; e.SuppressKeyPress = true; break;
             }
 
             if (e.Control)
             {
                 switch (e.KeyCode)
                 {
-                    case Keys.R: board_load();      break;
-                    case Keys.Q: board_open(false); break;
-                    case Keys.W: board_open(true);  break;
-                    case Keys.C: board_copy();      break;
-                    case Keys.E: board_edit();      break;
-                }
-            }
-            
-            if (!e.Control && !e.Shift)
-            {
-                board.SelectedItems.Clear();
-                foreach (ListViewItem lvi in board.Items)
-                {
-                    if (lvi.SubItems[1].Text.StartsWith(new KeysConverter().ConvertToString(e.KeyCode))
-                     || lvi.SubItems[1].Text.StartsWith(new KeysConverter().ConvertToString(e.KeyCode).ToLower()))
-                    {
-                        board.Items[lvi.Index].Selected = true;
-                        board.Select();
-                    }
+                    case Keys.R: board_load();      e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.Q: board_open(false); e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.W: board_open(true);  e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.C: board_copy();      e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.E: board_edit();      e.Handled = true; e.SuppressKeyPress = true; break;
                 }
             }
 
-            e.Handled = true;
-            e.SuppressKeyPress = true;
+            bool isNavigationKey = false;
+
+            switch (e.KeyCode)
+            {
+                case Keys.Up:       isNavigationKey = true; break;
+                case Keys.Down:     isNavigationKey = true; break;
+                case Keys.Left:     isNavigationKey = true; break;
+                case Keys.Right:    isNavigationKey = true; break;
+                case Keys.PageUp:   isNavigationKey = true; break;
+                case Keys.PageDown: isNavigationKey = true; break;
+            }
+
+            if (!isNavigationKey && !e.Control && !e.Shift)
+            {
+                ListViewItem s = board.SelectedItems.Count > 0 ? board.SelectedItems[0] : null;
+                
+                foreach (ListViewItem lvi in board.Items)
+                {
+                    if (board.SelectedItems.Count > 0 && (lvi == board.SelectedItems[0] || lvi.Index < board.SelectedItems[0].Index)) { continue; }
+
+                    if (lvi.SubItems[1].Text.ToLower().StartsWith(new KeysConverter().ConvertToString(e.KeyCode).ToLower()))
+                    {
+                        board.Items[lvi.Index].Selected = true;
+                        board.Items[lvi.Index].Focused = true;
+                        board.EnsureVisible(lvi.Index);
+                        board.Select();
+                        break;
+                    }
+                }
+                
+                if (board.SelectedItems.Count > 0 && s == board.SelectedItems[0]) { board.SelectedItems.Clear(); }
+                e.Handled = true; e.SuppressKeyPress = true;
+            }
         }
-        private void board_DragOver(object sender, DragEventArgs e)
+        private void board_KeyUp(object sender, KeyEventArgs e)
         {
-            if (board.SelectedItems.Count == 0) { return; }
-            e.Effect = DragDropEffects.Copy;
+            board_ctrl = false;
+            board_shift = false;
         }
+        private void board_LostFocus(object sender, System.EventArgs e)
+        {
+            board_ctrl = false;
+            board_shift = false;
+        }
+
+        private int links_fontSize_min = 8;
+        private int links_fontSize_max = 30;
+        private int links_fontSize = 10;
+        private void board_MouseWheel(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (!board_ctrl) { return; }
+            
+            int last = links_fontSize;
+            if (e.Delta > 0) { links_fontSize += (board_shift ? 6 : 2); }
+            else             { links_fontSize -= (board_shift ? 6 : 2); }
+
+            if      (links_fontSize < links_fontSize_min) { links_fontSize = links_fontSize_min; }
+            else if (links_fontSize > links_fontSize_max) { links_fontSize = links_fontSize_max; }
+            if      (links_fontSize == last)              { return; }
+
+            board.Font = new Font(board.Font.FontFamily, links_fontSize, board.Font.Style);
+            board.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+        }
+        
         private void board_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right) { return; }
@@ -212,6 +260,12 @@ namespace fapmap
                 }
             }
         }
+        private void board_DragOver(object sender, DragEventArgs e)
+        {
+            if (board.SelectedItems.Count == 0) { return; }
+            e.Effect = DragDropEffects.Copy;
+        }
+        
         private void board_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -237,5 +291,6 @@ namespace fapmap
         {
             board_edit();
         }
+        
     }
 }

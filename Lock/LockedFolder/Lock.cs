@@ -98,7 +98,7 @@ namespace LockedFolder
         {
             switch(e.KeyCode)
             {
-                case Keys.Escape: Application.Exit(); break;
+                case Keys.Escape: Application.Exit(); e.Handled = true; e.SuppressKeyPress = true; break;
                 case Keys.Enter: lock_checkPasswords(); e.Handled = true; e.SuppressKeyPress = true; break;
             }
 
@@ -115,6 +115,8 @@ namespace LockedFolder
         }
         private void cb_show_CheckedChanged(object sender, EventArgs e)
         {
+            cb_show.ForeColor = cb_show.Checked ? Color.CornflowerBlue : Color.SlateBlue;
+
             txt_passwd.PasswordChar = cb_show.Checked ? '\0' : '•';
         }
         private void txt_passwd_MouseDown(object sender, MouseEventArgs e)
@@ -124,17 +126,18 @@ namespace LockedFolder
                 lock_checkPasswords();
             }
         }
-        private void btn_ok_MouseClick(object sender, MouseEventArgs e)
+
+        private void btn_ok_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { lock_checkPasswords(); }
+            lock_checkPasswords();
         }
-        private void btn_cancel_MouseClick(object sender, MouseEventArgs e)
+        private void btn_cancel_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { this.Close(); }
+            this.Close();
         }
 
         #endregion
-        
+
         #region other
 
         public static void LogThis(string text)
@@ -158,5 +161,7 @@ namespace LockedFolder
         }
 
         #endregion
+
+        
     }
 }

@@ -3,7 +3,7 @@
 - Hide files with a click of a button.
 - Watch/Download files & bookmark urls all inside the program.
 - ...
-### [ENTIRE GUI IN ONE IMAGE](https://github.com/0xC0LD/fapmap/blob/master/fapmap.png)
+### [ENTIRE GUI IN ONE IMAGE](https://raw.githubusercontent.com/0xC0LD/fapmap/master/fapmap.png)
 
 ## Programs in this repository:
 - fapmaper ("fapmaper" is the "installation" program... all it really does is copy the contents from the "data" folder to the given location, then it hides the destination folder):

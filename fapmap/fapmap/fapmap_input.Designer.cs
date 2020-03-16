@@ -47,7 +47,7 @@
             this.txt_input.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txt_input.Name = "txt_input";
             this.txt_input.Size = new System.Drawing.Size(352, 26);
-            this.txt_input.TabIndex = 163;
+            this.txt_input.TabIndex = 1;
             this.txt_input.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_input_KeyDown);
             // 
             // btn_ok
@@ -65,10 +65,10 @@
             this.btn_ok.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(61, 29);
-            this.btn_ok.TabIndex = 165;
+            this.btn_ok.TabIndex = 2;
             this.btn_ok.Text = "OK";
             this.btn_ok.UseVisualStyleBackColor = false;
-            this.btn_ok.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_ok_MouseUp);
+            this.btn_ok.Click += new System.EventHandler(this.btn_ok_Click);
             // 
             // btn_cancel
             // 
@@ -85,10 +85,10 @@
             this.btn_cancel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(61, 29);
-            this.btn_cancel.TabIndex = 164;
+            this.btn_cancel.TabIndex = 3;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = false;
-            this.btn_cancel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_cancel_MouseUp);
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // label_prompt
             // 
@@ -99,7 +99,7 @@
             this.label_prompt.Location = new System.Drawing.Point(12, 9);
             this.label_prompt.Name = "label_prompt";
             this.label_prompt.Size = new System.Drawing.Size(32, 18);
-            this.label_prompt.TabIndex = 216;
+            this.label_prompt.TabIndex = 0;
             this.label_prompt.Text = "...";
             // 
             // fapmap_input

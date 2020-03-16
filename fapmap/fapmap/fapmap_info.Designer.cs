@@ -53,7 +53,7 @@
             this.txt_size.Name = "txt_size";
             this.txt_size.ReadOnly = true;
             this.txt_size.Size = new System.Drawing.Size(824, 30);
-            this.txt_size.TabIndex = 213;
+            this.txt_size.TabIndex = 1;
             this.txt_size.Text = "...";
             // 
             // cb_noZero
@@ -75,7 +75,7 @@
             this.cb_noZero.Location = new System.Drawing.Point(860, 54);
             this.cb_noZero.Name = "cb_noZero";
             this.cb_noZero.Size = new System.Drawing.Size(12, 11);
-            this.cb_noZero.TabIndex = 216;
+            this.cb_noZero.TabIndex = 3;
             this.HelpBalloon.SetToolTip(this.cb_noZero, "Don\'t output file types that have a 0 count...");
             this.cb_noZero.UseVisualStyleBackColor = false;
             // 
@@ -88,7 +88,7 @@
             this.label_path.Location = new System.Drawing.Point(14, 50);
             this.label_path.Name = "label_path";
             this.label_path.Size = new System.Drawing.Size(28, 15);
-            this.label_path.TabIndex = 218;
+            this.label_path.TabIndex = 0;
             this.label_path.Text = "...";
             // 
             // btn_getInfo
@@ -107,10 +107,10 @@
             this.btn_getInfo.Location = new System.Drawing.Point(842, 12);
             this.btn_getInfo.Name = "btn_getInfo";
             this.btn_getInfo.Size = new System.Drawing.Size(30, 30);
-            this.btn_getInfo.TabIndex = 219;
+            this.btn_getInfo.TabIndex = 2;
             this.HelpBalloon.SetToolTip(this.btn_getInfo, "Get Info About File/Dir");
             this.btn_getInfo.UseVisualStyleBackColor = false;
-            this.btn_getInfo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.getAll_MouseUp);
+            this.btn_getInfo.Click += new System.EventHandler(this.btn_getInfo_Click);
             // 
             // HelpBalloon
             // 
@@ -156,7 +156,7 @@
             this.txt_output.Name = "txt_output";
             this.txt_output.ReadOnly = true;
             this.txt_output.Size = new System.Drawing.Size(858, 564);
-            this.txt_output.TabIndex = 222;
+            this.txt_output.TabIndex = 4;
             this.txt_output.Text = "...";
             this.txt_output.WordWrap = false;
             // 

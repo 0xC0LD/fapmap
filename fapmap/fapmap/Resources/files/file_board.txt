@@ -6,10 +6,10 @@
 #
 #  TYPES:
 #        SITE - has log-in options
-#        NLIO - no log-in options (blog alike)
+#        NLIO - site with no log-in options
 #        DOWN - media converter SITE
 #        USER - user from a SITE
-#        BLOG - blog, NLIO
+#        BLOG - blog (NLIO 2)
 #        STAR - pornstar
 #
 #=======================================
@@ -31,36 +31,32 @@ SITE|Gelbooru|https://gelbooru.com
 SITE|Rule34 XXX|https://rule34.xxx/index.php?page=post&s=list&tags=all
 SITE|Rule34 Paheal|https://rule34.paheal.net/post/list/1
 SITE|Rule34 Hentai|https://rule34hentai.net/post/list/1
-SITE|LAH|http://lah.li
-SITE|Lolibooru|https://lolibooru.moe/post?tags=&commit=Search
 SITE|MUCHoHENTAI|https://muchohentai.com
 SITE|Sankaku Complex|https://www.sankakucomplex.com/?pg=X
-SITE|Hentai Foundry|http://www.hentai-foundry.com/?enterAgree=1
+SITE|Hentai Foundry|https://www.hentai-foundry.com/?enterAgree=1
 SITE|Image Fap|https://www.imagefap.com
-SITE|ThatPervert|http://thatpervert.com
-SITE|3D Hentai Video|http://www.3dhentaivideo.com
+SITE|3D Hentai Video|https://www.3dhentaivideo.com
+SITE|G-E Hentai Gallery|https://e-hentai.org
 #
 # ======[ NLIO ]======
 #
 NLIO|XNXX|https://www.xnxx.com
-NLIO|Hentai Haven|http://hentaihaven.org
-NLIO|oHentai|http://ohentai.org
-NLIO|G-E Hentai Gallery|https://e-hentai.org
-NLIO|Overwatch Porn|http://overwatchporn.xxx
-NLIO|/b/|http://boards.4chan.org/b
+NLIO|Hentai Haven|https://hentaihaven.org
+NLIO|oHentai|https://ohentai.org
+NLIO|Overwatch Porn|https://overwatchporn.xxx
+NLIO|/b/|https://boards.4chan.org/b
 NLIO|/gif/|https://boards.4chan.org/gif
-NLIO|/s/|http://boards.4chan.org/s
+NLIO|/s/|https://boards.4chan.org/s
 NLIO|/h/|https://boards.4chan.org/h
-NLIO|SwfChan|http://swfchan.org/fap.shtml
 NLIO|Hitomi|https://hitomi.la
 #
 # ======[ DOWN ]======
 #
-DOWN|ClipConverter|http://www.clipconverter.cc
+DOWN|ClipConverter|https://www.clipconverter.cc
 DOWN|OnlineVideoConverter|https://www.onlinevideoconverter.com/video-converter
-DOWN|OnlineConvert|http://www.online-convert.com
-DOWN|Savido|http://www.savido.net/sites/pornhub
-DOWN|TubeOffline|http://www.tubeoffline.com/download-PornHub-videos.php#.WMwOiVXyuUl
+DOWN|OnlineConvert|https://www.online-convert.com
+DOWN|Savido|https://www.savido.net/sites/pornhub
+DOWN|TubeOffline|https://www.tubeoffline.com/download-PornHub-videos.php#.WMwOiVXyuUl
 #
 # ======[ USER ]======
 #
@@ -69,7 +65,6 @@ DOWN|TubeOffline|http://www.tubeoffline.com/download-PornHub-videos.php#.WMwOiVX
 # ======[ BLOG ]======
 #
 BLOG|ShadBase|http://www.shadbase.com/
-BLOG|Likkezg|http://likkezg.com/
 BLOG|Liang xing|https://www.artstation.com/liangxing
 BLOG|Tarakanovich|https://tarakanovich.newgrounds.com/art/
 #

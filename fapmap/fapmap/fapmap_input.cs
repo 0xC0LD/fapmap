@@ -61,14 +61,14 @@ namespace fapmap
                 e.SuppressKeyPress = true;
             }
         }
-
-        private void btn_ok_MouseUp(object sender, MouseEventArgs e)
+        
+        private void btn_ok_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { confirm(); }
+            confirm();
         }
-        private void btn_cancel_MouseUp(object sender, MouseEventArgs e)
+        private void btn_cancel_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { cancel(); }
+            cancel();
         }
     }
 }

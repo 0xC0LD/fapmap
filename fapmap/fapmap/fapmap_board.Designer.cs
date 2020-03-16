@@ -30,10 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fapmap_board));
-            this.board = new System.Windows.Forms.ListView();
-            this.board_clm_num = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.board_clm_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.board_clm_url = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.board_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.board_RMB_refresh = new System.Windows.Forms.ToolStripMenuItem();
             this.board_RMB_openAndExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,56 +37,12 @@
             this.board_RMB_copy = new System.Windows.Forms.ToolStripMenuItem();
             this.board_RMB_edit = new System.Windows.Forms.ToolStripMenuItem();
             this.favicons = new System.Windows.Forms.ImageList(this.components);
+            this.board = new fapmap_res.FapMapListView();
+            this.board_clm_num = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.board_clm_name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.board_clm_url = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.board_RMB.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // board
-            // 
-            this.board.AllowDrop = true;
-            this.board.AutoArrange = false;
-            this.board.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.board.BackgroundImage = global::fapmap.Properties.Resources.bg3;
-            this.board.BackgroundImageTiled = true;
-            this.board.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.board.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.board_clm_num,
-            this.board_clm_name,
-            this.board_clm_url});
-            this.board.ContextMenuStrip = this.board_RMB;
-            this.board.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.board.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.board.ForeColor = System.Drawing.Color.SlateBlue;
-            this.board.FullRowSelect = true;
-            this.board.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.board.HideSelection = false;
-            this.board.LargeImageList = this.favicons;
-            this.board.Location = new System.Drawing.Point(0, 0);
-            this.board.MultiSelect = false;
-            this.board.Name = "board";
-            this.board.Size = new System.Drawing.Size(684, 661);
-            this.board.SmallImageList = this.favicons;
-            this.board.TabIndex = 0;
-            this.board.UseCompatibleStateImageBehavior = false;
-            this.board.View = System.Windows.Forms.View.Details;
-            this.board.SelectedIndexChanged += new System.EventHandler(this.board_SelectedIndexChanged);
-            this.board.DragOver += new System.Windows.Forms.DragEventHandler(this.board_DragOver);
-            this.board.KeyDown += new System.Windows.Forms.KeyEventHandler(this.board_KeyDown);
-            this.board.MouseDown += new System.Windows.Forms.MouseEventHandler(this.board_MouseDown);
-            // 
-            // board_clm_num
-            // 
-            this.board_clm_num.Text = "";
-            this.board_clm_num.Width = 2;
-            // 
-            // board_clm_name
-            // 
-            this.board_clm_name.Text = "NAME";
-            this.board_clm_name.Width = 92;
-            // 
-            // board_clm_url
-            // 
-            this.board_clm_url.Text = "URL";
-            this.board_clm_url.Width = 268;
             // 
             // board_RMB
             // 
@@ -165,13 +117,64 @@
             this.favicons.ImageSize = new System.Drawing.Size(16, 16);
             this.favicons.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // board
+            // 
+            this.board.AllowDrop = true;
+            this.board.AutoArrange = false;
+            this.board.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.board.BackgroundImage = global::fapmap.Properties.Resources.bg3;
+            this.board.BackgroundImageTiled = true;
+            this.board.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.board.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.board_clm_num,
+            this.board_clm_name,
+            this.board_clm_url});
+            this.board.ContextMenuStrip = this.board_RMB;
+            this.board.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.board.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.board.ForeColor = System.Drawing.Color.SlateBlue;
+            this.board.FullRowSelect = true;
+            this.board.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.board.HideSelection = false;
+            this.board.LargeImageList = this.favicons;
+            this.board.Location = new System.Drawing.Point(0, 0);
+            this.board.MultiSelect = false;
+            this.board.Name = "board";
+            this.board.Size = new System.Drawing.Size(764, 761);
+            this.board.SmallImageList = this.favicons;
+            this.board.TabIndex = 1;
+            this.board.UseCompatibleStateImageBehavior = false;
+            this.board.View = System.Windows.Forms.View.Details;
+            this.board.SelectedIndexChanged += new System.EventHandler(this.board_SelectedIndexChanged);
+            this.board.DragOver += new System.Windows.Forms.DragEventHandler(this.board_DragOver);
+            this.board.KeyDown += new System.Windows.Forms.KeyEventHandler(this.board_KeyDown);
+            this.board.KeyUp += new System.Windows.Forms.KeyEventHandler(this.board_KeyUp);
+            this.board.LostFocus += new System.EventHandler(this.board_LostFocus);
+            this.board.MouseDown += new System.Windows.Forms.MouseEventHandler(this.board_MouseDown);
+            this.board.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.board_MouseWheel);
+            // 
+            // board_clm_num
+            // 
+            this.board_clm_num.Text = "";
+            this.board_clm_num.Width = 1;
+            // 
+            // board_clm_name
+            // 
+            this.board_clm_name.Text = "NAME";
+            this.board_clm_name.Width = 1;
+            // 
+            // board_clm_url
+            // 
+            this.board_clm_url.Text = "URL";
+            this.board_clm_url.Width = 1;
+            // 
             // fapmap_board
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ClientSize = new System.Drawing.Size(684, 661);
+            this.ClientSize = new System.Drawing.Size(764, 761);
             this.Controls.Add(this.board);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
@@ -187,9 +190,13 @@
 
         }
 
+        
+
+
+
         #endregion
 
-        private System.Windows.Forms.ListView board;
+        private fapmap_res.FapMapListView board;
         private System.Windows.Forms.ColumnHeader board_clm_name;
         private System.Windows.Forms.ColumnHeader board_clm_url;
         private System.Windows.Forms.ColumnHeader board_clm_num;

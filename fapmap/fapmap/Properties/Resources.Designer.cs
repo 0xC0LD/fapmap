@@ -143,6 +143,16 @@ namespace fapmap.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bg5 {
+            get {
+                object obj = ResourceManager.GetObject("bg5", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap board {
             get {
                 object obj = ResourceManager.GetObject("board", resourceCulture);
@@ -203,9 +213,9 @@ namespace fapmap.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap circle_darkorchid {
+        internal static System.Drawing.Bitmap circle_mediumpurple {
             get {
-                object obj = ResourceManager.GetObject("circle_darkorchid", resourceCulture);
+                object obj = ResourceManager.GetObject("circle_mediumpurple", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -213,9 +223,9 @@ namespace fapmap.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap circle_mediumpurple {
+        internal static System.Drawing.Bitmap circle_palevioletred {
             get {
-                object obj = ResourceManager.GetObject("circle_mediumpurple", resourceCulture);
+                object obj = ResourceManager.GetObject("circle_palevioletred", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -343,6 +353,16 @@ namespace fapmap.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap dragNdrop {
+            get {
+                object obj = ResourceManager.GetObject("dragNdrop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit {
             get {
                 object obj = ResourceManager.GetObject("edit", resourceCulture);
@@ -429,10 +449,10 @@ namespace fapmap.Properties {
         ///#
         ///#  TYPES:
         ///#        SITE - has log-in options
-        ///#        NLIO - no log-in options (blog alike)
+        ///#        NLIO - site with no log-in options
         ///#        DOWN - media converter SITE
         ///#        USER - user from a SITE
-        ///#        BLOG - blog, NLIO
+        ///#        BLOG - blog (NLIO 2)
         ///#        STAR - pornstar
         ///#
         ///#=======================================
@@ -580,6 +600,16 @@ namespace fapmap.Properties {
             get {
                 object obj = ResourceManager.GetObject("hide_remove", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home {
+            get {
+                object obj = ResourceManager.GetObject("home", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -879,6 +909,16 @@ namespace fapmap.Properties {
         internal static System.Drawing.Bitmap tabs {
             get {
                 object obj = ResourceManager.GetObject("tabs", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap treeView {
+            get {
+                object obj = ResourceManager.GetObject("treeView", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

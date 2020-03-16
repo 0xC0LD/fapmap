@@ -37,8 +37,10 @@
             this.txt_options = new System.Windows.Forms.TextBox();
             this.btn_openPathSelector = new System.Windows.Forms.Button();
             this.HelpBalloon = new System.Windows.Forms.ToolTip(this.components);
+            this.btn_explorer = new System.Windows.Forms.Button();
             this.txt_outputBorder = new System.Windows.Forms.Panel();
             this.txt_output = new System.Windows.Forms.RichTextBox();
+            this.this_trayicon = new System.Windows.Forms.NotifyIcon(this.components);
             this.txt_outputBorder.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,15 +54,15 @@
             this.txt_path.ForeColor = System.Drawing.Color.SteelBlue;
             this.txt_path.Location = new System.Drawing.Point(11, 37);
             this.txt_path.Name = "txt_path";
-            this.txt_path.Size = new System.Drawing.Size(578, 20);
-            this.txt_path.TabIndex = 152;
+            this.txt_path.Size = new System.Drawing.Size(553, 20);
+            this.txt_path.TabIndex = 3;
             this.txt_path.TextChanged += new System.EventHandler(this.txt_path_TextChanged);
             // 
             // btn_start
             // 
             this.btn_start.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_start.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_start.BackgroundImage = global::fapmap.Properties.Resources.download;
+            this.btn_start.BackgroundImage = global::fapmap.Properties.Resources.downloadVideo;
             this.btn_start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_start.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_start.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -74,10 +76,10 @@
             this.btn_start.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_start.Name = "btn_start";
             this.btn_start.Size = new System.Drawing.Size(20, 20);
-            this.btn_start.TabIndex = 161;
+            this.btn_start.TabIndex = 2;
             this.HelpBalloon.SetToolTip(this.btn_start, "Start/Stop youtube-dl.exe");
             this.btn_start.UseVisualStyleBackColor = false;
-            this.btn_start.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_start_MouseUp);
+            this.btn_start.Click += new System.EventHandler(this.btn_start_Click);
             // 
             // txt_url
             // 
@@ -92,7 +94,8 @@
             this.txt_url.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txt_url.Name = "txt_url";
             this.txt_url.Size = new System.Drawing.Size(578, 20);
-            this.txt_url.TabIndex = 160;
+            this.txt_url.TabIndex = 1;
+            this.txt_url.TextChanged += new System.EventHandler(this.txt_url_TextChanged);
             this.txt_url.DragDrop += new System.Windows.Forms.DragEventHandler(this.txt_url_DragDrop);
             this.txt_url.DragEnter += new System.Windows.Forms.DragEventHandler(this.txt_url_DragEnter);
             this.txt_url.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_url_KeyDown);
@@ -107,7 +110,7 @@
             this.label_status.Location = new System.Drawing.Point(12, 239);
             this.label_status.Name = "label_status";
             this.label_status.Size = new System.Drawing.Size(25, 13);
-            this.label_status.TabIndex = 162;
+            this.label_status.TabIndex = 0;
             this.label_status.Text = "...";
             // 
             // txt_options
@@ -122,14 +125,14 @@
             this.txt_options.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txt_options.Name = "txt_options";
             this.txt_options.Size = new System.Drawing.Size(382, 20);
-            this.txt_options.TabIndex = 173;
+            this.txt_options.TabIndex = 7;
             this.txt_options.Text = "-o %(title)s.%(ext)s";
             // 
             // btn_openPathSelector
             // 
             this.btn_openPathSelector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_openPathSelector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_openPathSelector.BackgroundImage = global::fapmap.Properties.Resources.folder;
+            this.btn_openPathSelector.BackgroundImage = global::fapmap.Properties.Resources.treeView;
             this.btn_openPathSelector.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_openPathSelector.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_openPathSelector.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -139,14 +142,14 @@
             this.btn_openPathSelector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_openPathSelector.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btn_openPathSelector.ForeColor = System.Drawing.Color.SlateBlue;
-            this.btn_openPathSelector.Location = new System.Drawing.Point(593, 37);
+            this.btn_openPathSelector.Location = new System.Drawing.Point(569, 37);
             this.btn_openPathSelector.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_openPathSelector.Name = "btn_openPathSelector";
             this.btn_openPathSelector.Size = new System.Drawing.Size(20, 20);
-            this.btn_openPathSelector.TabIndex = 217;
+            this.btn_openPathSelector.TabIndex = 4;
             this.HelpBalloon.SetToolTip(this.btn_openPathSelector, "Select Folder");
             this.btn_openPathSelector.UseVisualStyleBackColor = false;
-            this.btn_openPathSelector.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_openPathSelector_MouseUp);
+            this.btn_openPathSelector.Click += new System.EventHandler(this.btn_openPathSelector_Click);
             // 
             // HelpBalloon
             // 
@@ -154,6 +157,29 @@
             this.HelpBalloon.ForeColor = System.Drawing.Color.SlateBlue;
             this.HelpBalloon.OwnerDraw = true;
             this.HelpBalloon.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.HelpBalloon_Draw);
+            // 
+            // btn_explorer
+            // 
+            this.btn_explorer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_explorer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_explorer.BackgroundImage = global::fapmap.Properties.Resources.folder;
+            this.btn_explorer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_explorer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_explorer.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btn_explorer.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_explorer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_explorer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_explorer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_explorer.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_explorer.ForeColor = System.Drawing.Color.SlateBlue;
+            this.btn_explorer.Location = new System.Drawing.Point(593, 37);
+            this.btn_explorer.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.btn_explorer.Name = "btn_explorer";
+            this.btn_explorer.Size = new System.Drawing.Size(20, 20);
+            this.btn_explorer.TabIndex = 5;
+            this.HelpBalloon.SetToolTip(this.btn_explorer, "Open Path in Explorer");
+            this.btn_explorer.UseVisualStyleBackColor = false;
+            this.btn_explorer.Click += new System.EventHandler(this.btn_explorer_Click);
             // 
             // txt_outputBorder
             // 
@@ -179,10 +205,17 @@
             this.txt_output.Name = "txt_output";
             this.txt_output.ReadOnly = true;
             this.txt_output.Size = new System.Drawing.Size(600, 156);
-            this.txt_output.TabIndex = 222;
+            this.txt_output.TabIndex = 6;
             this.txt_output.Text = "...";
             this.txt_output.WordWrap = false;
             this.txt_output.TextChanged += new System.EventHandler(this.txt_output_TextChanged);
+            // 
+            // this_trayicon
+            // 
+            this.this_trayicon.Icon = ((System.Drawing.Icon)(resources.GetObject("this_trayicon.Icon")));
+            this.this_trayicon.Visible = true;
+            this.this_trayicon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.this_trayicon_MouseUp);
+            this.this_trayicon.Disposed += new System.EventHandler(this.this_trayicon_Disposed);
             // 
             // fapmap_youtubedl
             // 
@@ -191,6 +224,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg3;
             this.ClientSize = new System.Drawing.Size(624, 261);
+            this.Controls.Add(this.btn_explorer);
             this.Controls.Add(this.txt_outputBorder);
             this.Controls.Add(this.btn_openPathSelector);
             this.Controls.Add(this.txt_options);
@@ -224,5 +258,7 @@
         private System.Windows.Forms.ToolTip HelpBalloon;
         private System.Windows.Forms.Panel txt_outputBorder;
         private System.Windows.Forms.RichTextBox txt_output;
+        private System.Windows.Forms.Button btn_explorer;
+        private System.Windows.Forms.NotifyIcon this_trayicon;
     }
 }

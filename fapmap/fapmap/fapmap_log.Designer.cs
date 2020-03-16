@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fapmap_log));
-            this.logs = new System.Windows.Forms.ListView();
+            this.logs = new fapmap_res.FapMapListView();
             this.logs_clm_num = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.logs_clm_time = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.logs_clm_action = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -67,11 +67,14 @@
             this.logs.Location = new System.Drawing.Point(12, 26);
             this.logs.Name = "logs";
             this.logs.Size = new System.Drawing.Size(860, 423);
-            this.logs.TabIndex = 217;
+            this.logs.TabIndex = 1;
             this.logs.UseCompatibleStateImageBehavior = false;
             this.logs.View = System.Windows.Forms.View.Details;
             this.logs.KeyDown += new System.Windows.Forms.KeyEventHandler(this.logs_KeyDown);
+            this.logs.KeyUp += new System.Windows.Forms.KeyEventHandler(this.logs_KeyUp);
+            this.logs.LostFocus += new System.EventHandler(this.logs_LostFocus);
             this.logs.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.logs_MouseDoubleClick);
+            this.logs.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.logs_MouseWheel);
             // 
             // logs_clm_num
             // 
@@ -106,7 +109,7 @@
             this.logs_RMB.Name = "contextMenuStrip1";
             this.logs_RMB.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.logs_RMB.ShowItemToolTips = false;
-            this.logs_RMB.Size = new System.Drawing.Size(200, 114);
+            this.logs_RMB.Size = new System.Drawing.Size(200, 92);
             // 
             // logs_RMB_reload
             // 
@@ -156,7 +159,7 @@
             this.lable_status.Location = new System.Drawing.Point(12, 10);
             this.lable_status.Name = "lable_status";
             this.lable_status.Size = new System.Drawing.Size(25, 13);
-            this.lable_status.TabIndex = 218;
+            this.lable_status.TabIndex = 0;
             this.lable_status.Text = "...";
             // 
             // fapmap_log
@@ -183,8 +186,10 @@
 
         }
 
+        
+
         #endregion
-        private System.Windows.Forms.ListView logs;
+        private fapmap_res.FapMapListView logs;
         private System.Windows.Forms.ColumnHeader logs_clm_num;
         private System.Windows.Forms.ColumnHeader logs_clm_action;
         private System.Windows.Forms.ColumnHeader logs_clm_text;

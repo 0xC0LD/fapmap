@@ -34,13 +34,57 @@ namespace fapmap
             
             this.ActiveControl = txt_url;
         }
-
-
+        
         #region window
 
-        private void fapmap_youtubedl_FormClosing(object sender, FormClosingEventArgs e)
+        private void fapmap_youtubedl_FormClosing(object sender, FormClosingEventArgs e) { Quit(); }
+        private void Quit()
         {
             youtubedl_die();
+        }
+
+        private void this_hide()
+        {
+            if (this.Visible)
+            {
+                this.Hide();
+                updateIcon(youtubedl_busy);
+            }
+            else
+            {
+                this.Show();
+                updateIcon(youtubedl_busy);
+            }
+        }
+
+        private bool this_trayicon_IsDisposed = false;
+        private void this_trayicon_Disposed(object sender, EventArgs e)
+        {
+            this_trayicon_IsDisposed = true;
+        }
+        private void updateIcon(bool busy)
+        {
+            if (this_trayicon_IsDisposed) { return; }
+
+            if (this.Visible)
+            {
+                this.Icon = busy ? Properties.Resources.icon_download : Properties.Resources.icon_downloadIdle;
+                this.this_trayicon.Icon = busy ? Properties.Resources.icon_download : Properties.Resources.icon_downloadIdle;
+            }
+            else
+            {
+                this.Icon = busy ? Properties.Resources.icon_downloadHidden : Properties.Resources.icon_downloadHiddenIdle;
+                this.this_trayicon.Icon = busy ? Properties.Resources.icon_downloadHidden : Properties.Resources.icon_downloadHiddenIdle;
+            }
+        }
+        
+        private void this_trayicon_MouseUp(object sender, MouseEventArgs e)
+        {
+            switch (e.Button)
+            {
+                case MouseButtons.Left: this_hide(); break;
+                case MouseButtons.Right: this.Close(); break;
+            }
         }
 
         private void HelpBalloon_Draw(object sender, DrawToolTipEventArgs e)
@@ -97,6 +141,7 @@ namespace fapmap
                         label_status.Text = "Downloading...";
                         txt_output.Text = "";
                         btn_start.BackgroundImage = Properties.Resources.close;
+                        updateIcon(true);
                     });
 
                     youtubedlProcess = new Process();
@@ -119,6 +164,7 @@ namespace fapmap
                     {
                         label_status.Text = "Done!";
                         btn_start.BackgroundImage = Properties.Resources.download;
+                        updateIcon(false);
                     });
 
                     youtubedl_busy = false;
@@ -170,14 +216,25 @@ namespace fapmap
                 e.SuppressKeyPress = true;
             }
         }
-
-        private void btn_start_MouseUp(object sender, MouseEventArgs e)
+        private void txt_url_TextChanged(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { youtubedl(); }
+            txt_url.Text = txt_url.Text
+                .Replace("\n", String.Empty)
+                .Replace("\r", String.Empty)
+                .Replace("\t", String.Empty);
         }
-        private void btn_openPathSelector_MouseUp(object sender, MouseEventArgs e)
+
+        private void btn_start_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { fapmap.OpenPathSelectorTXT(this, txt_path, false); }
+            youtubedl();
+        }
+        private void btn_openPathSelector_Click(object sender, EventArgs e)
+        {
+            fapmap.OpenPathSelectorTXT(this, txt_path, false, txt_path.Text);
+        }
+        private void btn_explorer_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists(txt_path.Text)) { fapmap.OpenInExplorer(txt_path.Text); }
         }
 
         private void txt_url_DragEnter(object sender, DragEventArgs e)
@@ -191,10 +248,7 @@ namespace fapmap
         {
             txt_url.Text = (e.Data.GetData(typeof(string)) as string);
         }
-
-
-        #endregion
-
         
+        #endregion
     }
 }

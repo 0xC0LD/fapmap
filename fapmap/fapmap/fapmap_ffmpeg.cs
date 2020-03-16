@@ -49,8 +49,7 @@ namespace fapmap
         private string gl_file = "";
         private string gl_fileNew = "";
         private string gl_options = "";
-
-       
+        
         private Process fscanProcess = null;
         private void ffmpeg_die()
         {
@@ -108,13 +107,7 @@ namespace fapmap
                     //if file exists
                     if (File.Exists(gl_fileNew))
                     {
-                        DialogResult dialogResult = MessageBox.Show(
-                            "A file with the name " + gl_fileNew + " already exists." + Environment.NewLine
-                            + Environment.NewLine + "YES          = REPLACE"
-                            + Environment.NewLine + "NO          = NEW NAME"
-                            + Environment.NewLine + "CANCEL = ABORT",
-                            "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question
-                        );
+                        DialogResult dialogResult = fapmap.OpenFileExistsDialog(this, Path.GetFileName(gl_fileNew));
 
                         if (dialogResult == DialogResult.Yes)
                         {
@@ -208,30 +201,34 @@ namespace fapmap
             catch (Exception) { }
         }
         
-        private void btn_convert_MouseUp(object sender, MouseEventArgs e)
+        private void btn_convert_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { ffmpeg(); }
+            ffmpeg();
         }
-        private void btn_openFile_MouseUp(object sender, MouseEventArgs e)
+        private void btn_openFile_Click(object sender, EventArgs e)
         {
             label_status.Text = fapmap.Open(gl_file) ? "Opened file." : "Failed to open file.";
         }
-        private void btn_delFile_MouseUp(object sender, MouseEventArgs e)
+        private void btn_delFile_Click(object sender, EventArgs e)
         {
             label_status.Text = fapmap.TrashFile(gl_file) ? "Deleted file." : "Failed to delete file.";
         }
-        private void btn_openFileNew_MouseUp(object sender, MouseEventArgs e)
+        private void btn_openFileNew_Click(object sender, EventArgs e)
         {
             label_status.Text = fapmap.Open(gl_fileNew) ? "Opened file." : "Failed to open file.";
         }
-        private void btn_delFileNew_MouseUp(object sender, MouseEventArgs e)
+        private void btn_delFileNew_Click(object sender, EventArgs e)
         {
             label_status.Text = fapmap.TrashFile(gl_fileNew) ? "Deleted file." : "Failed to delete file.";
         }
-
-
+        
         private void txt_file_TextChanged(object sender, EventArgs e)
         {
+            txt_file.Text = txt_file.Text
+                .Replace("\n", String.Empty)
+                .Replace("\r", String.Empty)
+                .Replace("\t", String.Empty);
+
             if (string.IsNullOrEmpty(txt_file.Text)) { return; }
 
             txt_file.ForeColor = File.Exists(txt_file.Text) ? Color.FromArgb(0, 120, 200) : Color.DarkOrchid;
@@ -253,6 +250,14 @@ namespace fapmap
                 }
             }
         }
+        private void txt_fileNew_TextChanged(object sender, EventArgs e)
+        {
+            txt_fileNew.Text = txt_fileNew.Text
+                .Replace("\n", String.Empty)
+                .Replace("\r", String.Empty)
+                .Replace("\t", String.Empty);
+        }
+
         private void txt_output_TextChanged(object sender, EventArgs e)
         {
             txt_output.SelectionStart = txt_output.Text.Length;
@@ -316,28 +321,27 @@ namespace fapmap
             }
         }
 
-        // drag n drop
-        private void dnd_file_DragOver(object sender, DragEventArgs e)
+        // drag out buttons
+        private void btn_fileDragOut_DragOver(object sender, DragEventArgs e)
         {
             if (string.IsNullOrEmpty(txt_file.Text)) { return; }
             e.Effect = DragDropEffects.Copy;
         }
-        private void dnd_file_MouseDown(object sender, MouseEventArgs e)
+        private void btn_fileDragOut_MouseDown(object sender, MouseEventArgs e)
         {
             if (string.IsNullOrEmpty(txt_file.Text)) { return; }
-            this.txt_file.DoDragDrop(new System.Windows.Forms.DataObject(System.Windows.Forms.DataFormats.StringFormat, txt_file.Text), DragDropEffects.Copy);
+            this.txt_file.DoDragDrop(new DataObject(DataFormats.StringFormat, txt_file.Text), DragDropEffects.Copy);
         }
-        private void dnd_fileNew_DragOver(object sender, DragEventArgs e)
+        private void btn_fileNewDragOut_DragOver(object sender, DragEventArgs e)
         {
             if (string.IsNullOrEmpty(txt_fileNew.Text)) { return; }
             e.Effect = DragDropEffects.Copy;
         }
-        private void dnd_fileNew_MouseDown(object sender, MouseEventArgs e)
+        private void btn_fileNewDragOut_MouseDown(object sender, MouseEventArgs e)
         {
             if (string.IsNullOrEmpty(txt_fileNew.Text)) { return; }
-            this.txt_fileNew.DoDragDrop(new System.Windows.Forms.DataObject(System.Windows.Forms.DataFormats.StringFormat, txt_fileNew.Text), DragDropEffects.Copy);
+            this.txt_fileNew.DoDragDrop(new DataObject(DataFormats.StringFormat, txt_fileNew.Text), DragDropEffects.Copy);
         }
 
-        
     }
 }

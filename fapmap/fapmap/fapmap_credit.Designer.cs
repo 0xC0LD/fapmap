@@ -61,7 +61,7 @@
             this.label4.Location = new System.Drawing.Point(8, 312);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(106, 19);
-            this.label4.TabIndex = 199;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Beta testers:";
             // 
             // link1
@@ -75,14 +75,16 @@
             this.link1.Location = new System.Drawing.Point(88, 34);
             this.link1.Name = "link1";
             this.link1.Size = new System.Drawing.Size(56, 15);
-            this.link1.TabIndex = 200;
+            this.link1.TabIndex = 1;
             this.link1.TabStop = true;
             this.link1.Tag = "https://twitter.com/0xC0LD";
             this.link1.Text = "Twitter";
             this.link1.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
+            this.link1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_LinkClicked);
+            this.link1.Enter += new System.EventHandler(this.control_Enter);
+            this.link1.Leave += new System.EventHandler(this.control_Leave);
             this.link1.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.link1.MouseLeave += new System.EventHandler(this.control_MouseLeave);
-            this.link1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.link_MouseUp);
             // 
             // link2
             // 
@@ -95,14 +97,16 @@
             this.link2.Location = new System.Drawing.Point(88, 51);
             this.link2.Name = "link2";
             this.link2.Size = new System.Drawing.Size(49, 15);
-            this.link2.TabIndex = 201;
+            this.link2.TabIndex = 2;
             this.link2.TabStop = true;
             this.link2.Tag = "https://github.com/0xC0LD";
             this.link2.Text = "GitHub";
             this.link2.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
+            this.link2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_LinkClicked);
+            this.link2.Enter += new System.EventHandler(this.control_Enter);
+            this.link2.Leave += new System.EventHandler(this.control_Leave);
             this.link2.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.link2.MouseLeave += new System.EventHandler(this.control_MouseLeave);
-            this.link2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.link_MouseUp);
             // 
             // label1
             // 
@@ -113,7 +117,7 @@
             this.label1.Location = new System.Drawing.Point(10, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(212, 18);
-            this.label1.TabIndex = 202;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Programmed and Designed by:";
             // 
             // pb3
@@ -193,7 +197,7 @@
             this.label2.Location = new System.Drawing.Point(10, 133);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 16);
-            this.label2.TabIndex = 222;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Icons by:";
             // 
             // label_status
@@ -220,14 +224,16 @@
             this.link4.Location = new System.Drawing.Point(68, 152);
             this.link4.Name = "link4";
             this.link4.Size = new System.Drawing.Size(56, 15);
-            this.link4.TabIndex = 224;
+            this.link4.TabIndex = 4;
             this.link4.TabStop = true;
             this.link4.Tag = "https://www.youtube.com/channel/UCZYJoXoj7VNsozoj7BgQzuA";
             this.link4.Text = "YouTube";
             this.link4.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
+            this.link4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_LinkClicked);
+            this.link4.Enter += new System.EventHandler(this.control_Enter);
+            this.link4.Leave += new System.EventHandler(this.control_Leave);
             this.link4.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.link4.MouseLeave += new System.EventHandler(this.control_MouseLeave);
-            this.link4.MouseUp += new System.Windows.Forms.MouseEventHandler(this.link_MouseUp);
             // 
             // link3
             // 
@@ -240,14 +246,16 @@
             this.link3.Location = new System.Drawing.Point(88, 68);
             this.link3.Name = "link3";
             this.link3.Size = new System.Drawing.Size(56, 15);
-            this.link3.TabIndex = 225;
+            this.link3.TabIndex = 3;
             this.link3.TabStop = true;
             this.link3.Tag = "https://www.youtube.com/channel/UCY_ZKhENUwwy3L4sq7H0XQg";
             this.link3.Text = "YouTube";
             this.link3.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
+            this.link3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_LinkClicked);
+            this.link3.Enter += new System.EventHandler(this.control_Enter);
+            this.link3.Leave += new System.EventHandler(this.control_Leave);
             this.link3.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.link3.MouseLeave += new System.EventHandler(this.control_MouseLeave);
-            this.link3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.link_MouseUp);
             // 
             // link7
             // 
@@ -260,14 +268,16 @@
             this.link7.Location = new System.Drawing.Point(68, 334);
             this.link7.Name = "link7";
             this.link7.Size = new System.Drawing.Size(56, 15);
-            this.link7.TabIndex = 226;
+            this.link7.TabIndex = 7;
             this.link7.TabStop = true;
             this.link7.Tag = "https://www.youtube.com/channel/UCfyazOMu9xdDwO7gUZ42SRg";
             this.link7.Text = "YouTube";
             this.link7.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
+            this.link7.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_LinkClicked);
+            this.link7.Enter += new System.EventHandler(this.control_Enter);
+            this.link7.Leave += new System.EventHandler(this.control_Leave);
             this.link7.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.link7.MouseLeave += new System.EventHandler(this.control_MouseLeave);
-            this.link7.MouseUp += new System.Windows.Forms.MouseEventHandler(this.link_MouseUp);
             // 
             // link8
             // 
@@ -280,14 +290,16 @@
             this.link8.Location = new System.Drawing.Point(68, 390);
             this.link8.Name = "link8";
             this.link8.Size = new System.Drawing.Size(56, 15);
-            this.link8.TabIndex = 227;
+            this.link8.TabIndex = 8;
             this.link8.TabStop = true;
             this.link8.Tag = "https://www.youtube.com/channel/UCSEIztoYFl2IXiVkgfV6D2A";
             this.link8.Text = "YouTube";
             this.link8.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
+            this.link8.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_LinkClicked);
+            this.link8.Enter += new System.EventHandler(this.control_Enter);
+            this.link8.Leave += new System.EventHandler(this.control_Leave);
             this.link8.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.link8.MouseLeave += new System.EventHandler(this.control_MouseLeave);
-            this.link8.MouseUp += new System.Windows.Forms.MouseEventHandler(this.link_MouseUp);
             // 
             // label3
             // 
@@ -298,7 +310,7 @@
             this.label3.Location = new System.Drawing.Point(9, 218);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(225, 16);
-            this.label3.TabIndex = 228;
+            this.label3.TabIndex = 0;
             this.label3.Text = "Other controls used in this project:";
             // 
             // link5
@@ -312,14 +324,16 @@
             this.link5.Location = new System.Drawing.Point(12, 245);
             this.link5.Name = "link5";
             this.link5.Size = new System.Drawing.Size(259, 15);
-            this.link5.TabIndex = 229;
+            this.link5.TabIndex = 5;
             this.link5.TabStop = true;
             this.link5.Tag = "https://www.codeproject.com/articles/365974/autocomplete-menu";
             this.link5.Text = "Autocomplete Menu by Pavel Torgashov";
             this.link5.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
+            this.link5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_LinkClicked);
+            this.link5.Enter += new System.EventHandler(this.control_Enter);
+            this.link5.Leave += new System.EventHandler(this.control_Leave);
             this.link5.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.link5.MouseLeave += new System.EventHandler(this.control_MouseLeave);
-            this.link5.MouseUp += new System.Windows.Forms.MouseEventHandler(this.link_MouseUp);
             // 
             // link6
             // 
@@ -332,14 +346,16 @@
             this.link6.Location = new System.Drawing.Point(12, 270);
             this.link6.Name = "link6";
             this.link6.Size = new System.Drawing.Size(224, 15);
-            this.link6.TabIndex = 230;
+            this.link6.TabIndex = 6;
             this.link6.TabStop = true;
             this.link6.Tag = "https://github.com/fabricelacharme/ColorSlider";
             this.link6.Text = "ColorSlider by fabricelacharme ";
             this.link6.VisitedLinkColor = System.Drawing.Color.CornflowerBlue;
+            this.link6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_LinkClicked);
+            this.link6.Enter += new System.EventHandler(this.control_Enter);
+            this.link6.Leave += new System.EventHandler(this.control_Leave);
             this.link6.MouseEnter += new System.EventHandler(this.control_MouseEnter);
             this.link6.MouseLeave += new System.EventHandler(this.control_MouseLeave);
-            this.link6.MouseUp += new System.Windows.Forms.MouseEventHandler(this.link_MouseUp);
             // 
             // fapmap_credit
             // 
@@ -370,6 +386,7 @@
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
             this.ForeColor = System.Drawing.Color.SlateBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(380, 530);
             this.MinimumSize = new System.Drawing.Size(380, 530);
             this.Name = "fapmap_credit";

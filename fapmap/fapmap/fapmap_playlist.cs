@@ -55,29 +55,35 @@ namespace fapmap
 
             path = this.txt_path.Text;
         }
-
-        private void btn_openPathSelector_MouseUp(object sender, MouseEventArgs e)
+        
+        private void confirm()
         {
-            if (e.Button == MouseButtons.Left) { fapmap.OpenPathSelectorTXT(this, txt_path, false); }
-        }
-        private void btn_make_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
+            if (!Directory.Exists(txt_path.Text))
             {
-
-                if (!Directory.Exists(txt_path.Text))
-                {
-                    MessageBox.Show("Please specify a valid directory path.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                MessageBox.Show("Please specify a valid directory path.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
-        private void btn_cancel_MouseUp(object sender, MouseEventArgs e)
+        private void cancel()
         {
-            if (e.Button == MouseButtons.Left) { this.DialogResult = DialogResult.Cancel; this.Close(); }
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void btn_make_Click(object sender, EventArgs e)
+        {
+            confirm();
+        }
+        private void btn_cancel_Click(object sender, EventArgs e)
+        {
+            cancel();
+        }
+        private void btn_openPathSelector_Click(object sender, EventArgs e)
+        {
+            fapmap.OpenPathSelectorTXT(this, txt_path, false, txt_path.Text);
         }
     }
 }

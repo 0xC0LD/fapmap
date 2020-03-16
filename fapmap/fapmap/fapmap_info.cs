@@ -93,6 +93,12 @@ namespace fapmap
                             txt_output.Text += "> top files: " + TopFiles.Length + Environment.NewLine;
                             txt_output.Text += "> all files: " + AllFiles.Length + Environment.NewLine;
                             txt_output.Text += Environment.NewLine;
+
+                            Tuple<int, int, int> tuple = fapmap.getFileCount_VisibleNormalFull(AllDirs, AllFiles);
+                            txt_output.Text += "> visible..: " + tuple.Item1 + Environment.NewLine;
+                            txt_output.Text += "> normal...: " + tuple.Item2 + Environment.NewLine;
+                            txt_output.Text += "> full.....: " + tuple.Item3 + Environment.NewLine;
+                            txt_output.Text += Environment.NewLine;
                         });
 
                         foreach (Tuple<string, List<string>> tuple in
@@ -168,10 +174,10 @@ namespace fapmap
             })
             { IsBackground = true }.Start();
         }
-
-        private void getAll_MouseUp(object sender, MouseEventArgs e)
+        
+        private void btn_getInfo_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { getInfo(pass_path); }
+            getInfo(pass_path);
         }
     }
 }

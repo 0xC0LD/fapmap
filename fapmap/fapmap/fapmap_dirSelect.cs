@@ -17,10 +17,11 @@ namespace fapmap
         {
             InitializeComponent();
 
-            treeView_RMB.Renderer = new fapmap_res.color.fToolStripProfessionalRenderer();
+            treeView_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
         }
         
         public string outPath = string.Empty;
+        public string preSelectedPath = string.Empty;
         private void fapmap_downloadPathSelect_Load(object sender, EventArgs e)
         {
             load();
@@ -29,6 +30,19 @@ namespace fapmap
             {
                 treeView.Nodes[0].Expand();
             }
+
+            if (!string.IsNullOrEmpty(preSelectedPath) && Directory.Exists(preSelectedPath))
+            {
+                string path = new DirectoryInfo(preSelectedPath).FullName;
+                
+                TreeNode[] nodes = treeView.Nodes.Find(path, true);
+                if (nodes.Length > 0)
+                {
+                    treeView.SelectedNode = nodes[0];
+                }
+            }
+
+            this.ActiveControl = treeView;
         }
 
         private void load()
@@ -69,7 +83,9 @@ namespace fapmap
         {
             switch (e.KeyCode)
             {
-                case Keys.F5: load(); e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.F5:     load();    e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Space:  confirm(); e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Escape: cancel();  e.Handled = true; e.SuppressKeyPress = true; break;
                 case Keys.Enter:
                     {
                         try
@@ -85,7 +101,6 @@ namespace fapmap
                         e.SuppressKeyPress = true;
                         break;
                     }
-                case Keys.Space: confirm(); e.Handled = true; e.SuppressKeyPress = true; break;
             }
 
             if (e.Control)
@@ -99,13 +114,13 @@ namespace fapmap
                 }
             }
         }
-        private void btn_ok_MouseUp(object sender, MouseEventArgs e)
+        private void btn_ok_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { confirm(); }
+            confirm();
         }
-        private void btn_cancel_MouseUp(object sender, MouseEventArgs e)
+        private void btn_cancel_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { cancel(); }
+            cancel();
         }
 
         // RMB
@@ -130,5 +145,7 @@ namespace fapmap
         {
             txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.SlateBlue : Color.DarkOrchid;
         }
+
+        
     }
 }

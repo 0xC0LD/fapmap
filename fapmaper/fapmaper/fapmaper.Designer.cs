@@ -40,28 +40,29 @@
             // btn_install
             // 
             this.btn_install.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_install.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.btn_install.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_install.FlatAppearance.BorderColor = System.Drawing.Color.CornflowerBlue;
             this.btn_install.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
             this.btn_install.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
             this.btn_install.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_install.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_install.ForeColor = System.Drawing.Color.SlateBlue;
+            this.btn_install.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.btn_install.Location = new System.Drawing.Point(866, 12);
             this.btn_install.Name = "btn_install";
             this.btn_install.Size = new System.Drawing.Size(106, 24);
             this.btn_install.TabIndex = 0;
             this.btn_install.Text = "Install / Update";
-            this.btn_install.UseVisualStyleBackColor = true;
+            this.btn_install.UseVisualStyleBackColor = false;
             this.btn_install.Click += new System.EventHandler(this.btn_install_Click);
             // 
             // txt_path
             // 
             this.txt_path.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_path.BackColor = System.Drawing.Color.Black;
+            this.txt_path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.txt_path.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_path.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txt_path.ForeColor = System.Drawing.Color.SlateBlue;
+            this.txt_path.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.txt_path.Location = new System.Drawing.Point(12, 12);
             this.txt_path.Name = "txt_path";
             this.txt_path.Size = new System.Drawing.Size(848, 25);
@@ -75,7 +76,7 @@
             this.cb_hideFolder.BackColor = System.Drawing.Color.Black;
             this.cb_hideFolder.Checked = true;
             this.cb_hideFolder.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_hideFolder.ForeColor = System.Drawing.Color.SlateBlue;
+            this.cb_hideFolder.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.cb_hideFolder.Location = new System.Drawing.Point(876, 42);
             this.cb_hideFolder.Name = "cb_hideFolder";
             this.cb_hideFolder.Size = new System.Drawing.Size(80, 17);
@@ -87,7 +88,7 @@
             // 
             this.label_output.AutoSize = true;
             this.label_output.Font = new System.Drawing.Font("Consolas", 11.25F);
-            this.label_output.ForeColor = System.Drawing.Color.SlateBlue;
+            this.label_output.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.label_output.Location = new System.Drawing.Point(12, 64);
             this.label_output.Name = "label_output";
             this.label_output.Size = new System.Drawing.Size(64, 18);
@@ -99,10 +100,10 @@
             this.txt_output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_output.BackColor = System.Drawing.Color.Black;
+            this.txt_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.txt_output.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_output.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txt_output.ForeColor = System.Drawing.Color.SlateBlue;
+            this.txt_output.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.txt_output.Location = new System.Drawing.Point(12, 85);
             this.txt_output.Multiline = true;
             this.txt_output.Name = "txt_output";
@@ -116,7 +117,7 @@
             this.label_status.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label_status.AutoSize = true;
             this.label_status.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_status.ForeColor = System.Drawing.Color.Red;
+            this.label_status.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.label_status.Location = new System.Drawing.Point(12, 339);
             this.label_status.Name = "label_status";
             this.label_status.Size = new System.Drawing.Size(25, 13);
@@ -128,6 +129,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
+            this.BackgroundImage = global::fapmaper.Properties.Resources.bg3;
             this.ClientSize = new System.Drawing.Size(984, 361);
             this.Controls.Add(this.label_status);
             this.Controls.Add(this.txt_output);
@@ -135,6 +137,7 @@
             this.Controls.Add(this.cb_hideFolder);
             this.Controls.Add(this.txt_path);
             this.Controls.Add(this.btn_install);
+            this.ForeColor = System.Drawing.Color.SlateBlue;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;

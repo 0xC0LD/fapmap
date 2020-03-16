@@ -20,7 +20,7 @@ namespace fapmap
         {
             InitializeComponent();
 
-            logs_RMB.Renderer = new fapmap_res.color.fToolStripProfessionalRenderer();
+            logs_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
         }
 
         private void fapmap_log_Load(object sender, EventArgs e)
@@ -120,25 +120,61 @@ namespace fapmap
             fapmap.Open(fapmap.GlobalVariables.Path.File.Log);
         }
 
+        private bool logs_ctrl = false;
+        private bool logs_shift = false;
         private void logs_KeyDown(object sender, KeyEventArgs e)
         {
+            logs_ctrl = e.Control;
+            logs_shift = e.Shift;
+
             switch(e.KeyCode)
             {
-                case Keys.Enter: logs_open(); e.Handled = true; e.SuppressKeyPress = true; break;
-                case Keys.F5: logs_reload(); break;
+                case Keys.Escape: this.Close();  e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Enter:  logs_open();   e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.F5:     logs_reload(); e.Handled = true; e.SuppressKeyPress = true; break;
             }
 
             if (e.Control)
             {
                 switch (e.KeyCode)
                 {
-                    case Keys.W: logs_open(); break;
-                    case Keys.R: logs_reload(); break;
-                    case Keys.C: logs_copy(); break;
-                    case Keys.E: logs_edit(); break;
+                    case Keys.W: logs_open();   e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.R: logs_reload(); e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.C: logs_copy();   e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.E: logs_edit();   e.Handled = true; e.SuppressKeyPress = true; break;
                 }
             }
         }
+        private void logs_KeyUp(object sender, KeyEventArgs e)
+        {
+            logs_ctrl = false;
+            logs_shift = false;
+        }
+        private void logs_LostFocus(object sender, System.EventArgs e)
+        {
+            logs_ctrl = false;
+            logs_shift = false;
+        }
+
+        private int links_fontSize_min = 4;
+        private int links_fontSize_max = 30;
+        private int links_fontSize = 8;
+        private void logs_MouseWheel(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (!logs_ctrl) { return; }
+
+            int last = links_fontSize;
+            if (e.Delta > 0) { links_fontSize += (logs_shift ? 6 : 2); }
+            else             { links_fontSize -= (logs_shift ? 6 : 2); }
+
+            if      (links_fontSize < links_fontSize_min) { links_fontSize = links_fontSize_min; }
+            else if (links_fontSize > links_fontSize_max) { links_fontSize = links_fontSize_max; }
+            if (links_fontSize == last) { return; }
+            
+            logs.Font = new Font(logs.Font.FontFamily, links_fontSize, logs.Font.Style);
+            logs.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+        }
+        
         private void logs_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left) { logs_open(); }

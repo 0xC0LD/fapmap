@@ -144,15 +144,16 @@ namespace fapmap
         #endregion
 
         #region ui events
+        
+        private void btn_find_Click(object sender, EventArgs e)
+        {
+            fscan();
+        }
+        private void btn_openPathSelector_Click(object sender, EventArgs e)
+        {
+            fapmap.OpenPathSelectorTXT(this, txt_path, false, txt_path.Text);
+        }
 
-        private void btn_find_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left) { fscan(); }
-        }
-        private void btn_openPathSelector_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left) { fapmap.OpenPathSelectorTXT(this, txt_path, false); }
-        }
         private void txt_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)
@@ -174,8 +175,9 @@ namespace fapmap
             }
         }
 
+
         #endregion
 
-
+        
     }
 }

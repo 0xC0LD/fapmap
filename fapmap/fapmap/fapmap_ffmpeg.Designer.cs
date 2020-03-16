@@ -40,8 +40,8 @@
             this.HelpBalloon = new System.Windows.Forms.ToolTip(this.components);
             this.btn_delFile = new System.Windows.Forms.Button();
             this.btn_delFileNew = new System.Windows.Forms.Button();
-            this.dnd_file = new System.Windows.Forms.Panel();
-            this.dnd_fileNew = new System.Windows.Forms.Panel();
+            this.btn_fileNewDragOut = new System.Windows.Forms.Button();
+            this.btn_fileDragOut = new System.Windows.Forms.Button();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.txt_outputBorder = new System.Windows.Forms.Panel();
             this.txt_output = new System.Windows.Forms.RichTextBox();
@@ -59,10 +59,10 @@
             this.txt_file.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txt_file.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold);
             this.txt_file.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(200)))));
-            this.txt_file.Location = new System.Drawing.Point(38, 12);
+            this.txt_file.Location = new System.Drawing.Point(37, 12);
             this.txt_file.Name = "txt_file";
-            this.txt_file.Size = new System.Drawing.Size(658, 20);
-            this.txt_file.TabIndex = 143;
+            this.txt_file.Size = new System.Drawing.Size(659, 20);
+            this.txt_file.TabIndex = 1;
             this.txt_file.TextChanged += new System.EventHandler(this.txt_file_TextChanged);
             this.txt_file.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_file_KeyDown);
             // 
@@ -76,10 +76,11 @@
             this.txt_fileNew.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txt_fileNew.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold);
             this.txt_fileNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(200)))));
-            this.txt_fileNew.Location = new System.Drawing.Point(38, 37);
+            this.txt_fileNew.Location = new System.Drawing.Point(37, 37);
             this.txt_fileNew.Name = "txt_fileNew";
-            this.txt_fileNew.Size = new System.Drawing.Size(683, 20);
-            this.txt_fileNew.TabIndex = 144;
+            this.txt_fileNew.Size = new System.Drawing.Size(684, 20);
+            this.txt_fileNew.TabIndex = 2;
+            this.txt_fileNew.TextChanged += new System.EventHandler(this.txt_fileNew_TextChanged);
             this.txt_fileNew.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_fileNew_KeyDown);
             // 
             // btn_convert
@@ -100,10 +101,10 @@
             this.btn_convert.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_convert.Name = "btn_convert";
             this.btn_convert.Size = new System.Drawing.Size(20, 20);
-            this.btn_convert.TabIndex = 154;
+            this.btn_convert.TabIndex = 3;
             this.HelpBalloon.SetToolTip(this.btn_convert, "Convert");
             this.btn_convert.UseVisualStyleBackColor = false;
-            this.btn_convert.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_convert_MouseUp);
+            this.btn_convert.Click += new System.EventHandler(this.btn_convert_Click);
             // 
             // txt_options
             // 
@@ -117,7 +118,7 @@
             this.txt_options.Location = new System.Drawing.Point(321, 229);
             this.txt_options.Name = "txt_options";
             this.txt_options.Size = new System.Drawing.Size(451, 20);
-            this.txt_options.TabIndex = 155;
+            this.txt_options.TabIndex = 9;
             this.txt_options.Text = "-i";
             this.txt_options.KeyDown += new System.Windows.Forms.KeyEventHandler(this.options_KeyDown);
             // 
@@ -130,7 +131,7 @@
             this.label_status.Location = new System.Drawing.Point(12, 239);
             this.label_status.Name = "label_status";
             this.label_status.Size = new System.Drawing.Size(25, 13);
-            this.label_status.TabIndex = 156;
+            this.label_status.TabIndex = 0;
             this.label_status.Text = "...";
             // 
             // btn_openFileNew
@@ -151,10 +152,10 @@
             this.btn_openFileNew.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_openFileNew.Name = "btn_openFileNew";
             this.btn_openFileNew.Size = new System.Drawing.Size(20, 20);
-            this.btn_openFileNew.TabIndex = 157;
+            this.btn_openFileNew.TabIndex = 5;
             this.HelpBalloon.SetToolTip(this.btn_openFileNew, "Open File");
             this.btn_openFileNew.UseVisualStyleBackColor = false;
-            this.btn_openFileNew.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_openFileNew_MouseUp);
+            this.btn_openFileNew.Click += new System.EventHandler(this.btn_openFileNew_Click);
             // 
             // btn_openFile
             // 
@@ -174,10 +175,10 @@
             this.btn_openFile.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_openFile.Name = "btn_openFile";
             this.btn_openFile.Size = new System.Drawing.Size(20, 20);
-            this.btn_openFile.TabIndex = 158;
+            this.btn_openFile.TabIndex = 4;
             this.HelpBalloon.SetToolTip(this.btn_openFile, "Open File");
             this.btn_openFile.UseVisualStyleBackColor = false;
-            this.btn_openFile.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_openFile_MouseUp);
+            this.btn_openFile.Click += new System.EventHandler(this.btn_openFile_Click);
             // 
             // HelpBalloon
             // 
@@ -204,10 +205,10 @@
             this.btn_delFile.Location = new System.Drawing.Point(751, 12);
             this.btn_delFile.Name = "btn_delFile";
             this.btn_delFile.Size = new System.Drawing.Size(20, 20);
-            this.btn_delFile.TabIndex = 169;
+            this.btn_delFile.TabIndex = 6;
             this.HelpBalloon.SetToolTip(this.btn_delFile, "Trash File (File Only)");
             this.btn_delFile.UseVisualStyleBackColor = false;
-            this.btn_delFile.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_delFile_MouseUp);
+            this.btn_delFile.Click += new System.EventHandler(this.btn_delFile_Click);
             // 
             // btn_delFileNew
             // 
@@ -227,36 +228,60 @@
             this.btn_delFileNew.Location = new System.Drawing.Point(751, 37);
             this.btn_delFileNew.Name = "btn_delFileNew";
             this.btn_delFileNew.Size = new System.Drawing.Size(20, 20);
-            this.btn_delFileNew.TabIndex = 170;
+            this.btn_delFileNew.TabIndex = 7;
             this.HelpBalloon.SetToolTip(this.btn_delFileNew, "Trash File (File Only)");
             this.btn_delFileNew.UseVisualStyleBackColor = false;
-            this.btn_delFileNew.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_delFileNew_MouseUp);
+            this.btn_delFileNew.Click += new System.EventHandler(this.btn_delFileNew_Click);
             // 
-            // dnd_file
+            // btn_fileNewDragOut
             // 
-            this.dnd_file.AllowDrop = true;
-            this.dnd_file.BackgroundImage = global::fapmap.Properties.Resources.image;
-            this.dnd_file.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.dnd_file.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dnd_file.Location = new System.Drawing.Point(12, 12);
-            this.dnd_file.Name = "dnd_file";
-            this.dnd_file.Size = new System.Drawing.Size(20, 20);
-            this.dnd_file.TabIndex = 159;
-            this.dnd_file.DragOver += new System.Windows.Forms.DragEventHandler(this.dnd_file_DragOver);
-            this.dnd_file.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dnd_file_MouseDown);
+            this.btn_fileNewDragOut.AllowDrop = true;
+            this.btn_fileNewDragOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_fileNewDragOut.BackgroundImage = global::fapmap.Properties.Resources.dragNdrop;
+            this.btn_fileNewDragOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_fileNewDragOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_fileNewDragOut.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btn_fileNewDragOut.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
+            this.btn_fileNewDragOut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btn_fileNewDragOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btn_fileNewDragOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_fileNewDragOut.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold);
+            this.btn_fileNewDragOut.ForeColor = System.Drawing.Color.DimGray;
+            this.btn_fileNewDragOut.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_fileNewDragOut.Location = new System.Drawing.Point(12, 37);
+            this.btn_fileNewDragOut.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.btn_fileNewDragOut.Name = "btn_fileNewDragOut";
+            this.btn_fileNewDragOut.Size = new System.Drawing.Size(20, 20);
+            this.btn_fileNewDragOut.TabIndex = 11;
+            this.HelpBalloon.SetToolTip(this.btn_fileNewDragOut, "Hold This Button to Drag Out the File Path");
+            this.btn_fileNewDragOut.UseVisualStyleBackColor = false;
+            this.btn_fileNewDragOut.DragOver += new System.Windows.Forms.DragEventHandler(this.btn_fileNewDragOut_DragOver);
+            this.btn_fileNewDragOut.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_fileNewDragOut_MouseDown);
             // 
-            // dnd_fileNew
+            // btn_fileDragOut
             // 
-            this.dnd_fileNew.AllowDrop = true;
-            this.dnd_fileNew.BackgroundImage = global::fapmap.Properties.Resources.image;
-            this.dnd_fileNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.dnd_fileNew.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.dnd_fileNew.Location = new System.Drawing.Point(12, 37);
-            this.dnd_fileNew.Name = "dnd_fileNew";
-            this.dnd_fileNew.Size = new System.Drawing.Size(20, 20);
-            this.dnd_fileNew.TabIndex = 160;
-            this.dnd_fileNew.DragOver += new System.Windows.Forms.DragEventHandler(this.dnd_fileNew_DragOver);
-            this.dnd_fileNew.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dnd_fileNew_MouseDown);
+            this.btn_fileDragOut.AllowDrop = true;
+            this.btn_fileDragOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_fileDragOut.BackgroundImage = global::fapmap.Properties.Resources.dragNdrop;
+            this.btn_fileDragOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_fileDragOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_fileDragOut.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.btn_fileDragOut.FlatAppearance.CheckedBackColor = System.Drawing.Color.Black;
+            this.btn_fileDragOut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.btn_fileDragOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Black;
+            this.btn_fileDragOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_fileDragOut.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold);
+            this.btn_fileDragOut.ForeColor = System.Drawing.Color.DimGray;
+            this.btn_fileDragOut.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_fileDragOut.Location = new System.Drawing.Point(12, 12);
+            this.btn_fileDragOut.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.btn_fileDragOut.Name = "btn_fileDragOut";
+            this.btn_fileDragOut.Size = new System.Drawing.Size(20, 20);
+            this.btn_fileDragOut.TabIndex = 10;
+            this.HelpBalloon.SetToolTip(this.btn_fileDragOut, "Hold This Button to Drag Out the File Path");
+            this.btn_fileDragOut.UseVisualStyleBackColor = false;
+            this.btn_fileDragOut.DragOver += new System.Windows.Forms.DragEventHandler(this.btn_fileDragOut_DragOver);
+            this.btn_fileDragOut.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_fileDragOut_MouseDown);
             // 
             // fileSystemWatcher1
             // 
@@ -287,7 +312,7 @@
             this.txt_output.Name = "txt_output";
             this.txt_output.ReadOnly = true;
             this.txt_output.Size = new System.Drawing.Size(758, 158);
-            this.txt_output.TabIndex = 222;
+            this.txt_output.TabIndex = 8;
             this.txt_output.Text = "...";
             this.txt_output.WordWrap = false;
             this.txt_output.TextChanged += new System.EventHandler(this.txt_output_TextChanged);
@@ -299,8 +324,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
             this.ClientSize = new System.Drawing.Size(784, 261);
+            this.Controls.Add(this.btn_fileNewDragOut);
+            this.Controls.Add(this.btn_fileDragOut);
             this.Controls.Add(this.txt_outputBorder);
-            this.Controls.Add(this.dnd_file);
             this.Controls.Add(this.txt_file);
             this.Controls.Add(this.btn_delFileNew);
             this.Controls.Add(this.btn_openFileNew);
@@ -309,7 +335,6 @@
             this.Controls.Add(this.btn_delFile);
             this.Controls.Add(this.btn_openFile);
             this.Controls.Add(this.txt_options);
-            this.Controls.Add(this.dnd_fileNew);
             this.Controls.Add(this.btn_convert);
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.DoubleBuffered = true;
@@ -339,12 +364,12 @@
         private System.Windows.Forms.Button btn_openFileNew;
         private System.Windows.Forms.Button btn_openFile;
         private System.Windows.Forms.ToolTip HelpBalloon;
-        private System.Windows.Forms.Panel dnd_file;
-        private System.Windows.Forms.Panel dnd_fileNew;
         private System.Windows.Forms.Button btn_delFile;
         private System.Windows.Forms.Button btn_delFileNew;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Panel txt_outputBorder;
         private System.Windows.Forms.RichTextBox txt_output;
+        private System.Windows.Forms.Button btn_fileNewDragOut;
+        private System.Windows.Forms.Button btn_fileDragOut;
     }
 }

@@ -20,12 +20,12 @@ namespace fapmap
         {
             InitializeComponent();
 
-            output_RMB.Renderer = new fapmap_res.color.fToolStripProfessionalRenderer();
+            output_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
         }
 
         private void fapmap_find_Load(object sender, EventArgs e)
         {
-
+            showImage_dispose();
         }
 
         #region fx
@@ -59,20 +59,43 @@ namespace fapmap
 
             List<ListViewItem> itemsToAdd = new List<ListViewItem>();
 
-            foreach (string f in all)
+            foreach (string item in all)
             {
                 bool addIt = true;
                 foreach (string key in keywords)
                 {
-                    string file = f.Remove(0, (fapmap.GlobalVariables.Path.Dir.MainFolder + "\\").Length);
+                    string file = item.Remove(0, (fapmap.GlobalVariables.Path.Dir.MainFolder + "\\").Length);
 
                     if ((cb_case.Checked ? !file.Contains(key) : !(new CultureInfo("").CompareInfo.IndexOf(file, key, CompareOptions.IgnoreCase) >= 0)))
                     { addIt = false; break; }
                 }
 
+                string text = item;
+
+                Color fc = output.ForeColor;
+                if (Directory.Exists(item))
+                {
+                    DirectoryInfo di = new DirectoryInfo(item);
+                    if (cb_fileNameOnly.Checked) { text = di.Parent.Name + "\\" + di.Name; }
+
+                    if      (di.Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { fc = Color.MediumPurple;  }
+                    else if (di.Attributes.HasFlag(FileAttributes.Hidden))                         { fc = Color.SteelBlue;     }
+                    else                                                                           { fc = Color.PaleVioletRed; }
+                }
+                else if (File.Exists(item))
+                {
+                    FileInfo fi = new FileInfo(item);
+                    if (cb_fileNameOnly.Checked) { text = fi.Directory.Name + "\\" + fi.Name; }
+
+                    if      (fi.Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { fc = Color.MediumPurple;  }
+                    else if (fi.Attributes.HasFlag(FileAttributes.Hidden))                         { fc = Color.SteelBlue;     }
+                    else                                                                           { fc = Color.PaleVioletRed; }
+                }
+                else { addIt = false; }
+
                 if (addIt)
                 {
-                    itemsToAdd.Add(new ListViewItem(new string[] { (itemsToAdd.Count +1).ToString(), f }) { Name = f });
+                    itemsToAdd.Add(new ListViewItem(new string[] { (itemsToAdd.Count +1).ToString(), text }) { Name = item, ForeColor = fc });
                 }
             }
 
@@ -144,10 +167,10 @@ namespace fapmap
         #endregion
 
         #region ui events
-
-        private void findButton_MouseUp(object sender, MouseEventArgs e)
+        
+        private void findButton_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { find(); }
+            find();
         }
 
         private void txt_searchBox_KeyDown(object sender, KeyEventArgs e)
@@ -158,6 +181,16 @@ namespace fapmap
                 case Keys.Escape: this.Close(); break;
             }
 
+            if (e.Control)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Q: cb_showImage.Checked    = !cb_showImage.Checked;    e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.E: cb_case.Checked         = !cb_case.Checked;         e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.D: cb_fileNameOnly.Checked = !cb_fileNameOnly.Checked; e.Handled = true; e.SuppressKeyPress = true; break;
+                }
+            }
+
             if (e.Control && e.KeyCode == Keys.Back)
             {
                 txt_searchBox.Text = "";
@@ -165,31 +198,65 @@ namespace fapmap
                 e.SuppressKeyPress = true;
             }
         }
-        
+
+        private bool output_ctrl = false;
+        private bool output_shift = false;
         private void output_KeyDown(object sender, KeyEventArgs e)
         {
+            output_ctrl = e.Control;
+            output_shift = e.Shift;
+
             switch (e.KeyCode)
             {
-                case Keys.F5: find(); break;
-                case Keys.Enter: output_open(); e.Handled = true; e.SuppressKeyPress = true; break;
-                case Keys.Escape: this.Close(); break;
-                case Keys.Delete: output_delete(); break;
+                case Keys.F5:     find();          e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Enter:  output_open();   e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Escape: this.Close();    e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Delete: output_delete(); e.Handled = true; e.SuppressKeyPress = true; break;
             }
 
             if (e.Control)
             {
-                e.Handled = true; e.SuppressKeyPress = true;
                 switch (e.KeyCode)
                 {
-                    case Keys.R: find();             break;
-                    case Keys.W: output_open();      break;
-                    case Keys.E: output_explorer();  break;
-                    case Keys.S: output_explorer2(); break;
-                    case Keys.C: output_copy();      break;
+                    case Keys.R: find();                                       e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.W: output_open();                                e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.E: output_explorer();                            e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.S: output_explorer2();                           e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.C: output_copy();                                e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.Q: cb_showImage.Checked = !cb_showImage.Checked; e.Handled = true; e.SuppressKeyPress = true; break;
                 }
             }
         }
+        private void output_KeyUp(object sender, KeyEventArgs e)
+        {
+            output_ctrl = false;
+            output_shift = false;
+        }
+        private void output_LostFocus(object sender, System.EventArgs e)
+        {
+            output_ctrl = false;
+            output_shift = false;
+        }
 
+        private int links_fontSize_min = 4;
+        private int links_fontSize_max = 30;
+        private int links_fontSize = 8;
+        private void output_MouseWheel(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (!output_ctrl) { return; }
+            
+            int last = links_fontSize;
+            if (e.Delta > 0) { links_fontSize += (output_shift ? 6 : 2); }
+            else             { links_fontSize -= (output_shift ? 6 : 2); }
+
+            if      (links_fontSize < links_fontSize_min) { links_fontSize = links_fontSize_min; }
+            else if (links_fontSize > links_fontSize_max) { links_fontSize = links_fontSize_max; }
+            if      (links_fontSize == last)              { return; }
+
+            output.Font = new Font(output.Font.FontFamily, links_fontSize, output.Font.Style);
+            output.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+        }
+        
         // drag n drop from output
         private void output_DragOver(object sender, DragEventArgs e)
         {
@@ -208,10 +275,24 @@ namespace fapmap
             this.output.DoDragDrop(new System.Windows.Forms.DataObject(System.Windows.Forms.DataFormats.StringFormat, text), DragDropEffects.Copy);
         }
 
+        private void showMedia_Show(bool show)
+        {
+            if (show)
+            {
+                splitContainer.Panel2.Show();
+                splitContainer.Panel2Collapsed = false;
+            }
+            else
+            {
+                splitContainer.Panel2.Hide();
+                splitContainer.Panel2Collapsed = true;
+            }
+        }
+
         private void showImage_dispose()
         {
             showImage.Image = Properties.Resources.image;
-            showImage.Visible = false;
+            showMedia_Show(false);
             GC.Collect();
         }
         private void output_SelectedIndexChanged(object sender, EventArgs e)
@@ -225,50 +306,21 @@ namespace fapmap
                 if (!File.Exists(item) && !Directory.Exists(item)) { lvi.Remove(); return; }
 
                 if (!cb_showImage.Checked) { return; }
-                showImage_dispose();
+
                 if (File.Exists(item))
                 {
                     if (fapmap.GlobalVariables.FileTypes.Image.Contains(new FileInfo(item).Extension))
                     {
                         showImage.Image = Image.FromFile(item);
-                        showImage.Visible = true;
+                        showMedia_Show(true);
                     }
                 }
             }
         }
         
-        private Point showImage_startDraggingPoint;
-        private Size showImage_startSize;
-        private Rectangle showImage_rectProposedSize = Rectangle.Empty;
-
-        private void showImage_MouseDown(object sender, MouseEventArgs e)
+        private void cb_showImage_CheckedChanged(object sender, EventArgs e)
         {
-            switch (e.Button)
-            {
-                case MouseButtons.Right: showImage.Size = showImage.MinimumSize; break;
-                case MouseButtons.Left:
-                    {
-                        // starting size
-                        showImage_startSize = new System.Drawing.Size(e.X, e.Y);
-
-                        // get the location of the picture box
-                        showImage_rectProposedSize = new Rectangle(this.PointToScreen(showImage.Location), showImage_startSize);
-
-                        // start point location
-                        showImage_startDraggingPoint = e.Location;
-
-                        break;
-                    }
-            }
-        }
-        private void showImage_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button != MouseButtons.Left) { return; }
-
-            // calculate rect new size
-            showImage_rectProposedSize.Width = e.X - this.showImage_startDraggingPoint.X + this.showImage_startSize.Width;
-            showImage_rectProposedSize.Height = e.Y - this.showImage_startDraggingPoint.Y + this.showImage_startSize.Height;
-            showImage.Size = showImage_rectProposedSize.Size;
+            if (!cb_showImage.Checked) { showImage_dispose(); }
         }
 
         #endregion
@@ -281,7 +333,10 @@ namespace fapmap
         private void output_RMB_explorer2_Click(object sender, EventArgs e) { output_explorer2(); }
         private void output_RMB_copy_Click    (object sender, EventArgs e)  { output_copy();       }
         private void output_RMB_delete_Click  (object sender, EventArgs e)  { output_delete(); }
-        
+
+
+
+
         #endregion
 
         

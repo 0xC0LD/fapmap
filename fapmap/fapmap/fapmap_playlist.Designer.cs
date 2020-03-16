@@ -58,7 +58,7 @@
             this.cb_random.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_random.Name = "cb_random";
             this.cb_random.Size = new System.Drawing.Size(61, 23);
-            this.cb_random.TabIndex = 32;
+            this.cb_random.TabIndex = 6;
             this.cb_random.Tag = "RANDOM";
             this.cb_random.Text = "Shuffled";
             this.cb_random.UseVisualStyleBackColor = false;
@@ -81,7 +81,7 @@
             this.cb_rmlogs.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_rmlogs.Name = "cb_rmlogs";
             this.cb_rmlogs.Size = new System.Drawing.Size(166, 36);
-            this.cb_rmlogs.TabIndex = 33;
+            this.cb_rmlogs.TabIndex = 5;
             this.cb_rmlogs.Tag = "RMLOGS";
             this.cb_rmlogs.Text = "Remove Already Played Files\r\n(from logs)";
             this.cb_rmlogs.UseVisualStyleBackColor = false;
@@ -104,7 +104,7 @@
             this.cb_keyword.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_keyword.Name = "cb_keyword";
             this.cb_keyword.Size = new System.Drawing.Size(178, 23);
-            this.cb_keyword.TabIndex = 34;
+            this.cb_keyword.TabIndex = 3;
             this.cb_keyword.Tag = "KEYWORD";
             this.cb_keyword.Text = "Must Have In File Path (string):";
             this.cb_keyword.UseVisualStyleBackColor = false;
@@ -123,7 +123,7 @@
             this.txt_keyword.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txt_keyword.Name = "txt_keyword";
             this.txt_keyword.Size = new System.Drawing.Size(259, 20);
-            this.txt_keyword.TabIndex = 159;
+            this.txt_keyword.TabIndex = 4;
             this.txt_keyword.TextChanged += new System.EventHandler(this.tb_keyword_TextChanged);
             // 
             // btn_cancel
@@ -141,10 +141,10 @@
             this.btn_cancel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(61, 29);
-            this.btn_cancel.TabIndex = 160;
+            this.btn_cancel.TabIndex = 9;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = false;
-            this.btn_cancel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_cancel_MouseUp);
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_make
             // 
@@ -161,10 +161,10 @@
             this.btn_make.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_make.Name = "btn_make";
             this.btn_make.Size = new System.Drawing.Size(61, 29);
-            this.btn_make.TabIndex = 161;
+            this.btn_make.TabIndex = 8;
             this.btn_make.Text = "Create";
             this.btn_make.UseVisualStyleBackColor = false;
-            this.btn_make.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_make_MouseUp);
+            this.btn_make.Click += new System.EventHandler(this.btn_make_Click);
             // 
             // txt_path
             // 
@@ -178,7 +178,7 @@
             this.txt_path.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txt_path.Name = "txt_path";
             this.txt_path.Size = new System.Drawing.Size(383, 20);
-            this.txt_path.TabIndex = 162;
+            this.txt_path.TabIndex = 1;
             this.txt_path.TextChanged += new System.EventHandler(this.tb_path_TextChanged);
             // 
             // label_path
@@ -209,7 +209,7 @@
             this.cb_reverse.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_reverse.Name = "cb_reverse";
             this.cb_reverse.Size = new System.Drawing.Size(89, 23);
-            this.cb_reverse.TabIndex = 164;
+            this.cb_reverse.TabIndex = 7;
             this.cb_reverse.Tag = "REVERSE";
             this.cb_reverse.Text = "Reverse Order";
             this.cb_reverse.UseVisualStyleBackColor = false;
@@ -219,7 +219,7 @@
             // 
             this.btn_openPathSelector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_openPathSelector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_openPathSelector.BackgroundImage = global::fapmap.Properties.Resources.folder;
+            this.btn_openPathSelector.BackgroundImage = global::fapmap.Properties.Resources.treeView;
             this.btn_openPathSelector.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_openPathSelector.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_openPathSelector.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
@@ -233,9 +233,9 @@
             this.btn_openPathSelector.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_openPathSelector.Name = "btn_openPathSelector";
             this.btn_openPathSelector.Size = new System.Drawing.Size(20, 20);
-            this.btn_openPathSelector.TabIndex = 218;
+            this.btn_openPathSelector.TabIndex = 2;
             this.btn_openPathSelector.UseVisualStyleBackColor = false;
-            this.btn_openPathSelector.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_openPathSelector_MouseUp);
+            this.btn_openPathSelector.Click += new System.EventHandler(this.btn_openPathSelector_Click);
             // 
             // fapmap_playlist
             // 

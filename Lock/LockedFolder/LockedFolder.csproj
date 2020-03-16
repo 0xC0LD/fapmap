@@ -107,16 +107,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\lock\lock\lock12.ico" />
-    <None Include="Resources\lock\lock\lock11.ico" />
-    <None Include="Resources\lock\lock\lock9.ico" />
-    <None Include="Resources\lock\lock\lock8.ico" />
-    <None Include="Resources\lock\lock\lock6.ico" />
-    <None Include="Resources\image_background_21.png" />
-    <None Include="Resources\image_button.gif" />
-    <None Include="Resources\image_background.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
@@ -130,6 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="main.ico" />
+    <None Include="Resources\bg2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -54,7 +54,7 @@ namespace fapmap
             cb_fdThumb.Checked      = fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails;
             //===
 
-            passwords_load(txt_passwds, fapmap.GlobalVariables.Path.File.Password);
+            passwords_load();
             
             txt_wbURL.Text = fapmap.GlobalVariables.Settings.WebBrowser.FapMapURL;
             txt_wbURL.ForeColor = Color.MediumSlateBlue;
@@ -109,11 +109,11 @@ namespace fapmap
 
         #region Get Info
 
-        private void btn_getinfo_MouseUp(object sender, MouseEventArgs e)
+        private void btn_getinfo_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { getInfo(); }
+            getInfo();
         }
-
+        
         private bool getInfo_busy = false;
         private void getInfo()
         {
@@ -164,6 +164,12 @@ namespace fapmap
                         txt_output.Text += "> all dirs.: " + AllDirs.Length + Environment.NewLine;
                         txt_output.Text += "> top files: " + TopFiles.Length + Environment.NewLine;
                         txt_output.Text += "> all files: " + AllFiles.Length + Environment.NewLine;
+                        txt_output.Text += Environment.NewLine;
+
+                        Tuple<int, int, int> tuple = fapmap.getFileCount_VisibleNormalFull(AllDirs, AllFiles);
+                        txt_output.Text += "> visible..: " + tuple.Item1 + Environment.NewLine;
+                        txt_output.Text += "> normal...: " + tuple.Item2 + Environment.NewLine;
+                        txt_output.Text += "> full.....: " + tuple.Item3 + Environment.NewLine;
                         txt_output.Text += Environment.NewLine;
                     });
 
@@ -216,7 +222,6 @@ namespace fapmap
             })
             { IsBackground = true }.Start(); 
         }
-        
         private void gallerySize_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Control && e.KeyCode == Keys.A)
@@ -248,47 +253,38 @@ namespace fapmap
         #endregion
 
         #region Edit passwords
-
-        private void btn_addPasswd_MouseUp(object sender, MouseEventArgs e)
+        
+        private void btn_addPasswd_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { passwords_append(txt_newPasswd.Text); }
+            passwords_append(txt_newPasswd.Text);
         }
 
-        private void passwords_load(ListBox listBox, string File)
+        private void passwords_load()
         {
             fapmap.nestFiles();
 
             //CLEAR SELECTION
-            listBox.SelectedItem = null;
+            txt_passwds.SelectedItem = null;
 
             //CLEAR PASSWORDS
-            listBox.Items.Clear();
+            txt_passwds.Items.Clear();
 
             //VARS
             int count = 0;
             string line;
             // Read the file and display it line by line.
-            System.IO.StreamReader file = new System.IO.StreamReader(File);
+            System.IO.StreamReader file = new System.IO.StreamReader(fapmap.GlobalVariables.Path.File.Passwords);
             while ((line = file.ReadLine()) != null)
             {
-                if (!line.Contains("#"))
-                {
-                    listBox.Items.Add(line);
-                }
-
+                if (!line.Contains("#")) { txt_passwds.Items.Add(line); }
                 count++;
             }
 
             file.Close();
             file.Dispose();
 
-            System.IO.StreamReader checkifnull = new System.IO.StreamReader(File);
-
-            if ((line = checkifnull.ReadLine()) == null)
-            {
-                listBox.Items.Clear();
-            }
-
+            System.IO.StreamReader checkifnull = new System.IO.StreamReader(fapmap.GlobalVariables.Path.File.Passwords);
+            if ((line = checkifnull.ReadLine()) == null) { txt_passwds.Items.Clear(); }
             checkifnull.Close();
             checkifnull.Dispose();
         }
@@ -298,62 +294,71 @@ namespace fapmap
 
             if (!string.IsNullOrEmpty(str))
             {
-                using (TextWriter tw = new StreamWriter(fapmap.GlobalVariables.Path.File.Password, true))
+                using (TextWriter tw = new StreamWriter(fapmap.GlobalVariables.Path.File.Passwords, true))
                 {
                     tw.WriteLine(str);
                 }
             }
-
-            //REFRESH
-            passwords_load(txt_passwds, fapmap.GlobalVariables.Path.File.Password);
+            
+            passwords_load();
 
             int visibleItems = txt_passwds.ClientSize.Height / txt_passwds.ItemHeight;
             txt_passwds.TopIndex = Math.Max(txt_passwds.Items.Count - visibleItems + 1, 0);
         }
-        private void passwords_delete(ListBox lst)
+        private void passwords_delete()
         {
-            if (lst.SelectedItem != null)
+            if (txt_passwds.SelectedItem == null) { return; }
+            if (string.IsNullOrEmpty(txt_passwds.SelectedItem.ToString())) { return; }
+
+            string line = null;
+            string line_to_delete = txt_passwds.SelectedItem.ToString();
+
+            using (StreamReader reader = new StreamReader(fapmap.GlobalVariables.Path.File.Passwords))
             {
-                string line = null;
-                string line_to_delete = lst.SelectedItem.ToString();
-
-                using (StreamReader reader = new StreamReader(fapmap.GlobalVariables.Path.File.Password))
+                using (StreamWriter writer = new StreamWriter(fapmap.GlobalVariables.Path.Dir.Main + "\\passwords_inuse.dll"))
                 {
-                    using (StreamWriter writer = new StreamWriter(fapmap.GlobalVariables.Path.Dir.Main + "\\passwords_inuse.dll"))
+                    while ((line = reader.ReadLine()) != null)
                     {
-                        while ((line = reader.ReadLine()) != null)
-                        {
-                            if (String.Compare(line, line_to_delete) == 0)
-                                continue;
+                        if (String.Compare(line, line_to_delete) == 0)
+                            continue;
 
-                            writer.WriteLine(line);
-                        }
+                        writer.WriteLine(line);
                     }
                 }
-                
-                File.Replace(fapmap.GlobalVariables.Path.Dir.Main + "\\passwords_inuse.dll", fapmap.GlobalVariables.Path.File.Password, null);
-
-                passwords_load(txt_passwds, fapmap.GlobalVariables.Path.File.Password);
             }
+
+            File.Replace(fapmap.GlobalVariables.Path.Dir.Main + "\\passwords_inuse.dll", fapmap.GlobalVariables.Path.File.Passwords, null);
+
+            passwords_load();
         }
         private void passwordsList_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            if (txt_passwds.SelectedItem.ToString() != null)
+            passwords_delete();
+        }
+
+        private void txt_passwds_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
             {
-                passwords_delete(txt_passwds);
+                case Keys.Enter:
+                case Keys.Space: passwords_delete(); e.Handled = true; e.SuppressKeyPress = true; break;
             }
         }
-        
+
         private void newPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
+            switch (e.KeyCode)
             {
-                e.Handled = true;
-                e.SuppressKeyPress = true;
-                passwords_append(txt_newPasswd.Text);
+                case Keys.Enter: passwords_append(txt_newPasswd.Text); e.Handled = true; e.SuppressKeyPress = true; break;
             }
 
-            if (e.Control && e.KeyCode == Keys.Back) { e.Handled = true; e.SuppressKeyPress = true; }
+            if (e.Control)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.Back: e.Handled = true; e.SuppressKeyPress = true; break;
+                }
+            }
         }
         
         #endregion
@@ -450,16 +455,10 @@ namespace fapmap
             }
         }
 
-        #endregion
-
-        #region settings
-
-        private void btn_editINI_MouseUp(object sender, MouseEventArgs e)
+        private void btn_editINI_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { fapmap.Open(fapmap.GlobalVariables.Path.File.Settings); }
+            fapmap.Open(fapmap.GlobalVariables.Path.File.Settings);
         }
-
-
 
         #endregion
 

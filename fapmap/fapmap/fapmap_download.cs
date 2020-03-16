@@ -26,13 +26,11 @@ namespace fapmap
         {
             InitializeComponent();
             
-            links_RMB.Renderer = new fapmap_res.color.fToolStripProfessionalRenderer();
+            links_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
 
             client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(client_DownloadProgressChanged);
             client.DownloadFileCompleted += new AsyncCompletedEventHandler(client_DownloadFileCompleted);
             client.Headers.Add("user-agent", "fapmap.exe");
-
-            this_trayicon.Disposed += this_trayicon_Disposed;
         }
         
         private void fapmap_download_Load(object sender, EventArgs e)
@@ -90,13 +88,6 @@ namespace fapmap
             }
         }
         
-        private void HelpBalloon_Draw(object sender, DrawToolTipEventArgs e)
-        {
-            e.DrawBackground();
-            e.DrawBorder();
-            e.DrawText();
-        }
-
         private bool this_trayicon_IsDisposed = false;
         private void this_trayicon_Disposed(object sender, EventArgs e)
         {
@@ -118,9 +109,24 @@ namespace fapmap
             }
         }
 
+        private void this_trayicon_MouseUp(object sender, MouseEventArgs e)
+        {
+            switch (e.Button)
+            {
+                case MouseButtons.Left: this_hide(); break;
+                case MouseButtons.Right: this.Close(); break;
+            }
+        }
+
+        private void HelpBalloon_Draw(object sender, DrawToolTipEventArgs e)
+        {
+            e.DrawBackground();
+            e.DrawBorder();
+            e.DrawText();
+        }
 
         #endregion
-        
+
         #region functions
 
         #region links
@@ -258,7 +264,7 @@ namespace fapmap
         private void links_paste()
         {
             string text = Clipboard.GetText();
-            string[] links = text.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+            string[] links = text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
 
             if (links.Length > 1) { foreach (string line in links) { links_add(line); } }
             else { links_add(text); }
@@ -421,13 +427,7 @@ namespace fapmap
             {
                 if (File.Exists(path))
                 {
-                    DialogResult dialogResult = MessageBox.Show(
-                        "A file with the name " + name + " already exists." + Environment.NewLine
-                        + Environment.NewLine + "YES          = REPLACE"
-                        + Environment.NewLine + "NO          = NEW NAME"
-                        + Environment.NewLine + "CANCEL = SKIP THIS URL",
-                        "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question
-                        );
+                    DialogResult dialogResult = fapmap.OpenFileExistsDialog(this, name);
                     
                     switch (dialogResult)
                     {
@@ -739,42 +739,33 @@ namespace fapmap
 
         #region buttons
         
-        private void btn_dl_MouseUp(object sender, MouseEventArgs e)
+        private void btn_webgrabStart_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { links_download(); }
+            webgrab();
         }
-        private void btn_addURL_MouseUp(object sender, MouseEventArgs e)
+        private void btn_addURL_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { links_add(txt_url.Text); }
+            links_add(txt_url.Text);
         }
-        private void btn_open_MouseUp(object sender, MouseEventArgs e)
+        private void btn_openPathSelector_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { openDownloadedFile(); }
+            fapmap.OpenPathSelectorTXT(this, txt_dir, true, txt_dir.Text);
         }
-        private void btn_openURL_MouseUp(object sender, MouseEventArgs e)
+        private void btn_dl_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { openDownloadedURL(); }
+            links_download();
         }
-        private void btn_selectFileInExplorer_MouseUp(object sender, MouseEventArgs e)
+        private void btn_openURL_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { openDownloadedFileInExplorer(); }
+             openDownloadedURL();
         }
-        private void btn_openPathSelector_MouseUp(object sender, MouseEventArgs e)
+        private void btn_selectFileInExplorer_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { fapmap.OpenPathSelectorTXT(this, txt_dir, true); }
+            openDownloadedFileInExplorer();
         }
-        private void btn_webgrabStart_MouseUp(object sender, MouseEventArgs e)
+        private void btn_openFile_Click(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left) { webgrab(); }
-        }
-        
-        private void this_trayicon_MouseUp(object sender, MouseEventArgs e)
-        {
-            switch (e.Button)
-            {
-                case MouseButtons.Left: this_hide(); break;
-                case MouseButtons.Right: this.Close(); break;
-            }
+            openDownloadedFile();
         }
 
         #endregion
@@ -903,11 +894,21 @@ namespace fapmap
         
         private void txt_dir_TextChanged(object sender, EventArgs e)
         {
+            txt_dir.Text = txt_dir.Text
+                .Replace("\n", String.Empty)
+                .Replace("\r", String.Empty)
+                .Replace("\t", String.Empty);
+
             txt_dir.ForeColor = Directory.Exists(txt_dir.Text) ? Color.SlateBlue : Color.Red;
         }
         ListViewItem links_selected = null;
         private void txt_filename_TextChanged(object sender, EventArgs e)
         {
+            txt_filename.Text = txt_filename.Text
+                .Replace("\n", String.Empty)
+                .Replace("\r", String.Empty)
+                .Replace("\t", String.Empty);
+
             if (links_selected == null)
             {
                 txt_filename.ReadOnly = true;
@@ -927,6 +928,11 @@ namespace fapmap
         }
         private void txt_webgrabURL_TextChanged(object sender, EventArgs e)
         {
+            txt_webgrabURL.Text = txt_webgrabURL.Text
+                .Replace("\n", String.Empty)
+                .Replace("\r", String.Empty)
+                .Replace("\t", String.Empty);
+
             System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("");
             foreach (var line in fapmap.GlobalVariables.Settings.Other.WebGrabTableLines)
             {
@@ -942,7 +948,20 @@ namespace fapmap
                 }
             }
         }
-        
+        private void txt_url_TextChanged(object sender, EventArgs e)
+        {
+            txt_url.Text = txt_url.Text
+                .Replace("\n", String.Empty)
+                .Replace("\r", String.Empty)
+                .Replace("\t", String.Empty);
+        }
+        private void txt_webgrabOptions_TextChanged(object sender, EventArgs e)
+        {
+            txt_webgrabOptions.Text = txt_webgrabOptions.Text
+                .Replace("\n", String.Empty)
+                .Replace("\r", String.Empty)
+                .Replace("\t", String.Empty);
+        }
 
         private void txt_url_DragEnter(object sender, DragEventArgs e)
         {
@@ -991,8 +1010,14 @@ namespace fapmap
         {
             if (e.Button == MouseButtons.Left) { links_downloadSelected(); }
         }
+
+        private bool links_ctrl = false;
+        private bool links_shift = false;
         private void links_KeyDown(object sender, KeyEventArgs e)
         {
+            links_ctrl = e.Control;
+            links_shift = e.Control;
+
             switch (e.KeyCode)
             {
                 case Keys.Enter: links_downloadSelected(); e.Handled = true; e.SuppressKeyPress = true; break;
@@ -1019,6 +1044,36 @@ namespace fapmap
                 }
             }
         }
+        private void links_KeyUp(object sender, KeyEventArgs e)
+        {
+            links_ctrl = false;
+            links_shift = false;
+        }
+        private void links_LostFocus(object sender, System.EventArgs e)
+        {
+            links_ctrl = false;
+            links_shift = false;
+        }
+
+        private int links_fontSize_min = 6;
+        private int links_fontSize_max = 30;
+        private int links_fontSize = 8;
+        private void links_MouseWheel(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (!links_ctrl) { return; }
+
+            int last = links_fontSize;
+            if (e.Delta > 0) { links_fontSize += (links_shift ? 6 : 1); }
+            else             { links_fontSize -= (links_shift ? 6 : 1); }
+
+            if      (links_fontSize < links_fontSize_min) { links_fontSize = links_fontSize_min; }
+            else if (links_fontSize > links_fontSize_max) { links_fontSize = links_fontSize_max; }
+            if (links_fontSize == last) { return; }
+            
+            links.Font = new Font(links.Font.FontFamily, links_fontSize, links.Font.Style);
+            links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+        }
+
         private void links_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (links.SelectedItems.Count == 0)
@@ -1044,8 +1099,11 @@ namespace fapmap
         
         private void links_DragDrop(object sender, DragEventArgs e)
         {
-            string stringData = e.Data.GetData(typeof(string)) as string;
-            links_add(stringData);
+            string text = e.Data.GetData(typeof(string)) as string;
+            string[] links = text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+
+            if (links.Length > 1) { foreach (string line in links) { links_add(line); } }
+            else { links_add(text); }
         }
         private void links_DragEnter(object sender, DragEventArgs e)
         {
@@ -1054,7 +1112,27 @@ namespace fapmap
                 e.Effect = System.Windows.Forms.DragDropEffects.All;
             }
         }
-        
+
+        private void btn_dragOutURL_DragOver(object sender, DragEventArgs e)
+        {
+            e.Effect = string.IsNullOrEmpty(txt_dledURL.Text) ? DragDropEffects.None : DragDropEffects.Copy;
+        }
+        private void btn_dragOutURL_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txt_dledURL.Text))
+            { this.links.DoDragDrop(new DataObject(DataFormats.StringFormat, txt_dledURL.Text), DragDropEffects.Copy); }
+        }
+
+        private void btn_dragOutFilePath_DragOver(object sender, DragEventArgs e)
+        {
+            e.Effect = string.IsNullOrEmpty(txt_dledPATH.Text) ? DragDropEffects.None : DragDropEffects.Copy;
+        }
+        private void btn_dragOutFilePath_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txt_dledPATH.Text))
+            { this.links.DoDragDrop(new DataObject(DataFormats.StringFormat, txt_dledPATH.Text), DragDropEffects.Copy); }
+        }
+
         #endregion
 
         #region RMB

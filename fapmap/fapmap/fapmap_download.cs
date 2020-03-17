@@ -137,7 +137,7 @@ namespace fapmap
 
             if (!Uri.IsWellFormedUriString(link, UriKind.Absolute))
             {
-                info.ForeColor = System.Drawing.Color.DarkOrchid;
+                info.ForeColor = Color.PaleVioletRed;
                 info.Text = link;
                 return;
             }
@@ -151,13 +151,13 @@ namespace fapmap
             {
                 if (cb_nonFile.Checked)
                 {
-                    info.ForeColor = System.Drawing.Color.DarkOrchid;
+                    info.ForeColor = Color.PaleVioletRed;
                     info.Text = "WARNING: " + link;
                     isFile = true;
                 }
                 else
                 {
-                    info.ForeColor = System.Drawing.Color.DarkOrchid;
+                    info.ForeColor = Color.PaleVioletRed;
                     info.Text = link;
                     return;
                 }
@@ -169,7 +169,7 @@ namespace fapmap
 
             if (dupe)
             {
-                info.ForeColor = System.Drawing.Color.DarkOrchid;
+                info.ForeColor = Color.PaleVioletRed;
                 info.Text = "DUPE: " + link;
                 return;
             }
@@ -193,7 +193,7 @@ namespace fapmap
 
                 if (!Uri.IsWellFormedUriString(link, UriKind.Absolute))
                 {
-                    info.ForeColor = System.Drawing.Color.DarkOrchid;
+                    info.ForeColor = Color.PaleVioletRed;
                     info.Text = link;
                     continue;
                 }
@@ -207,13 +207,13 @@ namespace fapmap
                 {
                     if (cb_nonFile.Checked)
                     {
-                        info.ForeColor = System.Drawing.Color.DarkOrchid;
+                        info.ForeColor = Color.PaleVioletRed;
                         info.Text = "WARNING: " + link;
                         isFile = true;
                     }
                     else
                     {
-                        info.ForeColor = System.Drawing.Color.DarkOrchid;
+                        info.ForeColor = Color.PaleVioletRed;
                         info.Text = link;
                         continue;
                     }
@@ -225,7 +225,7 @@ namespace fapmap
 
                 if (dupe)
                 {
-                    info.ForeColor = System.Drawing.Color.DarkOrchid;
+                    info.ForeColor = Color.PaleVioletRed;
                     info.Text = "DUPE: " + link;
                     continue;
                 }
@@ -382,12 +382,12 @@ namespace fapmap
             if (download_busy) { return true; }
             download_busy = true;
             
-            info.ForeColor = System.Drawing.Color.Yellow;
+            info.ForeColor = Color.SteelBlue;
             info.Text = "Checking URL...";
 
             if (links.Items.Count == 0)
             {
-                info.ForeColor = System.Drawing.Color.Yellow;
+                info.ForeColor = Color.SteelBlue;
                 info.Text = "No items in listbox...";
                 return false;
             }
@@ -403,7 +403,7 @@ namespace fapmap
             if (string.IsNullOrEmpty(link) || !Uri.IsWellFormedUriString(link, UriKind.Absolute))
             {
                 //url not valid
-                info.ForeColor = System.Drawing.Color.DarkOrchid;
+                info.ForeColor = Color.PaleVioletRed;
                 info.Text = "URL not valid!";
                 return false;
             }
@@ -414,12 +414,12 @@ namespace fapmap
 
             if (invalidPath)
             {
-                info.ForeColor = System.Drawing.Color.DarkOrchid;
+                info.ForeColor = Color.PaleVioletRed;
                 info.Text = "Path not valid!";
                 return false;
             }
 
-            info.ForeColor = System.Drawing.Color.Yellow;
+            info.ForeColor = Color.SteelBlue;
             info.Text = "Checking if file already exists...";
 
             int downloadMode = 0;
@@ -427,7 +427,7 @@ namespace fapmap
             {
                 if (File.Exists(path))
                 {
-                    DialogResult dialogResult = fapmap.OpenFileExistsDialog(this, name);
+                    DialogResult dialogResult = fapmap.OpenFileExistsDialog(this, path);
                     
                     switch (dialogResult)
                     {
@@ -443,13 +443,13 @@ namespace fapmap
                 else if (cb_conflict_rename.Checked)  { downloadMode = 2; }
                 else if (cb_conflict_skip.Checked)    { downloadMode = 3; }
             }
-            
-            if (File.Exists(path)) // IF FILE EXISTS
+
+            switch (downloadMode)
             {
-                switch (downloadMode)
-                {
-                    case 1: /* File.Delete(path); */ break;
-                    case 2:
+                case 1: if (File.Exists(path)) { File.Delete(path); }  break;
+                case 2:
+                    {
+                        if (File.Exists(path))
                         {
                             FileInfo fi = new FileInfo(path);
 
@@ -461,16 +461,16 @@ namespace fapmap
                                 c++;
                                 path = fi.FullName.Replace(fi.Name, "") + fi.Name.Replace(fi.Extension, "") + " [" + c + "]" + fi.Extension;
                             }
-                            break;
                         }
-                    case 3:
-                        {
-                            info.ForeColor = System.Drawing.Color.Yellow;
-                            info.Text = "Skipped!";
-                            return false; //break;
-                        }
-                        
-                }
+                        break;
+                    }
+                case 3:
+                    {
+                        info.ForeColor = Color.SteelBlue;
+                        info.Text = "Skipped!";
+                        return false; //break;
+                    }
+
             }
 
             if (!string.IsNullOrEmpty(txt_dir.Text))
@@ -483,7 +483,7 @@ namespace fapmap
             txt_dledURL.Text = link;
             txt_dledPATH.Text = path;
 
-            info.ForeColor = System.Drawing.Color.SteelBlue;
+            info.ForeColor = Color.SteelBlue;
             info.Text = "Downloading... ";
 
             // last setup
@@ -499,10 +499,10 @@ namespace fapmap
                 //DOWNLOAD
                 client.DownloadFileAsync(new Uri(link), path);
             }
-            catch (ArgumentException e) { info.ForeColor = System.Drawing.Color.DarkOrchid; info.Text = e.Message; return false; }
-            catch (WebException e) { info.ForeColor = System.Drawing.Color.DarkOrchid; info.Text = e.Message; return false; }
-            catch (InvalidOperationException e) { info.ForeColor = System.Drawing.Color.DarkOrchid; info.Text = e.Message; return false; }
-            catch (Exception e) { info.ForeColor = System.Drawing.Color.DarkOrchid; info.Text = e.Message; return false; }
+            catch (ArgumentException e) { info.ForeColor = Color.PaleVioletRed; info.Text = e.Message; return false; }
+            catch (WebException e) { info.ForeColor = Color.PaleVioletRed; info.Text = e.Message; return false; }
+            catch (InvalidOperationException e) { info.ForeColor = Color.PaleVioletRed; info.Text = e.Message; return false; }
+            catch (Exception e) { info.ForeColor = Color.PaleVioletRed; info.Text = e.Message; return false; }
             return true;
         }
         
@@ -530,8 +530,9 @@ namespace fapmap
         {
             fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.DLED, txt_dledURL.Text + " -> " + txt_dledPATH.Text);
             
-            info.ForeColor = System.Drawing.Color.SpringGreen;
+            info.ForeColor = Color.SpringGreen;
             pbar.Visible = false;
+            pbar.Value = 0;
             links_updateCount(links.Items.Count);
             updateIcon(false);
             btn_dl.BackgroundImage = Properties.Resources.download;
@@ -558,12 +559,12 @@ namespace fapmap
                 {
                     if (fapmap.Open(txt_dledPATH.Text))
                     {
-                        info.ForeColor = System.Drawing.Color.SpringGreen;
+                        info.ForeColor = Color.SpringGreen;
                         info.Text = "File opened.";
                     }
                     else
                     {
-                        info.ForeColor = System.Drawing.Color.DarkOrchid;
+                        info.ForeColor = Color.PaleVioletRed;
                         info.Text = "File Not Found!";
                     }
                 }
@@ -577,12 +578,12 @@ namespace fapmap
                 {
                     if (fapmap.OpenAndSelectInExplorer(txt_dledPATH.Text))
                     {
-                        info.ForeColor = System.Drawing.Color.SpringGreen;
+                        info.ForeColor = Color.SpringGreen;
                         info.Text = "Opened explorer and selected the file.";
                     }
                     else
                     {
-                        info.ForeColor = System.Drawing.Color.DarkOrchid;
+                        info.ForeColor = Color.PaleVioletRed;
                         info.Text = "File Not Found!";
                     }
                 }
@@ -594,12 +595,12 @@ namespace fapmap
             {
                 if (fapmap.Incognito(txt_dledURL.Text))
                 {
-                    info.ForeColor = System.Drawing.Color.SpringGreen;
+                    info.ForeColor = Color.SpringGreen;
                     info.Text = "URL opened.";
                 }
                 else
                 {
-                    info.ForeColor = System.Drawing.Color.DarkOrchid;
+                    info.ForeColor = Color.PaleVioletRed;
                     info.Text = "Failed to open URL.";
                 }
             }
@@ -660,7 +661,7 @@ namespace fapmap
                     {
                         this.Invoke((MethodInvoker)delegate
                         {
-                            info.ForeColor = System.Drawing.Color.DarkOrchid;
+                            info.ForeColor = Color.PaleVioletRed;
                             info.Text = "No input...";
                         });
 
@@ -674,7 +675,7 @@ namespace fapmap
 
                         this.Invoke((MethodInvoker)delegate
                         {
-                            info.ForeColor = System.Drawing.Color.DarkOrchid;
+                            info.ForeColor = Color.PaleVioletRed;
                             info.Text = "webgrab.exe not found...";
                         });
 
@@ -686,7 +687,7 @@ namespace fapmap
 
                     this.Invoke((MethodInvoker)delegate
                     {
-                        info.ForeColor = System.Drawing.Color.Yellow;
+                        info.ForeColor = Color.SteelBlue;
                         info.Text = "Scanning web page for URLs...";
                         btn_webgrabStart.BackgroundImage = Properties.Resources.close;
                     });
@@ -714,7 +715,7 @@ namespace fapmap
 
                     this.Invoke((MethodInvoker)delegate
                     {
-                        info.ForeColor = System.Drawing.Color.SpringGreen;
+                        info.ForeColor = Color.SpringGreen;
                         info.Text = "Done!";
                         btn_webgrabStart.BackgroundImage = Properties.Resources.scanPage;
                     });

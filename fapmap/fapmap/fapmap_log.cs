@@ -68,7 +68,7 @@ namespace fapmap
                         case fapmap.GlobalVariables.LOG_TYPE.RMVD: lvi.ForeColor = Color.IndianRed;     break;
                         case fapmap.GlobalVariables.LOG_TYPE.UDEL: lvi.ForeColor = Color.PaleVioletRed; break;
                         case fapmap.GlobalVariables.LOG_TYPE.PASS: lvi.ForeColor = Color.Crimson;       break;
-                        case fapmap.GlobalVariables.LOG_TYPE.FAIL: lvi.ForeColor = Color.DarkOrchid;    break;
+                        case fapmap.GlobalVariables.LOG_TYPE.FAIL: lvi.ForeColor = Color.PaleVioletRed;    break;
                         default: lvi.ForeColor = Color.Silver; break;
                     }
                     items.Add(lvi);

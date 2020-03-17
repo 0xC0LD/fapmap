@@ -51,13 +51,15 @@ namespace fapmap_res
 
             // MENU HOVER
             public override System.Drawing.Color MenuItemSelectedGradientBegin { get { return System.Drawing.Color.Transparent; } }
-            public override System.Drawing.Color MenuItemPressedGradientMiddle { get { return System.Drawing.Color.Transparent; } }
+            public override System.Drawing.Color MenuItemPressedGradientMiddle { get { return System.Drawing.Color.Indigo; } }
             public override System.Drawing.Color MenuItemSelectedGradientEnd   { get { return System.Drawing.Color.MidnightBlue; } }
 
             // MENU PRESS
             public override System.Drawing.Color MenuItemPressedGradientBegin { get { return System.Drawing.Color.MidnightBlue; } }
             public override System.Drawing.Color MenuItemPressedGradientEnd   { get { return System.Drawing.Color.Transparent; } }
-            public override System.Drawing.Color MenuItemSelected             { get { return System.Drawing.Color.Transparent; } }
+
+            // hover over subitem
+            public override System.Drawing.Color MenuItemSelected             { get { return System.Drawing.Color.FromArgb(0,0, 30); } }
 
 
             public override System.Drawing.Color ImageMarginGradientBegin  { get { return System.Drawing.Color.Transparent; } }
@@ -94,7 +96,7 @@ namespace fapmap_res
             {
                 using (Graphics offscreen = Graphics.FromImage(offscreenImage))
                 {
-                    SolidBrush backColor = new SolidBrush(Color.FromArgb(20, 20, 20));
+                    SolidBrush backColor = new SolidBrush(BackColor);
                     Rectangle back = new Rectangle(0, 0, this.Width, this.Height);
                     Rectangle bar = new Rectangle(60, 0, this.Width, this.Height);
 

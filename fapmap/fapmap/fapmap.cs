@@ -320,9 +320,15 @@ namespace fapmap
             {
                 // foreColor = Color.CornflowerBlue;
                 using (Brush background = new SolidBrush(selectedBackColor))
+                using (LinearGradientBrush selectedBrush = e.Node.IsExpanded ?
+                    new LinearGradientBrush(e.Bounds, Color.FromArgb(40, 0, 70), Color.FromArgb(16, 16, 69), System.Drawing.Drawing2D.LinearGradientMode.Vertical)
+                    :
+                    new LinearGradientBrush(e.Bounds, Color.FromArgb(16, 16, 69), Color.FromArgb(40, 0, 70), System.Drawing.Drawing2D.LinearGradientMode.Vertical)
+                )
                 using (Brush border = new SolidBrush(Color.DarkSlateBlue))
                 {
                     e.Graphics.FillRectangle(background, e.Bounds);
+                    e.Graphics.FillRectangle(selectedBrush, e.Bounds);
                     e.Graphics.DrawRectangle(new Pen(border), new Rectangle(e.Bounds.Location, new Size(e.Bounds.Width - 1, e.Bounds.Height - 1)));
                     TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, foreColor, TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.SingleLine | TextFormatFlags.EndEllipsis);
                 }
@@ -333,9 +339,9 @@ namespace fapmap
                 // foreColor = Color.SkyBlue;
                 using (Brush background = new SolidBrush(backColor))
                 using (LinearGradientBrush selectedBrush = e.Node.IsExpanded ?
-                    new LinearGradientBrush(e.Bounds, Color.MidnightBlue, Color.Transparent, System.Drawing.Drawing2D.LinearGradientMode.Vertical)
+                    new LinearGradientBrush(e.Bounds, Color.Indigo, Color.MidnightBlue, System.Drawing.Drawing2D.LinearGradientMode.Vertical)
                     :
-                    new LinearGradientBrush(e.Bounds, Color.Transparent, Color.MidnightBlue, System.Drawing.Drawing2D.LinearGradientMode.Vertical)
+                    new LinearGradientBrush(e.Bounds, Color.MidnightBlue, Color.Indigo, System.Drawing.Drawing2D.LinearGradientMode.Vertical)
                 )
                 using (Brush border = new SolidBrush(Color.SlateBlue))
                 {
@@ -405,9 +411,9 @@ namespace fapmap
             return ret;
         }
 
-        public static DialogResult OpenFileExistsDialog(IWin32Window t, string printText)
+        public static DialogResult OpenFileExistsDialog(IWin32Window t, string filePath_)
         {
-            fapmap_fileExistsDialog fi = new fapmap_fileExistsDialog() { print = printText };
+            fapmap_fileExistsDialog fi = new fapmap_fileExistsDialog() { filePath = filePath_ };
             DialogResult dr = fi.ShowDialog(t);
             fi.Dispose();
             return dr;
@@ -823,7 +829,7 @@ namespace fapmap
                 using (StreamWriter w = File.AppendText(GlobalVariables.Path.File.Links))
                 {
                     w.WriteLine(GlobalVariables.Settings.Common.Comment + " comment");
-                    w.WriteLine(@"https://duckduckgo.com/");
+                    w.WriteLine(@"https://duckduckgo.com");
                 }
             }
 
@@ -3522,7 +3528,7 @@ namespace fapmap
                         g.DrawLine(new Pen(aGradientBrush), p1, p2);
                     }
 
-                    g.DrawLine(new Pen(Color.FromArgb(20, 20, 20)), new Point(0, 0), new Point(0, point1 < 0 ? 0 : point1));
+                    g.DrawLine(new Pen(Color.FromArgb(15, 15, 15)), new Point(0, 0), new Point(0, point1 < 0 ? 0 : point1));
                 }
 
                 DirectBitmap copy = new DirectBitmap(bmp.Width, bmp.Height);
@@ -3839,11 +3845,11 @@ namespace fapmap
 
             if (File.Exists(txt_path.Text) || Directory.Exists(txt_path.Text))
             {
-                txt_path.ForeColor = Color.YellowGreen;
+                txt_path.ForeColor = Color.SlateBlue;
             }
             else
             {
-                txt_path.ForeColor = Color.DarkOrchid;
+                txt_path.ForeColor = Color.PaleVioletRed;
             }
 
             if (string.IsNullOrEmpty(txt_path.Text) || string.IsNullOrWhiteSpace(txt_path.Text) || txt_path.Text == "NULL")
@@ -3901,7 +3907,7 @@ namespace fapmap
             
             foreach (DirectoryInfo directory in dirs)
             {
-                faftv_setImage("dir", node_dir);
+                faftv_setImage(directory.FullName == GlobalVariables.Path.Dir.MainFolder ? "main" : "dir", node_dir);
                 node_dir.Nodes.Add(faftv_CreateDirectoryNode(directory));
 
                 if (GlobalVariables.Settings.CheckBoxes.TreeViewShowItemIndex)
@@ -3928,48 +3934,25 @@ namespace fapmap
 
             return node_dir;
         }
-        private void faftv_setImage(string ext, TreeNode node_file)
+        
+        private void faftv_setImage(string e, TreeNode node_file)
         {
-            int num = 14; // default 14 = unknown file type
+            string ext = e.ToLower();
 
-            switch (ext.ToLower())
+            if (ext == "dir") { node_file.ImageIndex = node_file.SelectedImageIndex = 0; return; }
+            
+            if (File.Exists(node_file.Name))
             {
-                case "dir":  num = 0; break;
-                case ".exe": num = 1; break;
-                case ".mp4":
-                case ".wmv":
-                case ".mkv":
-                case ".mpeg":
-                case ".mpg": num = 2; break;
-                case ".webm":
-                case ".avi":
-                case ".mov": num = 3; break;
-                case ".swf":
-                case ".flv": num = 4; break;
-                case ".gif": num = 5; break;
-                case ".png":
-                case ".svg":
-                case ".ico": num = 6; break;
-                case ".jpg":
-                case ".jpeg":
-                case ".jpe":
-                case ".jiff":
-                case ".jfif":
-                case ".bmp":
-                case ".dib":
-                case ".tif":
-                case ".tiff": num = 7; break;
-                case ".mp3":
-                case ".ogg":  num = 8; break;
-                case ".html": num = 9; break;
-                case ".lst":
-                case ".webgrab_skip":
-                case ".txt": num = 10; break;
-                case ".bat": num = 11; break;
-                case ".reg": num = 12; break;
+                if (faftv_icons.Images.ContainsKey(ext))
+                {
+                    node_file.ImageIndex = node_file.SelectedImageIndex = faftv_icons.Images.IndexOfKey(ext);
+                }
+                else
+                {
+                    faftv_icons.Images.Add(ext, System.Drawing.Icon.ExtractAssociatedIcon(node_file.Name));
+                    node_file.ImageIndex = node_file.SelectedImageIndex = faftv_icons.Images.Count - 1;
+                }
             }
-
-            node_file.ImageIndex = node_file.SelectedImageIndex = num;
         }
 
         // update treeview for changes
@@ -4921,7 +4904,7 @@ namespace fapmap
 
         private int links_fontSize_min = 8;
         private int links_fontSize_max = 50;
-        private int links_fontSize = 12;
+        private int links_fontSize = 10;
         private void links_MouseWheel(object sender, System.Windows.Forms.MouseEventArgs e)
         {
             if (!links_ctrl) { return; }

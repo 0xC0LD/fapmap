@@ -48,6 +48,7 @@
             // 
             this.board_RMB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.board_RMB.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.board_RMB.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.board_RMB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.board_RMB_refresh,
             this.board_RMB_openAndExit,
@@ -58,7 +59,7 @@
             this.board_RMB.Name = "contextMenuStrip1";
             this.board_RMB.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.board_RMB.ShowItemToolTips = false;
-            this.board_RMB.Size = new System.Drawing.Size(281, 114);
+            this.board_RMB.Size = new System.Drawing.Size(269, 136);
             // 
             // board_RMB_refresh
             // 
@@ -66,7 +67,7 @@
             this.board_RMB_refresh.ForeColor = System.Drawing.Color.SlateBlue;
             this.board_RMB_refresh.Image = global::fapmap.Properties.Resources.restart;
             this.board_RMB_refresh.Name = "board_RMB_refresh";
-            this.board_RMB_refresh.Size = new System.Drawing.Size(280, 22);
+            this.board_RMB_refresh.Size = new System.Drawing.Size(268, 22);
             this.board_RMB_refresh.Text = "Refresh (CTRL+R/F5)";
             this.board_RMB_refresh.Click += new System.EventHandler(this.board_RMB_refresh_Click);
             // 
@@ -76,7 +77,7 @@
             this.board_RMB_openAndExit.ForeColor = System.Drawing.Color.SlateBlue;
             this.board_RMB_openAndExit.Image = global::fapmap.Properties.Resources.incognito;
             this.board_RMB_openAndExit.Name = "board_RMB_openAndExit";
-            this.board_RMB_openAndExit.Size = new System.Drawing.Size(280, 22);
+            this.board_RMB_openAndExit.Size = new System.Drawing.Size(268, 22);
             this.board_RMB_openAndExit.Text = "Open And Exit (ENTER/CTRL+W/MMB)";
             this.board_RMB_openAndExit.Click += new System.EventHandler(this.board_RMB_openAndExit_Click);
             // 
@@ -86,7 +87,7 @@
             this.board_RMB_open.ForeColor = System.Drawing.Color.SlateBlue;
             this.board_RMB_open.Image = global::fapmap.Properties.Resources.incognito;
             this.board_RMB_open.Name = "board_RMB_open";
-            this.board_RMB_open.Size = new System.Drawing.Size(280, 22);
+            this.board_RMB_open.Size = new System.Drawing.Size(268, 22);
             this.board_RMB_open.Text = "Open (CTRL+Q/2LMB)";
             this.board_RMB_open.Click += new System.EventHandler(this.board_RMB_open_Click);
             // 
@@ -96,18 +97,17 @@
             this.board_RMB_copy.ForeColor = System.Drawing.Color.SlateBlue;
             this.board_RMB_copy.Image = global::fapmap.Properties.Resources.copy;
             this.board_RMB_copy.Name = "board_RMB_copy";
-            this.board_RMB_copy.Size = new System.Drawing.Size(280, 22);
+            this.board_RMB_copy.Size = new System.Drawing.Size(268, 22);
             this.board_RMB_copy.Text = "Copy URL And Exit (CTRL+C)";
             this.board_RMB_copy.Click += new System.EventHandler(this.board_RMB_copy_Click);
             // 
             // board_RMB_edit
             // 
             this.board_RMB_edit.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.board_RMB_edit.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.board_RMB_edit.ForeColor = System.Drawing.Color.SlateBlue;
             this.board_RMB_edit.Image = global::fapmap.Properties.Resources.edit;
             this.board_RMB_edit.Name = "board_RMB_edit";
-            this.board_RMB_edit.Size = new System.Drawing.Size(280, 22);
+            this.board_RMB_edit.Size = new System.Drawing.Size(268, 22);
             this.board_RMB_edit.Text = "Edit Board (CTRL+E)";
             this.board_RMB_edit.Click += new System.EventHandler(this.board_RMB_edit_Click);
             // 
@@ -121,7 +121,7 @@
             // 
             this.board.AllowDrop = true;
             this.board.AutoArrange = false;
-            this.board.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.board.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.board.BackgroundImage = global::fapmap.Properties.Resources.bg3;
             this.board.BackgroundImageTiled = true;
             this.board.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -131,7 +131,7 @@
             this.board_clm_url});
             this.board.ContextMenuStrip = this.board_RMB;
             this.board.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.board.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.board.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.board.ForeColor = System.Drawing.Color.SlateBlue;
             this.board.FullRowSelect = true;
             this.board.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
@@ -173,7 +173,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(764, 761);
             this.Controls.Add(this.board);
             this.DoubleBuffered = true;

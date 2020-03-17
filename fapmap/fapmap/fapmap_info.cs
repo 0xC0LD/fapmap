@@ -23,9 +23,29 @@ namespace fapmap
 
         private void fapmap_info_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(pass_path)) { this.Close(); }
-            
-            
+            if (File.Exists(pass_path))
+            {
+                if (fapmap.GlobalVariables.FileTypes.Image.Contains(Path.GetExtension(pass_path).ToLower()))
+                {
+                    Image img = Image.FromFile(pass_path);
+                    Bitmap bmp = new Bitmap(img);
+                    img.Dispose();
+                    showImage.Image = bmp;
+                }
+                else
+                {
+                    showImage.Image = System.Drawing.Icon.ExtractAssociatedIcon(pass_path).ToBitmap();
+                }
+            }
+            else if (Directory.Exists(pass_path))
+            {
+                showImage.Image = Properties.Resources.folder;
+            }
+            else
+            {
+                this.Close();
+            }
+
             getInfo(pass_path);
 
             btn_getInfo.Focus();
@@ -149,18 +169,18 @@ namespace fapmap
                             txt_size.Text = fapmap.ROund(fi.Length) + " (" + fi.Length + " bytes" + ")";
 
                             txt_output.Text +=
-                            "Name..................: " + fi.Name + Environment.NewLine +
-                            "Extension.............: " + fi.Extension + Environment.NewLine +
-                            "Path..................: " + fi.FullName + Environment.NewLine +
-                            "File Attributes.......: " + fi.Attributes + Environment.NewLine +
-                            "IsReadOnly............: " + fi.IsReadOnly + Environment.NewLine +
-                            "Size..................: " + fi.Length + Environment.NewLine +
-                            "Creation Time.........: " + fi.CreationTime + Environment.NewLine +
-                            "Creation Time (Utc)...: " + fi.CreationTimeUtc + Environment.NewLine +
-                            "Last Access Time......: " + fi.LastAccessTime + Environment.NewLine +
+                            "Name..................: " + fi.Name              + Environment.NewLine +
+                            "Extension.............: " + fi.Extension         + Environment.NewLine +
+                            "Directory.............: " + fi.Directory.Name    + Environment.NewLine +
+                            "File Attributes.......: " + fi.Attributes        + Environment.NewLine +
+                            "IsReadOnly............: " + fi.IsReadOnly        + Environment.NewLine +
+                            "Size..................: " + fi.Length            + Environment.NewLine +
+                            "Creation Time.........: " + fi.CreationTime      + Environment.NewLine +
+                            "Creation Time (Utc)...: " + fi.CreationTimeUtc   + Environment.NewLine +
+                            "Last Access Time......: " + fi.LastAccessTime    + Environment.NewLine +
                             "Last Access Time (Utc): " + fi.LastAccessTimeUtc + Environment.NewLine +
-                            "Last Write Time.......: " + fi.LastWriteTime + Environment.NewLine +
-                            "Last Write Time (Utc).: " + fi.LastWriteTimeUtc + Environment.NewLine;
+                            "Last Write Time.......: " + fi.LastWriteTime     + Environment.NewLine +
+                            "Last Write Time (Utc).: " + fi.LastWriteTimeUtc  + Environment.NewLine;
                         });
                     }
 

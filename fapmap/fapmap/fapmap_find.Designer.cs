@@ -45,10 +45,11 @@
             this.cb_case = new System.Windows.Forms.CheckBox();
             this.cb_fileNameOnly = new System.Windows.Forms.CheckBox();
             this.resultNum = new System.Windows.Forms.Label();
+            this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.output = new fapmap_res.FapMapListView();
             this.output_clm_num = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.output_clm_path = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.output_icons = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.showImage)).BeginInit();
             this.output_RMB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -59,13 +60,13 @@
             // 
             // showImage
             // 
-            this.showImage.BackColor = System.Drawing.Color.Black;
+            this.showImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.showImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.showImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.showImage.Image = global::fapmap.Properties.Resources.image;
             this.showImage.Location = new System.Drawing.Point(0, 0);
-            this.showImage.MinimumSize = new System.Drawing.Size(64, 64);
             this.showImage.Name = "showImage";
-            this.showImage.Size = new System.Drawing.Size(358, 649);
+            this.showImage.Size = new System.Drawing.Size(483, 489);
             this.showImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.showImage.TabIndex = 155;
             this.showImage.TabStop = false;
@@ -74,6 +75,7 @@
             // 
             this.output_RMB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.output_RMB.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.output_RMB.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.output_RMB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.output_RMB_reload,
             this.output_RMB_open,
@@ -85,7 +87,7 @@
             this.output_RMB.Name = "contextMenuStrip1";
             this.output_RMB.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.output_RMB.ShowItemToolTips = false;
-            this.output_RMB.Size = new System.Drawing.Size(247, 136);
+            this.output_RMB.Size = new System.Drawing.Size(240, 136);
             // 
             // output_RMB_reload
             // 
@@ -93,7 +95,7 @@
             this.output_RMB_reload.ForeColor = System.Drawing.Color.SlateBlue;
             this.output_RMB_reload.Image = global::fapmap.Properties.Resources.restart;
             this.output_RMB_reload.Name = "output_RMB_reload";
-            this.output_RMB_reload.Size = new System.Drawing.Size(246, 22);
+            this.output_RMB_reload.Size = new System.Drawing.Size(239, 22);
             this.output_RMB_reload.Text = "Reload (CTRL+R/F5)";
             this.output_RMB_reload.Click += new System.EventHandler(this.output_RMB_reload_Click);
             // 
@@ -103,7 +105,7 @@
             this.output_RMB_open.ForeColor = System.Drawing.Color.SlateBlue;
             this.output_RMB_open.Image = global::fapmap.Properties.Resources.open;
             this.output_RMB_open.Name = "output_RMB_open";
-            this.output_RMB_open.Size = new System.Drawing.Size(246, 22);
+            this.output_RMB_open.Size = new System.Drawing.Size(239, 22);
             this.output_RMB_open.Text = "Open Selected (ENTER/CTRL+W)";
             this.output_RMB_open.Click += new System.EventHandler(this.output_RMB_open_Click);
             // 
@@ -113,18 +115,17 @@
             this.output_RMB_explorer.ForeColor = System.Drawing.Color.SlateBlue;
             this.output_RMB_explorer.Image = global::fapmap.Properties.Resources.folder;
             this.output_RMB_explorer.Name = "output_RMB_explorer";
-            this.output_RMB_explorer.Size = new System.Drawing.Size(246, 22);
+            this.output_RMB_explorer.Size = new System.Drawing.Size(239, 22);
             this.output_RMB_explorer.Text = "Open in Explorer (CTRL+E)";
             this.output_RMB_explorer.Click += new System.EventHandler(this.output_RMB_explorer_Click);
             // 
             // output_RMB_explorer2
             // 
             this.output_RMB_explorer2.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.output_RMB_explorer2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.output_RMB_explorer2.ForeColor = System.Drawing.Color.SlateBlue;
             this.output_RMB_explorer2.Image = global::fapmap.Properties.Resources.selectFolder;
             this.output_RMB_explorer2.Name = "output_RMB_explorer2";
-            this.output_RMB_explorer2.Size = new System.Drawing.Size(246, 22);
+            this.output_RMB_explorer2.Size = new System.Drawing.Size(239, 22);
             this.output_RMB_explorer2.Text = "Select in Explorer (CTRL+S)";
             this.output_RMB_explorer2.Click += new System.EventHandler(this.output_RMB_explorer2_Click);
             // 
@@ -134,7 +135,7 @@
             this.output_RMB_copy.ForeColor = System.Drawing.Color.SlateBlue;
             this.output_RMB_copy.Image = global::fapmap.Properties.Resources.copy;
             this.output_RMB_copy.Name = "output_RMB_copy";
-            this.output_RMB_copy.Size = new System.Drawing.Size(246, 22);
+            this.output_RMB_copy.Size = new System.Drawing.Size(239, 22);
             this.output_RMB_copy.Text = "Copy Location (CTRL+C)";
             this.output_RMB_copy.Click += new System.EventHandler(this.output_RMB_copy_Click);
             // 
@@ -144,24 +145,25 @@
             this.output_RMB_delete.ForeColor = System.Drawing.Color.SlateBlue;
             this.output_RMB_delete.Image = global::fapmap.Properties.Resources.delete;
             this.output_RMB_delete.Name = "output_RMB_delete";
-            this.output_RMB_delete.Size = new System.Drawing.Size(246, 22);
+            this.output_RMB_delete.Size = new System.Drawing.Size(239, 22);
             this.output_RMB_delete.Text = "Delete (DEL)";
             this.output_RMB_delete.Click += new System.EventHandler(this.output_RMB_delete_Click);
             // 
             // findButton
             // 
             this.findButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.findButton.BackColor = System.Drawing.Color.Transparent;
+            this.findButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.findButton.BackgroundImage = global::fapmap.Properties.Resources.find;
             this.findButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.findButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.findButton.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
             this.findButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.findButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.findButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.findButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.findButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.findButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.findButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.findButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.findButton.Location = new System.Drawing.Point(1047, 12);
+            this.findButton.Location = new System.Drawing.Point(947, 12);
             this.findButton.Name = "findButton";
             this.findButton.Size = new System.Drawing.Size(25, 25);
             this.findButton.TabIndex = 2;
@@ -173,13 +175,13 @@
             // 
             this.txt_searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_searchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_searchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txt_searchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_searchBox.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_searchBox.ForeColor = System.Drawing.Color.MediumSlateBlue;
             this.txt_searchBox.Location = new System.Drawing.Point(12, 12);
             this.txt_searchBox.Name = "txt_searchBox";
-            this.txt_searchBox.Size = new System.Drawing.Size(1029, 25);
+            this.txt_searchBox.Size = new System.Drawing.Size(929, 25);
             this.txt_searchBox.TabIndex = 1;
             this.txt_searchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_searchBox_KeyDown);
             // 
@@ -206,7 +208,7 @@
             this.cb_showImage.Font = new System.Drawing.Font("Segoe Print", 24F);
             this.cb_showImage.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.cb_showImage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_showImage.Location = new System.Drawing.Point(1030, 698);
+            this.cb_showImage.Location = new System.Drawing.Point(930, 538);
             this.cb_showImage.Name = "cb_showImage";
             this.cb_showImage.Size = new System.Drawing.Size(12, 11);
             this.cb_showImage.TabIndex = 4;
@@ -230,7 +232,7 @@
             this.cb_case.Font = new System.Drawing.Font("Segoe Print", 24F);
             this.cb_case.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.cb_case.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_case.Location = new System.Drawing.Point(1045, 698);
+            this.cb_case.Location = new System.Drawing.Point(945, 538);
             this.cb_case.Name = "cb_case";
             this.cb_case.Size = new System.Drawing.Size(12, 11);
             this.cb_case.TabIndex = 5;
@@ -253,7 +255,7 @@
             this.cb_fileNameOnly.Font = new System.Drawing.Font("Segoe Print", 24F);
             this.cb_fileNameOnly.ForeColor = System.Drawing.Color.DarkSlateBlue;
             this.cb_fileNameOnly.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_fileNameOnly.Location = new System.Drawing.Point(1060, 698);
+            this.cb_fileNameOnly.Location = new System.Drawing.Point(960, 538);
             this.cb_fileNameOnly.Name = "cb_fileNameOnly";
             this.cb_fileNameOnly.Size = new System.Drawing.Size(12, 11);
             this.cb_fileNameOnly.TabIndex = 6;
@@ -267,18 +269,37 @@
             this.resultNum.BackColor = System.Drawing.Color.Transparent;
             this.resultNum.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.resultNum.ForeColor = System.Drawing.Color.SlateBlue;
-            this.resultNum.Location = new System.Drawing.Point(12, 699);
+            this.resultNum.Location = new System.Drawing.Point(12, 539);
             this.resultNum.Name = "resultNum";
             this.resultNum.Size = new System.Drawing.Size(25, 13);
             this.resultNum.TabIndex = 0;
             this.resultNum.Text = "...";
             // 
+            // splitContainer
+            // 
+            this.splitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer.Location = new System.Drawing.Point(12, 43);
+            this.splitContainer.Name = "splitContainer";
+            // 
+            // splitContainer.Panel1
+            // 
+            this.splitContainer.Panel1.Controls.Add(this.output);
+            // 
+            // splitContainer.Panel2
+            // 
+            this.splitContainer.Panel2.Controls.Add(this.showImage);
+            this.splitContainer.Size = new System.Drawing.Size(960, 489);
+            this.splitContainer.SplitterDistance = 473;
+            this.splitContainer.TabIndex = 232;
+            // 
             // output
             // 
             this.output.AllowDrop = true;
             this.output.AutoArrange = false;
-            this.output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.output.BackgroundImage = global::fapmap.Properties.Resources.bg5;
+            this.output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.output.BackgroundImage = global::fapmap.Properties.Resources.bg3;
             this.output.BackgroundImageTiled = true;
             this.output.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.output.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -294,7 +315,8 @@
             this.output.Location = new System.Drawing.Point(0, 0);
             this.output.MultiSelect = false;
             this.output.Name = "output";
-            this.output.Size = new System.Drawing.Size(698, 649);
+            this.output.Size = new System.Drawing.Size(473, 489);
+            this.output.SmallImageList = this.output_icons;
             this.output.TabIndex = 3;
             this.output.UseCompatibleStateImageBehavior = false;
             this.output.View = System.Windows.Forms.View.Details;
@@ -316,32 +338,19 @@
             this.output_clm_path.Text = "PATH";
             this.output_clm_path.Width = 92;
             // 
-            // splitContainer
+            // output_icons
             // 
-            this.splitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer.Location = new System.Drawing.Point(12, 43);
-            this.splitContainer.Name = "splitContainer";
-            // 
-            // splitContainer.Panel1
-            // 
-            this.splitContainer.Panel1.Controls.Add(this.output);
-            // 
-            // splitContainer.Panel2
-            // 
-            this.splitContainer.Panel2.Controls.Add(this.showImage);
-            this.splitContainer.Size = new System.Drawing.Size(1060, 649);
-            this.splitContainer.SplitterDistance = 698;
-            this.splitContainer.TabIndex = 232;
+            this.output_icons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("output_icons.ImageStream")));
+            this.output_icons.TransparentColor = System.Drawing.Color.Transparent;
+            this.output_icons.Images.SetKeyName(0, "dir.ico");
             // 
             // fapmap_find
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.BackgroundImage = global::fapmap.Properties.Resources.bg3;
-            this.ClientSize = new System.Drawing.Size(1084, 721);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
+            this.ClientSize = new System.Drawing.Size(984, 561);
             this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.cb_fileNameOnly);
             this.Controls.Add(this.cb_case);
@@ -394,5 +403,6 @@
         private System.Windows.Forms.CheckBox cb_case;
         private System.Windows.Forms.CheckBox cb_fileNameOnly;
         private System.Windows.Forms.SplitContainer splitContainer;
+        private System.Windows.Forms.ImageList output_icons;
     }
 }

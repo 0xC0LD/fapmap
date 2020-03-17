@@ -71,31 +71,53 @@ namespace fapmap
                 }
 
                 string text = item;
+                int imageIndex = 0;
 
                 Color fc = output.ForeColor;
                 if (Directory.Exists(item))
                 {
                     DirectoryInfo di = new DirectoryInfo(item);
+
+                    // set name
                     if (cb_fileNameOnly.Checked) { text = di.Parent.Name + "\\" + di.Name; }
 
+                    // set color
                     if      (di.Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { fc = Color.MediumPurple;  }
                     else if (di.Attributes.HasFlag(FileAttributes.Hidden))                         { fc = Color.SteelBlue;     }
                     else                                                                           { fc = Color.PaleVioletRed; }
+
+                    // set image
+                    imageIndex = 0;
                 }
                 else if (File.Exists(item))
                 {
                     FileInfo fi = new FileInfo(item);
+
+                    // set name
                     if (cb_fileNameOnly.Checked) { text = fi.Directory.Name + "\\" + fi.Name; }
 
+                    // set color
                     if      (fi.Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { fc = Color.MediumPurple;  }
                     else if (fi.Attributes.HasFlag(FileAttributes.Hidden))                         { fc = Color.SteelBlue;     }
                     else                                                                           { fc = Color.PaleVioletRed; }
+
+                    // set image
+                    string ext = fi.Extension.ToLower();
+                    if (output_icons.Images.ContainsKey(ext))
+                    {
+                        imageIndex = output_icons.Images.IndexOfKey(ext);
+                    }
+                    else
+                    {
+                        output_icons.Images.Add(ext, System.Drawing.Icon.ExtractAssociatedIcon(item));
+                        imageIndex = output_icons.Images.Count - 1;
+                    }
                 }
                 else { addIt = false; }
 
                 if (addIt)
                 {
-                    itemsToAdd.Add(new ListViewItem(new string[] { (itemsToAdd.Count +1).ToString(), text }) { Name = item, ForeColor = fc });
+                    itemsToAdd.Add(new ListViewItem(new string[] { (itemsToAdd.Count + 1).ToString(), text }) { Name = item, ForeColor = fc, ImageIndex = imageIndex });
                 }
             }
 
@@ -238,7 +260,7 @@ namespace fapmap
             output_shift = false;
         }
 
-        private int links_fontSize_min = 4;
+        private int links_fontSize_min = 6;
         private int links_fontSize_max = 30;
         private int links_fontSize = 8;
         private void output_MouseWheel(object sender, System.Windows.Forms.MouseEventArgs e)

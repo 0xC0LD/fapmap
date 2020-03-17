@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Drawing.Drawing2D;
 
 namespace fapmap
 {
@@ -30,6 +31,8 @@ namespace fapmap
             {
                 treeView.Nodes[0].Expand();
             }
+
+            if (preSelectedPath.EndsWith("\\")) { preSelectedPath = preSelectedPath.Remove(preSelectedPath.Length-1); }
 
             if (!string.IsNullOrEmpty(preSelectedPath) && Directory.Exists(preSelectedPath))
             {
@@ -143,9 +146,68 @@ namespace fapmap
 
         private void txt_path_TextChanged(object sender, EventArgs e)
         {
-            txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.SlateBlue : Color.DarkOrchid;
+            txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.SlateBlue : Color.PaleVioletRed;
         }
 
-        
+        private void treeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+            TreeNodeStates state = e.State;
+            Font font = e.Node.NodeFont ?? e.Node.TreeView.Font;
+            Color foreColor = treeView.ForeColor;
+            Color backColor = treeView.BackColor;
+            Color selectedBackColor = Color.FromArgb(15, 15, 15);
+
+            // SET COLOR BY ATTRIB
+            string path = e.Node.Name;
+            if (Directory.Exists(path))
+            {
+                //SET COLOR BY ATTRIB
+                FileAttributes attrib_dir = File.GetAttributes(path);
+                if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.MediumPurple; }
+                else if (attrib_dir.HasFlag(FileAttributes.Hidden)) { foreColor = Color.SteelBlue; }
+                else { foreColor = Color.PaleVioletRed; }
+            }
+            else { e.Node.Remove(); return; }
+
+            // node is selected but not focused on treeview
+            if (!e.Node.TreeView.Focused && e.Node == e.Node.TreeView.SelectedNode)
+            {
+                // foreColor = Color.CornflowerBlue;
+                using (Brush background = new SolidBrush(selectedBackColor))
+                using (Brush border = new SolidBrush(Color.DarkSlateBlue))
+                {
+                    e.Graphics.FillRectangle(background, e.Bounds);
+                    e.Graphics.DrawRectangle(new Pen(border), new Rectangle(e.Bounds.Location, new Size(e.Bounds.Width - 1, e.Bounds.Height - 1)));
+                    TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, foreColor, TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.SingleLine | TextFormatFlags.EndEllipsis);
+                }
+            }
+            // node selected
+            else if ((state & TreeNodeStates.Selected) == TreeNodeStates.Selected)
+            {
+                // foreColor = Color.SkyBlue;
+                using (Brush background = new SolidBrush(backColor))
+                using (LinearGradientBrush selectedBrush = e.Node.IsExpanded ?
+                    new LinearGradientBrush(e.Bounds, Color.MidnightBlue, Color.Transparent, System.Drawing.Drawing2D.LinearGradientMode.Vertical)
+                    :
+                    new LinearGradientBrush(e.Bounds, Color.Transparent, Color.MidnightBlue, System.Drawing.Drawing2D.LinearGradientMode.Vertical)
+                )
+                using (Brush border = new SolidBrush(Color.SlateBlue))
+                {
+                    e.Graphics.FillRectangle(background, e.Bounds);
+                    e.Graphics.FillRectangle(selectedBrush, e.Bounds);
+                    e.Graphics.DrawRectangle(new Pen(border), new Rectangle(e.Bounds.Location, new Size(e.Bounds.Width - 1, e.Bounds.Height - 1)));
+                    TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, foreColor, TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.SingleLine | TextFormatFlags.EndEllipsis);
+                }
+            }
+            // node is not selected
+            else
+            {
+                using (Brush background = new SolidBrush(backColor))
+                {
+                    e.Graphics.FillRectangle(background, e.Bounds);
+                    TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, foreColor, TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.SingleLine | TextFormatFlags.EndEllipsis);
+                }
+            }
+        }
     }
 }

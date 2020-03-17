@@ -45,7 +45,7 @@
             // 
             this.cb_random.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_random.AutoSize = true;
-            this.cb_random.BackColor = System.Drawing.Color.Transparent;
+            this.cb_random.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.cb_random.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_random.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.cb_random.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
@@ -68,7 +68,7 @@
             // 
             this.cb_rmlogs.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_rmlogs.AutoSize = true;
-            this.cb_rmlogs.BackColor = System.Drawing.Color.Transparent;
+            this.cb_rmlogs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.cb_rmlogs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_rmlogs.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.cb_rmlogs.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
@@ -91,7 +91,7 @@
             // 
             this.cb_keyword.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_keyword.AutoSize = true;
-            this.cb_keyword.BackColor = System.Drawing.Color.Transparent;
+            this.cb_keyword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.cb_keyword.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_keyword.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.cb_keyword.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
@@ -114,7 +114,7 @@
             // 
             this.txt_keyword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_keyword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_keyword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txt_keyword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_keyword.Enabled = false;
             this.txt_keyword.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -129,12 +129,13 @@
             // btn_cancel
             // 
             this.btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_cancel.BackColor = System.Drawing.Color.Transparent;
+            this.btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_cancel.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_cancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_cancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_cancel.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.btn_cancel.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_cancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_cancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btn_cancel.Location = new System.Drawing.Point(392, 119);
@@ -149,12 +150,13 @@
             // btn_make
             // 
             this.btn_make.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_make.BackColor = System.Drawing.Color.Transparent;
+            this.btn_make.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_make.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_make.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_make.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_make.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_make.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_make.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.btn_make.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_make.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_make.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_make.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_make.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btn_make.Location = new System.Drawing.Point(327, 119);
@@ -170,7 +172,7 @@
             // 
             this.txt_path.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txt_path.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_path.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txt_path.ForeColor = System.Drawing.Color.SlateBlue;
@@ -196,7 +198,7 @@
             // 
             this.cb_reverse.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_reverse.AutoSize = true;
-            this.cb_reverse.BackColor = System.Drawing.Color.Transparent;
+            this.cb_reverse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.cb_reverse.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_reverse.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.cb_reverse.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
@@ -218,14 +220,14 @@
             // btn_openPathSelector
             // 
             this.btn_openPathSelector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_openPathSelector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_openPathSelector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_openPathSelector.BackgroundImage = global::fapmap.Properties.Resources.treeView;
             this.btn_openPathSelector.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_openPathSelector.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_openPathSelector.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.btn_openPathSelector.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_openPathSelector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_openPathSelector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_openPathSelector.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.btn_openPathSelector.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btn_openPathSelector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_openPathSelector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_openPathSelector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_openPathSelector.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btn_openPathSelector.ForeColor = System.Drawing.Color.SlateBlue;
@@ -241,8 +243,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
             this.ClientSize = new System.Drawing.Size(464, 161);
             this.Controls.Add(this.btn_openPathSelector);
             this.Controls.Add(this.cb_reverse);

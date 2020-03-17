@@ -90,7 +90,7 @@
             // 
             this.txt_size.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_size.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_size.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txt_size.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_size.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_size.ForeColor = System.Drawing.Color.CornflowerBlue;
@@ -107,8 +107,7 @@
             this.panel_info.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_info.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.panel_info.BackgroundImage = global::fapmap.Properties.Resources.bg3;
+            this.panel_info.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
             this.panel_info.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_info.Controls.Add(this.txt_outputBorder);
             this.panel_info.Controls.Add(this.btn_getinfo);
@@ -135,7 +134,7 @@
             // 
             // txt_output
             // 
-            this.txt_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txt_output.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_output.DetectUrls = false;
             this.txt_output.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -151,11 +150,12 @@
             // 
             // btn_getinfo
             // 
-            this.btn_getinfo.BackColor = System.Drawing.Color.Transparent;
+            this.btn_getinfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_getinfo.BackgroundImage = global::fapmap.Properties.Resources.arrow_down;
             this.btn_getinfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_getinfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_getinfo.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_getinfo.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.btn_getinfo.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btn_getinfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_getinfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_getinfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -219,7 +219,7 @@
             // btn_editINI
             // 
             this.btn_editINI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_editINI.BackColor = System.Drawing.Color.Transparent;
+            this.btn_editINI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_editINI.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_editINI.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_editINI.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -238,8 +238,7 @@
             // 
             // panel_browser
             // 
-            this.panel_browser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.panel_browser.BackgroundImage = global::fapmap.Properties.Resources.bg3;
+            this.panel_browser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
             this.panel_browser.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_browser.Controls.Add(this.rb_chrome);
             this.panel_browser.Controls.Add(this.rb_firefox);
@@ -253,7 +252,7 @@
             // rb_chrome
             // 
             this.rb_chrome.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rb_chrome.BackColor = System.Drawing.Color.Transparent;
+            this.rb_chrome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.rb_chrome.BackgroundImage = global::fapmap.Properties.Resources.browser_chrome;
             this.rb_chrome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_chrome.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -276,7 +275,7 @@
             // rb_firefox
             // 
             this.rb_firefox.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rb_firefox.BackColor = System.Drawing.Color.Transparent;
+            this.rb_firefox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.rb_firefox.BackgroundImage = global::fapmap.Properties.Resources.browser_firefox;
             this.rb_firefox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_firefox.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -300,7 +299,7 @@
             // rb_opera
             // 
             this.rb_opera.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rb_opera.BackColor = System.Drawing.Color.Transparent;
+            this.rb_opera.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.rb_opera.BackgroundImage = global::fapmap.Properties.Resources.browser_opera;
             this.rb_opera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.rb_opera.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -334,7 +333,7 @@
             // 
             // txt_newPasswd
             // 
-            this.txt_newPasswd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_newPasswd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txt_newPasswd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_newPasswd.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txt_newPasswd.ForeColor = System.Drawing.Color.Teal;
@@ -346,7 +345,7 @@
             // 
             // txt_passwds
             // 
-            this.txt_passwds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_passwds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txt_passwds.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_passwds.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txt_passwds.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
@@ -379,11 +378,12 @@
             // 
             // btn_addPasswd
             // 
-            this.btn_addPasswd.BackColor = System.Drawing.Color.Transparent;
+            this.btn_addPasswd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_addPasswd.BackgroundImage = global::fapmap.Properties.Resources.arrow_down;
             this.btn_addPasswd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_addPasswd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_addPasswd.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.btn_addPasswd.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.btn_addPasswd.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btn_addPasswd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btn_addPasswd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btn_addPasswd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -421,7 +421,7 @@
             // 
             this.txt_wbURL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_wbURL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_wbURL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txt_wbURL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_wbURL.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txt_wbURL.ForeColor = System.Drawing.Color.MediumSlateBlue;
@@ -449,8 +449,7 @@
             // 
             this.panel_txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_txt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.panel_txt.BackgroundImage = global::fapmap.Properties.Resources.bg3;
+            this.panel_txt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
             this.panel_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_txt.Controls.Add(this.label_gifDelay);
             this.panel_txt.Controls.Add(this.txt_gifDelay);
@@ -477,7 +476,7 @@
             // 
             this.txt_gifDelay.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_gifDelay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.txt_gifDelay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txt_gifDelay.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_gifDelay.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.txt_gifDelay.ForeColor = System.Drawing.Color.MediumSlateBlue;
@@ -493,8 +492,7 @@
             // 
             this.panel_passwd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel_passwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.panel_passwd.BackgroundImage = global::fapmap.Properties.Resources.bg3;
+            this.panel_passwd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
             this.panel_passwd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_passwd.Controls.Add(this.label_passwd);
             this.panel_passwd.Controls.Add(this.txt_newPasswd);
@@ -509,8 +507,7 @@
             // 
             this.panel_cb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel_cb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))), ((int)(((byte)(6)))));
-            this.panel_cb.BackgroundImage = global::fapmap.Properties.Resources.bg3;
+            this.panel_cb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
             this.panel_cb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_cb.Controls.Add(this.cb_fdThumb);
             this.panel_cb.Controls.Add(this.cb_fdSortByDate);
@@ -543,7 +540,7 @@
             // 
             this.cb_fdThumb.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_fdThumb.AutoSize = true;
-            this.cb_fdThumb.BackColor = System.Drawing.Color.Transparent;
+            this.cb_fdThumb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.cb_fdThumb.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_fdThumb.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.cb_fdThumb.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
@@ -565,7 +562,7 @@
             // 
             this.cb_fdSortByDate.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_fdSortByDate.AutoSize = true;
-            this.cb_fdSortByDate.BackColor = System.Drawing.Color.Transparent;
+            this.cb_fdSortByDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.cb_fdSortByDate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_fdSortByDate.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.cb_fdSortByDate.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
@@ -599,7 +596,7 @@
             // 
             this.cb_tvIndex.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_tvIndex.AutoSize = true;
-            this.cb_tvIndex.BackColor = System.Drawing.Color.Transparent;
+            this.cb_tvIndex.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.cb_tvIndex.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_tvIndex.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.cb_tvIndex.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
@@ -621,7 +618,7 @@
             // 
             this.cb_tvSortByDate.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_tvSortByDate.AutoSize = true;
-            this.cb_tvSortByDate.BackColor = System.Drawing.Color.Transparent;
+            this.cb_tvSortByDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.cb_tvSortByDate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_tvSortByDate.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.cb_tvSortByDate.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
@@ -691,7 +688,7 @@
             // 
             this.cb_logs.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_logs.AutoSize = true;
-            this.cb_logs.BackColor = System.Drawing.Color.Transparent;
+            this.cb_logs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.cb_logs.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_logs.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.cb_logs.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
@@ -713,7 +710,7 @@
             // 
             this.cb_openOutside.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_openOutside.AutoSize = true;
-            this.cb_openOutside.BackColor = System.Drawing.Color.Transparent;
+            this.cb_openOutside.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.cb_openOutside.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_openOutside.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.cb_openOutside.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
@@ -735,7 +732,7 @@
             // 
             this.cb_fileDisplay.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_fileDisplay.AutoSize = true;
-            this.cb_fileDisplay.BackColor = System.Drawing.Color.Transparent;
+            this.cb_fileDisplay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.cb_fileDisplay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_fileDisplay.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.cb_fileDisplay.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
@@ -757,7 +754,7 @@
             // 
             this.cb_trackbar.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_trackbar.AutoSize = true;
-            this.cb_trackbar.BackColor = System.Drawing.Color.Transparent;
+            this.cb_trackbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.cb_trackbar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_trackbar.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.cb_trackbar.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
@@ -779,7 +776,7 @@
             // 
             this.cb_autoPause.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_autoPause.AutoSize = true;
-            this.cb_autoPause.BackColor = System.Drawing.Color.Transparent;
+            this.cb_autoPause.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.cb_autoPause.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_autoPause.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.cb_autoPause.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
@@ -801,7 +798,7 @@
             // 
             this.cb_autoPlay.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_autoPlay.AutoSize = true;
-            this.cb_autoPlay.BackColor = System.Drawing.Color.Transparent;
+            this.cb_autoPlay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.cb_autoPlay.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_autoPlay.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.cb_autoPlay.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
@@ -823,7 +820,7 @@
             // 
             this.cb_autoHideMedia.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_autoHideMedia.AutoSize = true;
-            this.cb_autoHideMedia.BackColor = System.Drawing.Color.Transparent;
+            this.cb_autoHideMedia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.cb_autoHideMedia.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_autoHideMedia.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.cb_autoHideMedia.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
@@ -845,7 +842,7 @@
             // 
             this.cb_media.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_media.AutoSize = true;
-            this.cb_media.BackColor = System.Drawing.Color.Transparent;
+            this.cb_media.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.cb_media.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_media.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.cb_media.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
@@ -867,7 +864,7 @@
             // 
             this.cb_focusHide.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_focusHide.AutoSize = true;
-            this.cb_focusHide.BackColor = System.Drawing.Color.Transparent;
+            this.cb_focusHide.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.cb_focusHide.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_focusHide.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.cb_focusHide.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
@@ -901,7 +898,7 @@
             // 
             this.cb_hideOnX.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_hideOnX.AutoSize = true;
-            this.cb_hideOnX.BackColor = System.Drawing.Color.Transparent;
+            this.cb_hideOnX.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.cb_hideOnX.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_hideOnX.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
             this.cb_hideOnX.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
@@ -924,7 +921,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg1;
             this.ClientSize = new System.Drawing.Size(824, 741);
             this.Controls.Add(this.panel_cb);

@@ -123,11 +123,8 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="splitContainer_main.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 27</value>
+    <value>0, 29</value>
   </data>
-  <metadata name="HelpBalloon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>296, 56</value>
-  </metadata>
   <data name="fileDisplay_btn_reload.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
@@ -141,15 +138,18 @@
     <value>NoControl</value>
   </data>
   <data name="fileDisplay_btn_reload.Location" type="System.Drawing.Point, System.Drawing">
-    <value>27, 3</value>
+    <value>28, 3</value>
   </data>
   <data name="fileDisplay_btn_reload.Size" type="System.Drawing.Size, System.Drawing">
-    <value>21, 21</value>
+    <value>22, 22</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="fileDisplay_btn_reload.TabIndex" type="System.Int32, mscorlib">
     <value>170</value>
   </data>
+  <metadata name="HelpBalloon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>671, 12</value>
+  </metadata>
   <data name="fileDisplay_btn_reload.ToolTip" xml:space="preserve">
     <value>Reload</value>
   </data>
@@ -169,7 +169,7 @@
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="splitContainer_files.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 26</value>
+    <value>4, 27</value>
   </data>
   <data name="faftv_cb_index.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
     <value>Button</value>
@@ -256,10 +256,85 @@
     <value>1</value>
   </data>
   <metadata name="faftv_RMB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>209, 17</value>
+    <value>105, 12</value>
   </metadata>
+  <data name="faftv_RMB.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="faftv_RMB_refresh.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="faftv_RMB_refresh.Text" xml:space="preserve">
+    <value>Refresh (CTRL+R)</value>
+  </data>
+  <data name="faftv_RMB_reload.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="faftv_RMB_reload.Text" xml:space="preserve">
+    <value>Reload (F5)</value>
+  </data>
+  <data name="faftv_RMB_collapseTree.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="faftv_RMB_collapseTree.Text" xml:space="preserve">
+    <value>Collapse Tree (CTRL+Q)</value>
+  </data>
+  <data name="faftv_RMB_expandTree.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="faftv_RMB_expandTree.Text" xml:space="preserve">
+    <value>Expand Tree (CTRL+E)</value>
+  </data>
+  <data name="faftv_RMB_open.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="faftv_RMB_open.Text" xml:space="preserve">
+    <value>Open Selected (CTRL+W)</value>
+  </data>
+  <data name="faftv_RMB_explorer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="faftv_RMB_explorer.Text" xml:space="preserve">
+    <value>Open in Explorer (CTRL+A)</value>
+  </data>
+  <data name="faftv_RMB_explorer2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="faftv_RMB_explorer2.Text" xml:space="preserve">
+    <value>Select in Explorer (CTRL+C)</value>
+  </data>
+  <data name="faftv_RMB_newFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="faftv_RMB_newFolder.Text" xml:space="preserve">
+    <value>New Folder (CTRL+S)</value>
+  </data>
+  <data name="faftv_RMB_move.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="faftv_RMB_move.Text" xml:space="preserve">
+    <value>Move (CTRL+X)</value>
+  </data>
+  <data name="faftv_RMB_rename.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="faftv_RMB_rename.Text" xml:space="preserve">
+    <value>Rename (F2)</value>
+  </data>
+  <data name="faftv_RMB_delete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="faftv_RMB_delete.Text" xml:space="preserve">
+    <value>Trash (DEL) </value>
+  </data>
+  <data name="faftv_RMB_properties.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="faftv_RMB_properties.Text" xml:space="preserve">
+    <value>Properties (CTRL+D)</value>
+  </data>
   <data name="faftv_RMB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>219, 268</value>
+    <value>212, 268</value>
   </data>
   <data name="&gt;&gt;faftv_RMB.Name" xml:space="preserve">
     <value>faftv_RMB</value>
@@ -277,241 +352,47 @@
     <value>0</value>
   </data>
   <metadata name="faftv_icons.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>100, 17</value>
+    <value>532, 12</value>
   </metadata>
   <data name="faftv_icons.ImageStream" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAABE
-        NQAAAk1TRnQBSQFMAgEBDwEAATgBGwE4ARsBEAEAARABAAT/AREBAAj/AUIBTQE2BwABNgMAASgDAAFA
-        AwABQAMAAQEBAAEQBgABIBQAAUsBJQHIARQByAEUAcgBFAHIARQByAEUAcgBFAHIARQByAEUAcgBFAHI
-        ARQByAEUAcgBFAFLASUMAAHTAQAB0wEAAdMBAAHTAQAB0wEAAdMNAAFLASUByAEUAcgBFAHIARQByAEU
-        AcgBFAHIARQByAEUAcgBFAHIARQByAEUAcgBFAHIARQBSwElJAABrgExAf8BfwH/AX8B/wF/Af8BfwH/
-        AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Aa4BMQgAAdMBAAHTAQABvwECAb8BAgG/AQIBvwEC
-        Ab8BAgG/AQIB0wEAAdMJAAGuATEB/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/
-        Af8BfwH/AX8BrgExMgAB3gF3Ab4BcwG+AXMBvgFzAb4BcwH/AX8BrgExBgAB0wEAAZ8BCgGfAQoBmQEB
-        AVkBAQEZAQEBGQEBAVkBAQGZAQEBnwEKAZ8BCgHTBwABrgExAf8BfwG+AXMBvgFzAb4BcwG+AXMBvgFz
-        Ab4BcwG+AXMBvgFzAb4BcwG+AXMB/wF/Aa4BMSIAAVIBSgH/AX8B/wEDAc4BAQH/AX8B/wEDAc4BAQQA
-        Ab4BdwG+AXcBvgF3Ab4BdwH/AX8BrgExBAAB0wEAAZ8BDgHbAQEB2wEBAboBAQEZAQEB/wF/Af8BfwEZ
-        AQEBmQEBAZkBAQGZAQEBvwEOAdMFAAGuATEB/wF/Ab4BdwG+AXcBvgF3Ab4BdwG+AXcBvgF3Ab4BdwG+
-        AXcBvgF3Ab4BdwH/AX8BrgExIgABUgFKAf8BAwH/AX8BzgEBAf8BAwH/AX8BzgEBAgABzgEBAgAB3gF3
-        Ad4BdwG+AXcB/wF/Aa8BMQQAAdMBAAG/ARYB2wEBAdsBAQH7AQEBGQEBAf8BfwH/AX8BGQEBAboBAQGZ
-        AQEBmQEBAb8BFgHTBQABrwExAf8BfwG+AXcB3gF3Ad4BdwHeAXcB3gF3Ad4BdwHeAXcB3gF3Ad4BdwG+
-        AXcB/wF/Aa8BMSIAAVIBSgHOAQEBzgEBAVIBSgHOAQEB/wF/Ac4BAQIAAc4BAQIAAd4BdwHeAXcB3gF3
-        Af8BfwHPATUCAAGZAQEBvwEaAfwBAQH8AQEB/AEBARwBAgF6AQEBGQEBARkBAQF6AQEB2wEBAboBAQGZ
-        AQEBmQEBAb8BGgGZAQECAAHPATUB/wF/Ad4BdwHeAXcB3gF3Ad4BdwHeAXcB3gF3Ad4BdwHeAXcB3gF3
-        Ad4BdwH/AX8BzwE1IgABUgFKAf8BfwH/AQMBzgEBCAABzgEBAgAB3gF3Ad4BdwHeAXcB/wF/AdABNQIA
-        AZkBAQG/ARoB/AEBAR0BAgEdAQIBPQECARkBAQH/AX8BGQEBAXoBAQH8AQEB2wEBAboBAQGZAQEBvwEe
-        AZkBAQIAAdABNQH/AX8B3gF3Ad4BdwHeAXcB3gF3Ad4BdwHeAXcB3gF3Ad4BdwHeAXcB3gF3Af8BfwHQ
-        ATUiAAFSAUoB/wEDAf8BfwHOAQECAAHOAQEBzgEBAc4BAQQAAd8BewHfAXsB3wF7Af8BfwHwATUCAAGZ
-        AQEB/wEmAR0BAgE9AQIBPgECAT4BAgEZAQEB/wF/Af8BfwEZAQEBegEBAfsBAQHbAQEBugEBAf8BJgGZ
-        AQECAAHwATUB/wF/Ad8BewHfAXsB3wF7Ad8BewHfAXsB3wF7Ad8BewHfAXsB3wF7Ad8BewH/AX8B8AE1
-        JAABUgFKAf8BAwHfAXsCAAHOAQEB3gF3Ac4BAQHOAQECAAHfAXsB3wF7Ad8BewH/AX8B8AE5AgABmQEB
-        Af8BLgE+AQIBPgECAZsBAQEZAQEBGQEBARkBAQH/AX8B/wF/ARkBAQF6AQEB2wEBAboBAQH/AS4BmQEB
-        AgAB8AE5Af8BfwHfAXsB3wF7Ad8BewHfAXsB3wF7Ad8BewHfAXsB3wF7Ad8BewHfAXsB/wF/AfABOSQA
-        ARIBPgFSAUoBzgEBAc4BAQHeAXcB/wEDAc4BAQHOAQECAAH/AXsB/wF7Af8BfwH/AX8B8QE5AgABmQEB
-        Af8BLgFeAQoBXwECARkBAQH/AX8B/wF/ARkBAQEZAQEB/wF/Af8BfwEZAQEB2wEBAdsBAQH/AS4BmQEB
-        AgAB8QE5Af8BfwH/AXsB/wF7Af8BewH/AXsB/wF7Af8BewH/AXsB/wF7Af8BewH/AX8B/wF/AfEBOSQA
-        ARIBPgH/AX8BUgFKAVIBSgFSAUoBUgFKAVIBSgFSAUoBUgFKAf8BfwHeAnsBawEYAV8BVAFGAgABmQEB
-        Af8BLgFeAQoBXwECARkBAQH/AX8B/wF/ARkBAQEZAQEB/wF/Af8BfwEZAQEB2wEBAdsBAQH/AS4BmQEB
-        AgABEQE6Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Ad4CewFrARgBXwFUAUYkAAES
-        AT4B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwF3AU4BbAEpAWwBKQFtASkBMgFCBAABmQEB
-        AR8BPwF/AQYB3AENARkBAQH/AX8B/wF/Af8BfwH/AX8BGQEBAXoBAQEcAQYBHwE/AZkBAQQAARIBPgH/
-        AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/AXcBTgFsASkBbAEpAW0BKQEyAUIkAAESAT4B/wF/
-        Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwE5AUYB/wF/Af8BfwH/AX8BdQFKBAABmQEBAR8BPwGf
-        AQoB3wEaAdwBCQEZAQEBGQEBARkBAQEZAQEBewEBAT0BCgE9AQoBHwE/AZkBAQQAARIBPgH/AX8B/wF/
-        Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/ATkBRgH/AX8B/wF/Af8BfwF1AUokAAEyAT4B/wF/Af8BfwH/
-        AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwE4AUYB/wF/Af8BfwF1AUoIAAGZAQEBPwFDAd8BJgHfASYBPwEC
-        AT8BAgE+AQIBPgECAV4BDgE/AUsBPwFLAZkBAQYAATIBPgH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/
-        AX8B/wF/ATgBRgH/AX8B/wF/AXUBSiYAATMBQgH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/
-        AVkBSgH/AX8BdQFKDAABmQEBAZkBAQFfAVcBXwFXAV8BVwFfAVcBXwFXAV8BVwGZAQEBmQEBCAABMwFC
-        Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8BWQFKAf8BfwF1AUooAAFUAUYBUwFCAVMBQgFT
-        AUIBUwFCAVMBQgFTAUIBUwFCAVMBQgFTAUYBdQFKEgABmQEBAZkBAQGZAQEBmQEBAZkBAQGZAQEMAAFU
-        AUYBUwFCAVMBQgFTAUIBUwFCAVMBQgFTAUIBUwFCAVMBQgFTAUYBdQFKMAABvgFzAV0BVwHcATIB3AEy
-        AdwBMgHcATIBXQFXAb4BcxIAAdMBAAHTAQAB0wEAAdMBAAHTAQAB0w8AARMBJgHSASEB0gEhAdIBIQHS
-        ASEB0gEhAdIBIQHSASEB0gEhAdIBIQHSASEB0wEhAdMBIQ4AAccBFAHHARQBxwEUAccBFBAAAf8BfwEc
-        AUsB3QEuAT4BOwF/AUcBXwFDAV8BQwFfAUMBPgE/Af0BMgH8AUYB/wF/CgAB0wEAAdMBAAF/AQIBfwEC
-        AX8BAgF/AQIBfwECAX8BAgHTAQAB0wsAAfQBKQH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/
-        Af8BfwH/AX8B/wF/AZEBEQgAAccBFAHHARQCAAGuATEBfAFrAXwBawGuATECAAHHARQBxwEUCAAB/wF/
-        AbwBNgHcAS4BWQEqAVkBJgGcASYBPgE/AT4BPwFfAUMBfwFDAX8BRwEeATsBmwEyAf8BfwYAAdMBAAFf
-        AQIBqQEBAfMBAQE+AQIBPQECAT4BAgE+AQIBXwECAV8BAgFfAQIB0wkAARUBKgH8AX8BAAF+AZcBdwE5
-        ATYBFwEyATcBMgEXATIBFgEyAfYBLQG6AU4B3gF7AZEBEQYAAccBFAHwATkBfAFrASoBIQGuATEBnQFv
-        AZ0BbwGuATEBKgEhAXwBawHwATkBxwEUBgAB+wFKAbwBLgF6ASYB/wF/Af8BfwF6AToBmwEmAR4BOwH4
-        ARkB1wEVAXoBIgFfAUMBHgE3AfsBRgQAAdMBAAE/AQIBjAEBASUBMwFiAQEB/gEBAfwBAQH7AQEB/AEB
-        AR4BAgEeAQIBPwECAT8BAgHTBwABVQEyAf8BfwHfAXsB3wF7Af8BewH/AX8B/wF/Af8BewH+AXsB/wF7
-        Af8BfwG+AXMBkQERBAABxwEUAdYBVgF8AWsB+QFaAXwBawH5AVoBnQFvAZ0BbwH5AVoBfAFrAfkBWgF8
-        AWsB1gFWAccBFAIAAb4BcwG8AS4B3AEuAXoBLgH/AX8B/wF/Af8BfwEZARIBOQEeAf8BfwH/AX8BNgEy
-        ATkBGgFfAT8BuwEqAb4BcwIAAdMBAAH8AQEBkwEBASUBQwGEASIBsQEBAf0BAQHbAQEB3AEBAWEBAQFA
-        AQEB2wEBAR4BAgHTBwABdwE2AdsBfwEAAX4BlwF3AVkBNgE3ATYBOAE2ATgBNgE4ATYBFwEuAdoBTgHe
-        AXcBkQERBAABxwEUAXwBawGdAXMBfAFrAZUBUgF8AW8B1gFWAdYBVgF8AW8BlQFSAXwBawGdAXMBfAFr
-        AccBFAIAARsBUwHdATIBHgE3AXsBHgGaATIBngFjAf8BfwH5AQ0B9gEhAf8BfwH/AX8B/wF/AZUBDQE/
-        ATsB3QEyARsBUwHTAQABPgECAf0BAQH7AQEBIgEaAewBTwGgAQUB/QEBAf0BAQG1AQEBxQEqAcsBRwHg
-        AQkBsgEBAT4BAgHTBQABVgEyAf8BfwHfAXsB3wF7Af8BewH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwG+
-        AXMBkQERBgABTAElAXwBawGVAU4BnAFvAbUBUgFtASkBbQEpAbUBUgGcAW8BlQFOAXwBawFMASUEAAFZ
-        AS4B/QE2AbwBKgHdATIBnAEmATkBGgH/AX8BOQEWAZsBJgH3ASEBPAFjAf8BfwG2AQ0B/gEuAf0BNgFZ
-        AS4B0wEAAT4BAgE/AQIBhwEBAUgBOwGpAUMBpwFPAa0BAQE/AQIBkQEBAaUBKgFoATsBhwFLAUwBAQE+
-        AQIB0wUAAXcBMgHbAX8BAAF+AZcBdwE5ATYBNwE2ATgBNgFYATYBWAE6ARcBMgHaAU4B3gF7AZEBEQIA
-        AegBFAHHARQBTAElAbUBUgH4AVoBtQFSAW0BKQH/AX8B/wF/AW0BKQG1AVIB+AFaAbUBUgFMASUBxwEU
-        AegBFAFZASoBPgFLAbwBKgGcASYB3QEuAVoBIgH/AX8B+QERAf0BMgGcASIBdQEBAf8BfwHWARUB3QEu
-        AT4BSwFZASoB0wEAAT4BAgF/AQIBQwEBAegBYwHgAX8BgAE2ARYBAgGpAQEB4AENAScBMwFHATcBZAEe
-        ASYBAQGgAQEB0wUAAVYBNgH/AX8B3wF3Ad8BewH/AXsB/wF/Af8BfwH/AX8B/wF/Ad8BewHfAXsBvgFz
-        AZEBEQIAAfEBOQGdAWsBnQFrAbYBVgGdAW8BbQEpAf8BfwH/AX8B/wF/Af8BfwFtASkBnQFvAbYBVgGd
-        AWsBnQFrAfEBOQE4ASIBPgFHAfwBPgG8AS4BvAEmATkBGgH/AX8B+AENAbwBKgHdASoB+QENAf8BfwEX
-        ASIBPgFDAT4BRwE4ASIBmQEBATsBAgGgAQUBigE/AQIBSwHBARUBmwEaAf8BHgEhARoB7QFTAYkBPwFH
-        ATcBiQFDAaECBQE3AZkBAQQAAZcBPgHcAX8BAAF+AbcBdwFaATYBNwE2ATgBNgE4ATYBFwEyAdUBKQGY
-        AUYBnQFvAZEBEQIAAfABOQH/AX8B/wF/AfcBXgE6AWMBbQEpAf8BfwH/AX8B/wF/Af8BfwFtASkBOgFj
-        AfcBXgH/AX8B/wF/AfABOQE4ASoBHQE/AdwBNgH8AT4B3AE2AZsBKgH/AX8BtwEFAVsBGgG8ASYBWgEe
-        Af8BfwFYASoBHQE7AR0BPwE4ASoBmQEBAYEBAQHsAU8B7QFTAaEBDQH8ATYBfwFDAT8BMwGkAQ0BpQFT
-        AWgBOwFoATsBaAE7AewBTwFgATIBmQEBBAABlwFCAf8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH+
-        AXsBvQFzAZ0BbwE7AVsBkQERAgABEQE+AfEBOQHwATUBWwFrARkBXwF1AUoBKwEhAf8BfwH/AX8BTAEl
-        AXUBSgEZAV8BWwFrAfABNQHxATkBEQE+AdoBTgH8AUIB/AE2AdwBMgHcATYBuwEyAf8BfwGeAXMBOAEm
-        AZoBMgH3ARkB/wF/ATgBJgEdATsB/AFCAdoBTgGZAQEBaAEBAeUBbwHtAU8BywFHAYABAQGzATIBfwFD
-        AREBDgHlATYBiAFHAWgBOwFIATcBwwFjASQBAQGZAQEEAAHZAUoB3AF/AQABfgG3AXsBWgE6ATgBNgE3
-        ATIBFwEyAbQBIQFTAREB9QEpAdgBRgGRAREGAAGNASkBewFvAXsBbwEaAV8BEQE6AegBFAHoARQBEQE6
-        ARoBXwF7AW8BewFvAY0BKQQAAZ0BcwFYASoBXgFLAbwBLgG8ASoBmwEqAdsBSgH/AX8B/wF/Af8BfwH/
-        AX8B/wF/ARcBHgF/AUsBWAEqAZ0BcwIAAZkBAQGgAToB5AFzAe4BTwGoAU8BpQEJAdcBMgISAaEBZwGI
-        AUMBiQE7AcQBYwHgAUYBmQEBBgAB2QFKAf8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/AXwBawEaAVcB3gF7
-        AZ0BawF2AToBkQERBAABjQEpAd4BdwG3AU4BewFrAb0BdwGdAXMBfAFrAXwBawGdAXMBvQF3AXsBawG3
-        AU4B3gF3AY0BKQQAAXgBPgG7ATYBPQFHAdwBMgG7ASoBWgEiATkBHgFZASoB2wFCAVwBYwH/AX8BWAEq
-        AfwBPgF4AT4EAAGZAQEBaAIBAUsB4QF/AQYBPwFJATcBIQESAYMBAQFjAQUB4QFzAeEBewEgAVMBDQEB
-        AZkBAQYAAdkBTgHbAX8BAAF+AbgBewE5ATIB9gEtAfYBLQFzARkB+QFOAf8BfwH5AVIB9AEhAf8BfwQA
-        AWwBKQEZAV8B3gF3Ad8BewHfAXsB/wF/Af8BfwH/AX8B/wF/Ad8BewHfAXsB3gF3ARkBXwGNASkEAAH/
-        AX8B1QEhAZoBMgFdAUcBHQE/AfwBNgH8ATYB3AEyAbsBMgGaASoBmgEuAVkBKgHWASEB/wF/BgABmQEB
-        AcEBGQHBARkBRAFLAeYBcwHmAWcB8QENAb8BCgGEAQUBQAEqATEBAQGZAQEIAAHYAU4B/wF/Af8BfwH/
-        AXsB/wF/Ad0BdwG9AW8BGgFXAbcBRgE6AVsB0wEZCgABMwFCARkBXwHeAXcBEgE6ARIBOgGdAXMBnQFz
-        ARIBOgESAToB3gF3ARkBXwGVAUoIAAH/AX8BVwE+ARcBHgG7ATIBHQE/AT0BQwE9AUMBPQE/AdsBNgEX
-        ASIBdwE+Af8BfwoAAZkBAQGZAQEBrAEJAawBCQGrAQkBfwECAX8BAgF/AQIBmQEBAZkBAQoAAfkBUgH/
-        AX8B/wF/Ad8BewGeAW8BWwFjARsBWwG4AUIBVQEyAfQBIQ4AAVMBQgFTAUICAAEzAUIB/wF/Af8BfwEz
-        AUICAAFTAUIBUwFCDgABnQFvAbkBRgGUARUB1QEdAdUBHQGUARUBuQFGAZ0BbxIAAZkBAQGZAQEBmQEB
-        AZkBAQGZAQEBmQEBDgAB2AFKAfkBUgH5AVIB+QFOAfkBTgHYAUoBuAFCAVUBMgGyARkWAAFUAUYBUwFC
-        AVMBQgFUAUaMAAEJASEBKQElAaUBEAGlARQBpQEUAccBGAHHARgBCAEhAQkBIQEJASEBSgElAUsBKQFL
-        ASkBjQExAc4BOQFSAUYBSwElAccBFAHHARABxwEQAccBEAHHARABxwEQAccBEAHHARABxwEQAccBEAHH
-        ARABxwEQAccBFAFLASUCAAFAAT0B4AEsAeABLAHgASwB4AEsAeABLAHgASwB4AEsAeABLAHgASwB4AEs
-        AeABLAHgASwB4AEsAeABLAHgASwgAAGEARAEAAEJASEEAAEIASEEAAFKASUEAAFLASkEAAHwAT0BrgEt
-        Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwGuAS0CAAGA
-        AUkBYAF/AUEBfwFBAX8BQQF/AUEBfwFBAX8BQQF/AUEBfwFBAX8BQQF/AUEBfwFBAX8BQQF/AUEBfwHg
-        ASwEAAErASEByAEUAcgBFAHIARQB6AEUAekBGAEJARkBCQEZAekBGAHoARQByAEUAcgBFAErASECAAFi
-        AQwBzgE9Ac4BPQEpASUB7wFBAe8BQQEIASEBUgFOAVIBTgFKASUBUgFKAVIBSgFLASkBlAFSAZQBUgHO
-        ATkBjgEtAf8BfwE2ASUBVwEpATYBJQH/AX8BfQFlAZ0BZQF9AWUB/wF/AREBOgEyAT4BEQE6Af8BfwGO
-        AS0CAAFgAUkBQgF/AeABfwHgAX8B4AF/AeABfwHgAX8B4AF/AeABfwHgAX8B4AF/AeABfwHgAX8B4AF/
-        AeABfwHgASwCAAGuATEBOwFjAVwBZwGdAW8B3wF3AfgBWgGvATEB6AEUAegBFAGuATEBGAFbAZ0BbwFb
-        AWcB/wF/Aa4BMQEwAQUBcQENAXIBEQGTARUBswEVAdQBHQHUAR0B1AEdAbQBFQH1ARkB9gEdARYBIgE3
-        ASYBWAEqAXgBKgF5ASoBrgExAf8BfwHyARwBMwElAfIBHAH/AX8B2QFQARkBVQHZAVAB/wF/AdABNQER
-        AToB0AE1Af8BfwGuATECAAFgAUkBZAF/ASABAgEgAQIBIAECASABAgEgAQIBIAECASABAgEgAQIBIAEC
-        ASABAgEgAQIBIAECAY4BfwHgASwCAAGuATEBjQEtAaYBEAG+AXMBMwFCAWwBKQE6AWcB/wF/Af8BfwE6
-        AWcBbAEpATMBQgGdAW8B/wF/Aa4BMQFSAQEBOQESAVoBGgGbASYBuwEuAf0BNgEdATsBeQEmAdYBBQE5
-        ARYBWgEeAZsBKgG8AS4B/QE6AR0BPwGbASYBrgExAf8BfwFsAQwBrQEUAWwBDAH/AX8BEwE4ARQBPAET
-        ATgB/wF/AW0BKQGOAS0BbQEpAf8BfwGuATECAAFgAUkBZgF/AeQBHgFnATcB7AFPAcsBRwGqAT8BqgE/
-        AaoBPwGqAT8BqgE/AaoBPwEgAQIBIAECAY4BfwHgASwBrgEtAbcBTgF0AUYB8QE5AdgBVgGuATEB3gF7
-        AZUBUgGuATEBrgE1AZUBUgHeAXsBjgEtAdcBVgH/AX8BzwE1AVIBAQE5ARIBWgEaAZsBJgG7AS4B/QE2
-        AR0BOwF5ASYB1gEFATkBFgFaAR4BmwEqAbwBLgH9AToBHQE/AZsBJgHPATEB/wF/Af8BfwH/AX8B/wF/
-        Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Ac8BMQIAAWABSQFoAX8BwgESAaEBEgEA
-        AQIBAAECAQABAgEAAQIBAAECAQABAgEAAQIBqgE/AaoBPwGqAT8BjgF/AeABLAGuAS0B2AFWAdQBOQGm
-        ARAB8AE1ARgBXwG2AVIBNAE+AT8BTwH/AW8BHgEzAbUBVgH4AV4B0AE1Af8BfwHQATUBUgEBATkBEgFa
-        ARoBmwEmAbsBLgH9ATYBHQE7AXkBJgHWAQUBOQEWAVoBHgGbASoBvAEuAf0BOgEdAT8BmwEmAc8BNQH/
-        AX8BpwE7AakBPwGnATsB/wF/AR4BAgE/AQIBHgECAf8BfwE3AQEBWAEBATcBAQH/AX8BzwE1AgABYAFJ
-        AWoBfwFgAQIBIwEOAf8BfwG7AW8BzgE6AeABfwHgAX8B4AF/AQABAgEAAQIBAAECAaoBPwGOAX8B4AEs
-        Aa4BLQGWAU4BdAFGAREBPgHQATUBfAFrATEBQgH/AToB/wEyAf8BbwE/ATsBEQFCAXsBawHPATUB/wF/
-        AfABOQFSAQEBOQESAVoBGgGbASYBuwEuAf0BNgEdATsBeQEmAdYBBQE5ARYBWgEeAZsBKgG8AS4B/QE6
-        AR0BPwGbASYB0AE1Af8BfwEkAR8BJgEnASQBHwH/AX8B3AEBAfwBAQHcAQEB/wF/AfUBAAE2AQEB9QEA
-        Af8BfwHQATUCAAFgAUkBiwF/AQQBCgH/AXsB/wF7Af8BewH/AX8BtQFrAeABfwHgAX8B4AF/AeABfwEA
-        AQIBAAECAY4BfwFgAUkBrgEtAdgBVgHUATkBpgEQAREBOgGcAW8BzwE1Af4BQgE/AUMBvwEiAZ4BKgHP
-        ATUBfAFvAREBOgH/AX8BMwE+AVIBAQE5ARIBWgEaAZsBJgG7AS4B/QE2AR0BOwF5ASYB1gEFATkBFgFa
-        AR4BmwEqAbwBLgH9AToBHQE/AZsBJgHwATUB/wF/AWABAgGAAQIBYAECAf8BfwF5AQEBmgEBAXkBAQH/
-        AX8BcgEAAbMBAAFyAQAB/wF/AfABNQIAAWABSQFsAX8B/wFrAd8BZwHfAWcB3wFnAd8BZwHYAW8B4AF/
-        AeABfwHgAX8B4AF/AeABfwEAAQIBjQF/AWABSQGuAS0BlgFOAVQBRgEyAT4BlQFKAZ0BcwHPATUBEwE2
-        ATwBCgEcAQ4B0gEpAfABOQGcAXMBdAFKAf8BfwEzAT4BUgEBATkBEgFaARoBmwEmAbsBLgH9ATYBHQE7
-        AXkBJgHWAQUBOQEWAVoBHgGbASoBvAEuAf0BOgEdAT8BmwEmAfEBOQH/AX8B/wF/Af8BfwH/AX8B/wF/
-        Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B8QE5AgABYAFJAY0BfwFfAT8BXwFHAV8BRwFf
-        AUcBXwFHAV8BRwHLAW8B4AF/AeABfwFoAXcBfwFLAbYBKgGOAX8BYAFJAa4BLQHZAVoB9QE9AaYBEAFb
-        AWcBtgFSAf8BfwGUAU4BCAEdAQgBHQGVAVIB/wF/AbYBUgFbAWcB/wF/ATMBPgEwAQUBUQEJAXIBEQGS
-        ARUBkwEVAdQBHQHUAR0B1AEdAbQBFQHVARkB9gEdARYBIgE3ASIBWAEqAXgBKgF5ASoBEQE6Af8BfwFA
-        AXgBgAF8AUABeAH/AX8BwAF+AeABfgHAAX4B/wF/AcABfwHgAX8BwAF/Af8BfwERAToCAAFgAUkBjwF/
-        AZ8BBgG/AQ4BvwEOAb8BDgG/AQ4BvwEOAb8BEgH7ASYBGwEnAb8BEgG/AQ4BnwEGAZABfwFgAUkCAAHH
-        ARABpgEQAY0BKQHeAXcBGQFfAdcBUgG9AXMB/wF/Af8BfwG9AXMB1wFWAbYBUgG2AVIBtgFSATMBPgEh
-        AQQBtQFaAbUBWgEJASEB1gFaAdYBWgEIASUBFwFjARcBYwHoARwB1gFaAdYBWgFLASkB9wFeAfcBXgGM
-        ATUBEgE+Af8BfwFgAXABoAFwAWABcAH/AX8BYgF+AYQBfgFiAX4B/wF/AYABfwGAAX8BgAF/Af8BfwES
-        AT4CAAFgAUkBkwF/AUABagFgAWoBYAFqAWABagFgAWoBYAFqAWABagFAAWoBQAFqAWABagFgAWoBQAFq
-        AZMBfwFgAUkCAAF0AUYBvgFzAb4BcwG+AXMBvgFzAb4BcwG+AXMBvgFzAb4BcwG+AXMBvgFzAb4BcwG+
-        AXMBvgFzATMBPgFjAQwEAAEJASEEAAEIASUEAAHoARwEAAFLASkEAAEQAT4BMgE+Af8BfwEgAWQBYAFo
-        ASABZAH/AX8BxAF9AeYBfQHEAX0B/wF/ASABfwEgAX8BIAF/Af8BfwEyAT4CAAFgAUkBtQF/AZUBfwG1
-        AX8BtQF/AbUBfwG1AX8BtQF/AbUBfwG1AX8BtQF/AbUBfwG1AX8BlQF/AbUBfwFgAUkEAAFTAUIBMwFC
-        ARkBXwEZAV8BGQFfAVMBQgFUAUYBVAFGAVMBQgFTAUIBUwFCAVMBQgFTAUICAAEIAR0BhAEMAWMBDAFk
-        AQwBZAEMAYUBEAGFARABxgEYAccBGAGmARQB6AEcAQkBIQEJASEBSwEpAa4BNQFSAUYBMwE+Af8BfwH/
-        AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwEzAT4CAAGAAUkBYAFJ
-        AWABSQFgAUkBYAFJAWABSQFgAUkBYAFJAWABSQFgAUkBYAFJAWABSQFgAUkBYAFJAWABSQGAAUkIAAFT
-        AUIBMwFCAVMBQjIAAVQBRgFTAUIBMwFCATMBQgEzAUIBMwFCATMBQgEzAUIBMwFCATMBQgEzAUIBMwFC
-        ATMBQgFTAUIBVAFGQgABqwEcAasBHAGrARwBqwEcAasBHAGrARwBqwEcAasBHAGrARwBqwEcAasBHAGr
-        ARwBqwEcAasBHAGrARwBqwEcKgAB7gEcAe4BHAHuARwB7gEcAe4BHAHuARwqAAGrASAB7gEoAe4BKAEP
-        AS0BLwEtAS8BMQFQATEBUAE1AVABNQFQATEBLwExAS8BLQEPAS0B7gEoAe4BKAGrARwBxwEUAccBFAHH
-        ARQBxwEUAccBFAHHARQBxwEUAccBEAHHARABxwEUAcgBFAHHARQBxwEQAccBEAHHARQBSwElBgAB7gEc
-        Ae4BHAG/AVYBvwFWAb8BVgG/AVYBvwFWAb8BVgHuARwB7gEcBgABTAElAUwBJQFMASUBTAElAUwBJQFM
-        ASUBTAElAUwBJQFMASUBTAElAUwBJQFMASUBTAElAUwBJQFMASUBTAElAasBIAEwAS0B7wEoAe8BLAEQ
-        AS0BEAEtARABLQEQAS0BEAEtARABLQEQAS0BEAEtARABLQHvASwBMAExAasBIAHHARQB/wF/Af8BfwH/
-        AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwGuATEEAAHuARwBvwFW
-        Ab8BVgHbATkBmQExAZkBMQGZATEBmQExAdsBOQG/AVYBvwFWAe4BHAQAAUwBJQErASEB8QE5AdcBVgG3
-        AVIBtwFSAbcBUgG3AVIBtwFSAbcBUgG3AVIBtwFSAbcBUgGOAS0BKwEhAUwBJQGsASABUgE1ATIBNQEy
-        ATUBMgE1ATMBNQEzATUBUwE5AVMBOQFTATkBUwE5ATMBNQEzATUBMgE1AVMBOQGsASABxwEUAf8BfwH/
-        AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8BrgExAgAB7gEc
-        Ab8BVgHbATkB2wE5AboBNQHaATkB2gE5AboBNQG6ATUBmQExAboBNQG6ATUBvwFWAe4BHAIAAUwBJQFs
-        ASUBjQEpAa4BLQGuAS0BrgEtAa4BLQGOAS0BrgEtAa4BLQGuAS0BrgEtAY4BLQGNASkBjQEpAUwBJQGs
-        ASQBlAE9AVQBOQF1AT0BdQE9AXUBPQF2AT0BdgE9AXYBQQF2AT0BdgE9AXUBPQF1AT0BdQE9AZUBQQGs
-        ASQBxwEUAf8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/
-        AX8BrgExAgAB7gEcAb8BVgH8AT0B2wE5AfsBPQF3AS0BFAEhAVcBKQHbATkBugE1AZkBMQG6ATUBvwFW
-        Ae4BHAIAAUwBJQFsASUBMwFCAdcBVgHXAVYB1wFWAdcBVgH4AVoB1wFWAdcBVgHXAVYB1wFWAbcBUgHx
-        ATkBrwEtAUwBJQGtASQBtgFFAZYBQQGXAUEBlwFFAZgBRQGYAUUBmAFFAZgBRQGYAUUBmAFFAZgBRQGX
-        AUUBlwFBAbcBRQGtASQBxwEUAf8BfwFgAQIBYAECAWABAgFgAQIB/wF/AVsBZwFbAWcBWwFnAVsBZwFb
-        AWcB/wF/Af8BfwH/AX8BrgExAZkBMQG/AVYBPQFGAfwBPQH8AT0BHAFCARQBIQH/AX8BFAEhAXcBLQHb
-        ATkBugE1AZkBMQHbATkBvwFWAZkBMQFMASUBbQEpAfEBOQESAToBEgE+ARIBPgESAToB1wFWAVMBRgES
-        AT4BEgE+ARIBPgESAT4B8QE5AfEBNQFMASUBzQEkAdgBSQGYAUUBuQFJAbkBSQG6AUkBugFJAboBSQG6
-        AUkBugFJAboBSQG6AUkBuQFJAbkBSQHZAU0BzQEkAccBFAH/AX8BIAECASABAgEgAQIBIAECAf8BfwH/
-        AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Aa4BMQGZATEBvwFWAT0BRgEdAUIBHQFCAT0BRgEU
-        ASEB/wF/Af8BfwEUASEBdwEtAdsBOQG6ATUB2wE5Ab8BVgGZATEBTAElAVMBQgGWAU4B+AFaAfgBWgH5
-        AVoBGQFfARkBXwEZAV8B+AFaAfgBWgEZAV8B+AFaAXUBSgEzAUIBTAElAc4BKAH6AVEBugFJAboBTQHb
-        AU0B2wFNAdwBTQHcAU0B3AFNAdwBTQHcAU0B2wFNAdsBTQG6AU0B+gFRAc4BKAHHARQB/wF/AWABAQFg
-        AQEBYAEBAWABAQH/AX8BWwFnAVsBZwFbAWcBWwFnAVsBZwH/AX8BIAECAf8BfwGuATEBmQExAf8BXgEd
-        AUIBPQFGAT4BRgE+AUYBFAEhAf8BfwH/AX8B/wF/ARQBIQH7AT0B2wE5AboBNQH/AV4BmQExAUwBJQES
-        AT4B8QE5AfEBOQHxATkBEgE+ARIBPgHxATkB8QE5AfEBOQESAT4BEQE6AfEBOQHxATkBEgE6AUwBJQHO
-        ASgBGwFSAdsBTQHbAU0B3AFRAdwBUQHdAVEB3QFRAd0BUQHdAVEB3QFRAd0BUQHcAVEB3AFNARwBVgHO
-        ASgBxwEUAf8BfwFgAQEBYAEBAWABAQFgAQEB/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/AWABAQH/
-        AX8BrgExAZkBMQH/AV4BPgFGAT4BRgFfAUoBXwFKARQBIQH/AX8B/wF/Af8BfwEUASEB/AE9AdsBOQG6
-        ATUB/wFeAZkBMQFMASUB6QEYAQkBHQFTAUYB1wFWAZUBTgHpARgBTAElAbYBUgHXAVoBzwE1AacBEAHQ
-        ATkB1wFWAZYBTgFMASUBzgEoARwBVgE8AVoBPQFaAV0BWgFeAVoCXgF+AV4BfwFeAV8EXgFaAT0BWgE9
-        AVoBHAFWAc4BKAHHARQB/wF/AeABAAHgAQAB4AEAAeABAAH/AX8BWwFnAVsBZwFbAWcBWwFnAVsBZwH/
-        AX8B4AEAAf8BfwGuATEBmQExAf8CXgFKAV8BSgF/AU4BnwFSARQBIQH/AX8B/wF/ARQBIQF4AS0B/AE9
-        AdsBOQHbATkB/wFeAZkBMQFMASUBbQEpARkBXwHeAXsBnAFvAa4BLQGuATEBfAFvAd8BewG2AVIBCgEd
-        AVMBRgHeAXcBvQF3AfEBOQFMASUBzwEsAc8BLAHPASwBzwEsAc8BLAHPASwBzwEsAc8BLAHPASwBzwEs
-        Ac8BLAHPASwBzwEsAc8BLAHPASwBzwEsAccBFAH/AX8B/wF/Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/
-        Af8BfwH/AX8B/wF/Af8BfwH/AX8B/wF/Aa4BMQGZATEB/wJeAUoBXwFKAb8BVgH/AV4BFAEhAf8BfwEU
-        ASEBmAExAR0BQgEcAUIB2wE5AdsBOQH/AV4BmQExAUwBJQEYAV8B/wF/Ad4BewH4AV4B1wFWAd4BewHe
-        AXsBWwFrAVMBRgH4AV4B3gF7Ad4BewHXAVoBbAElAUwBJQIAAREBNQF1AUEBEwE5ARMBOQETATkBEwE5
-        ARMBOQETATkBEwE5ARMBOQETATkBEwE5AXUBQQERATUCAAHHARQBWwFnAVsBZwFbAWcBWwFnAVsBZwFb
-        AWcBWwFnAVsBZwFbAWcBWwFnAVsBZwFbAWcBWwFnAVsBZwGuATECAAGZATEB/wFeAX8BTgG/AVYBHwFj
-        AdkBOQEUASEBmQExAT4BRgEdAUIB/AE9ARwBQgH/AV4BmQExAgABTAElAbYBUgG9AXMBWwFrAbYBUgE5
-        AWMB/wF/Af8BfwH/AX8B/wF/Af8BfwQAAf8BfwGOAS0BTAElAgABEQE1AfcBTQGWAUUBlgFFAZYBRQGW
-        AUUB9wFNAXkBWgE4AVYB9wFNATgBVgF5AVoBWQFWAREBNQIAAccBFAGdAXMBnQFzAZ0BcwGdAXMBnQFz
-        AZ0BcwGdAXMBnQFzAZ0BcwFSAUoBnQFzAVIBSgGdAXMBUgFKAa4BMQIAAZkBMQH/AV4BfwFOAZ8BUgG/
-        AVYBvwFWAX8BTgFfAUoBPgFGAR0BQgE9AUYBPQFGAf8BXgGZATECAAFMASUBbQEpAXwBbwHeAXsBUwFG
-        ASsBIQE6AWMBewFvAc8BNQFLASUBvQFzAd4BewG9AXcB/wF/AY4BLQFMASUCAAERATUBmgFeAdsBYgHb
-        AWYBuwFiAZoBXgF6AV4BEQE1AREBNQERATUBEQE1AREBNQERATUBEQE1AgABrgExAa4BMQGuATEBrgEx
-        Aa4BMQGuATEBrgExAa4BMQGuATEBrgExAa4BMQGuATEBrgExAa4BMQGuATEBrgExBAABmQExAT8BZwE/
-        AWcBnwFSAT8BRgE/AUYBPwFGAT8BRgFeAUoBPwFnAT8BZwGZATEEAAFMASUBbAElAW0BKQGNASkBjQEp
-        AWwBJQFtASkBjQEpAW0BKQFsASUBbQEpAW0BKQFtASkBbAElAW0BJQFMASUCAAERATUBEQE1AREBNQER
-        ATUBEQE1AREBNQERATUBEQE1NAABmQExAZkBMQFfAWsBXwFrAV8BawFfAWsBXwFrAV8BawGZATEBmQEx
-        BgABTAElAUwBJQFMASUBTAElAUwBJQFMASUBTAElAUwBJQFMASUBTAElAUwBJQFMASUBTAElAUwBJQFM
-        ASUBTAElSgABmQExAZkBMQGZATEBmQExAZkBMQGZATEqAAFCAU0BPgcAAT4DAAEoAwABQAMAAUADAAEB
-        AQABAQYAAQIWAAP/AQABgAEBAfgBHwGAAQECAAGAAQEB4AEHAYABAQMAAQEBwAEDAYABAQMAAQEBgAEB
-        AYABAQMAAQEBgAEBAYABAQMAAQECAAGAAQEDAAEBAgABgAEBAwABAQIAAYABAQIAAYABAQIAAYABAQIA
-        AYABAQIAAYABAQIAAYABAQIAAYABAQIAAYABAQGAAQEBgAEBAgABgAEBAYABAQGAAQECAAGAAQMBwAED
-        AYABAwIAAYABBwHgAQcBgAEHAgABgAEPAfgBHwGAAQ8CAAHwAQ8B+AEfAcABAQH8AT8BwAEDAeABBwHA
-        AQEB5AEnAYABAQHAAQMBwAEBAcABAwGAAQEBgAEBAcABAQGAAQECAAGAAQEBwAEBAYABAQQAAcABAQHA
-        AQMEAAHAAQEGAAHAAQEGAAHAAQEGAAHAAQEGAAHAAQEBwAEDAgABgAEBAcABAQGAAQEBgAEBAYABAQHA
-        AQEBgAEBAYABAQHAAQMBwAEHAcABAwHAAQMB4AEHAcABDwHkAScB8AEPAfgBHwHAAR8B/AE/CP8DAAEB
-        AgAC/wFtAbYBAAEBAgABwAEBAwABAQIAAYAEAAEBAgABgAQAAQEHAAEBBwABAQcAAQEHAAEBBwABAQcA
-        AQECAAGABAABAQIAAYABAAFtAbYBAAEBAgABwAEBAwABAQIAAfED/wEAAQEE/wIAAv8B+AEfAv8EAAHg
-        AQcGAAHAAQMGAAGAAQEGAAGAAQEyAAGAAQECAAGAAQEBAAEYAYABAQIAAYABAQIAAYABAQIAAcABAwIA
-        AYABfwL/AeABBwIABP8B+AEfAv8L
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAC4
+        BwAAAk1TRnQBSQFMAwEBAAEYAQEBGAEBARABAAEQAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
+        ARADAAEBAQABIAYAARASAAE3AQYBFgH/ATcBBgEWAf8BNwEGARYB/wE3AQYBFgH/ATcBBgEWAf8BNwEG
+        ARYB/wE3AQYBFgH/ATcBBgEWAf8BNwEGARYB/wE3AQYBFgH/ATcBBgEWAf8BNwEGARYB/wE3AQYBFgH/
+        ATcBBgEWAf8BNwEGARYB/wE3AQYBFgH/wAABNwEGAR8B/wFQARYBLwH/AVABFgEvAf8BWAEfATcB/wFY
+        AScBNwH/AVgBJwFAAf8BhAEvAUAB/wGEAS8BSAH/AYQBLwFIAf8BhAEvAUAB/wFYAScBQAH/AVgBJwE3
+        Af8BWAEfATcB/wFQARYBLwH/AVABFgEvAf8BNwEGARYB/8AAATcBBgEfAf8BhAEnATcB/wFYARYBLwH/
+        AVgBFgE3Af8BhAEfATcB/wGEAR8BNwH/AYQBHwE3Af8BhAEfATcB/wGEAR8BNwH/AYQBHwE3Af8BhAEf
+        ATcB/wGEAR8BNwH/AYQBHwE3Af8BWAEWATcB/wGEAScBQAH/ATcBBgEfAf/AAAFAAQYBHwH/AZQBLwFI
+        Af8BlAEnAUgB/wGUAScBSAH/AZQBJwFIAf8BnAEnAUgB/wGcAScBSAH/AZwBLwFQAf8BnAEvAVAB/wGc
+        AS8BUAH/AZwBLwFQAf8BnAEnAUgB/wGcAScBSAH/AZQBJwFIAf8BnAEvAVAB/wFAAQYBHwH/wAABQAEG
+        AScB/wGlAUABWAH/AaUBLwFQAf8BrQE3AVgB/wGtATcBWAH/Aa0BNwFYAf8BtQE3AVgB/wG1ATcBWAH/
+        AbUBNwGEAf8BtQE3AVgB/wG1ATcBWAH/Aa0BNwFYAf8BrQE3AVgB/wGtATcBWAH/Aa0BQAGEAf8BQAEG
+        AScB/8AAAUgBBgEnAf8BtQFIAYwB/wG1AUABhAH/Ab0BQAGEAf8BvQFAAYwB/wHGAUABjAH/AcYBQAGM
+        Af8BxgFAAYwB/wHGAUABjAH/AcYBQAGMAf8BxgFAAYwB/wHGAUABjAH/Ab0BQAGMAf8BvQFAAYQB/wG9
+        AUgBjAH/AUgBBgEnAf/AAAFIAQ4BJwH/AcYBUAGUAf8BxgFAAYwB/wHOAUgBlAH/Ac4BSAGUAf8B1gFI
+        AZQB/wHWAUgBlAH/AdYBSAGUAf8B1gFIAZQB/wHWAUgBlAH/AdYBSAGUAf8B1gFIAZQB/wHOAUgBlAH/
+        Ac4BSAGUAf8BzgFQAZwB/wFIAQ4BJwH/wAABUAEOAS8B/wHWAVgBpQH/AdYBSAGUAf8B1gFIAZwB/wHe
+        AVABnAH/Ad4BUAGcAf8B5wFQAZwB/wHnAVABnAH/AecBUAGcAf8B5wFQAZwB/wHnAVABnAH/Ad4BUAGc
+        Af8B3gFQAZwB/wHWAUgBnAH/AdYBWAGlAf8BUAEOAS8B/8AAAVABDgEvAf8B3gGEAaUB/wHeAVABnAH/
+        Ad4BUAGcAf8B5wFQAaUB/wHnAVABpQH/Ae8BUAGlAf8B7wFQAaUB/wHvAVABpQH/Ae8BUAGlAf8B7wFQ
+        AaUB/wHvAVABpQH/AecBUAGlAf8B5wFQAZwB/wHnAYQBrQH/AVABDgEvAf/AAAFQAQ4BLwH/AecBhAGt
+        Af8B5wGMAbUB/wHvAYwBtQH/Ae8BlAG1Af8B9wGUAbUB/wH3AZQBvQH/AfcBnAG9Av8BnAG9Av8BlAG9
+        Af8B9wGUAb0B/wH3AZQBtQH/Ae8BjAG1Af8B7wGMAbUB/wHnAYQBrQH/AVABDgEvAf/AAAFYAQ4BNwH/
+        AVgBDgE3Af8BWAEOATcB/wFYAQ4BNwH/AVgBDgE3Af8BWAEOATcB/wFYAQ4BNwH/AVgBDgE3Af8BWAEO
+        ATcB/wFYAQ4BNwH/AVgBDgE3Af8BWAEOATcB/wFYAQ4BNwH/AVgBDgE3Af8BWAEOATcB/wFYAQ4BNwH/
+        xAABjAEfAUgB/wGtATcBhAH/AZwBHwFQAf8BnAEfAVAB/wGcAR8BUAH/AZwBHwFQAf8BnAEfAVAB/wGc
+        AR8BUAH/AZwBHwFQAf8BnAEfAVAB/wGcAR8BUAH/AZwBHwFQAf8BrQE3AYQB/wGMAR8BSAH/yAABjAEf
+        AUgB/wG9AVgBnAH/AbUBQAGMAf8BtQFAAYwB/wG1AUABjAH/AbUBQAGMAf8BvQFYAZwB/wHOAZwBtQH/
+        AcYBjAGtAf8BvQFYAZwB/wHGAYwBrQH/Ac4BnAG1Af8BzgGUAa0B/wGMAR8BSAH/yAABjAEfAUgB/wHW
+        AaUBvQH/Ad4BtQHGAf8B3gG1Ac4B/wHeAa0BxgH/AdYBpQG9Af8B1gGcAb0B/wGMAR8BSAH/AYwBHwFI
+        Af8BjAEfAUgB/wGMAR8BSAH/AYwBHwFIAf8BjAEfAUgB/wGMAR8BSAH/yAABjAEfAUgB/wGMAR8BSAH/
+        AYwBHwFIAf8BjAEfAUgB/wGMAR8BSAH/AYwBHwFIAf8BjAEfAUgB/wGMAR8BSAH//wDdAAFCAU0BPgcA
+        AT4DAAEoAwABQAMAARADAAEBAQABAQUAAYAXAAP/WQABgAEBBgABgAEBBgABgAEBBgABgAF/BgAC/wYA
+        Cw==
 </value>
   </data>
   <data name="faftv.Location" type="System.Drawing.Point, System.Drawing">
@@ -521,7 +402,7 @@
     <value>0</value>
   </data>
   <data name="faftv.Size" type="System.Drawing.Size, System.Drawing">
-    <value>245, 502</value>
+    <value>245, 499</value>
   </data>
   <data name="faftv.TabIndex" type="System.Int32, mscorlib">
     <value>141</value>
@@ -641,8 +522,65 @@
     <value>SnapToGrid</value>
   </data>
   <metadata name="fileDisplay_RMB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>158, 56</value>
+    <value>104, 40</value>
   </metadata>
+  <data name="fileDisplay_RMB.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="fileDisplay_RMB_reload.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_reload.Text" xml:space="preserve">
+    <value>Reload (CTRL+R/F5)</value>
+  </data>
+  <data name="fileDisplay_RMB_open.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_open.Text" xml:space="preserve">
+    <value>Open Selected (ENTER/CTRL+W)</value>
+  </data>
+  <data name="fileDisplay_RMB_explorer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_explorer.Text" xml:space="preserve">
+    <value>Open in Explorer (CTRL+A)</value>
+  </data>
+  <data name="fileDisplay_RMB_explorer2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_explorer2.Text" xml:space="preserve">
+    <value>Select in Explorer (CTRL+C)</value>
+  </data>
+  <data name="fileDisplay_RMB_newFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_newFolder.Text" xml:space="preserve">
+    <value>New Folder (CTRL+S)</value>
+  </data>
+  <data name="fileDisplay_RMB_move.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_move.Text" xml:space="preserve">
+    <value>Move (CTRL+X)</value>
+  </data>
+  <data name="fileDisplay_RMB_rename.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_rename.Text" xml:space="preserve">
+    <value>Rename (F2)</value>
+  </data>
+  <data name="fileDisplay_RMB_delete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_delete.Text" xml:space="preserve">
+    <value>Trash (DEL)</value>
+  </data>
+  <data name="fileDisplay_RMB_properties.Size" type="System.Drawing.Size, System.Drawing">
+    <value>239, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_properties.Text" xml:space="preserve">
+    <value>Properties (CTRL+P)</value>
+  </data>
   <data name="fileDisplay_RMB.Size" type="System.Drawing.Size, System.Drawing">
     <value>240, 202</value>
   </data>
@@ -659,7 +597,7 @@
     <value>Calibri, 11.25pt</value>
   </data>
   <metadata name="fileDisplay_icons.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 56</value>
+    <value>534, 37</value>
   </metadata>
   <data name="fileDisplay_icons.ImageSize" type="System.Drawing.Size, System.Drawing">
     <value>150, 150</value>
@@ -668,7 +606,7 @@
     <value>0, 0</value>
   </data>
   <data name="fileDisplay.Size" type="System.Drawing.Size, System.Drawing">
-    <value>284, 502</value>
+    <value>284, 499</value>
   </data>
   <data name="fileDisplay.TabIndex" type="System.Int32, mscorlib">
     <value>159</value>
@@ -698,7 +636,7 @@
     <value>1</value>
   </data>
   <data name="splitContainer_files.Size" type="System.Drawing.Size, System.Drawing">
-    <value>537, 504</value>
+    <value>537, 501</value>
   </data>
   <data name="splitContainer_files.SplitterDistance" type="System.Int32, mscorlib">
     <value>247</value>
@@ -718,9 +656,6 @@
   <data name="&gt;&gt;splitContainer_files.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="fileDisplay_btn_randImage.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
   <data name="fileDisplay_btn_randImage.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
@@ -734,10 +669,10 @@
     <value>NoControl</value>
   </data>
   <data name="fileDisplay_btn_randImage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>531, 3</value>
+    <value>88, 3</value>
   </data>
   <data name="fileDisplay_btn_randImage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>10, 21</value>
+    <value>10, 22</value>
   </data>
   <data name="fileDisplay_btn_randImage.TabIndex" type="System.Int32, mscorlib">
     <value>158</value>
@@ -761,7 +696,7 @@
     <value>Top, Left, Right</value>
   </data>
   <metadata name="wb_url_autoCompleteMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>414, 56</value>
+    <value>285, 18</value>
   </metadata>
   <data name="wb_url_autoCompleteMenu.Colors" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>
@@ -781,13 +716,13 @@
 </value>
   </data>
   <data name="txt_path.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 8.25pt</value>
+    <value>Consolas, 9pt, style=Bold</value>
   </data>
   <data name="txt_path.Location" type="System.Drawing.Point, System.Drawing">
-    <value>73, 3</value>
+    <value>100, 3</value>
   </data>
   <data name="txt_path.Size" type="System.Drawing.Size, System.Drawing">
-    <value>444, 21</value>
+    <value>441, 22</value>
   </data>
   <data name="txt_path.TabIndex" type="System.Int32, mscorlib">
     <value>142</value>
@@ -820,10 +755,10 @@
     <value>NoControl</value>
   </data>
   <data name="fileDisplay_btn_root.Location" type="System.Drawing.Point, System.Drawing">
-    <value>50, 3</value>
+    <value>52, 3</value>
   </data>
   <data name="fileDisplay_btn_root.Size" type="System.Drawing.Size, System.Drawing">
-    <value>21, 21</value>
+    <value>22, 22</value>
   </data>
   <data name="fileDisplay_btn_root.TabIndex" type="System.Int32, mscorlib">
     <value>167</value>
@@ -859,7 +794,7 @@
     <value>4, 3</value>
   </data>
   <data name="fileDisplay_btn_backDir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>21, 21</value>
+    <value>22, 22</value>
   </data>
   <data name="fileDisplay_btn_backDir.TabIndex" type="System.Int32, mscorlib">
     <value>160</value>
@@ -879,9 +814,6 @@
   <data name="&gt;&gt;fileDisplay_btn_backDir.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="fileDisplay_btn_randVideo.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
   <data name="fileDisplay_btn_randVideo.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
@@ -895,10 +827,10 @@
     <value>NoControl</value>
   </data>
   <data name="fileDisplay_btn_randVideo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>519, 3</value>
+    <value>76, 3</value>
   </data>
   <data name="fileDisplay_btn_randVideo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>10, 21</value>
+    <value>10, 22</value>
   </data>
   <data name="fileDisplay_btn_randVideo.TabIndex" type="System.Int32, mscorlib">
     <value>157</value>
@@ -946,13 +878,13 @@
     <value>NoControl</value>
   </data>
   <data name="btn_startURL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>342, 3</value>
+    <value>338, 3</value>
   </data>
   <data name="btn_startURL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 4, 2, 4</value>
   </data>
   <data name="btn_startURL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>21, 21</value>
+    <value>22, 22</value>
   </data>
   <data name="btn_startURL.TabIndex" type="System.Int32, mscorlib">
     <value>166</value>
@@ -997,10 +929,109 @@
     <value>93</value>
   </data>
   <metadata name="links_RMB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>411, 17</value>
+    <value>102, 67</value>
   </metadata>
+  <data name="links_RMB.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="links_RMB_reload.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 22</value>
+  </data>
+  <data name="links_RMB_reload.Text" xml:space="preserve">
+    <value>Reload (CTRL+R/F5)</value>
+  </data>
+  <data name="links_RMB_edit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 22</value>
+  </data>
+  <data name="links_RMB_edit.Text" xml:space="preserve">
+    <value>Edit Links (CTRL+E)</value>
+  </data>
+  <data name="links_RMB_open.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 22</value>
+  </data>
+  <data name="links_RMB_open.Text" xml:space="preserve">
+    <value>Open Selected (ENTER)</value>
+  </data>
+  <data name="links_RMB_incognito.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 22</value>
+  </data>
+  <data name="links_RMB_incognito.Text" xml:space="preserve">
+    <value>Incognito (CTRL+W)</value>
+  </data>
+  <data name="links_RMB_commentOut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 22</value>
+  </data>
+  <data name="links_RMB_commentOut.Text" xml:space="preserve">
+    <value>Comment Out (CTRL+Q)</value>
+  </data>
+  <data name="links_RMB_uncomment.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 22</value>
+  </data>
+  <data name="links_RMB_uncomment.Text" xml:space="preserve">
+    <value>Uncomment (CTRL+T)</value>
+  </data>
+  <data name="links_RMB_copy.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 22</value>
+  </data>
+  <data name="links_RMB_copy.Text" xml:space="preserve">
+    <value>Copy Selected (CTRL+C)</value>
+  </data>
+  <data name="links_RMB_cut.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 22</value>
+  </data>
+  <data name="links_RMB_cut.Text" xml:space="preserve">
+    <value>Cut Selected (CTRL+X)</value>
+  </data>
+  <data name="links_RMB_paste.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 22</value>
+  </data>
+  <data name="links_RMB_paste.Text" xml:space="preserve">
+    <value>Paste From Clipboard (CTRL+V)</value>
+  </data>
+  <data name="links_RMB_find.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 22</value>
+  </data>
+  <data name="links_RMB_find.Text" xml:space="preserve">
+    <value>Find (CTRL+F)</value>
+  </data>
+  <data name="links_RMB_reloadTitle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 22</value>
+  </data>
+  <data name="links_RMB_reloadTitle.Text" xml:space="preserve">
+    <value>Reload Title (CTRL+S)</value>
+  </data>
+  <data name="links_RMB_urlBoard.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 22</value>
+  </data>
+  <data name="links_RMB_urlBoard.Text" xml:space="preserve">
+    <value>URL Board (CTRL+B)</value>
+  </data>
+  <data name="links_RMB_download.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 22</value>
+  </data>
+  <data name="links_RMB_download.Text" xml:space="preserve">
+    <value>Open in Downloader (CTRL+D)</value>
+  </data>
+  <data name="links_RMB_youtubedl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 22</value>
+  </data>
+  <data name="links_RMB_youtubedl.Text" xml:space="preserve">
+    <value>Download Video (youtube-dl.exe) (CTRL+Y)</value>
+  </data>
+  <data name="links_RMB_webgrab.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 22</value>
+  </data>
+  <data name="links_RMB_webgrab.Text" xml:space="preserve">
+    <value>Scan Web Page (webgrab.exe) (CTRL+SHIFT+D)</value>
+  </data>
+  <data name="links_RMB_delete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 22</value>
+  </data>
+  <data name="links_RMB_delete.Text" xml:space="preserve">
+    <value>Delete Selected Link (DEL)</value>
+  </data>
   <data name="links_RMB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>326, 356</value>
+    <value>316, 356</value>
   </data>
   <data name="&gt;&gt;links_RMB.Name" xml:space="preserve">
     <value>links_RMB</value>
@@ -1009,22 +1040,22 @@
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="links.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt, style=Bold</value>
+    <value>Consolas, 9.75pt, style=Bold</value>
   </data>
   <data name="links.LabelWrap" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <metadata name="favicons.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>315, 17</value>
+    <value>534, 62</value>
   </metadata>
   <data name="favicons.ImageSize" type="System.Drawing.Size, System.Drawing">
     <value>16, 16</value>
   </data>
   <data name="links.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 26</value>
+    <value>3, 27</value>
   </data>
   <data name="links.Size" type="System.Drawing.Size, System.Drawing">
-    <value>429, 504</value>
+    <value>429, 501</value>
   </data>
   <data name="links.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1057,13 +1088,13 @@
     <value>NoControl</value>
   </data>
   <data name="btn_dragOutURL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>411, 3</value>
+    <value>410, 3</value>
   </data>
   <data name="btn_dragOutURL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 4, 2, 4</value>
   </data>
   <data name="btn_dragOutURL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>21, 21</value>
+    <value>22, 22</value>
   </data>
   <data name="btn_dragOutURL.TabIndex" type="System.Int32, mscorlib">
     <value>162</value>
@@ -1087,13 +1118,13 @@
     <value>Top, Left, Right</value>
   </data>
   <data name="txt_url.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Verdana, 8.25pt, style=Bold</value>
+    <value>Consolas, 9pt, style=Bold</value>
   </data>
   <data name="txt_url.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
   </data>
   <data name="txt_url.Size" type="System.Drawing.Size, System.Drawing">
-    <value>337, 21</value>
+    <value>333, 22</value>
   </data>
   <data name="txt_url.TabIndex" type="System.Int32, mscorlib">
     <value>165</value>
@@ -1129,13 +1160,13 @@
     <value>NoControl</value>
   </data>
   <data name="btn_saveURL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>388, 3</value>
+    <value>386, 3</value>
   </data>
   <data name="btn_saveURL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 4, 2, 4</value>
   </data>
   <data name="btn_saveURL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>21, 21</value>
+    <value>22, 22</value>
   </data>
   <data name="btn_saveURL.TabIndex" type="System.Int32, mscorlib">
     <value>161</value>
@@ -1171,13 +1202,13 @@
     <value>NoControl</value>
   </data>
   <data name="btn_openURL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>365, 3</value>
+    <value>362, 3</value>
   </data>
   <data name="btn_openURL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 4, 2, 4</value>
   </data>
   <data name="btn_openURL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>21, 21</value>
+    <value>22, 22</value>
   </data>
   <data name="btn_openURL.TabIndex" type="System.Int32, mscorlib">
     <value>160</value>
@@ -1210,7 +1241,7 @@
     <value>1</value>
   </data>
   <data name="splitContainer_main.Size" type="System.Drawing.Size, System.Drawing">
-    <value>984, 534</value>
+    <value>984, 532</value>
   </data>
   <data name="splitContainer_main.SplitterDistance" type="System.Int32, mscorlib">
     <value>544</value>
@@ -1230,320 +1261,8 @@
   <data name="&gt;&gt;splitContainer_main.ZOrder" xml:space="preserve">
     <value>11</value>
   </data>
-  <data name="faftv_RMB_refresh.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="faftv_RMB_refresh.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 22</value>
-  </data>
-  <data name="faftv_RMB_refresh.Text" xml:space="preserve">
-    <value>Refresh (CTRL+R)</value>
-  </data>
-  <data name="faftv_RMB_reload.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="faftv_RMB_reload.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 22</value>
-  </data>
-  <data name="faftv_RMB_reload.Text" xml:space="preserve">
-    <value>Reload (F5)</value>
-  </data>
-  <data name="faftv_RMB_collapseTree.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="faftv_RMB_collapseTree.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 22</value>
-  </data>
-  <data name="faftv_RMB_collapseTree.Text" xml:space="preserve">
-    <value>Collapse Tree (CTRL+Q)</value>
-  </data>
-  <data name="faftv_RMB_expandTree.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="faftv_RMB_expandTree.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 22</value>
-  </data>
-  <data name="faftv_RMB_expandTree.Text" xml:space="preserve">
-    <value>Expand Tree (CTRL+E)</value>
-  </data>
-  <data name="faftv_RMB_open.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="faftv_RMB_open.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 22</value>
-  </data>
-  <data name="faftv_RMB_open.Text" xml:space="preserve">
-    <value>Open Selected (CTRL+W)</value>
-  </data>
-  <data name="faftv_RMB_explorer.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="faftv_RMB_explorer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 22</value>
-  </data>
-  <data name="faftv_RMB_explorer.Text" xml:space="preserve">
-    <value>Open in Explorer (CTRL+A)</value>
-  </data>
-  <data name="faftv_RMB_explorer2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="faftv_RMB_explorer2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 22</value>
-  </data>
-  <data name="faftv_RMB_explorer2.Text" xml:space="preserve">
-    <value>Select in Explorer (CTRL+C)</value>
-  </data>
-  <data name="faftv_RMB_newFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 22</value>
-  </data>
-  <data name="faftv_RMB_newFolder.Text" xml:space="preserve">
-    <value>New Folder (CTRL+S)</value>
-  </data>
-  <data name="faftv_RMB_move.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 22</value>
-  </data>
-  <data name="faftv_RMB_move.Text" xml:space="preserve">
-    <value>Move (CTRL+X)</value>
-  </data>
-  <data name="faftv_RMB_rename.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 22</value>
-  </data>
-  <data name="faftv_RMB_rename.Text" xml:space="preserve">
-    <value>Rename (F2)</value>
-  </data>
-  <data name="faftv_RMB_delete.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="faftv_RMB_delete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 22</value>
-  </data>
-  <data name="faftv_RMB_delete.Text" xml:space="preserve">
-    <value>Trash (DEL) </value>
-  </data>
-  <data name="faftv_RMB_properties.Size" type="System.Drawing.Size, System.Drawing">
-    <value>218, 22</value>
-  </data>
-  <data name="faftv_RMB_properties.Text" xml:space="preserve">
-    <value>Properties (CTRL+D)</value>
-  </data>
-  <data name="fileDisplay_RMB_reload.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8.25pt</value>
-  </data>
-  <data name="fileDisplay_RMB_reload.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
-  </data>
-  <data name="fileDisplay_RMB_reload.Text" xml:space="preserve">
-    <value>Reload (CTRL+R/F5)</value>
-  </data>
-  <data name="fileDisplay_RMB_open.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8.25pt</value>
-  </data>
-  <data name="fileDisplay_RMB_open.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
-  </data>
-  <data name="fileDisplay_RMB_open.Text" xml:space="preserve">
-    <value>Open Selected (ENTER/CTRL+W)</value>
-  </data>
-  <data name="fileDisplay_RMB_explorer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
-  </data>
-  <data name="fileDisplay_RMB_explorer.Text" xml:space="preserve">
-    <value>Open in Explorer (CTRL+A)</value>
-  </data>
-  <data name="fileDisplay_RMB_explorer2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="fileDisplay_RMB_explorer2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
-  </data>
-  <data name="fileDisplay_RMB_explorer2.Text" xml:space="preserve">
-    <value>Select in Explorer (CTRL+C)</value>
-  </data>
-  <data name="fileDisplay_RMB_newFolder.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8.25pt</value>
-  </data>
-  <data name="fileDisplay_RMB_newFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
-  </data>
-  <data name="fileDisplay_RMB_newFolder.Text" xml:space="preserve">
-    <value>New Folder (CTRL+S)</value>
-  </data>
-  <data name="fileDisplay_RMB_move.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
-  </data>
-  <data name="fileDisplay_RMB_move.Text" xml:space="preserve">
-    <value>Move (CTRL+X)</value>
-  </data>
-  <data name="fileDisplay_RMB_rename.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8.25pt</value>
-  </data>
-  <data name="fileDisplay_RMB_rename.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
-  </data>
-  <data name="fileDisplay_RMB_rename.Text" xml:space="preserve">
-    <value>Rename (F2)</value>
-  </data>
-  <data name="fileDisplay_RMB_delete.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 8.25pt</value>
-  </data>
-  <data name="fileDisplay_RMB_delete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
-  </data>
-  <data name="fileDisplay_RMB_delete.Text" xml:space="preserve">
-    <value>Trash (DEL)</value>
-  </data>
-  <data name="fileDisplay_RMB_properties.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
-  </data>
-  <data name="fileDisplay_RMB_properties.Text" xml:space="preserve">
-    <value>Properties (CTRL+P)</value>
-  </data>
-  <data name="links_RMB_reload.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_reload.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_reload.Text" xml:space="preserve">
-    <value>Reload (CTRL+R/F5)</value>
-  </data>
-  <data name="links_RMB_edit.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_edit.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_edit.Text" xml:space="preserve">
-    <value>Edit Links (CTRL+E)</value>
-  </data>
-  <data name="links_RMB_open.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_open.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_open.Text" xml:space="preserve">
-    <value>Open Selected (ENTER)</value>
-  </data>
-  <data name="links_RMB_incognito.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_incognito.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_incognito.Text" xml:space="preserve">
-    <value>Incognito (CTRL+W)</value>
-  </data>
-  <data name="links_RMB_commentOut.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_commentOut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_commentOut.Text" xml:space="preserve">
-    <value>Comment Out (CTRL+Q)</value>
-  </data>
-  <data name="links_RMB_uncomment.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_uncomment.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_uncomment.Text" xml:space="preserve">
-    <value>Uncomment (CTRL+T)</value>
-  </data>
-  <data name="links_RMB_copy.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_copy.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_copy.Text" xml:space="preserve">
-    <value>Copy Selected (CTRL+C)</value>
-  </data>
-  <data name="links_RMB_cut.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_cut.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_cut.Text" xml:space="preserve">
-    <value>Cut Selected (CTRL+X)</value>
-  </data>
-  <data name="links_RMB_paste.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_paste.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_paste.Text" xml:space="preserve">
-    <value>Paste From Clipboard (CTRL+V)</value>
-  </data>
-  <data name="links_RMB_find.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_find.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_find.Text" xml:space="preserve">
-    <value>Find (CTRL+F)</value>
-  </data>
-  <data name="links_RMB_reloadTitle.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_reloadTitle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_reloadTitle.Text" xml:space="preserve">
-    <value>Reload Title (CTRL+S)</value>
-  </data>
-  <data name="links_RMB_urlBoard.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_urlBoard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_urlBoard.Text" xml:space="preserve">
-    <value>URL Board (CTRL+B)</value>
-  </data>
-  <data name="links_RMB_download.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_download.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_download.Text" xml:space="preserve">
-    <value>Open in Downloader (CTRL+D)</value>
-  </data>
-  <data name="links_RMB_youtubedl.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_youtubedl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_youtubedl.Text" xml:space="preserve">
-    <value>Download Video (youtube-dl.exe) (CTRL+Y)</value>
-  </data>
-  <data name="links_RMB_webgrab.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_webgrab.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_webgrab.Text" xml:space="preserve">
-    <value>Scan Web Page (webgrab.exe) (CTRL+SHIFT+D)</value>
-  </data>
-  <data name="links_RMB_delete.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="links_RMB_delete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>325, 22</value>
-  </data>
-  <data name="links_RMB_delete.Text" xml:space="preserve">
-    <value>Delete Selected Link (DEL)</value>
-  </data>
   <metadata name="this_trayicon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>518, 17</value>
+    <value>669, 45</value>
   </metadata>
   <data name="this_trayicon.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4323,10 +4042,61 @@
     <value>None</value>
   </data>
   <metadata name="showMedia_image_RMB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1289, 17</value>
+    <value>100, 127</value>
   </metadata>
+  <data name="showMedia_image_RMB.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 8.25pt</value>
+  </data>
+  <data name="showMedia_image_RMB_close.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_image_RMB_close.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="showMedia_image_RMB_moveTo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_image_RMB_moveTo.Text" xml:space="preserve">
+    <value>Move To</value>
+  </data>
+  <data name="showMedia_image_RMB_open.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_image_RMB_open.Text" xml:space="preserve">
+    <value>Open File</value>
+  </data>
+  <data name="showMedia_image_RMB_explorer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_image_RMB_explorer.Text" xml:space="preserve">
+    <value>Open in Explorer</value>
+  </data>
+  <data name="showMedia_image_RMB_explorer2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_image_RMB_explorer2.Text" xml:space="preserve">
+    <value>Select in Explorer</value>
+  </data>
+  <data name="showMedia_image_RMB_convert.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_image_RMB_convert.Text" xml:space="preserve">
+    <value>Convert (ffmpeg.exe)</value>
+  </data>
+  <data name="showMedia_image_RMB_trashFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_image_RMB_trashFile.Text" xml:space="preserve">
+    <value>Trash File</value>
+  </data>
+  <data name="showMedia_image_RMB_properties.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_image_RMB_properties.Text" xml:space="preserve">
+    <value>Properties</value>
+  </data>
   <data name="showMedia_image_RMB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 180</value>
+    <value>181, 180</value>
   </data>
   <data name="&gt;&gt;showMedia_image_RMB.Name" xml:space="preserve">
     <value>showMedia_image_RMB</value>
@@ -4361,81 +4131,6 @@
   <data name="&gt;&gt;showMedia_image.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="showMedia_image_RMB_close.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_image_RMB_close.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_image_RMB_close.Text" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="showMedia_image_RMB_moveTo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_image_RMB_moveTo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_image_RMB_moveTo.Text" xml:space="preserve">
-    <value>Move To</value>
-  </data>
-  <data name="showMedia_image_RMB_open.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_image_RMB_open.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_image_RMB_open.Text" xml:space="preserve">
-    <value>Open File</value>
-  </data>
-  <data name="showMedia_image_RMB_explorer.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_image_RMB_explorer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_image_RMB_explorer.Text" xml:space="preserve">
-    <value>Open in Explorer</value>
-  </data>
-  <data name="showMedia_image_RMB_explorer2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_image_RMB_explorer2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_image_RMB_explorer2.Text" xml:space="preserve">
-    <value>Select in Explorer</value>
-  </data>
-  <data name="showMedia_image_RMB_convert.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_image_RMB_convert.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_image_RMB_convert.Text" xml:space="preserve">
-    <value>Convert (ffmpeg.exe)</value>
-  </data>
-  <data name="showMedia_image_RMB_trashFile.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_image_RMB_trashFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_image_RMB_trashFile.Text" xml:space="preserve">
-    <value>Trash File</value>
-  </data>
-  <data name="showMedia_image_RMB_properties.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_image_RMB_properties.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_image_RMB_properties.Text" xml:space="preserve">
-    <value>Properties</value>
-  </data>
-  <metadata name="HelpBalloon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>296, 56</value>
-  </metadata>
   <data name="showMedia_video_skip.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
   </data>
@@ -4941,7 +4636,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fapmap_cb_hideOnX.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="fapmap_cb_hideOnFocus.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -4986,7 +4681,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fapmap_cb_hideOnFocus.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="fapmap_cb_media.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -5031,7 +4726,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fapmap_cb_media.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="fapmap_cb_fileDisplay.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -5076,118 +4771,112 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fapmap_cb_fileDisplay.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="showMedia_video_panel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;showMedia_video_panel2.Name" xml:space="preserve">
-    <value>showMedia_video_panel2</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel2.Parent" xml:space="preserve">
-    <value>showMedia_video_panel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_title.Name" xml:space="preserve">
-    <value>showMedia_video_title</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_title.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_title.Parent" xml:space="preserve">
-    <value>showMedia_video_panel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_title.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="showMedia_video_panel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>300, 85</value>
-  </data>
-  <data name="showMedia_video_panel.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>230, 200</value>
-  </data>
-  <data name="showMedia_video_panel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>653, 361</value>
-  </data>
-  <data name="showMedia_video_panel.TabIndex" type="System.Int32, mscorlib">
-    <value>156</value>
-  </data>
-  <data name="showMedia_video_panel.Visible" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel.Name" xml:space="preserve">
-    <value>showMedia_video_panel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel.ZOrder" xml:space="preserve">
-    <value>10</value>
-  </data>
   <data name="showMedia_video_panel2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
-  <data name="&gt;&gt;showMedia_video.Name" xml:space="preserve">
-    <value>showMedia_video</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video.Type" xml:space="preserve">
-    <value>AxWMPLib.AxWindowsMediaPlayer, AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video.Parent" xml:space="preserve">
-    <value>showMedia_video_panel2</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel.Name" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel.Parent" xml:space="preserve">
-    <value>showMedia_video_panel2</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="showMedia_video_panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-1, 25</value>
-  </data>
-  <data name="showMedia_video_panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>649, 331</value>
-  </data>
-  <data name="showMedia_video_panel2.TabIndex" type="System.Int32, mscorlib">
-    <value>157</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel2.Name" xml:space="preserve">
-    <value>showMedia_video_panel2</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel2.Parent" xml:space="preserve">
-    <value>showMedia_video_panel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_panel2.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="showMedia_video_RMB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>1109, 17</value>
+    <value>105, 95</value>
   </metadata>
   <data name="showMedia_video_RMB.Font" type="System.Drawing.Font, System.Drawing">
     <value>Segoe UI, 8.25pt</value>
   </data>
+  <data name="showMedia_video_RMB_close.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_close.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="showMedia_video_RMB_repeat.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_repeat.Text" xml:space="preserve">
+    <value>Loop</value>
+  </data>
+  <data name="showMedia_video_RMB_moveTo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_moveTo.Text" xml:space="preserve">
+    <value>Move To</value>
+  </data>
+  <data name="showMedia_video_RMB_autoRand_main.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_autoRand_main.Text" xml:space="preserve">
+    <value>Main Folder</value>
+  </data>
+  <data name="showMedia_video_RMB_autoRand_dir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>136, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_autoRand_dir.Text" xml:space="preserve">
+    <value>Here</value>
+  </data>
+  <data name="showMedia_video_RMB_autoRand.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_autoRand.Text" xml:space="preserve">
+    <value>Auto Random</value>
+  </data>
+  <data name="showMedia_video_RMB_playList_make.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_playList_make.Text" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="showMedia_video_RMB_playList_skip.Size" type="System.Drawing.Size, System.Drawing">
+    <value>107, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_playList_skip.Text" xml:space="preserve">
+    <value>Go To</value>
+  </data>
+  <data name="showMedia_video_RMB_playList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_playList.Text" xml:space="preserve">
+    <value>Playlist</value>
+  </data>
+  <data name="showMedia_video_RMB_openFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_openFile.Text" xml:space="preserve">
+    <value>Open File</value>
+  </data>
+  <data name="showMedia_video_RMB_explorer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_explorer.Text" xml:space="preserve">
+    <value>Open in Explorer</value>
+  </data>
+  <data name="showMedia_video_RMB_explorer2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_explorer2.Text" xml:space="preserve">
+    <value>Select in Explorer</value>
+  </data>
+  <data name="showMedia_video_RMB_convert.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_convert.Text" xml:space="preserve">
+    <value>Convert (ffmpeg.exe)</value>
+  </data>
+  <data name="showMedia_video_RMB_trashFile.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_trashFile.Text" xml:space="preserve">
+    <value>Trash File</value>
+  </data>
+  <data name="showMedia_video_RMB_properties.Size" type="System.Drawing.Size, System.Drawing">
+    <value>180, 22</value>
+  </data>
+  <data name="showMedia_video_RMB_properties.Text" xml:space="preserve">
+    <value>Properties</value>
+  </data>
   <data name="showMedia_video_RMB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>188, 246</value>
+    <value>181, 246</value>
   </data>
   <data name="&gt;&gt;showMedia_video_RMB.Name" xml:space="preserve">
     <value>showMedia_video_RMB</value>
@@ -5232,210 +4921,6 @@
   </data>
   <data name="&gt;&gt;showMedia_video.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="showMedia_video_RMB_close.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_close.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_close.Text" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="showMedia_video_RMB_repeat.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_repeat.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_repeat.Text" xml:space="preserve">
-    <value>Loop</value>
-  </data>
-  <data name="showMedia_video_RMB_moveTo.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_moveTo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_moveTo.Text" xml:space="preserve">
-    <value>Move To</value>
-  </data>
-  <data name="showMedia_video_RMB_autoRand.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_autoRand.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_autoRand.Text" xml:space="preserve">
-    <value>Auto Random</value>
-  </data>
-  <data name="showMedia_video_RMB_autoRand_main.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_autoRand_main.Text" xml:space="preserve">
-    <value>Main Folder</value>
-  </data>
-  <data name="showMedia_video_RMB_autoRand_dir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_autoRand_dir.Text" xml:space="preserve">
-    <value>Here</value>
-  </data>
-  <data name="showMedia_video_RMB_playList.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_playList.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_playList.Text" xml:space="preserve">
-    <value>Playlist</value>
-  </data>
-  <data name="showMedia_video_RMB_playList_make.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_playList_make.Text" xml:space="preserve">
-    <value>Create</value>
-  </data>
-  <data name="showMedia_video_RMB_playList_skip.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_playList_skip.Text" xml:space="preserve">
-    <value>Go To</value>
-  </data>
-  <data name="showMedia_video_RMB_openFile.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_openFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_openFile.Text" xml:space="preserve">
-    <value>Open File</value>
-  </data>
-  <data name="showMedia_video_RMB_explorer.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_explorer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_explorer.Text" xml:space="preserve">
-    <value>Open in Explorer</value>
-  </data>
-  <data name="showMedia_video_RMB_explorer2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_explorer2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_explorer2.Text" xml:space="preserve">
-    <value>Select in Explorer</value>
-  </data>
-  <data name="showMedia_video_RMB_convert.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_convert.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_convert.Text" xml:space="preserve">
-    <value>Convert (ffmpeg.exe)</value>
-  </data>
-  <data name="showMedia_video_RMB_trashFile.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_trashFile.Text" xml:space="preserve">
-    <value>Trash File</value>
-  </data>
-  <data name="showMedia_video_RMB_properties.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Segoe UI, 9pt</value>
-  </data>
-  <data name="showMedia_video_RMB_properties.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
-  </data>
-  <data name="showMedia_video_RMB_properties.Text" xml:space="preserve">
-    <value>Properties</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_playlistIndex.Name" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel_playlistIndex</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_playlistIndex.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_playlistIndex.Parent" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_playlistIndex.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_cur.Name" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel_pos_cur</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_cur.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_cur.Parent" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_cur.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_max.Name" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel_pos_max</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_max.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_max.Parent" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos_max.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_audioPanel.Name" xml:space="preserve">
-    <value>showMedia_video_audioPanel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_audioPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_audioPanel.Parent" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_audioPanel.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos.Name" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel_pos</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos.Type" xml:space="preserve">
-    <value>ColorSlider.ColorSlider, ColorSlider, Version=1.0.0.2, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos.Parent" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="showMedia_video_ctrlsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <data name="showMedia_video_ctrlsPanel.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 265</value>
-  </data>
-  <data name="showMedia_video_ctrlsPanel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>647, 64</value>
-  </data>
-  <data name="showMedia_video_ctrlsPanel.TabIndex" type="System.Int32, mscorlib">
-    <value>158</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel.Name" xml:space="preserve">
-    <value>showMedia_video_ctrlsPanel</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel.Parent" xml:space="preserve">
-    <value>showMedia_video_panel2</value>
-  </data>
-  <data name="&gt;&gt;showMedia_video_ctrlsPanel.ZOrder" xml:space="preserve">
-    <value>1</value>
   </data>
   <data name="showMedia_video_ctrlsPanel_playlistIndex.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -5611,6 +5096,51 @@
   <data name="&gt;&gt;showMedia_video_ctrlsPanel_pos.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
+  <data name="showMedia_video_ctrlsPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="showMedia_video_ctrlsPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 265</value>
+  </data>
+  <data name="showMedia_video_ctrlsPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>647, 64</value>
+  </data>
+  <data name="showMedia_video_ctrlsPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>158</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_ctrlsPanel.Name" xml:space="preserve">
+    <value>showMedia_video_ctrlsPanel</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_ctrlsPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_ctrlsPanel.Parent" xml:space="preserve">
+    <value>showMedia_video_panel2</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_ctrlsPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="showMedia_video_panel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>-1, 25</value>
+  </data>
+  <data name="showMedia_video_panel2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>649, 331</value>
+  </data>
+  <data name="showMedia_video_panel2.TabIndex" type="System.Int32, mscorlib">
+    <value>157</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_panel2.Name" xml:space="preserve">
+    <value>showMedia_video_panel2</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_panel2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_panel2.Parent" xml:space="preserve">
+    <value>showMedia_video_panel</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_panel2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="showMedia_video_title.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
@@ -5635,89 +5165,86 @@
   <data name="&gt;&gt;showMedia_video_title.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <metadata name="menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <data name="menu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+  <data name="showMedia_video_panel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>300, 85</value>
   </data>
-  <data name="menu.Size" type="System.Drawing.Size, System.Drawing">
-    <value>984, 27</value>
+  <data name="showMedia_video_panel.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>230, 200</value>
   </data>
-  <data name="menu.TabIndex" type="System.Int32, mscorlib">
-    <value>194</value>
+  <data name="showMedia_video_panel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>653, 361</value>
   </data>
-  <data name="&gt;&gt;menu.Name" xml:space="preserve">
-    <value>menu</value>
+  <data name="showMedia_video_panel.TabIndex" type="System.Int32, mscorlib">
+    <value>156</value>
   </data>
-  <data name="&gt;&gt;menu.Type" xml:space="preserve">
-    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="showMedia_video_panel.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
-  <data name="&gt;&gt;menu.Parent" xml:space="preserve">
+  <data name="&gt;&gt;showMedia_video_panel.Name" xml:space="preserve">
+    <value>showMedia_video_panel</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_panel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;showMedia_video_panel.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;menu.ZOrder" xml:space="preserve">
-    <value>12</value>
+  <data name="&gt;&gt;showMedia_video_panel.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
+  <metadata name="menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>30, 10</value>
+  </metadata>
   <data name="menu_hideWindow.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt</value>
+    <value>Segoe UI, 12pt</value>
   </data>
   <data name="menu_hideWindow.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 23</value>
+    <value>114, 25</value>
   </data>
   <data name="menu_hideWindow.Text" xml:space="preserve">
     <value>Quick Hide</value>
   </data>
   <data name="menu_changeTabs.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt</value>
+    <value>Segoe UI, 12pt</value>
   </data>
   <data name="menu_changeTabs.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 23</value>
+    <value>125, 25</value>
   </data>
   <data name="menu_changeTabs.Text" xml:space="preserve">
     <value>Change Tabs</value>
   </data>
-  <data name="menu_open.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt</value>
-  </data>
-  <data name="menu_open.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 23</value>
-  </data>
-  <data name="menu_open.Text" xml:space="preserve">
-    <value>Start</value>
-  </data>
   <data name="menu_open_explorer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 24</value>
+    <value>325, 26</value>
   </data>
   <data name="menu_open_explorer.Text" xml:space="preserve">
     <value>Gallery (explorer.exe)</value>
   </data>
   <data name="menu_open_browser.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 24</value>
+    <value>325, 26</value>
   </data>
   <data name="menu_open_browser.Text" xml:space="preserve">
     <value>Web Browser</value>
   </data>
   <data name="menu_open_finder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 24</value>
+    <value>325, 26</value>
   </data>
   <data name="menu_open_finder.Text" xml:space="preserve">
     <value>Folders/Files Finder</value>
   </data>
   <data name="menu_open_fscan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 24</value>
+    <value>325, 26</value>
   </data>
   <data name="menu_open_fscan.Text" xml:space="preserve">
     <value>File scanner (fscan.exe)</value>
   </data>
   <data name="menu_open_videoPlayer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 24</value>
+    <value>325, 26</value>
   </data>
   <data name="menu_open_videoPlayer.Text" xml:space="preserve">
     <value>Video Player (WMP)</value>
   </data>
   <data name="menu_open_imageViewer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 24</value>
+    <value>325, 26</value>
   </data>
   <data name="menu_open_imageViewer.Text" xml:space="preserve">
     <value>Image/Gif Viewer</value>
@@ -5934,61 +5461,61 @@
 </value>
   </data>
   <data name="menu_open_urlBoard.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 24</value>
+    <value>325, 26</value>
   </data>
   <data name="menu_open_urlBoard.Text" xml:space="preserve">
     <value>URL Board</value>
   </data>
   <data name="menu_open_converter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 24</value>
+    <value>325, 26</value>
   </data>
   <data name="menu_open_converter.Text" xml:space="preserve">
     <value>Converter (ffmpeg.exe)</value>
   </data>
   <data name="menu_open_urlDownloader.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 24</value>
+    <value>325, 26</value>
   </data>
   <data name="menu_open_urlDownloader.Text" xml:space="preserve">
     <value>Downloader (In CD) (webgrab.exe)</value>
   </data>
   <data name="menu_open_youtubedl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 24</value>
+    <value>325, 26</value>
   </data>
   <data name="menu_open_youtubedl.Text" xml:space="preserve">
     <value>Video Downloader (youtube-dl.exe)</value>
   </data>
   <data name="menu_open_logViewer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 24</value>
+    <value>325, 26</value>
   </data>
   <data name="menu_open_logViewer.Text" xml:space="preserve">
     <value>Log Viewer</value>
   </data>
   <data name="menu_open_credits.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 24</value>
+    <value>325, 26</value>
   </data>
   <data name="menu_open_credits.Text" xml:space="preserve">
     <value>Credits</value>
   </data>
   <data name="menu_open_settings.Size" type="System.Drawing.Size, System.Drawing">
-    <value>307, 24</value>
+    <value>325, 26</value>
   </data>
   <data name="menu_open_settings.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="menu_hideGallery.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt</value>
+  <data name="menu_open.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
   </data>
-  <data name="menu_hideGallery.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 23</value>
+  <data name="menu_open.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 25</value>
   </data>
-  <data name="menu_hideGallery.Text" xml:space="preserve">
-    <value>Files</value>
+  <data name="menu_open.Text" xml:space="preserve">
+    <value>Start</value>
   </data>
   <data name="menu_hideGallery_0.Font" type="System.Drawing.Font, System.Drawing">
     <value>Consolas, 12pt</value>
   </data>
   <data name="menu_hideGallery_0.Size" type="System.Drawing.Size, System.Drawing">
-    <value>420, 24</value>
+    <value>421, 24</value>
   </data>
   <data name="menu_hideGallery_0.Text" xml:space="preserve">
     <value>UNHIDE        (attrib.exe -s -h /d /s)</value>
@@ -5997,7 +5524,7 @@
     <value>Consolas, 12pt</value>
   </data>
   <data name="menu_hideGallery_1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>420, 24</value>
+    <value>421, 24</value>
   </data>
   <data name="menu_hideGallery_1.Text" xml:space="preserve">
     <value>NORMALLY HIDE (attrib.exe -s +h /d /s)</value>
@@ -6006,19 +5533,49 @@
     <value>Consolas, 12pt</value>
   </data>
   <data name="menu_hideGallery_2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>420, 24</value>
+    <value>421, 24</value>
   </data>
   <data name="menu_hideGallery_2.Text" xml:space="preserve">
     <value>FULLY HIDE    (attrib.exe +s +h /d /s)</value>
   </data>
+  <data name="menu_hideGallery.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 12pt</value>
+  </data>
+  <data name="menu_hideGallery.Size" type="System.Drawing.Size, System.Drawing">
+    <value>69, 25</value>
+  </data>
+  <data name="menu_hideGallery.Text" xml:space="preserve">
+    <value>Files</value>
+  </data>
   <data name="menu_restart.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Calibri, 12pt</value>
+    <value>Segoe UI, 12pt</value>
   </data>
   <data name="menu_restart.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 23</value>
+    <value>87, 25</value>
   </data>
   <data name="menu_restart.Text" xml:space="preserve">
     <value>Restart</value>
+  </data>
+  <data name="menu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menu.Size" type="System.Drawing.Size, System.Drawing">
+    <value>984, 29</value>
+  </data>
+  <data name="menu.TabIndex" type="System.Int32, mscorlib">
+    <value>194</value>
+  </data>
+  <data name="&gt;&gt;menu.Name" xml:space="preserve">
+    <value>menu</value>
+  </data>
+  <data name="&gt;&gt;menu.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menu.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menu.ZOrder" xml:space="preserve">
+    <value>12</value>
   </data>
   <data name="showMedia_image_panel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -6165,13 +5722,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;showMedia_image_panel.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>5</value>
   </data>
   <metadata name="showMedia_image_gif_timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>638, 17</value>
+    <value>286, 45</value>
   </metadata>
   <metadata name="showMedia_video_ctrlsPanel_pos_timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>844, 17</value>
+    <value>285, 73</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -8407,7 +7964,7 @@
 </value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>570, 350</value>
+    <value>575, 350</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -8552,24 +8109,6 @@
   </data>
   <data name="&gt;&gt;fileDisplay_icons.Type" xml:space="preserve">
     <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;links_clm_num.Name" xml:space="preserve">
-    <value>links_clm_num</value>
-  </data>
-  <data name="&gt;&gt;links_clm_num.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;links_clm_url.Name" xml:space="preserve">
-    <value>links_clm_url</value>
-  </data>
-  <data name="&gt;&gt;links_clm_url.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;links_clm_title.Name" xml:space="preserve">
-    <value>links_clm_title</value>
-  </data>
-  <data name="&gt;&gt;links_clm_title.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;links_RMB_reload.Name" xml:space="preserve">
     <value>links_RMB_reload</value>
@@ -8966,6 +8505,24 @@
   </data>
   <data name="&gt;&gt;wb_url_autoCompleteMenu.Type" xml:space="preserve">
     <value>AutocompleteMenuNS.AutocompleteMenu, AutocompleteMenu, Version=1.3.4.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;links_clm_num.Name" xml:space="preserve">
+    <value>links_clm_num</value>
+  </data>
+  <data name="&gt;&gt;links_clm_num.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;links_clm_url.Name" xml:space="preserve">
+    <value>links_clm_url</value>
+  </data>
+  <data name="&gt;&gt;links_clm_url.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;links_clm_title.Name" xml:space="preserve">
+    <value>links_clm_title</value>
+  </data>
+  <data name="&gt;&gt;links_clm_title.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>fapmap</value>

@@ -107,7 +107,7 @@ namespace fapmap
                     //if file exists
                     if (File.Exists(gl_fileNew))
                     {
-                        DialogResult dialogResult = fapmap.OpenFileExistsDialog(this, Path.GetFileName(gl_fileNew));
+                        DialogResult dialogResult = fapmap.OpenFileExistsDialog(this, gl_fileNew);
 
                         if (dialogResult == DialogResult.Yes)
                         {
@@ -231,7 +231,7 @@ namespace fapmap
 
             if (string.IsNullOrEmpty(txt_file.Text)) { return; }
 
-            txt_file.ForeColor = File.Exists(txt_file.Text) ? Color.FromArgb(0, 120, 200) : Color.DarkOrchid;
+            txt_file.ForeColor = File.Exists(txt_file.Text) ? Color.FromArgb(0, 120, 200) : Color.PaleVioletRed;
             
             HelpBalloon.SetToolTip(btn_openFile, "Open File: " + txt_file.Text);
 

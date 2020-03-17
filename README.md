@@ -1,4 +1,4 @@
-# fapmap - Hidden personal gallery of erotica (C#, GUI)
+# fapmap - Hidden personal gallery of erotica (C#, GUI - WinForms)
 - A program made for COOMERS!
 - Hide files with a click of a button.
 - Watch/Download files & bookmark urls all inside the program.

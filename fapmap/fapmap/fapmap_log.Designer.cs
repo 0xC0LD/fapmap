@@ -50,7 +50,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.logs.AutoArrange = false;
-            this.logs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.logs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.logs.BackgroundImage = global::fapmap.Properties.Resources.bg3;
             this.logs.BackgroundImageTiled = true;
             this.logs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -100,6 +100,7 @@
             // 
             this.logs_RMB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.logs_RMB.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.logs_RMB.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.logs_RMB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.logs_RMB_reload,
             this.logs_RMB_open,
@@ -109,7 +110,7 @@
             this.logs_RMB.Name = "contextMenuStrip1";
             this.logs_RMB.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.logs_RMB.ShowItemToolTips = false;
-            this.logs_RMB.Size = new System.Drawing.Size(200, 92);
+            this.logs_RMB.Size = new System.Drawing.Size(194, 114);
             // 
             // logs_RMB_reload
             // 
@@ -117,7 +118,7 @@
             this.logs_RMB_reload.ForeColor = System.Drawing.Color.SlateBlue;
             this.logs_RMB_reload.Image = global::fapmap.Properties.Resources.restart;
             this.logs_RMB_reload.Name = "logs_RMB_reload";
-            this.logs_RMB_reload.Size = new System.Drawing.Size(199, 22);
+            this.logs_RMB_reload.Size = new System.Drawing.Size(193, 22);
             this.logs_RMB_reload.Text = "Reload (CTRL+R/F5)";
             this.logs_RMB_reload.Click += new System.EventHandler(this.logs_RMB_reload_Click);
             // 
@@ -127,7 +128,7 @@
             this.logs_RMB_open.ForeColor = System.Drawing.Color.SlateBlue;
             this.logs_RMB_open.Image = global::fapmap.Properties.Resources.incognito;
             this.logs_RMB_open.Name = "logs_RMB_open";
-            this.logs_RMB_open.Size = new System.Drawing.Size(199, 22);
+            this.logs_RMB_open.Size = new System.Drawing.Size(193, 22);
             this.logs_RMB_open.Text = "Open (ENTER/CTRL+W)";
             this.logs_RMB_open.Click += new System.EventHandler(this.logs_RMB_open_Click);
             // 
@@ -137,18 +138,17 @@
             this.logs_RMB_copy.ForeColor = System.Drawing.Color.SlateBlue;
             this.logs_RMB_copy.Image = global::fapmap.Properties.Resources.copy;
             this.logs_RMB_copy.Name = "logs_RMB_copy";
-            this.logs_RMB_copy.Size = new System.Drawing.Size(199, 22);
+            this.logs_RMB_copy.Size = new System.Drawing.Size(193, 22);
             this.logs_RMB_copy.Text = "Copy (CTRL+C)";
             this.logs_RMB_copy.Click += new System.EventHandler(this.logs_RMB_copy_Click);
             // 
             // logs_RMB_edit
             // 
             this.logs_RMB_edit.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.logs_RMB_edit.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.logs_RMB_edit.ForeColor = System.Drawing.Color.SlateBlue;
             this.logs_RMB_edit.Image = global::fapmap.Properties.Resources.edit;
             this.logs_RMB_edit.Name = "logs_RMB_edit";
-            this.logs_RMB_edit.Size = new System.Drawing.Size(199, 22);
+            this.logs_RMB_edit.Size = new System.Drawing.Size(193, 22);
             this.logs_RMB_edit.Text = "Edit Logs (CTRL+E)";
             this.logs_RMB_edit.Click += new System.EventHandler(this.logs_RMB_edit_Click);
             // 
@@ -156,6 +156,7 @@
             // 
             this.lable_status.AutoSize = true;
             this.lable_status.BackColor = System.Drawing.Color.Transparent;
+            this.lable_status.ForeColor = System.Drawing.Color.YellowGreen;
             this.lable_status.Location = new System.Drawing.Point(12, 10);
             this.lable_status.Name = "lable_status";
             this.lable_status.Size = new System.Drawing.Size(25, 13);
@@ -166,8 +167,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
             this.ClientSize = new System.Drawing.Size(884, 461);
             this.Controls.Add(this.lable_status);
             this.Controls.Add(this.logs);

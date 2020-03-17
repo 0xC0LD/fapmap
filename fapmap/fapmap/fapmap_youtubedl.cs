@@ -192,7 +192,7 @@ namespace fapmap
 
         private void txt_path_TextChanged(object sender, EventArgs e)
         {
-            txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.SteelBlue : Color.DarkOrchid;
+            txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.SteelBlue : Color.PaleVioletRed;
         }
         private void txt_output_TextChanged(object sender, EventArgs e)
         {

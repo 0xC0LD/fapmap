@@ -86,9 +86,9 @@ namespace fapmap
         {
             switch (e.KeyCode)
             {
-                case Keys.F5:     load();    e.Handled = true; e.SuppressKeyPress = true; break;
-                case Keys.Space:  confirm(); e.Handled = true; e.SuppressKeyPress = true; break;
-                case Keys.Escape: cancel();  e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.F5:     load();                       e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Space:  confirm();                    e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Escape: cancel();                     e.Handled = true; e.SuppressKeyPress = true; break;
                 case Keys.Enter:
                     {
                         try

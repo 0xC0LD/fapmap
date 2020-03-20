@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
-using System.Drawing.Drawing2D;
 using WMPLib;
 
 namespace fapmap
@@ -657,7 +657,7 @@ namespace fapmap
             return false;
         }
 
-        public static bool TrashFile(string filePath)
+        public static bool TrashFile(string filePath, Microsoft.VisualBasic.FileIO.UIOption DialogOption = Microsoft.VisualBasic.FileIO.UIOption.AllDialogs)
         {
             if (!File.Exists(filePath))
             {
@@ -670,25 +670,38 @@ namespace fapmap
                 Microsoft.VisualBasic.FileIO.FileSystem.DeleteFile
                 (
                     filePath,
-                    Microsoft.VisualBasic.FileIO.UIOption.AllDialogs,
+                    DialogOption,
                     Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin
                 );
             }
-            catch (FileNotFoundException) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, filePath); return false; }
-            catch (ArgumentNullException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + filePath); return false; }
-            catch (ArgumentException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + filePath); return false; }
-            catch (PathTooLongException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + filePath); return false; }
-            catch (NotSupportedException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + filePath); return false; }
+            catch (FileNotFoundException)               { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, filePath);                     return false; }
+            catch (ArgumentNullException e)             { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + filePath); return false; }
+            catch (ArgumentException e)                 { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + filePath); return false; }
+            catch (PathTooLongException e)              { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + filePath); return false; }
+            catch (NotSupportedException e)             { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + filePath); return false; }
             catch (System.Security.SecurityException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + filePath); return false; }
-            catch (UnauthorizedAccessException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + filePath); return false; }
-            catch (IOException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + filePath); return false; }
-            catch (Exception e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + filePath); return false; }
+            catch (UnauthorizedAccessException e)       { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + filePath); return false; }
+            catch (IOException e)                       { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + filePath); return false; }
+            catch (Exception e)                         { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + filePath); return false; }
 
             fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.RMVD, filePath);
             return true;
 
         }
-        public static bool TrashDir(string dirPath)
+        public static int TrashFiles(List<string> files)
+        {
+            if (files.Count == 0) { return 0; }
+
+            int count = 0;
+            foreach (string file in files)
+            {
+                if (TrashFile(file, Microsoft.VisualBasic.FileIO.UIOption.OnlyErrorDialogs)) { count++; }
+            }
+
+            return count;
+        }
+
+        public static bool TrashDir(string dirPath, Microsoft.VisualBasic.FileIO.UIOption DialogOption = Microsoft.VisualBasic.FileIO.UIOption.AllDialogs)
         {
             if (!Directory.Exists(dirPath))
             {
@@ -701,7 +714,7 @@ namespace fapmap
                 Microsoft.VisualBasic.FileIO.FileSystem.DeleteDirectory
                 (
                     dirPath,
-                    Microsoft.VisualBasic.FileIO.UIOption.AllDialogs,
+                    DialogOption,
                     Microsoft.VisualBasic.FileIO.RecycleOption.SendToRecycleBin
                 );
             }
@@ -718,6 +731,18 @@ namespace fapmap
             fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.RMVD, dirPath);
             return true;
         }
+        public static int TrashDirs(List<string> dirs)
+        {
+            if (dirs.Count == 0) { return 0; }
+
+            int count = 0;
+            foreach (string dir in dirs)
+            {
+                if (TrashDir(dir, Microsoft.VisualBasic.FileIO.UIOption.OnlyErrorDialogs)) { count++; }
+            }
+
+            return count;
+        }
 
         public static bool CreateDir(string path)
         {
@@ -728,13 +753,13 @@ namespace fapmap
                 Directory.CreateDirectory(path);
             }
             catch (UnauthorizedAccessException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + path); return false; }
-            catch (ArgumentNullException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + path); return false; }
-            catch (ArgumentException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + path); return false; }
-            catch (PathTooLongException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + path); return false; }
-            catch (DirectoryNotFoundException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + path); return false; }
-            catch (NotSupportedException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + path); return false; }
-            catch (IOException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + path); return false; }
-            catch (Exception e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + path); return false; }
+            catch (ArgumentNullException e)       { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + path); return false; }
+            catch (ArgumentException e)           { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + path); return false; }
+            catch (PathTooLongException e)        { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + path); return false; }
+            catch (DirectoryNotFoundException e)  { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + path); return false; }
+            catch (NotSupportedException e)       { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + path); return false; }
+            catch (IOException e)                 { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + path); return false; }
+            catch (Exception e)                   { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + path); return false; }
 
             LogThis(GlobalVariables.LOG_TYPE.MKDR, path);
             return true;
@@ -1028,8 +1053,8 @@ namespace fapmap
         {
             if (string.IsNullOrEmpty(URL)) { return false; }
             if (!URL.StartsWith("http")) { return false; }
-            foreach (string type in GlobalVariables.FileTypes.Video) { if (URL.Contains(type)) { return true; } }
-            foreach (string type in GlobalVariables.FileTypes.Image) { if (URL.Contains(type)) { return true; } }
+            foreach (string type in GlobalVariables.FileTypes.Video) { if (URL.ToLower().Contains(type)) { return true; } }
+            foreach (string type in GlobalVariables.FileTypes.Image) { if (URL.ToLower().Contains(type)) { return true; } }
             return false;
         }
 
@@ -1289,7 +1314,7 @@ namespace fapmap
             fileDisplay_cb_thumb.Checked = GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails;
 
             // show or hide filedisplay
-            fileDisplay_updateEnabled();
+            fileDisplay.Enabled = false;
 
             // set url
             txt_url.Text = GlobalVariables.Settings.WebBrowser.FapMapURL;
@@ -1516,8 +1541,23 @@ namespace fapmap
         private void fapmap_cb_fileDisplay_CheckedChanged(object sender, EventArgs e)
         {
             GlobalVariables.Settings.CheckBoxes.EnableFileDisplay = fapmap_cb_fileDisplay.Checked;
-            fileDisplay_updateEnabled();
+            fileDisplay.Enabled = fapmap_cb_fileDisplay.Checked;
+        }
 
+        private void fileDisplay_EnabledChanged(object sender, EventArgs e)
+        {
+            if (fileDisplay.Enabled)
+            {
+                splitContainer_files.Panel2.Show();
+                splitContainer_files.Panel2Collapsed = false;
+            }
+            else
+            {
+                splitContainer_files.Panel2.Hide();
+                splitContainer_files.Panel2Collapsed = true;
+                fileDisplay.Items.Clear();
+                fileDisplay_icons.Images.Clear();
+            }
         }
 
         #endregion
@@ -1530,20 +1570,18 @@ namespace fapmap
             if (!GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers) { return; }
 
             media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers);
-
-            //CHECK IF IMAGE FILE
+            
             foreach (string type in GlobalVariables.FileTypes.Image)
             {
-                if (!path.EndsWith(type)) { continue; }
+                if (!path.ToLower().EndsWith(type)) { continue; }
 
-                //LOAD FOR GIFS
-                if (GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers && path.EndsWith(".gif")) //GIF VIEWER
+                selectedFilePath = path;
+                media_echo(path, showMedia_image_title);
+
+                if (GlobalVariables.Settings.CheckBoxes.EnableTrackbarForGifViewer && path.ToLower().EndsWith(".gif"))
                 {
-                    //this.Text = "FAPMAP: LOADING: " + path;
-
                     bool gif_is_valid = true;
 
-                    //LOAD
                     try
                     {
                         Image img = Image.FromFile(path);
@@ -1555,59 +1593,42 @@ namespace fapmap
 
                     if (gif_is_valid)
                     {
-                        selectedFilePath = path;
-
-                        //SET UP EVERYTHING
-                        showMedia_image_gif_trackbar.Maximum = showMedia_image_gif_frames.Length;
-                        showMedia_image_gif_trackbar.ScaleDivisions = showMedia_image_gif_trackbar.Maximum - 1;
-                        showMedia_image_gif_trackbar.Value = 1;
-                        showMedia_image.Image = showMedia_image_gif_frames[showMedia_image_gif_trackbar.Value - 1];
-                        showMedia_image_gif_frame.Text = showMedia_image_gif_trackbar.Value + " / " + showMedia_image_gif_trackbar.Maximum;
-
                         showMedia_image_gifbox(true);
-
-                        if (!showMedia_image_gif_paused)
-                        {
-                            //START TIMER
-                            showMedia_image_gif_timer.Enabled = true;
-                        }
-
+                        
+                        showMedia_image_panel.Visible = true;
+                        showMedia_image_panel.BringToFront();
+                        media_isRemoved = false;
                         LogThis(fapmap.GlobalVariables.LOG_TYPE.PLAY, path);
-                        //this.Text = "FAPMAP: SHOWING: " + path;
-                        media_echo(path, showMedia_image_title);
-
-                        return;
                     }
                 }
-
-                //NORMAL LOAD
-                showMedia_image_gifbox(false);
-
-                selectedFilePath = path;
-                media_echo(path, showMedia_image_title);
-
-                try
+                else
                 {
-                    showMedia_image.Image = Image.FromFile(path);
+                    showMedia_image_gifbox(false);
+
+                    try
+                    {
+                        showMedia_image.Image = Image.FromFile(path);
+                    }
+                    catch (Exception)
+                    {
+                        LogThis(GlobalVariables.LOG_TYPE.LOAD, "Error loading image file: " + path);
+                        media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers);
+                        MessageBox.Show(path, "Image file is invalid!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
                     showMedia_image_panel.Visible = true;
                     showMedia_image_panel.BringToFront();
-                }
-                catch (Exception)
-                {
-                    LogThis(GlobalVariables.LOG_TYPE.LOAD, "Error loading image file: " + path);
-                    media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers);
-                    MessageBox.Show(path, "Image file is invalid!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    media_isRemoved = false;
+                    LogThis(fapmap.GlobalVariables.LOG_TYPE.PLAY, path);
                 }
 
-                LogThis(fapmap.GlobalVariables.LOG_TYPE.PLAY, path);
-                //this.Text = "FAPMAP: SHOWING: " + path;
                 return;
             }
 
             foreach (string type in GlobalVariables.FileTypes.Video)
             {
-                if (!path.EndsWith(type)) { continue; }
+                if (!path.ToLower().EndsWith(type)) { continue; }
 
                 selectedFilePath = path;
                 media_echo(path, showMedia_video_title);
@@ -1615,24 +1636,22 @@ namespace fapmap
                 try
                 {
                     showMedia_video.URL = path;
-                    showMedia_video_panel.Visible = true;
-                    showMedia_video_panel.BringToFront();
                 }
                 catch (Exception)
                 {
                     LogThis(GlobalVariables.LOG_TYPE.LOAD, "Error loading video file: " + path);
                     MessageBox.Show(path, "Video file is invalid!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
+                showMedia_video_panel.Visible = true;
+                showMedia_video_panel.BringToFront();
+                media_isRemoved = false;
                 LogThis(fapmap.GlobalVariables.LOG_TYPE.PLAY, path);
-                //this.Text = "FAPMAP: SHOWING: " + path;
-
-
                 return;
             }
         }
-
-
+        
         private bool media_playUrl(string URL)
         {
             if (!GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers) { return false; }
@@ -1641,55 +1660,43 @@ namespace fapmap
 
             foreach (string type in GlobalVariables.FileTypes.Image)
             {
-                if (URL.Contains(type))
+                if (URL.ToLower().Contains(type))
                 {
-                    //SETUP CTRLS - HIDE CTRLS
-                    showMedia_image_ctrlbox.Visible = false;
-                    showMedia_image.Size = new System.Drawing.Size(showMedia_image.Size.Width, showMedia_image_panel.Size.Height - 34);
+                    showMedia_image_gifbox(false);
                     showMedia_image_panel.Visible = true;
                     showMedia_image_panel.BringToFront();
-
-                    showMedia_image_gifbox(false);
-
                     media_echo(URL, showMedia_image_title);
 
                     try
                     {
-                        //this.Text = "FAPMAP: DOWNLOADING: " + URL;
-
                         showMedia_image_URL = URL;
-
-                        //DOWNLOAD
                         showMedia_image.LoadAsync(URL);
                     }
                     catch (Exception)
                     {
                         LogThis(GlobalVariables.LOG_TYPE.LOAD, URL);
                         MessageBox.Show(URL, "Image url is invalid!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers);
+                        return false;
                     }
 
+                    LogThis(fapmap.GlobalVariables.LOG_TYPE.PLAY, URL);
+                    media_isRemoved = false;
                     return true;
                 }
             }
 
             foreach (string type in GlobalVariables.FileTypes.Video)
             {
-                if (URL.Contains(type))
+                if (URL.ToLower().Contains(type))
                 {
-                    //SETUP CTRLS
                     showMedia_video_panel.Visible = true;
                     showMedia_video_panel.BringToFront();
+                    media_echo(URL, showMedia_video_title);
 
                     try
                     {
-                        //this.Text = "FAPMAP: DOWNLOADING: " + URL;
-
-                        showMedia_video.URL = URL; // DOWNLOAD
-
-                        LogThis(fapmap.GlobalVariables.LOG_TYPE.PLAY, URL);
-                        //this.Text = "FAPMAP: SHOWING: " + URL;
-                        media_echo(URL, showMedia_video_title);
+                        showMedia_video.URL = URL;
+                        
                     }
                     catch (Exception)
                     {
@@ -1698,6 +1705,8 @@ namespace fapmap
                         media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers);
                     }
 
+                    LogThis(fapmap.GlobalVariables.LOG_TYPE.PLAY, URL);
+                    media_isRemoved = false;
                     return true;
                 }
             }
@@ -1712,8 +1721,9 @@ namespace fapmap
         private string selectedDirPath = GlobalVariables.Path.Dir.MainFolder;
         private void load_dir(string path)
         {
-            fileDisplay_updateEnabled();
             if (!GlobalVariables.Settings.CheckBoxes.EnableFileDisplay) { return; }
+            fileDisplay.Enabled = true;
+
             if (load_dir_busy) { load_dir_cancel = true; }
             load_dir_busy = true;
 
@@ -1787,19 +1797,34 @@ namespace fapmap
 
                             if (files[i].Name == "desktop.ini") { continue; }
 
-                            // get file thumb
-                            try { fileDisplay_icons.Images.Add(Icon.ExtractAssociatedIcon(files[i].FullName)); }
-                            catch (Exception) { fileDisplay_icons.Images.Add(Properties.Resources.error); }
+                            int imageIndex = 0;
+                            
+                            // set image
+                            string ext = files[i].Extension.ToLower();
+                            if (fileDisplay_icons.Images.ContainsKey(ext))
+                            {
+                                imageIndex = fileDisplay_icons.Images.IndexOfKey(ext);
+                            }
+                            else
+                            {
+                                fileDisplay_icons.Images.Add(ext, System.Drawing.Icon.ExtractAssociatedIcon(files[i].FullName));
+                                imageIndex = fileDisplay_icons.Images.Count - 1;
+                            }
+
+                            ListViewItem lvi = new ListViewItem() { Name = files[i].FullName, ImageIndex = imageIndex, Text = files[i].Name };
+
+                            
+
+                            items.Add(lvi);
 
                             if (load_dir_cancel) { return; }
-                            
+
                             if (GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails)
                             {
                                 // get image thumbs
                                 if (GlobalVariables.FileTypes.Image.Contains(files[i].Extension))
                                 {
                                     int currentFileIndex = i;
-                                    int currentImageIndex = fileDisplay_icons.Images.Count - 1;
 
                                     new Thread(() =>
                                     {
@@ -1817,7 +1842,8 @@ namespace fapmap
                                             if (load_dir_cancel) { mutex.ReleaseMutex(); return; }
                                             this.Invoke((MethodInvoker)delegate
                                             {
-                                                fileDisplay_icons.Images[currentImageIndex] = new Bitmap(bmpDrawOn, fileDisplay_icons.ImageSize);
+                                                fileDisplay_icons.Images.Add(new Bitmap(bmpDrawOn, fileDisplay_icons.ImageSize));
+                                                items[currentFileIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
                                                 fileDisplay.RedrawItems(currentFileIndex, currentFileIndex, true);
                                             });
                                             bmp.Dispose();
@@ -1836,7 +1862,6 @@ namespace fapmap
                                 if (File.Exists(GlobalVariables.Path.File.Exe.FFMPEG) && GlobalVariables.FileTypes.Video.Contains(files[i].Extension))
                                 {
                                     int currentFileIndex = i;
-                                    int currentImageIndex = fileDisplay_icons.Images.Count - 1;
 
                                     new Thread(() =>
                                     {
@@ -1859,7 +1884,8 @@ namespace fapmap
                                                 if (load_dir_cancel) { mutex.ReleaseMutex(); return; }
                                                 this.Invoke((MethodInvoker)delegate
                                                 {
-                                                    fileDisplay_icons.Images[currentImageIndex] = new Bitmap(drawON, fileDisplay_icons.ImageSize);
+                                                    fileDisplay_icons.Images.Add(new Bitmap(drawON, fileDisplay_icons.ImageSize));
+                                                    items[currentFileIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
                                                     fileDisplay.RedrawItems(currentFileIndex, currentFileIndex, true);
                                                 });
                                                 directImageBmp.Dispose();
@@ -1895,7 +1921,8 @@ namespace fapmap
                                             if (load_dir_cancel) { mutex.ReleaseMutex(); return; }
                                             this.Invoke((MethodInvoker)delegate
                                             {
-                                                fileDisplay_icons.Images[currentImageIndex] = new Bitmap(drawOnbmp, fileDisplay_icons.ImageSize);
+                                                fileDisplay_icons.Images.Add(new Bitmap(drawOnbmp, fileDisplay_icons.ImageSize));
+                                                items[currentFileIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
                                                 fileDisplay.RedrawItems(currentFileIndex, currentFileIndex, true);
                                             });
                                             bmp.Dispose();
@@ -1908,16 +1935,8 @@ namespace fapmap
                                     { IsBackground = true }.Start();
                                 }
                             }
-
-                            if (load_dir_cancel) { return; }
-
-                            items.Add(new ListViewItem() { Name = files[i].FullName, ImageIndex = items.Count, Text = files[i].Name });
-
-                            if (load_dir_cancel) { return; }
                         }
 
-                        if (load_dir_cancel) { return; }
-                        
                         if (load_dir_cancel) { return; }
                         
                         this.Invoke((MethodInvoker)delegate
@@ -1928,9 +1947,7 @@ namespace fapmap
                         
                         //this.Text = "FAPMAP: LOADED: " + fileDisplay.Items.Count + " item(s)";
                     })();
-
-                    if (load_dir_cancel) { load_dir_cancel = false; }
-
+                    
                     load_dir_mutex.ReleaseMutex();
                 }
                 catch (Exception) { }
@@ -1951,8 +1968,6 @@ namespace fapmap
 
             if (File.Exists(path))
             {
-                media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers);
-
                 txt_path.Text = path;
                 if (path.ToLower().EndsWith(".lst")
                  || path.ToLower().EndsWith(".txt")
@@ -1968,11 +1983,9 @@ namespace fapmap
 
             if (isURLMediaFile(path))
             {
-                media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers);
-
                 media_playUrl(path);
-                return;
             }
+            
         }
 
         #endregion
@@ -1984,51 +1997,119 @@ namespace fapmap
         private FileSystemWatcher fileDisplay_watcher = new FileSystemWatcher();
         private void fileDisplay_open(bool openFiles = false, bool openDirs = false)
         {
-            foreach (ListViewItem item in fileDisplay.SelectedItems)
+            if (fileDisplay.SelectedItems.Count == 0) { return; }
+
+            bool mediaRemoved = false;
+            if (fileDisplay.SelectedItems.Count == 1)
             {
-                if (item.Name == null) { continue; }
-                string itemPath = item.Name;
-                if (string.IsNullOrEmpty(itemPath)) { continue; }
+                ListViewItem item = fileDisplay.SelectedItems[0];
+                if (item.Name == null) { return; }
+                string path = item.Name;
+                if (string.IsNullOrEmpty(path)) { return; }
 
-                if (Directory.Exists(itemPath))
+                if (Directory.Exists(path))
                 {
-                    if (openDirs) { fapmap.Open(itemPath); }
-                    else { load_file_or_dir(itemPath); }
+                    if (openDirs) { fapmap.Open(path);      }
+                    else          { load_file_or_dir(path); }
                 }
-                
-                if (openFiles && File.Exists(itemPath))
+                else if (File.Exists(path))
                 {
-                    FileInfo fi = new FileInfo(itemPath);
-
-                    if (fi.Name.Contains("fapmap_mod"))
+                    FileInfo fi = new FileInfo(path);
+                    if (openFiles)
                     {
-                        OpenScript(this, fi.FullName);
-                        return;
+                        if (fi.Name.Contains("fapmap_mod")) { OpenScript(this, fi.FullName); }
+                        else
+                        {
+                            if (!mediaRemoved && selectedFilePath == path) { media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers); mediaRemoved = true; }
+                            fapmap.Open(fi.FullName);
+                        }
                     }
+                    else { load_file_or_dir(path); }
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("Open " + fileDisplay.SelectedItems.Count + " items?", "Open", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    foreach (ListViewItem item in fileDisplay.SelectedItems)
+                    {
+                        if (item.Name == null) { return; }
+                        string path = item.Name;
+                        if (string.IsNullOrEmpty(path)) { return; }
 
-                    fapmap.Open(fi.FullName);
-                    media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers);
+                        if (Directory.Exists(path))
+                        {
+                            if (openDirs) { fapmap.Open(path); }
+                            else { load_file_or_dir(path); }
+                        }
+                        else if (File.Exists(path))
+                        {
+                            FileInfo fi = new FileInfo(path);
+                            if (openFiles)
+                            {
+                                if (fi.Name.Contains("fapmap_mod")) { OpenScript(this, fi.FullName); }
+                                else
+                                {
+                                    if (!mediaRemoved && selectedFilePath == path) { media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers); mediaRemoved = true; }
+                                    fapmap.Open(fi.FullName);
+                                }
+                            }
+                            else { load_file_or_dir(path); }
+                        }
+                    }
                 }
             }
         }
         private void fileDisplay_explorer()
         {
-            foreach (ListViewItem item in fileDisplay.SelectedItems)
+            if (fileDisplay.SelectedItems.Count == 0) { return; }
+            
+            if (fileDisplay.SelectedItems.Count == 1)
             {
-                if (item.Name == null) { continue; }
-                string itemPath = item.Name;
-                if (string.IsNullOrEmpty(itemPath)) { continue; }
-                OpenInExplorer(itemPath);
+                ListViewItem item = fileDisplay.SelectedItems[0];
+                if (item.Name == null) { return; }
+                string path = item.Name;
+                if (string.IsNullOrEmpty(path)) { return; }
+                OpenInExplorer(path);
+            }
+            else
+            {
+                if (MessageBox.Show("Open " + fileDisplay.SelectedItems.Count + " items?", "Open", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    foreach (ListViewItem item in fileDisplay.SelectedItems)
+                    {
+                        if (item.Name == null) { return; }
+                        string path = item.Name;
+                        if (string.IsNullOrEmpty(path)) { return; }
+                        OpenInExplorer(path);
+                    }
+                }
             }
         }
         private void fileDisplay_explorer2()
         {
-            foreach (ListViewItem item in fileDisplay.SelectedItems)
+            if (fileDisplay.SelectedItems.Count == 0) { return; }
+
+            if (fileDisplay.SelectedItems.Count == 1)
             {
-                if (item.Name == null) { continue; }
-                string itemPath = item.Name;
-                if (string.IsNullOrEmpty(itemPath)) { continue; }
-                OpenAndSelectInExplorer(itemPath);
+                ListViewItem item = fileDisplay.SelectedItems[0];
+                if (item.Name == null) { return; }
+                string path = item.Name;
+                if (string.IsNullOrEmpty(path)) { return; }
+                OpenAndSelectInExplorer(path);
+            }
+            else
+            {
+                if (MessageBox.Show("Open " + fileDisplay.SelectedItems.Count + " explorers and select items?", "Open", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    foreach (ListViewItem item in fileDisplay.SelectedItems)
+                    {
+                        if (item.Name == null) { return; }
+                        string path = item.Name;
+                        if (string.IsNullOrEmpty(path)) { return; }
+                        OpenAndSelectInExplorer(path);
+                    }
+                }
             }
         }
         private void fileDisplay_backDir()
@@ -2041,20 +2122,54 @@ namespace fapmap
         }
         private void fileDisplay_delete()
         {
-            foreach (ListViewItem item in fileDisplay.SelectedItems)
-            {
-                if (item.Name == null) { continue; }
-                string itemPath = item.Name;
-                if (string.IsNullOrEmpty(itemPath)) { continue; }
+            if (fileDisplay.SelectedItems.Count == 0) { return; }
 
-                if (Directory.Exists(itemPath))
+            bool mediaRemoved = false;
+            if (fileDisplay.SelectedItems.Count == 1)
+            {
+                ListViewItem item = fileDisplay.SelectedItems[0];
+                if (item.Name == null) { return; }
+                string path = item.Name;
+                if (string.IsNullOrEmpty(path)) { return; }
+
+                if (Directory.Exists(path))
                 {
-                    if (fapmap.TrashDir(itemPath)) { fileDisplay.Items.Remove(item); }
+                    if (!mediaRemoved && selectedFilePath.Contains(path)) { media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers); mediaRemoved = true; }
+                    if (fapmap.TrashDir(path)) { fileDisplay.Items.Remove(item); }
                 }
-                else if (File.Exists(itemPath))
+                else if (File.Exists(path))
                 {
-                    media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers);
-                    if (fapmap.TrashFile(itemPath)) { fileDisplay.Items.Remove(item); }
+                    if (!mediaRemoved && selectedFilePath == path) { media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers); mediaRemoved = true; }
+                    if (fapmap.TrashFile(path)) { fileDisplay.Items.Remove(item); }
+                }
+            }
+            else
+            {
+                if (MessageBox.Show("Trash " + fileDisplay.SelectedItems.Count + " items?", "Send To Recycle Bin", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    List<string> dirsToTrash = new List<string>();
+                    List<string> filesToTrash = new List<string>();
+
+                    foreach (ListViewItem item in fileDisplay.SelectedItems)
+                    {
+                        if (item.Name == null) { continue; }
+                        string path = item.Name;
+                        if (string.IsNullOrEmpty(path)) { continue; }
+
+                        if (Directory.Exists(path))
+                        {
+                            if (!mediaRemoved && selectedFilePath.Contains(path)) { media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers); mediaRemoved = true; }
+                            dirsToTrash.Add(path);
+                        }
+                        else if (File.Exists(path))
+                        {
+                            if (!mediaRemoved && selectedFilePath == path) { media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers); mediaRemoved = true; }
+                            filesToTrash.Add(path);
+                        }
+                    }
+
+                    fapmap.TrashDirs(dirsToTrash);
+                    fapmap.TrashFiles(filesToTrash);
                 }
             }
         }
@@ -2073,84 +2188,104 @@ namespace fapmap
         }
         private void fileDisplay_move()
         {
+            if (fileDisplay.SelectedItems.Count == 0) { return; }
+
+            string dir = fapmap.OpenPathSelector(this, selectedDirPath);
+            if (string.IsNullOrEmpty(dir) || !Directory.Exists(dir)) { return; }
+            DirectoryInfo moveToDI = new DirectoryInfo(dir);
+
+            bool mediaRemoved = false;
             foreach (ListViewItem item in fileDisplay.SelectedItems)
             {
                 if (item.Name == null) { continue; }
                 string path = item.Name;
                 if (string.IsNullOrEmpty(path)) { continue; }
 
-                if (File.Exists(path))
-                {
-                    media_remove();
-
-                    FileInfo fi = new FileInfo(path);
-                    string dir = fapmap.OpenPathSelector(this, fi.Directory.FullName);
-                    if (!string.IsNullOrEmpty(dir) && Directory.Exists(dir))
-                    {
-                        fapmap.MoveFile(path, new DirectoryInfo(dir).FullName + "\\" + fi.Name);
-                    }
-                }
-                else if (Directory.Exists(path))
+                if (Directory.Exists(path))
                 {
                     if (path == fapmap.GlobalVariables.Path.Dir.MainFolder)
                     {
                         MessageBox.Show("You can't move \"Main Folder\"", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        continue;
                     }
 
+                    if (!mediaRemoved && selectedFilePath.Contains(path)) { media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers); mediaRemoved = true; }
+
                     DirectoryInfo di = new DirectoryInfo(path);
-                    string dir = fapmap.OpenPathSelector(this, di.Parent.FullName);
-                    if (!string.IsNullOrEmpty(dir) && Directory.Exists(path) && Directory.Exists(dir))
-                    {
-                        fapmap.MoveDir(path, new DirectoryInfo(dir).FullName + "\\" + di.Name);
-                    }
+                    fapmap.MoveDir(path, moveToDI.FullName + "\\" + di.Name);
+                }
+                else if (File.Exists(path))
+                {
+                    if (!mediaRemoved && selectedFilePath == path) { media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers); mediaRemoved = true; }
+
+                    FileInfo fi = new FileInfo(path);
+                    fapmap.MoveFile(path, moveToDI.FullName + "\\" + fi.Name);
                 }
             }
         }
         private void fileDisplay_rename()
         {
+            bool mediaRemoved = false;
             foreach (ListViewItem item in fileDisplay.SelectedItems)
             {
                 if (item.Name == null) { continue; }
-                string itemPath = item.Name;
-                if (string.IsNullOrEmpty(itemPath)) { continue; }
+                string path = item.Name;
+                if (string.IsNullOrEmpty(path)) { continue; }
 
-                if (File.Exists(itemPath))
+                if (Directory.Exists(path))
                 {
-                    media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers);
-
-                    FileInfo fi_src = new FileInfo(itemPath);
-                    string input = fapmap.OpenInputBox(this, "Rename file?", fi_src.Name, 0, fi_src.Name.Length - fi_src.Extension.Length);
-                    if (!string.IsNullOrEmpty(input))
-                    {
-                        fapmap.MoveFile(fi_src.FullName, fi_src.Directory.FullName + "\\" + input);
-                    }
-                }
-                else if (Directory.Exists(itemPath))
-                {
-                    if (itemPath == fapmap.GlobalVariables.Path.Dir.MainFolder)
+                    if (path == fapmap.GlobalVariables.Path.Dir.MainFolder)
                     {
                         MessageBox.Show("You can't rename \"Main Folder\"", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    
-                    DirectoryInfo di_src = new DirectoryInfo(itemPath);
+
+                    if (!mediaRemoved && selectedFilePath.Contains(path)) { media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers); mediaRemoved = true; }
+
+                    DirectoryInfo di_src = new DirectoryInfo(path);
                     string input = fapmap.OpenInputBox(this, "Rename folder?", di_src.Name, 0, di_src.Name.Length);
                     if (!string.IsNullOrEmpty(input))
                     {
                         fapmap.MoveDir(di_src.FullName, di_src.Parent.FullName + "\\" + input);
                     }
                 }
+                else if (File.Exists(path))
+                {
+                    if (!mediaRemoved && selectedFilePath == path) { media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers); mediaRemoved = true; }
+
+                    FileInfo fi_src = new FileInfo(path);
+                    string input = fapmap.OpenInputBox(this, "Rename file?", fi_src.Name, 0, fi_src.Name.Length - fi_src.Extension.Length);
+                    if (!string.IsNullOrEmpty(input))
+                    {
+                        fapmap.MoveFile(fi_src.FullName, fi_src.Directory.FullName + "\\" + input);
+                    }
+                }
             }
         }
         private void fileDisplay_properties()
         {
-            foreach (ListViewItem item in fileDisplay.SelectedItems)
+            if (fileDisplay.SelectedItems.Count == 0) { return; }
+
+            if (fileDisplay.SelectedItems.Count == 1)
             {
-                if (item.Name == null) { continue; }
-                string itemPath = item.Name;
-                if (string.IsNullOrEmpty(itemPath)) { continue; }
-                fapmap.OpenProperties(itemPath);
+                ListViewItem item = fileDisplay.SelectedItems[0];
+                if (item.Name == null) { return; }
+                string path = item.Name;
+                if (string.IsNullOrEmpty(path)) { return; }
+                fapmap.OpenProperties(path);
+            }
+            else
+            {
+                if (MessageBox.Show("Open " + fileDisplay.SelectedItems.Count + " properties?", "Open", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    foreach (ListViewItem item in fileDisplay.SelectedItems)
+                    {
+                        if (item.Name == null) { return; }
+                        string path = item.Name;
+                        if (string.IsNullOrEmpty(path)) { return; }
+                        fapmap.OpenProperties(path);
+                    }
+                }
             }
         }
         
@@ -2223,37 +2358,14 @@ namespace fapmap
         #endregion
 
         #region ui events
-
-        private void fileDisplay_updateEnabled()
-        {
-            if (GlobalVariables.Settings.CheckBoxes.EnableFileDisplay)
-            {
-                splitContainer_files.Panel2.Show();
-                splitContainer_files.Panel2Collapsed = false;
-            }
-            else
-            {
-                splitContainer_files.Panel2.Hide();
-                splitContainer_files.Panel2Collapsed = true;
-            }
-        }
-
+        
         private void fileDisplay_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             fileDisplay_open(GlobalVariables.Settings.CheckBoxes.EnableOpenOutsideFapmap);
         }
         private void fileDisplay_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (ListViewItem item in fileDisplay.SelectedItems)
-            {
-                if (item.Name == null) { continue; }
-                string itemPath = item.Name;
-                if (string.IsNullOrEmpty(itemPath)) { continue; }
-                if (!Directory.Exists(itemPath))
-                {
-                    load_file_or_dir(itemPath);
-                }
-            }
+            
         }
 
         private bool fileDisplay_ctrl = false;
@@ -2265,11 +2377,12 @@ namespace fapmap
 
             switch (e.KeyCode)
             {
-                case Keys.F5:     load_dir(selectedDirPath);     e.Handled = e.SuppressKeyPress = true; break;
-                case Keys.Enter:  fileDisplay_open(true, false); e.Handled = e.SuppressKeyPress = true; break;
-                case Keys.Back:   fileDisplay_backDir();         e.Handled = e.SuppressKeyPress = true; break;
-                case Keys.Delete: fileDisplay_delete();          e.Handled = e.SuppressKeyPress = true; break;
-                case Keys.F2:     fileDisplay_rename();          e.Handled = e.SuppressKeyPress = true; break;
+                case Keys.Escape: fileDisplay.SelectedItems.Clear(); e.Handled = e.SuppressKeyPress = true; break;
+                case Keys.F5:     load_dir(selectedDirPath);         e.Handled = e.SuppressKeyPress = true; break;
+                case Keys.Enter:  fileDisplay_open(false, false);    e.Handled = e.SuppressKeyPress = true; break;
+                case Keys.Back:   fileDisplay_backDir();             e.Handled = e.SuppressKeyPress = true; break;
+                case Keys.Delete: fileDisplay_delete();              e.Handled = e.SuppressKeyPress = true; break;
+                case Keys.F2:     fileDisplay_rename();              e.Handled = e.SuppressKeyPress = true; break;
             }
 
             if (e.Control)
@@ -2454,29 +2567,34 @@ namespace fapmap
         {
             media_remove(true);
         }
+        private bool media_isRemoved = false;
         private void media_remove(bool hide = true)
         {
-            // remove title
-            showMedia_video_title.BackgroundImage = null;
-            showMedia_image_title.BackgroundImage = null;
+            if (!media_isRemoved)
+            {
+                // remove title
+                showMedia_video_title.BackgroundImage = null;
+                showMedia_image_title.BackgroundImage = null;
+                
+                showMedia_image_ctrlbox.Visible = false;
+                showMedia_image.Size = new System.Drawing.Size(showMedia_image.Size.Width, showMedia_image_panel.Size.Height - 34);
+                showMedia_image_gif_frames = null;
+                showMedia_image_gif_timer.Enabled = false;
+                showMedia_image.Image = showMedia_image.BackgroundImage = new Bitmap(16, 16);
 
-            showMedia_image_ctrlbox.Visible = false;
-            showMedia_image.Size = new System.Drawing.Size(showMedia_image.Size.Width, showMedia_image_panel.Size.Height - 34);
-            showMedia_image_gif_frames = null;
-            showMedia_image_gif_timer.Enabled = false;
-            showMedia_image.Image = new Bitmap(16, 16);
+                showMedia_video.currentPlaylist.clear();
+                showMedia_video.URL = null;
+                showMedia_video.close();
+                GC.Collect();
 
-            showMedia_video.currentPlaylist.clear();
-            showMedia_video.URL = null;
-            showMedia_video.close();
+                media_isRemoved = true;
+            }
 
             if (hide)
             {
                 showMedia_video_panel.Visible = false;
                 showMedia_image_panel.Visible = false;
             }
-
-            GC.Collect();
         }
         private void media_repos()
         {
@@ -2595,18 +2713,15 @@ namespace fapmap
             }
         }
 
-        private void playURL(string url)
+        private void playOrOpenURL(string url)
         {
-            if (isURLMediaFile(url))
-            {
-                media_playUrl(url);
-                return;
-            }
-
+            if (media_playUrl(url)) { return; }
             Incognito(url);
         }
 
         #endregion
+
+        #region ui events
 
         // RMB
         private void showMedia_RMB_openFile_Click(object sender, EventArgs e)
@@ -2699,6 +2814,8 @@ namespace fapmap
         {
             if (e.Button == MouseButtons.Left) { showMedia_dock_sw(); }
         }
+
+        #endregion
 
         #region move and resize showMedia_image
 
@@ -3029,10 +3146,18 @@ namespace fapmap
         {
             if (show) //show
             {
+                showMedia_image_gif_trackbar.Maximum = showMedia_image_gif_frames.Length - 1;
+                showMedia_image_gif_trackbar.ScaleDivisions = showMedia_image_gif_frames.Length - 2;
+                showMedia_image_gif_trackbar.Value = 1;
+                showMedia_image.Image = showMedia_image_gif_frames[showMedia_image_gif_trackbar.Value - 1];
+
+                showMedia_image_gif_frame.Text = showMedia_image_gif_trackbar.Value + " / " + showMedia_image_gif_trackbar.Maximum;
                 showMedia_image_ctrlbox.Visible = true;
                 showMedia_image.Size = new System.Drawing.Size(showMedia_image.Size.Width, showMedia_image_panel.Size.Height - showMedia_image_title.Size.Height - showMedia_image_ctrlbox.Height - (showMedia_image_panel.Size.Width - showMedia_image.Size.Width));
                 showMedia_image_panel.Visible = true;
                 showMedia_image_panel.BringToFront();
+
+                if (!showMedia_image_gif_paused) { showMedia_image_gif_timer.Enabled = true; }
             }
             else //hide
             {
@@ -3040,7 +3165,7 @@ namespace fapmap
                 showMedia_image.Size = new System.Drawing.Size(showMedia_image.Size.Width, showMedia_image_panel.Size.Height - showMedia_image_title.Size.Height - (showMedia_image_panel.Size.Width - showMedia_image.Size.Width));
             }
         }
-
+        
         private string showMedia_image_URL = string.Empty;
         private void showMedia_image_LoadProgressChanged(object sender, ProgressChangedEventArgs e)
         {
@@ -3053,14 +3178,12 @@ namespace fapmap
         }
         private void showMedia_image_LoadCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            if (GlobalVariables.Settings.CheckBoxes.EnableTrackbarForGifViewer && showMedia_image_URL.EndsWith(".gif")) //GIF VIEWER
+            if (GlobalVariables.Settings.CheckBoxes.EnableTrackbarForGifViewer && showMedia_image_URL.ToLower().Contains(".gif")) //GIF VIEWER
             {
                 bool gif_is_valid = true;
-
-                //LOAD
+                
                 try
                 {
-                    //LOAD FILE
                     showMedia_image_gif_frames = getGifFrames(showMedia_image.Image);
                 }
                 catch (OutOfMemoryException) { gif_is_valid = false; }
@@ -3068,28 +3191,18 @@ namespace fapmap
 
                 if (gif_is_valid)
                 {
-                    showMedia_image_gif_trackbar.Maximum = showMedia_image_gif_frames.Length - 1;
-                    showMedia_image_gif_trackbar.ScaleDivisions = showMedia_image_gif_frames.Length - 2;
-                    showMedia_image_gif_trackbar.Value = 1;
-                    showMedia_image.Image = showMedia_image_gif_frames[showMedia_image_gif_trackbar.Value - 1];
-                    showMedia_image_gif_frame.Text = showMedia_image_gif_trackbar.Value + " / " + showMedia_image_gif_trackbar.Maximum;
-
                     showMedia_image_gifbox(true);
-
-                    if (!showMedia_image_gif_paused)
-                    {
-                        //START TIMER
-                        showMedia_image_gif_timer.Enabled = true;
-                    }
+                    
+                    LogThis(fapmap.GlobalVariables.LOG_TYPE.PLAY, showMedia_image_URL);
+                    media_isRemoved = false;
 
                     return;
                 }
             }
 
             showMedia_image_gifbox(false);
-
             LogThis(fapmap.GlobalVariables.LOG_TYPE.PLAY, showMedia_image_URL);
-            //this.Text = "FAPMAP: SHOWING: " + showMedia_image_URL;
+            media_isRemoved = false;
         }
 
         private void showMedia_image_skip_MouseUp(object sender, MouseEventArgs e)
@@ -3934,7 +4047,6 @@ namespace fapmap
 
             return node_dir;
         }
-        
         private void faftv_setImage(string e, TreeNode node_file)
         {
             string ext = e.ToLower();
@@ -3954,13 +4066,23 @@ namespace fapmap
                 }
             }
         }
+        private void faftv_collapseNode(TreeNode tn)
+        {
+            tn.Collapse();
+            foreach (TreeNode t in tn.Nodes) { faftv_expandNode(t); }
+        }
+        private void faftv_expandNode(TreeNode tn)
+        {
+            tn.Expand();
+            foreach (TreeNode t in tn.Nodes) { faftv_expandNode(t); }
+        }
 
         // update treeview for changes
-        List<TreeNode> checkNode_nodesToRemove = new List<TreeNode>();
-        private void checkNode(TreeNode tn)
+        List<TreeNode> faftv_checkNode_nodesToRemove = new List<TreeNode>();
+        private void faftv_checkNode(TreeNode tn)
         {
             if (tn == null) { return; }
-            if (!File.Exists(tn.Name) && !Directory.Exists(tn.Name)) { checkNode_nodesToRemove.Add(tn); }
+            if (!File.Exists(tn.Name) && !Directory.Exists(tn.Name)) { faftv_checkNode_nodesToRemove.Add(tn); }
 
             if (Directory.Exists(tn.Name))
             {
@@ -3985,14 +4107,15 @@ namespace fapmap
                 }
             }
 
-            foreach (TreeNode t in tn.Nodes) { checkNode(t); }
+            foreach (TreeNode t in tn.Nodes) { faftv_checkNode(t); }
         }
         private void faftv_refresh()
         {
             nestFiles();
-            foreach (TreeNode tn in faftv.Nodes) { checkNode(tn); }
-            foreach (TreeNode tn in checkNode_nodesToRemove) { tn.Remove(); }
-            checkNode_nodesToRemove = new List<TreeNode>();
+            foreach (TreeNode tn in faftv.Nodes) { faftv_checkNode(tn); }
+            foreach (TreeNode tn in faftv_checkNode_nodesToRemove) { tn.Remove(); }
+            faftv_checkNode_nodesToRemove = new List<TreeNode>();
+            faftv.Refresh();
         }
         private FileSystemWatcher faftv_watcher = new FileSystemWatcher();
         private void faftv_reload()
@@ -4020,6 +4143,16 @@ namespace fapmap
             faftv_watcher.Renamed += faftv_watcher_Renamed;
             faftv_watcher.EnableRaisingEvents = true;
         }
+        private void faftv_collapse()
+        {
+            if (faftv.SelectedNode == null) { faftv.CollapseAll();                    }
+            else                            { faftv_collapseNode(faftv.SelectedNode); }
+        }
+        private void faftv_expand()
+        {
+            if (faftv.SelectedNode == null) { faftv.ExpandAll();                    }
+            else                            { faftv_expandNode(faftv.SelectedNode); }
+        }
         private void faftv_startFile(bool openDirs = false)
         {
             if (faftv.SelectedNode == null) { return; }
@@ -4027,23 +4160,11 @@ namespace fapmap
             string path = faftv.SelectedNode.Name;
             if (string.IsNullOrEmpty(path)) { return; }
 
-            if (File.Exists(path))
+            if (openDirs && Directory.Exists(path)) { fapmap.OpenInExplorer(path); }
+            else if (File.Exists(path))
             {
-                if (new FileInfo(path).Name.Contains("fapmap_mod"))
-                {
-                    OpenScript(this, path);
-                }
-                else
-                {
-                    if (fapmap.Open(path))
-                    {
-                        media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers);
-                    }
-                }
-            }
-            else if (Directory.Exists(path) && openDirs)
-            {
-                fapmap.OpenInExplorer(path);
+                if (new FileInfo(path).Name.Contains("fapmap_mod")) { OpenScript(this, path); }
+                else { if (fapmap.Open(path)) { media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers); } }
             }
         }
         private void faftv_move()
@@ -4053,18 +4174,7 @@ namespace fapmap
             string path = faftv.SelectedNode.Name;
             if (string.IsNullOrEmpty(path)) { return; }
 
-            if (File.Exists(path))
-            {
-                media_remove();
-
-                FileInfo fi = new FileInfo(path);
-                string dir = fapmap.OpenPathSelector(this, fi.Directory.FullName);
-                if (!string.IsNullOrEmpty(dir) && Directory.Exists(dir))
-                {
-                    fapmap.MoveFile(path, new DirectoryInfo(dir).FullName + "\\" + fi.Name);
-                }
-            }
-            else if (Directory.Exists(path))
+            if (Directory.Exists(path))
             {
                 if (path == fapmap.GlobalVariables.Path.Dir.MainFolder)
                 {
@@ -4072,11 +4182,24 @@ namespace fapmap
                     return;
                 }
 
+                if (selectedFilePath.Contains(path)) { media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers); }
+
                 DirectoryInfo di = new DirectoryInfo(path);
                 string dir = fapmap.OpenPathSelector(this, di.Parent.FullName);
                 if (!string.IsNullOrEmpty(dir) && Directory.Exists(path) && Directory.Exists(dir))
                 {
                     fapmap.MoveDir(path, new DirectoryInfo(dir).FullName + "\\" + di.Name);
+                }
+            }
+            else if (File.Exists(path))
+            {
+                if (selectedFilePath == path) { media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers); }
+
+                FileInfo fi = new FileInfo(path);
+                string dir = fapmap.OpenPathSelector(this, fi.Directory.FullName);
+                if (!string.IsNullOrEmpty(dir) && Directory.Exists(dir))
+                {
+                    fapmap.MoveFile(path, new DirectoryInfo(dir).FullName + "\\" + fi.Name);
                 }
             }
         }
@@ -4088,10 +4211,13 @@ namespace fapmap
             if (string.IsNullOrEmpty(path)) { return; }
 
             if (Directory.Exists(path))
-            { if (fapmap.TrashDir(path)) { faftv.SelectedNode.Remove(); } }
+            {
+                if (selectedFilePath.Contains(path)) { media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers); }
+                if (fapmap.TrashDir(path)) { faftv.SelectedNode.Remove(); }
+            }
             else if (File.Exists(path))
             {
-                media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers);
+                if (selectedFilePath == path) { media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers); }
                 if (fapmap.TrashFile(path)) { faftv.SelectedNode.Remove(); }
             }
         }
@@ -4117,19 +4243,8 @@ namespace fapmap
             if (faftv.SelectedNode.Name == null) { return; }
             string path = faftv.SelectedNode.Name;
             if (string.IsNullOrEmpty(path)) { return; }
-            
-            if (File.Exists(path))
-            {
-                media_remove();
 
-                FileInfo fi_src = new FileInfo(path);
-                string input = fapmap.OpenInputBox(this, "Rename file?", fi_src.Name, 0, fi_src.Name.Length - fi_src.Extension.Length);
-                if (!string.IsNullOrEmpty(input))
-                {
-                    fapmap.MoveFile(fi_src.FullName, fi_src.Directory.FullName + "\\" + input);
-                }
-            }
-            else if (Directory.Exists(path))
+            if (Directory.Exists(path))
             {
                 if (path == fapmap.GlobalVariables.Path.Dir.MainFolder)
                 {
@@ -4137,11 +4252,24 @@ namespace fapmap
                     return;
                 }
 
+                if (selectedFilePath.Contains(path)) { media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers); }
+
                 DirectoryInfo di_src = new DirectoryInfo(path);
                 string input = fapmap.OpenInputBox(this, "Rename folder?", di_src.Name, 0, di_src.Name.Length);
                 if (!string.IsNullOrEmpty(input))
                 {
                     fapmap.MoveDir(di_src.FullName, di_src.Parent.FullName + "\\" + input);
+                }
+            }
+            else if (File.Exists(path))
+            {
+                if (selectedFilePath == path) { media_remove(GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers); }
+
+                FileInfo fi_src = new FileInfo(path);
+                string input = fapmap.OpenInputBox(this, "Rename file?", fi_src.Name, 0, fi_src.Name.Length - fi_src.Extension.Length);
+                if (!string.IsNullOrEmpty(input))
+                {
+                    fapmap.MoveFile(fi_src.FullName, fi_src.Directory.FullName + "\\" + input);
                 }
             }
         }
@@ -4189,6 +4317,10 @@ namespace fapmap
             {
                 load_file_or_dir(path);
             }
+        }
+        private void faftv_unselect()
+        {
+            faftv.SelectedNode = null;
         }
         
         private void faftv_cb_sort_CheckedChanged(object sender, EventArgs e) { GlobalVariables.Settings.CheckBoxes.TreeViewSortByCreationDate = faftv_cb_sort.Checked; }
@@ -4278,36 +4410,33 @@ namespace fapmap
         
         private void faftv_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control)
-            {
-                e.Handled = e.SuppressKeyPress = true;
-                this.BeginInvoke(new Action(() =>
-                {
-                    switch (e.KeyCode)
-                    {
-                        case Keys.A: faftv_explorer();      break;
-                        case Keys.C: faftv_explorer2();     break;
-                        case Keys.X: faftv_move();          break;
-                        case Keys.R: faftv_refresh();       break;
-                        case Keys.Q: faftv.CollapseAll();   break;
-                        case Keys.E: faftv.ExpandAll();     break;
-                        case Keys.W: faftv_startFile(true); break;
-                        case Keys.D: faftv_properties();    break;
-                        case Keys.S: faftv_newFolder();     break;
-
-                        // hidden shortcuts
-                        case Keys.F: new fapmap_find().Show();     break;
-                        case Keys.G: new fapmap_settings().Show(); break;
-                    }
-                }));
-            }
-
             switch (e.KeyCode)
             {
-                case Keys.Enter:  faftv_enter();  e.Handled = e.SuppressKeyPress = true; break;
-                case Keys.Delete: faftv_delete(); e.Handled = e.SuppressKeyPress = true; break;
-                case Keys.F5:     faftv_reload(); e.Handled = e.SuppressKeyPress = true; break;
-                case Keys.F2:     faftv_rename(); e.Handled = e.SuppressKeyPress = true; break;
+                case Keys.Escape: faftv_unselect(); e.Handled = e.SuppressKeyPress = true; break;
+                case Keys.Enter:  faftv_enter();    e.Handled = e.SuppressKeyPress = true; break;
+                case Keys.Delete: faftv_delete();   e.Handled = e.SuppressKeyPress = true; break;
+                case Keys.F5:     faftv_reload();   e.Handled = e.SuppressKeyPress = true; break;
+                case Keys.F2:     faftv_rename();   e.Handled = e.SuppressKeyPress = true; break;
+            }
+
+            if (e.Control)
+            {
+                switch (e.KeyCode)
+                {
+                    case Keys.A: faftv_explorer();      e.Handled = e.SuppressKeyPress = true; break;
+                    case Keys.C: faftv_explorer2();     e.Handled = e.SuppressKeyPress = true; break;
+                    case Keys.X: faftv_move();          e.Handled = e.SuppressKeyPress = true; break;
+                    case Keys.R: faftv_refresh();       e.Handled = e.SuppressKeyPress = true; break;
+                    case Keys.Q: faftv_collapse();      e.Handled = e.SuppressKeyPress = true; break;
+                    case Keys.E: faftv_expand();        e.Handled = e.SuppressKeyPress = true; break;
+                    case Keys.W: faftv_startFile(true); e.Handled = e.SuppressKeyPress = true; break;
+                    case Keys.D: faftv_properties();    e.Handled = e.SuppressKeyPress = true; break;
+                    case Keys.S: faftv_newFolder();     e.Handled = e.SuppressKeyPress = true; break;
+
+                    // hidden shortcuts
+                    case Keys.F: new fapmap_find().Show();     e.Handled = e.SuppressKeyPress = true; break;
+                    case Keys.G: new fapmap_settings().Show(); e.Handled = e.SuppressKeyPress = true; break;
+                }
             }
         }
 
@@ -4367,13 +4496,17 @@ namespace fapmap
         {
             faftv_reload();
         }
+        private void faftv_RMB_unselect_Click(object sender, EventArgs e)
+        {
+            faftv_unselect();
+        }
         private void faftv_RMB_collapseTree_Click(object sender, EventArgs e)
         {
-            faftv.CollapseAll();
+            faftv_collapse();
         }
         private void faftv_RMB_expandTree_Click(object sender, EventArgs e)
         {
-            faftv.ExpandAll();
+            faftv_expand();
         }
         private void faftv_RMB_open_Click(object sender, EventArgs e)
         {
@@ -4425,7 +4558,7 @@ namespace fapmap
                 switch (e.KeyCode)
                 {
                     case Keys.W:
-                    case Keys.Enter: playURL(txt_url.Text); e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.Enter: playOrOpenURL(txt_url.Text); e.Handled = true; e.SuppressKeyPress = true; break;
                     case Keys.S: links_add(txt_url.Text);   e.Handled = true; e.SuppressKeyPress = true; break;
                     case Keys.Back:
                         {
@@ -4449,7 +4582,7 @@ namespace fapmap
         
         private void btn_startURL_Click(object sender, EventArgs e)
         {
-            playURL(txt_url.Text);
+            playOrOpenURL(txt_url.Text);
         }
         private void btn_openURL_Click(object sender, EventArgs e)
         {
@@ -4628,7 +4761,7 @@ namespace fapmap
                 if (item.Name == null) { continue; }
                 string text = item.Name;
                 if (string.IsNullOrEmpty(text)) { continue; }
-                if (!text.StartsWith(GlobalVariables.Settings.Common.Comment)) { playURL(text); }
+                if (!text.StartsWith(GlobalVariables.Settings.Common.Comment)) { playOrOpenURL(text); }
             }
         }
         private void links_reloadTitle()
@@ -4864,9 +4997,10 @@ namespace fapmap
             
             switch (e.KeyCode)
             {
-                case Keys.Enter: e.SuppressKeyPress = true; links_start(); break;
-                case Keys.Delete: links_del(); break;
-                case Keys.F5: links_reload(GlobalVariables.Path.File.Links); break;
+                case Keys.Escape: links.SelectedItems.Clear();                   e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Enter:  links_start();                                 e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Delete: links_del();                                   e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.F5:     links_reload(GlobalVariables.Path.File.Links); e.Handled = true; e.SuppressKeyPress = true; break;
             }
             if (e.Control)
             {

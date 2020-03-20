@@ -77,6 +77,8 @@
             this.cb_focusHide = new System.Windows.Forms.CheckBox();
             this.label_cb = new System.Windows.Forms.Label();
             this.cb_hideOnX = new System.Windows.Forms.CheckBox();
+            this.txt_output_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txt_output_RMB_copy = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_info.SuspendLayout();
             this.txt_outputBorder.SuspendLayout();
             this.panel_browser.SuspendLayout();
@@ -84,6 +86,7 @@
             this.panel_txt.SuspendLayout();
             this.panel_passwd.SuspendLayout();
             this.panel_cb.SuspendLayout();
+            this.txt_output_RMB.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_size
@@ -136,6 +139,7 @@
             // 
             this.txt_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txt_output.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_output.ContextMenuStrip = this.txt_output_RMB;
             this.txt_output.DetectUrls = false;
             this.txt_output.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txt_output.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -917,6 +921,29 @@
             this.cb_hideOnX.UseVisualStyleBackColor = false;
             this.cb_hideOnX.CheckedChanged += new System.EventHandler(this.cb_checkChanged);
             // 
+            // txt_output_RMB
+            // 
+            this.txt_output_RMB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.txt_output_RMB.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.txt_output_RMB.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.txt_output_RMB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.txt_output_RMB_copy});
+            this.txt_output_RMB.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
+            this.txt_output_RMB.Name = "contextMenuStrip1";
+            this.txt_output_RMB.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.txt_output_RMB.ShowItemToolTips = false;
+            this.txt_output_RMB.Size = new System.Drawing.Size(181, 48);
+            // 
+            // txt_output_RMB_copy
+            // 
+            this.txt_output_RMB_copy.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.txt_output_RMB_copy.ForeColor = System.Drawing.Color.SlateBlue;
+            this.txt_output_RMB_copy.Image = global::fapmap.Properties.Resources.copy;
+            this.txt_output_RMB_copy.Name = "txt_output_RMB_copy";
+            this.txt_output_RMB_copy.Size = new System.Drawing.Size(180, 22);
+            this.txt_output_RMB_copy.Text = "Copy (CTRL+C)";
+            this.txt_output_RMB_copy.Click += new System.EventHandler(this.txt_output_RMB_copy_Click);
+            // 
             // fapmap_settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -950,6 +977,7 @@
             this.panel_passwd.PerformLayout();
             this.panel_cb.ResumeLayout(false);
             this.panel_cb.PerformLayout();
+            this.txt_output_RMB.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1002,5 +1030,7 @@
         private System.Windows.Forms.CheckBox cb_fdThumb;
         private System.Windows.Forms.CheckBox cb_fdSortByDate;
         private System.Windows.Forms.Label label_cb_fileDisplay;
+        private System.Windows.Forms.ContextMenuStrip txt_output_RMB;
+        private System.Windows.Forms.ToolStripMenuItem txt_output_RMB_copy;
     }
 }

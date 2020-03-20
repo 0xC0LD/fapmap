@@ -19,6 +19,8 @@ namespace fapmap
         public fapmap_settings()
         {
             InitializeComponent();
+
+            txt_output_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
         }
         
         private void fapmap_settings_Load(object sender, EventArgs e)
@@ -235,11 +237,17 @@ namespace fapmap
                 e.SuppressKeyPress = true;
             }
         }
-        
+
+        private void txt_output_RMB_copy_Click(object sender, EventArgs e)
+        {
+            string text = txt_output.SelectedText;
+            if (!string.IsNullOrEmpty(text)) { Clipboard.SetText(text); }
+        }
+
         #endregion
 
         #region Browsers
-        
+
         private void rb_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton cb = (RadioButton)sender;
@@ -459,6 +467,7 @@ namespace fapmap
         {
             fapmap.Open(fapmap.GlobalVariables.Path.File.Settings);
         }
+
 
         #endregion
 

@@ -18,6 +18,8 @@ namespace fapmap
         public fapmap_youtubedl()
         {
             InitializeComponent();
+
+            txt_output_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
         }
 
         public string pass_path = string.Empty;
@@ -237,6 +239,12 @@ namespace fapmap
             if (Directory.Exists(txt_path.Text)) { fapmap.OpenInExplorer(txt_path.Text); }
         }
 
+        private void txt_output_RMB_copy_Click(object sender, EventArgs e)
+        {
+            string text = txt_output.SelectedText;
+            if (!string.IsNullOrEmpty(text)) { Clipboard.SetText(text); }
+        }
+
         private void txt_url_DragEnter(object sender, DragEventArgs e)
         {
             if ((e.AllowedEffect & System.Windows.Forms.DragDropEffects.All) != 0 && e.Data.GetDataPresent(typeof(string)))
@@ -248,7 +256,9 @@ namespace fapmap
         {
             txt_url.Text = (e.Data.GetData(typeof(string)) as string);
         }
-        
+
         #endregion
+
+        
     }
 }

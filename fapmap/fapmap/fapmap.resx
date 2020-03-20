@@ -273,17 +273,23 @@
   <data name="faftv_RMB_reload.Text" xml:space="preserve">
     <value>Reload (F5)</value>
   </data>
+  <data name="faftv_RMB_unselect.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="faftv_RMB_unselect.Text" xml:space="preserve">
+    <value>Unselect Item (ESC)</value>
+  </data>
   <data name="faftv_RMB_collapseTree.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 22</value>
   </data>
   <data name="faftv_RMB_collapseTree.Text" xml:space="preserve">
-    <value>Collapse Tree (CTRL+Q)</value>
+    <value>Collapse Node (CTRL+Q)</value>
   </data>
   <data name="faftv_RMB_expandTree.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 22</value>
   </data>
   <data name="faftv_RMB_expandTree.Text" xml:space="preserve">
-    <value>Expand Tree (CTRL+E)</value>
+    <value>Expand Node (CTRL+E)</value>
   </data>
   <data name="faftv_RMB_open.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 22</value>
@@ -334,7 +340,7 @@
     <value>Properties (CTRL+D)</value>
   </data>
   <data name="faftv_RMB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 268</value>
+    <value>212, 312</value>
   </data>
   <data name="&gt;&gt;faftv_RMB.Name" xml:space="preserve">
     <value>faftv_RMB</value>
@@ -359,38 +365,38 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAC4
-        BwAAAk1TRnQBSQFMAwEBAAEYAQEBGAEBARABAAEQAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
-        ARADAAEBAQABIAYAARASAAE3AQYBFgH/ATcBBgEWAf8BNwEGARYB/wE3AQYBFgH/ATcBBgEWAf8BNwEG
-        ARYB/wE3AQYBFgH/ATcBBgEWAf8BNwEGARYB/wE3AQYBFgH/ATcBBgEWAf8BNwEGARYB/wE3AQYBFgH/
-        ATcBBgEWAf8BNwEGARYB/wE3AQYBFgH/wAABNwEGAR8B/wFQARYBLwH/AVABFgEvAf8BWAEfATcB/wFY
-        AScBNwH/AVgBJwFAAf8BhAEvAUAB/wGEAS8BSAH/AYQBLwFIAf8BhAEvAUAB/wFYAScBQAH/AVgBJwE3
-        Af8BWAEfATcB/wFQARYBLwH/AVABFgEvAf8BNwEGARYB/8AAATcBBgEfAf8BhAEnATcB/wFYARYBLwH/
-        AVgBFgE3Af8BhAEfATcB/wGEAR8BNwH/AYQBHwE3Af8BhAEfATcB/wGEAR8BNwH/AYQBHwE3Af8BhAEf
-        ATcB/wGEAR8BNwH/AYQBHwE3Af8BWAEWATcB/wGEAScBQAH/ATcBBgEfAf/AAAFAAQYBHwH/AZQBLwFI
-        Af8BlAEnAUgB/wGUAScBSAH/AZQBJwFIAf8BnAEnAUgB/wGcAScBSAH/AZwBLwFQAf8BnAEvAVAB/wGc
-        AS8BUAH/AZwBLwFQAf8BnAEnAUgB/wGcAScBSAH/AZQBJwFIAf8BnAEvAVAB/wFAAQYBHwH/wAABQAEG
-        AScB/wGlAUABWAH/AaUBLwFQAf8BrQE3AVgB/wGtATcBWAH/Aa0BNwFYAf8BtQE3AVgB/wG1ATcBWAH/
-        AbUBNwGEAf8BtQE3AVgB/wG1ATcBWAH/Aa0BNwFYAf8BrQE3AVgB/wGtATcBWAH/Aa0BQAGEAf8BQAEG
-        AScB/8AAAUgBBgEnAf8BtQFIAYwB/wG1AUABhAH/Ab0BQAGEAf8BvQFAAYwB/wHGAUABjAH/AcYBQAGM
-        Af8BxgFAAYwB/wHGAUABjAH/AcYBQAGMAf8BxgFAAYwB/wHGAUABjAH/Ab0BQAGMAf8BvQFAAYQB/wG9
-        AUgBjAH/AUgBBgEnAf/AAAFIAQ4BJwH/AcYBUAGUAf8BxgFAAYwB/wHOAUgBlAH/Ac4BSAGUAf8B1gFI
-        AZQB/wHWAUgBlAH/AdYBSAGUAf8B1gFIAZQB/wHWAUgBlAH/AdYBSAGUAf8B1gFIAZQB/wHOAUgBlAH/
-        Ac4BSAGUAf8BzgFQAZwB/wFIAQ4BJwH/wAABUAEOAS8B/wHWAVgBpQH/AdYBSAGUAf8B1gFIAZwB/wHe
-        AVABnAH/Ad4BUAGcAf8B5wFQAZwB/wHnAVABnAH/AecBUAGcAf8B5wFQAZwB/wHnAVABnAH/Ad4BUAGc
-        Af8B3gFQAZwB/wHWAUgBnAH/AdYBWAGlAf8BUAEOAS8B/8AAAVABDgEvAf8B3gGEAaUB/wHeAVABnAH/
-        Ad4BUAGcAf8B5wFQAaUB/wHnAVABpQH/Ae8BUAGlAf8B7wFQAaUB/wHvAVABpQH/Ae8BUAGlAf8B7wFQ
-        AaUB/wHvAVABpQH/AecBUAGlAf8B5wFQAZwB/wHnAYQBrQH/AVABDgEvAf/AAAFQAQ4BLwH/AecBhAGt
+        BwAAAk1TRnQBSQFMAwEBAAE4AQEBOAEBARABAAEQAQAE/wEhAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
+        ARADAAEBAQABIAYAARASAAEzAQIBEgH/ATMBAgESAf8BMwECARIB/wEzAQIBEgH/ATMBAgESAf8BMwEC
+        ARIB/wEzAQIBEgH/ATMBAgESAf8BMwECARIB/wEzAQIBEgH/ATMBAgESAf8BMwECARIB/wEzAQIBEgH/
+        ATMBAgESAf8BMwECARIB/wEzAQIBEgH/wAABMwECARsB/wFMARIBKwH/AUwBEgErAf8BVAEbATMB/wFU
+        ASMBMwH/AVQBIwE8Af8BhAErATwB/wGEASsBRAH/AYQBKwFEAf8BhAErATwB/wFUASMBPAH/AVQBIwEz
+        Af8BVAEbATMB/wFMARIBKwH/AUwBEgErAf8BMwECARIB/8AAATMBAgEbAf8BhAEjATMB/wFUARIBKwH/
+        AVQBEgEzAf8BhAEbATMB/wGEARsBMwH/AYQBGwEzAf8BhAEbATMB/wGEARsBMwH/AYQBGwEzAf8BhAEb
+        ATMB/wGEARsBMwH/AYQBGwEzAf8BVAESATMB/wGEASMBPAH/ATMBAgEbAf/AAAE8AQIBGwH/AZQBKwFE
+        Af8BlAEjAUQB/wGUASMBRAH/AZQBIwFEAf8BnAEjAUQB/wGcASMBRAH/AZwBKwFMAf8BnAErAUwB/wGc
+        ASsBTAH/AZwBKwFMAf8BnAEjAUQB/wGcASMBRAH/AZQBIwFEAf8BnAErAUwB/wE8AQIBGwH/wAABPAEC
+        ASMB/wGlATwBVAH/AaUBKwFMAf8BrQEzAVQB/wGtATMBVAH/Aa0BMwFUAf8BtQEzAVQB/wG1ATMBVAH/
+        AbUBMwGEAf8BtQEzAVQB/wG1ATMBVAH/Aa0BMwFUAf8BrQEzAVQB/wGtATMBVAH/Aa0BPAGEAf8BPAEC
+        ASMB/8AAAUQBAgEjAf8BtQFEAYwB/wG1ATwBhAH/Ab0BPAGEAf8BvQE8AYwB/wHGATwBjAH/AcYBPAGM
+        Af8BxgE8AYwB/wHGATwBjAH/AcYBPAGMAf8BxgE8AYwB/wHGATwBjAH/Ab0BPAGMAf8BvQE8AYQB/wG9
+        AUQBjAH/AUQBAgEjAf/AAAFEAQoBIwH/AcYBTAGUAf8BxgE8AYwB/wHOAUQBlAH/Ac4BRAGUAf8B1gFE
+        AZQB/wHWAUQBlAH/AdYBRAGUAf8B1gFEAZQB/wHWAUQBlAH/AdYBRAGUAf8B1gFEAZQB/wHOAUQBlAH/
+        Ac4BRAGUAf8BzgFMAZwB/wFEAQoBIwH/wAABTAEKASsB/wHWAVQBpQH/AdYBRAGUAf8B1gFEAZwB/wHe
+        AUwBnAH/Ad4BTAGcAf8B5wFMAZwB/wHnAUwBnAH/AecBTAGcAf8B5wFMAZwB/wHnAUwBnAH/Ad4BTAGc
+        Af8B3gFMAZwB/wHWAUQBnAH/AdYBVAGlAf8BTAEKASsB/8AAAUwBCgErAf8B3gGEAaUB/wHeAUwBnAH/
+        Ad4BTAGcAf8B5wFMAaUB/wHnAUwBpQH/Ae8BTAGlAf8B7wFMAaUB/wHvAUwBpQH/Ae8BTAGlAf8B7wFM
+        AaUB/wHvAUwBpQH/AecBTAGlAf8B5wFMAZwB/wHnAYQBrQH/AUwBCgErAf/AAAFMAQoBKwH/AecBhAGt
         Af8B5wGMAbUB/wHvAYwBtQH/Ae8BlAG1Af8B9wGUAbUB/wH3AZQBvQH/AfcBnAG9Av8BnAG9Av8BlAG9
-        Af8B9wGUAb0B/wH3AZQBtQH/Ae8BjAG1Af8B7wGMAbUB/wHnAYQBrQH/AVABDgEvAf/AAAFYAQ4BNwH/
-        AVgBDgE3Af8BWAEOATcB/wFYAQ4BNwH/AVgBDgE3Af8BWAEOATcB/wFYAQ4BNwH/AVgBDgE3Af8BWAEO
-        ATcB/wFYAQ4BNwH/AVgBDgE3Af8BWAEOATcB/wFYAQ4BNwH/AVgBDgE3Af8BWAEOATcB/wFYAQ4BNwH/
-        xAABjAEfAUgB/wGtATcBhAH/AZwBHwFQAf8BnAEfAVAB/wGcAR8BUAH/AZwBHwFQAf8BnAEfAVAB/wGc
-        AR8BUAH/AZwBHwFQAf8BnAEfAVAB/wGcAR8BUAH/AZwBHwFQAf8BrQE3AYQB/wGMAR8BSAH/yAABjAEf
-        AUgB/wG9AVgBnAH/AbUBQAGMAf8BtQFAAYwB/wG1AUABjAH/AbUBQAGMAf8BvQFYAZwB/wHOAZwBtQH/
-        AcYBjAGtAf8BvQFYAZwB/wHGAYwBrQH/Ac4BnAG1Af8BzgGUAa0B/wGMAR8BSAH/yAABjAEfAUgB/wHW
-        AaUBvQH/Ad4BtQHGAf8B3gG1Ac4B/wHeAa0BxgH/AdYBpQG9Af8B1gGcAb0B/wGMAR8BSAH/AYwBHwFI
-        Af8BjAEfAUgB/wGMAR8BSAH/AYwBHwFIAf8BjAEfAUgB/wGMAR8BSAH/yAABjAEfAUgB/wGMAR8BSAH/
-        AYwBHwFIAf8BjAEfAUgB/wGMAR8BSAH/AYwBHwFIAf8BjAEfAUgB/wGMAR8BSAH//wDdAAFCAU0BPgcA
+        Af8B9wGUAb0B/wH3AZQBtQH/Ae8BjAG1Af8B7wGMAbUB/wHnAYQBrQH/AUwBCgErAf/AAAFUAQoBMwH/
+        AVQBCgEzAf8BVAEKATMB/wFUAQoBMwH/AVQBCgEzAf8BVAEKATMB/wFUAQoBMwH/AVQBCgEzAf8BVAEK
+        ATMB/wFUAQoBMwH/AVQBCgEzAf8BVAEKATMB/wFUAQoBMwH/AVQBCgEzAf8BVAEKATMB/wFUAQoBMwH/
+        xAABjAEbAUQB/wGtATMBhAH/AZwBGwFMAf8BnAEbAUwB/wGcARsBTAH/AZwBGwFMAf8BnAEbAUwB/wGc
+        ARsBTAH/AZwBGwFMAf8BnAEbAUwB/wGcARsBTAH/AZwBGwFMAf8BrQEzAYQB/wGMARsBRAH/yAABjAEb
+        AUQB/wG9AVQBnAH/AbUBPAGMAf8BtQE8AYwB/wG1ATwBjAH/AbUBPAGMAf8BvQFUAZwB/wHOAZwBtQH/
+        AcYBjAGtAf8BvQFUAZwB/wHGAYwBrQH/Ac4BnAG1Af8BzgGUAa0B/wGMARsBRAH/yAABjAEbAUQB/wHW
+        AaUBvQH/Ad4BtQHGAf8B3gG1Ac4B/wHeAa0BxgH/AdYBpQG9Af8B1gGcAb0B/wGMARsBRAH/AYwBGwFE
+        Af8BjAEbAUQB/wGMARsBRAH/AYwBGwFEAf8BjAEbAUQB/wGMARsBRAH/yAABjAEbAUQB/wGMARsBRAH/
+        AYwBGwFEAf8BjAEbAUQB/wGMARsBRAH/AYwBGwFEAf8BjAEbAUQB/wGMARsBRAH//wDdAAFCAU0BPgcA
         AT4DAAEoAwABQAMAARADAAEBAQABAQUAAYAXAAP/WQABgAEBBgABgAEBBgABgAEBBgABgAF/BgAC/wYA
         Cw==
 </value>
@@ -615,7 +621,7 @@
     <value>fileDisplay</value>
   </data>
   <data name="&gt;&gt;fileDisplay.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>fapmap_res.FapMapListView, fapmap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;fileDisplay.Parent" xml:space="preserve">
     <value>splitContainer_files.Panel2</value>
@@ -8110,6 +8116,24 @@
   <data name="&gt;&gt;fileDisplay_icons.Type" xml:space="preserve">
     <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;links_clm_num.Name" xml:space="preserve">
+    <value>links_clm_num</value>
+  </data>
+  <data name="&gt;&gt;links_clm_num.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;links_clm_url.Name" xml:space="preserve">
+    <value>links_clm_url</value>
+  </data>
+  <data name="&gt;&gt;links_clm_url.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;links_clm_title.Name" xml:space="preserve">
+    <value>links_clm_title</value>
+  </data>
+  <data name="&gt;&gt;links_clm_title.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;links_RMB_reload.Name" xml:space="preserve">
     <value>links_RMB_reload</value>
   </data>
@@ -8506,23 +8530,11 @@
   <data name="&gt;&gt;wb_url_autoCompleteMenu.Type" xml:space="preserve">
     <value>AutocompleteMenuNS.AutocompleteMenu, AutocompleteMenu, Version=1.3.4.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;links_clm_num.Name" xml:space="preserve">
-    <value>links_clm_num</value>
+  <data name="&gt;&gt;faftv_RMB_unselect.Name" xml:space="preserve">
+    <value>faftv_RMB_unselect</value>
   </data>
-  <data name="&gt;&gt;links_clm_num.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;links_clm_url.Name" xml:space="preserve">
-    <value>links_clm_url</value>
-  </data>
-  <data name="&gt;&gt;links_clm_url.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;links_clm_title.Name" xml:space="preserve">
-    <value>links_clm_title</value>
-  </data>
-  <data name="&gt;&gt;links_clm_title.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;faftv_RMB_unselect.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>fapmap</value>

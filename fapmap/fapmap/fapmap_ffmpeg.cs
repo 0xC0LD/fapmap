@@ -18,6 +18,8 @@ namespace fapmap
         public fapmap_ffmpeg()
         {
             InitializeComponent();
+
+            txt_output_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
         }
 
         public string pass_path = string.Empty;
@@ -221,7 +223,13 @@ namespace fapmap
         {
             label_status.Text = fapmap.TrashFile(gl_fileNew) ? "Deleted file." : "Failed to delete file.";
         }
-        
+
+        private void txt_output_RMB_copy_Click(object sender, EventArgs e)
+        {
+            string text = txt_output.SelectedText;
+            if (!string.IsNullOrEmpty(text)) { Clipboard.SetText(text); }
+        }
+
         private void txt_file_TextChanged(object sender, EventArgs e)
         {
             txt_file.Text = txt_file.Text
@@ -342,6 +350,5 @@ namespace fapmap
             if (string.IsNullOrEmpty(txt_fileNew.Text)) { return; }
             this.txt_fileNew.DoDragDrop(new DataObject(DataFormats.StringFormat, txt_fileNew.Text), DragDropEffects.Copy);
         }
-
     }
 }

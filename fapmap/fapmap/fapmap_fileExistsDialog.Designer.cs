@@ -47,10 +47,10 @@
             // 
             this.info.AutoSize = true;
             this.info.BackColor = System.Drawing.Color.Transparent;
-            this.info.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.info.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.info.Location = new System.Drawing.Point(142, 12);
             this.info.Name = "info";
-            this.info.Size = new System.Drawing.Size(152, 90);
+            this.info.Size = new System.Drawing.Size(133, 70);
             this.info.TabIndex = 0;
             this.info.Text = "FILE NAME\r\nEXTENSION\r\nDIRECTORY NAME\r\nSIZE\r\nCREATION DATE/TIME";
             // 

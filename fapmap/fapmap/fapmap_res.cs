@@ -135,6 +135,12 @@ namespace fapmap_res
         private const int TVS_EX_DOUBLEBUFFER = 0x0004;
         [DllImport("user32.dll")]
         private static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            this.OnKeyDown(new KeyEventArgs(keyData));
+            return true;
+        }
     }
 
     public class FapMapListView : ListView

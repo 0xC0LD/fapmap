@@ -1021,7 +1021,8 @@ namespace fapmap
 
             switch (e.KeyCode)
             {
-                case Keys.Enter: links_downloadSelected(); e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Escape: links.SelectedItems.Clear(); e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Enter: links_downloadSelected();     e.Handled = true; e.SuppressKeyPress = true; break;
                 case Keys.Delete:
                     {
                         if      (e.Control) { links_deleteAll(); }

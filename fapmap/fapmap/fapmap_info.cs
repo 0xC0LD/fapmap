@@ -17,6 +17,8 @@ namespace fapmap
         public fapmap_info()
         {
             InitializeComponent();
+
+            txt_output_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
         }
 
         public string pass_path = string.Empty;
@@ -198,6 +200,12 @@ namespace fapmap
         private void btn_getInfo_Click(object sender, EventArgs e)
         {
             getInfo(pass_path);
+        }
+        
+        private void txt_output_RMB_copy_Click(object sender, EventArgs e)
+        {
+            string text = txt_output.SelectedText;
+            if (!string.IsNullOrEmpty(text)) { Clipboard.SetText(text); }
         }
     }
 }

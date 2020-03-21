@@ -1776,15 +1776,18 @@ namespace fapmap
                             dirs = dirs.OrderBy(p => p.CreationTime).ToArray();
                             files = files.OrderBy(p => p.CreationTime).ToArray();
                         }
-                        
+
+                        // add dir image
+                        fileDisplay_icons.Images.Add(new Bitmap(Properties.Resources.dir, fileDisplay_icons.ImageSize));
+
                         // get dirs
                         for (int i = 0; i < dirs.Length; i++)
                         {
                             if (load_dir_cancel) { return; }
 
-                            fileDisplay_icons.Images.Add(new Bitmap(Properties.Resources.dir, fileDisplay_icons.ImageSize));
+                            
 
-                            items.Add(new ListViewItem() { Name = dirs[i].FullName, ImageIndex = items.Count, Text = dirs[i].Name });
+                            items.Add(new ListViewItem() { Name = dirs[i].FullName, ImageIndex = 0, Text = dirs[i].Name });
 
                             if (load_dir_cancel) { return; }
                         }
@@ -1811,10 +1814,20 @@ namespace fapmap
                                 imageIndex = fileDisplay_icons.Images.Count - 1;
                             }
 
-                            ListViewItem lvi = new ListViewItem() { Name = files[i].FullName, ImageIndex = imageIndex, Text = files[i].Name };
+                            ListViewItem lvi = new ListViewItem();
 
+                            if (imageIndex == 0)
+                            {
+                                lvi.Name = files[i].FullName;
+                                lvi.Text = files[i].Name;
+                            }
+                            else
+                            {
+                                lvi.Name = files[i].FullName;
+                                lvi.Text = files[i].Name;
+                                lvi.ImageIndex = imageIndex;
+                            }
                             
-
                             items.Add(lvi);
 
                             if (load_dir_cancel) { return; }
@@ -1824,6 +1837,7 @@ namespace fapmap
                                 // get image thumbs
                                 if (GlobalVariables.FileTypes.Image.Contains(files[i].Extension))
                                 {
+                                    int currentLviIndex = items.Count - 1;
                                     int currentFileIndex = i;
 
                                     new Thread(() =>
@@ -1843,8 +1857,8 @@ namespace fapmap
                                             this.Invoke((MethodInvoker)delegate
                                             {
                                                 fileDisplay_icons.Images.Add(new Bitmap(bmpDrawOn, fileDisplay_icons.ImageSize));
-                                                items[currentFileIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
-                                                fileDisplay.RedrawItems(currentFileIndex, currentFileIndex, true);
+                                                items[currentLviIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
+                                                fileDisplay.RedrawItems(currentLviIndex, currentLviIndex, true);
                                             });
                                             bmp.Dispose();
                                             bmpDrawOn.Dispose();
@@ -1861,6 +1875,7 @@ namespace fapmap
                                 // get video thumbs
                                 if (File.Exists(GlobalVariables.Path.File.Exe.FFMPEG) && GlobalVariables.FileTypes.Video.Contains(files[i].Extension))
                                 {
+                                    int currentLviIndex = items.Count - 1;
                                     int currentFileIndex = i;
 
                                     new Thread(() =>
@@ -1885,8 +1900,8 @@ namespace fapmap
                                                 this.Invoke((MethodInvoker)delegate
                                                 {
                                                     fileDisplay_icons.Images.Add(new Bitmap(drawON, fileDisplay_icons.ImageSize));
-                                                    items[currentFileIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
-                                                    fileDisplay.RedrawItems(currentFileIndex, currentFileIndex, true);
+                                                    items[currentLviIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
+                                                    fileDisplay.RedrawItems(currentLviIndex, currentLviIndex, true);
                                                 });
                                                 directImageBmp.Dispose();
                                                 drawON.Dispose();
@@ -1922,8 +1937,8 @@ namespace fapmap
                                             this.Invoke((MethodInvoker)delegate
                                             {
                                                 fileDisplay_icons.Images.Add(new Bitmap(drawOnbmp, fileDisplay_icons.ImageSize));
-                                                items[currentFileIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
-                                                fileDisplay.RedrawItems(currentFileIndex, currentFileIndex, true);
+                                                items[currentLviIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
+                                                fileDisplay.RedrawItems(currentLviIndex, currentLviIndex, true);
                                             });
                                             bmp.Dispose();
                                             drawOnbmp.Dispose();

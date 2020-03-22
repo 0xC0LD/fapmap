@@ -1279,7 +1279,7 @@ namespace fapmap
 
             return new Tuple<int, int, int>(visible, normal, full);
         }
-
+        
         #endregion
 
         #endregion
@@ -1806,6 +1806,8 @@ namespace fapmap
 
                 if (GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails)
                 {
+
+
                     // get image thumbs
                     if (GlobalVariables.FileTypes.Image.Contains(files[i].Extension))
                     {
@@ -1821,20 +1823,22 @@ namespace fapmap
                             try
                             {
                                 Image img = Image.FromFile(files[currentFileIndex].FullName);
-                                if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
                                 Bitmap bmp = new Bitmap(img);
-                                if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
                                 img.Dispose();
                                 int size = Math.Max(bmp.Width, bmp.Height);
                                 Bitmap bmpDrawOn = new Bitmap(size, size);
                                 using (Graphics g = Graphics.FromImage(bmpDrawOn)) { g.Clear(Color.Transparent); g.DrawImage(bmp, 0, 0); }
-                                if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
-                                this.Invoke((MethodInvoker)delegate
+
+                                if (currentLoad_dir_cur == load_dir_cur)
                                 {
-                                    fileDisplay_icons.Images.Add(new Bitmap(bmpDrawOn, fileDisplay_icons.ImageSize));
-                                    items[currentLviIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
-                                    fileDisplay.RedrawItems(currentLviIndex, currentLviIndex, true);
-                                });
+                                    this.Invoke((MethodInvoker)delegate
+                                    {
+                                        fileDisplay_icons.Images.Add(new Bitmap(bmpDrawOn, fileDisplay_icons.ImageSize));
+                                        items[currentLviIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
+                                        fileDisplay.RedrawItems(currentLviIndex, currentLviIndex, true);
+                                    });
+                                }
+
                                 bmp.Dispose();
                                 bmpDrawOn.Dispose();
                             }
@@ -1864,39 +1868,39 @@ namespace fapmap
 
                                 if (!File.Exists(dest))
                                 {
-                                    // get image using ffmpeg
-                                    var cmd = "ffmpeg  -itsoffset -1  -i " + '"' + src + '"' + " -vcodec bmp -vframes 1 -an -f rawvideo " + '"' + dest + '"';
-
                                     var startInfo = new ProcessStartInfo
                                     {
                                         WindowStyle = ProcessWindowStyle.Hidden,
-                                        FileName = "cmd.exe",
-                                        Arguments = "/C " + cmd
+                                        FileName = GlobalVariables.Path.File.Exe.FFMPEG,
+                                        Arguments = "-itsoffset -1  -i " + '"' + src + '"' + " -vcodec bmp -vframes 1 -an -f rawvideo " + '"' + dest + '"'
                                     };
 
                                     var process = new Process { StartInfo = startInfo };
                                     process.Start();
                                     process.WaitForExit();
+
                                     if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
                                 }
 
                                 if (File.Exists(dest))
                                 {
                                     Image img = Image.FromFile(dest);
-                                    if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
                                     Bitmap bmp = new Bitmap(img);
-                                    if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
                                     img.Dispose();
                                     int size = Math.Max(bmp.Width, bmp.Height);
                                     Bitmap bmpDrawOn = new Bitmap(size, size);
                                     using (Graphics g = Graphics.FromImage(bmpDrawOn)) { g.Clear(Color.Transparent); g.DrawImage(bmp, 0, 0); }
-                                    if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
-                                    this.Invoke((MethodInvoker)delegate
+
+                                    if (currentLoad_dir_cur == load_dir_cur)
                                     {
-                                        fileDisplay_icons.Images.Add(new Bitmap(bmpDrawOn, fileDisplay_icons.ImageSize));
-                                        items[currentLviIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
-                                        fileDisplay.RedrawItems(currentLviIndex, currentLviIndex, true);
-                                    });
+                                        this.Invoke((MethodInvoker)delegate
+                                        {
+                                            fileDisplay_icons.Images.Add(new Bitmap(bmpDrawOn, fileDisplay_icons.ImageSize));
+                                            items[currentLviIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
+                                            fileDisplay.RedrawItems(currentLviIndex, currentLviIndex, true);
+                                        });
+                                    }
+
                                     bmp.Dispose();
                                     bmpDrawOn.Dispose();
                                 }

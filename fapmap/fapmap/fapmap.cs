@@ -1713,263 +1713,211 @@ namespace fapmap
 
             return false;
         }
-
-        private bool load_dir_busy = false;
-        private bool load_dir_cancel = false;
-        private Mutex load_dir_mutex = new Mutex();
-        private int load_dir_count = 0;
+        
         private string selectedDirPath = GlobalVariables.Path.Dir.MainFolder;
+        private int load_dir_cur = 0;
         private void load_dir(string path)
         {
             if (!GlobalVariables.Settings.CheckBoxes.EnableFileDisplay) { return; }
             fileDisplay.Enabled = true;
 
-            if (load_dir_busy) { load_dir_cancel = true; }
-            load_dir_busy = true;
+            // current run index (for thumbs)
+            load_dir_cur++;
 
-            new Thread(() =>
+            // set path
+            selectedDirPath = path;
+            txt_path.Text = path;
+            if (File.Exists(path)) { path = new FileInfo(path).Directory.FullName; }
+            if (!Directory.Exists(path)) { return; }
+
+            fileDisplay_icons.Images.Clear();
+            fileDisplay.Items.Clear();
+
+            if (fileDisplay_watcher != null) { fileDisplay_watcher.Dispose(); }
+            fileDisplay_watcher = new FileSystemWatcher()
             {
-                try
-                {
-                    load_dir_count++;
-                    load_dir_mutex.WaitOne(); // 129312
-                    if (load_dir_count > 1) { load_dir_count--; load_dir_mutex.ReleaseMutex(); return; }
-                    load_dir_count = 0;
+                NotifyFilter = NotifyFilters.LastAccess
+                                 | NotifyFilters.LastWrite
+                                 | NotifyFilters.FileName
+                                 | NotifyFilters.DirectoryName,
+                Filter = "*.*",
+                IncludeSubdirectories = false,
+                Path = path,
+            };
+            fileDisplay_watcher.Changed += fileDisplay_watcher_Changed;
+            fileDisplay_watcher.Created += fileDisplay_watcher_Created;
+            fileDisplay_watcher.Deleted += fileDisplay_watcher_Deleted;
+            fileDisplay_watcher.Renamed += fileDisplay_watcher_Renamed;
+            fileDisplay_watcher.EnableRaisingEvents = true;
+            
+            List<ListViewItem> items = new List<ListViewItem>();
+            DirectoryInfo loadDir = new DirectoryInfo(path);
+            DirectoryInfo[] dirs = loadDir.GetDirectories();
+            FileInfo[] files = loadDir.GetFiles();
 
-                    new Action(() => {
-
-                        // set path
-                        selectedDirPath = path;
-                        txt_path.Text = path;
-                        if (File.Exists(path)) { path = new FileInfo(path).Directory.FullName; }
-                        if (!Directory.Exists(path)) { return; }
-
-                        fileDisplay_icons.Images.Clear();
-                        fileDisplay.Items.Clear();
-
-                        if (fileDisplay_watcher != null) { fileDisplay_watcher.Dispose(); }
-                        fileDisplay_watcher = new FileSystemWatcher()
-                        {
-                            NotifyFilter = NotifyFilters.LastAccess
-                                             | NotifyFilters.LastWrite
-                                             | NotifyFilters.FileName
-                                             | NotifyFilters.DirectoryName,
-                            Filter = "*.*",
-                            IncludeSubdirectories = false,
-                            Path = path,
-                        };
-                        fileDisplay_watcher.Changed += fileDisplay_watcher_Changed;
-                        fileDisplay_watcher.Created += fileDisplay_watcher_Created;
-                        fileDisplay_watcher.Deleted += fileDisplay_watcher_Deleted;
-                        fileDisplay_watcher.Renamed += fileDisplay_watcher_Renamed;
-                        fileDisplay_watcher.EnableRaisingEvents = true;
-
-                        //this.Text = "FAPMAP: Loading...";
-
-                        List<ListViewItem> items = new List<ListViewItem>();
-                        DirectoryInfo loadDir = new DirectoryInfo(path);
-                        DirectoryInfo[] dirs = loadDir.GetDirectories();
-                        FileInfo[] files = loadDir.GetFiles();
-                        
-                        if (GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate)
-                        {
-                            dirs = dirs.OrderBy(p => p.CreationTime).ToArray();
-                            files = files.OrderBy(p => p.CreationTime).ToArray();
-                        }
-
-                        // add dir image
-                        fileDisplay_icons.Images.Add(new Bitmap(Properties.Resources.dir, fileDisplay_icons.ImageSize));
-
-                        // get dirs
-                        for (int i = 0; i < dirs.Length; i++)
-                        {
-                            if (load_dir_cancel) { return; }
-
-                            
-
-                            items.Add(new ListViewItem() { Name = dirs[i].FullName, ImageIndex = 0, Text = dirs[i].Name });
-
-                            if (load_dir_cancel) { return; }
-                        }
-                        
-                        // get files
-                        Mutex mutex = new Mutex();
-                        for (int i = 0; i < files.Length; i++)
-                        {
-                            if (load_dir_cancel) { return; }
-
-                            if (files[i].Name == "desktop.ini") { continue; }
-
-                            int imageIndex = 0;
-                            
-                            // set image
-                            string ext = files[i].Extension.ToLower();
-                            if (fileDisplay_icons.Images.ContainsKey(ext))
-                            {
-                                imageIndex = fileDisplay_icons.Images.IndexOfKey(ext);
-                            }
-                            else
-                            {
-                                fileDisplay_icons.Images.Add(ext, System.Drawing.Icon.ExtractAssociatedIcon(files[i].FullName));
-                                imageIndex = fileDisplay_icons.Images.Count - 1;
-                            }
-
-                            ListViewItem lvi = new ListViewItem();
-
-                            if (imageIndex == 0)
-                            {
-                                lvi.Name = files[i].FullName;
-                                lvi.Text = files[i].Name;
-                            }
-                            else
-                            {
-                                lvi.Name = files[i].FullName;
-                                lvi.Text = files[i].Name;
-                                lvi.ImageIndex = imageIndex;
-                            }
-                            
-                            items.Add(lvi);
-
-                            if (load_dir_cancel) { return; }
-
-                            if (GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails)
-                            {
-                                // get image thumbs
-                                if (GlobalVariables.FileTypes.Image.Contains(files[i].Extension))
-                                {
-                                    int currentLviIndex = items.Count - 1;
-                                    int currentFileIndex = i;
-
-                                    new Thread(() =>
-                                    {
-                                        mutex.WaitOne();
-                                        if (load_dir_cancel) { mutex.ReleaseMutex(); return; }
-
-                                        try
-                                        {
-                                            Image img = Image.FromFile(files[currentFileIndex].FullName);
-                                            Bitmap bmp = new Bitmap(img);
-                                            img.Dispose();
-                                            int size = Math.Max(bmp.Width, bmp.Height);
-                                            Bitmap bmpDrawOn = new Bitmap(size, size);
-                                            using (Graphics g = Graphics.FromImage(bmpDrawOn)) { g.Clear(Color.Transparent); g.DrawImage(bmp, 0, 0); }
-                                            if (load_dir_cancel) { mutex.ReleaseMutex(); return; }
-                                            this.Invoke((MethodInvoker)delegate
-                                            {
-                                                fileDisplay_icons.Images.Add(new Bitmap(bmpDrawOn, fileDisplay_icons.ImageSize));
-                                                items[currentLviIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
-                                                fileDisplay.RedrawItems(currentLviIndex, currentLviIndex, true);
-                                            });
-                                            bmp.Dispose();
-                                            bmpDrawOn.Dispose();
-                                        }
-                                        catch (Exception) { }
-
-                                        mutex.ReleaseMutex();
-                                    })
-                                    { IsBackground = true }.Start();
-                                }
-                                
-                                if (load_dir_cancel) { return; }
-
-                                // get video thumbs
-                                if (File.Exists(GlobalVariables.Path.File.Exe.FFMPEG) && GlobalVariables.FileTypes.Video.Contains(files[i].Extension))
-                                {
-                                    int currentLviIndex = items.Count - 1;
-                                    int currentFileIndex = i;
-
-                                    new Thread(() =>
-                                    {
-                                        mutex.WaitOne();
-                                        if (load_dir_cancel) { mutex.ReleaseMutex(); return; }
-
-                                        try
-                                        {
-                                            string src = files[currentFileIndex].FullName;
-                                            string dest = GlobalVariables.Path.Dir.Thumbnails + "\\" + files[currentFileIndex].Name + ".tmp";
-
-                                            if (File.Exists(dest))
-                                            {
-                                                Image directImage = Image.FromFile(dest);
-                                                Bitmap directImageBmp = new Bitmap(directImage);
-                                                directImage.Dispose();
-                                                int size = Math.Max(directImageBmp.Width, directImageBmp.Height);
-                                                Bitmap drawON = new Bitmap(size, size);
-                                                using (Graphics g = Graphics.FromImage(drawON)) { g.Clear(Color.Transparent); g.DrawImage(directImageBmp, 0, 0); }
-                                                if (load_dir_cancel) { mutex.ReleaseMutex(); return; }
-                                                this.Invoke((MethodInvoker)delegate
-                                                {
-                                                    fileDisplay_icons.Images.Add(new Bitmap(drawON, fileDisplay_icons.ImageSize));
-                                                    items[currentLviIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
-                                                    fileDisplay.RedrawItems(currentLviIndex, currentLviIndex, true);
-                                                });
-                                                directImageBmp.Dispose();
-                                                drawON.Dispose();
-                                                mutex.ReleaseMutex();
-                                                return;
-                                            }
-
-                                            // get image using ffmpeg
-                                            var cmd = "ffmpeg  -itsoffset -1  -i " + '"' + src + '"' + " -vcodec mjpeg -vframes 1 -an -f rawvideo " + '"' + dest + '"';
-
-                                            var startInfo = new ProcessStartInfo
-                                            {
-                                                WindowStyle = ProcessWindowStyle.Hidden,
-                                                FileName = "cmd.exe",
-                                                Arguments = "/C " + cmd
-                                            };
-
-                                            var process = new Process { StartInfo = startInfo };
-                                            process.Start();
-                                            process.WaitForExit();
-
-                                            // check for changes
-                                            if (load_dir_cancel) { mutex.ReleaseMutex(); return; }
-
-                                            // load image thumb
-                                            Image img = Image.FromFile(dest);
-                                            Bitmap bmp = new Bitmap(img);
-                                            img.Dispose();
-                                            int s = Math.Max(bmp.Width, bmp.Height);
-                                            Bitmap drawOnbmp = new Bitmap(s, s);
-                                            using (Graphics g = Graphics.FromImage(drawOnbmp)) { g.Clear(Color.Transparent); g.DrawImage(bmp, 0, 0); }
-                                            if (load_dir_cancel) { mutex.ReleaseMutex(); return; }
-                                            this.Invoke((MethodInvoker)delegate
-                                            {
-                                                fileDisplay_icons.Images.Add(new Bitmap(drawOnbmp, fileDisplay_icons.ImageSize));
-                                                items[currentLviIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
-                                                fileDisplay.RedrawItems(currentLviIndex, currentLviIndex, true);
-                                            });
-                                            bmp.Dispose();
-                                            drawOnbmp.Dispose();
-                                        }
-                                        catch (Exception) { }
-
-                                        mutex.ReleaseMutex();
-                                    })
-                                    { IsBackground = true }.Start();
-                                }
-                            }
-                        }
-
-                        if (load_dir_cancel) { return; }
-                        
-                        this.Invoke((MethodInvoker)delegate
-                        {
-                            fileDisplay.Items.AddRange(items.ToArray());
-                            fileDisplay.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-                        });
-                        
-                        //this.Text = "FAPMAP: LOADED: " + fileDisplay.Items.Count + " item(s)";
-                    })();
-                    
-                    load_dir_mutex.ReleaseMutex();
-                }
-                catch (Exception) { }
-
-                load_dir_busy = false;
+            if (GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate)
+            {
+                dirs = dirs.OrderBy(p => p.CreationTime).ToArray();
+                files = files.OrderBy(p => p.CreationTime).ToArray();
             }
-            ) { IsBackground = true }.Start();
+
+            // get dirs
+            fileDisplay_icons.Images.Add(new Bitmap(Properties.Resources.dir, fileDisplay_icons.ImageSize));
+            for (int i = 0; i < dirs.Length; i++)
+            {
+                items.Add(new ListViewItem() { Name = dirs[i].FullName, ImageIndex = 0, Text = dirs[i].Name });
+            }
+
+            // get files
+            Mutex thumbMutex = new Mutex();
+            for (int i = 0; i < files.Length; i++)
+            {
+                if (files[i].Name == "desktop.ini") { continue; }
+
+                int imageIndex = 0;
+
+                // set image
+                string ext = files[i].Extension.ToLower();
+                if (fileDisplay_icons.Images.ContainsKey(ext))
+                {
+                    imageIndex = fileDisplay_icons.Images.IndexOfKey(ext);
+                }
+                else
+                {
+                    fileDisplay_icons.Images.Add(ext, System.Drawing.Icon.ExtractAssociatedIcon(files[i].FullName));
+                    imageIndex = fileDisplay_icons.Images.Count - 1;
+                }
+
+                ListViewItem lvi = new ListViewItem();
+
+                if (imageIndex == 0)
+                {
+                    lvi.Name = files[i].FullName;
+                    lvi.Text = files[i].Name;
+                }
+                else
+                {
+                    lvi.Name = files[i].FullName;
+                    lvi.Text = files[i].Name;
+                    lvi.ImageIndex = imageIndex;
+                }
+
+                items.Add(lvi);
+
+                if (GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails)
+                {
+                    // get image thumbs
+                    if (GlobalVariables.FileTypes.Image.Contains(files[i].Extension))
+                    {
+                        int currentLviIndex = items.Count - 1;
+                        int currentFileIndex = i;
+                        int currentLoad_dir_cur = load_dir_cur;
+
+                        new Thread(() =>
+                        {
+                            thumbMutex.WaitOne();
+                            if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
+
+                            try
+                            {
+                                Image img = Image.FromFile(files[currentFileIndex].FullName);
+                                if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
+                                Bitmap bmp = new Bitmap(img);
+                                if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
+                                img.Dispose();
+                                int size = Math.Max(bmp.Width, bmp.Height);
+                                Bitmap bmpDrawOn = new Bitmap(size, size);
+                                using (Graphics g = Graphics.FromImage(bmpDrawOn)) { g.Clear(Color.Transparent); g.DrawImage(bmp, 0, 0); }
+                                if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
+                                this.Invoke((MethodInvoker)delegate
+                                {
+                                    fileDisplay_icons.Images.Add(new Bitmap(bmpDrawOn, fileDisplay_icons.ImageSize));
+                                    items[currentLviIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
+                                    fileDisplay.RedrawItems(currentLviIndex, currentLviIndex, true);
+                                });
+                                bmp.Dispose();
+                                bmpDrawOn.Dispose();
+                            }
+                            catch (Exception) { }
+
+                            thumbMutex.ReleaseMutex();
+                        })
+                        { IsBackground = true }.Start();
+                    }
+
+                    // get video thumbs
+                    if (File.Exists(GlobalVariables.Path.File.Exe.FFMPEG) && GlobalVariables.FileTypes.Video.Contains(files[i].Extension))
+                    {
+                        int currentLviIndex = items.Count - 1;
+                        int currentFileIndex = i;
+                        int currentLoad_dir_cur = load_dir_cur;
+
+                        Thread th = new Thread(() =>
+                        {
+                            thumbMutex.WaitOne();
+                            if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
+
+                            try
+                            {
+                                string src = files[currentFileIndex].FullName;
+                                string dest = GlobalVariables.Path.Dir.Thumbnails + "\\" + files[currentFileIndex].Name + ".tmp";
+
+                                if (!File.Exists(dest))
+                                {
+                                    // get image using ffmpeg
+                                    var cmd = "ffmpeg  -itsoffset -1  -i " + '"' + src + '"' + " -vcodec bmp -vframes 1 -an -f rawvideo " + '"' + dest + '"';
+
+                                    var startInfo = new ProcessStartInfo
+                                    {
+                                        WindowStyle = ProcessWindowStyle.Hidden,
+                                        FileName = "cmd.exe",
+                                        Arguments = "/C " + cmd
+                                    };
+
+                                    var process = new Process { StartInfo = startInfo };
+                                    process.Start();
+                                    process.WaitForExit();
+                                    if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
+                                }
+
+                                if (File.Exists(dest))
+                                {
+                                    Image img = Image.FromFile(dest);
+                                    if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
+                                    Bitmap bmp = new Bitmap(img);
+                                    if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
+                                    img.Dispose();
+                                    int size = Math.Max(bmp.Width, bmp.Height);
+                                    Bitmap bmpDrawOn = new Bitmap(size, size);
+                                    using (Graphics g = Graphics.FromImage(bmpDrawOn)) { g.Clear(Color.Transparent); g.DrawImage(bmp, 0, 0); }
+                                    if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
+                                    this.Invoke((MethodInvoker)delegate
+                                    {
+                                        fileDisplay_icons.Images.Add(new Bitmap(bmpDrawOn, fileDisplay_icons.ImageSize));
+                                        items[currentLviIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
+                                        fileDisplay.RedrawItems(currentLviIndex, currentLviIndex, true);
+                                    });
+                                    bmp.Dispose();
+                                    bmpDrawOn.Dispose();
+                                }
+                            }
+                            catch (Exception) { }
+
+                            thumbMutex.ReleaseMutex();
+
+                        })
+                        { IsBackground = true };
+
+                        th.Start();
+                    }
+                }
+            }
+
+            this.Invoke((MethodInvoker)delegate
+            {
+                fileDisplay.Items.AddRange(items.ToArray());
+                fileDisplay.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            });
         }
         
         private void load_file_or_dir(string path)
@@ -5012,10 +4960,10 @@ namespace fapmap
             
             switch (e.KeyCode)
             {
-                case Keys.Escape: links.SelectedItems.Clear();                   e.Handled = true; e.SuppressKeyPress = true; break;
-                case Keys.Enter:  links_start();                                 e.Handled = true; e.SuppressKeyPress = true; break;
-                case Keys.Delete: links_del();                                   e.Handled = true; e.SuppressKeyPress = true; break;
-                case Keys.F5:     links_reload(GlobalVariables.Path.File.Links); e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Escape: links.SelectedItems.Clear(); links.FocusedItem.Focused = false; e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Enter:  links_start();                                                  e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Delete: links_del();                                                    e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.F5:     links_reload(GlobalVariables.Path.File.Links);                  e.Handled = true; e.SuppressKeyPress = true; break;
             }
             if (e.Control)
             {

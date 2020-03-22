@@ -48,35 +48,71 @@ namespace fapmap
             
             output.Items.Clear();
 
-            List<string> all = new List<string>();
-            all.AddRange(Directory.GetDirectories(fapmap.GlobalVariables.Path.Dir.MainFolder, "*.*", SearchOption.AllDirectories));
-            all.AddRange(Directory.GetFiles(fapmap.GlobalVariables.Path.Dir.MainFolder, "*.*", SearchOption.AllDirectories));
+            DirectoryInfo mainDir = new DirectoryInfo(fapmap.GlobalVariables.Path.Dir.MainFolder);
+            DirectoryInfo[] dirs = mainDir.GetDirectories("*.*", SearchOption.AllDirectories);
+            FileInfo[] files = mainDir.GetFiles("*.*", SearchOption.AllDirectories);
 
-            List<string> keywords = new List<string>();
+            List<FileSystemInfo> dirsNfiles = new List<FileSystemInfo>(dirs.Length + files.Length);
+            dirsNfiles.AddRange(dirs);
+            dirsNfiles.AddRange(files);
 
-            if (txt_searchBox.Text.Contains(' ')) { keywords.AddRange(txt_searchBox.Text.Split(' ')); }
-            else { keywords.Add(txt_searchBox.Text); }
+            bool checkCase = cb_case.Checked;
+            string input = txt_searchBox.Text;
+
+            string[] allKeywords = input.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+
+            List<string> only = new List<string>();
+            List<string> can = new List<string>();
+            List<string> ignore = new List<string>();
+            foreach(string keyword in allKeywords)
+            {
+                if      (keyword.StartsWith("-")) { ignore.Add(keyword.Remove(0, 1)); }
+                else if (keyword.StartsWith("~")) { can.Add(keyword.Remove(0, 1));    }
+                else                              { only.Add(keyword);                }
+            }
 
             List<ListViewItem> itemsToAdd = new List<ListViewItem>();
 
-            foreach (string item in all)
+            CultureInfo ci = new CultureInfo("");
+            foreach (FileSystemInfo item in dirsNfiles)
             {
-                bool addIt = true;
-                foreach (string key in keywords)
-                {
-                    string file = item.Remove(0, (fapmap.GlobalVariables.Path.Dir.MainFolder + "\\").Length);
+                string i = item.FullName.Remove(0, (fapmap.GlobalVariables.Path.Dir.MainFolder + "\\").Length);
 
-                    if ((cb_case.Checked ? !file.Contains(key) : !(new CultureInfo("").CompareInfo.IndexOf(file, key, CompareOptions.IgnoreCase) >= 0)))
+                bool addIt = true;
+                
+                if (can.Count > 0)
+                {
+                    bool add = false;
+                    foreach (string key in can)
+                    {
+                        if ((checkCase ? i.Contains(key) : (ci.CompareInfo.IndexOf(i, key, CompareOptions.IgnoreCase) >= 0)))
+                        { add = true; break; }
+                    }
+                    if (!add) { addIt = false; }
+                }
+                if (!addIt) { continue; }
+                
+                foreach (string key in only)
+                {
+                    if ((checkCase ? !i.Contains(key) : !(ci.CompareInfo.IndexOf(i, key, CompareOptions.IgnoreCase) >= 0)))
                     { addIt = false; break; }
                 }
+                if (!addIt) { continue; }
 
-                string text = item;
+                foreach (string key in ignore)
+                {
+                    if ((checkCase ? i.Contains(key) : (ci.CompareInfo.IndexOf(i, key, CompareOptions.IgnoreCase) >= 0)))
+                    { addIt = false; break; }
+                }
+                if (!addIt) { continue; }
+
+                string text = item.FullName;
                 int imageIndex = 0;
 
                 Color fc = output.ForeColor;
-                if (Directory.Exists(item))
+                if (Directory.Exists(item.FullName))
                 {
-                    DirectoryInfo di = new DirectoryInfo(item);
+                    DirectoryInfo di = new DirectoryInfo(item.FullName);
 
                     // set name
                     if (cb_fileNameOnly.Checked) { text = di.Parent.Name + "\\" + di.Name; }
@@ -89,9 +125,9 @@ namespace fapmap
                     // set image
                     imageIndex = 0;
                 }
-                else if (File.Exists(item))
+                else if (File.Exists(item.FullName))
                 {
-                    FileInfo fi = new FileInfo(item);
+                    FileInfo fi = new FileInfo(item.FullName);
 
                     // set name
                     if (cb_fileNameOnly.Checked) { text = fi.Directory.Name + "\\" + fi.Name; }
@@ -109,7 +145,7 @@ namespace fapmap
                     }
                     else
                     {
-                        output_icons.Images.Add(ext, System.Drawing.Icon.ExtractAssociatedIcon(item));
+                        output_icons.Images.Add(ext, System.Drawing.Icon.ExtractAssociatedIcon(item.FullName));
                         imageIndex = output_icons.Images.Count - 1;
                     }
                 }
@@ -117,7 +153,7 @@ namespace fapmap
 
                 if (addIt)
                 {
-                    itemsToAdd.Add(new ListViewItem(new string[] { (itemsToAdd.Count + 1).ToString(), text }) { Name = item, ForeColor = fc, ImageIndex = imageIndex });
+                    itemsToAdd.Add(new ListViewItem(new string[] { (itemsToAdd.Count + 1).ToString(), text }) { Name = item.FullName, ForeColor = fc, ImageIndex = imageIndex });
                 }
             }
 
@@ -284,6 +320,7 @@ namespace fapmap
         {
             if (output.SelectedItems.Count != 0) { e.Effect = DragDropEffects.Copy; }
         }
+
         private void output_MouseDown(object sender, MouseEventArgs e)
         {
             output_SelectedIndexChanged(null, null);
@@ -311,11 +348,15 @@ namespace fapmap
             }
         }
 
+        private bool showImage_disposed = false;
         private void showImage_dispose()
         {
+            if (showImage_disposed) { return; }
+
             showImage.Image = Properties.Resources.image;
             showMedia_Show(false);
             GC.Collect();
+            showImage_disposed = true;
         }
         private void output_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -327,14 +368,18 @@ namespace fapmap
 
                 if (!File.Exists(item) && !Directory.Exists(item)) { lvi.Remove(); return; }
 
-                if (!cb_showImage.Checked) { return; }
-
-                if (File.Exists(item))
+                if (cb_showImage.Checked)
                 {
-                    if (fapmap.GlobalVariables.FileTypes.Image.Contains(new FileInfo(item).Extension))
+                    showImage_dispose();
+
+                    if (File.Exists(item))
                     {
-                        showImage.Image = Image.FromFile(item);
-                        showMedia_Show(true);
+                        if (fapmap.GlobalVariables.FileTypes.Image.Contains(new FileInfo(item).Extension))
+                        {
+                            showImage.Image = Image.FromFile(item);
+                            showMedia_Show(true);
+                            showImage_disposed = false;
+                        }
                     }
                 }
             }
@@ -355,12 +400,7 @@ namespace fapmap
         private void output_RMB_explorer2_Click(object sender, EventArgs e) { output_explorer2(); }
         private void output_RMB_copy_Click    (object sender, EventArgs e)  { output_copy();       }
         private void output_RMB_delete_Click  (object sender, EventArgs e)  { output_delete(); }
-
-
-
-
-        #endregion
-
         
+        #endregion
     }
 }

@@ -212,7 +212,7 @@
             this.cb_showImage.Name = "cb_showImage";
             this.cb_showImage.Size = new System.Drawing.Size(12, 11);
             this.cb_showImage.TabIndex = 4;
-            this.HelpBalloon.SetToolTip(this.cb_showImage, "Show Image Preview (CTRL+W - in searchbox/list)");
+            this.HelpBalloon.SetToolTip(this.cb_showImage, "Show Image Preview (CTRL+Q - in searchbox/list)");
             this.cb_showImage.UseVisualStyleBackColor = false;
             this.cb_showImage.CheckedChanged += new System.EventHandler(this.cb_showImage_CheckedChanged);
             // 
@@ -221,8 +221,6 @@
             this.cb_case.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cb_case.AutoSize = true;
             this.cb_case.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.cb_case.Checked = true;
-            this.cb_case.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_case.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_case.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
             this.cb_case.FlatAppearance.CheckedBackColor = System.Drawing.Color.SlateBlue;

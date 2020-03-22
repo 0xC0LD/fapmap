@@ -174,9 +174,15 @@ namespace fapmap
             {
                 // foreColor = Color.CornflowerBlue;
                 using (Brush background = new SolidBrush(selectedBackColor))
+                using (LinearGradientBrush selectedBrush = e.Node.IsExpanded ?
+                    new LinearGradientBrush(e.Bounds, Color.FromArgb(40, 0, 70), Color.FromArgb(16, 16, 69), System.Drawing.Drawing2D.LinearGradientMode.Vertical)
+                    :
+                    new LinearGradientBrush(e.Bounds, Color.FromArgb(16, 16, 69), Color.FromArgb(40, 0, 70), System.Drawing.Drawing2D.LinearGradientMode.Vertical)
+                )
                 using (Brush border = new SolidBrush(Color.DarkSlateBlue))
                 {
                     e.Graphics.FillRectangle(background, e.Bounds);
+                    e.Graphics.FillRectangle(selectedBrush, e.Bounds);
                     e.Graphics.DrawRectangle(new Pen(border), new Rectangle(e.Bounds.Location, new Size(e.Bounds.Width - 1, e.Bounds.Height - 1)));
                     TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, foreColor, TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.SingleLine | TextFormatFlags.EndEllipsis);
                 }
@@ -187,9 +193,9 @@ namespace fapmap
                 // foreColor = Color.SkyBlue;
                 using (Brush background = new SolidBrush(backColor))
                 using (LinearGradientBrush selectedBrush = e.Node.IsExpanded ?
-                    new LinearGradientBrush(e.Bounds, Color.MidnightBlue, Color.Transparent, System.Drawing.Drawing2D.LinearGradientMode.Vertical)
+                    new LinearGradientBrush(e.Bounds, Color.Indigo, Color.MidnightBlue, System.Drawing.Drawing2D.LinearGradientMode.Vertical)
                     :
-                    new LinearGradientBrush(e.Bounds, Color.Transparent, Color.MidnightBlue, System.Drawing.Drawing2D.LinearGradientMode.Vertical)
+                    new LinearGradientBrush(e.Bounds, Color.MidnightBlue, Color.Indigo, System.Drawing.Drawing2D.LinearGradientMode.Vertical)
                 )
                 using (Brush border = new SolidBrush(Color.SlateBlue))
                 {

@@ -25,19 +25,38 @@ namespace fapmap
 
         private void fapmap_info_Load(object sender, EventArgs e)
         {
+            getInfo(pass_path);
+
+            btn_getInfo.Focus();
+            this.ActiveControl = btn_getInfo;
+
             if (File.Exists(pass_path))
             {
-                if (fapmap.GlobalVariables.FileTypes.Image.Contains(Path.GetExtension(pass_path).ToLower()))
+                FileInfo fi = new FileInfo(pass_path);
+                if (fapmap.GlobalVariables.FileTypes.Image.Contains(fi.Extension.ToLower()))
                 {
-                    Image img = Image.FromFile(pass_path);
+                    Image img = Image.FromFile(fi.FullName);
                     Bitmap bmp = new Bitmap(img);
                     img.Dispose();
                     showImage.Image = bmp;
+                    return;
                 }
-                else
+
+                if (fapmap.GlobalVariables.FileTypes.Video.Contains(fi.Extension.ToLower()))
                 {
-                    showImage.Image = System.Drawing.Icon.ExtractAssociatedIcon(pass_path).ToBitmap();
+                    string dest = fapmap.GlobalVariables.Path.Dir.Thumbnails + "\\" + fi.Name + ".tmp";
+
+                    if (File.Exists(dest))
+                    {
+                        Image img = Image.FromFile(dest);
+                        Bitmap bmp = new Bitmap(img);
+                        img.Dispose();
+                        showImage.Image = bmp;
+                        return;
+                    }
                 }
+
+                showImage.Image = Icon.ExtractAssociatedIcon(fi.FullName).ToBitmap();
             }
             else if (Directory.Exists(pass_path))
             {
@@ -47,11 +66,6 @@ namespace fapmap
             {
                 this.Close();
             }
-
-            getInfo(pass_path);
-
-            btn_getInfo.Focus();
-            this.ActiveControl = btn_getInfo;
         }
 
         private void HelpBalloon_Draw(object sender, DrawToolTipEventArgs e)

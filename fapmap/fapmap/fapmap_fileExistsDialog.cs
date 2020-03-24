@@ -38,11 +38,24 @@ namespace fapmap
                 Bitmap bmp = new Bitmap(img);
                 img.Dispose();
                 showImage.Image = bmp;
+                return;
             }
-            else
+
+            if (fapmap.GlobalVariables.FileTypes.Video.Contains(fi.Extension.ToLower()))
             {
-                showImage.Image = Icon.ExtractAssociatedIcon(filePath).ToBitmap();
+                string dest = fapmap.GlobalVariables.Path.Dir.Thumbnails + "\\" + fi.Name + ".tmp";
+
+                if (File.Exists(dest))
+                {
+                    Image img = Image.FromFile(dest);
+                    Bitmap bmp = new Bitmap(img);
+                    img.Dispose();
+                    showImage.Image = bmp;
+                    return;
+                }
             }
+
+            showImage.Image = Icon.ExtractAssociatedIcon(fi.FullName).ToBitmap();
         }
 
         #region fx

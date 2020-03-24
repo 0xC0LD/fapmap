@@ -52,10 +52,16 @@ namespace fapmap
             DirectoryInfo[] dirs = mainDir.GetDirectories("*.*", SearchOption.AllDirectories);
             FileInfo[] files = mainDir.GetFiles("*.*", SearchOption.AllDirectories);
 
+            if (cb_sort.Checked)
+            {
+                dirs = dirs.OrderByDescending(p => p.CreationTime).ToArray();
+                files = files.OrderByDescending(p => p.CreationTime).ToArray();
+            }
+
             List<FileSystemInfo> dirsNfiles = new List<FileSystemInfo>(dirs.Length + files.Length);
             dirsNfiles.AddRange(dirs);
             dirsNfiles.AddRange(files);
-
+            
             bool checkCase = cb_case.Checked;
             string input = txt_searchBox.Text;
 
@@ -139,15 +145,13 @@ namespace fapmap
 
                     // set image
                     string ext = fi.Extension.ToLower();
-                    if (output_icons.Images.ContainsKey(ext))
+                    imageIndex = output_icons.Images.IndexOfKey(ext);
+                    if (imageIndex == -1)
                     {
-                        imageIndex = output_icons.Images.IndexOfKey(ext);
-                    }
-                    else
-                    {
-                        output_icons.Images.Add(ext, System.Drawing.Icon.ExtractAssociatedIcon(item.FullName));
+                        output_icons.Images.Add(ext, System.Drawing.Icon.ExtractAssociatedIcon(fi.FullName));
                         imageIndex = output_icons.Images.Count - 1;
                     }
+
                 }
                 else { addIt = false; }
 
@@ -226,9 +230,20 @@ namespace fapmap
 
         #region ui events
         
-        private void findButton_Click(object sender, EventArgs e)
+        private void btn_find_Click(object sender, EventArgs e)
         {
             find();
+        }
+
+        private void btn_help_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(
+            "When searching you can specify keywords in the search box..." + Environment.NewLine + Environment.NewLine +
+            "Use the '-' char to specify an exclusion keyword"             + Environment.NewLine +
+            "(example: -.jpg -.png)"                                       + Environment.NewLine + Environment.NewLine +
+            "Use the '~' char to find files that contain at least one"     + Environment.NewLine +
+            "of the specified keywords... (example: ~jpg ~png ~mp4)"
+            , "Search Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void txt_searchBox_KeyDown(object sender, KeyEventArgs e)
@@ -245,7 +260,8 @@ namespace fapmap
                 {
                     case Keys.Q: cb_showImage.Checked    = !cb_showImage.Checked;    e.Handled = true; e.SuppressKeyPress = true; break;
                     case Keys.E: cb_case.Checked         = !cb_case.Checked;         e.Handled = true; e.SuppressKeyPress = true; break;
-                    case Keys.D: cb_fileNameOnly.Checked = !cb_fileNameOnly.Checked; e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.D: cb_sort.Checked         = !cb_sort.Checked;         e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.F: cb_fileNameOnly.Checked = !cb_fileNameOnly.Checked; e.Handled = true; e.SuppressKeyPress = true; break;
                 }
             }
 
@@ -400,7 +416,9 @@ namespace fapmap
         private void output_RMB_explorer2_Click(object sender, EventArgs e) { output_explorer2(); }
         private void output_RMB_copy_Click    (object sender, EventArgs e)  { output_copy();       }
         private void output_RMB_delete_Click  (object sender, EventArgs e)  { output_delete(); }
-        
+
         #endregion
+
+        
     }
 }

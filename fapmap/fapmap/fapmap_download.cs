@@ -512,18 +512,36 @@ namespace fapmap
             download(null);
         }
 
+        DateTime lastUpdate;
+        long lastBytes = 0;
         private void client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             //main
-            double now = e.BytesReceived;
-            double max = e.TotalBytesToReceive;
-
-            string bytesIn_CONVERTED_STRING = fapmap.ROund(now);
-            string totalBytes_CONVERTED_STRING = fapmap.ROund(max);
+            long bytes_current = e.BytesReceived;
+            long bytes_total = e.TotalBytesToReceive;
+            
+            // speed
+            if (lastBytes == 0)
+            {
+                lastUpdate = DateTime.Now;
+                lastBytes = bytes_current;
+                return;
+            }
+            DateTime now = DateTime.Now;
+            TimeSpan timeSpan = now - lastUpdate;
+            long bytesChange = bytes_current - lastBytes;
+            int sec = timeSpan.Seconds;
+            long bytesPerSecond = bytesChange / (sec > 0 ? sec : 1);
+            lastBytes = bytes_current;
+            lastUpdate = now;
 
             pbar.Value = e.ProgressPercentage;
             
-            info.Text = e.ProgressPercentage + "% = " + bytesIn_CONVERTED_STRING + " (" + now + " bytes)" + Environment.NewLine + "100% = " + totalBytes_CONVERTED_STRING + " (" + max + " bytes)";
+            info.Text = e.ProgressPercentage + "% = " + fapmap.ROund(bytes_current) + " (" + bytes_current + " bytes)" + Environment.NewLine +
+                                            "100% = " + fapmap.ROund(bytes_total) + " (" + bytes_total + " bytes)" + Environment.NewLine + 
+                                            "speed: " + fapmap.ROund(bytesPerSecond) + " (" + bytesPerSecond + " bytes)" + " per sec";
+
+
             this_trayicon.Text = (links.Items.Count + 1).ToString() + ": " + e.ProgressPercentage.ToString() + "%";
         }
         private void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)

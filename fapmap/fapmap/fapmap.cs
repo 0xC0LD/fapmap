@@ -188,7 +188,7 @@ namespace fapmap
             menu.Focus();
             load_file_or_dir(GlobalVariables.Path.Dir.MainFolder);
 
-            this.SetStyle(ControlStyles.DoubleBuffer, true);
+            this.SetStyle(ControlStyles.DoubleBuffer | ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint, true);
         }
 
         #endregion
@@ -286,82 +286,7 @@ namespace fapmap
             e.DrawBorder();
             e.DrawText();
         }
-
-        private void faftv_DrawNode(object sender, DrawTreeNodeEventArgs e)
-        {
-            TreeNodeStates state = e.State;
-            Font font = e.Node.NodeFont ?? e.Node.TreeView.Font;
-            Color foreColor = faftv.ForeColor;
-            Color backColor = faftv.BackColor;
-            Color selectedBackColor = Color.FromArgb(15,15,15);
-
-            // SET COLOR BY ATTRIB
-            string path = e.Node.Name;
-            if (Directory.Exists(path))
-            {
-                //SET COLOR BY ATTRIB
-                FileAttributes attrib_dir = File.GetAttributes(path);
-                if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.MediumPurple;  }
-                else if (attrib_dir.HasFlag(FileAttributes.Hidden))                    { foreColor = Color.SteelBlue;     }
-                else                                                                   { foreColor = Color.PaleVioletRed; }
-            }
-            else if (File.Exists(path))
-            {
-                //SET COLOR BY ATTRIB
-                FileAttributes attrib_dir = File.GetAttributes(path);
-                if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.MediumPurple;  }
-                else if (attrib_dir.HasFlag(FileAttributes.Hidden))                    { foreColor = Color.SteelBlue;     }
-                else                                                                   { foreColor = Color.PaleVioletRed; }
-            }
-            else { e.Node.Remove(); return; }
-
-            // node is selected but not focused on treeview
-            if (!e.Node.TreeView.Focused && e.Node == e.Node.TreeView.SelectedNode)
-            {
-                // foreColor = Color.CornflowerBlue;
-                using (Brush background = new SolidBrush(selectedBackColor))
-                using (LinearGradientBrush selectedBrush = e.Node.IsExpanded ?
-                    new LinearGradientBrush(e.Bounds, Color.FromArgb(40, 0, 70), Color.FromArgb(16, 16, 69), System.Drawing.Drawing2D.LinearGradientMode.Vertical)
-                    :
-                    new LinearGradientBrush(e.Bounds, Color.FromArgb(16, 16, 69), Color.FromArgb(40, 0, 70), System.Drawing.Drawing2D.LinearGradientMode.Vertical)
-                )
-                using (Brush border = new SolidBrush(Color.DarkSlateBlue))
-                {
-                    e.Graphics.FillRectangle(background, e.Bounds);
-                    e.Graphics.FillRectangle(selectedBrush, e.Bounds);
-                    e.Graphics.DrawRectangle(new Pen(border), new Rectangle(e.Bounds.Location, new Size(e.Bounds.Width - 1, e.Bounds.Height - 1)));
-                    TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, foreColor, TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.SingleLine | TextFormatFlags.EndEllipsis);
-                }
-            }
-            // node selected
-            else if ((state & TreeNodeStates.Selected) == TreeNodeStates.Selected)
-            {
-                // foreColor = Color.SkyBlue;
-                using (Brush background = new SolidBrush(backColor))
-                using (LinearGradientBrush selectedBrush = e.Node.IsExpanded ?
-                    new LinearGradientBrush(e.Bounds, Color.Indigo, Color.MidnightBlue, System.Drawing.Drawing2D.LinearGradientMode.Vertical)
-                    :
-                    new LinearGradientBrush(e.Bounds, Color.MidnightBlue, Color.Indigo, System.Drawing.Drawing2D.LinearGradientMode.Vertical)
-                )
-                using (Brush border = new SolidBrush(Color.SlateBlue))
-                {
-                    e.Graphics.FillRectangle(background, e.Bounds);
-                    e.Graphics.FillRectangle(selectedBrush, e.Bounds);
-                    e.Graphics.DrawRectangle(new Pen(border), new Rectangle(e.Bounds.Location, new Size(e.Bounds.Width - 1, e.Bounds.Height - 1)));
-                    TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, foreColor, TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.SingleLine | TextFormatFlags.EndEllipsis);
-                }
-            }
-            // node is not selected
-            else
-            {
-                using (Brush background = new SolidBrush(backColor))
-                {
-                    e.Graphics.FillRectangle(background, e.Bounds);
-                    TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, foreColor, TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.SingleLine | TextFormatFlags.EndEllipsis);
-                }
-            }
-        }
-
+        
         #endregion
 
         #region Global Functions
@@ -1555,6 +1480,7 @@ namespace fapmap
             {
                 splitContainer_files.Panel2.Hide();
                 splitContainer_files.Panel2Collapsed = true;
+                load_dir_cur++; // cancel loading thumbs
                 fileDisplay.Items.Clear();
                 fileDisplay_icons.Images.Clear();
             }
@@ -1718,7 +1644,7 @@ namespace fapmap
         private int load_dir_cur = 0;
         private void load_dir(string path)
         {
-            if (!GlobalVariables.Settings.CheckBoxes.EnableFileDisplay) { return; }
+            if (!GlobalVariables.Settings.CheckBoxes.EnableFileDisplay) { fileDisplay.Enabled = false; return; }
             fileDisplay.Enabled = true;
 
             // current run index (for thumbs)
@@ -1730,7 +1656,7 @@ namespace fapmap
             if (File.Exists(path)) { path = new FileInfo(path).Directory.FullName; }
             if (!Directory.Exists(path)) { return; }
 
-            fileDisplay_icons.Images.Clear();
+            //fileDisplay_icons.Images.Clear();
             fileDisplay.Items.Clear();
 
             if (fileDisplay_watcher != null) { fileDisplay_watcher.Dispose(); }
@@ -1750,7 +1676,6 @@ namespace fapmap
             fileDisplay_watcher.Renamed += fileDisplay_watcher_Renamed;
             fileDisplay_watcher.EnableRaisingEvents = true;
             
-            List<ListViewItem> items = new List<ListViewItem>();
             DirectoryInfo loadDir = new DirectoryInfo(path);
             DirectoryInfo[] dirs = loadDir.GetDirectories();
             FileInfo[] files = loadDir.GetFiles();
@@ -1761,111 +1686,137 @@ namespace fapmap
                 files = files.OrderBy(p => p.CreationTime).ToArray();
             }
 
+            List<ListViewItem> items = new List<ListViewItem>();
+
             // get dirs
-            fileDisplay_icons.Images.Add(new Bitmap(Properties.Resources.dir, fileDisplay_icons.ImageSize));
             for (int i = 0; i < dirs.Length; i++)
             {
-                items.Add(new ListViewItem() { Name = dirs[i].FullName, ImageIndex = 0, Text = dirs[i].Name });
+                items.Add(load_dir_dir(dirs[i]));
             }
 
             // get files
-            Mutex thumbMutex = new Mutex();
+            
+            for (int i = 0; i < files.Length; i++)
+            {
+                if (files[i].Name == "desktop.ini") { continue; }
+                items.Add(load_dir_file(files[i]));
+                load_dir_thumbnail(items.Last(), files[i]);
+            }
+
+            fileDisplay.Items.AddRange(items.ToArray());
+        }
+        private void load_dir_refresh()
+        {
+            if (!Directory.Exists(selectedDirPath)) { return; }
+            DirectoryInfo di = new DirectoryInfo(selectedDirPath);
+
+            DirectoryInfo[] dirs = di.GetDirectories();
+            FileInfo[] files = di.GetFiles();
+
+            if (GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate)
+            {
+                dirs = dirs.OrderBy(p => p.CreationTime).ToArray();
+                files = files.OrderBy(p => p.CreationTime).ToArray();
+            }
+
+            for (int i = 0; i < dirs.Length; i++)
+            {
+                if (fileDisplay.Items.IndexOfKey(dirs[i].FullName) == -1)
+                {
+                    fileDisplay.Items.Add(load_dir_dir(dirs[i]));
+                }
+            }
+
             for (int i = 0; i < files.Length; i++)
             {
                 if (files[i].Name == "desktop.ini") { continue; }
 
-                int imageIndex = 0;
+                int LviIndex = fileDisplay.Items.IndexOfKey(files[i].FullName);
 
-                // set image
-                string ext = files[i].Extension.ToLower();
-                if (fileDisplay_icons.Images.ContainsKey(ext))
+                if (LviIndex == -1)
                 {
-                    imageIndex = fileDisplay_icons.Images.IndexOfKey(ext);
-                }
-                else
-                {
-                    fileDisplay_icons.Images.Add(ext, System.Drawing.Icon.ExtractAssociatedIcon(files[i].FullName));
-                    imageIndex = fileDisplay_icons.Images.Count - 1;
+                    fileDisplay.Items.Add(load_dir_file(files[i]));
+                    LviIndex = fileDisplay.Items.Count - 1;
                 }
 
-                ListViewItem lvi = new ListViewItem();
+                load_dir_thumbnail(fileDisplay.Items[LviIndex], files[i]);
+            }
 
-                if (imageIndex == 0)
+            List<ListViewItem> itemsToRemove = new List<ListViewItem>();
+            foreach (ListViewItem lvi in fileDisplay.Items) { if (!Directory.Exists(lvi.Name) && !File.Exists(lvi.Name)) { itemsToRemove.Add(lvi); } }
+            foreach (ListViewItem lvi in itemsToRemove) { fileDisplay.Items.Remove(lvi); }
+        }
+        private Mutex load_dir_thumbnail_mutex = new Mutex();
+        private void load_dir_thumbnail(ListViewItem item, FileInfo fi)
+        {
+            int c_load_dir_cur = load_dir_cur;
+            
+            if (GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails)
+            {
+                // get image thumbs
+                if (GlobalVariables.FileTypes.Image.Contains(fi.Extension))
                 {
-                    lvi.Name = files[i].FullName;
-                    lvi.Text = files[i].Name;
-                }
-                else
-                {
-                    lvi.Name = files[i].FullName;
-                    lvi.Text = files[i].Name;
-                    lvi.ImageIndex = imageIndex;
-                }
-
-                items.Add(lvi);
-
-                if (GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails)
-                {
-
-
-                    // get image thumbs
-                    if (GlobalVariables.FileTypes.Image.Contains(files[i].Extension))
+                    new Thread(() =>
                     {
-                        int currentLviIndex = items.Count - 1;
-                        int currentFileIndex = i;
-                        int currentLoad_dir_cur = load_dir_cur;
+                        load_dir_thumbnail_mutex.WaitOne();
+                        if (c_load_dir_cur != load_dir_cur) { load_dir_thumbnail_mutex.ReleaseMutex(); return; }
 
-                        new Thread(() =>
+                        try
                         {
-                            thumbMutex.WaitOne();
-                            if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
+                            string file = fi.FullName;
 
-                            try
+                            // get index
+                            int iIndex = fileDisplay_icons.Images.IndexOfKey(file);
+                            if (iIndex == -1)
                             {
-                                Image img = Image.FromFile(files[currentFileIndex].FullName);
+                                Image img = Image.FromFile(file);
                                 Bitmap bmp = new Bitmap(img);
                                 img.Dispose();
                                 int size = Math.Max(bmp.Width, bmp.Height);
                                 Bitmap bmpDrawOn = new Bitmap(size, size);
                                 using (Graphics g = Graphics.FromImage(bmpDrawOn)) { g.Clear(Color.Transparent); g.DrawImage(bmp, 0, 0); }
-
-                                if (currentLoad_dir_cur == load_dir_cur)
+                                if (c_load_dir_cur == load_dir_cur)
                                 {
                                     this.Invoke((MethodInvoker)delegate
                                     {
-                                        fileDisplay_icons.Images.Add(new Bitmap(bmpDrawOn, fileDisplay_icons.ImageSize));
-                                        items[currentLviIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
-                                        fileDisplay.RedrawItems(currentLviIndex, currentLviIndex, true);
+                                        fileDisplay_icons.Images.Add(file, new Bitmap(bmpDrawOn, fileDisplay_icons.ImageSize));
+                                        item.ImageIndex = fileDisplay_icons.Images.Count - 1;
+                                        fileDisplay.RedrawItems(item.Index, item.Index, true);
                                     });
                                 }
-
                                 bmp.Dispose();
                                 bmpDrawOn.Dispose();
                             }
-                            catch (Exception) { }
-
-                            thumbMutex.ReleaseMutex();
-                        })
-                        { IsBackground = true }.Start();
-                    }
-
-                    // get video thumbs
-                    if (File.Exists(GlobalVariables.Path.File.Exe.FFMPEG) && GlobalVariables.FileTypes.Video.Contains(files[i].Extension))
-                    {
-                        int currentLviIndex = items.Count - 1;
-                        int currentFileIndex = i;
-                        int currentLoad_dir_cur = load_dir_cur;
-
-                        Thread th = new Thread(() =>
-                        {
-                            thumbMutex.WaitOne();
-                            if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
-
-                            try
+                            else
                             {
-                                string src = files[currentFileIndex].FullName;
-                                string dest = GlobalVariables.Path.Dir.Thumbnails + "\\" + files[currentFileIndex].Name + ".tmp";
+                                item.ImageIndex = iIndex;
+                                fileDisplay.RedrawItems(item.Index, item.Index, true);
+                            }
+                        }
+                        catch (Exception) { }
 
+                        load_dir_thumbnail_mutex.ReleaseMutex();
+                    })
+                    { IsBackground = true }.Start();
+                }
+
+                // get video thumbs
+                if (File.Exists(GlobalVariables.Path.File.Exe.FFMPEG) && GlobalVariables.FileTypes.Video.Contains(fi.Extension))
+                {
+                    Thread th = new Thread(() =>
+                    {
+                        load_dir_thumbnail_mutex.WaitOne();
+                        if (c_load_dir_cur != load_dir_cur) { load_dir_thumbnail_mutex.ReleaseMutex(); return; }
+
+                        try
+                        {
+                            string src = fi.FullName;
+                            string dest = GlobalVariables.Path.Dir.Thumbnails + "\\" + fi.Name + ".tmp";
+
+                            // get index
+                            int iIndex = fileDisplay_icons.Images.IndexOfKey(dest);
+                            if (iIndex == -1)
+                            {
                                 if (!File.Exists(dest))
                                 {
                                     var startInfo = new ProcessStartInfo
@@ -1879,7 +1830,7 @@ namespace fapmap
                                     process.Start();
                                     process.WaitForExit();
 
-                                    if (currentLoad_dir_cur != load_dir_cur) { thumbMutex.ReleaseMutex(); return; }
+                                    if (c_load_dir_cur != load_dir_cur) { load_dir_thumbnail_mutex.ReleaseMutex(); return; }
                                 }
 
                                 if (File.Exists(dest))
@@ -1890,38 +1841,59 @@ namespace fapmap
                                     int size = Math.Max(bmp.Width, bmp.Height);
                                     Bitmap bmpDrawOn = new Bitmap(size, size);
                                     using (Graphics g = Graphics.FromImage(bmpDrawOn)) { g.Clear(Color.Transparent); g.DrawImage(bmp, 0, 0); }
-
-                                    if (currentLoad_dir_cur == load_dir_cur)
+                                    if (c_load_dir_cur == load_dir_cur)
                                     {
                                         this.Invoke((MethodInvoker)delegate
                                         {
-                                            fileDisplay_icons.Images.Add(new Bitmap(bmpDrawOn, fileDisplay_icons.ImageSize));
-                                            items[currentLviIndex].ImageIndex = fileDisplay_icons.Images.Count - 1;
-                                            fileDisplay.RedrawItems(currentLviIndex, currentLviIndex, true);
+                                            fileDisplay_icons.Images.Add(dest, new Bitmap(bmpDrawOn, fileDisplay_icons.ImageSize));
+                                            item.ImageIndex = fileDisplay_icons.Images.Count - 1;
+                                            fileDisplay.RedrawItems(item.Index, item.Index, true);
                                         });
                                     }
-
                                     bmp.Dispose();
                                     bmpDrawOn.Dispose();
                                 }
                             }
-                            catch (Exception) { }
+                            else
+                            {
+                                item.ImageIndex = iIndex;
+                                fileDisplay.RedrawItems(item.Index, item.Index, true);
+                            }
+                        }
+                        catch (Exception) { }
 
-                            thumbMutex.ReleaseMutex();
+                        load_dir_thumbnail_mutex.ReleaseMutex();
 
-                        })
-                        { IsBackground = true };
+                    })
+                    { IsBackground = true };
 
-                        th.Start();
-                    }
+                    th.Start();
                 }
             }
-
-            this.Invoke((MethodInvoker)delegate
+        }
+        private ListViewItem load_dir_dir(DirectoryInfo di)
+        {
+            string ext = "dir";
+            int extIndex = fileDisplay_icons.Images.IndexOfKey(ext);
+            if (extIndex == -1)
             {
-                fileDisplay.Items.AddRange(items.ToArray());
-                fileDisplay.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            });
+                fileDisplay_icons.Images.Add(ext, Properties.Resources.dir);
+                extIndex = fileDisplay_icons.Images.Count - 1;
+            }
+
+            return new ListViewItem() { Name = di.FullName, Text = di.Name, ImageIndex = extIndex };
+        }
+        private ListViewItem load_dir_file(FileInfo fi)
+        {
+            string ext = fi.Extension.ToLower();
+            int extIndex = fileDisplay_icons.Images.IndexOfKey(ext);
+            if (extIndex == -1)
+            {
+                fileDisplay_icons.Images.Add(ext, System.Drawing.Icon.ExtractAssociatedIcon(fi.FullName));
+                extIndex = fileDisplay_icons.Images.Count - 1;
+            }
+
+            return new ListViewItem() { Name = fi.FullName, Text = fi.Name, ImageIndex = extIndex };
         }
         
         private void load_file_or_dir(string path)
@@ -2268,15 +2240,13 @@ namespace fapmap
             {
                 if (Directory.Exists(e.FullPath))
                 {
-                    fileDisplay_icons.Images.Add(new Bitmap(Properties.Resources.dir, fileDisplay_icons.ImageSize));
-                    fileDisplay.Items.Add(new ListViewItem() { Name = e.FullPath, ImageIndex = fileDisplay_icons.Images.Count - 1, Text = new DirectoryInfo(e.FullPath).Name });
+                    fileDisplay.Items.Add(load_dir_dir(new DirectoryInfo(e.FullPath)));
                 }
                 else if (File.Exists(e.FullPath))
                 {
+                    // add file
                     if (e.Name == "desktop.ini") { return; }
-                    try { fileDisplay_icons.Images.Add(new Bitmap(Icon.ExtractAssociatedIcon(e.FullPath).ToBitmap(), fileDisplay_icons.ImageSize)); }
-                    catch (Exception) { fileDisplay_icons.Images.Add(new Bitmap(Properties.Resources.image, fileDisplay_icons.ImageSize)); }
-                    fileDisplay.Items.Add(new ListViewItem() { Name = e.FullPath, ImageIndex = fileDisplay_icons.Images.Count - 1, Text = new FileInfo(e.FullPath).Name });
+                    fileDisplay.Items.Add(load_dir_file(new FileInfo(e.FullPath)));
                 }
             });
         }
@@ -2302,9 +2272,7 @@ namespace fapmap
                     foreach (ListViewItem lvi in fileDisplay.Items) { if (!File.Exists(lvi.Name) && !Directory.Exists(lvi.Name)) { itemsToRemove.Add(lvi); } }
                     foreach (ListViewItem lvi in itemsToRemove) { fileDisplay.Items.Remove(lvi); }
                     
-                    // add dir
-                    fileDisplay_icons.Images.Add(new Bitmap(Properties.Resources.dir, fileDisplay_icons.ImageSize));
-                    fileDisplay.Items.Add(new ListViewItem() { Name = e.FullPath, ImageIndex = fileDisplay_icons.Images.Count - 1, Text = new DirectoryInfo(e.FullPath).Name });
+                    fileDisplay.Items.Add(load_dir_dir(new DirectoryInfo(e.FullPath)));
                 }
                 else if (File.Exists(e.FullPath))
                 {
@@ -2315,9 +2283,7 @@ namespace fapmap
 
                     // add file
                     if (e.Name == "desktop.ini") { return; }
-                    try { fileDisplay_icons.Images.Add(new Bitmap(Icon.ExtractAssociatedIcon(e.FullPath).ToBitmap(), fileDisplay_icons.ImageSize)); }
-                    catch (Exception) { fileDisplay_icons.Images.Add(new Bitmap(Properties.Resources.image, fileDisplay_icons.ImageSize)); }
-                    fileDisplay.Items.Add(new ListViewItem() { Name = e.FullPath, ImageIndex = fileDisplay_icons.Images.Count - 1, Text = new FileInfo(e.FullPath).Name });
+                    fileDisplay.Items.Add(load_dir_file(new FileInfo(e.FullPath)));
                 }
             });
         }
@@ -2357,13 +2323,13 @@ namespace fapmap
                 e.Handled = e.SuppressKeyPress = true;
                 switch (e.KeyCode)
                 {
-                    case Keys.R: load_dir(selectedDirPath);    break;
-                    case Keys.A: fileDisplay_explorer();       break;
-                    case Keys.C: fileDisplay_explorer2();      break;
-                    case Keys.W: fileDisplay_open(true, true); break;
-                    case Keys.S: fileDisplay_createDir();      break;
-                    case Keys.D: fileDisplay_properties();     break;
-                    case Keys.X: fileDisplay_move();           break;
+                    case Keys.R: load_dir_refresh();              break;
+                    case Keys.A: fileDisplay_explorer();          break;
+                    case Keys.C: fileDisplay_explorer2();         break;
+                    case Keys.W: fileDisplay_open(true, true);    break;
+                    case Keys.S: fileDisplay_createDir();         break;
+                    case Keys.D: fileDisplay_properties();        break;
+                    case Keys.X: fileDisplay_move();              break;
 
                     // hidden shortcuts
                     case Keys.F: new fapmap_find().Show();     break;
@@ -2413,13 +2379,10 @@ namespace fapmap
         {
             if (e.Button == MouseButtons.Right) { Random_VOI(GlobalVariables.Path.Dir.MainFolder, true, true); }
         }
-
         
-
         #endregion
 
         #region change icon size
-
         
         private int fileDisplay_sideSize = 150;
         private int fileDisplay_sideSize_min = 50;
@@ -2439,14 +2402,23 @@ namespace fapmap
             if      (fileDisplay_sideSize == fileDisplay_sideSize_min) { fileDisplay.View = View.Tile; }
             else if (fileDisplay_sideSize >  fileDisplay_sideSize_min) { fileDisplay.View = View.LargeIcon; }
 
+            load_dir_cur++; // cancel loading thumbs
             Size s = new Size(fileDisplay_sideSize, fileDisplay_sideSize);
-            fileDisplay.Clear();
+            fileDisplay.Items.Clear();
             fileDisplay_icons.Images.Clear();
             fileDisplay_icons.ImageSize = s;
-            fileDisplay_icons.Images.Add(new Bitmap(Properties.Resources.image, s));
             for (int i = 0; i < 5; i++)
             {
-                fileDisplay.Items.Add(new ListViewItem { Text = "ITEM [" + (i+1).ToString() + "]", Name = "", ImageIndex = 0 });
+                string ext = "img";
+                int extIndex = fileDisplay_icons.Images.IndexOfKey(ext);
+                if (extIndex == -1)
+                {
+                    fileDisplay_icons.Images.Add(ext, Properties.Resources.image);
+                    extIndex = fileDisplay_icons.Images.Count - 1;
+                }
+
+                ListViewItem lvi = new ListViewItem() { Name = "", Text = "ITEM [" + (i + 1).ToString() + "]", ImageIndex = extIndex };
+                fileDisplay.Items.Add(lvi);
             }
         }
 
@@ -2457,6 +2429,10 @@ namespace fapmap
         private void fileDisplay_RMB_reload_Click(object sender, EventArgs e)
         {
             load_dir(selectedDirPath);
+        }
+        private void fileDisplay_RMB_refresh_Click(object sender, EventArgs e)
+        {
+            load_dir_refresh();
         }
         private void fileDisplay_RMB_open_Click(object sender, EventArgs e)
         {
@@ -4022,15 +3998,13 @@ namespace fapmap
             
             if (File.Exists(node_file.Name))
             {
-                if (faftv_icons.Images.ContainsKey(ext))
-                {
-                    node_file.ImageIndex = node_file.SelectedImageIndex = faftv_icons.Images.IndexOfKey(ext);
-                }
-                else
+                int imageIndex = faftv_icons.Images.IndexOfKey(ext);
+                if (imageIndex == -1)
                 {
                     faftv_icons.Images.Add(ext, System.Drawing.Icon.ExtractAssociatedIcon(node_file.Name));
-                    node_file.ImageIndex = node_file.SelectedImageIndex = faftv_icons.Images.Count - 1;
+                    imageIndex = faftv_icons.Images.Count - 1;
                 }
+                node_file.ImageIndex = node_file.SelectedImageIndex = imageIndex;
             }
         }
         private void faftv_collapseNode(TreeNode tn)
@@ -4289,7 +4263,16 @@ namespace fapmap
         {
             faftv.SelectedNode = null;
         }
-        
+
+        /*
+        private void faftv_checkNode()
+        {
+            if (faftv.SelectedNode == null) { return; }
+
+            faftv.SelectedNode.Checked = !faftv.SelectedNode.Checked;
+        }
+        /**/
+
         private void faftv_cb_sort_CheckedChanged(object sender, EventArgs e) { GlobalVariables.Settings.CheckBoxes.TreeViewSortByCreationDate = faftv_cb_sort.Checked; }
         private void faftv_cb_index_CheckedChanged(object sender, EventArgs e) { GlobalVariables.Settings.CheckBoxes.TreeViewShowItemIndex = faftv_cb_index.Checked; }
         
@@ -4370,11 +4353,97 @@ namespace fapmap
                 }
             });
         }
-        
+
         #endregion
 
         #region ui events
-        
+
+        private void faftv_DrawNode(object sender, DrawTreeNodeEventArgs e)
+        {
+            try
+            {
+                TreeNodeStates state = e.State;
+                Font font = e.Node.NodeFont ?? e.Node.TreeView.Font;
+                Color foreColor = faftv.ForeColor;
+                Color backColor = faftv.BackColor;
+                Color selectedBackColor = Color.FromArgb(15, 15, 15);
+
+                // SET COLOR BY ATTRIB
+                string path = e.Node.Name;
+                if (Directory.Exists(path))
+                {
+                    //SET COLOR BY ATTRIB
+                    FileAttributes attrib_dir = File.GetAttributes(path);
+                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.MediumPurple; }
+                    else if (attrib_dir.HasFlag(FileAttributes.Hidden)) { foreColor = Color.SteelBlue; }
+                    else { foreColor = Color.PaleVioletRed; }
+                }
+                else if (File.Exists(path))
+                {
+                    //SET COLOR BY ATTRIB
+                    FileAttributes attrib_dir = File.GetAttributes(path);
+                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.MediumPurple; }
+                    else if (attrib_dir.HasFlag(FileAttributes.Hidden)) { foreColor = Color.SteelBlue; }
+                    else { foreColor = Color.PaleVioletRed; }
+                }
+                else { e.Node.Remove(); return; }
+
+                // node is selected but not focused on treeview
+                if (!e.Node.TreeView.Focused && e.Node == e.Node.TreeView.SelectedNode)
+                {
+                    // foreColor = Color.CornflowerBlue;
+                    using (Brush background = new SolidBrush(selectedBackColor))
+                    using (LinearGradientBrush selectedBrush = e.Node.IsExpanded ?
+                        new LinearGradientBrush(e.Bounds, Color.FromArgb(40, 0, 70), Color.FromArgb(16, 16, 69), System.Drawing.Drawing2D.LinearGradientMode.Vertical)
+                        :
+                        new LinearGradientBrush(e.Bounds, Color.FromArgb(16, 16, 69), Color.FromArgb(40, 0, 70), System.Drawing.Drawing2D.LinearGradientMode.Vertical)
+                    )
+                    using (Brush border = new SolidBrush(Color.DarkSlateBlue))
+                    {
+                        e.Graphics.FillRectangle(background, e.Bounds);
+                        e.Graphics.FillRectangle(selectedBrush, e.Bounds);
+                        e.Graphics.DrawRectangle(new Pen(border), new Rectangle(e.Bounds.Location, new Size(e.Bounds.Width - 1, e.Bounds.Height - 1)));
+                        TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, foreColor, TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.SingleLine | TextFormatFlags.EndEllipsis);
+                    }
+                }
+                // node selected
+                else if ((state & TreeNodeStates.Selected) == TreeNodeStates.Selected)
+                {
+                    // foreColor = Color.SkyBlue;
+                    using (Brush background = new SolidBrush(backColor))
+                    using (LinearGradientBrush selectedBrush = e.Node.IsExpanded ?
+                        new LinearGradientBrush(e.Bounds, Color.Indigo, Color.MidnightBlue, System.Drawing.Drawing2D.LinearGradientMode.Vertical)
+                        :
+                        new LinearGradientBrush(e.Bounds, Color.MidnightBlue, Color.Indigo, System.Drawing.Drawing2D.LinearGradientMode.Vertical)
+                    )
+                    using (Brush border = new SolidBrush(Color.SlateBlue))
+                    {
+                        e.Graphics.FillRectangle(background, e.Bounds);
+                        e.Graphics.FillRectangle(selectedBrush, e.Bounds);
+                        e.Graphics.DrawRectangle(new Pen(border), new Rectangle(e.Bounds.Location, new Size(e.Bounds.Width - 1, e.Bounds.Height - 1)));
+                        TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, foreColor, TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.SingleLine | TextFormatFlags.EndEllipsis);
+                    }
+                }
+                // node is not selected
+                else
+                {
+                    using (Brush background = new SolidBrush(backColor))
+                    {
+                        e.Graphics.FillRectangle(background, e.Bounds);
+                        TextRenderer.DrawText(e.Graphics, e.Node.Text, font, e.Bounds, foreColor, TextFormatFlags.GlyphOverhangPadding | TextFormatFlags.SingleLine | TextFormatFlags.EndEllipsis);
+                    }
+                }
+
+                /*
+                if (e.Node.Checked)
+                {
+                    e.Graphics.DrawRectangle(Pens.CornflowerBlue, new Rectangle(new Point(e.Bounds.Location.X + 1, e.Bounds.Location.Y + 1), new Size(e.Bounds.Width - 3, e.Bounds.Height - 3)));
+                }
+                /**/
+            }
+            catch (Exception) { }
+        }
+
         private void faftv_KeyDown(object sender, KeyEventArgs e)
         {
             switch (e.KeyCode)

@@ -138,8 +138,11 @@ namespace fapmap_res
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            this.OnKeyDown(new KeyEventArgs(keyData));
-            return true;
+            KeyEventArgs kea = new KeyEventArgs(keyData);
+            this.OnKeyDown(kea);
+
+            if (kea.Handled && kea.SuppressKeyPress) { return true; }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 

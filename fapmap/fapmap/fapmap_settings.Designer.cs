@@ -34,6 +34,8 @@
             this.panel_info = new System.Windows.Forms.Panel();
             this.txt_outputBorder = new System.Windows.Forms.Panel();
             this.txt_output = new System.Windows.Forms.RichTextBox();
+            this.txt_output_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.txt_output_RMB_copy = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_getinfo = new System.Windows.Forms.Button();
             this.label_info = new System.Windows.Forms.Label();
             this.cb_noZero = new System.Windows.Forms.CheckBox();
@@ -77,16 +79,16 @@
             this.cb_focusHide = new System.Windows.Forms.CheckBox();
             this.label_cb = new System.Windows.Forms.Label();
             this.cb_hideOnX = new System.Windows.Forms.CheckBox();
-            this.txt_output_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.txt_output_RMB_copy = new System.Windows.Forms.ToolStripMenuItem();
+            this.cb_dlAutoClose = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel_info.SuspendLayout();
             this.txt_outputBorder.SuspendLayout();
+            this.txt_output_RMB.SuspendLayout();
             this.panel_browser.SuspendLayout();
             this.txt_passwdsBorder.SuspendLayout();
             this.panel_txt.SuspendLayout();
             this.panel_passwd.SuspendLayout();
             this.panel_cb.SuspendLayout();
-            this.txt_output_RMB.SuspendLayout();
             this.SuspendLayout();
             // 
             // txt_size
@@ -151,6 +153,29 @@
             this.txt_output.TabIndex = 0;
             this.txt_output.Text = "...";
             this.txt_output.WordWrap = false;
+            // 
+            // txt_output_RMB
+            // 
+            this.txt_output_RMB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.txt_output_RMB.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.txt_output_RMB.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.txt_output_RMB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.txt_output_RMB_copy});
+            this.txt_output_RMB.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
+            this.txt_output_RMB.Name = "contextMenuStrip1";
+            this.txt_output_RMB.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.txt_output_RMB.ShowItemToolTips = false;
+            this.txt_output_RMB.Size = new System.Drawing.Size(150, 26);
+            // 
+            // txt_output_RMB_copy
+            // 
+            this.txt_output_RMB_copy.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.txt_output_RMB_copy.ForeColor = System.Drawing.Color.SlateBlue;
+            this.txt_output_RMB_copy.Image = global::fapmap.Properties.Resources.copy;
+            this.txt_output_RMB_copy.Name = "txt_output_RMB_copy";
+            this.txt_output_RMB_copy.Size = new System.Drawing.Size(149, 22);
+            this.txt_output_RMB_copy.Text = "Copy (CTRL+C)";
+            this.txt_output_RMB_copy.Click += new System.EventHandler(this.txt_output_RMB_copy_Click);
             // 
             // btn_getinfo
             // 
@@ -513,6 +538,8 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel_cb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
             this.panel_cb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_cb.Controls.Add(this.cb_dlAutoClose);
+            this.panel_cb.Controls.Add(this.label1);
             this.panel_cb.Controls.Add(this.cb_fdThumb);
             this.panel_cb.Controls.Add(this.cb_fdSortByDate);
             this.panel_cb.Controls.Add(this.label_cb_fileDisplay);
@@ -921,28 +948,39 @@
             this.cb_hideOnX.UseVisualStyleBackColor = false;
             this.cb_hideOnX.CheckedChanged += new System.EventHandler(this.cb_checkChanged);
             // 
-            // txt_output_RMB
+            // cb_dlAutoClose
             // 
-            this.txt_output_RMB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.txt_output_RMB.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.txt_output_RMB.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.txt_output_RMB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.txt_output_RMB_copy});
-            this.txt_output_RMB.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
-            this.txt_output_RMB.Name = "contextMenuStrip1";
-            this.txt_output_RMB.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.txt_output_RMB.ShowItemToolTips = false;
-            this.txt_output_RMB.Size = new System.Drawing.Size(181, 48);
+            this.cb_dlAutoClose.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_dlAutoClose.AutoSize = true;
+            this.cb_dlAutoClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.cb_dlAutoClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_dlAutoClose.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.cb_dlAutoClose.FlatAppearance.CheckedBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_dlAutoClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_dlAutoClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
+            this.cb_dlAutoClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_dlAutoClose.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_dlAutoClose.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.cb_dlAutoClose.Location = new System.Drawing.Point(6, 519);
+            this.cb_dlAutoClose.Name = "cb_dlAutoClose";
+            this.cb_dlAutoClose.Size = new System.Drawing.Size(155, 49);
+            this.cb_dlAutoClose.TabIndex = 25;
+            this.cb_dlAutoClose.Tag = "DLCLOSE";
+            this.cb_dlAutoClose.Text = "Check AutoClose When\r\nAn URL is Opened in the\r\nDownloader";
+            this.cb_dlAutoClose.UseVisualStyleBackColor = false;
+            this.cb_dlAutoClose.CheckedChanged += new System.EventHandler(this.cb_checkChanged);
             // 
-            // txt_output_RMB_copy
+            // label1
             // 
-            this.txt_output_RMB_copy.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.txt_output_RMB_copy.ForeColor = System.Drawing.Color.SlateBlue;
-            this.txt_output_RMB_copy.Image = global::fapmap.Properties.Resources.copy;
-            this.txt_output_RMB_copy.Name = "txt_output_RMB_copy";
-            this.txt_output_RMB_copy.Size = new System.Drawing.Size(180, 22);
-            this.txt_output_RMB_copy.Text = "Copy (CTRL+C)";
-            this.txt_output_RMB_copy.Click += new System.EventHandler(this.txt_output_RMB_copy_Click);
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label1.Location = new System.Drawing.Point(6, 500);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(99, 16);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Downloader:";
             // 
             // fapmap_settings
             // 
@@ -968,6 +1006,7 @@
             this.panel_info.ResumeLayout(false);
             this.panel_info.PerformLayout();
             this.txt_outputBorder.ResumeLayout(false);
+            this.txt_output_RMB.ResumeLayout(false);
             this.panel_browser.ResumeLayout(false);
             this.panel_browser.PerformLayout();
             this.txt_passwdsBorder.ResumeLayout(false);
@@ -977,7 +1016,6 @@
             this.panel_passwd.PerformLayout();
             this.panel_cb.ResumeLayout(false);
             this.panel_cb.PerformLayout();
-            this.txt_output_RMB.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1032,5 +1070,7 @@
         private System.Windows.Forms.Label label_cb_fileDisplay;
         private System.Windows.Forms.ContextMenuStrip txt_output_RMB;
         private System.Windows.Forms.ToolStripMenuItem txt_output_RMB_copy;
+        private System.Windows.Forms.CheckBox cb_dlAutoClose;
+        private System.Windows.Forms.Label label1;
     }
 }

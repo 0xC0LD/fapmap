@@ -339,8 +339,6 @@ namespace fapmap
 
         private void output_MouseDown(object sender, MouseEventArgs e)
         {
-            output_SelectedIndexChanged(null, null);
-
             if (e.Button != MouseButtons.Left) { return; }
             if (output.SelectedItems.Count == 0) { return; }
             if (e.Clicks == 2) { output_open(); return; }
@@ -368,9 +366,8 @@ namespace fapmap
         private void showImage_dispose()
         {
             if (showImage_disposed) { return; }
-
-            showImage.Image = Properties.Resources.image;
             showMedia_Show(false);
+            showImage.Image = Properties.Resources.image;
             GC.Collect();
             showImage_disposed = true;
         }
@@ -386,8 +383,6 @@ namespace fapmap
 
                 if (cb_showImage.Checked)
                 {
-                    showImage_dispose();
-
                     if (File.Exists(item))
                     {
                         if (fapmap.GlobalVariables.FileTypes.Image.Contains(new FileInfo(item).Extension))
@@ -395,9 +390,12 @@ namespace fapmap
                             showImage.Image = Image.FromFile(item);
                             showMedia_Show(true);
                             showImage_disposed = false;
+                            return;
                         }
                     }
                 }
+
+                showImage_dispose();
             }
         }
         
@@ -416,9 +414,7 @@ namespace fapmap
         private void output_RMB_explorer2_Click(object sender, EventArgs e) { output_explorer2(); }
         private void output_RMB_copy_Click    (object sender, EventArgs e)  { output_copy();       }
         private void output_RMB_delete_Click  (object sender, EventArgs e)  { output_delete(); }
-
-        #endregion
-
         
+        #endregion
     }
 }

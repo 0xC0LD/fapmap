@@ -103,6 +103,8 @@ namespace fapmap
                     public static bool FileDisplaySortByCreationDate = true; public const string FileDisplaySortByCreationDate_ = "fileDisplay_sortByDate";
                     public static bool FileDisplayShowThumbnails     = true; public const string FileDisplayShowThumbnails_     = "fileDisplay_showThumbnails";
 
+                    // downloader
+                    public static bool DownloaderAutoClose = true; public const string DownloaderAutoClose_ = "downloader_autoCloseWhenItemPassed";
                 }
 
                 public class Other
@@ -745,6 +747,9 @@ namespace fapmap
                     w.WriteLine(GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate_ + GlobalVariables.Settings.Common.Equal + bool_to_string(GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate));
                     w.WriteLine(GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails_     + GlobalVariables.Settings.Common.Equal + bool_to_string(GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails));
 
+                    // downloader
+                    w.WriteLine(GlobalVariables.Settings.CheckBoxes.DownloaderAutoClose_ + GlobalVariables.Settings.Common.Equal + bool_to_string(GlobalVariables.Settings.CheckBoxes.DownloaderAutoClose));
+
                     w.WriteLine(GlobalVariables.Settings.Common.Comment + "===[WEBGRAB TABLE]");
                     string resource_data = Properties.Resources.file_webgrab_table;
                     List<string> words = resource_data.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries).ToList();
@@ -861,6 +866,9 @@ namespace fapmap
                         // fileDisplay
                         case GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate_: GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate = string_to_bool(value); break;
                         case GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails_:     GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails     = string_to_bool(value); break;
+
+                        // downloader
+                        case GlobalVariables.Settings.CheckBoxes.DownloaderAutoClose_: GlobalVariables.Settings.CheckBoxes.DownloaderAutoClose = string_to_bool(value); break;
 
                         //
                         // == OTHER
@@ -1204,7 +1212,36 @@ namespace fapmap
 
             return new Tuple<int, int, int>(visible, normal, full);
         }
-        
+
+
+        public static ulong getFileId(FileInfo fi)
+        {
+            WinAPI.BY_HANDLE_FILE_INFORMATION objectFileInfo = new WinAPI.BY_HANDLE_FILE_INFORMATION();
+            FileStream fs = fi.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            WinAPI.GetFileInformationByHandle(fs.SafeFileHandle, out objectFileInfo);
+            fs.Close();
+            return (((ulong)objectFileInfo.FileIndexHigh << 32) + (ulong)objectFileInfo.FileIndexLow);
+        }
+        public class WinAPI
+        {
+            [DllImport("kernel32.dll", SetLastError = true)]
+            public static extern bool GetFileInformationByHandle(Microsoft.Win32.SafeHandles.SafeFileHandle hFile, out BY_HANDLE_FILE_INFORMATION lpFileInformation);
+
+            public struct BY_HANDLE_FILE_INFORMATION
+            {
+                public uint FileAttributes;
+                public System.Runtime.InteropServices.ComTypes.FILETIME CreationTime;
+                public System.Runtime.InteropServices.ComTypes.FILETIME LastAccessTime;
+                public System.Runtime.InteropServices.ComTypes.FILETIME LastWriteTime;
+                public uint VolumeSerialNumber;
+                public uint FileSizeHigh;
+                public uint FileSizeLow;
+                public uint NumberOfLinks;
+                public uint FileIndexHigh;
+                public uint FileIndexLow;
+            }
+        }
+
         #endregion
 
         #endregion
@@ -1650,60 +1687,64 @@ namespace fapmap
             // current run index (for thumbs)
             load_dir_cur++;
 
-            // set path
-            selectedDirPath = path;
-            txt_path.Text = path;
-            if (File.Exists(path)) { path = new FileInfo(path).Directory.FullName; }
-            if (!Directory.Exists(path)) { return; }
-
-            //fileDisplay_icons.Images.Clear();
-            fileDisplay.Items.Clear();
-
-            if (fileDisplay_watcher != null) { fileDisplay_watcher.Dispose(); }
-            fileDisplay_watcher = new FileSystemWatcher()
+            try
             {
-                NotifyFilter = NotifyFilters.LastAccess
-                                 | NotifyFilters.LastWrite
-                                 | NotifyFilters.FileName
-                                 | NotifyFilters.DirectoryName,
-                Filter = "*.*",
-                IncludeSubdirectories = false,
-                Path = path,
-            };
-            fileDisplay_watcher.Changed += fileDisplay_watcher_Changed;
-            fileDisplay_watcher.Created += fileDisplay_watcher_Created;
-            fileDisplay_watcher.Deleted += fileDisplay_watcher_Deleted;
-            fileDisplay_watcher.Renamed += fileDisplay_watcher_Renamed;
-            fileDisplay_watcher.EnableRaisingEvents = true;
-            
-            DirectoryInfo loadDir = new DirectoryInfo(path);
-            DirectoryInfo[] dirs = loadDir.GetDirectories();
-            FileInfo[] files = loadDir.GetFiles();
+                // set path
+                selectedDirPath = path;
+                txt_path.Text = path;
+                if (File.Exists(path)) { path = new FileInfo(path).Directory.FullName; }
+                if (!Directory.Exists(path)) { return; }
 
-            if (GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate)
-            {
-                dirs = dirs.OrderBy(p => p.CreationTime).ToArray();
-                files = files.OrderBy(p => p.CreationTime).ToArray();
+                //fileDisplay_icons.Images.Clear();
+                fileDisplay.Items.Clear();
+
+                if (fileDisplay_watcher != null) { fileDisplay_watcher.Dispose(); }
+                fileDisplay_watcher = new FileSystemWatcher()
+                {
+                    NotifyFilter = NotifyFilters.LastAccess
+                                     | NotifyFilters.LastWrite
+                                     | NotifyFilters.FileName
+                                     | NotifyFilters.DirectoryName,
+                    Filter = "*.*",
+                    IncludeSubdirectories = false,
+                    Path = path,
+                };
+                fileDisplay_watcher.Changed += fileDisplay_watcher_Changed;
+                fileDisplay_watcher.Created += fileDisplay_watcher_Created;
+                fileDisplay_watcher.Deleted += fileDisplay_watcher_Deleted;
+                fileDisplay_watcher.Renamed += fileDisplay_watcher_Renamed;
+                fileDisplay_watcher.EnableRaisingEvents = true;
+
+                DirectoryInfo loadDir = new DirectoryInfo(path);
+                DirectoryInfo[] dirs = loadDir.GetDirectories();
+                FileInfo[] files = loadDir.GetFiles();
+
+                if (GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate)
+                {
+                    dirs = dirs.OrderBy(p => p.CreationTime).ToArray();
+                    files = files.OrderBy(p => p.CreationTime).ToArray();
+                }
+
+                List<ListViewItem> items = new List<ListViewItem>();
+
+                // get dirs
+                for (int i = 0; i < dirs.Length; i++)
+                {
+                    items.Add(load_dir_dir(dirs[i]));
+                }
+
+                // get files
+
+                for (int i = 0; i < files.Length; i++)
+                {
+                    if (files[i].Name == "desktop.ini") { continue; }
+                    items.Add(load_dir_file(files[i]));
+                    load_dir_thumbnail(items.Last(), files[i]);
+                }
+
+                fileDisplay.Items.AddRange(items.ToArray());
             }
-
-            List<ListViewItem> items = new List<ListViewItem>();
-
-            // get dirs
-            for (int i = 0; i < dirs.Length; i++)
-            {
-                items.Add(load_dir_dir(dirs[i]));
-            }
-
-            // get files
-            
-            for (int i = 0; i < files.Length; i++)
-            {
-                if (files[i].Name == "desktop.ini") { continue; }
-                items.Add(load_dir_file(files[i]));
-                load_dir_thumbnail(items.Last(), files[i]);
-            }
-
-            fileDisplay.Items.AddRange(items.ToArray());
+            catch (Exception) { }
         }
         private void load_dir_refresh()
         {
@@ -1764,9 +1805,10 @@ namespace fapmap
                         try
                         {
                             string file = fi.FullName;
+                            string id = getFileId(fi).ToString();
 
                             // get index
-                            int iIndex = fileDisplay_icons.Images.IndexOfKey(file);
+                            int iIndex = fileDisplay_icons.Images.IndexOfKey(id);
                             if (iIndex == -1)
                             {
                                 Image img = Image.FromFile(file);
@@ -1779,7 +1821,7 @@ namespace fapmap
                                 {
                                     this.Invoke((MethodInvoker)delegate
                                     {
-                                        fileDisplay_icons.Images.Add(file, new Bitmap(bmpDrawOn, fileDisplay_icons.ImageSize));
+                                        fileDisplay_icons.Images.Add(id, new Bitmap(bmpDrawOn, fileDisplay_icons.ImageSize));
                                         item.ImageIndex = fileDisplay_icons.Images.Count - 1;
                                         fileDisplay.RedrawItems(item.Index, item.Index, true);
                                     });
@@ -1810,11 +1852,12 @@ namespace fapmap
 
                         try
                         {
-                            string src = fi.FullName;
-                            string dest = GlobalVariables.Path.Dir.Thumbnails + "\\" + fi.Name + ".tmp";
-
+                            string file = fi.FullName;
+                            string id = getFileId(fi).ToString();
+                            string dest = GlobalVariables.Path.Dir.Thumbnails + "\\" + id + ".tmp";
+                            
                             // get index
-                            int iIndex = fileDisplay_icons.Images.IndexOfKey(dest);
+                            int iIndex = fileDisplay_icons.Images.IndexOfKey(id);
                             if (iIndex == -1)
                             {
                                 if (!File.Exists(dest))
@@ -1822,8 +1865,8 @@ namespace fapmap
                                     var startInfo = new ProcessStartInfo
                                     {
                                         WindowStyle = ProcessWindowStyle.Hidden,
-                                        FileName = GlobalVariables.Path.File.Exe.FFMPEG,
-                                        Arguments = "-itsoffset -1  -i " + '"' + src + '"' + " -vcodec bmp -vframes 1 -an -f rawvideo " + '"' + dest + '"'
+                                        FileName = GlobalVariables.Path.File.Exe.FFMPEG, // mjpeg or bmp
+                                        Arguments = "-itsoffset -1  -i " + '"' + file + '"' + " -vcodec mjpeg -vframes 1 -an -f rawvideo " + '"' + dest + '"'
                                     };
 
                                     var process = new Process { StartInfo = startInfo };
@@ -1845,7 +1888,7 @@ namespace fapmap
                                     {
                                         this.Invoke((MethodInvoker)delegate
                                         {
-                                            fileDisplay_icons.Images.Add(dest, new Bitmap(bmpDrawOn, fileDisplay_icons.ImageSize));
+                                            fileDisplay_icons.Images.Add(id, new Bitmap(bmpDrawOn, fileDisplay_icons.ImageSize));
                                             item.ImageIndex = fileDisplay_icons.Images.Count - 1;
                                             fileDisplay.RedrawItems(item.Index, item.Index, true);
                                         });
@@ -2241,12 +2284,14 @@ namespace fapmap
                 if (Directory.Exists(e.FullPath))
                 {
                     fileDisplay.Items.Add(load_dir_dir(new DirectoryInfo(e.FullPath)));
+                    fileDisplay.Items[fileDisplay.Items.Count - 1].EnsureVisible();
                 }
                 else if (File.Exists(e.FullPath))
                 {
                     // add file
                     if (e.Name == "desktop.ini") { return; }
                     fileDisplay.Items.Add(load_dir_file(new FileInfo(e.FullPath)));
+                    fileDisplay.Items[fileDisplay.Items.Count - 1].EnsureVisible();
                 }
             });
         }

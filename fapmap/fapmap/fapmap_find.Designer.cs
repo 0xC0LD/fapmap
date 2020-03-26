@@ -48,10 +48,10 @@
             this.btn_help = new System.Windows.Forms.Button();
             this.resultNum = new System.Windows.Forms.Label();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
+            this.output_icons = new System.Windows.Forms.ImageList(this.components);
             this.output = new fapmap_res.FapMapListView();
             this.output_clm_num = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.output_clm_path = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.output_icons = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.showImage)).BeginInit();
             this.output_RMB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -339,6 +339,12 @@
             this.splitContainer.SplitterDistance = 473;
             this.splitContainer.TabIndex = 232;
             // 
+            // output_icons
+            // 
+            this.output_icons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("output_icons.ImageStream")));
+            this.output_icons.TransparentColor = System.Drawing.Color.Transparent;
+            this.output_icons.Images.SetKeyName(0, "dir.ico");
+            // 
             // output
             // 
             this.output.AllowDrop = true;
@@ -382,12 +388,6 @@
             // 
             this.output_clm_path.Text = "PATH";
             this.output_clm_path.Width = 92;
-            // 
-            // output_icons
-            // 
-            this.output_icons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("output_icons.ImageStream")));
-            this.output_icons.TransparentColor = System.Drawing.Color.Transparent;
-            this.output_icons.Images.SetKeyName(0, "dir.ico");
             // 
             // fapmap_find
             // 

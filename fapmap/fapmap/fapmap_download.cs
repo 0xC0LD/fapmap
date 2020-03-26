@@ -47,6 +47,7 @@ namespace fapmap
             {
                 links_addRange(pass_URLs);
                 if (links.Items.Count > 0) { links.Items[0].Selected = true; }
+                rb_close.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.DownloaderAutoClose;
             }
 
             // webgrab
@@ -72,7 +73,7 @@ namespace fapmap
         {
             Quit();
             fapmap.CrashHandler_stop();
-            Application.Exit();
+            Environment.Exit(0);
         }
         private void this_hide()
         {

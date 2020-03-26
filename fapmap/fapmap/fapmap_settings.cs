@@ -22,6 +22,7 @@ namespace fapmap
 
             txt_output_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
         }
+
         
         private void fapmap_settings_Load(object sender, EventArgs e)
         {
@@ -36,6 +37,8 @@ namespace fapmap
             }
 
             //===
+            disableChangeSetting = true;
+
             cb_hideOnX.Checked   = fapmap.GlobalVariables.Settings.CheckBoxes.HideOnX;
             cb_focusHide.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.FocusHide;
 
@@ -54,6 +57,10 @@ namespace fapmap
 
             cb_fdSortByDate.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate;
             cb_fdThumb.Checked      = fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails;
+
+            cb_dlAutoClose.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.DownloaderAutoClose;
+
+            disableChangeSetting = false;
             //===
 
             passwords_load();
@@ -436,10 +443,14 @@ namespace fapmap
 
         #region Checkboxes
 
+        private bool disableChangeSetting = false;
         private void cb_checkChanged(object sender, EventArgs e)
         {
             CheckBox cb = (CheckBox)sender;
             cb.ForeColor = cb.Checked ? Color.SkyBlue : Color.RoyalBlue;
+
+            if (disableChangeSetting) { return; }
+
             switch (cb.Tag.ToString())
             {
                 case "HIDEONX":   fapmap.GlobalVariables.Settings.CheckBoxes.HideOnX   = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.HideOnX_,   fapmap.bool_to_string(cb.Checked)); break;
@@ -460,6 +471,7 @@ namespace fapmap
 
                 case "FDSORT":  fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate_, fapmap.bool_to_string(cb.Checked)); break;
                 case "FDTHUMB": fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails     = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails_,     fapmap.bool_to_string(cb.Checked)); break;
+                case "DLCLOSE": fapmap.GlobalVariables.Settings.CheckBoxes.DownloaderAutoClose           = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.DownloaderAutoClose_,           fapmap.bool_to_string(cb.Checked)); break;
             }
         }
 

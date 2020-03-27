@@ -409,7 +409,7 @@ namespace fapmap
                 string workingDir = fi.Directory.FullName;
                 workingDir = OpenPathSelector(owner, workingDir);
 
-                //FFMPEG
+                // SCRIPT
                 Process bat = new Process();
                 bat.StartInfo.FileName = file;
                 bat.StartInfo.Arguments = input;
@@ -2617,7 +2617,7 @@ namespace fapmap
             //clear graphics
             g.Clear(Color.Transparent);
 
-            g.DrawString(text, new Font("Consolas", 10), Brushes.RoyalBlue, new PointF(0, 0));
+            g.DrawString(text, new Font("Consolas", 10), Brushes.SkyBlue, new PointF(0, 0));
 
             contrl.BackgroundImage = bmp;
             contrl.BackgroundImageLayout = ImageLayout.Center;
@@ -3160,7 +3160,7 @@ namespace fapmap
             Bitmap bmp = new Bitmap(showMedia_image.Width, showMedia_image.Height);
             Graphics g = Graphics.FromImage(bmp);
             g.Clear(Color.Transparent);
-            g.DrawString(e.ProgressPercentage + "%", new Font("Consolas", 15), Brushes.DarkSlateBlue, new PointF(10, 10));
+            g.DrawString(e.ProgressPercentage + "%", new Font("Consolas", 15), Brushes.SlateBlue, new PointF(10, 10));
 
             showMedia_image.BackgroundImage = bmp;
         }
@@ -3252,7 +3252,7 @@ namespace fapmap
         private void showMedia_video_ctrlsPanel_pos_MouseLeave(object sender, EventArgs e)
         {
             //showMedia_video_ctrlsPanel_pos_hovering = false;
-            //showMedia_video_ctrlsPanel_pos_cur.ForeColor = Color.SlateBlue;
+            //showMedia_video_ctrlsPanel_pos_cur.ForeColor = Color.FromArgb(179, 141, 235);
         }
         private void showMedia_video_ctrlsPanel_pos_MouseUp(object sender, MouseEventArgs e)
         {
@@ -3504,7 +3504,7 @@ namespace fapmap
                 case MouseButtons.Right:
                     {
                         changeMaxAuto = !changeMaxAuto;
-                        drawAudioThread_maxPeakLabel.ForeColor = changeMaxAuto ? Color.SlateBlue : Color.MediumSlateBlue;
+                        drawAudioThread_maxPeakLabel.ForeColor = changeMaxAuto ? Color.FromArgb(179, 141, 235) : Color.MediumSlateBlue;
 
                         break;
                     }
@@ -3597,7 +3597,7 @@ namespace fapmap
                             
                             if (changeMaxAuto && curr > drawAudioThread_maxPeak) { drawAudioThread_maxPeak = curr; }
                             
-                            drawGraphLine(curr, 10, drawAudioThread_maxPeak, drawGraphBMP, Color.DeepPink, Color.DarkSlateBlue);
+                            drawGraphLine(curr, 10, drawAudioThread_maxPeak, drawGraphBMP, Color.DeepPink, Color.SlateBlue);
                             this.Invoke((MethodInvoker)delegate
                             {
                                 showMedia_video_audioPanel.BackgroundImage = new Bitmap(drawGraphBMP.Bitmap);
@@ -3946,7 +3946,7 @@ namespace fapmap
 
             if (File.Exists(txt_path.Text) || Directory.Exists(txt_path.Text))
             {
-                txt_path.ForeColor = Color.SlateBlue;
+                txt_path.ForeColor = Color.FromArgb(179, 141, 235);
             }
             else
             {
@@ -4419,17 +4419,17 @@ namespace fapmap
                 {
                     //SET COLOR BY ATTRIB
                     FileAttributes attrib_dir = File.GetAttributes(path);
-                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.MediumPurple; }
-                    else if (attrib_dir.HasFlag(FileAttributes.Hidden)) { foreColor = Color.SteelBlue; }
-                    else { foreColor = Color.PaleVioletRed; }
+                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.FromArgb(179, 141, 235); }
+                    else if (attrib_dir.HasFlag(FileAttributes.Hidden))                    { foreColor = Color.SkyBlue;                 }
+                    else                                                                   { foreColor = Color.PaleVioletRed;           }
                 }
                 else if (File.Exists(path))
                 {
                     //SET COLOR BY ATTRIB
                     FileAttributes attrib_dir = File.GetAttributes(path);
-                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.MediumPurple; }
-                    else if (attrib_dir.HasFlag(FileAttributes.Hidden)) { foreColor = Color.SteelBlue; }
-                    else { foreColor = Color.PaleVioletRed; }
+                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.FromArgb(179, 141, 235); }
+                    else if (attrib_dir.HasFlag(FileAttributes.Hidden))                    { foreColor = Color.SkyBlue;                 }
+                    else                                                                   { foreColor = Color.PaleVioletRed;           }
                 }
                 else { e.Node.Remove(); return; }
 
@@ -4443,7 +4443,7 @@ namespace fapmap
                         :
                         new LinearGradientBrush(e.Bounds, Color.FromArgb(16, 16, 69), Color.FromArgb(40, 0, 70), System.Drawing.Drawing2D.LinearGradientMode.Vertical)
                     )
-                    using (Brush border = new SolidBrush(Color.DarkSlateBlue))
+                    using (Brush border = new SolidBrush(Color.SlateBlue))
                     {
                         e.Graphics.FillRectangle(background, e.Bounds);
                         e.Graphics.FillRectangle(selectedBrush, e.Bounds);
@@ -4461,7 +4461,7 @@ namespace fapmap
                         :
                         new LinearGradientBrush(e.Bounds, Color.MidnightBlue, Color.Indigo, System.Drawing.Drawing2D.LinearGradientMode.Vertical)
                     )
-                    using (Brush border = new SolidBrush(Color.SlateBlue))
+                    using (Brush border = new SolidBrush(Color.FromArgb(179, 141, 235)))
                     {
                         e.Graphics.FillRectangle(background, e.Bounds);
                         e.Graphics.FillRectangle(selectedBrush, e.Bounds);
@@ -4695,8 +4695,8 @@ namespace fapmap
         #region functions
 
         private string links_filePath = string.Empty;
-        private Color links_color_normal = Color.Teal;
-        private Color links_color_comment = Color.DarkSlateBlue;
+        private Color links_color_normal = Color.Turquoise;
+        private Color links_color_comment = Color.Teal;
         
         private void links_reload(string path)
         {

@@ -42,7 +42,7 @@
             this.txt_input.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txt_input.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_input.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txt_input.ForeColor = System.Drawing.Color.SlateBlue;
+            this.txt_input.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
             this.txt_input.Location = new System.Drawing.Point(11, 31);
             this.txt_input.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.txt_input.Name = "txt_input";
@@ -115,7 +115,7 @@
             this.Controls.Add(this.txt_input);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold);
-            this.ForeColor = System.Drawing.Color.SlateBlue;
+            this.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;

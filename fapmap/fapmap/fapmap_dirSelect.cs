@@ -146,7 +146,7 @@ namespace fapmap
 
         private void txt_path_TextChanged(object sender, EventArgs e)
         {
-            txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.SlateBlue : Color.PaleVioletRed;
+            txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.FromArgb(179, 141, 235) : Color.PaleVioletRed;
         }
 
         private void treeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
@@ -165,7 +165,7 @@ namespace fapmap
                 {
                     //SET COLOR BY ATTRIB
                     FileAttributes attrib_dir = File.GetAttributes(path);
-                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.MediumPurple; }
+                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.FromArgb(179, 141, 235); }
                     else if (attrib_dir.HasFlag(FileAttributes.Hidden)) { foreColor = Color.SteelBlue; }
                     else { foreColor = Color.PaleVioletRed; }
                 }
@@ -181,7 +181,7 @@ namespace fapmap
                         :
                         new LinearGradientBrush(e.Bounds, Color.FromArgb(16, 16, 69), Color.FromArgb(40, 0, 70), System.Drawing.Drawing2D.LinearGradientMode.Vertical)
                     )
-                    using (Brush border = new SolidBrush(Color.DarkSlateBlue))
+                    using (Brush border = new SolidBrush(Color.SlateBlue))
                     {
                         e.Graphics.FillRectangle(background, e.Bounds);
                         e.Graphics.FillRectangle(selectedBrush, e.Bounds);
@@ -199,7 +199,7 @@ namespace fapmap
                         :
                         new LinearGradientBrush(e.Bounds, Color.MidnightBlue, Color.Indigo, System.Drawing.Drawing2D.LinearGradientMode.Vertical)
                     )
-                    using (Brush border = new SolidBrush(Color.SlateBlue))
+                    using (Brush border = new SolidBrush(Color.FromArgb(179, 141, 235)))
                     {
                         e.Graphics.FillRectangle(background, e.Bounds);
                         e.Graphics.FillRectangle(selectedBrush, e.Bounds);

@@ -59,17 +59,14 @@ namespace fapmap
             cb_fdThumb.Checked      = fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails;
 
             cb_dlAutoClose.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.DownloaderAutoClose;
+            
+            txt_wbURL.Text = fapmap.GlobalVariables.Settings.WebBrowser.FapMapURL;
+            txt_gifDelay.Text = fapmap.GlobalVariables.Settings.Media.GifDelay.ToString();
 
             disableChangeSetting = false;
             //===
 
             passwords_load();
-            
-            txt_wbURL.Text = fapmap.GlobalVariables.Settings.WebBrowser.FapMapURL;
-            txt_wbURL.ForeColor = Color.MediumSlateBlue;
-
-            txt_gifDelay.Text = fapmap.GlobalVariables.Settings.Media.GifDelay.ToString();
-            txt_gifDelay.ForeColor = Color.MediumSlateBlue;
 
             txt_size.Text = "...";
             txt_output.Text = "...";
@@ -258,7 +255,7 @@ namespace fapmap
         private void rb_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton cb = (RadioButton)sender;
-            cb.ForeColor = cb.Checked ? Color.MediumPurple : Color.SlateBlue;
+            cb.ForeColor = cb.Checked ? Color.LightSkyBlue : Color.FromArgb(179, 141, 235);
 
             if       (rb_firefox.Checked) { fapmap.settings_edit_browser(0); }
             else if (rb_chrome.Checked)   { fapmap.settings_edit_browser(1); }
@@ -398,7 +395,7 @@ namespace fapmap
                 panel_txt.Focus();
                 this.ActiveControl = panel_txt;
                 
-                txt_wbURL.ForeColor = Color.MediumSlateBlue;
+                txt_wbURL.ForeColor = Color.FromArgb(179, 141, 235);
 
                 e.Handled = true;
                 e.SuppressKeyPress = true;
@@ -406,7 +403,8 @@ namespace fapmap
         }
         private void txt_wbURL_TextChanged(object sender, EventArgs e)
         {
-            txt_wbURL.ForeColor = Color.Red;
+            if (disableChangeSetting) { return; }
+            txt_wbURL.ForeColor = Color.PaleVioletRed;
         }
 
         private void txt_gifDelay_KeyDown(object sender, KeyEventArgs e)
@@ -428,7 +426,7 @@ namespace fapmap
                 panel_txt.Focus();
                 this.ActiveControl = panel_txt;
 
-                txt_gifDelay.ForeColor = Color.MediumSlateBlue;
+                txt_gifDelay.ForeColor = Color.FromArgb(179, 141, 235);
 
                 e.Handled = true;
                 e.SuppressKeyPress = true;
@@ -436,7 +434,8 @@ namespace fapmap
         }
         private void txt_gifDelay_TextChanged(object sender, EventArgs e)
         {
-            txt_gifDelay.ForeColor = Color.Red;
+            if (disableChangeSetting) { return; }
+            txt_gifDelay.ForeColor = Color.PaleVioletRed;
         }
 
         #endregion

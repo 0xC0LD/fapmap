@@ -54,13 +54,13 @@
             this.cb_noZero.Checked = true;
             this.cb_noZero.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_noZero.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_noZero.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
-            this.cb_noZero.FlatAppearance.CheckedBackColor = System.Drawing.Color.SlateBlue;
+            this.cb_noZero.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(179, 141, 235);
+            this.cb_noZero.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(179, 141, 235);
             this.cb_noZero.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.cb_noZero.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.cb_noZero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_noZero.Font = new System.Drawing.Font("Segoe Print", 24F);
-            this.cb_noZero.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.cb_noZero.ForeColor = System.Drawing.Color.SlateBlue;
             this.cb_noZero.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cb_noZero.Location = new System.Drawing.Point(620, 401);
             this.cb_noZero.Name = "cb_noZero";
@@ -105,7 +105,7 @@
             // HelpBalloon
             // 
             this.HelpBalloon.BackColor = System.Drawing.Color.Black;
-            this.HelpBalloon.ForeColor = System.Drawing.Color.SlateBlue;
+            this.HelpBalloon.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
             this.HelpBalloon.OwnerDraw = true;
             this.HelpBalloon.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.HelpBalloon_Draw);
             // 
@@ -167,7 +167,7 @@
             // txt_output_RMB_copy
             // 
             this.txt_output_RMB_copy.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.txt_output_RMB_copy.ForeColor = System.Drawing.Color.SlateBlue;
+            this.txt_output_RMB_copy.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
             this.txt_output_RMB_copy.Image = global::fapmap.Properties.Resources.copy;
             this.txt_output_RMB_copy.Name = "txt_output_RMB_copy";
             this.txt_output_RMB_copy.Size = new System.Drawing.Size(180, 22);
@@ -218,7 +218,7 @@
             this.Controls.Add(this.txt_size);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.ForeColor = System.Drawing.Color.SlateBlue;
+            this.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(320, 270);
             this.Name = "fapmap_info";

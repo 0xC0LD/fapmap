@@ -33,38 +33,7 @@ namespace fapmap
             if (File.Exists(pass_path))
             {
                 FileInfo fi = new FileInfo(pass_path);
-                if (fapmap.GlobalVariables.FileTypes.Image.Contains(fi.Extension.ToLower()))
-                {
-                    Image img = Image.FromFile(fi.FullName);
-                    Bitmap bmp = new Bitmap(img);
-                    img.Dispose();
-                    showImage.Image = bmp;
-                    return;
-                }
-
-                if (fapmap.GlobalVariables.FileTypes.Video.Contains(fi.Extension.ToLower()))
-                {
-                    string dest = fapmap.GlobalVariables.Path.Dir.Thumbnails + "\\" + fi.Name + ".tmp";
-
-                    if (File.Exists(dest))
-                    {
-                        Image img = Image.FromFile(dest);
-                        Bitmap bmp = new Bitmap(img);
-                        img.Dispose();
-                        showImage.Image = bmp;
-                        return;
-                    }
-                }
-
-                showImage.Image = Icon.ExtractAssociatedIcon(fi.FullName).ToBitmap();
-            }
-            else if (Directory.Exists(pass_path))
-            {
-                showImage.Image = Properties.Resources.folder;
-            }
-            else
-            {
-                this.Close();
+                
             }
         }
 
@@ -98,6 +67,7 @@ namespace fapmap
                         this.Invoke((MethodInvoker)delegate
                         {
                             label_path.Text = path_di.Name;
+                            showImage.Image = Properties.Resources.folder;
                         });
 
                         /*
@@ -197,7 +167,37 @@ namespace fapmap
                             "Last Access Time (Utc): " + fi.LastAccessTimeUtc + Environment.NewLine +
                             "Last Write Time.......: " + fi.LastWriteTime     + Environment.NewLine +
                             "Last Write Time (Utc).: " + fi.LastWriteTimeUtc  + Environment.NewLine;
+
+                            showImage.Image = Icon.ExtractAssociatedIcon(fi.FullName).ToBitmap();
                         });
+                        
+                        if (fapmap.GlobalVariables.FileTypes.Image.Contains(fi.Extension.ToLower()))
+                        {
+                            Image img = Image.FromFile(fi.FullName);
+                            Bitmap bmp = new Bitmap(img);
+                            img.Dispose();
+
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                showImage.Image = bmp;
+                            });
+                        }
+                        else if (fapmap.GlobalVariables.FileTypes.Video.Contains(fi.Extension.ToLower()))
+                        {
+                            string dest = fapmap.GlobalVariables.Path.Dir.Thumbnails + "\\" + fapmap.getFileId(fi).ToString() + ".tmp";
+
+                            if (File.Exists(dest))
+                            {
+                                Image img = Image.FromFile(dest);
+                                Bitmap bmp = new Bitmap(img);
+                                img.Dispose();
+
+                                this.Invoke((MethodInvoker)delegate
+                                {
+                                    showImage.Image = bmp;
+                                });
+                            }
+                        }
                     }
 
                     this.Invoke((MethodInvoker)delegate

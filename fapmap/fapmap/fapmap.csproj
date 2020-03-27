@@ -315,14 +315,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="image_icon_fapmap_mediumblue.ico" />
+    <None Include="Resources\images\hide_none.png" />
+    <None Include="Resources\images\hide_full.png" />
+    <None Include="Resources\images\hide_normal.png" />
     <None Include="Resources\images\treeView.png" />
     <None Include="Resources\images\home.png" />
     <None Include="Resources\images\dragNdrop.png" />
-    <None Include="Resources\images\circle_palevioletred .png" />
     <None Include="Resources\images\bg5.png" />
-    <None Include="Resources\images\circle_mediumpurple.png" />
-    <None Include="Resources\images\circle_steelblue.png" />
-    <None Include="Resources\images\circle_slateblue.png" />
     <None Include="Resources\images\show.png" />
     <None Include="Resources\images\downloadVideo.png" />
     <None Include="Resources\images\downloadFile.png" />

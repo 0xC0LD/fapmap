@@ -43,7 +43,7 @@ namespace fapmap
 
             if (fapmap.GlobalVariables.FileTypes.Video.Contains(fi.Extension.ToLower()))
             {
-                string dest = fapmap.GlobalVariables.Path.Dir.Thumbnails + "\\" + fi.Name + ".tmp";
+                string dest = fapmap.GlobalVariables.Path.Dir.Thumbnails + "\\" + fapmap.getFileId(fi).ToString() + ".tmp";
 
                 if (File.Exists(dest))
                 {

@@ -919,7 +919,7 @@ namespace fapmap
                 .Replace("\r", String.Empty)
                 .Replace("\t", String.Empty);
 
-            txt_dir.ForeColor = Directory.Exists(txt_dir.Text) ? Color.SlateBlue : Color.Red;
+            txt_dir.ForeColor = Directory.Exists(txt_dir.Text) ? Color.FromArgb(179, 141, 235) : Color.Red;
         }
         ListViewItem links_selected = null;
         private void txt_filename_TextChanged(object sender, EventArgs e)
@@ -1101,13 +1101,13 @@ namespace fapmap
             {
                 //UNSELECT
                 txt_filename.ReadOnly = true;
-                txt_filename.ForeColor = Color.DarkSlateBlue;
+                txt_filename.ForeColor = Color.SlateBlue;
             }
             else
             {
                 //SELECT
                 txt_filename.ReadOnly = false;
-                txt_filename.ForeColor = Color.SlateBlue;
+                txt_filename.ForeColor = Color.CornflowerBlue;
 
                 foreach (ListViewItem item in links.SelectedItems)
                 {

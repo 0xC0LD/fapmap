@@ -239,7 +239,7 @@ namespace fapmap
 
             if (string.IsNullOrEmpty(txt_file.Text)) { return; }
 
-            txt_file.ForeColor = File.Exists(txt_file.Text) ? Color.FromArgb(0, 120, 200) : Color.PaleVioletRed;
+            txt_file.ForeColor = File.Exists(txt_file.Text) ? Color.Turquoise : Color.PaleVioletRed;
             
             HelpBalloon.SetToolTip(btn_openFile, "Open File: " + txt_file.Text);
 

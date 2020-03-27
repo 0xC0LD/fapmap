@@ -202,15 +202,6 @@
   <data name="hide" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images\hide.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hide_full" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images\hide_full.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hide_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images\hide_normal.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="hide_remove" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images\hide_remove.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="icon_board" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images\icon_board.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -337,20 +328,8 @@
   <data name="show" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images\show.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="circle_mediumpurple" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images\circle_mediumpurple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="circle_slateblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images\circle_slateblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="circle_steelblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images\circle_steelblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="bg5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images\bg5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="circle_palevioletred" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images\circle_palevioletred .png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="dragNdrop" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images\dragNdrop.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -360,5 +339,14 @@
   </data>
   <data name="treeView" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images\treeView.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hide_none" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\hide_none.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hide_full" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\hide_full.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hide_normal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\hide_normal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

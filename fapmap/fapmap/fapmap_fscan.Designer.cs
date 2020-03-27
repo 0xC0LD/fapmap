@@ -52,7 +52,7 @@
             this.txt_path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txt_path.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_path.Font = new System.Drawing.Font("Consolas", 9F);
-            this.txt_path.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.txt_path.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.txt_path.Location = new System.Drawing.Point(172, 12);
             this.txt_path.Name = "txt_path";
             this.txt_path.Size = new System.Drawing.Size(652, 22);
@@ -67,7 +67,7 @@
             this.btn_find.BackgroundImage = global::fapmap.Properties.Resources.find;
             this.btn_find.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_find.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_find.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.btn_find.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.btn_find.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_find.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_find.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -87,7 +87,7 @@
             this.txt_options.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txt_options.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_options.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_options.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.txt_options.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.txt_options.Location = new System.Drawing.Point(12, 12);
             this.txt_options.Name = "txt_options";
             this.txt_options.Size = new System.Drawing.Size(158, 22);
@@ -101,7 +101,7 @@
             this.label_status.AutoSize = true;
             this.label_status.BackColor = System.Drawing.Color.Transparent;
             this.label_status.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_status.ForeColor = System.Drawing.Color.SlateBlue;
+            this.label_status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.label_status.Location = new System.Drawing.Point(12, 539);
             this.label_status.Name = "label_status";
             this.label_status.Size = new System.Drawing.Size(25, 13);
@@ -111,7 +111,7 @@
             // HelpBalloon
             // 
             this.HelpBalloon.BackColor = System.Drawing.Color.Black;
-            this.HelpBalloon.ForeColor = System.Drawing.Color.SlateBlue;
+            this.HelpBalloon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.HelpBalloon.OwnerDraw = true;
             this.HelpBalloon.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.HelpBalloon_Draw);
             // 
@@ -123,13 +123,13 @@
             this.cb_scroll.Checked = true;
             this.cb_scroll.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_scroll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_scroll.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
-            this.cb_scroll.FlatAppearance.CheckedBackColor = System.Drawing.Color.SlateBlue;
+            this.cb_scroll.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
+            this.cb_scroll.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.cb_scroll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.cb_scroll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.cb_scroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_scroll.Font = new System.Drawing.Font("Segoe Print", 24F);
-            this.cb_scroll.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.cb_scroll.ForeColor = System.Drawing.Color.SlateBlue;
             this.cb_scroll.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cb_scroll.Location = new System.Drawing.Point(860, 542);
             this.cb_scroll.Name = "cb_scroll";
@@ -145,13 +145,13 @@
             this.btn_openPathSelector.BackgroundImage = global::fapmap.Properties.Resources.treeView;
             this.btn_openPathSelector.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_openPathSelector.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_openPathSelector.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.btn_openPathSelector.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.btn_openPathSelector.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_openPathSelector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_openPathSelector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_openPathSelector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_openPathSelector.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_openPathSelector.ForeColor = System.Drawing.Color.SlateBlue;
+            this.btn_openPathSelector.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.btn_openPathSelector.Location = new System.Drawing.Point(850, 12);
             this.btn_openPathSelector.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_openPathSelector.Name = "btn_openPathSelector";
@@ -181,7 +181,7 @@
             this.txt_output.DetectUrls = false;
             this.txt_output.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txt_output.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_output.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.txt_output.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.txt_output.Location = new System.Drawing.Point(0, 0);
             this.txt_output.Name = "txt_output";
             this.txt_output.ReadOnly = true;
@@ -207,7 +207,7 @@
             // txt_output_RMB_copy
             // 
             this.txt_output_RMB_copy.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.txt_output_RMB_copy.ForeColor = System.Drawing.Color.SlateBlue;
+            this.txt_output_RMB_copy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.txt_output_RMB_copy.Image = global::fapmap.Properties.Resources.copy;
             this.txt_output_RMB_copy.Name = "txt_output_RMB_copy";
             this.txt_output_RMB_copy.Size = new System.Drawing.Size(149, 22);
@@ -230,7 +230,7 @@
             this.Controls.Add(this.txt_path);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.ForeColor = System.Drawing.Color.SlateBlue;
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(420, 240);
             this.Name = "fapmap_fscan";

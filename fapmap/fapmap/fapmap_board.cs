@@ -78,7 +78,7 @@ namespace fapmap
                 switch (type)
                 {
                     default:
-                    case "SITE": lvi.ForeColor = System.Drawing.Color.SlateBlue; break;
+                    case "SITE": lvi.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235); break;
                     case "NLIO": lvi.ForeColor = System.Drawing.Color.Teal; break;
                     case "DOWN": lvi.ForeColor = System.Drawing.Color.ForestGreen; break;
                     case "USER": lvi.ForeColor = System.Drawing.Color.MediumPurple; break;

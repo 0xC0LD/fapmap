@@ -23,8 +23,8 @@ namespace fapmap_res
                 base.UseSystemColors = false;
             }
             
-            public override System.Drawing.Color MenuBorder { get { return System.Drawing.Color.SlateBlue; } }
-            public override System.Drawing.Color MenuItemBorder { get { return System.Drawing.Color.SlateBlue; } }
+            public override System.Drawing.Color MenuBorder { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
+            public override System.Drawing.Color MenuItemBorder { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
             
             // MENU SUBITEM HOVER & BORDER
             public override System.Drawing.Color ToolStripDropDownBackground { get { return System.Drawing.Color.FromArgb(15, 6, 15); } }
@@ -34,19 +34,19 @@ namespace fapmap_res
             public override System.Drawing.Color ToolStripGradientEnd    { get { return System.Drawing.Color.Transparent; } }
             public override System.Drawing.Color ToolStripGradientMiddle { get { return System.Drawing.Color.Transparent; } }
             
-            public override System.Drawing.Color OverflowButtonGradientBegin  { get { return System.Drawing.Color.SlateBlue; } }
-            public override System.Drawing.Color OverflowButtonGradientMiddle { get { return System.Drawing.Color.SlateBlue; } }
-            public override System.Drawing.Color OverflowButtonGradientEnd    { get { return System.Drawing.Color.SlateBlue; } }
+            public override System.Drawing.Color OverflowButtonGradientBegin  { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
+            public override System.Drawing.Color OverflowButtonGradientMiddle { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
+            public override System.Drawing.Color OverflowButtonGradientEnd    { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
             
             public override System.Drawing.Color CheckBackground         { get { return System.Drawing.Color.Black; } }
             public override System.Drawing.Color CheckPressedBackground  { get { return System.Drawing.Color.Black; } }
             public override System.Drawing.Color CheckSelectedBackground { get { return System.Drawing.Color.Black; } }
             
-            public override System.Drawing.Color ButtonSelectedHighlightBorder { get { return System.Drawing.Color.SlateBlue; } }
-            public override System.Drawing.Color ButtonPressedHighlightBorder  { get { return System.Drawing.Color.SlateBlue; } }
-            public override System.Drawing.Color ButtonCheckedHighlightBorder  { get { return System.Drawing.Color.SlateBlue; } }
-            public override System.Drawing.Color ButtonPressedBorder           { get { return System.Drawing.Color.SlateBlue; } }
-            public override System.Drawing.Color ButtonSelectedBorder          { get { return System.Drawing.Color.SlateBlue; } }
+            public override System.Drawing.Color ButtonSelectedHighlightBorder { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
+            public override System.Drawing.Color ButtonPressedHighlightBorder  { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
+            public override System.Drawing.Color ButtonCheckedHighlightBorder  { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
+            public override System.Drawing.Color ButtonPressedBorder           { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
+            public override System.Drawing.Color ButtonSelectedBorder          { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
 
 
             // MENU HOVER

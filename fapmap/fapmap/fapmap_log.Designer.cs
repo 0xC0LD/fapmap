@@ -60,7 +60,7 @@
             this.logs_clm_action,
             this.logs_clm_text});
             this.logs.ContextMenuStrip = this.logs_RMB;
-            this.logs.ForeColor = System.Drawing.Color.SlateBlue;
+            this.logs.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
             this.logs.FullRowSelect = true;
             this.logs.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.logs.HideSelection = false;
@@ -115,7 +115,7 @@
             // logs_RMB_reload
             // 
             this.logs_RMB_reload.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.logs_RMB_reload.ForeColor = System.Drawing.Color.SlateBlue;
+            this.logs_RMB_reload.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
             this.logs_RMB_reload.Image = global::fapmap.Properties.Resources.restart;
             this.logs_RMB_reload.Name = "logs_RMB_reload";
             this.logs_RMB_reload.Size = new System.Drawing.Size(193, 22);
@@ -125,7 +125,7 @@
             // logs_RMB_open
             // 
             this.logs_RMB_open.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.logs_RMB_open.ForeColor = System.Drawing.Color.SlateBlue;
+            this.logs_RMB_open.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
             this.logs_RMB_open.Image = global::fapmap.Properties.Resources.incognito;
             this.logs_RMB_open.Name = "logs_RMB_open";
             this.logs_RMB_open.Size = new System.Drawing.Size(193, 22);
@@ -135,7 +135,7 @@
             // logs_RMB_copy
             // 
             this.logs_RMB_copy.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.logs_RMB_copy.ForeColor = System.Drawing.Color.SlateBlue;
+            this.logs_RMB_copy.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
             this.logs_RMB_copy.Image = global::fapmap.Properties.Resources.copy;
             this.logs_RMB_copy.Name = "logs_RMB_copy";
             this.logs_RMB_copy.Size = new System.Drawing.Size(193, 22);
@@ -145,7 +145,7 @@
             // logs_RMB_edit
             // 
             this.logs_RMB_edit.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.logs_RMB_edit.ForeColor = System.Drawing.Color.SlateBlue;
+            this.logs_RMB_edit.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
             this.logs_RMB_edit.Image = global::fapmap.Properties.Resources.edit;
             this.logs_RMB_edit.Name = "logs_RMB_edit";
             this.logs_RMB_edit.Size = new System.Drawing.Size(193, 22);
@@ -174,7 +174,7 @@
             this.Controls.Add(this.logs);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.ForeColor = System.Drawing.Color.SlateBlue;
+            this.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(500, 220);
             this.Name = "fapmap_log";

@@ -124,9 +124,9 @@ namespace fapmap
                     if (cb_fileNameOnly.Checked) { text = di.Parent.Name + "\\" + di.Name; }
 
                     // set color
-                    if      (di.Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { fc = Color.MediumPurple;  }
-                    else if (di.Attributes.HasFlag(FileAttributes.Hidden))                         { fc = Color.SteelBlue;     }
-                    else                                                                           { fc = Color.PaleVioletRed; }
+                    if      (di.Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { fc = Color.FromArgb(179, 141, 235); }
+                    else if (di.Attributes.HasFlag(FileAttributes.Hidden))                         { fc = Color.SkyBlue;                 }
+                    else                                                                           { fc = Color.PaleVioletRed;           }
 
                     // set image
                     imageIndex = 0;
@@ -139,9 +139,9 @@ namespace fapmap
                     if (cb_fileNameOnly.Checked) { text = fi.Directory.Name + "\\" + fi.Name; }
 
                     // set color
-                    if      (fi.Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { fc = Color.MediumPurple;  }
-                    else if (fi.Attributes.HasFlag(FileAttributes.Hidden))                         { fc = Color.SteelBlue;     }
-                    else                                                                           { fc = Color.PaleVioletRed; }
+                    if      (fi.Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { fc = Color.FromArgb(179, 141, 235); }
+                    else if (fi.Attributes.HasFlag(FileAttributes.Hidden))                         { fc = Color.SkyBlue;                 }
+                    else                                                                           { fc = Color.PaleVioletRed;           }
 
                     // set image
                     string ext = fi.Extension.ToLower();

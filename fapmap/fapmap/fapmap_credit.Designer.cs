@@ -71,6 +71,7 @@
             this.link1.BackColor = System.Drawing.Color.Transparent;
             this.link1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.link1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.link1.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.link1.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.link1.Location = new System.Drawing.Point(88, 34);
             this.link1.Name = "link1";
@@ -93,6 +94,7 @@
             this.link2.BackColor = System.Drawing.Color.Transparent;
             this.link2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.link2.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.link2.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.link2.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.link2.Location = new System.Drawing.Point(88, 51);
             this.link2.Name = "link2";
@@ -206,7 +208,7 @@
             this.label_status.AutoSize = true;
             this.label_status.BackColor = System.Drawing.Color.Transparent;
             this.label_status.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_status.ForeColor = System.Drawing.Color.SlateBlue;
+            this.label_status.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.label_status.Location = new System.Drawing.Point(12, 469);
             this.label_status.Name = "label_status";
             this.label_status.Size = new System.Drawing.Size(16, 13);
@@ -220,6 +222,7 @@
             this.link4.BackColor = System.Drawing.Color.Transparent;
             this.link4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.link4.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.link4.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.link4.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.link4.Location = new System.Drawing.Point(68, 152);
             this.link4.Name = "link4";
@@ -242,6 +245,7 @@
             this.link3.BackColor = System.Drawing.Color.Transparent;
             this.link3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.link3.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.link3.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.link3.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.link3.Location = new System.Drawing.Point(88, 68);
             this.link3.Name = "link3";
@@ -264,6 +268,7 @@
             this.link7.BackColor = System.Drawing.Color.Transparent;
             this.link7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.link7.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.link7.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.link7.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.link7.Location = new System.Drawing.Point(68, 334);
             this.link7.Name = "link7";
@@ -286,6 +291,7 @@
             this.link8.BackColor = System.Drawing.Color.Transparent;
             this.link8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.link8.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.link8.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.link8.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.link8.Location = new System.Drawing.Point(68, 390);
             this.link8.Name = "link8";
@@ -320,6 +326,7 @@
             this.link5.BackColor = System.Drawing.Color.Transparent;
             this.link5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.link5.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.link5.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.link5.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.link5.Location = new System.Drawing.Point(12, 245);
             this.link5.Name = "link5";
@@ -342,6 +349,7 @@
             this.link6.BackColor = System.Drawing.Color.Transparent;
             this.link6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.link6.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.link6.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.link6.LinkColor = System.Drawing.Color.CornflowerBlue;
             this.link6.Location = new System.Drawing.Point(12, 270);
             this.link6.Name = "link6";
@@ -384,7 +392,7 @@
             this.Controls.Add(this.pb3);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.ForeColor = System.Drawing.Color.SlateBlue;
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(380, 530);

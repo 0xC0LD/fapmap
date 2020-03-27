@@ -48,10 +48,10 @@
             this.btn_help = new System.Windows.Forms.Button();
             this.resultNum = new System.Windows.Forms.Label();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
-            this.output_icons = new System.Windows.Forms.ImageList(this.components);
             this.output = new fapmap_res.FapMapListView();
             this.output_clm_num = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.output_clm_path = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.output_icons = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.showImage)).BeginInit();
             this.output_RMB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
@@ -94,7 +94,7 @@
             // output_RMB_reload
             // 
             this.output_RMB_reload.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.output_RMB_reload.ForeColor = System.Drawing.Color.SlateBlue;
+            this.output_RMB_reload.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.output_RMB_reload.Image = global::fapmap.Properties.Resources.restart;
             this.output_RMB_reload.Name = "output_RMB_reload";
             this.output_RMB_reload.Size = new System.Drawing.Size(239, 22);
@@ -104,7 +104,7 @@
             // output_RMB_open
             // 
             this.output_RMB_open.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.output_RMB_open.ForeColor = System.Drawing.Color.SlateBlue;
+            this.output_RMB_open.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.output_RMB_open.Image = global::fapmap.Properties.Resources.open;
             this.output_RMB_open.Name = "output_RMB_open";
             this.output_RMB_open.Size = new System.Drawing.Size(239, 22);
@@ -114,7 +114,7 @@
             // output_RMB_explorer
             // 
             this.output_RMB_explorer.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.output_RMB_explorer.ForeColor = System.Drawing.Color.SlateBlue;
+            this.output_RMB_explorer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.output_RMB_explorer.Image = global::fapmap.Properties.Resources.folder;
             this.output_RMB_explorer.Name = "output_RMB_explorer";
             this.output_RMB_explorer.Size = new System.Drawing.Size(239, 22);
@@ -124,7 +124,7 @@
             // output_RMB_explorer2
             // 
             this.output_RMB_explorer2.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.output_RMB_explorer2.ForeColor = System.Drawing.Color.SlateBlue;
+            this.output_RMB_explorer2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.output_RMB_explorer2.Image = global::fapmap.Properties.Resources.selectFolder;
             this.output_RMB_explorer2.Name = "output_RMB_explorer2";
             this.output_RMB_explorer2.Size = new System.Drawing.Size(239, 22);
@@ -134,7 +134,7 @@
             // output_RMB_copy
             // 
             this.output_RMB_copy.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.output_RMB_copy.ForeColor = System.Drawing.Color.SlateBlue;
+            this.output_RMB_copy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.output_RMB_copy.Image = global::fapmap.Properties.Resources.copy;
             this.output_RMB_copy.Name = "output_RMB_copy";
             this.output_RMB_copy.Size = new System.Drawing.Size(239, 22);
@@ -144,7 +144,7 @@
             // output_RMB_delete
             // 
             this.output_RMB_delete.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.output_RMB_delete.ForeColor = System.Drawing.Color.SlateBlue;
+            this.output_RMB_delete.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.output_RMB_delete.Image = global::fapmap.Properties.Resources.delete;
             this.output_RMB_delete.Name = "output_RMB_delete";
             this.output_RMB_delete.Size = new System.Drawing.Size(239, 22);
@@ -158,7 +158,7 @@
             this.btn_find.BackgroundImage = global::fapmap.Properties.Resources.find;
             this.btn_find.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_find.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_find.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.btn_find.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.btn_find.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.btn_find.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_find.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -180,7 +180,7 @@
             this.txt_searchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txt_searchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_searchBox.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_searchBox.ForeColor = System.Drawing.Color.MediumSlateBlue;
+            this.txt_searchBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.txt_searchBox.Location = new System.Drawing.Point(12, 12);
             this.txt_searchBox.Name = "txt_searchBox";
             this.txt_searchBox.Size = new System.Drawing.Size(929, 25);
@@ -202,13 +202,13 @@
             this.cb_showImage.Checked = true;
             this.cb_showImage.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_showImage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_showImage.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
-            this.cb_showImage.FlatAppearance.CheckedBackColor = System.Drawing.Color.SlateBlue;
+            this.cb_showImage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
+            this.cb_showImage.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.cb_showImage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.cb_showImage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.cb_showImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_showImage.Font = new System.Drawing.Font("Segoe Print", 24F);
-            this.cb_showImage.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.cb_showImage.ForeColor = System.Drawing.Color.SlateBlue;
             this.cb_showImage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cb_showImage.Location = new System.Drawing.Point(915, 538);
             this.cb_showImage.Name = "cb_showImage";
@@ -224,13 +224,13 @@
             this.cb_case.AutoSize = true;
             this.cb_case.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.cb_case.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_case.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
-            this.cb_case.FlatAppearance.CheckedBackColor = System.Drawing.Color.SlateBlue;
+            this.cb_case.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
+            this.cb_case.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.cb_case.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.cb_case.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.cb_case.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_case.Font = new System.Drawing.Font("Segoe Print", 24F);
-            this.cb_case.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.cb_case.ForeColor = System.Drawing.Color.SlateBlue;
             this.cb_case.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cb_case.Location = new System.Drawing.Point(930, 538);
             this.cb_case.Name = "cb_case";
@@ -247,13 +247,13 @@
             this.cb_fileNameOnly.Checked = true;
             this.cb_fileNameOnly.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_fileNameOnly.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_fileNameOnly.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
-            this.cb_fileNameOnly.FlatAppearance.CheckedBackColor = System.Drawing.Color.SlateBlue;
+            this.cb_fileNameOnly.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
+            this.cb_fileNameOnly.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.cb_fileNameOnly.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.cb_fileNameOnly.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.cb_fileNameOnly.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_fileNameOnly.Font = new System.Drawing.Font("Segoe Print", 24F);
-            this.cb_fileNameOnly.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.cb_fileNameOnly.ForeColor = System.Drawing.Color.SlateBlue;
             this.cb_fileNameOnly.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cb_fileNameOnly.Location = new System.Drawing.Point(960, 538);
             this.cb_fileNameOnly.Name = "cb_fileNameOnly";
@@ -270,13 +270,13 @@
             this.cb_sort.Checked = true;
             this.cb_sort.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_sort.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_sort.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
-            this.cb_sort.FlatAppearance.CheckedBackColor = System.Drawing.Color.SlateBlue;
+            this.cb_sort.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
+            this.cb_sort.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.cb_sort.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.cb_sort.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.cb_sort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_sort.Font = new System.Drawing.Font("Segoe Print", 24F);
-            this.cb_sort.ForeColor = System.Drawing.Color.DarkSlateBlue;
+            this.cb_sort.ForeColor = System.Drawing.Color.SlateBlue;
             this.cb_sort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cb_sort.Location = new System.Drawing.Point(945, 538);
             this.cb_sort.Name = "cb_sort";
@@ -292,7 +292,7 @@
             this.btn_help.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_help.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_help.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_help.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.btn_help.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.btn_help.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.btn_help.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_help.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -339,12 +339,6 @@
             this.splitContainer.SplitterDistance = 473;
             this.splitContainer.TabIndex = 232;
             // 
-            // output_icons
-            // 
-            this.output_icons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("output_icons.ImageStream")));
-            this.output_icons.TransparentColor = System.Drawing.Color.Transparent;
-            this.output_icons.Images.SetKeyName(0, "dir.ico");
-            // 
             // output
             // 
             this.output.AllowDrop = true;
@@ -359,7 +353,7 @@
             this.output.ContextMenuStrip = this.output_RMB;
             this.output.Dock = System.Windows.Forms.DockStyle.Fill;
             this.output.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.output.ForeColor = System.Drawing.Color.SlateBlue;
+            this.output.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.output.FullRowSelect = true;
             this.output.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.output.HideSelection = false;
@@ -389,6 +383,12 @@
             this.output_clm_path.Text = "PATH";
             this.output_clm_path.Width = 92;
             // 
+            // output_icons
+            // 
+            this.output_icons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("output_icons.ImageStream")));
+            this.output_icons.TransparentColor = System.Drawing.Color.Transparent;
+            this.output_icons.Images.SetKeyName(0, "dir.ico");
+            // 
             // fapmap_find
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -407,7 +407,7 @@
             this.Controls.Add(this.resultNum);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.ForeColor = System.Drawing.Color.SlateBlue;
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(365, 200);

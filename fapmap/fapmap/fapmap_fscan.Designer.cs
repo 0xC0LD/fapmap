@@ -52,7 +52,7 @@
             this.txt_path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txt_path.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_path.Font = new System.Drawing.Font("Consolas", 9F);
-            this.txt_path.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.txt_path.ForeColor = System.Drawing.Color.SkyBlue;
             this.txt_path.Location = new System.Drawing.Point(172, 12);
             this.txt_path.Name = "txt_path";
             this.txt_path.Size = new System.Drawing.Size(652, 22);

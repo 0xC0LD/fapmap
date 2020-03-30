@@ -52,23 +52,26 @@
             this.output_clm_num = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.output_clm_path = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.output_icons = new System.Windows.Forms.ImageList(this.components);
+            this.txt_searchBox_border = new fapmap_res.FapMapPanel();
+            this.output_border = new fapmap_res.FapMapPanel();
             ((System.ComponentModel.ISupportInitialize)(this.showImage)).BeginInit();
             this.output_RMB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
+            this.txt_searchBox_border.SuspendLayout();
+            this.output_border.SuspendLayout();
             this.SuspendLayout();
             // 
             // showImage
             // 
-            this.showImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.showImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.showImage.BackColor = System.Drawing.Color.Black;
             this.showImage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.showImage.Image = global::fapmap.Properties.Resources.image;
             this.showImage.Location = new System.Drawing.Point(0, 0);
             this.showImage.Name = "showImage";
-            this.showImage.Size = new System.Drawing.Size(483, 489);
+            this.showImage.Size = new System.Drawing.Size(483, 487);
             this.showImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.showImage.TabIndex = 155;
             this.showImage.TabStop = false;
@@ -158,12 +161,13 @@
             this.btn_find.BackgroundImage = global::fapmap.Properties.Resources.find;
             this.btn_find.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_find.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_find.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
+            this.btn_find.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_find.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.btn_find.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_find.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_find.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_find.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_find.ForeColor = System.Drawing.Color.MediumPurple;
             this.btn_find.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btn_find.Location = new System.Drawing.Point(947, 12);
             this.btn_find.Name = "btn_find";
@@ -178,12 +182,12 @@
             this.txt_searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_searchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.txt_searchBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_searchBox.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_searchBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.txt_searchBox.Location = new System.Drawing.Point(12, 12);
+            this.txt_searchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_searchBox.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_searchBox.ForeColor = System.Drawing.Color.MediumPurple;
+            this.txt_searchBox.Location = new System.Drawing.Point(1, 1);
             this.txt_searchBox.Name = "txt_searchBox";
-            this.txt_searchBox.Size = new System.Drawing.Size(929, 25);
+            this.txt_searchBox.Size = new System.Drawing.Size(927, 23);
             this.txt_searchBox.TabIndex = 1;
             this.txt_searchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_searchBox_KeyDown);
             // 
@@ -197,15 +201,15 @@
             // cb_showImage
             // 
             this.cb_showImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_showImage.AutoSize = true;
-            this.cb_showImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.cb_showImage.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_showImage.BackColor = System.Drawing.Color.Black;
             this.cb_showImage.Checked = true;
             this.cb_showImage.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_showImage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_showImage.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.cb_showImage.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.cb_showImage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.cb_showImage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.cb_showImage.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.cb_showImage.FlatAppearance.CheckedBackColor = System.Drawing.Color.Purple;
+            this.cb_showImage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Purple;
+            this.cb_showImage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
             this.cb_showImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_showImage.Font = new System.Drawing.Font("Segoe Print", 24F);
             this.cb_showImage.ForeColor = System.Drawing.Color.SlateBlue;
@@ -221,13 +225,13 @@
             // cb_case
             // 
             this.cb_case.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_case.AutoSize = true;
-            this.cb_case.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.cb_case.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_case.BackColor = System.Drawing.Color.Black;
             this.cb_case.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_case.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.cb_case.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.cb_case.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.cb_case.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.cb_case.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.cb_case.FlatAppearance.CheckedBackColor = System.Drawing.Color.Purple;
+            this.cb_case.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Purple;
+            this.cb_case.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
             this.cb_case.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_case.Font = new System.Drawing.Font("Segoe Print", 24F);
             this.cb_case.ForeColor = System.Drawing.Color.SlateBlue;
@@ -242,15 +246,15 @@
             // cb_fileNameOnly
             // 
             this.cb_fileNameOnly.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_fileNameOnly.AutoSize = true;
-            this.cb_fileNameOnly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.cb_fileNameOnly.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_fileNameOnly.BackColor = System.Drawing.Color.Black;
             this.cb_fileNameOnly.Checked = true;
             this.cb_fileNameOnly.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_fileNameOnly.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_fileNameOnly.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.cb_fileNameOnly.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.cb_fileNameOnly.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.cb_fileNameOnly.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.cb_fileNameOnly.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.cb_fileNameOnly.FlatAppearance.CheckedBackColor = System.Drawing.Color.Purple;
+            this.cb_fileNameOnly.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Purple;
+            this.cb_fileNameOnly.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
             this.cb_fileNameOnly.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_fileNameOnly.Font = new System.Drawing.Font("Segoe Print", 24F);
             this.cb_fileNameOnly.ForeColor = System.Drawing.Color.SlateBlue;
@@ -265,15 +269,15 @@
             // cb_sort
             // 
             this.cb_sort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_sort.AutoSize = true;
-            this.cb_sort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.cb_sort.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_sort.BackColor = System.Drawing.Color.Black;
             this.cb_sort.Checked = true;
             this.cb_sort.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_sort.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_sort.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.cb_sort.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.cb_sort.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.cb_sort.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.cb_sort.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.cb_sort.FlatAppearance.CheckedBackColor = System.Drawing.Color.Purple;
+            this.cb_sort.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Purple;
+            this.cb_sort.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
             this.cb_sort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_sort.Font = new System.Drawing.Font("Segoe Print", 24F);
             this.cb_sort.ForeColor = System.Drawing.Color.SlateBlue;
@@ -289,15 +293,16 @@
             // btn_help
             // 
             this.btn_help.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_help.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_help.BackColor = System.Drawing.Color.Black;
             this.btn_help.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_help.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_help.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.btn_help.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.btn_help.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_help.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_help.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.btn_help.FlatAppearance.CheckedBackColor = System.Drawing.Color.Purple;
+            this.btn_help.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Purple;
+            this.btn_help.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
             this.btn_help.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_help.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_help.ForeColor = System.Drawing.Color.SlateBlue;
             this.btn_help.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btn_help.Location = new System.Drawing.Point(900, 538);
             this.btn_help.Name = "btn_help";
@@ -313,7 +318,7 @@
             this.resultNum.AutoSize = true;
             this.resultNum.BackColor = System.Drawing.Color.Transparent;
             this.resultNum.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.resultNum.ForeColor = System.Drawing.Color.MediumSlateBlue;
+            this.resultNum.ForeColor = System.Drawing.Color.MediumPurple;
             this.resultNum.Location = new System.Drawing.Point(12, 539);
             this.resultNum.Name = "resultNum";
             this.resultNum.Size = new System.Drawing.Size(25, 13);
@@ -325,7 +330,7 @@
             this.splitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer.Location = new System.Drawing.Point(12, 43);
+            this.splitContainer.Location = new System.Drawing.Point(1, 1);
             this.splitContainer.Name = "splitContainer";
             // 
             // splitContainer.Panel1
@@ -335,8 +340,8 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.showImage);
-            this.splitContainer.Size = new System.Drawing.Size(960, 489);
-            this.splitContainer.SplitterDistance = 473;
+            this.splitContainer.Size = new System.Drawing.Size(958, 487);
+            this.splitContainer.SplitterDistance = 471;
             this.splitContainer.TabIndex = 232;
             // 
             // output
@@ -346,7 +351,7 @@
             this.output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.output.BackgroundImage = global::fapmap.Properties.Resources.bg3;
             this.output.BackgroundImageTiled = true;
-            this.output.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.output.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.output.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.output_clm_num,
             this.output_clm_path});
@@ -360,7 +365,7 @@
             this.output.Location = new System.Drawing.Point(0, 0);
             this.output.MultiSelect = false;
             this.output.Name = "output";
-            this.output.Size = new System.Drawing.Size(473, 489);
+            this.output.Size = new System.Drawing.Size(471, 487);
             this.output.SmallImageList = this.output_icons;
             this.output.TabIndex = 3;
             this.output.UseCompatibleStateImageBehavior = false;
@@ -389,6 +394,27 @@
             this.output_icons.TransparentColor = System.Drawing.Color.Transparent;
             this.output_icons.Images.SetKeyName(0, "dir.ico");
             // 
+            // txt_searchBox_border
+            // 
+            this.txt_searchBox_border.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_searchBox_border.Controls.Add(this.txt_searchBox);
+            this.txt_searchBox_border.Location = new System.Drawing.Point(12, 12);
+            this.txt_searchBox_border.Name = "txt_searchBox_border";
+            this.txt_searchBox_border.Size = new System.Drawing.Size(929, 25);
+            this.txt_searchBox_border.TabIndex = 235;
+            // 
+            // output_border
+            // 
+            this.output_border.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.output_border.Controls.Add(this.splitContainer);
+            this.output_border.Location = new System.Drawing.Point(12, 43);
+            this.output_border.Name = "output_border";
+            this.output_border.Size = new System.Drawing.Size(960, 489);
+            this.output_border.TabIndex = 236;
+            // 
             // fapmap_find
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -396,22 +422,23 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.output_border);
+            this.Controls.Add(this.txt_searchBox_border);
             this.Controls.Add(this.btn_help);
             this.Controls.Add(this.cb_sort);
-            this.Controls.Add(this.splitContainer);
             this.Controls.Add(this.cb_fileNameOnly);
             this.Controls.Add(this.cb_case);
             this.Controls.Add(this.cb_showImage);
-            this.Controls.Add(this.txt_searchBox);
             this.Controls.Add(this.btn_find);
             this.Controls.Add(this.resultNum);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
+            this.ForeColor = System.Drawing.Color.MediumPurple;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(365, 200);
             this.Name = "fapmap_find";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FapMap - Find File/Folder";
             this.Load += new System.EventHandler(this.fapmap_find_Load);
@@ -421,6 +448,9 @@
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
+            this.txt_searchBox_border.ResumeLayout(false);
+            this.txt_searchBox_border.PerformLayout();
+            this.output_border.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -453,5 +483,7 @@
         private System.Windows.Forms.ImageList output_icons;
         private System.Windows.Forms.CheckBox cb_sort;
         private System.Windows.Forms.Button btn_help;
+        private fapmap_res.FapMapPanel txt_searchBox_border;
+        private fapmap_res.FapMapPanel output_border;
     }
 }

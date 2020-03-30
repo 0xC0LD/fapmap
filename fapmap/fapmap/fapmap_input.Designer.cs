@@ -29,26 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fapmap_input));
-            this.txt_input = new System.Windows.Forms.TextBox();
             this.btn_ok = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.label_prompt = new System.Windows.Forms.Label();
+            this.txt_input_border = new fapmap_res.FapMapPanel();
+            this.txt_input = new System.Windows.Forms.TextBox();
+            this.txt_input_border.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txt_input
-            // 
-            this.txt_input.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_input.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.txt_input.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_input.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txt_input.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
-            this.txt_input.Location = new System.Drawing.Point(11, 31);
-            this.txt_input.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.txt_input.Name = "txt_input";
-            this.txt_input.Size = new System.Drawing.Size(352, 26);
-            this.txt_input.TabIndex = 1;
-            this.txt_input.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_input_KeyDown);
             // 
             // btn_ok
             // 
@@ -61,10 +48,10 @@
             this.btn_ok.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ok.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_ok.Location = new System.Drawing.Point(237, 69);
-            this.btn_ok.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.btn_ok.Location = new System.Drawing.Point(191, 63);
+            this.btn_ok.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
             this.btn_ok.Name = "btn_ok";
-            this.btn_ok.Size = new System.Drawing.Size(61, 29);
+            this.btn_ok.Size = new System.Drawing.Size(60, 25);
             this.btn_ok.TabIndex = 2;
             this.btn_ok.Text = "OK";
             this.btn_ok.UseVisualStyleBackColor = false;
@@ -81,10 +68,10 @@
             this.btn_cancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_cancel.Location = new System.Drawing.Point(302, 69);
-            this.btn_cancel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.btn_cancel.Location = new System.Drawing.Point(257, 63);
+            this.btn_cancel.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(61, 29);
+            this.btn_cancel.Size = new System.Drawing.Size(60, 25);
             this.btn_cancel.TabIndex = 3;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = false;
@@ -96,45 +83,76 @@
             this.label_prompt.BackColor = System.Drawing.Color.Transparent;
             this.label_prompt.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_prompt.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label_prompt.Location = new System.Drawing.Point(12, 9);
+            this.label_prompt.Location = new System.Drawing.Point(14, 12);
+            this.label_prompt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label_prompt.Name = "label_prompt";
             this.label_prompt.Size = new System.Drawing.Size(32, 18);
             this.label_prompt.TabIndex = 0;
             this.label_prompt.Text = "...";
             // 
+            // txt_input_border
+            // 
+            this.txt_input_border.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_input_border.Controls.Add(this.txt_input);
+            this.txt_input_border.Location = new System.Drawing.Point(12, 33);
+            this.txt_input_border.Name = "txt_input_border";
+            this.txt_input_border.Size = new System.Drawing.Size(305, 22);
+            this.txt_input_border.TabIndex = 7;
+            // 
+            // txt_input
+            // 
+            this.txt_input.AllowDrop = true;
+            this.txt_input.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_input.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txt_input.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_input.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txt_input.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_input.ForeColor = System.Drawing.Color.MediumPurple;
+            this.txt_input.Location = new System.Drawing.Point(1, 1);
+            this.txt_input.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_input.Name = "txt_input";
+            this.txt_input.Size = new System.Drawing.Size(303, 20);
+            this.txt_input.TabIndex = 1;
+            this.txt_input.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_input_KeyDown);
+            // 
             // fapmap_input
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(5F, 10F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
-            this.ClientSize = new System.Drawing.Size(374, 111);
+            this.BackgroundImage = global::fapmap.Properties.Resources.bg3;
+            this.ClientSize = new System.Drawing.Size(329, 101);
+            this.Controls.Add(this.txt_input_border);
             this.Controls.Add(this.label_prompt);
             this.Controls.Add(this.btn_ok);
             this.Controls.Add(this.btn_cancel);
-            this.Controls.Add(this.txt_input);
             this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold);
-            this.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
+            this.Font = new System.Drawing.Font("Consolas", 8.25F);
+            this.ForeColor = System.Drawing.Color.MediumPurple;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(630, 150);
-            this.MinimumSize = new System.Drawing.Size(290, 150);
+            this.MaximumSize = new System.Drawing.Size(760, 140);
+            this.MinimumSize = new System.Drawing.Size(345, 140);
             this.Name = "fapmap_input";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FapMap - Input:";
             this.Load += new System.EventHandler(this.fapmap_input_Load);
+            this.txt_input_border.ResumeLayout(false);
+            this.txt_input_border.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txt_input;
         private System.Windows.Forms.Button btn_ok;
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Label label_prompt;
+        private fapmap_res.FapMapPanel txt_input_border;
+        private System.Windows.Forms.TextBox txt_input;
     }
 }

@@ -124,9 +124,8 @@
             // 
             // pb3
             // 
-            this.pb3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pb3.BackColor = System.Drawing.Color.Transparent;
             this.pb3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pb3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pb3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb3.Image = global::fapmap.Properties.Resources.image;
             this.pb3.Location = new System.Drawing.Point(12, 390);
@@ -141,9 +140,8 @@
             // 
             // pb2
             // 
-            this.pb2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pb2.BackColor = System.Drawing.Color.Transparent;
             this.pb2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pb2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pb2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb2.Image = global::fapmap.Properties.Resources.image;
             this.pb2.Location = new System.Drawing.Point(12, 334);
@@ -158,9 +156,8 @@
             // 
             // pb1
             // 
-            this.pb1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pb1.BackColor = System.Drawing.Color.Transparent;
             this.pb1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pb1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pb1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb1.Image = global::fapmap.Properties.Resources.image;
             this.pb1.Location = new System.Drawing.Point(12, 152);
@@ -175,9 +172,8 @@
             // 
             // pb0
             // 
-            this.pb0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.pb0.BackColor = System.Drawing.Color.Transparent;
             this.pb0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pb0.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pb0.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pb0.Image = global::fapmap.Properties.Resources.image;
             this.pb0.Location = new System.Drawing.Point(12, 34);
@@ -371,7 +367,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
+            this.BackgroundImage = global::fapmap.Properties.Resources.bg4;
             this.ClientSize = new System.Drawing.Size(364, 491);
             this.Controls.Add(this.link6);
             this.Controls.Add(this.link5);
@@ -392,12 +388,13 @@
             this.Controls.Add(this.pb3);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
+            this.ForeColor = System.Drawing.Color.MediumPurple;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(380, 530);
             this.MinimumSize = new System.Drawing.Size(380, 530);
             this.Name = "fapmap_credit";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FapMap - Credits";
             this.Load += new System.EventHandler(this.fapmap_credit_Load);

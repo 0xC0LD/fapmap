@@ -41,7 +41,9 @@
             this.logs_RMB_copy = new System.Windows.Forms.ToolStripMenuItem();
             this.logs_RMB_edit = new System.Windows.Forms.ToolStripMenuItem();
             this.lable_status = new System.Windows.Forms.Label();
+            this.logs_border = new fapmap_res.FapMapPanel();
             this.logs_RMB.SuspendLayout();
+            this.logs_border.SuspendLayout();
             this.SuspendLayout();
             // 
             // logs
@@ -53,20 +55,20 @@
             this.logs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.logs.BackgroundImage = global::fapmap.Properties.Resources.bg3;
             this.logs.BackgroundImageTiled = true;
-            this.logs.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.logs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.logs.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.logs_clm_num,
             this.logs_clm_time,
             this.logs_clm_action,
             this.logs_clm_text});
             this.logs.ContextMenuStrip = this.logs_RMB;
-            this.logs.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
+            this.logs.ForeColor = System.Drawing.Color.MediumPurple;
             this.logs.FullRowSelect = true;
             this.logs.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.logs.HideSelection = false;
-            this.logs.Location = new System.Drawing.Point(12, 26);
+            this.logs.Location = new System.Drawing.Point(1, 1);
             this.logs.Name = "logs";
-            this.logs.Size = new System.Drawing.Size(860, 423);
+            this.logs.Size = new System.Drawing.Size(858, 421);
             this.logs.TabIndex = 1;
             this.logs.UseCompatibleStateImageBehavior = false;
             this.logs.View = System.Windows.Forms.View.Details;
@@ -110,12 +112,12 @@
             this.logs_RMB.Name = "contextMenuStrip1";
             this.logs_RMB.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.logs_RMB.ShowItemToolTips = false;
-            this.logs_RMB.Size = new System.Drawing.Size(194, 114);
+            this.logs_RMB.Size = new System.Drawing.Size(194, 92);
             // 
             // logs_RMB_reload
             // 
             this.logs_RMB_reload.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.logs_RMB_reload.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
+            this.logs_RMB_reload.ForeColor = System.Drawing.Color.MediumPurple;
             this.logs_RMB_reload.Image = global::fapmap.Properties.Resources.restart;
             this.logs_RMB_reload.Name = "logs_RMB_reload";
             this.logs_RMB_reload.Size = new System.Drawing.Size(193, 22);
@@ -125,7 +127,7 @@
             // logs_RMB_open
             // 
             this.logs_RMB_open.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.logs_RMB_open.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
+            this.logs_RMB_open.ForeColor = System.Drawing.Color.MediumPurple;
             this.logs_RMB_open.Image = global::fapmap.Properties.Resources.incognito;
             this.logs_RMB_open.Name = "logs_RMB_open";
             this.logs_RMB_open.Size = new System.Drawing.Size(193, 22);
@@ -135,7 +137,7 @@
             // logs_RMB_copy
             // 
             this.logs_RMB_copy.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.logs_RMB_copy.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
+            this.logs_RMB_copy.ForeColor = System.Drawing.Color.MediumPurple;
             this.logs_RMB_copy.Image = global::fapmap.Properties.Resources.copy;
             this.logs_RMB_copy.Name = "logs_RMB_copy";
             this.logs_RMB_copy.Size = new System.Drawing.Size(193, 22);
@@ -145,7 +147,7 @@
             // logs_RMB_edit
             // 
             this.logs_RMB_edit.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.logs_RMB_edit.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
+            this.logs_RMB_edit.ForeColor = System.Drawing.Color.MediumPurple;
             this.logs_RMB_edit.Image = global::fapmap.Properties.Resources.edit;
             this.logs_RMB_edit.Name = "logs_RMB_edit";
             this.logs_RMB_edit.Size = new System.Drawing.Size(193, 22);
@@ -163,6 +165,17 @@
             this.lable_status.TabIndex = 0;
             this.lable_status.Text = "...";
             // 
+            // logs_border
+            // 
+            this.logs_border.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.logs_border.Controls.Add(this.logs);
+            this.logs_border.Location = new System.Drawing.Point(12, 26);
+            this.logs_border.Name = "logs_border";
+            this.logs_border.Size = new System.Drawing.Size(860, 423);
+            this.logs_border.TabIndex = 2;
+            // 
             // fapmap_log
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,18 +183,20 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
             this.ClientSize = new System.Drawing.Size(884, 461);
+            this.Controls.Add(this.logs_border);
             this.Controls.Add(this.lable_status);
-            this.Controls.Add(this.logs);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
+            this.ForeColor = System.Drawing.Color.MediumPurple;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(500, 220);
             this.Name = "fapmap_log";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FapMap - Logs";
             this.Load += new System.EventHandler(this.fapmap_log_Load);
             this.logs_RMB.ResumeLayout(false);
+            this.logs_border.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,5 +216,6 @@
         private System.Windows.Forms.ToolStripMenuItem logs_RMB_copy;
         private System.Windows.Forms.ToolStripMenuItem logs_RMB_edit;
         private System.Windows.Forms.Label lable_status;
+        private fapmap_res.FapMapPanel logs_border;
     }
 }

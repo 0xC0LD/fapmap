@@ -24,15 +24,15 @@ namespace fapmap
             InitializeComponent();
 
             // menu
-            menu.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
+            menu.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
             menu.Cursor = Cursors.Arrow;
 
             // rmb
-            links_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
-            faftv_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
-            fileDisplay_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
-            showMedia_video_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
-            showMedia_image_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
+            links_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
+            faftv_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
+            fileDisplay_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
+            showMedia_video_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
+            showMedia_image_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
         }
 
         public class GlobalVariables
@@ -3252,7 +3252,7 @@ namespace fapmap
         private void showMedia_video_ctrlsPanel_pos_MouseLeave(object sender, EventArgs e)
         {
             //showMedia_video_ctrlsPanel_pos_hovering = false;
-            //showMedia_video_ctrlsPanel_pos_cur.ForeColor = Color.FromArgb(179, 141, 235);
+            //showMedia_video_ctrlsPanel_pos_cur.ForeColor = Color.MediumPurple;
         }
         private void showMedia_video_ctrlsPanel_pos_MouseUp(object sender, MouseEventArgs e)
         {
@@ -3504,7 +3504,7 @@ namespace fapmap
                 case MouseButtons.Right:
                     {
                         changeMaxAuto = !changeMaxAuto;
-                        drawAudioThread_maxPeakLabel.ForeColor = changeMaxAuto ? Color.FromArgb(179, 141, 235) : Color.MediumSlateBlue;
+                        drawAudioThread_maxPeakLabel.ForeColor = changeMaxAuto ? Color.MediumPurple : Color.MediumSlateBlue;
 
                         break;
                     }
@@ -3938,20 +3938,11 @@ namespace fapmap
 
         private void txt_path_TextChanged(object sender, EventArgs e)
         {
-            string str = txt_path.Text;
-            str = str.Replace("\n", String.Empty);
-            str = str.Replace("\r", String.Empty);
-            str = str.Replace("\t", String.Empty);
-            txt_path.Text = str;
+            if (txt_path.Text.Contains("\n")) { txt_path.Text = txt_path.Text.Replace("\n", String.Empty); }
+            if (txt_path.Text.Contains("\r")) { txt_path.Text = txt_path.Text.Replace("\r", String.Empty); }
+            if (txt_path.Text.Contains("\t")) { txt_path.Text = txt_path.Text.Replace("\t", String.Empty); }
 
-            if (File.Exists(txt_path.Text) || Directory.Exists(txt_path.Text))
-            {
-                txt_path.ForeColor = Color.FromArgb(179, 141, 235);
-            }
-            else
-            {
-                txt_path.ForeColor = Color.PaleVioletRed;
-            }
+            txt_path.ForeColor = (File.Exists(txt_path.Text) || Directory.Exists(txt_path.Text)) ? Color.MediumPurple : Color.PaleVioletRed;
 
             if (string.IsNullOrEmpty(txt_path.Text) || string.IsNullOrWhiteSpace(txt_path.Text) || txt_path.Text == "NULL")
             {
@@ -4419,7 +4410,7 @@ namespace fapmap
                 {
                     //SET COLOR BY ATTRIB
                     FileAttributes attrib_dir = File.GetAttributes(path);
-                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.FromArgb(179, 141, 235); }
+                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.MediumPurple; }
                     else if (attrib_dir.HasFlag(FileAttributes.Hidden))                    { foreColor = Color.SkyBlue;                 }
                     else                                                                   { foreColor = Color.PaleVioletRed;           }
                 }
@@ -4427,7 +4418,7 @@ namespace fapmap
                 {
                     //SET COLOR BY ATTRIB
                     FileAttributes attrib_dir = File.GetAttributes(path);
-                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.FromArgb(179, 141, 235); }
+                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.MediumPurple; }
                     else if (attrib_dir.HasFlag(FileAttributes.Hidden))                    { foreColor = Color.SkyBlue;                 }
                     else                                                                   { foreColor = Color.PaleVioletRed;           }
                 }
@@ -4461,7 +4452,7 @@ namespace fapmap
                         :
                         new LinearGradientBrush(e.Bounds, Color.MidnightBlue, Color.Indigo, System.Drawing.Drawing2D.LinearGradientMode.Vertical)
                     )
-                    using (Brush border = new SolidBrush(Color.FromArgb(179, 141, 235)))
+                    using (Brush border = new SolidBrush(Color.MediumPurple))
                     {
                         e.Graphics.FillRectangle(background, e.Bounds);
                         e.Graphics.FillRectangle(selectedBrush, e.Bounds);
@@ -4655,10 +4646,9 @@ namespace fapmap
         }
         private void txt_url_TextChanged(object sender, EventArgs e)
         {
-            txt_url.Text = txt_url.Text
-                .Replace("\n", String.Empty)
-                .Replace("\r", String.Empty)
-                .Replace("\t", String.Empty);
+            if (txt_url.Text.Contains("\n")) { txt_url.Text = txt_url.Text.Replace("\n", String.Empty); }
+            if (txt_url.Text.Contains("\r")) { txt_url.Text = txt_url.Text.Replace("\r", String.Empty); }
+            if (txt_url.Text.Contains("\t")) { txt_url.Text = txt_url.Text.Replace("\t", String.Empty); }
         }
         
         private void btn_startURL_Click(object sender, EventArgs e)

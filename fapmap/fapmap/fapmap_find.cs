@@ -20,12 +20,15 @@ namespace fapmap
         {
             InitializeComponent();
 
-            output_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
+            output_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
         }
 
         private void fapmap_find_Load(object sender, EventArgs e)
         {
             showImage_dispose();
+
+            txt_searchBox.Focus();
+            this.ActiveControl = txt_searchBox;
         }
 
         #region fx
@@ -124,7 +127,7 @@ namespace fapmap
                     if (cb_fileNameOnly.Checked) { text = di.Parent.Name + "\\" + di.Name; }
 
                     // set color
-                    if      (di.Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { fc = Color.FromArgb(179, 141, 235); }
+                    if      (di.Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { fc = Color.MediumPurple; }
                     else if (di.Attributes.HasFlag(FileAttributes.Hidden))                         { fc = Color.SkyBlue;                 }
                     else                                                                           { fc = Color.PaleVioletRed;           }
 
@@ -139,7 +142,7 @@ namespace fapmap
                     if (cb_fileNameOnly.Checked) { text = fi.Directory.Name + "\\" + fi.Name; }
 
                     // set color
-                    if      (fi.Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { fc = Color.FromArgb(179, 141, 235); }
+                    if      (fi.Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { fc = Color.MediumPurple; }
                     else if (fi.Attributes.HasFlag(FileAttributes.Hidden))                         { fc = Color.SkyBlue;                 }
                     else                                                                           { fc = Color.PaleVioletRed;           }
 

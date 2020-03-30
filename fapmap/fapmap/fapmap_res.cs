@@ -13,7 +13,7 @@ using System.Drawing.Imaging;
 
 namespace fapmap_res
 {
-    public class FapmapColors
+    public class FapMapColors
     {
 
         public partial class fToolStripProfessionalRenderer_Colors : ProfessionalColorTable
@@ -23,8 +23,8 @@ namespace fapmap_res
                 base.UseSystemColors = false;
             }
             
-            public override System.Drawing.Color MenuBorder { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
-            public override System.Drawing.Color MenuItemBorder { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
+            public override System.Drawing.Color MenuBorder { get { return System.Drawing.Color.MediumPurple; } }
+            public override System.Drawing.Color MenuItemBorder { get { return System.Drawing.Color.MediumPurple; } }
             
             // MENU SUBITEM HOVER & BORDER
             public override System.Drawing.Color ToolStripDropDownBackground { get { return System.Drawing.Color.FromArgb(15, 6, 15); } }
@@ -34,19 +34,19 @@ namespace fapmap_res
             public override System.Drawing.Color ToolStripGradientEnd    { get { return System.Drawing.Color.Transparent; } }
             public override System.Drawing.Color ToolStripGradientMiddle { get { return System.Drawing.Color.Transparent; } }
             
-            public override System.Drawing.Color OverflowButtonGradientBegin  { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
-            public override System.Drawing.Color OverflowButtonGradientMiddle { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
-            public override System.Drawing.Color OverflowButtonGradientEnd    { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
+            public override System.Drawing.Color OverflowButtonGradientBegin  { get { return System.Drawing.Color.MediumPurple; } }
+            public override System.Drawing.Color OverflowButtonGradientMiddle { get { return System.Drawing.Color.MediumPurple; } }
+            public override System.Drawing.Color OverflowButtonGradientEnd    { get { return System.Drawing.Color.MediumPurple; } }
             
             public override System.Drawing.Color CheckBackground         { get { return System.Drawing.Color.Black; } }
             public override System.Drawing.Color CheckPressedBackground  { get { return System.Drawing.Color.Black; } }
             public override System.Drawing.Color CheckSelectedBackground { get { return System.Drawing.Color.Black; } }
             
-            public override System.Drawing.Color ButtonSelectedHighlightBorder { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
-            public override System.Drawing.Color ButtonPressedHighlightBorder  { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
-            public override System.Drawing.Color ButtonCheckedHighlightBorder  { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
-            public override System.Drawing.Color ButtonPressedBorder           { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
-            public override System.Drawing.Color ButtonSelectedBorder          { get { return System.Drawing.Color.FromArgb(179, 141, 235); } }
+            public override System.Drawing.Color ButtonSelectedHighlightBorder { get { return System.Drawing.Color.MediumPurple; } }
+            public override System.Drawing.Color ButtonPressedHighlightBorder  { get { return System.Drawing.Color.MediumPurple; } }
+            public override System.Drawing.Color ButtonCheckedHighlightBorder  { get { return System.Drawing.Color.MediumPurple; } }
+            public override System.Drawing.Color ButtonPressedBorder           { get { return System.Drawing.Color.MediumPurple; } }
+            public override System.Drawing.Color ButtonSelectedBorder          { get { return System.Drawing.Color.MediumPurple; } }
 
 
             // MENU HOVER
@@ -81,6 +81,25 @@ namespace fapmap_res
                 base.OnRenderArrow(e);
             }
         }
+    }
+
+    [System.ComponentModel.DesignerCategory("Code")]
+    public class FapMapPanel : Panel
+    {
+        public FapMapPanel()
+        {
+            SetStyle(ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.DoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            // using (SolidBrush brush = new SolidBrush(BackColor))
+            //     e.Graphics.FillRectangle(brush, ClientRectangle);
+            // e.Graphics.DrawRectangle(new Pen(Color.MediumPurple), 0, 0, ClientSize.Width - 1, ClientSize.Height - 1);
+
+            ControlPaint.DrawBorder(e.Graphics, this.ClientRectangle, Color.MediumPurple, ButtonBorderStyle.Solid);
+        }
+
     }
 
     public class FapMapProgressBar : ProgressBar

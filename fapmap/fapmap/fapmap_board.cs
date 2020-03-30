@@ -19,7 +19,7 @@ namespace fapmap
         {
             InitializeComponent();
 
-            board_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
+            board_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
         }
         
         private void fapmap_board_Load(object sender, EventArgs e)
@@ -78,7 +78,7 @@ namespace fapmap
                 switch (type)
                 {
                     default:
-                    case "SITE": lvi.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235); break;
+                    case "SITE": lvi.ForeColor = System.Drawing.Color.MediumPurple; break;
                     case "NLIO": lvi.ForeColor = System.Drawing.Color.Teal; break;
                     case "DOWN": lvi.ForeColor = System.Drawing.Color.ForestGreen; break;
                     case "USER": lvi.ForeColor = System.Drawing.Color.MediumPurple; break;

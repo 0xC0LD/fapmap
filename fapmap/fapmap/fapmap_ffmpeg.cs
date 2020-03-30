@@ -19,7 +19,7 @@ namespace fapmap
         {
             InitializeComponent();
 
-            txt_output_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
+            txt_output_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
         }
 
         public string pass_path = string.Empty;
@@ -232,10 +232,9 @@ namespace fapmap
 
         private void txt_file_TextChanged(object sender, EventArgs e)
         {
-            txt_file.Text = txt_file.Text
-                .Replace("\n", String.Empty)
-                .Replace("\r", String.Empty)
-                .Replace("\t", String.Empty);
+            if (txt_file.Text.Contains("\n")) { txt_file.Text = txt_file.Text.Replace("\n", String.Empty); }
+            if (txt_file.Text.Contains("\r")) { txt_file.Text = txt_file.Text.Replace("\r", String.Empty); }
+            if (txt_file.Text.Contains("\t")) { txt_file.Text = txt_file.Text.Replace("\t", String.Empty); }
 
             if (string.IsNullOrEmpty(txt_file.Text)) { return; }
 
@@ -260,10 +259,9 @@ namespace fapmap
         }
         private void txt_fileNew_TextChanged(object sender, EventArgs e)
         {
-            txt_fileNew.Text = txt_fileNew.Text
-                .Replace("\n", String.Empty)
-                .Replace("\r", String.Empty)
-                .Replace("\t", String.Empty);
+            if (txt_fileNew.Text.Contains("\n")) { txt_fileNew.Text = txt_fileNew.Text.Replace("\n", String.Empty); }
+            if (txt_fileNew.Text.Contains("\r")) { txt_fileNew.Text = txt_fileNew.Text.Replace("\r", String.Empty); }
+            if (txt_fileNew.Text.Contains("\t")) { txt_fileNew.Text = txt_fileNew.Text.Replace("\t", String.Empty); }
         }
 
         private void txt_output_TextChanged(object sender, EventArgs e)

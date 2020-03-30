@@ -18,7 +18,7 @@ namespace fapmap
         {
             InitializeComponent();
 
-            txt_output_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
+            txt_output_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
         }
 
         public string pass_path = string.Empty;

@@ -32,13 +32,17 @@
             this.cb_random = new System.Windows.Forms.CheckBox();
             this.cb_rmlogs = new System.Windows.Forms.CheckBox();
             this.cb_keyword = new System.Windows.Forms.CheckBox();
-            this.txt_keyword = new System.Windows.Forms.TextBox();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_make = new System.Windows.Forms.Button();
-            this.txt_path = new System.Windows.Forms.TextBox();
             this.label_path = new System.Windows.Forms.Label();
             this.cb_reverse = new System.Windows.Forms.CheckBox();
             this.btn_openPathSelector = new System.Windows.Forms.Button();
+            this.txt_path_border = new fapmap_res.FapMapPanel();
+            this.txt_path = new System.Windows.Forms.TextBox();
+            this.txt_keyword_border = new fapmap_res.FapMapPanel();
+            this.txt_keyword = new System.Windows.Forms.TextBox();
+            this.txt_path_border.SuspendLayout();
+            this.txt_keyword_border.SuspendLayout();
             this.SuspendLayout();
             // 
             // cb_random
@@ -110,29 +114,13 @@
             this.cb_keyword.UseVisualStyleBackColor = false;
             this.cb_keyword.CheckedChanged += new System.EventHandler(this.cb_CheckedChanged);
             // 
-            // txt_keyword
-            // 
-            this.txt_keyword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_keyword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.txt_keyword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_keyword.Enabled = false;
-            this.txt_keyword.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txt_keyword.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
-            this.txt_keyword.Location = new System.Drawing.Point(199, 34);
-            this.txt_keyword.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.txt_keyword.Name = "txt_keyword";
-            this.txt_keyword.Size = new System.Drawing.Size(259, 20);
-            this.txt_keyword.TabIndex = 4;
-            this.txt_keyword.TextChanged += new System.EventHandler(this.tb_keyword_TextChanged);
-            // 
             // btn_cancel
             // 
             this.btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_cancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(179, 141, 235);
+            this.btn_cancel.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_cancel.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_cancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_cancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -153,7 +141,7 @@
             this.btn_make.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_make.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_make.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_make.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(179, 141, 235);
+            this.btn_make.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_make.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_make.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_make.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -167,21 +155,6 @@
             this.btn_make.Text = "Create";
             this.btn_make.UseVisualStyleBackColor = false;
             this.btn_make.Click += new System.EventHandler(this.btn_make_Click);
-            // 
-            // txt_path
-            // 
-            this.txt_path.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.txt_path.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_path.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txt_path.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
-            this.txt_path.Location = new System.Drawing.Point(51, 6);
-            this.txt_path.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.txt_path.Name = "txt_path";
-            this.txt_path.Size = new System.Drawing.Size(383, 20);
-            this.txt_path.TabIndex = 1;
-            this.txt_path.TextChanged += new System.EventHandler(this.tb_path_TextChanged);
             // 
             // label_path
             // 
@@ -224,13 +197,13 @@
             this.btn_openPathSelector.BackgroundImage = global::fapmap.Properties.Resources.treeView;
             this.btn_openPathSelector.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_openPathSelector.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_openPathSelector.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(179, 141, 235);
+            this.btn_openPathSelector.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_openPathSelector.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             this.btn_openPathSelector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_openPathSelector.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_openPathSelector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_openPathSelector.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_openPathSelector.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
+            this.btn_openPathSelector.ForeColor = System.Drawing.Color.MediumPurple;
             this.btn_openPathSelector.Location = new System.Drawing.Point(438, 6);
             this.btn_openPathSelector.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_openPathSelector.Name = "btn_openPathSelector";
@@ -239,6 +212,60 @@
             this.btn_openPathSelector.UseVisualStyleBackColor = false;
             this.btn_openPathSelector.Click += new System.EventHandler(this.btn_openPathSelector_Click);
             // 
+            // txt_path_border
+            // 
+            this.txt_path_border.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_path_border.Controls.Add(this.txt_path);
+            this.txt_path_border.Location = new System.Drawing.Point(52, 6);
+            this.txt_path_border.Name = "txt_path_border";
+            this.txt_path_border.Size = new System.Drawing.Size(381, 22);
+            this.txt_path_border.TabIndex = 164;
+            // 
+            // txt_path
+            // 
+            this.txt_path.AllowDrop = true;
+            this.txt_path.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txt_path.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_path.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txt_path.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_path.ForeColor = System.Drawing.Color.MediumPurple;
+            this.txt_path.Location = new System.Drawing.Point(1, 1);
+            this.txt_path.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_path.Name = "txt_path";
+            this.txt_path.Size = new System.Drawing.Size(379, 20);
+            this.txt_path.TabIndex = 1;
+            this.txt_path.TextChanged += new System.EventHandler(this.txt_path_TextChanged);
+            // 
+            // txt_keyword_border
+            // 
+            this.txt_keyword_border.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_keyword_border.Controls.Add(this.txt_keyword);
+            this.txt_keyword_border.Location = new System.Drawing.Point(194, 35);
+            this.txt_keyword_border.Name = "txt_keyword_border";
+            this.txt_keyword_border.Size = new System.Drawing.Size(264, 22);
+            this.txt_keyword_border.TabIndex = 165;
+            // 
+            // txt_keyword
+            // 
+            this.txt_keyword.AllowDrop = true;
+            this.txt_keyword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_keyword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txt_keyword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_keyword.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.txt_keyword.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_keyword.ForeColor = System.Drawing.Color.MediumPurple;
+            this.txt_keyword.Location = new System.Drawing.Point(1, 1);
+            this.txt_keyword.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_keyword.Name = "txt_keyword";
+            this.txt_keyword.Size = new System.Drawing.Size(262, 20);
+            this.txt_keyword.TabIndex = 1;
+            this.txt_keyword.TextChanged += new System.EventHandler(this.txt_keyword_TextChanged);
+            // 
             // fapmap_playlist
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,28 +273,33 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
             this.ClientSize = new System.Drawing.Size(464, 161);
+            this.Controls.Add(this.txt_keyword_border);
+            this.Controls.Add(this.txt_path_border);
             this.Controls.Add(this.btn_openPathSelector);
             this.Controls.Add(this.cb_reverse);
             this.Controls.Add(this.label_path);
-            this.Controls.Add(this.txt_path);
             this.Controls.Add(this.btn_make);
             this.Controls.Add(this.btn_cancel);
-            this.Controls.Add(this.txt_keyword);
             this.Controls.Add(this.cb_keyword);
             this.Controls.Add(this.cb_rmlogs);
             this.Controls.Add(this.cb_random);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.ForeColor = System.Drawing.Color.FromArgb(179, 141, 235);
+            this.ForeColor = System.Drawing.Color.MediumPurple;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(700, 200);
             this.MinimumSize = new System.Drawing.Size(375, 200);
             this.Name = "fapmap_playlist";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FapMap - Create Playlist";
             this.Load += new System.EventHandler(this.fapmap_playlist_Load);
+            this.txt_path_border.ResumeLayout(false);
+            this.txt_path_border.PerformLayout();
+            this.txt_keyword_border.ResumeLayout(false);
+            this.txt_keyword_border.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,12 +310,14 @@
         private System.Windows.Forms.CheckBox cb_random;
         private System.Windows.Forms.CheckBox cb_rmlogs;
         private System.Windows.Forms.CheckBox cb_keyword;
-        private System.Windows.Forms.TextBox txt_keyword;
         private System.Windows.Forms.Button btn_cancel;
         private System.Windows.Forms.Button btn_make;
-        private System.Windows.Forms.TextBox txt_path;
         private System.Windows.Forms.Label label_path;
         private System.Windows.Forms.CheckBox cb_reverse;
         private System.Windows.Forms.Button btn_openPathSelector;
+        private fapmap_res.FapMapPanel txt_path_border;
+        private System.Windows.Forms.TextBox txt_path;
+        private fapmap_res.FapMapPanel txt_keyword_border;
+        private System.Windows.Forms.TextBox txt_keyword;
     }
 }

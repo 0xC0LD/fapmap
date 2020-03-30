@@ -125,6 +125,81 @@
   <data name="splitContainer_main.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 29</value>
   </data>
+  <data name="txt_path_border.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="txt_path.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <metadata name="wb_url_autoCompleteMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>285, 18</value>
+  </metadata>
+  <data name="wb_url_autoCompleteMenu.Colors" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAEdBdXRvY29tcGxldGVNZW51LCBWZXJzaW9uPTEuMy40LjAsIEN1
+        bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAwDAAAAUVN5c3RlbS5EcmF3aW5nLCBWZXJz
+        aW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49YjAzZjVmN2YxMWQ1MGEz
+        YQUBAAAAGUF1dG9jb21wbGV0ZU1lbnVOUy5Db2xvcnMGAAAAGjxGb3JlQ29sb3I+a19fQmFja2luZ0Zp
+        ZWxkGjxCYWNrQ29sb3I+a19fQmFja2luZ0ZpZWxkIjxTZWxlY3RlZEZvcmVDb2xvcj5rX19CYWNraW5n
+        RmllbGQiPFNlbGVjdGVkQmFja0NvbG9yPmtfX0JhY2tpbmdGaWVsZCM8U2VsZWN0ZWRCYWNrQ29sb3Iy
+        PmtfX0JhY2tpbmdGaWVsZCI8SGlnaGxpZ2h0aW5nQ29sb3I+a19fQmFja2luZ0ZpZWxkBAQEBAQEFFN5
+        c3RlbS5EcmF3aW5nLkNvbG9yAwAAABRTeXN0ZW0uRHJhd2luZy5Db2xvcgMAAAAUU3lzdGVtLkRyYXdp
+        bmcuQ29sb3IDAAAAFFN5c3RlbS5EcmF3aW5nLkNvbG9yAwAAABRTeXN0ZW0uRHJhd2luZy5Db2xvcgMA
+        AAAUU3lzdGVtLkRyYXdpbmcuQ29sb3IDAAAAAgAAAAX8////FFN5c3RlbS5EcmF3aW5nLkNvbG9yBAAA
+        AARuYW1lBXZhbHVlCmtub3duQ29sb3IFc3RhdGUBAAAACQcHAwAAAAoAAAAAAAAAAJ4AAQAB+/////z/
+        //8KAAAAAAAAAAAjAAEAAfr////8////CgAAAAAAAAAAHgABAAH5/////P///woAAAAAAAAAAJ4AAQAB
+        +P////z///8KAAAAAAAAAACeAAEAAff////8////CgAAAAAAAAAAngABAAs=
+</value>
+  </data>
+  <data name="txt_path.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 9.75pt, style=Bold</value>
+  </data>
+  <data name="txt_path.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1, 1</value>
+  </data>
+  <data name="txt_path.Size" type="System.Drawing.Size, System.Drawing">
+    <value>441, 16</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txt_path.TabIndex" type="System.Int32, mscorlib">
+    <value>142</value>
+  </data>
+  <data name="txt_path.Text" xml:space="preserve">
+    <value>F:\{63-6f-6c-64-36-39}\Main Folder</value>
+  </data>
+  <data name="&gt;&gt;txt_path.Name" xml:space="preserve">
+    <value>txt_path</value>
+  </data>
+  <data name="&gt;&gt;txt_path.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txt_path.Parent" xml:space="preserve">
+    <value>txt_path_border</value>
+  </data>
+  <data name="&gt;&gt;txt_path.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txt_path_border.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 4</value>
+  </data>
+  <data name="txt_path_border.Size" type="System.Drawing.Size, System.Drawing">
+    <value>443, 21</value>
+  </data>
+  <data name="txt_path_border.TabIndex" type="System.Int32, mscorlib">
+    <value>171</value>
+  </data>
+  <data name="&gt;&gt;txt_path_border.Name" xml:space="preserve">
+    <value>txt_path_border</value>
+  </data>
+  <data name="&gt;&gt;txt_path_border.Type" xml:space="preserve">
+    <value>fapmap_res.FapMapPanel, fapmap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txt_path_border.Parent" xml:space="preserve">
+    <value>splitContainer_main.Panel1</value>
+  </data>
+  <data name="&gt;&gt;txt_path_border.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="fileDisplay_btn_reload.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
   </data>
@@ -138,12 +213,11 @@
     <value>NoControl</value>
   </data>
   <data name="fileDisplay_btn_reload.Location" type="System.Drawing.Point, System.Drawing">
-    <value>28, 3</value>
+    <value>27, 4</value>
   </data>
   <data name="fileDisplay_btn_reload.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 22</value>
+    <value>21, 21</value>
   </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="fileDisplay_btn_reload.TabIndex" type="System.Int32, mscorlib">
     <value>170</value>
   </data>
@@ -163,7 +237,7 @@
     <value>splitContainer_main.Panel1</value>
   </data>
   <data name="&gt;&gt;fileDisplay_btn_reload.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="splitContainer_files.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -187,7 +261,7 @@
     <value>NoControl</value>
   </data>
   <data name="faftv_cb_index.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-1, 4</value>
+    <value>1, 6</value>
   </data>
   <data name="faftv_cb_index.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 4, 2, 4</value>
@@ -208,7 +282,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;faftv_cb_index.Parent" xml:space="preserve">
-    <value>splitContainer_files.Panel1</value>
+    <value>faftv_border</value>
   </data>
   <data name="&gt;&gt;faftv_cb_index.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -229,7 +303,7 @@
     <value>NoControl</value>
   </data>
   <data name="faftv_cb_sort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-1, -1</value>
+    <value>1, 1</value>
   </data>
   <data name="faftv_cb_sort.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 4, 2, 4</value>
@@ -250,10 +324,13 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;faftv_cb_sort.Parent" xml:space="preserve">
-    <value>splitContainer_files.Panel1</value>
+    <value>faftv_border</value>
   </data>
   <data name="&gt;&gt;faftv_cb_sort.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="faftv.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <metadata name="faftv_RMB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>105, 12</value>
@@ -348,9 +425,6 @@
   <data name="&gt;&gt;faftv_RMB.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="faftv.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
   <data name="faftv.Font" type="System.Drawing.Font, System.Drawing">
     <value>Consolas, 8.25pt</value>
   </data>
@@ -364,29 +438,29 @@
     <value>
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
-        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAo
-        BAAAAk1TRnQBSQFMAwECAAEBAQABAQEQAQABEAEABP8BEQEACP8BQgFNATYHAAE2AwABKAMAAUADAAEQ
-        AwABAQEAARAGAAEIEgABqwEcAasBHAGrARwBqwEcAasBHAGrARwBqwEcAasBHAGrARwBqwEcAasBHAGr
-        ARwBqwEcAasBHAGrARwBqwEcYAABqwEgAe4BKAHuASgBDwEtAS8BLQEvATEBUAExAVABNQFQATUBUAEx
-        AS8BMQEvAS0BDwEtAe4BKAHuASgBqwEcYAABqwEgATABLQHvASgB7wEsARABLQEQAS0BEAEtARABLQEQ
-        AS0BEAEtARABLQEQAS0BEAEtAe8BLAEwATEBqwEgYAABrAEgAVIBNQEyATUBMgE1ATIBNQEzATUBMwE1
-        AVMBOQFTATkBUwE5AVMBOQEzATUBMwE1ATIBNQFTATkBrAEgYAABrAEkAZQBPQFUATkBdQE9AXUBPQF1
-        AT0BdgE9AXYBPQF2AUEBdgE9AXYBPQF1AT0BdQE9AXUBPQGVAUEBrAEkYAABrQEkAbYBRQGWAUEBlwFB
-        AZcBRQGYAUUBmAFFAZgBRQGYAUUBmAFFAZgBRQGYAUUBlwFFAZcBQQG3AUUBrQEkYAABzQEkAdgBSQGY
-        AUUBuQFJAbkBSQG6AUkBugFJAboBSQG6AUkBugFJAboBSQG6AUkBuQFJAbkBSQHZAU0BzQEkYAABzgEo
-        AfoBUQG6AUkBugFNAdsBTQHbAU0B3AFNAdwBTQHcAU0B3AFNAdwBTQHbAU0B2wFNAboBTQH6AVEBzgEo
-        YAABzgEoARsBUgHbAU0B2wFNAdwBUQHcAVEB3QFRAd0BUQHdAVEB3QFRAd0BUQHdAVEB3AFRAdwBTQEc
-        AVYBzgEoYAABzgEoARwBVgE8AVoBPQFaAV0BWgFeAVoCXgF+AV4BfwFeAV8EXgFaAT0BWgE9AVoBHAFW
-        Ac4BKGAAAc8BLAHPASwBzwEsAc8BLAHPASwBzwEsAc8BLAHPASwBzwEsAc8BLAHPASwBzwEsAc8BLAHP
-        ASwBzwEsAc8BLGIAAREBNQF1AUEBEwE5ARMBOQETATkBEwE5ARMBOQETATkBEwE5ARMBOQETATkBEwE5
-        AXUBQQERATVkAAERATUB9wFNAZYBRQGWAUUBlgFFAZYBRQH3AU0BeQFaATgBVgH3AU0BOAFWAXkBWgFZ
-        AVYBEQE1ZAABEQE1AZoBXgHbAWIB2wFmAbsBYgGaAV4BegFeAREBNQERATUBEQE1AREBNQERATUBEQE1
-        AREBNWQAAREBNQERATUBEQE1AREBNQERATUBEQE1AREBNQERATXuAAFCAU0BPgcAAT4DAAEoAwABQAMA
-        ARADAAEBAQABAQUAAYAXAAP/WQABgAEBBgABgAEBBgABgAEBBgABgAF/BgAC/wYACw==
+        ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAq
+        BAAAAk1TRnQBSQFMAwEBAAGwAQIBsAECARABAAEQAQAE/wERAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
+        ARADAAEBAQABEAYAAQgSAAGrARwBqwEcAasBHAGrARwBqwEcAasBHAGrARwBqwEcAasBHAGrARwBqwEc
+        AasBHAGrARwBqwEcAasBHAGrARxgAAGrASAB7gEoAe4BKAEPAS0BLwEtAS8BMQFQATEBUAE1AVABNQFQ
+        ATEBLwExAS8BLQEPAS0B7gEoAe4BKAGrARxgAAGrASABMAEtAe8BKAHvASwBEAEtARABLQEQAS0BEAEt
+        ARABLQEQAS0BEAEtARABLQEQAS0B7wEsATABMQGrASBgAAGsASABUgE1ATIBNQEyATUBMgE1ATMBNQEz
+        ATUBUwE5AVMBOQFTATkBUwE5ATMBNQEzATUBMgE1AVMBOQGsASBgAAGsASQBlAE9AVQBOQF1AT0BdQE9
+        AXUBPQF2AT0BdgE9AXYBQQF2AT0BdgE9AXUBPQF1AT0BdQE9AZUBQQGsASRgAAGtASQBtgFFAZYBQQGX
+        AUEBlwFFAZgBRQGYAUUBmAFFAZgBRQGYAUUBmAFFAZgBRQGXAUUBlwFBAbcBRQGtASRgAAHNASQB2AFJ
+        AZgBRQG5AUkBuQFJAboBSQG6AUkBugFJAboBSQG6AUkBugFJAboBSQG5AUkBuQFJAdkBTQHNASRgAAHO
+        ASgB+gFRAboBSQG6AU0B2wFNAdsBTQHcAU0B3AFNAdwBTQHcAU0B3AFNAdsBTQHbAU0BugFNAfoBUQHO
+        AShgAAHOASgBGwFSAdsBTQHbAU0B3AFRAdwBUQHdAVEB3QFRAd0BUQHdAVEB3QFRAd0BUQHcAVEB3AFN
+        ARwBVgHOAShgAAHOASgBHAFWATwBWgE9AVoBXQFaAV4BWgJeAX4BXgF/AV4BXwReAVoBPQFaAT0BWgEc
+        AVYBzgEoYAABzwEsAc8BLAHPASwBzwEsAc8BLAHPASwBzwEsAc8BLAHPASwBzwEsAc8BLAHPASwBzwEs
+        Ac8BLAHPASwBzwEsYgABEQE1AXUBQQETATkBEwE5ARMBOQETATkBEwE5ARMBOQETATkBEwE5ARMBOQET
+        ATkBdQFBAREBNWQAAREBNQH3AU0BlgFFAZYBRQGWAUUBlgFFAfcBTQF5AVoBOAFWAfcBTQE4AVYBeQFa
+        AVkBVgERATVkAAERATUBmgFeAdsBYgHbAWYBuwFiAZoBXgF6AV4BEQE1AREBNQERATUBEQE1AREBNQER
+        ATUBEQE1ZAABEQE1AREBNQERATUBEQE1AREBNQERATUBEQE1AREBNe4AAUIBTQE+BwABPgMAASgDAAFA
+        AwABEAMAAQEBAAEBBQABgBcAA/9ZAAGAAQEGAAGAAQEGAAGAAQEGAAGAAX8GAAL/BgAL
 </value>
   </data>
   <data name="faftv.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+    <value>1, 1</value>
   </data>
   <data name="faftv.SelectedImageIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -404,10 +478,34 @@
     <value>fapmap_res.FapMapTreeView, fapmap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;faftv.Parent" xml:space="preserve">
-    <value>splitContainer_files.Panel1</value>
+    <value>faftv_border</value>
   </data>
   <data name="&gt;&gt;faftv.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="faftv_border.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="faftv_border.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="faftv_border.Size" type="System.Drawing.Size, System.Drawing">
+    <value>247, 501</value>
+  </data>
+  <data name="faftv_border.TabIndex" type="System.Int32, mscorlib">
+    <value>201</value>
+  </data>
+  <data name="&gt;&gt;faftv_border.Name" xml:space="preserve">
+    <value>faftv_border</value>
+  </data>
+  <data name="&gt;&gt;faftv_border.Type" xml:space="preserve">
+    <value>fapmap_res.FapMapPanel, fapmap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;faftv_border.Parent" xml:space="preserve">
+    <value>splitContainer_files.Panel1</value>
+  </data>
+  <data name="&gt;&gt;faftv_border.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;splitContainer_files.Panel1.Name" xml:space="preserve">
     <value>splitContainer_files.Panel1</value>
@@ -440,7 +538,7 @@
     <value>NoControl</value>
   </data>
   <data name="fileDisplay_cb_thumb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-1, 4</value>
+    <value>1, 6</value>
   </data>
   <data name="fileDisplay_cb_thumb.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 4, 2, 4</value>
@@ -461,7 +559,7 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;fileDisplay_cb_thumb.Parent" xml:space="preserve">
-    <value>splitContainer_files.Panel2</value>
+    <value>fileDisplay_border</value>
   </data>
   <data name="&gt;&gt;fileDisplay_cb_thumb.ZOrder" xml:space="preserve">
     <value>0</value>
@@ -482,7 +580,7 @@
     <value>NoControl</value>
   </data>
   <data name="fileDisplay_cb_sort.Location" type="System.Drawing.Point, System.Drawing">
-    <value>-1, -1</value>
+    <value>1, 1</value>
   </data>
   <data name="fileDisplay_cb_sort.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 4, 2, 4</value>
@@ -503,13 +601,16 @@
     <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;fileDisplay_cb_sort.Parent" xml:space="preserve">
-    <value>splitContainer_files.Panel2</value>
+    <value>fileDisplay_border</value>
   </data>
   <data name="&gt;&gt;fileDisplay_cb_sort.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="fileDisplay.Alignment" type="System.Windows.Forms.ListViewAlignment, System.Windows.Forms">
     <value>SnapToGrid</value>
+  </data>
+  <data name="fileDisplay.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <metadata name="fileDisplay_RMB.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>104, 40</value>
@@ -586,9 +687,6 @@
   <data name="&gt;&gt;fileDisplay_RMB.Type" xml:space="preserve">
     <value>System.Windows.Forms.ContextMenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="fileDisplay.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
   <data name="fileDisplay.Font" type="System.Drawing.Font, System.Drawing">
     <value>Calibri, 11.25pt</value>
   </data>
@@ -599,10 +697,10 @@
     <value>150, 150</value>
   </data>
   <data name="fileDisplay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 0</value>
+    <value>1, 1</value>
   </data>
   <data name="fileDisplay.Size" type="System.Drawing.Size, System.Drawing">
-    <value>284, 499</value>
+    <value>283, 499</value>
   </data>
   <data name="fileDisplay.TabIndex" type="System.Int32, mscorlib">
     <value>159</value>
@@ -614,10 +712,34 @@
     <value>fapmap_res.FapMapListView, fapmap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;fileDisplay.Parent" xml:space="preserve">
-    <value>splitContainer_files.Panel2</value>
+    <value>fileDisplay_border</value>
   </data>
   <data name="&gt;&gt;fileDisplay.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="fileDisplay_border.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="fileDisplay_border.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="fileDisplay_border.Size" type="System.Drawing.Size, System.Drawing">
+    <value>285, 501</value>
+  </data>
+  <data name="fileDisplay_border.TabIndex" type="System.Int32, mscorlib">
+    <value>203</value>
+  </data>
+  <data name="&gt;&gt;fileDisplay_border.Name" xml:space="preserve">
+    <value>fileDisplay_border</value>
+  </data>
+  <data name="&gt;&gt;fileDisplay_border.Type" xml:space="preserve">
+    <value>fapmap_res.FapMapPanel, fapmap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;fileDisplay_border.Parent" xml:space="preserve">
+    <value>splitContainer_files.Panel2</value>
+  </data>
+  <data name="&gt;&gt;fileDisplay_border.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;splitContainer_files.Panel2.Name" xml:space="preserve">
     <value>splitContainer_files.Panel2</value>
@@ -632,7 +754,7 @@
     <value>1</value>
   </data>
   <data name="splitContainer_files.Size" type="System.Drawing.Size, System.Drawing">
-    <value>537, 501</value>
+    <value>536, 501</value>
   </data>
   <data name="splitContainer_files.SplitterDistance" type="System.Int32, mscorlib">
     <value>247</value>
@@ -650,7 +772,7 @@
     <value>splitContainer_main.Panel1</value>
   </data>
   <data name="&gt;&gt;splitContainer_files.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="fileDisplay_btn_randImage.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
     <value>Stretch</value>
@@ -665,10 +787,10 @@
     <value>NoControl</value>
   </data>
   <data name="fileDisplay_btn_randImage.Location" type="System.Drawing.Point, System.Drawing">
-    <value>88, 3</value>
+    <value>85, 4</value>
   </data>
   <data name="fileDisplay_btn_randImage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>10, 22</value>
+    <value>10, 21</value>
   </data>
   <data name="fileDisplay_btn_randImage.TabIndex" type="System.Int32, mscorlib">
     <value>158</value>
@@ -686,56 +808,6 @@
     <value>splitContainer_main.Panel1</value>
   </data>
   <data name="&gt;&gt;fileDisplay_btn_randImage.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="txt_path.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <metadata name="wb_url_autoCompleteMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>285, 18</value>
-  </metadata>
-  <data name="wb_url_autoCompleteMenu.Colors" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAMAgAAAEdBdXRvY29tcGxldGVNZW51LCBWZXJzaW9uPTEuMy40LjAsIEN1
-        bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49bnVsbAwDAAAAUVN5c3RlbS5EcmF3aW5nLCBWZXJz
-        aW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49YjAzZjVmN2YxMWQ1MGEz
-        YQUBAAAAGUF1dG9jb21wbGV0ZU1lbnVOUy5Db2xvcnMGAAAAGjxGb3JlQ29sb3I+a19fQmFja2luZ0Zp
-        ZWxkGjxCYWNrQ29sb3I+a19fQmFja2luZ0ZpZWxkIjxTZWxlY3RlZEZvcmVDb2xvcj5rX19CYWNraW5n
-        RmllbGQiPFNlbGVjdGVkQmFja0NvbG9yPmtfX0JhY2tpbmdGaWVsZCM8U2VsZWN0ZWRCYWNrQ29sb3Iy
-        PmtfX0JhY2tpbmdGaWVsZCI8SGlnaGxpZ2h0aW5nQ29sb3I+a19fQmFja2luZ0ZpZWxkBAQEBAQEFFN5
-        c3RlbS5EcmF3aW5nLkNvbG9yAwAAABRTeXN0ZW0uRHJhd2luZy5Db2xvcgMAAAAUU3lzdGVtLkRyYXdp
-        bmcuQ29sb3IDAAAAFFN5c3RlbS5EcmF3aW5nLkNvbG9yAwAAABRTeXN0ZW0uRHJhd2luZy5Db2xvcgMA
-        AAAUU3lzdGVtLkRyYXdpbmcuQ29sb3IDAAAAAgAAAAX8////FFN5c3RlbS5EcmF3aW5nLkNvbG9yBAAA
-        AARuYW1lBXZhbHVlCmtub3duQ29sb3IFc3RhdGUBAAAACQcHAwAAAAoAAAAAAAAAAJ4AAQAB+/////z/
-        //8KAAAAAAAAAAAjAAEAAfr////8////CgAAAAAAAAAAHgABAAH5/////P///woAAAAAAAAAAJ4AAQAB
-        +P////z///8KAAAAAAAAAACeAAEAAff////8////CgAAAAAAAAAAngABAAs=
-</value>
-  </data>
-  <data name="txt_path.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Consolas, 9pt, style=Bold</value>
-  </data>
-  <data name="txt_path.Location" type="System.Drawing.Point, System.Drawing">
-    <value>100, 3</value>
-  </data>
-  <data name="txt_path.Size" type="System.Drawing.Size, System.Drawing">
-    <value>441, 22</value>
-  </data>
-  <data name="txt_path.TabIndex" type="System.Int32, mscorlib">
-    <value>142</value>
-  </data>
-  <data name="txt_path.Text" xml:space="preserve">
-    <value>F:\{63-6f-6c-64-36-39}\Main Folder</value>
-  </data>
-  <data name="&gt;&gt;txt_path.Name" xml:space="preserve">
-    <value>txt_path</value>
-  </data>
-  <data name="&gt;&gt;txt_path.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txt_path.Parent" xml:space="preserve">
-    <value>splitContainer_main.Panel1</value>
-  </data>
-  <data name="&gt;&gt;txt_path.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="fileDisplay_btn_root.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
@@ -751,10 +823,10 @@
     <value>NoControl</value>
   </data>
   <data name="fileDisplay_btn_root.Location" type="System.Drawing.Point, System.Drawing">
-    <value>52, 3</value>
+    <value>50, 4</value>
   </data>
   <data name="fileDisplay_btn_root.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 22</value>
+    <value>21, 21</value>
   </data>
   <data name="fileDisplay_btn_root.TabIndex" type="System.Int32, mscorlib">
     <value>167</value>
@@ -787,10 +859,10 @@
     <value>NoControl</value>
   </data>
   <data name="fileDisplay_btn_backDir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 3</value>
+    <value>4, 4</value>
   </data>
   <data name="fileDisplay_btn_backDir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 22</value>
+    <value>21, 21</value>
   </data>
   <data name="fileDisplay_btn_backDir.TabIndex" type="System.Int32, mscorlib">
     <value>160</value>
@@ -823,10 +895,10 @@
     <value>NoControl</value>
   </data>
   <data name="fileDisplay_btn_randVideo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>76, 3</value>
+    <value>73, 4</value>
   </data>
   <data name="fileDisplay_btn_randVideo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>10, 22</value>
+    <value>10, 21</value>
   </data>
   <data name="fileDisplay_btn_randVideo.TabIndex" type="System.Int32, mscorlib">
     <value>157</value>
@@ -858,47 +930,8 @@
   <data name="&gt;&gt;splitContainer_main.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="btn_startURL.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Right</value>
-  </data>
-  <data name="btn_startURL.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
-    <value>Stretch</value>
-  </data>
-  <data name="btn_startURL.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
-    <value>Flat</value>
-  </data>
-  <data name="btn_startURL.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Consolas, 6.75pt, style=Bold</value>
-  </data>
-  <data name="btn_startURL.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btn_startURL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>338, 3</value>
-  </data>
-  <data name="btn_startURL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>2, 4, 2, 4</value>
-  </data>
-  <data name="btn_startURL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 22</value>
-  </data>
-  <data name="btn_startURL.TabIndex" type="System.Int32, mscorlib">
-    <value>166</value>
-  </data>
-  <data name="btn_startURL.ToolTip" xml:space="preserve">
-    <value>Play URL</value>
-  </data>
-  <data name="&gt;&gt;btn_startURL.Name" xml:space="preserve">
-    <value>btn_startURL</value>
-  </data>
-  <data name="&gt;&gt;btn_startURL.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_startURL.Parent" xml:space="preserve">
-    <value>splitContainer_main.Panel2</value>
-  </data>
-  <data name="&gt;&gt;btn_startURL.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="links_border.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="links.Alignment" type="System.Windows.Forms.ListViewAlignment, System.Windows.Forms">
     <value>SnapToGrid</value>
@@ -1048,10 +1081,10 @@
     <value>16, 16</value>
   </data>
   <data name="links.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 27</value>
+    <value>1, 1</value>
   </data>
   <data name="links.Size" type="System.Drawing.Size, System.Drawing">
-    <value>429, 501</value>
+    <value>426, 499</value>
   </data>
   <data name="links.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -1063,10 +1096,127 @@
     <value>fapmap_res.FapMapListView, fapmap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;links.Parent" xml:space="preserve">
-    <value>splitContainer_main.Panel2</value>
+    <value>links_border</value>
   </data>
   <data name="&gt;&gt;links.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="links_border.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 27</value>
+  </data>
+  <data name="links_border.Size" type="System.Drawing.Size, System.Drawing">
+    <value>428, 501</value>
+  </data>
+  <data name="links_border.TabIndex" type="System.Int32, mscorlib">
+    <value>173</value>
+  </data>
+  <data name="&gt;&gt;links_border.Name" xml:space="preserve">
+    <value>links_border</value>
+  </data>
+  <data name="&gt;&gt;links_border.Type" xml:space="preserve">
+    <value>fapmap_res.FapMapPanel, fapmap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;links_border.Parent" xml:space="preserve">
+    <value>splitContainer_main.Panel2</value>
+  </data>
+  <data name="&gt;&gt;links_border.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txt_url_border.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="txt_url.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="txt_url.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 9.75pt, style=Bold</value>
+  </data>
+  <data name="txt_url.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1, 1</value>
+  </data>
+  <data name="txt_url.Size" type="System.Drawing.Size, System.Drawing">
+    <value>334, 16</value>
+  </data>
+  <data name="txt_url.TabIndex" type="System.Int32, mscorlib">
+    <value>165</value>
+  </data>
+  <data name="txt_url.Text" xml:space="preserve">
+    <value>https://duckduckgo.com</value>
+  </data>
+  <data name="&gt;&gt;txt_url.Name" xml:space="preserve">
+    <value>txt_url</value>
+  </data>
+  <data name="&gt;&gt;txt_url.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txt_url.Parent" xml:space="preserve">
+    <value>txt_url_border</value>
+  </data>
+  <data name="&gt;&gt;txt_url.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="txt_url_border.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 4</value>
+  </data>
+  <data name="txt_url_border.Size" type="System.Drawing.Size, System.Drawing">
+    <value>336, 21</value>
+  </data>
+  <data name="txt_url_border.TabIndex" type="System.Int32, mscorlib">
+    <value>172</value>
+  </data>
+  <data name="&gt;&gt;txt_url_border.Name" xml:space="preserve">
+    <value>txt_url_border</value>
+  </data>
+  <data name="&gt;&gt;txt_url_border.Type" xml:space="preserve">
+    <value>fapmap_res.FapMapPanel, fapmap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;txt_url_border.Parent" xml:space="preserve">
+    <value>splitContainer_main.Panel2</value>
+  </data>
+  <data name="&gt;&gt;txt_url_border.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="btn_startURL.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btn_startURL.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
+  </data>
+  <data name="btn_startURL.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_startURL.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 6.75pt, style=Bold</value>
+  </data>
+  <data name="btn_startURL.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_startURL.Location" type="System.Drawing.Point, System.Drawing">
+    <value>342, 4</value>
+  </data>
+  <data name="btn_startURL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 4, 2, 4</value>
+  </data>
+  <data name="btn_startURL.Size" type="System.Drawing.Size, System.Drawing">
+    <value>21, 21</value>
+  </data>
+  <data name="btn_startURL.TabIndex" type="System.Int32, mscorlib">
+    <value>166</value>
+  </data>
+  <data name="btn_startURL.ToolTip" xml:space="preserve">
+    <value>Play URL</value>
+  </data>
+  <data name="&gt;&gt;btn_startURL.Name" xml:space="preserve">
+    <value>btn_startURL</value>
+  </data>
+  <data name="&gt;&gt;btn_startURL.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_startURL.Parent" xml:space="preserve">
+    <value>splitContainer_main.Panel2</value>
+  </data>
+  <data name="&gt;&gt;btn_startURL.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="btn_dragOutURL.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -1084,13 +1234,13 @@
     <value>NoControl</value>
   </data>
   <data name="btn_dragOutURL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>410, 3</value>
+    <value>411, 4</value>
   </data>
   <data name="btn_dragOutURL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 4, 2, 4</value>
   </data>
   <data name="btn_dragOutURL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 22</value>
+    <value>21, 21</value>
   </data>
   <data name="btn_dragOutURL.TabIndex" type="System.Int32, mscorlib">
     <value>162</value>
@@ -1108,36 +1258,6 @@
     <value>splitContainer_main.Panel2</value>
   </data>
   <data name="&gt;&gt;btn_dragOutURL.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="txt_url.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Left, Right</value>
-  </data>
-  <data name="txt_url.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Consolas, 9pt, style=Bold</value>
-  </data>
-  <data name="txt_url.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 3</value>
-  </data>
-  <data name="txt_url.Size" type="System.Drawing.Size, System.Drawing">
-    <value>333, 22</value>
-  </data>
-  <data name="txt_url.TabIndex" type="System.Int32, mscorlib">
-    <value>165</value>
-  </data>
-  <data name="txt_url.Text" xml:space="preserve">
-    <value>https://duckduckgo.com</value>
-  </data>
-  <data name="&gt;&gt;txt_url.Name" xml:space="preserve">
-    <value>txt_url</value>
-  </data>
-  <data name="&gt;&gt;txt_url.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txt_url.Parent" xml:space="preserve">
-    <value>splitContainer_main.Panel2</value>
-  </data>
-  <data name="&gt;&gt;txt_url.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="btn_saveURL.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -1156,13 +1276,13 @@
     <value>NoControl</value>
   </data>
   <data name="btn_saveURL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>386, 3</value>
+    <value>388, 4</value>
   </data>
   <data name="btn_saveURL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 4, 2, 4</value>
   </data>
   <data name="btn_saveURL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 22</value>
+    <value>21, 21</value>
   </data>
   <data name="btn_saveURL.TabIndex" type="System.Int32, mscorlib">
     <value>161</value>
@@ -1198,13 +1318,13 @@
     <value>NoControl</value>
   </data>
   <data name="btn_openURL.Location" type="System.Drawing.Point, System.Drawing">
-    <value>362, 3</value>
+    <value>365, 4</value>
   </data>
   <data name="btn_openURL.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 4, 2, 4</value>
   </data>
   <data name="btn_openURL.Size" type="System.Drawing.Size, System.Drawing">
-    <value>22, 22</value>
+    <value>21, 21</value>
   </data>
   <data name="btn_openURL.TabIndex" type="System.Int32, mscorlib">
     <value>160</value>
@@ -5186,7 +5306,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;showMedia_video_panel.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <metadata name="menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>30, 10</value>
@@ -5507,7 +5627,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;showMedia_image_panel.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <metadata name="showMedia_image_gif_timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>286, 45</value>
@@ -7907,24 +8027,6 @@
   <data name="&gt;&gt;fileDisplay_icons.Type" xml:space="preserve">
     <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;links_clm_num.Name" xml:space="preserve">
-    <value>links_clm_num</value>
-  </data>
-  <data name="&gt;&gt;links_clm_num.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;links_clm_url.Name" xml:space="preserve">
-    <value>links_clm_url</value>
-  </data>
-  <data name="&gt;&gt;links_clm_url.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;links_clm_title.Name" xml:space="preserve">
-    <value>links_clm_title</value>
-  </data>
-  <data name="&gt;&gt;links_clm_title.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;links_RMB_reload.Name" xml:space="preserve">
     <value>links_RMB_reload</value>
   </data>
@@ -8320,6 +8422,24 @@
   </data>
   <data name="&gt;&gt;wb_url_autoCompleteMenu.Type" xml:space="preserve">
     <value>AutocompleteMenuNS.AutocompleteMenu, AutocompleteMenu, Version=1.3.4.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;links_clm_num.Name" xml:space="preserve">
+    <value>links_clm_num</value>
+  </data>
+  <data name="&gt;&gt;links_clm_num.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;links_clm_url.Name" xml:space="preserve">
+    <value>links_clm_url</value>
+  </data>
+  <data name="&gt;&gt;links_clm_url.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;links_clm_title.Name" xml:space="preserve">
+    <value>links_clm_title</value>
+  </data>
+  <data name="&gt;&gt;links_clm_title.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>fapmap</value>

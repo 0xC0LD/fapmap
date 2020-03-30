@@ -51,7 +51,7 @@
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>image_icon_fapmap_mediumblue.ico</ApplicationIcon>
+    <ApplicationIcon>fapmap.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -314,7 +314,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="image_icon_fapmap_mediumblue.ico" />
+    <Content Include="fapmap.ico" />
     <None Include="Resources\images\hide_none.png" />
     <None Include="Resources\images\hide_full.png" />
     <None Include="Resources\images\hide_normal.png" />

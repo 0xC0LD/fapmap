@@ -54,6 +54,25 @@ namespace LockedFolder
             e.DrawText();
         }
 
+        [System.ComponentModel.DesignerCategory("Code")]
+        public class FapMapPanel : Panel
+        {
+            public FapMapPanel()
+            {
+                SetStyle(ControlStyles.UserPaint | ControlStyles.ResizeRedraw | ControlStyles.DoubleBuffer | ControlStyles.AllPaintingInWmPaint, true);
+            }
+
+            protected override void OnPaint(PaintEventArgs e)
+            {
+                // using (SolidBrush brush = new SolidBrush(BackColor))
+                //     e.Graphics.FillRectangle(brush, ClientRectangle);
+                // e.Graphics.DrawRectangle(new Pen(Color.MediumPurple), 0, 0, ClientSize.Width - 1, ClientSize.Height - 1);
+
+                ControlPaint.DrawBorder(e.Graphics, this.ClientRectangle, Color.SlateBlue, ButtonBorderStyle.Solid);
+            }
+
+        }
+
         #endregion
 
         #region main

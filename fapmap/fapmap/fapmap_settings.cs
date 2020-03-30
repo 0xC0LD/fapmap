@@ -20,7 +20,7 @@ namespace fapmap
         {
             InitializeComponent();
 
-            txt_output_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
+            txt_output_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
         }
 
         
@@ -255,7 +255,7 @@ namespace fapmap
         private void rb_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton cb = (RadioButton)sender;
-            cb.ForeColor = cb.Checked ? Color.LightSkyBlue : Color.FromArgb(179, 141, 235);
+            cb.ForeColor = cb.Checked ? Color.LightSkyBlue : Color.MediumPurple;
 
             if       (rb_firefox.Checked) { fapmap.settings_edit_browser(0); }
             else if (rb_chrome.Checked)   { fapmap.settings_edit_browser(1); }
@@ -391,11 +391,8 @@ namespace fapmap
                     fapmap.GlobalVariables.Settings.WebBrowser.FapMapURL_,
                     txt_wbURL.Text
                 );
-
-                panel_txt.Focus();
-                this.ActiveControl = panel_txt;
                 
-                txt_wbURL.ForeColor = Color.FromArgb(179, 141, 235);
+                txt_wbURL.ForeColor = Color.MediumPurple;
 
                 e.Handled = true;
                 e.SuppressKeyPress = true;
@@ -422,11 +419,8 @@ namespace fapmap
                     fapmap.GlobalVariables.Settings.Media.GifDelay_,
                     txt_gifDelay.Text
                 );
-
-                panel_txt.Focus();
-                this.ActiveControl = panel_txt;
-
-                txt_gifDelay.ForeColor = Color.FromArgb(179, 141, 235);
+                
+                txt_gifDelay.ForeColor = Color.MediumPurple;
 
                 e.Handled = true;
                 e.SuppressKeyPress = true;

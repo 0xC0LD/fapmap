@@ -19,7 +19,7 @@ namespace fapmap
         {
             InitializeComponent();
 
-            txt_output_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
+            txt_output_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
         }
 
         public string pass_path = string.Empty;
@@ -220,10 +220,9 @@ namespace fapmap
         }
         private void txt_url_TextChanged(object sender, EventArgs e)
         {
-            txt_url.Text = txt_url.Text
-                .Replace("\n", String.Empty)
-                .Replace("\r", String.Empty)
-                .Replace("\t", String.Empty);
+            if (txt_url.Text.Contains("\n")) { txt_url.Text = txt_url.Text.Replace("\n", String.Empty); }
+            if (txt_url.Text.Contains("\r")) { txt_url.Text = txt_url.Text.Replace("\r", String.Empty); }
+            if (txt_url.Text.Contains("\t")) { txt_url.Text = txt_url.Text.Replace("\t", String.Empty); }
         }
 
         private void btn_start_Click(object sender, EventArgs e)

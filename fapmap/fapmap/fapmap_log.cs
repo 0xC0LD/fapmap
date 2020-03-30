@@ -20,7 +20,7 @@ namespace fapmap
         {
             InitializeComponent();
 
-            logs_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
+            logs_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
         }
 
         private void fapmap_log_Load(object sender, EventArgs e)

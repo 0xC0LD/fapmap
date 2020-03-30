@@ -47,11 +47,11 @@ namespace fapmap
             
             cb.ForeColor = cb.Checked ? Color.SkyBlue : Color.RoyalBlue;
         }
-        private void tb_keyword_TextChanged(object sender, EventArgs e) { if (keyword) { keyword_str = txt_keyword.Text; } }
-        private void tb_path_TextChanged(object sender, EventArgs e)
+        private void txt_keyword_TextChanged(object sender, EventArgs e) { if (keyword) { keyword_str = txt_keyword.Text; } }
+        private void txt_path_TextChanged(object sender, EventArgs e)
         {
-            if (!Directory.Exists(txt_path.Text)) { txt_path.ForeColor = Color.Red;                     }
-            else                                  { txt_path.ForeColor = Color.FromArgb(179, 141, 235); }
+            if (!Directory.Exists(txt_path.Text)) { txt_path.ForeColor = Color.Red;          }
+            else                                  { txt_path.ForeColor = Color.MediumPurple; }
 
             path = this.txt_path.Text;
         }

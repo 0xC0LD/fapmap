@@ -26,7 +26,7 @@ namespace fapmap
         {
             InitializeComponent();
             
-            links_RMB.Renderer = new fapmap_res.FapmapColors.fToolStripProfessionalRenderer();
+            links_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
 
             client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(client_DownloadProgressChanged);
             client.DownloadFileCompleted += new AsyncCompletedEventHandler(client_DownloadFileCompleted);
@@ -914,20 +914,18 @@ namespace fapmap
         
         private void txt_dir_TextChanged(object sender, EventArgs e)
         {
-            txt_dir.Text = txt_dir.Text
-                .Replace("\n", String.Empty)
-                .Replace("\r", String.Empty)
-                .Replace("\t", String.Empty);
+            if (txt_dir.Text.Contains("\n")) { txt_dir.Text = txt_dir.Text.Replace("\n", String.Empty); }
+            if (txt_dir.Text.Contains("\r")) { txt_dir.Text = txt_dir.Text.Replace("\r", String.Empty); }
+            if (txt_dir.Text.Contains("\t")) { txt_dir.Text = txt_dir.Text.Replace("\t", String.Empty); }
 
-            txt_dir.ForeColor = Directory.Exists(txt_dir.Text) ? Color.FromArgb(179, 141, 235) : Color.Red;
+            txt_dir.ForeColor = Directory.Exists(txt_dir.Text) ? Color.MediumPurple : Color.Red;
         }
         ListViewItem links_selected = null;
         private void txt_filename_TextChanged(object sender, EventArgs e)
         {
-            txt_filename.Text = txt_filename.Text
-                .Replace("\n", String.Empty)
-                .Replace("\r", String.Empty)
-                .Replace("\t", String.Empty);
+            if (txt_filename.Text.Contains("\n")) { txt_filename.Text = txt_filename.Text.Replace("\n", String.Empty); }
+            if (txt_filename.Text.Contains("\r")) { txt_filename.Text = txt_filename.Text.Replace("\r", String.Empty); }
+            if (txt_filename.Text.Contains("\t")) { txt_filename.Text = txt_filename.Text.Replace("\t", String.Empty); }
 
             if (links_selected == null)
             {
@@ -948,10 +946,9 @@ namespace fapmap
         }
         private void txt_webgrabURL_TextChanged(object sender, EventArgs e)
         {
-            txt_webgrabURL.Text = txt_webgrabURL.Text
-                .Replace("\n", String.Empty)
-                .Replace("\r", String.Empty)
-                .Replace("\t", String.Empty);
+            if (txt_webgrabURL.Text.Contains("\n")) { txt_webgrabURL.Text = txt_webgrabURL.Text.Replace("\n", String.Empty); }
+            if (txt_webgrabURL.Text.Contains("\r")) { txt_webgrabURL.Text = txt_webgrabURL.Text.Replace("\r", String.Empty); }
+            if (txt_webgrabURL.Text.Contains("\t")) { txt_webgrabURL.Text = txt_webgrabURL.Text.Replace("\t", String.Empty); }
 
             System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("");
             foreach (var line in fapmap.GlobalVariables.Settings.Other.WebGrabTableLines)
@@ -970,17 +967,15 @@ namespace fapmap
         }
         private void txt_url_TextChanged(object sender, EventArgs e)
         {
-            txt_url.Text = txt_url.Text
-                .Replace("\n", String.Empty)
-                .Replace("\r", String.Empty)
-                .Replace("\t", String.Empty);
+            if (txt_url.Text.Contains("\n")) { txt_url.Text = txt_url.Text.Replace("\n", String.Empty); }
+            if (txt_url.Text.Contains("\r")) { txt_url.Text = txt_url.Text.Replace("\r", String.Empty); }
+            if (txt_url.Text.Contains("\t")) { txt_url.Text = txt_url.Text.Replace("\t", String.Empty); }
         }
         private void txt_webgrabOptions_TextChanged(object sender, EventArgs e)
         {
-            txt_webgrabOptions.Text = txt_webgrabOptions.Text
-                .Replace("\n", String.Empty)
-                .Replace("\r", String.Empty)
-                .Replace("\t", String.Empty);
+            if (txt_webgrabOptions.Text.Contains("\n")) { txt_webgrabOptions.Text = txt_webgrabOptions.Text.Replace("\n", String.Empty); }
+            if (txt_webgrabOptions.Text.Contains("\r")) { txt_webgrabOptions.Text = txt_webgrabOptions.Text.Replace("\r", String.Empty); }
+            if (txt_webgrabOptions.Text.Contains("\t")) { txt_webgrabOptions.Text = txt_webgrabOptions.Text.Replace("\t", String.Empty); }
         }
 
         private void txt_url_DragEnter(object sender, DragEventArgs e)

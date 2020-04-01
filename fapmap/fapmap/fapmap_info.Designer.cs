@@ -38,20 +38,24 @@
             this.btn_openFile = new System.Windows.Forms.Button();
             this.btn_selectFileInExplorer = new System.Windows.Forms.Button();
             this.btn_incognito = new System.Windows.Forms.Button();
-            this.btn_booruSearch = new System.Windows.Forms.Button();
-            this.btn_rule34search = new System.Windows.Forms.Button();
+            this.btn_booru_api = new System.Windows.Forms.Button();
+            this.btn_booru_rule34xxx = new System.Windows.Forms.Button();
+            this.btn_move = new System.Windows.Forms.Button();
+            this.btn_rename = new System.Windows.Forms.Button();
+            this.btn_booru_gelbooru = new System.Windows.Forms.Button();
+            this.btn_booru_danbooru = new System.Windows.Forms.Button();
             this.label_info = new System.Windows.Forms.Label();
-            this.txt_output = new fapmap_res.FixedRichTextBox();
             this.txt_output_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txt_output_RMB_copy = new System.Windows.Forms.ToolStripMenuItem();
-            this.txt_size = new System.Windows.Forms.TextBox();
             this.showImage = new System.Windows.Forms.PictureBox();
-            this.txt_output_border = new fapmap_res.FapMapPanel();
             this.txt_size_border = new fapmap_res.FapMapPanel();
+            this.txt_size = new System.Windows.Forms.TextBox();
+            this.txt_output_border = new fapmap_res.FapMapPanel();
+            this.txt_output = new fapmap_res.FixedRichTextBox();
             this.txt_output_RMB.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.showImage)).BeginInit();
-            this.txt_output_border.SuspendLayout();
             this.txt_size_border.SuspendLayout();
+            this.txt_output_border.SuspendLayout();
             this.SuspendLayout();
             // 
             // cb_noZero
@@ -137,7 +141,7 @@
             this.btn_delFile.Name = "btn_delFile";
             this.btn_delFile.Size = new System.Drawing.Size(20, 20);
             this.btn_delFile.TabIndex = 230;
-            this.HelpBalloon.SetToolTip(this.btn_delFile, "Send to Trash");
+            this.HelpBalloon.SetToolTip(this.btn_delFile, "Trash Dir/File");
             this.btn_delFile.UseVisualStyleBackColor = false;
             this.btn_delFile.Click += new System.EventHandler(this.btn_delFile_Click);
             // 
@@ -155,7 +159,7 @@
             this.btn_openFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_openFile.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btn_openFile.ForeColor = System.Drawing.Color.MediumPurple;
-            this.btn_openFile.Location = new System.Drawing.Point(546, 12);
+            this.btn_openFile.Location = new System.Drawing.Point(502, 12);
             this.btn_openFile.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_openFile.Name = "btn_openFile";
             this.btn_openFile.Size = new System.Drawing.Size(20, 20);
@@ -178,7 +182,7 @@
             this.btn_selectFileInExplorer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_selectFileInExplorer.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btn_selectFileInExplorer.ForeColor = System.Drawing.Color.MediumPurple;
-            this.btn_selectFileInExplorer.Location = new System.Drawing.Point(568, 12);
+            this.btn_selectFileInExplorer.Location = new System.Drawing.Point(524, 12);
             this.btn_selectFileInExplorer.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_selectFileInExplorer.Name = "btn_selectFileInExplorer";
             this.btn_selectFileInExplorer.Size = new System.Drawing.Size(20, 20);
@@ -201,62 +205,156 @@
             this.btn_incognito.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_incognito.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btn_incognito.ForeColor = System.Drawing.Color.MediumPurple;
-            this.btn_incognito.Location = new System.Drawing.Point(590, 12);
+            this.btn_incognito.Location = new System.Drawing.Point(546, 12);
             this.btn_incognito.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_incognito.Name = "btn_incognito";
             this.btn_incognito.Size = new System.Drawing.Size(20, 20);
             this.btn_incognito.TabIndex = 231;
-            this.HelpBalloon.SetToolTip(this.btn_incognito, "Search File Name in the Web Browser");
+            this.HelpBalloon.SetToolTip(this.btn_incognito, "Search Dir/File Name in the Web Browser");
             this.btn_incognito.UseVisualStyleBackColor = false;
             this.btn_incognito.Click += new System.EventHandler(this.btn_incognito_Click);
             // 
-            // btn_booruSearch
+            // btn_booru_api
             // 
-            this.btn_booruSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_booruSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_booruSearch.BackgroundImage = global::fapmap.Properties.Resources.find;
-            this.btn_booruSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_booruSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_booruSearch.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
-            this.btn_booruSearch.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_booruSearch.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_booruSearch.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_booruSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_booruSearch.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_booruSearch.ForeColor = System.Drawing.Color.MediumPurple;
-            this.btn_booruSearch.Location = new System.Drawing.Point(590, 34);
-            this.btn_booruSearch.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.btn_booruSearch.Name = "btn_booruSearch";
-            this.btn_booruSearch.Size = new System.Drawing.Size(20, 20);
-            this.btn_booruSearch.TabIndex = 232;
-            this.HelpBalloon.SetToolTip(this.btn_booruSearch, "Search MD5 Filename in Booru Search API (cure.ninja)");
-            this.btn_booruSearch.UseVisualStyleBackColor = false;
-            this.btn_booruSearch.Visible = false;
-            this.btn_booruSearch.Click += new System.EventHandler(this.btn_booruSearch_Click);
+            this.btn_booru_api.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_booru_api.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_booru_api.BackgroundImage = global::fapmap.Properties.Resources.find;
+            this.btn_booru_api.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_booru_api.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_booru_api.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
+            this.btn_booru_api.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_booru_api.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_booru_api.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_booru_api.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_booru_api.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_booru_api.ForeColor = System.Drawing.Color.MediumPurple;
+            this.btn_booru_api.Location = new System.Drawing.Point(546, 34);
+            this.btn_booru_api.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.btn_booru_api.Name = "btn_booru_api";
+            this.btn_booru_api.Size = new System.Drawing.Size(20, 20);
+            this.btn_booru_api.TabIndex = 232;
+            this.HelpBalloon.SetToolTip(this.btn_booru_api, "Search MD5 File Name on the Booru Search API (cure.ninja)");
+            this.btn_booru_api.UseVisualStyleBackColor = false;
+            this.btn_booru_api.Visible = false;
+            this.btn_booru_api.Click += new System.EventHandler(this.btn_booru_api_Click);
             // 
-            // btn_rule34search
+            // btn_booru_rule34xxx
             // 
-            this.btn_rule34search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_rule34search.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_rule34search.BackgroundImage = global::fapmap.Properties.Resources.rule34_xxx;
-            this.btn_rule34search.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_rule34search.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_rule34search.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
-            this.btn_rule34search.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_rule34search.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_rule34search.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_rule34search.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_rule34search.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_rule34search.ForeColor = System.Drawing.Color.MediumPurple;
-            this.btn_rule34search.Location = new System.Drawing.Point(612, 34);
-            this.btn_rule34search.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.btn_rule34search.Name = "btn_rule34search";
-            this.btn_rule34search.Size = new System.Drawing.Size(20, 20);
-            this.btn_rule34search.TabIndex = 233;
-            this.HelpBalloon.SetToolTip(this.btn_rule34search, "Search MD5 Filename in rule34.xxx");
-            this.btn_rule34search.UseVisualStyleBackColor = false;
-            this.btn_rule34search.Visible = false;
-            this.btn_rule34search.Click += new System.EventHandler(this.btn_rule34search_Click);
+            this.btn_booru_rule34xxx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_booru_rule34xxx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_booru_rule34xxx.BackgroundImage = global::fapmap.Properties.Resources.rule34_xxx;
+            this.btn_booru_rule34xxx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_booru_rule34xxx.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_booru_rule34xxx.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
+            this.btn_booru_rule34xxx.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_booru_rule34xxx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_booru_rule34xxx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_booru_rule34xxx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_booru_rule34xxx.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_booru_rule34xxx.ForeColor = System.Drawing.Color.MediumPurple;
+            this.btn_booru_rule34xxx.Location = new System.Drawing.Point(568, 34);
+            this.btn_booru_rule34xxx.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.btn_booru_rule34xxx.Name = "btn_booru_rule34xxx";
+            this.btn_booru_rule34xxx.Size = new System.Drawing.Size(20, 20);
+            this.btn_booru_rule34xxx.TabIndex = 233;
+            this.HelpBalloon.SetToolTip(this.btn_booru_rule34xxx, "Search MD5 File Name on rule34.xxx");
+            this.btn_booru_rule34xxx.UseVisualStyleBackColor = false;
+            this.btn_booru_rule34xxx.Visible = false;
+            this.btn_booru_rule34xxx.Click += new System.EventHandler(this.btn_booru_rule34xxx_Click);
+            // 
+            // btn_move
+            // 
+            this.btn_move.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_move.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_move.BackgroundImage = global::fapmap.Properties.Resources.arrow_right;
+            this.btn_move.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_move.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_move.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
+            this.btn_move.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_move.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_move.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_move.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_move.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_move.ForeColor = System.Drawing.Color.MediumPurple;
+            this.btn_move.Location = new System.Drawing.Point(568, 12);
+            this.btn_move.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.btn_move.Name = "btn_move";
+            this.btn_move.Size = new System.Drawing.Size(20, 20);
+            this.btn_move.TabIndex = 234;
+            this.HelpBalloon.SetToolTip(this.btn_move, "Move Dir/File");
+            this.btn_move.UseVisualStyleBackColor = false;
+            this.btn_move.Click += new System.EventHandler(this.btn_move_Click);
+            // 
+            // btn_rename
+            // 
+            this.btn_rename.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_rename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_rename.BackgroundImage = global::fapmap.Properties.Resources.rename;
+            this.btn_rename.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_rename.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_rename.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
+            this.btn_rename.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_rename.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_rename.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_rename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_rename.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_rename.ForeColor = System.Drawing.Color.MediumPurple;
+            this.btn_rename.Location = new System.Drawing.Point(590, 12);
+            this.btn_rename.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.btn_rename.Name = "btn_rename";
+            this.btn_rename.Size = new System.Drawing.Size(20, 20);
+            this.btn_rename.TabIndex = 235;
+            this.HelpBalloon.SetToolTip(this.btn_rename, "Rename Dir/File");
+            this.btn_rename.UseVisualStyleBackColor = false;
+            this.btn_rename.Click += new System.EventHandler(this.btn_rename_Click);
+            // 
+            // btn_booru_gelbooru
+            // 
+            this.btn_booru_gelbooru.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_booru_gelbooru.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_booru_gelbooru.BackgroundImage = global::fapmap.Properties.Resources.gelbooru;
+            this.btn_booru_gelbooru.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_booru_gelbooru.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_booru_gelbooru.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
+            this.btn_booru_gelbooru.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_booru_gelbooru.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_booru_gelbooru.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_booru_gelbooru.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_booru_gelbooru.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_booru_gelbooru.ForeColor = System.Drawing.Color.MediumPurple;
+            this.btn_booru_gelbooru.Location = new System.Drawing.Point(590, 34);
+            this.btn_booru_gelbooru.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.btn_booru_gelbooru.Name = "btn_booru_gelbooru";
+            this.btn_booru_gelbooru.Size = new System.Drawing.Size(20, 20);
+            this.btn_booru_gelbooru.TabIndex = 236;
+            this.HelpBalloon.SetToolTip(this.btn_booru_gelbooru, "Search MD5 File Name on gelbooru.com");
+            this.btn_booru_gelbooru.UseVisualStyleBackColor = false;
+            this.btn_booru_gelbooru.Visible = false;
+            this.btn_booru_gelbooru.Click += new System.EventHandler(this.btn_booru_gelbooru_Click);
+            // 
+            // btn_booru_danbooru
+            // 
+            this.btn_booru_danbooru.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_booru_danbooru.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_booru_danbooru.BackgroundImage = global::fapmap.Properties.Resources.danbooru;
+            this.btn_booru_danbooru.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_booru_danbooru.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_booru_danbooru.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
+            this.btn_booru_danbooru.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_booru_danbooru.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_booru_danbooru.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_booru_danbooru.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_booru_danbooru.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_booru_danbooru.ForeColor = System.Drawing.Color.MediumPurple;
+            this.btn_booru_danbooru.Location = new System.Drawing.Point(612, 34);
+            this.btn_booru_danbooru.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.btn_booru_danbooru.Name = "btn_booru_danbooru";
+            this.btn_booru_danbooru.Size = new System.Drawing.Size(20, 20);
+            this.btn_booru_danbooru.TabIndex = 237;
+            this.HelpBalloon.SetToolTip(this.btn_booru_danbooru, "Search MD5 File Name on danbooru.donmai.us");
+            this.btn_booru_danbooru.UseVisualStyleBackColor = false;
+            this.btn_booru_danbooru.Visible = false;
+            this.btn_booru_danbooru.Click += new System.EventHandler(this.btn_booru_danbooru_Click);
             // 
             // label_info
             // 
@@ -270,25 +368,6 @@
             this.label_info.Size = new System.Drawing.Size(28, 15);
             this.label_info.TabIndex = 221;
             this.label_info.Text = "...";
-            // 
-            // txt_output
-            // 
-            this.txt_output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.txt_output.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_output.ContextMenuStrip = this.txt_output_RMB;
-            this.txt_output.DetectUrls = false;
-            this.txt_output.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_output.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.txt_output.Location = new System.Drawing.Point(1, 1);
-            this.txt_output.Name = "txt_output";
-            this.txt_output.ReadOnly = true;
-            this.txt_output.Size = new System.Drawing.Size(618, 250);
-            this.txt_output.TabIndex = 4;
-            this.txt_output.Text = "...";
-            this.txt_output.WordWrap = false;
             // 
             // txt_output_RMB
             // 
@@ -313,6 +392,28 @@
             this.txt_output_RMB_copy.Text = "Copy (CTRL+C)";
             this.txt_output_RMB_copy.Click += new System.EventHandler(this.txt_output_RMB_copy_Click);
             // 
+            // showImage
+            // 
+            this.showImage.BackColor = System.Drawing.Color.Transparent;
+            this.showImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.showImage.Image = global::fapmap.Properties.Resources.image;
+            this.showImage.Location = new System.Drawing.Point(12, 12);
+            this.showImage.Name = "showImage";
+            this.showImage.Size = new System.Drawing.Size(124, 124);
+            this.showImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.showImage.TabIndex = 225;
+            this.showImage.TabStop = false;
+            // 
+            // txt_size_border
+            // 
+            this.txt_size_border.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_size_border.Controls.Add(this.txt_size);
+            this.txt_size_border.Location = new System.Drawing.Point(142, 111);
+            this.txt_size_border.Name = "txt_size_border";
+            this.txt_size_border.Size = new System.Drawing.Size(459, 25);
+            this.txt_size_border.TabIndex = 227;
+            // 
             // txt_size
             // 
             this.txt_size.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -329,18 +430,6 @@
             this.txt_size.TabIndex = 1;
             this.txt_size.Text = "...";
             // 
-            // showImage
-            // 
-            this.showImage.BackColor = System.Drawing.Color.Transparent;
-            this.showImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.showImage.Image = global::fapmap.Properties.Resources.image;
-            this.showImage.Location = new System.Drawing.Point(12, 12);
-            this.showImage.Name = "showImage";
-            this.showImage.Size = new System.Drawing.Size(124, 124);
-            this.showImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.showImage.TabIndex = 225;
-            this.showImage.TabStop = false;
-            // 
             // txt_output_border
             // 
             this.txt_output_border.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -352,15 +441,24 @@
             this.txt_output_border.Size = new System.Drawing.Size(620, 252);
             this.txt_output_border.TabIndex = 226;
             // 
-            // txt_size_border
+            // txt_output
             // 
-            this.txt_size_border.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_size_border.Controls.Add(this.txt_size);
-            this.txt_size_border.Location = new System.Drawing.Point(142, 111);
-            this.txt_size_border.Name = "txt_size_border";
-            this.txt_size_border.Size = new System.Drawing.Size(459, 25);
-            this.txt_size_border.TabIndex = 227;
+            this.txt_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txt_output.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_output.ContextMenuStrip = this.txt_output_RMB;
+            this.txt_output.DetectUrls = false;
+            this.txt_output.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_output.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.txt_output.Location = new System.Drawing.Point(1, 1);
+            this.txt_output.Name = "txt_output";
+            this.txt_output.ReadOnly = true;
+            this.txt_output.Size = new System.Drawing.Size(618, 250);
+            this.txt_output.TabIndex = 4;
+            this.txt_output.Text = "...";
+            this.txt_output.WordWrap = false;
             // 
             // fapmap_info
             // 
@@ -369,8 +467,12 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
             this.ClientSize = new System.Drawing.Size(644, 421);
-            this.Controls.Add(this.btn_rule34search);
-            this.Controls.Add(this.btn_booruSearch);
+            this.Controls.Add(this.btn_booru_danbooru);
+            this.Controls.Add(this.btn_booru_gelbooru);
+            this.Controls.Add(this.btn_rename);
+            this.Controls.Add(this.btn_move);
+            this.Controls.Add(this.btn_booru_rule34xxx);
+            this.Controls.Add(this.btn_booru_api);
             this.Controls.Add(this.btn_incognito);
             this.Controls.Add(this.btn_delFile);
             this.Controls.Add(this.btn_openFile);
@@ -394,9 +496,9 @@
             this.Load += new System.EventHandler(this.fapmap_info_Load);
             this.txt_output_RMB.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.showImage)).EndInit();
-            this.txt_output_border.ResumeLayout(false);
             this.txt_size_border.ResumeLayout(false);
             this.txt_size_border.PerformLayout();
+            this.txt_output_border.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -419,7 +521,11 @@
         private System.Windows.Forms.Button btn_openFile;
         private System.Windows.Forms.Button btn_selectFileInExplorer;
         private System.Windows.Forms.Button btn_incognito;
-        private System.Windows.Forms.Button btn_booruSearch;
-        private System.Windows.Forms.Button btn_rule34search;
+        private System.Windows.Forms.Button btn_booru_api;
+        private System.Windows.Forms.Button btn_booru_rule34xxx;
+        private System.Windows.Forms.Button btn_move;
+        private System.Windows.Forms.Button btn_rename;
+        private System.Windows.Forms.Button btn_booru_gelbooru;
+        private System.Windows.Forms.Button btn_booru_danbooru;
     }
 }

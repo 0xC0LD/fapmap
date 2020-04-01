@@ -29,8 +29,10 @@ namespace fapmap
             
             if (File.Exists(pass_path) && fapmap.IsMD5(Path.GetFileNameWithoutExtension(pass_path)))
             {
-                btn_booruSearch.Visible = true;
-                btn_rule34search.Visible = true;
+                btn_booru_api.Visible = true;
+                btn_booru_rule34xxx.Visible = true;
+                btn_booru_gelbooru.Visible = true;
+                btn_booru_danbooru.Visible = true;
             }
 
             this.ActiveControl = btn_getInfo;
@@ -249,20 +251,95 @@ namespace fapmap
             if (Directory.Exists(pass_path)) { fapmap.Incognito(new DirectoryInfo(pass_path).Name);           }
             else if (File.Exists(pass_path)) { fapmap.Incognito(Path.GetFileNameWithoutExtension(pass_path)); }
         }
+        private void btn_move_Click(object sender, EventArgs e)
+        {
+            string path = pass_path;
+            if (Directory.Exists(path))
+            {
+                if (path == fapmap.GlobalVariables.Path.Dir.MainFolder)
+                {
+                    MessageBox.Show("You can't move \"Main Folder\"", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                
+                DirectoryInfo di = new DirectoryInfo(path);
+                string dir = fapmap.OpenPathSelector(this, di.Parent.FullName);
+                if (!string.IsNullOrEmpty(dir) && Directory.Exists(path) && Directory.Exists(dir))
+                {
+                    string dest = new DirectoryInfo(dir).FullName + "\\" + di.Name;
+                    fapmap.MoveDir(path, dest);
+                    pass_path = dest;
+                }
+            }
+            else if (File.Exists(path))
+            {
+                FileInfo fi = new FileInfo(path);
+                string dir = fapmap.OpenPathSelector(this, fi.Directory.FullName);
+                if (!string.IsNullOrEmpty(dir) && Directory.Exists(dir))
+                {
+                    string dest = new DirectoryInfo(dir).FullName + "\\" + fi.Name;
+                    fapmap.MoveFile(path, dest);
+                    pass_path = dest;
+                }
+            }
+        }
+        private void btn_rename_Click(object sender, EventArgs e)
+        {
+            string path = pass_path;
+            if (Directory.Exists(path))
+            {
+                if (path == fapmap.GlobalVariables.Path.Dir.MainFolder)
+                {
+                    MessageBox.Show("You can't rename \"Main Folder\"", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                
+                DirectoryInfo di_src = new DirectoryInfo(path);
+                string input = fapmap.OpenInputBox(this, "Rename folder?", di_src.Name, 0, di_src.Name.Length);
+                if (!string.IsNullOrEmpty(input))
+                {
+                    string dest = di_src.Parent.FullName + "\\" + input;
+                    fapmap.MoveDir(di_src.FullName, dest);
+                    pass_path = dest;
+                }
+            }
+            else if (File.Exists(path))
+            {
+                FileInfo fi_src = new FileInfo(path);
+                string input = fapmap.OpenInputBox(this, "Rename file?", fi_src.Name, 0, fi_src.Name.Length - fi_src.Extension.Length);
+                if (!string.IsNullOrEmpty(input))
+                {
+                    string dest = fi_src.Directory.FullName + "\\" + input;
+                    fapmap.MoveFile(fi_src.FullName, dest);
+                    pass_path = dest;
+                }
+            }
+        }
         private void btn_delFile_Click(object sender, EventArgs e)
         {
             if (Directory.Exists(pass_path)) { fapmap.TrashDir(pass_path);  }
             else if (File.Exists(pass_path)) { fapmap.TrashFile(pass_path); }
         }
 
-        private void btn_booruSearch_Click(object sender, EventArgs e)
+        // md5 booru search
+        private void btn_booru_api_Click(object sender, EventArgs e)
         {
             string url = @"https://cure.ninja/booru/api/json/md5/";
             if (File.Exists(pass_path)) { fapmap.Incognito(url + Path.GetFileNameWithoutExtension(pass_path)); }
         }
-        private void btn_rule34search_Click(object sender, EventArgs e)
+        private void btn_booru_rule34xxx_Click(object sender, EventArgs e)
         {
             string url = @"https://rule34.xxx/index.php?page=post&s=list&tags=md5%3a";
+            if (File.Exists(pass_path)) { fapmap.Incognito(url + Path.GetFileNameWithoutExtension(pass_path)); }
+        }
+        private void btn_booru_gelbooru_Click(object sender, EventArgs e)
+        {
+            string url = @"https://www.gelbooru.com/index.php?page=post&s=list&tags=md5%3a";
+            if (File.Exists(pass_path)) { fapmap.Incognito(url + Path.GetFileNameWithoutExtension(pass_path)); }
+        }
+        private void btn_booru_danbooru_Click(object sender, EventArgs e)
+        {
+            string url = @"https://danbooru.donmai.us/posts?tags=md5%3A";
             if (File.Exists(pass_path)) { fapmap.Incognito(url + Path.GetFileNameWithoutExtension(pass_path)); }
         }
     }

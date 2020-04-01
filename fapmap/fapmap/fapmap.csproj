@@ -315,6 +315,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fapmap.ico" />
+    <None Include="Resources\images\gelbooru.png" />
+    <None Include="Resources\images\danbooru.png" />
     <None Include="Resources\images\rule34.xxx.png" />
     <None Include="Resources\images\rule34.xxx.ico" />
     <None Include="Resources\images\hide_none.png" />

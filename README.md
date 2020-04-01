@@ -20,9 +20,8 @@
     - settings (./data/fapmap.ini)
 - CrashHandler - just a program that watches fapmap's process and if fapmap exits without killing the CrashHandler's process first, it opens a messagebox asking if you want to open fapmap again...
 
-## Download
-[Latest FapMap Version Downloader](https://github.com/0xC0LD/fapmap/releases/download/16.0/Newest.FapMap.Downloader.rar)
-##### Use this batch file (downloader) to download the latest version...
+## Download Latest Version:
+\[[here](https://github.com/0xC0LD/fapmap/releases/download/16.0/Newest.FapMap.Downloader.rar)\]
 
 ## Tips/Hints:
 - hover over buttons to see what they do... (tooltip)
@@ -44,5 +43,5 @@
 - https://github.com/fabricelacharme/ColorSlider
 
 ## More/Other Info:
-- [here](https://github.com/0xC0LD/fapmap/blob/master/fapmaper/fapmaper/bin/Release/data/ReadMe.txt)
+- \[[here](https://github.com/0xC0LD/fapmap/blob/master/fapmaper/fapmaper/bin/Release/data/ReadMe.txt)\]
 - Ask me on twitter

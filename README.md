@@ -1,9 +1,10 @@
-# fapmap - Hidden personal gallery of erotica (C#, GUI - WinForms)
-- A program made for COOMERS!
-- Hide files with a click of a button.
-- Watch/Download files & bookmark urls all inside the program.
+# FapMap
+### Hidden personal gallery (of erotica) (C#, GUI - WinForms)
+- A program/project made for COOMERS!
+- Hide your personal files with a click of a button.
+- Open/download files & bookmark URL(s) all inside the program.
 - ...
-### [ENTIRE GUI IN ONE IMAGE](https://raw.githubusercontent.com/0xC0LD/fapmap/master/fapmap.png) / outdated
+### [ENTIRE GUI IN ONE IMAGE](https://raw.githubusercontent.com/0xC0LD/fapmap/master/screenshots/all.png) / outdated
 
 ## Programs in this repository:
 - fapmaper ("fapmaper" is the "installation" program... all it really does is copy the contents from the "data" folder to the given location, then it hides the destination folder):
@@ -17,6 +18,7 @@
     - media converter (GUI for [ffmpeg](https://ffmpeg.org/))
     - editable URL/website board with favicons (./data/favicons)
     - settings (./data/fapmap.ini)
+- CrashHandler - just a program that watches fapmap's process and if fapmap exits without killing the CrashHandler it opens a messagebox asking if you want to open fapmap again...
 
 ## TIPS/HINTS:
 - hover over buttons to see what they do... (tooltip)

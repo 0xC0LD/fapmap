@@ -4,11 +4,11 @@
 - Hide your personal files with a click of a button.
 - Open/download files & bookmark URL(s) all inside the program.
 - ...
-### [ENTIRE GUI IN ONE IMAGE](https://raw.githubusercontent.com/0xC0LD/fapmap/master/screenshots/all.png) / outdated
+### [ENTIRE GUI IN ONE IMAGE](https://raw.githubusercontent.com/0xC0LD/fapmap/master/screenshots/all.png) / outdated... will change this when I'm done with everything...
 
-## Programs in this repository:
-- fapmaper ("fapmaper" is the "installation" program... all it really does is copy the contents from the "data" folder to the given location, then it hides the destination folder):
-- Lock (LockedFolder) (password GUI) ("Lock" should be the entry point of your gallery. The program is supposed to be accessed through a shortcut on your desktop. When opened, the user should be prompted with a password GUI (the password is stored in the data/password.dll file)):
+## Programs in This Repository:
+- fapmaper (fapmaper is the "installation" program... all it really does is copy the contents from the "data" folder to the given location and then it hides the destination folder):
+- Lock (LockedFolder) (password GUI) (When you "install" fapmap a shortcut should appear on your desktop. (the password is stored in the data/password.dll file)):
 - fapmap ("fapmap" is the file browser, link/URL bookmarker), and it contains a/an:
     - custom video player GUI (uses WMP binaries)
     - custom image/gif viewer GUI
@@ -18,9 +18,13 @@
     - media converter (GUI for [ffmpeg](https://ffmpeg.org/))
     - editable URL/website board with favicons (./data/favicons)
     - settings (./data/fapmap.ini)
-- CrashHandler - just a program that watches fapmap's process and if fapmap exits without killing the CrashHandler it opens a messagebox asking if you want to open fapmap again...
+- CrashHandler - just a program that watches fapmap's process and if fapmap exits without killing the CrashHandler's process first, it opens a messagebox asking if you want to open fapmap again...
 
-## TIPS/HINTS:
+## Download
+[Latest FapMap Version Downloader](https://github.com/0xC0LD/fapmap/releases/download/16.0/Newest.FapMap.Downloader.rar)
+##### Use this batch file (downloader) to download the latest version...
+
+## Tips/Hints:
 - hover over buttons to see what they do... (tooltip)
 - right click on 'Change Tabs' to see both tabs
 - tray icon: left click = hide the fapmap window, right click = close fapmap
@@ -34,11 +38,11 @@
   by holding down the mouse on the text label and moving it up & down...
   right click on the audio peak label to enable/disable auto peek change...
 
-## STUFF USED IN THE PROJECT:
+## Stuff Used in the Project
 - Some of the icons/images used in the GUI can be found on the web...
 - https://www.codeproject.com/articles/365974/autocomplete-menu
 - https://github.com/fabricelacharme/ColorSlider
 
-## OTHER INFO:
+## More/Other Info:
 - [here](https://github.com/0xC0LD/fapmap/blob/master/fapmaper/fapmaper/bin/Release/data/ReadMe.txt)
 - Ask me on twitter

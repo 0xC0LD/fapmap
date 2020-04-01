@@ -21,7 +21,7 @@
 - CrashHandler - just a program that watches fapmap's process and if fapmap exits without killing the CrashHandler's process first, it opens a messagebox asking if you want to open fapmap again...
 
 ## Download Latest Version:
-\[[here](https://github.com/0xC0LD/fapmap/releases/download/16.0/Newest.FapMap.Downloader.rar)\]
+\[[here](https://github.com/0xC0LD/fapmap/raw/master/fapmaper/fapmaper/bin/Release/newest.zip)\]
 
 ## Tips/Hints:
 - hover over buttons to see what they do... (tooltip)

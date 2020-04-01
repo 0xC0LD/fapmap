@@ -186,4 +186,17 @@ namespace fapmap_res
             }
         }
     }
+
+    public class FixedRichTextBox : RichTextBox
+    {
+        protected override void OnHandleCreated(EventArgs e)
+        {
+            base.OnHandleCreated(e);
+            if (!base.AutoWordSelection)
+            {
+                base.AutoWordSelection = true;
+                base.AutoWordSelection = false;
+            }
+        }
+    }
 }

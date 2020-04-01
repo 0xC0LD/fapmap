@@ -26,15 +26,14 @@ namespace fapmap
         private void fapmap_info_Load(object sender, EventArgs e)
         {
             getInfo(pass_path);
-
-            btn_getInfo.Focus();
-            this.ActiveControl = btn_getInfo;
-
-            if (File.Exists(pass_path))
+            
+            if (File.Exists(pass_path) && fapmap.IsMD5(Path.GetFileNameWithoutExtension(pass_path)))
             {
-                FileInfo fi = new FileInfo(pass_path);
-                
+                btn_booruSearch.Visible = true;
+                btn_rule34search.Visible = true;
             }
+
+            this.ActiveControl = btn_getInfo;
         }
 
         private void HelpBalloon_Draw(object sender, DrawToolTipEventArgs e)
@@ -47,12 +46,14 @@ namespace fapmap
         private bool getInfo_busy = false;
         private void getInfo(string path)
         {
+            if (getInfo_busy) { return; }
+
             new Thread(() =>
             {
-                if (!getInfo_busy)
-                {
-                    getInfo_busy = true;
+                getInfo_busy = true;
 
+                try
+                {
                     this.Invoke((MethodInvoker)delegate
                     {
                         txt_size.Text = "";
@@ -155,22 +156,22 @@ namespace fapmap
                             txt_size.Text = fapmap.ROund(fi.Length) + " (" + fi.Length + " bytes" + ")";
 
                             txt_output.Text +=
-                            "Name..................: " + fi.Name              + Environment.NewLine +
-                            "Extension.............: " + fi.Extension         + Environment.NewLine +
-                            "Directory.............: " + fi.Directory.Name    + Environment.NewLine +
-                            "File Attributes.......: " + fi.Attributes        + Environment.NewLine +
-                            "IsReadOnly............: " + fi.IsReadOnly        + Environment.NewLine +
-                            "Size..................: " + fi.Length            + Environment.NewLine +
-                            "Creation Time.........: " + fi.CreationTime      + Environment.NewLine +
-                            "Creation Time (Utc)...: " + fi.CreationTimeUtc   + Environment.NewLine +
-                            "Last Access Time......: " + fi.LastAccessTime    + Environment.NewLine +
+                            "Name..................: " + fi.Name + Environment.NewLine +
+                            "Extension.............: " + fi.Extension + Environment.NewLine +
+                            "Directory.............: " + fi.Directory.Name + Environment.NewLine +
+                            "File Attributes.......: " + fi.Attributes + Environment.NewLine +
+                            "IsReadOnly............: " + fi.IsReadOnly + Environment.NewLine +
+                            "Size..................: " + fi.Length + Environment.NewLine +
+                            "Creation Time.........: " + fi.CreationTime + Environment.NewLine +
+                            "Creation Time (Utc)...: " + fi.CreationTimeUtc + Environment.NewLine +
+                            "Last Access Time......: " + fi.LastAccessTime + Environment.NewLine +
                             "Last Access Time (Utc): " + fi.LastAccessTimeUtc + Environment.NewLine +
-                            "Last Write Time.......: " + fi.LastWriteTime     + Environment.NewLine +
-                            "Last Write Time (Utc).: " + fi.LastWriteTimeUtc  + Environment.NewLine;
+                            "Last Write Time.......: " + fi.LastWriteTime + Environment.NewLine +
+                            "Last Write Time (Utc).: " + fi.LastWriteTimeUtc + Environment.NewLine;
 
                             showImage.Image = Icon.ExtractAssociatedIcon(fi.FullName).ToBitmap();
                         });
-                        
+
                         if (fapmap.GlobalVariables.FileTypes.Image.Contains(fi.Extension.ToLower()))
                         {
                             Image img = Image.FromFile(fi.FullName);
@@ -199,27 +200,70 @@ namespace fapmap
                             }
                         }
                     }
+                    else
+                    {
+                        label_path.Text = "Nothing found...";
+                        txt_size.Text = "N/A";
+                        txt_output.Text = "N/A";
+                        label_info.Text = "Nothing found...";
+                        showImage.Image = Properties.Resources.error;
+
+                    }
 
                     this.Invoke((MethodInvoker)delegate
                     {
                         label_info.Text = "Done!";
                     });
-
-                    getInfo_busy = false;
                 }
+                catch (Exception) { }
+
+                getInfo_busy = false;
             })
             { IsBackground = true }.Start();
         }
         
-        private void btn_getInfo_Click(object sender, EventArgs e)
-        {
-            getInfo(pass_path);
-        }
-        
+        // RMB
         private void txt_output_RMB_copy_Click(object sender, EventArgs e)
         {
             string text = txt_output.SelectedText;
             if (!string.IsNullOrEmpty(text)) { Clipboard.SetText(text); }
+        }
+
+        // buttons
+        private void btn_getInfo_Click(object sender, EventArgs e)
+        {
+            getInfo(pass_path);
+        }
+        private void btn_openFile_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists(pass_path)) { fapmap.Open(pass_path); }
+            else if (File.Exists(pass_path)) { fapmap.Open(pass_path); }
+        }
+        private void btn_selectFileInExplorer_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists(pass_path)) { fapmap.OpenAndSelectInExplorer(pass_path); }
+            else if (File.Exists(pass_path)) { fapmap.OpenAndSelectInExplorer(pass_path); }
+        }
+        private void btn_incognito_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists(pass_path)) { fapmap.Incognito(new DirectoryInfo(pass_path).Name);           }
+            else if (File.Exists(pass_path)) { fapmap.Incognito(Path.GetFileNameWithoutExtension(pass_path)); }
+        }
+        private void btn_delFile_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists(pass_path)) { fapmap.TrashDir(pass_path);  }
+            else if (File.Exists(pass_path)) { fapmap.TrashFile(pass_path); }
+        }
+
+        private void btn_booruSearch_Click(object sender, EventArgs e)
+        {
+            string url = @"https://cure.ninja/booru/api/json/md5/";
+            if (File.Exists(pass_path)) { fapmap.Incognito(url + Path.GetFileNameWithoutExtension(pass_path)); }
+        }
+        private void btn_rule34search_Click(object sender, EventArgs e)
+        {
+            string url = @"https://rule34.xxx/index.php?page=post&s=list&tags=md5%3a";
+            if (File.Exists(pass_path)) { fapmap.Incognito(url + Path.GetFileNameWithoutExtension(pass_path)); }
         }
     }
 }

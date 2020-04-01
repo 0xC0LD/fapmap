@@ -38,7 +38,7 @@
             this.btn_openPathSelector = new System.Windows.Forms.Button();
             this.HelpBalloon = new System.Windows.Forms.ToolTip(this.components);
             this.btn_explorer = new System.Windows.Forms.Button();
-            this.txt_output = new System.Windows.Forms.RichTextBox();
+            this.txt_output = new fapmap_res.FixedRichTextBox();
             this.txt_output_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txt_output_RMB_copy = new System.Windows.Forms.ToolStripMenuItem();
             this.this_trayicon = new System.Windows.Forms.NotifyIcon(this.components);
@@ -72,7 +72,7 @@
             this.btn_start.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_start.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_start.BackgroundImage = global::fapmap.Properties.Resources.downloadVideo;
-            this.btn_start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_start.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_start.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_start.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_start.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -142,7 +142,7 @@
             this.btn_openPathSelector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_openPathSelector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_openPathSelector.BackgroundImage = global::fapmap.Properties.Resources.treeView;
-            this.btn_openPathSelector.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_openPathSelector.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_openPathSelector.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_openPathSelector.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_openPathSelector.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -329,7 +329,7 @@
         private System.Windows.Forms.TextBox txt_options;
         private System.Windows.Forms.Button btn_openPathSelector;
         private System.Windows.Forms.ToolTip HelpBalloon;
-        private System.Windows.Forms.RichTextBox txt_output;
+        private fapmap_res.FixedRichTextBox txt_output;
         private System.Windows.Forms.Button btn_explorer;
         private System.Windows.Forms.NotifyIcon this_trayicon;
         private System.Windows.Forms.ContextMenuStrip txt_output_RMB;

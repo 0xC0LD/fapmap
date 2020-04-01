@@ -108,12 +108,12 @@
             this.txt_input.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txt_input.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_input.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txt_input.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_input.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_input.ForeColor = System.Drawing.Color.MediumPurple;
             this.txt_input.Location = new System.Drawing.Point(1, 1);
             this.txt_input.Margin = new System.Windows.Forms.Padding(4);
             this.txt_input.Name = "txt_input";
-            this.txt_input.Size = new System.Drawing.Size(303, 20);
+            this.txt_input.Size = new System.Drawing.Size(303, 19);
             this.txt_input.TabIndex = 1;
             this.txt_input.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_input_KeyDown);
             // 

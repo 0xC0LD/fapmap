@@ -123,7 +123,7 @@
             // showImage
             // 
             this.showImage.BackColor = System.Drawing.Color.Transparent;
-            this.showImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.showImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.showImage.Image = global::fapmap.Properties.Resources.image;
             this.showImage.Location = new System.Drawing.Point(12, 12);
             this.showImage.Name = "showImage";
@@ -136,7 +136,7 @@
             // 
             this.btn_selectFileInExplorer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_selectFileInExplorer.BackgroundImage = global::fapmap.Properties.Resources.selectFolder;
-            this.btn_selectFileInExplorer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_selectFileInExplorer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_selectFileInExplorer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_selectFileInExplorer.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_selectFileInExplorer.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -165,7 +165,7 @@
             // 
             this.btn_openFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_openFile.BackgroundImage = global::fapmap.Properties.Resources.open;
-            this.btn_openFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_openFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_openFile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_openFile.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_openFile.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -187,7 +187,7 @@
             // 
             this.btn_openInInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_openInInfo.BackgroundImage = global::fapmap.Properties.Resources.settings;
-            this.btn_openInInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_openInInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_openInInfo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_openInInfo.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_openInInfo.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -209,7 +209,7 @@
             // 
             this.btn_delFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_delFile.BackgroundImage = global::fapmap.Properties.Resources.delete;
-            this.btn_delFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_delFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_delFile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_delFile.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_delFile.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));

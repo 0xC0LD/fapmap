@@ -42,7 +42,7 @@
             this.txt_options_border = new fapmap_res.FapMapPanel();
             this.txt_options = new System.Windows.Forms.TextBox();
             this.txt_output_border = new fapmap_res.FapMapPanel();
-            this.txt_output = new System.Windows.Forms.RichTextBox();
+            this.txt_output = new fapmap_res.FixedRichTextBox();
             this.txt_output_RMB.SuspendLayout();
             this.txt_path_border.SuspendLayout();
             this.txt_options_border.SuspendLayout();
@@ -54,7 +54,7 @@
             this.btn_find.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_find.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_find.BackgroundImage = global::fapmap.Properties.Resources.find;
-            this.btn_find.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_find.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_find.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_find.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_find.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -64,9 +64,9 @@
             this.btn_find.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btn_find.ForeColor = System.Drawing.Color.MediumPurple;
             this.btn_find.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_find.Location = new System.Drawing.Point(694, 13);
+            this.btn_find.Location = new System.Drawing.Point(690, 13);
             this.btn_find.Name = "btn_find";
-            this.btn_find.Size = new System.Drawing.Size(17, 17);
+            this.btn_find.Size = new System.Drawing.Size(21, 21);
             this.btn_find.TabIndex = 3;
             this.HelpBalloon.SetToolTip(this.btn_find, "Start/Stop fscan.exe");
             this.btn_find.UseVisualStyleBackColor = false;
@@ -120,7 +120,7 @@
             this.btn_openPathSelector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_openPathSelector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_openPathSelector.BackgroundImage = global::fapmap.Properties.Resources.treeView;
-            this.btn_openPathSelector.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_openPathSelector.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_openPathSelector.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_openPathSelector.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_openPathSelector.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -129,10 +129,10 @@
             this.btn_openPathSelector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_openPathSelector.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btn_openPathSelector.ForeColor = System.Drawing.Color.MediumPurple;
-            this.btn_openPathSelector.Location = new System.Drawing.Point(716, 13);
+            this.btn_openPathSelector.Location = new System.Drawing.Point(712, 13);
             this.btn_openPathSelector.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_openPathSelector.Name = "btn_openPathSelector";
-            this.btn_openPathSelector.Size = new System.Drawing.Size(17, 17);
+            this.btn_openPathSelector.Size = new System.Drawing.Size(21, 21);
             this.btn_openPathSelector.TabIndex = 4;
             this.HelpBalloon.SetToolTip(this.btn_openPathSelector, "Select Folder");
             this.btn_openPathSelector.UseVisualStyleBackColor = false;
@@ -141,7 +141,7 @@
             // txt_output_RMB
             // 
             this.txt_output_RMB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.txt_output_RMB.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.txt_output_RMB.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_output_RMB.BackgroundImage")));
             this.txt_output_RMB.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.txt_output_RMB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.txt_output_RMB_copy});
@@ -153,7 +153,7 @@
             // 
             // txt_output_RMB_copy
             // 
-            this.txt_output_RMB_copy.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.txt_output_RMB_copy.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txt_output_RMB_copy.BackgroundImage")));
             this.txt_output_RMB_copy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.txt_output_RMB_copy.Image = global::fapmap.Properties.Resources.copy;
             this.txt_output_RMB_copy.Name = "txt_output_RMB_copy";
@@ -166,9 +166,9 @@
             this.txt_path_border.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_path_border.Controls.Add(this.txt_path);
-            this.txt_path_border.Location = new System.Drawing.Point(169, 13);
+            this.txt_path_border.Location = new System.Drawing.Point(180, 13);
             this.txt_path_border.Name = "txt_path_border";
-            this.txt_path_border.Size = new System.Drawing.Size(519, 17);
+            this.txt_path_border.Size = new System.Drawing.Size(504, 21);
             this.txt_path_border.TabIndex = 11;
             // 
             // txt_path
@@ -177,11 +177,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txt_path.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_path.Font = new System.Drawing.Font("Consolas", 9F);
+            this.txt_path.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold);
             this.txt_path.ForeColor = System.Drawing.Color.SkyBlue;
             this.txt_path.Location = new System.Drawing.Point(1, 1);
             this.txt_path.Name = "txt_path";
-            this.txt_path.Size = new System.Drawing.Size(517, 15);
+            this.txt_path.Size = new System.Drawing.Size(502, 16);
             this.txt_path.TabIndex = 2;
             this.txt_path.TextChanged += new System.EventHandler(this.txt_path_TextChanged);
             this.txt_path.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
@@ -191,7 +191,7 @@
             this.txt_options_border.Controls.Add(this.txt_options);
             this.txt_options_border.Location = new System.Drawing.Point(12, 13);
             this.txt_options_border.Name = "txt_options_border";
-            this.txt_options_border.Size = new System.Drawing.Size(151, 17);
+            this.txt_options_border.Size = new System.Drawing.Size(162, 21);
             this.txt_options_border.TabIndex = 10;
             // 
             // txt_options
@@ -200,11 +200,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_options.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txt_options.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_options.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_options.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold);
             this.txt_options.ForeColor = System.Drawing.Color.DeepSkyBlue;
             this.txt_options.Location = new System.Drawing.Point(1, 1);
             this.txt_options.Name = "txt_options";
-            this.txt_options.Size = new System.Drawing.Size(149, 15);
+            this.txt_options.Size = new System.Drawing.Size(160, 16);
             this.txt_options.TabIndex = 1;
             this.txt_options.Text = "pic all v";
             this.txt_options.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_KeyDown);
@@ -215,9 +215,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_output_border.Controls.Add(this.txt_output);
-            this.txt_output_border.Location = new System.Drawing.Point(12, 37);
+            this.txt_output_border.Location = new System.Drawing.Point(12, 41);
             this.txt_output_border.Name = "txt_output_border";
-            this.txt_output_border.Size = new System.Drawing.Size(721, 364);
+            this.txt_output_border.Size = new System.Drawing.Size(721, 360);
             this.txt_output_border.TabIndex = 9;
             // 
             // txt_output
@@ -234,7 +234,7 @@
             this.txt_output.Location = new System.Drawing.Point(1, 1);
             this.txt_output.Name = "txt_output";
             this.txt_output.ReadOnly = true;
-            this.txt_output.Size = new System.Drawing.Size(719, 362);
+            this.txt_output.Size = new System.Drawing.Size(719, 358);
             this.txt_output.TabIndex = 6;
             this.txt_output.Text = "...";
             this.txt_output.WordWrap = false;
@@ -245,7 +245,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(744, 426);
             this.Controls.Add(this.txt_path_border);
             this.Controls.Add(this.txt_options_border);
@@ -287,7 +287,7 @@
         private System.Windows.Forms.ContextMenuStrip txt_output_RMB;
         private System.Windows.Forms.ToolStripMenuItem txt_output_RMB_copy;
         private fapmap_res.FapMapPanel txt_output_border;
-        private System.Windows.Forms.RichTextBox txt_output;
+        private fapmap_res.FixedRichTextBox txt_output;
         private fapmap_res.FapMapPanel txt_options_border;
         private fapmap_res.FapMapPanel txt_path_border;
     }

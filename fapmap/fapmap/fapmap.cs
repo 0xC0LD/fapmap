@@ -1013,6 +1013,13 @@ namespace fapmap
             return true;
         }
 
+        public static bool IsMD5(string input)
+        {
+            if (string.IsNullOrEmpty(input)) { return false; }
+            return System.Text.RegularExpressions.Regex.IsMatch(input, 
+                "^[0-9a-fA-F]{32}$", System.Text.RegularExpressions.RegexOptions.Compiled);
+        }
+
         #endregion
 
         #region GET
@@ -1241,7 +1248,7 @@ namespace fapmap
                 public uint FileIndexLow;
             }
         }
-
+        
         #endregion
 
         #endregion
@@ -4043,16 +4050,6 @@ namespace fapmap
                 node_file.ImageIndex = node_file.SelectedImageIndex = imageIndex;
             }
         }
-        private void faftv_collapseNode(TreeNode tn)
-        {
-            tn.Collapse();
-            foreach (TreeNode t in tn.Nodes) { faftv_expandNode(t); }
-        }
-        private void faftv_expandNode(TreeNode tn)
-        {
-            tn.Expand();
-            foreach (TreeNode t in tn.Nodes) { faftv_expandNode(t); }
-        }
 
         // update treeview for changes
         List<TreeNode> faftv_checkNode_nodesToRemove = new List<TreeNode>();
@@ -4122,13 +4119,11 @@ namespace fapmap
         }
         private void faftv_collapse()
         {
-            if (faftv.SelectedNode == null) { faftv.CollapseAll();                    }
-            else                            { faftv_collapseNode(faftv.SelectedNode); }
+            faftv.CollapseAll();
         }
         private void faftv_expand()
         {
-            if (faftv.SelectedNode == null) { faftv.ExpandAll();                    }
-            else                            { faftv_expandNode(faftv.SelectedNode); }
+            faftv.ExpandAll();
         }
         private void faftv_startFile(bool openDirs = false)
         {

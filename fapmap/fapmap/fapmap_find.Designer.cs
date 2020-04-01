@@ -159,7 +159,7 @@
             this.btn_find.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_find.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_find.BackgroundImage = global::fapmap.Properties.Resources.find;
-            this.btn_find.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_find.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_find.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_find.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_find.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));

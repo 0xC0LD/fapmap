@@ -103,16 +103,6 @@ namespace fapmap.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bg1 {
-            get {
-                object obj = ResourceManager.GetObject("bg1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap bg2 {
             get {
                 object obj = ResourceManager.GetObject("bg2", resourceCulture);
@@ -136,16 +126,6 @@ namespace fapmap.Properties {
         internal static System.Drawing.Bitmap bg4 {
             get {
                 object obj = ResourceManager.GetObject("bg4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bg5 {
-            get {
-                object obj = ResourceManager.GetObject("bg5", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -347,16 +327,6 @@ namespace fapmap.Properties {
             get {
                 object obj = ResourceManager.GetObject("fapmap", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon fapmap_black {
-            get {
-                object obj = ResourceManager.GetObject("fapmap_black", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
             }
         }
         
@@ -576,29 +546,9 @@ namespace fapmap.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon icon_board {
-            get {
-                object obj = ResourceManager.GetObject("icon_board", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
         internal static System.Drawing.Icon icon_board_null {
             get {
                 object obj = ResourceManager.GetObject("icon_board_null", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon icon_credit {
-            get {
-                object obj = ResourceManager.GetObject("icon_credit", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -639,56 +589,6 @@ namespace fapmap.Properties {
         internal static System.Drawing.Icon icon_downloadIdle {
             get {
                 object obj = ResourceManager.GetObject("icon_downloadIdle", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon icon_ffmpeg {
-            get {
-                object obj = ResourceManager.GetObject("icon_ffmpeg", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon icon_find {
-            get {
-                object obj = ResourceManager.GetObject("icon_find", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon icon_folder {
-            get {
-                object obj = ResourceManager.GetObject("icon_folder", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon icon_log {
-            get {
-                object obj = ResourceManager.GetObject("icon_log", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
-        /// </summary>
-        internal static System.Drawing.Icon icon_settings {
-            get {
-                object obj = ResourceManager.GetObject("icon_settings", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }
@@ -809,6 +709,16 @@ namespace fapmap.Properties {
         internal static System.Drawing.Bitmap restart {
             get {
                 object obj = ResourceManager.GetObject("restart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rule34_xxx {
+            get {
+                object obj = ResourceManager.GetObject("rule34_xxx", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

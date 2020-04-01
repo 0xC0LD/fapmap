@@ -329,7 +329,7 @@
             this.btn_openFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_openFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_openFile.BackgroundImage = global::fapmap.Properties.Resources.open;
-            this.btn_openFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_openFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_openFile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_openFile.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_openFile.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -389,7 +389,7 @@
             this.btn_addURL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_addURL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_addURL.BackgroundImage = global::fapmap.Properties.Resources.arrow_down;
-            this.btn_addURL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_addURL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_addURL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_addURL.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_addURL.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -413,7 +413,7 @@
             this.btn_webgrabStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_webgrabStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_webgrabStart.BackgroundImage = global::fapmap.Properties.Resources.scanPage;
-            this.btn_webgrabStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_webgrabStart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_webgrabStart.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_webgrabStart.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_webgrabStart.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -459,7 +459,7 @@
             this.btn_openURL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_openURL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_openURL.BackgroundImage = global::fapmap.Properties.Resources.incognito;
-            this.btn_openURL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_openURL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_openURL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_openURL.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_openURL.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -482,7 +482,7 @@
             this.btn_selectFileInExplorer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_selectFileInExplorer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_selectFileInExplorer.BackgroundImage = global::fapmap.Properties.Resources.selectFolder;
-            this.btn_selectFileInExplorer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_selectFileInExplorer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_selectFileInExplorer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_selectFileInExplorer.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_selectFileInExplorer.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -506,7 +506,7 @@
             this.btn_dragOutURL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_dragOutURL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_dragOutURL.BackgroundImage = global::fapmap.Properties.Resources.dragNdrop;
-            this.btn_dragOutURL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_dragOutURL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_dragOutURL.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_dragOutURL.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_dragOutURL.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -532,7 +532,7 @@
             this.btn_dragOutFilePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_dragOutFilePath.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_dragOutFilePath.BackgroundImage = global::fapmap.Properties.Resources.dragNdrop;
-            this.btn_dragOutFilePath.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_dragOutFilePath.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_dragOutFilePath.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_dragOutFilePath.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_dragOutFilePath.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));

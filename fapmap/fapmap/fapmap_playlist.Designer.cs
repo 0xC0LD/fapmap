@@ -195,7 +195,7 @@
             this.btn_openPathSelector.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_openPathSelector.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_openPathSelector.BackgroundImage = global::fapmap.Properties.Resources.treeView;
-            this.btn_openPathSelector.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_openPathSelector.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_openPathSelector.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_openPathSelector.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_openPathSelector.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;

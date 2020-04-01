@@ -48,7 +48,7 @@
             this.txt_options_border = new fapmap_res.FapMapPanel();
             this.txt_options = new System.Windows.Forms.TextBox();
             this.txt_output_border = new fapmap_res.FapMapPanel();
-            this.txt_output = new System.Windows.Forms.RichTextBox();
+            this.txt_output = new fapmap_res.FixedRichTextBox();
             this.txt_output_RMB.SuspendLayout();
             this.txt_fileNew_border.SuspendLayout();
             this.txt_file_border.SuspendLayout();
@@ -61,7 +61,7 @@
             this.btn_convert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_convert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_convert.BackgroundImage = global::fapmap.Properties.Resources.ffmpeg;
-            this.btn_convert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_convert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_convert.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_convert.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_convert.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -96,7 +96,7 @@
             this.btn_openFileNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_openFileNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_openFileNew.BackgroundImage = global::fapmap.Properties.Resources.open;
-            this.btn_openFileNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_openFileNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_openFileNew.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_openFileNew.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_openFileNew.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -119,7 +119,7 @@
             this.btn_openFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_openFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_openFile.BackgroundImage = global::fapmap.Properties.Resources.open;
-            this.btn_openFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_openFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_openFile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_openFile.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_openFile.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -149,7 +149,7 @@
             this.btn_delFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_delFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_delFile.BackgroundImage = global::fapmap.Properties.Resources.delete;
-            this.btn_delFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_delFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_delFile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_delFile.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_delFile.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -172,7 +172,7 @@
             this.btn_delFileNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_delFileNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_delFileNew.BackgroundImage = global::fapmap.Properties.Resources.delete;
-            this.btn_delFileNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_delFileNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_delFileNew.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_delFileNew.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_delFileNew.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -195,7 +195,7 @@
             this.btn_fileNewDragOut.AllowDrop = true;
             this.btn_fileNewDragOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_fileNewDragOut.BackgroundImage = global::fapmap.Properties.Resources.dragNdrop;
-            this.btn_fileNewDragOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_fileNewDragOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_fileNewDragOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_fileNewDragOut.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_fileNewDragOut.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -220,7 +220,7 @@
             this.btn_fileDragOut.AllowDrop = true;
             this.btn_fileDragOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_fileDragOut.BackgroundImage = global::fapmap.Properties.Resources.dragNdrop;
-            this.btn_fileDragOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_fileDragOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_fileDragOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_fileDragOut.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
             this.btn_fileDragOut.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
@@ -434,7 +434,7 @@
         private System.Windows.Forms.ContextMenuStrip txt_output_RMB;
         private System.Windows.Forms.ToolStripMenuItem txt_output_RMB_copy;
         private fapmap_res.FapMapPanel txt_output_border;
-        private System.Windows.Forms.RichTextBox txt_output;
+        private fapmap_res.FixedRichTextBox txt_output;
         private fapmap_res.FapMapPanel txt_options_border;
         private fapmap_res.FapMapPanel txt_file_border;
         private fapmap_res.FapMapPanel txt_fileNew_border;

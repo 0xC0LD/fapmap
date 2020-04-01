@@ -123,12 +123,14 @@ namespace fapmap
         private bool getInfo_busy = false;
         private void getInfo()
         {
+            if (getInfo_busy) { return; }
+
             new Thread(() =>
             {
-                if (!getInfo_busy)
-                {
-                    getInfo_busy = true;
+                getInfo_busy = true;
 
+                try
+                {
                     this.Invoke((MethodInvoker)delegate
                     {
                         txt_size.Text = "";
@@ -222,11 +224,12 @@ namespace fapmap
                     {
                         label_info.Text = "Done!";
                     });
-
-                    getInfo_busy = false;
                 }
+                catch (Exception) { }
+
+                getInfo_busy = false;
             })
-            { IsBackground = true }.Start(); 
+            { IsBackground = true }.Start();
         }
         private void gallerySize_KeyDown(object sender, KeyEventArgs e)
         {

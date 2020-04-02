@@ -26,18 +26,15 @@ namespace fapmap
         }
         
         //thumbnails
-        private string web_img_url_0 = "https://yt3.ggpht.com/-MpInHIQi5kQ/AAAAAAAAAAI/AAAAAAAAAOo/uMD40-lPnJk/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg";
-        private string web_img_url_1 = "https://yt3.ggpht.com/-wmTdd-ozcCw/AAAAAAAAAAI/AAAAAAAAAAA/Jab5AL6CxZ4/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg";
-        private string web_img_url_2 = "https://yt3.ggpht.com/-Cz0f2loHk5E/AAAAAAAAAAI/AAAAAAAAAAA/j6ZFt-9xPiA/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg";
-        private string web_img_url_3 = "https://yt3.ggpht.com/-iAD_RVsx1I0/AAAAAAAAAAI/AAAAAAAAAAA/aEojIbiyYlA/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg";
+        
         private void load_images()
         {
             try
             {
-                pb0.LoadAsync(web_img_url_0);
-                pb3.LoadAsync(web_img_url_1);
-                pb2.LoadAsync(web_img_url_2);
-                pb1.LoadAsync(web_img_url_3);
+                pb0.LoadAsync(fapmap.GlobalVariables.CreditsImageUrls.web_img_url_0);
+                pb3.LoadAsync(fapmap.GlobalVariables.CreditsImageUrls.web_img_url_1);
+                pb2.LoadAsync(fapmap.GlobalVariables.CreditsImageUrls.web_img_url_2);
+                pb1.LoadAsync(fapmap.GlobalVariables.CreditsImageUrls.web_img_url_3);
             }
             catch (Exception) { }
         }

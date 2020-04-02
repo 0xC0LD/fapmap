@@ -33,7 +33,6 @@
             this.btn_find = new System.Windows.Forms.Button();
             this.label_status = new System.Windows.Forms.Label();
             this.HelpBalloon = new System.Windows.Forms.ToolTip(this.components);
-            this.cb_scroll = new System.Windows.Forms.CheckBox();
             this.btn_openPathSelector = new System.Windows.Forms.Button();
             this.txt_output_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txt_output_RMB_copy = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +42,7 @@
             this.txt_options = new System.Windows.Forms.TextBox();
             this.txt_output_border = new fapmap_res.FapMapPanel();
             this.txt_output = new fapmap_res.FixedRichTextBox();
+            this.cb_scroll = new System.Windows.Forms.CheckBox();
             this.txt_output_RMB.SuspendLayout();
             this.txt_path_border.SuspendLayout();
             this.txt_options_border.SuspendLayout();
@@ -78,7 +78,7 @@
             this.label_status.AutoSize = true;
             this.label_status.BackColor = System.Drawing.Color.Transparent;
             this.label_status.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
+            this.label_status.ForeColor = System.Drawing.Color.MediumPurple;
             this.label_status.Location = new System.Drawing.Point(12, 404);
             this.label_status.Name = "label_status";
             this.label_status.Size = new System.Drawing.Size(25, 13);
@@ -91,29 +91,6 @@
             this.HelpBalloon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
             this.HelpBalloon.OwnerDraw = true;
             this.HelpBalloon.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.HelpBalloon_Draw);
-            // 
-            // cb_scroll
-            // 
-            this.cb_scroll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_scroll.AutoSize = true;
-            this.cb_scroll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.cb_scroll.Checked = true;
-            this.cb_scroll.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_scroll.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_scroll.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.cb_scroll.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.cb_scroll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.cb_scroll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.cb_scroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_scroll.Font = new System.Drawing.Font("Segoe Print", 24F);
-            this.cb_scroll.ForeColor = System.Drawing.Color.SlateBlue;
-            this.cb_scroll.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_scroll.Location = new System.Drawing.Point(720, 407);
-            this.cb_scroll.Name = "cb_scroll";
-            this.cb_scroll.Size = new System.Drawing.Size(12, 11);
-            this.cb_scroll.TabIndex = 6;
-            this.HelpBalloon.SetToolTip(this.cb_scroll, "Scroll with output");
-            this.cb_scroll.UseVisualStyleBackColor = false;
             // 
             // btn_openPathSelector
             // 
@@ -217,7 +194,7 @@
             this.txt_output_border.Controls.Add(this.txt_output);
             this.txt_output_border.Location = new System.Drawing.Point(12, 41);
             this.txt_output_border.Name = "txt_output_border";
-            this.txt_output_border.Size = new System.Drawing.Size(721, 360);
+            this.txt_output_border.Size = new System.Drawing.Size(721, 355);
             this.txt_output_border.TabIndex = 9;
             // 
             // txt_output
@@ -234,11 +211,34 @@
             this.txt_output.Location = new System.Drawing.Point(1, 1);
             this.txt_output.Name = "txt_output";
             this.txt_output.ReadOnly = true;
-            this.txt_output.Size = new System.Drawing.Size(719, 358);
+            this.txt_output.Size = new System.Drawing.Size(719, 353);
             this.txt_output.TabIndex = 6;
             this.txt_output.Text = "...";
             this.txt_output.WordWrap = false;
             this.txt_output.TextChanged += new System.EventHandler(this.txt_output_TextChanged);
+            // 
+            // cb_scroll
+            // 
+            this.cb_scroll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_scroll.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_scroll.BackColor = System.Drawing.Color.Black;
+            this.cb_scroll.Checked = true;
+            this.cb_scroll.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_scroll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_scroll.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.cb_scroll.FlatAppearance.CheckedBackColor = System.Drawing.Color.Purple;
+            this.cb_scroll.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Purple;
+            this.cb_scroll.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.cb_scroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_scroll.Font = new System.Drawing.Font("Segoe Print", 24F);
+            this.cb_scroll.ForeColor = System.Drawing.Color.SlateBlue;
+            this.cb_scroll.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cb_scroll.Location = new System.Drawing.Point(720, 402);
+            this.cb_scroll.Name = "cb_scroll";
+            this.cb_scroll.Size = new System.Drawing.Size(12, 12);
+            this.cb_scroll.TabIndex = 239;
+            this.HelpBalloon.SetToolTip(this.cb_scroll, "Scroll with output");
+            this.cb_scroll.UseVisualStyleBackColor = false;
             // 
             // fapmap_fscan
             // 
@@ -247,11 +247,11 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(744, 426);
+            this.Controls.Add(this.cb_scroll);
             this.Controls.Add(this.txt_path_border);
             this.Controls.Add(this.txt_options_border);
             this.Controls.Add(this.txt_output_border);
             this.Controls.Add(this.btn_openPathSelector);
-            this.Controls.Add(this.cb_scroll);
             this.Controls.Add(this.label_status);
             this.Controls.Add(this.btn_find);
             this.DoubleBuffered = true;
@@ -282,7 +282,6 @@
         private System.Windows.Forms.TextBox txt_options;
         private System.Windows.Forms.Label label_status;
         private System.Windows.Forms.ToolTip HelpBalloon;
-        private System.Windows.Forms.CheckBox cb_scroll;
         private System.Windows.Forms.Button btn_openPathSelector;
         private System.Windows.Forms.ContextMenuStrip txt_output_RMB;
         private System.Windows.Forms.ToolStripMenuItem txt_output_RMB_copy;
@@ -290,5 +289,6 @@
         private fapmap_res.FixedRichTextBox txt_output;
         private fapmap_res.FapMapPanel txt_options_border;
         private fapmap_res.FapMapPanel txt_path_border;
+        private System.Windows.Forms.CheckBox cb_scroll;
     }
 }

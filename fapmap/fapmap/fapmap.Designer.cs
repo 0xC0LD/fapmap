@@ -555,7 +555,7 @@
             this.fileDisplay.BackgroundImageTiled = true;
             this.fileDisplay.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.fileDisplay.ContextMenuStrip = this.fileDisplay_RMB;
-            this.fileDisplay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
+            this.fileDisplay.ForeColor = System.Drawing.Color.MediumPurple;
             this.fileDisplay.FullRowSelect = true;
             this.fileDisplay.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
             this.fileDisplay.HideSelection = false;
@@ -1968,7 +1968,7 @@
             this.menu_hideGallery_0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.menu_hideGallery_0.BackgroundImage = global::fapmap.Properties.Resources.bg4;
             resources.ApplyResources(this.menu_hideGallery_0, "menu_hideGallery_0");
-            this.menu_hideGallery_0.ForeColor = System.Drawing.Color.MediumPurple;
+            this.menu_hideGallery_0.ForeColor = System.Drawing.Color.PaleVioletRed;
             this.menu_hideGallery_0.Image = global::fapmap.Properties.Resources.hide_none;
             this.menu_hideGallery_0.Name = "menu_hideGallery_0";
             this.menu_hideGallery_0.Click += new System.EventHandler(this.menu_hideGallery_0_Click);
@@ -1978,7 +1978,7 @@
             this.menu_hideGallery_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.menu_hideGallery_1.BackgroundImage = global::fapmap.Properties.Resources.bg4;
             resources.ApplyResources(this.menu_hideGallery_1, "menu_hideGallery_1");
-            this.menu_hideGallery_1.ForeColor = System.Drawing.Color.MediumPurple;
+            this.menu_hideGallery_1.ForeColor = System.Drawing.Color.SkyBlue;
             this.menu_hideGallery_1.Image = global::fapmap.Properties.Resources.hide_normal;
             this.menu_hideGallery_1.Name = "menu_hideGallery_1";
             this.menu_hideGallery_1.Click += new System.EventHandler(this.menu_hideGallery_1_Click);

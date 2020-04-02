@@ -33,17 +33,28 @@
             this.txt_output_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txt_output_RMB_copy = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpBalloon = new System.Windows.Forms.ToolTip(this.components);
-            this.cb_noZero = new System.Windows.Forms.CheckBox();
-            this.btn_getinfo = new System.Windows.Forms.Button();
-            this.btn_editINI = new System.Windows.Forms.Button();
-            this.txt_passwds = new System.Windows.Forms.ListBox();
-            this.btn_addPasswd = new System.Windows.Forms.Button();
-            this.panel_gallery = new fapmap_res.FapMapPanel();
-            this.txt_output = new fapmap_res.FixedRichTextBox();
+            this.fapMapPanel1 = new fapmap_res.FapMapPanel();
+            this.hide_full = new System.Windows.Forms.Button();
             this.label_gallery = new System.Windows.Forms.Label();
+            this.hide_normal = new System.Windows.Forms.Button();
+            this.hide_none = new System.Windows.Forms.Button();
+            this.panel_cache = new fapmap_res.FapMapPanel();
+            this.btn_help = new System.Windows.Forms.Button();
+            this.label_outputThumb = new System.Windows.Forms.Label();
+            this.btn_getThumbs = new System.Windows.Forms.Button();
+            this.btn_getThumbInfo = new System.Windows.Forms.Button();
+            this.btn_trashThumbnails = new System.Windows.Forms.Button();
+            this.btn_trashLogs = new System.Windows.Forms.Button();
+            this.label_cache = new System.Windows.Forms.Label();
+            this.panel_gallery = new fapmap_res.FapMapPanel();
             this.label_info = new System.Windows.Forms.Label();
+            this.cb_noZero = new System.Windows.Forms.CheckBox();
+            this.txt_output = new fapmap_res.FixedRichTextBox();
+            this.btn_getinfo = new System.Windows.Forms.Button();
+            this.label_info_status = new System.Windows.Forms.Label();
             this.txt_size = new System.Windows.Forms.TextBox();
             this.panel_cb = new fapmap_res.FapMapPanel();
+            this.btn_editINI = new System.Windows.Forms.Button();
             this.cb_dlAutoClose = new System.Windows.Forms.CheckBox();
             this.label_cb = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -69,18 +80,26 @@
             this.panel_passwd = new fapmap_res.FapMapPanel();
             this.txt_newPasswd_border = new fapmap_res.FapMapPanel();
             this.txt_newPasswd = new System.Windows.Forms.TextBox();
+            this.txt_passwds = new System.Windows.Forms.ListBox();
             this.label_passwd = new System.Windows.Forms.Label();
+            this.btn_addPasswd = new System.Windows.Forms.Button();
             this.panel_browser = new fapmap_res.FapMapPanel();
             this.rb_chrome = new System.Windows.Forms.RadioButton();
             this.label_browser = new System.Windows.Forms.Label();
             this.rb_firefox = new System.Windows.Forms.RadioButton();
             this.rb_opera = new System.Windows.Forms.RadioButton();
             this.panel_text = new fapmap_res.FapMapPanel();
+            this.label_imageTypes = new System.Windows.Forms.Label();
+            this.txt_imageTypes = new System.Windows.Forms.TextBox();
+            this.label_videoTypes = new System.Windows.Forms.Label();
+            this.txt_videoTypes = new System.Windows.Forms.TextBox();
             this.label_gifDelay = new System.Windows.Forms.Label();
             this.label_wb = new System.Windows.Forms.Label();
             this.txt_gifDelay = new System.Windows.Forms.TextBox();
             this.txt_wbURL = new System.Windows.Forms.TextBox();
             this.txt_output_RMB.SuspendLayout();
+            this.fapMapPanel1.SuspendLayout();
+            this.panel_cache.SuspendLayout();
             this.panel_gallery.SuspendLayout();
             this.panel_cb.SuspendLayout();
             this.panel_passwd.SuspendLayout();
@@ -119,27 +138,334 @@
             this.HelpBalloon.OwnerDraw = true;
             this.HelpBalloon.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.HelpBalloon_Draw);
             // 
+            // fapMapPanel1
+            // 
+            this.fapMapPanel1.Controls.Add(this.hide_full);
+            this.fapMapPanel1.Controls.Add(this.label_gallery);
+            this.fapMapPanel1.Controls.Add(this.hide_normal);
+            this.fapMapPanel1.Controls.Add(this.hide_none);
+            this.fapMapPanel1.Location = new System.Drawing.Point(12, 12);
+            this.fapMapPanel1.Name = "fapMapPanel1";
+            this.fapMapPanel1.Size = new System.Drawing.Size(208, 129);
+            this.fapMapPanel1.TabIndex = 31;
+            // 
+            // hide_full
+            // 
+            this.hide_full.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.hide_full.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.hide_full.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hide_full.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
+            this.hide_full.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.hide_full.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.hide_full.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.hide_full.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hide_full.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hide_full.ForeColor = System.Drawing.Color.MediumPurple;
+            this.hide_full.Image = global::fapmap.Properties.Resources.hide_full;
+            this.hide_full.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.hide_full.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.hide_full.Location = new System.Drawing.Point(12, 96);
+            this.hide_full.Name = "hide_full";
+            this.hide_full.Size = new System.Drawing.Size(185, 25);
+            this.hide_full.TabIndex = 243;
+            this.hide_full.Text = "FULLY HIDE DIRS/FILES";
+            this.hide_full.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.hide_full.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.HelpBalloon.SetToolTip(this.hide_full, "RUN: attrib +s +h /d /s");
+            this.hide_full.UseVisualStyleBackColor = false;
+            this.hide_full.Click += new System.EventHandler(this.hide_full_Click);
+            // 
+            // label_gallery
+            // 
+            this.label_gallery.AutoSize = true;
+            this.label_gallery.BackColor = System.Drawing.Color.Transparent;
+            this.label_gallery.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_gallery.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.label_gallery.Location = new System.Drawing.Point(8, 9);
+            this.label_gallery.Name = "label_gallery";
+            this.label_gallery.Size = new System.Drawing.Size(68, 23);
+            this.label_gallery.TabIndex = 0;
+            this.label_gallery.Text = "Files:";
+            // 
+            // hide_normal
+            // 
+            this.hide_normal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.hide_normal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.hide_normal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hide_normal.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
+            this.hide_normal.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.hide_normal.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.hide_normal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.hide_normal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hide_normal.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hide_normal.ForeColor = System.Drawing.Color.SkyBlue;
+            this.hide_normal.Image = global::fapmap.Properties.Resources.hide_normal;
+            this.hide_normal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.hide_normal.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.hide_normal.Location = new System.Drawing.Point(12, 66);
+            this.hide_normal.Name = "hide_normal";
+            this.hide_normal.Size = new System.Drawing.Size(185, 25);
+            this.hide_normal.TabIndex = 242;
+            this.hide_normal.Text = "NORMALLY HIDE DIRS/FILES";
+            this.hide_normal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.hide_normal.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.HelpBalloon.SetToolTip(this.hide_normal, "RUN: attrib -s +h /d /s");
+            this.hide_normal.UseVisualStyleBackColor = false;
+            this.hide_normal.Click += new System.EventHandler(this.hide_normal_Click);
+            // 
+            // hide_none
+            // 
+            this.hide_none.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.hide_none.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.hide_none.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.hide_none.FlatAppearance.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.hide_none.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.hide_none.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.hide_none.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.hide_none.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.hide_none.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hide_none.ForeColor = System.Drawing.Color.PaleVioletRed;
+            this.hide_none.Image = global::fapmap.Properties.Resources.hide_none;
+            this.hide_none.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.hide_none.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.hide_none.Location = new System.Drawing.Point(12, 35);
+            this.hide_none.Name = "hide_none";
+            this.hide_none.Size = new System.Drawing.Size(185, 25);
+            this.hide_none.TabIndex = 240;
+            this.hide_none.Text = "UNHIDE DIRS/FILES";
+            this.hide_none.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.hide_none.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.HelpBalloon.SetToolTip(this.hide_none, "RUN: attrib -s -h /d /s");
+            this.hide_none.UseVisualStyleBackColor = false;
+            this.hide_none.Click += new System.EventHandler(this.hide_none_Click);
+            // 
+            // panel_cache
+            // 
+            this.panel_cache.Controls.Add(this.btn_help);
+            this.panel_cache.Controls.Add(this.label_outputThumb);
+            this.panel_cache.Controls.Add(this.btn_getThumbs);
+            this.panel_cache.Controls.Add(this.btn_getThumbInfo);
+            this.panel_cache.Controls.Add(this.btn_trashThumbnails);
+            this.panel_cache.Controls.Add(this.btn_trashLogs);
+            this.panel_cache.Controls.Add(this.label_cache);
+            this.panel_cache.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.panel_cache.Location = new System.Drawing.Point(12, 305);
+            this.panel_cache.Name = "panel_cache";
+            this.panel_cache.Size = new System.Drawing.Size(147, 181);
+            this.panel_cache.TabIndex = 30;
+            // 
+            // btn_help
+            // 
+            this.btn_help.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_help.BackColor = System.Drawing.Color.Black;
+            this.btn_help.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_help.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_help.FlatAppearance.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.btn_help.FlatAppearance.CheckedBackColor = System.Drawing.Color.Purple;
+            this.btn_help.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Purple;
+            this.btn_help.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.btn_help.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_help.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_help.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.btn_help.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_help.Location = new System.Drawing.Point(137, 0);
+            this.btn_help.Name = "btn_help";
+            this.btn_help.Size = new System.Drawing.Size(10, 10);
+            this.btn_help.TabIndex = 247;
+            this.HelpBalloon.SetToolTip(this.btn_help, "Help: Thumbnails");
+            this.btn_help.UseVisualStyleBackColor = false;
+            this.btn_help.Click += new System.EventHandler(this.btn_help_Click);
+            // 
+            // label_outputThumb
+            // 
+            this.label_outputThumb.AutoSize = true;
+            this.label_outputThumb.BackColor = System.Drawing.Color.Transparent;
+            this.label_outputThumb.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_outputThumb.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.label_outputThumb.Location = new System.Drawing.Point(7, 121);
+            this.label_outputThumb.Name = "label_outputThumb";
+            this.label_outputThumb.Size = new System.Drawing.Size(25, 52);
+            this.label_outputThumb.TabIndex = 216;
+            this.label_outputThumb.Text = "...\r\n...\r\n...\r\n...";
+            // 
+            // btn_getThumbs
+            // 
+            this.btn_getThumbs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_getThumbs.BackgroundImage = global::fapmap.Properties.Resources.image;
+            this.btn_getThumbs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btn_getThumbs.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_getThumbs.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
+            this.btn_getThumbs.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btn_getThumbs.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_getThumbs.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_getThumbs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_getThumbs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_getThumbs.ForeColor = System.Drawing.Color.MediumPurple;
+            this.btn_getThumbs.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_getThumbs.Location = new System.Drawing.Point(27, 96);
+            this.btn_getThumbs.Name = "btn_getThumbs";
+            this.btn_getThumbs.Size = new System.Drawing.Size(20, 20);
+            this.btn_getThumbs.TabIndex = 246;
+            this.HelpBalloon.SetToolTip(this.btn_getThumbs, "Create Thumbnails for Video Files");
+            this.btn_getThumbs.UseVisualStyleBackColor = false;
+            this.btn_getThumbs.Click += new System.EventHandler(this.btn_getThumbs_Click);
+            // 
+            // btn_getThumbInfo
+            // 
+            this.btn_getThumbInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_getThumbInfo.BackgroundImage = global::fapmap.Properties.Resources.arrow_down;
+            this.btn_getThumbInfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_getThumbInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_getThumbInfo.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
+            this.btn_getThumbInfo.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btn_getThumbInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_getThumbInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_getThumbInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_getThumbInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_getThumbInfo.ForeColor = System.Drawing.Color.MediumPurple;
+            this.btn_getThumbInfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_getThumbInfo.Location = new System.Drawing.Point(5, 96);
+            this.btn_getThumbInfo.Name = "btn_getThumbInfo";
+            this.btn_getThumbInfo.Size = new System.Drawing.Size(20, 20);
+            this.btn_getThumbInfo.TabIndex = 244;
+            this.HelpBalloon.SetToolTip(this.btn_getThumbInfo, "Get Thumbnails Count");
+            this.btn_getThumbInfo.UseVisualStyleBackColor = false;
+            this.btn_getThumbInfo.Click += new System.EventHandler(this.btn_getThumbInfo_Click);
+            // 
+            // btn_trashThumbnails
+            // 
+            this.btn_trashThumbnails.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_trashThumbnails.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_trashThumbnails.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_trashThumbnails.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_trashThumbnails.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
+            this.btn_trashThumbnails.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btn_trashThumbnails.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_trashThumbnails.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_trashThumbnails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_trashThumbnails.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_trashThumbnails.ForeColor = System.Drawing.Color.MediumPurple;
+            this.btn_trashThumbnails.Image = global::fapmap.Properties.Resources.delete;
+            this.btn_trashThumbnails.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_trashThumbnails.Location = new System.Drawing.Point(5, 66);
+            this.btn_trashThumbnails.Name = "btn_trashThumbnails";
+            this.btn_trashThumbnails.Size = new System.Drawing.Size(137, 28);
+            this.btn_trashThumbnails.TabIndex = 243;
+            this.btn_trashThumbnails.Text = "Trash Thumbnails";
+            this.btn_trashThumbnails.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.HelpBalloon.SetToolTip(this.btn_trashThumbnails, "Trash All Thumbnail Files");
+            this.btn_trashThumbnails.UseVisualStyleBackColor = false;
+            this.btn_trashThumbnails.Click += new System.EventHandler(this.btn_trashThumbnails_Click);
+            // 
+            // btn_trashLogs
+            // 
+            this.btn_trashLogs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_trashLogs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_trashLogs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_trashLogs.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_trashLogs.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
+            this.btn_trashLogs.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btn_trashLogs.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_trashLogs.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_trashLogs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_trashLogs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_trashLogs.ForeColor = System.Drawing.Color.MediumPurple;
+            this.btn_trashLogs.Image = global::fapmap.Properties.Resources.delete;
+            this.btn_trashLogs.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_trashLogs.Location = new System.Drawing.Point(5, 36);
+            this.btn_trashLogs.Name = "btn_trashLogs";
+            this.btn_trashLogs.Size = new System.Drawing.Size(137, 28);
+            this.btn_trashLogs.TabIndex = 242;
+            this.btn_trashLogs.Text = "Trash Logs";
+            this.btn_trashLogs.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.HelpBalloon.SetToolTip(this.btn_trashLogs, "Trash Logs File");
+            this.btn_trashLogs.UseVisualStyleBackColor = false;
+            this.btn_trashLogs.Click += new System.EventHandler(this.btn_trashLogs_Click);
+            // 
+            // label_cache
+            // 
+            this.label_cache.AutoSize = true;
+            this.label_cache.BackColor = System.Drawing.Color.Transparent;
+            this.label_cache.Font = new System.Drawing.Font("Verdana", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_cache.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.label_cache.Location = new System.Drawing.Point(5, 5);
+            this.label_cache.Name = "label_cache";
+            this.label_cache.Size = new System.Drawing.Size(98, 25);
+            this.label_cache.TabIndex = 1;
+            this.label_cache.Text = "CACHE:";
+            // 
+            // panel_gallery
+            // 
+            this.panel_gallery.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_gallery.Controls.Add(this.label_info);
+            this.panel_gallery.Controls.Add(this.cb_noZero);
+            this.panel_gallery.Controls.Add(this.txt_output);
+            this.panel_gallery.Controls.Add(this.btn_getinfo);
+            this.panel_gallery.Controls.Add(this.label_info_status);
+            this.panel_gallery.Controls.Add(this.txt_size);
+            this.panel_gallery.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.panel_gallery.Location = new System.Drawing.Point(414, 147);
+            this.panel_gallery.Name = "panel_gallery";
+            this.panel_gallery.Size = new System.Drawing.Size(498, 602);
+            this.panel_gallery.TabIndex = 29;
+            // 
+            // label_info
+            // 
+            this.label_info.AutoSize = true;
+            this.label_info.BackColor = System.Drawing.Color.Transparent;
+            this.label_info.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_info.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.label_info.Location = new System.Drawing.Point(3, 5);
+            this.label_info.Name = "label_info";
+            this.label_info.Size = new System.Drawing.Size(59, 18);
+            this.label_info.TabIndex = 241;
+            this.label_info.Text = "INFO:";
+            // 
             // cb_noZero
             // 
-            this.cb_noZero.AutoSize = true;
-            this.cb_noZero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(1)))));
+            this.cb_noZero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_noZero.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_noZero.BackColor = System.Drawing.Color.Black;
             this.cb_noZero.Checked = true;
             this.cb_noZero.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_noZero.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_noZero.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.cb_noZero.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.cb_noZero.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.cb_noZero.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.cb_noZero.FlatAppearance.BorderColor = System.Drawing.Color.CornflowerBlue;
+            this.cb_noZero.FlatAppearance.CheckedBackColor = System.Drawing.Color.Purple;
+            this.cb_noZero.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Purple;
+            this.cb_noZero.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
             this.cb_noZero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_noZero.Font = new System.Drawing.Font("Segoe Print", 24F);
-            this.cb_noZero.ForeColor = System.Drawing.Color.SpringGreen;
+            this.cb_noZero.ForeColor = System.Drawing.Color.CornflowerBlue;
             this.cb_noZero.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_noZero.Location = new System.Drawing.Point(1, 1);
+            this.cb_noZero.Location = new System.Drawing.Point(488, 0);
             this.cb_noZero.Name = "cb_noZero";
-            this.cb_noZero.Size = new System.Drawing.Size(12, 11);
-            this.cb_noZero.TabIndex = 25;
-            this.HelpBalloon.SetToolTip(this.cb_noZero, "Don\'t output file types that have a 0 count...");
+            this.cb_noZero.Size = new System.Drawing.Size(10, 10);
+            this.cb_noZero.TabIndex = 239;
+            this.HelpBalloon.SetToolTip(this.cb_noZero, "Don\'t ouput file types with 0 count");
             this.cb_noZero.UseVisualStyleBackColor = false;
+            // 
+            // txt_output
+            // 
+            this.txt_output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(15)))), ((int)(((byte)(25)))));
+            this.txt_output.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_output.ContextMenuStrip = this.txt_output_RMB;
+            this.txt_output.DetectUrls = false;
+            this.txt_output.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_output.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.txt_output.Location = new System.Drawing.Point(3, 51);
+            this.txt_output.Name = "txt_output";
+            this.txt_output.ReadOnly = true;
+            this.txt_output.Size = new System.Drawing.Size(492, 547);
+            this.txt_output.TabIndex = 0;
+            this.txt_output.Text = "...";
+            this.txt_output.WordWrap = false;
             // 
             // btn_getinfo
             // 
@@ -156,152 +482,41 @@
             this.btn_getinfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.btn_getinfo.ForeColor = System.Drawing.Color.MediumPurple;
             this.btn_getinfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_getinfo.Location = new System.Drawing.Point(375, 3);
+            this.btn_getinfo.Location = new System.Drawing.Point(472, 26);
             this.btn_getinfo.Name = "btn_getinfo";
-            this.btn_getinfo.Size = new System.Drawing.Size(20, 20);
+            this.btn_getinfo.Size = new System.Drawing.Size(23, 23);
             this.btn_getinfo.TabIndex = 24;
             this.HelpBalloon.SetToolTip(this.btn_getinfo, "Get Gallery Info");
             this.btn_getinfo.UseVisualStyleBackColor = false;
             this.btn_getinfo.Click += new System.EventHandler(this.btn_getinfo_Click);
             // 
-            // btn_editINI
+            // label_info_status
             // 
-            this.btn_editINI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_editINI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_editINI.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_editINI.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_editINI.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_editINI.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_editINI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_editINI.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_editINI.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_editINI.Location = new System.Drawing.Point(190, 625);
-            this.btn_editINI.Name = "btn_editINI";
-            this.btn_editINI.Size = new System.Drawing.Size(50, 30);
-            this.btn_editINI.TabIndex = 23;
-            this.btn_editINI.Text = ".ini";
-            this.HelpBalloon.SetToolTip(this.btn_editINI, "Edit Settings File");
-            this.btn_editINI.UseVisualStyleBackColor = false;
-            this.btn_editINI.Click += new System.EventHandler(this.btn_editINI_Click);
-            // 
-            // txt_passwds
-            // 
-            this.txt_passwds.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_passwds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(7)))), ((int)(((byte)(15)))));
-            this.txt_passwds.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_passwds.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.txt_passwds.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txt_passwds.ForeColor = System.Drawing.Color.Aquamarine;
-            this.txt_passwds.FormattingEnabled = true;
-            this.txt_passwds.ItemHeight = 22;
-            this.txt_passwds.Location = new System.Drawing.Point(3, 56);
-            this.txt_passwds.Name = "txt_passwds";
-            this.txt_passwds.Size = new System.Drawing.Size(140, 440);
-            this.txt_passwds.TabIndex = 8;
-            this.HelpBalloon.SetToolTip(this.txt_passwds, "Double Click To Remove Selected Password");
-            this.txt_passwds.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.passwordsList_DrawItem);
-            this.txt_passwds.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.passwordsList_MeasureItem);
-            this.txt_passwds.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_passwds_KeyDown);
-            this.txt_passwds.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.passwordsList_MouseDoubleClick);
-            // 
-            // btn_addPasswd
-            // 
-            this.btn_addPasswd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_addPasswd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_addPasswd.BackgroundImage = global::fapmap.Properties.Resources.arrow_down;
-            this.btn_addPasswd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_addPasswd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_addPasswd.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
-            this.btn_addPasswd.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btn_addPasswd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_addPasswd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_addPasswd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_addPasswd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btn_addPasswd.ForeColor = System.Drawing.Color.MediumPurple;
-            this.btn_addPasswd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_addPasswd.Location = new System.Drawing.Point(123, 29);
-            this.btn_addPasswd.Name = "btn_addPasswd";
-            this.btn_addPasswd.Size = new System.Drawing.Size(20, 20);
-            this.btn_addPasswd.TabIndex = 7;
-            this.HelpBalloon.SetToolTip(this.btn_addPasswd, "Add A Password");
-            this.btn_addPasswd.UseVisualStyleBackColor = false;
-            this.btn_addPasswd.Click += new System.EventHandler(this.btn_addPasswd_Click);
-            // 
-            // panel_gallery
-            // 
-            this.panel_gallery.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_gallery.Controls.Add(this.cb_noZero);
-            this.panel_gallery.Controls.Add(this.txt_output);
-            this.panel_gallery.Controls.Add(this.btn_getinfo);
-            this.panel_gallery.Controls.Add(this.label_gallery);
-            this.panel_gallery.Controls.Add(this.label_info);
-            this.panel_gallery.Controls.Add(this.txt_size);
-            this.panel_gallery.Location = new System.Drawing.Point(414, 71);
-            this.panel_gallery.Name = "panel_gallery";
-            this.panel_gallery.Size = new System.Drawing.Size(398, 658);
-            this.panel_gallery.TabIndex = 29;
-            // 
-            // txt_output
-            // 
-            this.txt_output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(7)))), ((int)(((byte)(15)))));
-            this.txt_output.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_output.ContextMenuStrip = this.txt_output_RMB;
-            this.txt_output.DetectUrls = false;
-            this.txt_output.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_output.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.txt_output.Location = new System.Drawing.Point(3, 88);
-            this.txt_output.Name = "txt_output";
-            this.txt_output.ReadOnly = true;
-            this.txt_output.Size = new System.Drawing.Size(392, 567);
-            this.txt_output.TabIndex = 0;
-            this.txt_output.Text = "...";
-            this.txt_output.WordWrap = false;
-            // 
-            // label_gallery
-            // 
-            this.label_gallery.AutoSize = true;
-            this.label_gallery.BackColor = System.Drawing.Color.Transparent;
-            this.label_gallery.Font = new System.Drawing.Font("Verdana", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_gallery.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label_gallery.Location = new System.Drawing.Point(3, 16);
-            this.label_gallery.Name = "label_gallery";
-            this.label_gallery.Size = new System.Drawing.Size(208, 42);
-            this.label_gallery.TabIndex = 0;
-            this.label_gallery.Text = "GALLERY:";
-            // 
-            // label_info
-            // 
-            this.label_info.AutoSize = true;
-            this.label_info.BackColor = System.Drawing.Color.Transparent;
-            this.label_info.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_info.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label_info.Location = new System.Drawing.Point(218, 45);
-            this.label_info.Name = "label_info";
-            this.label_info.Size = new System.Drawing.Size(25, 13);
-            this.label_info.TabIndex = 215;
-            this.label_info.Text = "...";
+            this.label_info_status.AutoSize = true;
+            this.label_info_status.BackColor = System.Drawing.Color.Transparent;
+            this.label_info_status.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_info_status.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.label_info_status.Location = new System.Drawing.Point(69, 10);
+            this.label_info_status.Name = "label_info_status";
+            this.label_info_status.Size = new System.Drawing.Size(25, 13);
+            this.label_info_status.TabIndex = 215;
+            this.label_info_status.Text = "...";
             // 
             // txt_size
             // 
             this.txt_size.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_size.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(7)))), ((int)(((byte)(15)))));
+            this.txt_size.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(15)))), ((int)(((byte)(25)))));
             this.txt_size.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_size.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_size.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_size.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.txt_size.Location = new System.Drawing.Point(3, 64);
+            this.txt_size.Location = new System.Drawing.Point(3, 26);
             this.txt_size.Name = "txt_size";
             this.txt_size.ReadOnly = true;
-            this.txt_size.Size = new System.Drawing.Size(392, 19);
+            this.txt_size.Size = new System.Drawing.Size(467, 23);
             this.txt_size.TabIndex = 0;
-            this.txt_size.Text = "00,00 GB (000000000000 bytes)";
+            this.txt_size.Text = "...";
+            this.txt_size.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_size.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gallerySize_KeyDown);
             // 
             // panel_cb
@@ -331,10 +546,31 @@
             this.panel_cb.Controls.Add(this.label_cb_hideWindow);
             this.panel_cb.Controls.Add(this.cb_openOutside);
             this.panel_cb.Controls.Add(this.cb_logs);
-            this.panel_cb.Location = new System.Drawing.Point(165, 71);
+            this.panel_cb.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.panel_cb.Location = new System.Drawing.Point(165, 147);
             this.panel_cb.Name = "panel_cb";
-            this.panel_cb.Size = new System.Drawing.Size(243, 658);
+            this.panel_cb.Size = new System.Drawing.Size(243, 602);
             this.panel_cb.TabIndex = 28;
+            // 
+            // btn_editINI
+            // 
+            this.btn_editINI.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_editINI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_editINI.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_editINI.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_editINI.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_editINI.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_editINI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_editINI.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_editINI.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_editINI.Location = new System.Drawing.Point(190, 569);
+            this.btn_editINI.Name = "btn_editINI";
+            this.btn_editINI.Size = new System.Drawing.Size(50, 30);
+            this.btn_editINI.TabIndex = 23;
+            this.btn_editINI.Text = ".ini";
+            this.HelpBalloon.SetToolTip(this.btn_editINI, "Edit Settings File");
+            this.btn_editINI.UseVisualStyleBackColor = false;
+            this.btn_editINI.Click += new System.EventHandler(this.btn_editINI_Click);
             // 
             // cb_dlAutoClose
             // 
@@ -366,9 +602,9 @@
             this.label_cb.ForeColor = System.Drawing.Color.RoyalBlue;
             this.label_cb.Location = new System.Drawing.Point(6, 5);
             this.label_cb.Name = "label_cb";
-            this.label_cb.Size = new System.Drawing.Size(219, 32);
+            this.label_cb.Size = new System.Drawing.Size(230, 32);
             this.label_cb.TabIndex = 0;
-            this.label_cb.Text = "CHECKBOXES";
+            this.label_cb.Text = "CHECKBOXES:";
             // 
             // label1
             // 
@@ -759,9 +995,10 @@
             this.panel_passwd.Controls.Add(this.txt_passwds);
             this.panel_passwd.Controls.Add(this.label_passwd);
             this.panel_passwd.Controls.Add(this.btn_addPasswd);
-            this.panel_passwd.Location = new System.Drawing.Point(12, 229);
+            this.panel_passwd.ForeColor = System.Drawing.Color.Aquamarine;
+            this.panel_passwd.Location = new System.Drawing.Point(12, 492);
             this.panel_passwd.Name = "panel_passwd";
-            this.panel_passwd.Size = new System.Drawing.Size(147, 500);
+            this.panel_passwd.Size = new System.Drawing.Size(147, 257);
             this.panel_passwd.TabIndex = 27;
             // 
             // txt_newPasswd_border
@@ -786,6 +1023,28 @@
             this.txt_newPasswd.TabIndex = 6;
             this.txt_newPasswd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.newPassword_KeyDown);
             // 
+            // txt_passwds
+            // 
+            this.txt_passwds.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_passwds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(7)))), ((int)(((byte)(15)))));
+            this.txt_passwds.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_passwds.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.txt_passwds.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txt_passwds.ForeColor = System.Drawing.Color.Aquamarine;
+            this.txt_passwds.FormattingEnabled = true;
+            this.txt_passwds.ItemHeight = 22;
+            this.txt_passwds.Location = new System.Drawing.Point(3, 56);
+            this.txt_passwds.Name = "txt_passwds";
+            this.txt_passwds.Size = new System.Drawing.Size(140, 197);
+            this.txt_passwds.TabIndex = 8;
+            this.HelpBalloon.SetToolTip(this.txt_passwds, "Double Click To Remove Selected Password");
+            this.txt_passwds.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.passwordsList_DrawItem);
+            this.txt_passwds.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.passwordsList_MeasureItem);
+            this.txt_passwds.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_passwds_KeyDown);
+            this.txt_passwds.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.passwordsList_MouseDoubleClick);
+            // 
             // label_passwd
             // 
             this.label_passwd.AutoSize = true;
@@ -798,13 +1057,36 @@
             this.label_passwd.TabIndex = 0;
             this.label_passwd.Text = "PASSWORDS:";
             // 
+            // btn_addPasswd
+            // 
+            this.btn_addPasswd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_addPasswd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_addPasswd.BackgroundImage = global::fapmap.Properties.Resources.arrow_down;
+            this.btn_addPasswd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_addPasswd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_addPasswd.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
+            this.btn_addPasswd.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btn_addPasswd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_addPasswd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_addPasswd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_addPasswd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_addPasswd.ForeColor = System.Drawing.Color.MediumPurple;
+            this.btn_addPasswd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_addPasswd.Location = new System.Drawing.Point(123, 29);
+            this.btn_addPasswd.Name = "btn_addPasswd";
+            this.btn_addPasswd.Size = new System.Drawing.Size(20, 20);
+            this.btn_addPasswd.TabIndex = 7;
+            this.HelpBalloon.SetToolTip(this.btn_addPasswd, "Add A Password");
+            this.btn_addPasswd.UseVisualStyleBackColor = false;
+            this.btn_addPasswd.Click += new System.EventHandler(this.btn_addPasswd_Click);
+            // 
             // panel_browser
             // 
             this.panel_browser.Controls.Add(this.rb_chrome);
             this.panel_browser.Controls.Add(this.label_browser);
             this.panel_browser.Controls.Add(this.rb_firefox);
             this.panel_browser.Controls.Add(this.rb_opera);
-            this.panel_browser.Location = new System.Drawing.Point(12, 71);
+            this.panel_browser.Location = new System.Drawing.Point(12, 147);
             this.panel_browser.Name = "panel_browser";
             this.panel_browser.Size = new System.Drawing.Size(147, 152);
             this.panel_browser.TabIndex = 6;
@@ -902,22 +1184,82 @@
             // 
             this.panel_text.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_text.Controls.Add(this.label_imageTypes);
+            this.panel_text.Controls.Add(this.txt_imageTypes);
+            this.panel_text.Controls.Add(this.label_videoTypes);
+            this.panel_text.Controls.Add(this.txt_videoTypes);
             this.panel_text.Controls.Add(this.label_gifDelay);
             this.panel_text.Controls.Add(this.label_wb);
             this.panel_text.Controls.Add(this.txt_gifDelay);
             this.panel_text.Controls.Add(this.txt_wbURL);
-            this.panel_text.Location = new System.Drawing.Point(12, 12);
+            this.panel_text.Location = new System.Drawing.Point(226, 12);
             this.panel_text.Name = "panel_text";
-            this.panel_text.Size = new System.Drawing.Size(800, 53);
+            this.panel_text.Size = new System.Drawing.Size(686, 129);
             this.panel_text.TabIndex = 26;
+            // 
+            // label_imageTypes
+            // 
+            this.label_imageTypes.AutoSize = true;
+            this.label_imageTypes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(7)))), ((int)(((byte)(15)))));
+            this.label_imageTypes.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label_imageTypes.ForeColor = System.Drawing.Color.MediumPurple;
+            this.label_imageTypes.Location = new System.Drawing.Point(26, 74);
+            this.label_imageTypes.Name = "label_imageTypes";
+            this.label_imageTypes.Size = new System.Drawing.Size(128, 18);
+            this.label_imageTypes.TabIndex = 5;
+            this.label_imageTypes.Text = "IMAGE TYPES:";
+            // 
+            // txt_imageTypes
+            // 
+            this.txt_imageTypes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_imageTypes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(7)))), ((int)(((byte)(15)))));
+            this.txt_imageTypes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_imageTypes.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold);
+            this.txt_imageTypes.ForeColor = System.Drawing.Color.MediumPurple;
+            this.txt_imageTypes.Location = new System.Drawing.Point(158, 74);
+            this.txt_imageTypes.Name = "txt_imageTypes";
+            this.txt_imageTypes.Size = new System.Drawing.Size(524, 19);
+            this.txt_imageTypes.TabIndex = 6;
+            this.txt_imageTypes.Text = "...";
+            this.txt_imageTypes.TextChanged += new System.EventHandler(this.txt_imageTypes_TextChanged);
+            this.txt_imageTypes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_imageTypes_KeyDown);
+            // 
+            // label_videoTypes
+            // 
+            this.label_videoTypes.AutoSize = true;
+            this.label_videoTypes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(7)))), ((int)(((byte)(15)))));
+            this.label_videoTypes.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label_videoTypes.ForeColor = System.Drawing.Color.MediumPurple;
+            this.label_videoTypes.Location = new System.Drawing.Point(28, 51);
+            this.label_videoTypes.Name = "label_videoTypes";
+            this.label_videoTypes.Size = new System.Drawing.Size(126, 18);
+            this.label_videoTypes.TabIndex = 3;
+            this.label_videoTypes.Text = "VIDEO TYPES:";
+            // 
+            // txt_videoTypes
+            // 
+            this.txt_videoTypes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_videoTypes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(7)))), ((int)(((byte)(15)))));
+            this.txt_videoTypes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_videoTypes.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold);
+            this.txt_videoTypes.ForeColor = System.Drawing.Color.MediumPurple;
+            this.txt_videoTypes.Location = new System.Drawing.Point(158, 51);
+            this.txt_videoTypes.Name = "txt_videoTypes";
+            this.txt_videoTypes.Size = new System.Drawing.Size(524, 19);
+            this.txt_videoTypes.TabIndex = 4;
+            this.txt_videoTypes.Text = "...";
+            this.txt_videoTypes.TextChanged += new System.EventHandler(this.txt_videoTypes_TextChanged);
+            this.txt_videoTypes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_videoTypes_KeyDown);
             // 
             // label_gifDelay
             // 
             this.label_gifDelay.AutoSize = true;
-            this.label_gifDelay.BackColor = System.Drawing.Color.Transparent;
+            this.label_gifDelay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(7)))), ((int)(((byte)(15)))));
             this.label_gifDelay.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold);
             this.label_gifDelay.ForeColor = System.Drawing.Color.MediumPurple;
-            this.label_gifDelay.Location = new System.Drawing.Point(50, 29);
+            this.label_gifDelay.Location = new System.Drawing.Point(50, 28);
             this.label_gifDelay.Name = "label_gifDelay";
             this.label_gifDelay.Size = new System.Drawing.Size(104, 18);
             this.label_gifDelay.TabIndex = 0;
@@ -926,10 +1268,10 @@
             // label_wb
             // 
             this.label_wb.AutoSize = true;
-            this.label_wb.BackColor = System.Drawing.Color.Transparent;
+            this.label_wb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(7)))), ((int)(((byte)(15)))));
             this.label_wb.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold);
             this.label_wb.ForeColor = System.Drawing.Color.MediumPurple;
-            this.label_wb.Location = new System.Drawing.Point(4, 4);
+            this.label_wb.Location = new System.Drawing.Point(4, 5);
             this.label_wb.Name = "label_wb";
             this.label_wb.Size = new System.Drawing.Size(150, 18);
             this.label_wb.TabIndex = 0;
@@ -943,9 +1285,9 @@
             this.txt_gifDelay.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_gifDelay.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Bold);
             this.txt_gifDelay.ForeColor = System.Drawing.Color.MediumPurple;
-            this.txt_gifDelay.Location = new System.Drawing.Point(158, 29);
+            this.txt_gifDelay.Location = new System.Drawing.Point(158, 28);
             this.txt_gifDelay.Name = "txt_gifDelay";
-            this.txt_gifDelay.Size = new System.Drawing.Size(638, 19);
+            this.txt_gifDelay.Size = new System.Drawing.Size(524, 19);
             this.txt_gifDelay.TabIndex = 2;
             this.txt_gifDelay.Text = "50";
             this.txt_gifDelay.TextChanged += new System.EventHandler(this.txt_gifDelay_TextChanged);
@@ -961,9 +1303,9 @@
             this.txt_wbURL.ForeColor = System.Drawing.Color.MediumPurple;
             this.txt_wbURL.Location = new System.Drawing.Point(158, 5);
             this.txt_wbURL.Name = "txt_wbURL";
-            this.txt_wbURL.Size = new System.Drawing.Size(638, 19);
+            this.txt_wbURL.Size = new System.Drawing.Size(524, 19);
             this.txt_wbURL.TabIndex = 1;
-            this.txt_wbURL.Text = "https://www.google.com";
+            this.txt_wbURL.Text = "https://duckduckgo.com/";
             this.txt_wbURL.TextChanged += new System.EventHandler(this.txt_wbURL_TextChanged);
             this.txt_wbURL.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_wbURL_KeyDown);
             // 
@@ -972,7 +1314,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(7)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(824, 741);
+            this.ClientSize = new System.Drawing.Size(924, 761);
+            this.Controls.Add(this.fapMapPanel1);
+            this.Controls.Add(this.panel_cache);
             this.Controls.Add(this.panel_gallery);
             this.Controls.Add(this.panel_cb);
             this.Controls.Add(this.panel_passwd);
@@ -989,6 +1333,10 @@
             this.Text = "FapMap - Settings";
             this.Load += new System.EventHandler(this.fapmap_settings_Load);
             this.txt_output_RMB.ResumeLayout(false);
+            this.fapMapPanel1.ResumeLayout(false);
+            this.fapMapPanel1.PerformLayout();
+            this.panel_cache.ResumeLayout(false);
+            this.panel_cache.PerformLayout();
             this.panel_gallery.ResumeLayout(false);
             this.panel_gallery.PerformLayout();
             this.panel_cb.ResumeLayout(false);
@@ -1016,8 +1364,7 @@
         private System.Windows.Forms.Label label_wb;
         private System.Windows.Forms.Label label_gallery;
         private System.Windows.Forms.Label label_browser;
-        private System.Windows.Forms.CheckBox cb_noZero;
-        private System.Windows.Forms.Label label_info;
+        private System.Windows.Forms.Label label_info_status;
         private System.Windows.Forms.Button btn_editINI;
         private System.Windows.Forms.Button btn_getinfo;
         private System.Windows.Forms.Label label_cb;
@@ -1056,5 +1403,23 @@
         private fapmap_res.FapMapPanel panel_cb;
         private fapmap_res.FapMapPanel panel_gallery;
         private fapmap_res.FapMapPanel txt_newPasswd_border;
+        private System.Windows.Forms.CheckBox cb_noZero;
+        private System.Windows.Forms.Button hide_none;
+        private System.Windows.Forms.Label label_info;
+        private System.Windows.Forms.Button hide_full;
+        private System.Windows.Forms.Button hide_normal;
+        private fapmap_res.FapMapPanel panel_cache;
+        private System.Windows.Forms.Label label_cache;
+        private System.Windows.Forms.Button btn_trashLogs;
+        private System.Windows.Forms.Button btn_trashThumbnails;
+        private System.Windows.Forms.Button btn_getThumbInfo;
+        private System.Windows.Forms.Button btn_getThumbs;
+        private System.Windows.Forms.Label label_outputThumb;
+        private fapmap_res.FapMapPanel fapMapPanel1;
+        private System.Windows.Forms.Button btn_help;
+        private System.Windows.Forms.Label label_imageTypes;
+        private System.Windows.Forms.TextBox txt_imageTypes;
+        private System.Windows.Forms.Label label_videoTypes;
+        private System.Windows.Forms.TextBox txt_videoTypes;
     }
 }

@@ -48,7 +48,7 @@
             this.btn_ok.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ok.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_ok.Location = new System.Drawing.Point(191, 63);
+            this.btn_ok.Location = new System.Drawing.Point(346, 63);
             this.btn_ok.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
             this.btn_ok.Name = "btn_ok";
             this.btn_ok.Size = new System.Drawing.Size(60, 25);
@@ -68,7 +68,7 @@
             this.btn_cancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_cancel.Location = new System.Drawing.Point(257, 63);
+            this.btn_cancel.Location = new System.Drawing.Point(412, 63);
             this.btn_cancel.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(60, 25);
@@ -97,7 +97,7 @@
             this.txt_input_border.Controls.Add(this.txt_input);
             this.txt_input_border.Location = new System.Drawing.Point(12, 33);
             this.txt_input_border.Name = "txt_input_border";
-            this.txt_input_border.Size = new System.Drawing.Size(305, 22);
+            this.txt_input_border.Size = new System.Drawing.Size(460, 22);
             this.txt_input_border.TabIndex = 7;
             // 
             // txt_input
@@ -113,7 +113,7 @@
             this.txt_input.Location = new System.Drawing.Point(1, 1);
             this.txt_input.Margin = new System.Windows.Forms.Padding(4);
             this.txt_input.Name = "txt_input";
-            this.txt_input.Size = new System.Drawing.Size(303, 19);
+            this.txt_input.Size = new System.Drawing.Size(458, 19);
             this.txt_input.TabIndex = 1;
             this.txt_input.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_input_KeyDown);
             // 
@@ -123,7 +123,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg3;
-            this.ClientSize = new System.Drawing.Size(329, 101);
+            this.ClientSize = new System.Drawing.Size(484, 101);
             this.Controls.Add(this.txt_input_border);
             this.Controls.Add(this.label_prompt);
             this.Controls.Add(this.btn_ok);
@@ -134,8 +134,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(760, 140);
-            this.MinimumSize = new System.Drawing.Size(345, 140);
+            this.MaximumSize = new System.Drawing.Size(1200, 140);
+            this.MinimumSize = new System.Drawing.Size(270, 140);
             this.Name = "fapmap_input";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

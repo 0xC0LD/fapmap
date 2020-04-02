@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fapmap_find));
-            this.showImage = new System.Windows.Forms.PictureBox();
             this.output_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.output_RMB_reload = new System.Windows.Forms.ToolStripMenuItem();
             this.output_RMB_open = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,7 +38,6 @@
             this.output_RMB_copy = new System.Windows.Forms.ToolStripMenuItem();
             this.output_RMB_delete = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_find = new System.Windows.Forms.Button();
-            this.txt_searchBox = new System.Windows.Forms.TextBox();
             this.HelpBalloon = new System.Windows.Forms.ToolTip(this.components);
             this.cb_showImage = new System.Windows.Forms.CheckBox();
             this.cb_case = new System.Windows.Forms.CheckBox();
@@ -47,34 +45,27 @@
             this.cb_sort = new System.Windows.Forms.CheckBox();
             this.btn_help = new System.Windows.Forms.Button();
             this.resultNum = new System.Windows.Forms.Label();
+            this.output_icons = new System.Windows.Forms.ImageList(this.components);
+            this.cb_showImageIcon = new System.Windows.Forms.CheckBox();
+            this.output_border = new fapmap_res.FapMapPanel();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.output = new fapmap_res.FapMapListView();
             this.output_clm_num = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.output_clm_path = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.output_icons = new System.Windows.Forms.ImageList(this.components);
+            this.showImage_icon = new System.Windows.Forms.PictureBox();
+            this.showImage = new System.Windows.Forms.PictureBox();
             this.txt_searchBox_border = new fapmap_res.FapMapPanel();
-            this.output_border = new fapmap_res.FapMapPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.showImage)).BeginInit();
+            this.txt_searchBox = new System.Windows.Forms.TextBox();
             this.output_RMB.SuspendLayout();
+            this.output_border.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.showImage_icon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showImage)).BeginInit();
             this.txt_searchBox_border.SuspendLayout();
-            this.output_border.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // showImage
-            // 
-            this.showImage.BackColor = System.Drawing.Color.Black;
-            this.showImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.showImage.Image = global::fapmap.Properties.Resources.image;
-            this.showImage.Location = new System.Drawing.Point(0, 0);
-            this.showImage.Name = "showImage";
-            this.showImage.Size = new System.Drawing.Size(483, 487);
-            this.showImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.showImage.TabIndex = 155;
-            this.showImage.TabStop = false;
             // 
             // output_RMB
             // 
@@ -177,20 +168,6 @@
             this.btn_find.UseVisualStyleBackColor = false;
             this.btn_find.Click += new System.EventHandler(this.btn_find_Click);
             // 
-            // txt_searchBox
-            // 
-            this.txt_searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_searchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.txt_searchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_searchBox.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_searchBox.ForeColor = System.Drawing.Color.MediumPurple;
-            this.txt_searchBox.Location = new System.Drawing.Point(1, 1);
-            this.txt_searchBox.Name = "txt_searchBox";
-            this.txt_searchBox.Size = new System.Drawing.Size(927, 23);
-            this.txt_searchBox.TabIndex = 1;
-            this.txt_searchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_searchBox_KeyDown);
-            // 
             // HelpBalloon
             // 
             this.HelpBalloon.BackColor = System.Drawing.Color.Black;
@@ -214,7 +191,7 @@
             this.cb_showImage.Font = new System.Drawing.Font("Segoe Print", 24F);
             this.cb_showImage.ForeColor = System.Drawing.Color.SlateBlue;
             this.cb_showImage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_showImage.Location = new System.Drawing.Point(915, 538);
+            this.cb_showImage.Location = new System.Drawing.Point(904, 538);
             this.cb_showImage.Name = "cb_showImage";
             this.cb_showImage.Size = new System.Drawing.Size(12, 11);
             this.cb_showImage.TabIndex = 4;
@@ -236,7 +213,7 @@
             this.cb_case.Font = new System.Drawing.Font("Segoe Print", 24F);
             this.cb_case.ForeColor = System.Drawing.Color.SlateBlue;
             this.cb_case.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_case.Location = new System.Drawing.Point(930, 538);
+            this.cb_case.Location = new System.Drawing.Point(932, 538);
             this.cb_case.Name = "cb_case";
             this.cb_case.Size = new System.Drawing.Size(12, 11);
             this.cb_case.TabIndex = 5;
@@ -282,7 +259,7 @@
             this.cb_sort.Font = new System.Drawing.Font("Segoe Print", 24F);
             this.cb_sort.ForeColor = System.Drawing.Color.SlateBlue;
             this.cb_sort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_sort.Location = new System.Drawing.Point(945, 538);
+            this.cb_sort.Location = new System.Drawing.Point(946, 538);
             this.cb_sort.Name = "cb_sort";
             this.cb_sort.Size = new System.Drawing.Size(12, 11);
             this.cb_sort.TabIndex = 233;
@@ -304,7 +281,7 @@
             this.btn_help.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_help.ForeColor = System.Drawing.Color.SlateBlue;
             this.btn_help.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_help.Location = new System.Drawing.Point(900, 538);
+            this.btn_help.Location = new System.Drawing.Point(890, 538);
             this.btn_help.Name = "btn_help";
             this.btn_help.Size = new System.Drawing.Size(12, 11);
             this.btn_help.TabIndex = 234;
@@ -325,6 +302,47 @@
             this.resultNum.TabIndex = 0;
             this.resultNum.Text = "...";
             // 
+            // output_icons
+            // 
+            this.output_icons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("output_icons.ImageStream")));
+            this.output_icons.TransparentColor = System.Drawing.Color.Transparent;
+            this.output_icons.Images.SetKeyName(0, "dir.ico");
+            // 
+            // cb_showImageIcon
+            // 
+            this.cb_showImageIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_showImageIcon.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_showImageIcon.BackColor = System.Drawing.Color.Black;
+            this.cb_showImageIcon.Checked = true;
+            this.cb_showImageIcon.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_showImageIcon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_showImageIcon.FlatAppearance.BorderColor = System.Drawing.Color.SlateBlue;
+            this.cb_showImageIcon.FlatAppearance.CheckedBackColor = System.Drawing.Color.Purple;
+            this.cb_showImageIcon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Purple;
+            this.cb_showImageIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.cb_showImageIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_showImageIcon.Font = new System.Drawing.Font("Segoe Print", 24F);
+            this.cb_showImageIcon.ForeColor = System.Drawing.Color.SlateBlue;
+            this.cb_showImageIcon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cb_showImageIcon.Location = new System.Drawing.Point(918, 538);
+            this.cb_showImageIcon.Name = "cb_showImageIcon";
+            this.cb_showImageIcon.Size = new System.Drawing.Size(12, 11);
+            this.cb_showImageIcon.TabIndex = 237;
+            this.HelpBalloon.SetToolTip(this.cb_showImageIcon, "Show Image Preview (CTRL+SHIFT+Q - in searchbox/list)");
+            this.cb_showImageIcon.UseVisualStyleBackColor = false;
+            this.cb_showImageIcon.CheckedChanged += new System.EventHandler(this.cb_showImageIcon_CheckedChanged);
+            // 
+            // output_border
+            // 
+            this.output_border.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.output_border.Controls.Add(this.splitContainer);
+            this.output_border.Location = new System.Drawing.Point(12, 43);
+            this.output_border.Name = "output_border";
+            this.output_border.Size = new System.Drawing.Size(960, 489);
+            this.output_border.TabIndex = 236;
+            // 
             // splitContainer
             // 
             this.splitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -339,6 +357,7 @@
             // 
             // splitContainer.Panel2
             // 
+            this.splitContainer.Panel2.Controls.Add(this.showImage_icon);
             this.splitContainer.Panel2.Controls.Add(this.showImage);
             this.splitContainer.Size = new System.Drawing.Size(958, 487);
             this.splitContainer.SplitterDistance = 471;
@@ -388,11 +407,30 @@
             this.output_clm_path.Text = "PATH";
             this.output_clm_path.Width = 92;
             // 
-            // output_icons
+            // showImage_icon
             // 
-            this.output_icons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("output_icons.ImageStream")));
-            this.output_icons.TransparentColor = System.Drawing.Color.Transparent;
-            this.output_icons.Images.SetKeyName(0, "dir.ico");
+            this.showImage_icon.BackColor = System.Drawing.Color.Black;
+            this.showImage_icon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.showImage_icon.Image = global::fapmap.Properties.Resources.image;
+            this.showImage_icon.Location = new System.Drawing.Point(0, 0);
+            this.showImage_icon.Name = "showImage_icon";
+            this.showImage_icon.Size = new System.Drawing.Size(32, 32);
+            this.showImage_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.showImage_icon.TabIndex = 156;
+            this.showImage_icon.TabStop = false;
+            // 
+            // showImage
+            // 
+            this.showImage.BackColor = System.Drawing.Color.Black;
+            this.showImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.showImage.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.showImage.Image = global::fapmap.Properties.Resources.image;
+            this.showImage.Location = new System.Drawing.Point(0, 0);
+            this.showImage.Name = "showImage";
+            this.showImage.Size = new System.Drawing.Size(483, 487);
+            this.showImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.showImage.TabIndex = 155;
+            this.showImage.TabStop = false;
             // 
             // txt_searchBox_border
             // 
@@ -404,16 +442,19 @@
             this.txt_searchBox_border.Size = new System.Drawing.Size(929, 25);
             this.txt_searchBox_border.TabIndex = 235;
             // 
-            // output_border
+            // txt_searchBox
             // 
-            this.output_border.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.output_border.Controls.Add(this.splitContainer);
-            this.output_border.Location = new System.Drawing.Point(12, 43);
-            this.output_border.Name = "output_border";
-            this.output_border.Size = new System.Drawing.Size(960, 489);
-            this.output_border.TabIndex = 236;
+            this.txt_searchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txt_searchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_searchBox.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_searchBox.ForeColor = System.Drawing.Color.MediumPurple;
+            this.txt_searchBox.Location = new System.Drawing.Point(1, 1);
+            this.txt_searchBox.Name = "txt_searchBox";
+            this.txt_searchBox.Size = new System.Drawing.Size(927, 23);
+            this.txt_searchBox.TabIndex = 1;
+            this.txt_searchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_searchBox_KeyDown);
             // 
             // fapmap_find
             // 
@@ -422,6 +463,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
             this.ClientSize = new System.Drawing.Size(984, 561);
+            this.Controls.Add(this.cb_showImageIcon);
             this.Controls.Add(this.output_border);
             this.Controls.Add(this.txt_searchBox_border);
             this.Controls.Add(this.btn_help);
@@ -442,15 +484,16 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FapMap - Find File/Folder";
             this.Load += new System.EventHandler(this.fapmap_find_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.showImage)).EndInit();
             this.output_RMB.ResumeLayout(false);
+            this.output_border.ResumeLayout(false);
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.showImage_icon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showImage)).EndInit();
             this.txt_searchBox_border.ResumeLayout(false);
             this.txt_searchBox_border.PerformLayout();
-            this.output_border.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -485,5 +528,7 @@
         private System.Windows.Forms.Button btn_help;
         private fapmap_res.FapMapPanel txt_searchBox_border;
         private fapmap_res.FapMapPanel output_border;
+        private System.Windows.Forms.PictureBox showImage_icon;
+        private System.Windows.Forms.CheckBox cb_showImageIcon;
     }
 }

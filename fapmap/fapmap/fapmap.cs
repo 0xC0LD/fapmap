@@ -1,6 +1,7 @@
 ﻿using AxWMPLib;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
@@ -40,10 +41,9 @@ namespace fapmap
             public class FileTypes
             {
                 //CONST FILE TYPES
-                public static readonly List<string> Video = new List<string> { ".mp4", ".webm", ".avi", ".mov", ".mkv", ".flv", ".mpeg", ".mpg", ".wmv", ".mp3", ".ogg" };
-                public static readonly List<string> Image = new List<string> { ".jpg", ".jpeg", ".jpe", ".jiff", ".jfif", ".png", ".gif", ".ico", ".svg", ".bmp", ".dib", ".tif", ".tiff" };
-                public static readonly List<string> Other = new List<string> { ".zip", ".rar", ".exe", ".bat", ".swf", ".dll", ".txt" };
-
+                public static readonly IList<string> Video = new ReadOnlyCollection<string> (new []{ ".mp4", ".webm", ".avi", ".mov", ".mkv", ".flv", ".mpeg", ".mpg", ".wmv", ".mp3", ".ogg" });
+                public static readonly IList<string> Image = new ReadOnlyCollection<string> (new []{ ".jpg", ".jpeg", ".jpe", ".jiff", ".jfif", ".png", ".gif", ".ico", ".svg", ".bmp", ".dib", ".tif", ".tiff" });
+                public static readonly IList<string> Other = new ReadOnlyCollection<string> (new []{ ".zip", ".rar", ".exe", ".bat", ".swf", ".dll", ".txt" });
             }
 
             public class Settings
@@ -69,10 +69,10 @@ namespace fapmap
                     public class FileTypes
                     {
                         //CHANGABLE FILE TYPES FOR RANDOM GENERATOR
-                        public static List<string> Video = new List<string> { ".mp4", ".webm", ".avi", ".mov", ".mkv", ".flv", ".mpeg", ".mpg", ".wmv", ".mp3", ".ogg" };
+                        public static List<string> Video = new List<string> { };
                         public const string Video_ = "types_video";
 
-                        public static List<string> Image = new List<string> { ".jpg", ".jpeg", ".jpe", ".jiff", ".jfif", ".png", ".gif", ".ico", ".svg", ".bmp", ".dib", ".tif", ".tiff" };
+                        public static List<string> Image = new List<string> { };
                         public const string Image_ = "types_image";
                     }
                 }
@@ -166,6 +166,22 @@ namespace fapmap
 
                 public const string UDEL = "UDEL";
                 public const string PASS = "PASS";
+            }
+
+            public class BooruSearchMD5
+            {
+                public const string API       = @"https://cure.ninja/booru/api/json/md5/";
+                public const string rule34xxx = @"https://rule34.xxx/index.php?page=post&s=list&tags=md5%3a";
+                public const string gelbooru  = @"https://www.gelbooru.com/index.php?page=post&s=list&tags=md5%3a";
+                public const string danbooru  = @"https://danbooru.donmai.us/posts?tags=md5%3A";
+            }
+
+            public class CreditsImageUrls
+            {
+                public const string web_img_url_0 = "https://yt3.ggpht.com/-MpInHIQi5kQ/AAAAAAAAAAI/AAAAAAAAAOo/uMD40-lPnJk/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg";
+                public const string web_img_url_1 = "https://yt3.ggpht.com/-wmTdd-ozcCw/AAAAAAAAAAI/AAAAAAAAAAA/Jab5AL6CxZ4/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg";
+                public const string web_img_url_2 = "https://yt3.ggpht.com/-Cz0f2loHk5E/AAAAAAAAAAI/AAAAAAAAAAA/j6ZFt-9xPiA/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg";
+                public const string web_img_url_3 = "https://yt3.ggpht.com/-iAD_RVsx1I0/AAAAAAAAAAI/AAAAAAAAAAA/aEojIbiyYlA/s288-mo-c-c0xffffffff-rj-k-no/photo.jpg";
             }
         }
 
@@ -294,7 +310,64 @@ namespace fapmap
         #region Global Functions
 
         #region DO
-        
+
+        public static bool attrib(string args)
+        {
+            string log = "attrib.exe " + args;
+            LogThis(GlobalVariables.LOG_TYPE.EXEC, log);
+
+            try
+            {
+                Process cmd = new Process();
+                cmd.StartInfo.FileName = "attrib.exe";
+                cmd.StartInfo.WorkingDirectory = fapmap.GlobalVariables.Path.Dir.Main;
+                cmd.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                cmd.StartInfo.Arguments = args;
+                cmd.Start();
+                cmd.WaitForExit();
+
+                // hide windows files
+                Process cmd2 = new Process();
+                cmd2.StartInfo.FileName = "attrib.exe";
+                cmd2.StartInfo.WorkingDirectory = fapmap.GlobalVariables.Path.Dir.Main;
+                cmd2.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                cmd2.StartInfo.Arguments = "+s +h /d /s desktop.ini";
+                cmd2.Start();
+                cmd2.WaitForExit();
+            }
+            catch (Win32Exception e)            { LogThis(GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + log); return false; }
+            catch (InvalidOperationException e) { LogThis(GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + log); return false; }
+            catch (Exception e)                 { LogThis(GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + log); return false; }
+            return true;
+        }
+
+        public static bool makeThumb(string file, string dest)
+        {
+            if (!File.Exists(GlobalVariables.Path.File.Exe.FFMPEG)) { return false; }
+
+            string args = "-itsoffset -1  -i " + '"' + file + '"' + " -vcodec mjpeg -vframes 1 -an -f rawvideo " + '"' + dest + '"';
+            string log = GlobalVariables.Path.File.Exe.FFMPEG + " " + args;
+
+            try
+            {
+                var startInfo = new ProcessStartInfo
+                {
+                    WindowStyle = ProcessWindowStyle.Hidden,
+                    FileName = GlobalVariables.Path.File.Exe.FFMPEG, // mjpeg or bmp
+                    Arguments = args
+                };
+
+                var process = new Process { StartInfo = startInfo };
+                process.Start();
+                process.WaitForExit();
+            }
+            catch (Win32Exception e)            { LogThis(GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + log); return false; }
+            catch (InvalidOperationException e) { LogThis(GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + log); return false; }
+            catch (Exception e)                 { LogThis(GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + log); return false; }
+            return true;
+        }
+
+
         public static string OpenPathSelector(IWin32Window th, string selectPath = "")
         {
             string ret = string.Empty;
@@ -537,16 +610,16 @@ namespace fapmap
                     Microsoft.VisualBasic.FileIO.UICancelOption.ThrowException
                 );
             }
-            catch (FileNotFoundException) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, src + "->" + dest); return false; }
-            catch (OperationCanceledException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
-            catch (ArgumentNullException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
-            catch (ArgumentException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
-            catch (PathTooLongException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
-            catch (NotSupportedException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
+            catch (FileNotFoundException)               { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD,                     src + "->" + dest); return false; }
+            catch (OperationCanceledException e)        { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
+            catch (ArgumentNullException e)             { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
+            catch (ArgumentException e)                 { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
+            catch (PathTooLongException e)              { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
+            catch (NotSupportedException e)             { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
             catch (System.Security.SecurityException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
-            catch (UnauthorizedAccessException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
-            catch (IOException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
-            catch (Exception e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
+            catch (UnauthorizedAccessException e)       { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
+            catch (IOException e)                       { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
+            catch (Exception e)                         { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
 
             LogThis(fapmap.GlobalVariables.LOG_TYPE.COPY, src + " -> " + dest);
             return false;
@@ -569,16 +642,16 @@ namespace fapmap
                     Microsoft.VisualBasic.FileIO.UICancelOption.ThrowException
                 );
             }
-            catch (FileNotFoundException) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD, src + "->" + dest); return false; }
-            catch (OperationCanceledException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
-            catch (ArgumentNullException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
-            catch (ArgumentException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
-            catch (PathTooLongException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
-            catch (NotSupportedException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
+            catch (FileNotFoundException)               { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.NTFD,                     src + "->" + dest); return false; }
+            catch (OperationCanceledException e)        { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
+            catch (ArgumentNullException e)             { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
+            catch (ArgumentException e)                 { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
+            catch (PathTooLongException e)              { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
+            catch (NotSupportedException e)             { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
             catch (System.Security.SecurityException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
-            catch (UnauthorizedAccessException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
-            catch (IOException e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
-            catch (Exception e) { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
+            catch (UnauthorizedAccessException e)       { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
+            catch (IOException e)                       { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
+            catch (Exception e)                         { fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + src + "->" + dest); return false; }
 
             LogThis(fapmap.GlobalVariables.LOG_TYPE.COPY, src + " -> " + dest);
             return false;
@@ -761,19 +834,15 @@ namespace fapmap
                     w.WriteLine(GlobalVariables.Settings.Media.GifDelay_ + GlobalVariables.Settings.Common.Equal + GlobalVariables.Settings.Media.GifDelay);
                     w.WriteLine(GlobalVariables.Settings.Common.Comment + "FILE TYPES FOR \"OPEN RANDOM FILE\" BUTTONS");
                     w.Write(GlobalVariables.Settings.Media.FileTypes.Video_ + GlobalVariables.Settings.Common.Equal);
-                    foreach (string type in GlobalVariables.Settings.Media.FileTypes.Video)
+                    foreach (string type in GlobalVariables.FileTypes.Video)
                     {
-                        if (type == GlobalVariables.Settings.Media.FileTypes.Video[GlobalVariables.Settings.Media.FileTypes.Video.Count - 1])
-                        { w.Write("*" + type); }
-                        else { w.Write("*" + type + ","); }
+                        w.Write(type == GlobalVariables.FileTypes.Video.Last() ? type : type + ",");
                     }
                     w.WriteLine("");
                     w.Write(GlobalVariables.Settings.Media.FileTypes.Image_ + GlobalVariables.Settings.Common.Equal);
-                    foreach (string type in GlobalVariables.Settings.Media.FileTypes.Image)
+                    foreach (string type in GlobalVariables.FileTypes.Image)
                     {
-                        if (type == GlobalVariables.Settings.Media.FileTypes.Image[GlobalVariables.Settings.Media.FileTypes.Image.Count - 1])
-                        { w.Write("*" + type); }
-                        else { w.Write("*" + type + ","); }
+                        w.Write(type == GlobalVariables.FileTypes.Image.Last() ? type : type + ",");
                     }
                     w.WriteLine("");
                 }
@@ -1019,6 +1088,8 @@ namespace fapmap
             return System.Text.RegularExpressions.Regex.IsMatch(input, 
                 "^[0-9a-fA-F]{32}$", System.Text.RegularExpressions.RegexOptions.Compiled);
         }
+
+        
 
         #endregion
 
@@ -1297,7 +1368,10 @@ namespace fapmap
         
         private void fapmap_echo(string text)
         {
-            this.Text = string.IsNullOrEmpty(text) ? "FapMap" : ("FapMap: " + text);
+            this.Invoke((MethodInvoker)delegate
+            {
+                this.Text = string.IsNullOrEmpty(text) ? "FapMap" : ("FapMap: " + text);
+            });
         }
 
         private void OpenFile(string file)
@@ -1409,80 +1483,31 @@ namespace fapmap
         private void menu_hideGallery_1_Click(object sender, EventArgs e) { gallery_hide(1); }
         private void menu_hideGallery_2_Click(object sender, EventArgs e) { gallery_hide(2); }
 
-        private void gallery_hide(int Hide)
+        private bool gallery_hide_busy = false;
+        private void gallery_hide(int mode)
         {
-            switch (Hide)
+            if (gallery_hide_busy) { return; }
+
+            string args = string.Empty;
+            switch (mode)
             {
-                case 0: { new Thread(gallery_hide_remove) { IsBackground = true }.Start(); break; }
-                case 1: { new Thread(gallery_hide_normal) { IsBackground = true }.Start(); break; }
-                case 2: { new Thread(gallery_hide_full) { IsBackground = true }.Start(); break; }
-
-                default: { new Thread(gallery_hide_full) { IsBackground = true }.Start(); break; }
+                case 0: args = "-s -h /d /s"; break;
+                case 1: args = "-s +h /d /s"; break;
+                case 2: args = "+s +h /d /s"; break;
             }
-        }
-        private void gallery_hide_remove()
-        {
-            fapmap_echo("RUNNING: \"attrib -s -h /d /s\" -- ...");
 
-            Process cmd = new Process();
-            cmd.StartInfo.FileName = "attrib.exe";
-            cmd.StartInfo.WorkingDirectory = fapmap.GlobalVariables.Path.Dir.Main;
-            cmd.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            cmd.StartInfo.Arguments = "-s -h /d /s";
-            cmd.Start();
-            cmd.WaitForExit();
-
-            //HIDE desktop.ini
-            hideWindowsFiles();
-
-            LogThis(GlobalVariables.LOG_TYPE.EXEC, "attrib.exe -s -h /d /s");
-            fapmap_echo("RUNNING: \"attrib -s -h /d /s\" -- DONE!");
-        }
-        private void gallery_hide_normal()
-        {
-            fapmap_echo("RUNNING: \"attrib -s +h /d /s\" -- ...");
-
-            Process cmd = new Process();
-            cmd.StartInfo.FileName = "attrib.exe";
-            cmd.StartInfo.WorkingDirectory = fapmap.GlobalVariables.Path.Dir.Main;
-            cmd.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            cmd.StartInfo.Arguments = "-s +h /d /s";
-            cmd.Start();
-            cmd.WaitForExit();
-
-            //HIDE desktop.ini
-            hideWindowsFiles();
-
-            LogThis(GlobalVariables.LOG_TYPE.EXEC, "attrib.exe -s +h /d /s");
-            fapmap_echo("RUNNING: \"attrib -s +h /d /s\" -- DONE!");
-        }
-        private void gallery_hide_full()
-        {
-            fapmap_echo("RUNNING: \"attrib +s +h /d /s\" -- ...");
-
-            Process cmd = new Process();
-            cmd.StartInfo.FileName = "attrib.exe";
-            cmd.StartInfo.WorkingDirectory = fapmap.GlobalVariables.Path.Dir.Main;
-            cmd.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            cmd.StartInfo.Arguments = "+s +h /d /s";
-            cmd.Start();
-            cmd.WaitForExit();
-
-            //HIDE desktop.ini
-            hideWindowsFiles();
-
-            LogThis(GlobalVariables.LOG_TYPE.EXEC, "attrib.exe +s +h /d /s");
-            fapmap_echo("RUNNING: \"attrib +s +h /d /s\" -- DONE!");
-        }
-        private static void hideWindowsFiles()
-        {
-            Process cmd = new Process();
-            cmd.StartInfo.FileName = "attrib.exe";
-            cmd.StartInfo.WorkingDirectory = fapmap.GlobalVariables.Path.Dir.Main;
-            cmd.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
-            cmd.StartInfo.Arguments = "+s +h /d /s desktop.ini";
-            cmd.Start();
-            cmd.WaitForExit();
+            if (!string.IsNullOrEmpty(args))
+            {
+                new Thread(() =>
+                {
+                    gallery_hide_busy = true;
+                    fapmap_echo("RUNNING: \"attrib " + args + "\" -- ...");
+                    attrib(args);
+                    fapmap_echo("RUNNING: \"attrib " + args + "\" -- DONE!");
+                    gallery_hide_busy = false;
+                })
+                { IsBackground = true }.Start();
+            }
         }
 
         private void menu_restart_Click(object sender, EventArgs e)
@@ -1802,7 +1827,7 @@ namespace fapmap
             if (GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails)
             {
                 // get image thumbs
-                if (GlobalVariables.FileTypes.Image.Contains(fi.Extension))
+                if (GlobalVariables.FileTypes.Image.Contains(fi.Extension.ToLower()))
                 {
                     new Thread(() =>
                     {
@@ -1850,7 +1875,8 @@ namespace fapmap
                 }
 
                 // get video thumbs
-                if (File.Exists(GlobalVariables.Path.File.Exe.FFMPEG) && GlobalVariables.FileTypes.Video.Contains(fi.Extension))
+                if (File.Exists(GlobalVariables.Path.File.Exe.FFMPEG)
+                 && GlobalVariables.FileTypes.Video.Contains(fi.Extension.ToLower()))
                 {
                     Thread th = new Thread(() =>
                     {
@@ -1869,16 +1895,7 @@ namespace fapmap
                             {
                                 if (!File.Exists(dest))
                                 {
-                                    var startInfo = new ProcessStartInfo
-                                    {
-                                        WindowStyle = ProcessWindowStyle.Hidden,
-                                        FileName = GlobalVariables.Path.File.Exe.FFMPEG, // mjpeg or bmp
-                                        Arguments = "-itsoffset -1  -i " + '"' + file + '"' + " -vcodec mjpeg -vframes 1 -an -f rawvideo " + '"' + dest + '"'
-                                    };
-
-                                    var process = new Process { StartInfo = startInfo };
-                                    process.Start();
-                                    process.WaitForExit();
+                                    makeThumb(file, dest);
 
                                     if (c_load_dir_cur != load_dir_cur) { load_dir_thumbnail_mutex.ReleaseMutex(); return; }
                                 }
@@ -4405,17 +4422,17 @@ namespace fapmap
                 {
                     //SET COLOR BY ATTRIB
                     FileAttributes attrib_dir = File.GetAttributes(path);
-                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.MediumPurple; }
-                    else if (attrib_dir.HasFlag(FileAttributes.Hidden))                    { foreColor = Color.SkyBlue;                 }
-                    else                                                                   { foreColor = Color.PaleVioletRed;           }
+                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.MediumPurple;  }
+                    else if (attrib_dir.HasFlag(FileAttributes.Hidden))                    { foreColor = Color.SkyBlue;       }
+                    else                                                                   { foreColor = Color.PaleVioletRed; }
                 }
                 else if (File.Exists(path))
                 {
                     //SET COLOR BY ATTRIB
                     FileAttributes attrib_dir = File.GetAttributes(path);
-                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.MediumPurple; }
-                    else if (attrib_dir.HasFlag(FileAttributes.Hidden))                    { foreColor = Color.SkyBlue;                 }
-                    else                                                                   { foreColor = Color.PaleVioletRed;           }
+                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.MediumPurple;  }
+                    else if (attrib_dir.HasFlag(FileAttributes.Hidden))                    { foreColor = Color.SkyBlue;       }
+                    else                                                                   { foreColor = Color.PaleVioletRed; }
                 }
                 else { e.Node.Remove(); return; }
 

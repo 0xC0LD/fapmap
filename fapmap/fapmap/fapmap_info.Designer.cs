@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fapmap_info));
-            this.cb_noZero = new System.Windows.Forms.CheckBox();
             this.label_path = new System.Windows.Forms.Label();
             this.btn_getInfo = new System.Windows.Forms.Button();
             this.HelpBalloon = new System.Windows.Forms.ToolTip(this.components);
@@ -44,6 +43,7 @@
             this.btn_rename = new System.Windows.Forms.Button();
             this.btn_booru_gelbooru = new System.Windows.Forms.Button();
             this.btn_booru_danbooru = new System.Windows.Forms.Button();
+            this.cb_noZero = new System.Windows.Forms.CheckBox();
             this.label_info = new System.Windows.Forms.Label();
             this.txt_output_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txt_output_RMB_copy = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,36 +58,13 @@
             this.txt_output_border.SuspendLayout();
             this.SuspendLayout();
             // 
-            // cb_noZero
-            // 
-            this.cb_noZero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_noZero.AutoSize = true;
-            this.cb_noZero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.cb_noZero.Checked = true;
-            this.cb_noZero.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_noZero.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_noZero.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
-            this.cb_noZero.FlatAppearance.CheckedBackColor = System.Drawing.Color.MediumPurple;
-            this.cb_noZero.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.cb_noZero.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.cb_noZero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_noZero.Font = new System.Drawing.Font("Segoe Print", 24F);
-            this.cb_noZero.ForeColor = System.Drawing.Color.SlateBlue;
-            this.cb_noZero.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_noZero.Location = new System.Drawing.Point(620, 401);
-            this.cb_noZero.Name = "cb_noZero";
-            this.cb_noZero.Size = new System.Drawing.Size(12, 11);
-            this.cb_noZero.TabIndex = 3;
-            this.HelpBalloon.SetToolTip(this.cb_noZero, "Don\'t output file types that have a 0 count...");
-            this.cb_noZero.UseVisualStyleBackColor = false;
-            // 
             // label_path
             // 
             this.label_path.AutoSize = true;
             this.label_path.BackColor = System.Drawing.Color.Transparent;
             this.label_path.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_path.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label_path.Location = new System.Drawing.Point(145, 78);
+            this.label_path.Location = new System.Drawing.Point(145, 85);
             this.label_path.Name = "label_path";
             this.label_path.Size = new System.Drawing.Size(40, 22);
             this.label_path.TabIndex = 0;
@@ -356,6 +333,29 @@
             this.btn_booru_danbooru.Visible = false;
             this.btn_booru_danbooru.Click += new System.EventHandler(this.btn_booru_danbooru_Click);
             // 
+            // cb_noZero
+            // 
+            this.cb_noZero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_noZero.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_noZero.BackColor = System.Drawing.Color.Black;
+            this.cb_noZero.Checked = true;
+            this.cb_noZero.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_noZero.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_noZero.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
+            this.cb_noZero.FlatAppearance.CheckedBackColor = System.Drawing.Color.Purple;
+            this.cb_noZero.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Purple;
+            this.cb_noZero.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Purple;
+            this.cb_noZero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_noZero.Font = new System.Drawing.Font("Segoe Print", 24F);
+            this.cb_noZero.ForeColor = System.Drawing.Color.MediumPurple;
+            this.cb_noZero.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cb_noZero.Location = new System.Drawing.Point(617, 594);
+            this.cb_noZero.Name = "cb_noZero";
+            this.cb_noZero.Size = new System.Drawing.Size(15, 15);
+            this.cb_noZero.TabIndex = 238;
+            this.HelpBalloon.SetToolTip(this.cb_noZero, "Don\'t ouput file types with 0 count");
+            this.cb_noZero.UseVisualStyleBackColor = false;
+            // 
             // label_info
             // 
             this.label_info.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -363,7 +363,7 @@
             this.label_info.BackColor = System.Drawing.Color.Transparent;
             this.label_info.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_info.ForeColor = System.Drawing.Color.CornflowerBlue;
-            this.label_info.Location = new System.Drawing.Point(12, 397);
+            this.label_info.Location = new System.Drawing.Point(12, 597);
             this.label_info.Name = "label_info";
             this.label_info.Size = new System.Drawing.Size(28, 15);
             this.label_info.TabIndex = 221;
@@ -438,7 +438,7 @@
             this.txt_output_border.Controls.Add(this.txt_output);
             this.txt_output_border.Location = new System.Drawing.Point(12, 142);
             this.txt_output_border.Name = "txt_output_border";
-            this.txt_output_border.Size = new System.Drawing.Size(620, 252);
+            this.txt_output_border.Size = new System.Drawing.Size(620, 446);
             this.txt_output_border.TabIndex = 226;
             // 
             // txt_output
@@ -455,7 +455,7 @@
             this.txt_output.Location = new System.Drawing.Point(1, 1);
             this.txt_output.Name = "txt_output";
             this.txt_output.ReadOnly = true;
-            this.txt_output.Size = new System.Drawing.Size(618, 250);
+            this.txt_output.Size = new System.Drawing.Size(618, 444);
             this.txt_output.TabIndex = 4;
             this.txt_output.Text = "...";
             this.txt_output.WordWrap = false;
@@ -466,7 +466,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
-            this.ClientSize = new System.Drawing.Size(644, 421);
+            this.ClientSize = new System.Drawing.Size(644, 621);
+            this.Controls.Add(this.cb_noZero);
             this.Controls.Add(this.btn_booru_danbooru);
             this.Controls.Add(this.btn_booru_gelbooru);
             this.Controls.Add(this.btn_rename);
@@ -483,7 +484,6 @@
             this.Controls.Add(this.label_info);
             this.Controls.Add(this.btn_getInfo);
             this.Controls.Add(this.label_path);
-            this.Controls.Add(this.cb_noZero);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
             this.ForeColor = System.Drawing.Color.MediumPurple;
@@ -505,7 +505,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.CheckBox cb_noZero;
         private System.Windows.Forms.Label label_path;
         private System.Windows.Forms.Button btn_getInfo;
         private System.Windows.Forms.ToolTip HelpBalloon;
@@ -527,5 +526,6 @@
         private System.Windows.Forms.Button btn_rename;
         private System.Windows.Forms.Button btn_booru_gelbooru;
         private System.Windows.Forms.Button btn_booru_danbooru;
+        private System.Windows.Forms.CheckBox cb_noZero;
     }
 }

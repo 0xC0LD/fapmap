@@ -110,8 +110,8 @@ namespace fapmap
                             txt_output.Text += Environment.NewLine;
                         });
 
-                        foreach (Tuple<string, List<string>> tuple in
-                            new List<Tuple<string, List<string>>> {
+                        foreach (var tuple in
+                            new List<Tuple<string, IList<string>>> {
                             Tuple.Create("VIDEO", fapmap.GlobalVariables.FileTypes.Video),
                             Tuple.Create("IMAGE", fapmap.GlobalVariables.FileTypes.Image),
                             Tuple.Create("OTHER", fapmap.GlobalVariables.FileTypes.Other)
@@ -324,23 +324,19 @@ namespace fapmap
         // md5 booru search
         private void btn_booru_api_Click(object sender, EventArgs e)
         {
-            string url = @"https://cure.ninja/booru/api/json/md5/";
-            if (File.Exists(pass_path)) { fapmap.Incognito(url + Path.GetFileNameWithoutExtension(pass_path)); }
+            if (File.Exists(pass_path)) { fapmap.Incognito(fapmap.GlobalVariables.BooruSearchMD5.API + Path.GetFileNameWithoutExtension(pass_path)); }
         }
         private void btn_booru_rule34xxx_Click(object sender, EventArgs e)
         {
-            string url = @"https://rule34.xxx/index.php?page=post&s=list&tags=md5%3a";
-            if (File.Exists(pass_path)) { fapmap.Incognito(url + Path.GetFileNameWithoutExtension(pass_path)); }
+            if (File.Exists(pass_path)) { fapmap.Incognito(fapmap.GlobalVariables.BooruSearchMD5.rule34xxx + Path.GetFileNameWithoutExtension(pass_path)); }
         }
         private void btn_booru_gelbooru_Click(object sender, EventArgs e)
         {
-            string url = @"https://www.gelbooru.com/index.php?page=post&s=list&tags=md5%3a";
-            if (File.Exists(pass_path)) { fapmap.Incognito(url + Path.GetFileNameWithoutExtension(pass_path)); }
+            if (File.Exists(pass_path)) { fapmap.Incognito(fapmap.GlobalVariables.BooruSearchMD5.gelbooru + Path.GetFileNameWithoutExtension(pass_path)); }
         }
         private void btn_booru_danbooru_Click(object sender, EventArgs e)
         {
-            string url = @"https://danbooru.donmai.us/posts?tags=md5%3A";
-            if (File.Exists(pass_path)) { fapmap.Incognito(url + Path.GetFileNameWithoutExtension(pass_path)); }
+            if (File.Exists(pass_path)) { fapmap.Incognito(fapmap.GlobalVariables.BooruSearchMD5.danbooru + Path.GetFileNameWithoutExtension(pass_path)); }
         }
     }
 }

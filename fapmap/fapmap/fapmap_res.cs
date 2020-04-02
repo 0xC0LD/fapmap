@@ -97,7 +97,7 @@ namespace fapmap_res
             //     e.Graphics.FillRectangle(brush, ClientRectangle);
             // e.Graphics.DrawRectangle(new Pen(Color.MediumPurple), 0, 0, ClientSize.Width - 1, ClientSize.Height - 1);
 
-            ControlPaint.DrawBorder(e.Graphics, this.ClientRectangle, Color.MediumPurple, ButtonBorderStyle.Solid);
+            ControlPaint.DrawBorder(e.Graphics, this.ClientRectangle, ForeColor, ButtonBorderStyle.Solid);
         }
 
     }

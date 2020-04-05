@@ -19,7 +19,7 @@ namespace fapmap
         {
             InitializeComponent();
 
-            txt_output_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
+            txt_output_RMB.Renderer = new fapmap_res.FapMapColors.FapMapToolStripRenderer(Color.FromArgb(128, 128, 255));
         }
 
         public string pass_path = string.Empty;
@@ -28,7 +28,12 @@ namespace fapmap
             if (!fapmap.checkForApp(fapmap.GlobalVariables.Path.File.Exe.FFMPEG, "https://ffmpeg.zeranoe.com/builds/"))
             { this.Close(); return; }
             
-            if (!string.IsNullOrEmpty(pass_path)) { txt_file.Text = pass_path; }
+            if (!string.IsNullOrEmpty(pass_path))
+            {
+                txt_file.Text = pass_path;
+                txt_file.SelectionStart = txt_file.Text.Length;
+                txt_file.ScrollToCaret();
+            }
         }
 
         #region window and fx
@@ -255,6 +260,9 @@ namespace fapmap
 
                     default: txt_fileNew.Text = txt_file.Text; break;
                 }
+
+                txt_fileNew.SelectionStart = txt_fileNew.Text.Length;
+                txt_fileNew.ScrollToCaret();
             }
         }
         private void txt_fileNew_TextChanged(object sender, EventArgs e)

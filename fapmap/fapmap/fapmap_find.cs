@@ -20,7 +20,7 @@ namespace fapmap
         {
             InitializeComponent();
 
-            output_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
+            output_RMB.Renderer = new fapmap_res.FapMapColors.FapMapToolStripRenderer(Color.FromArgb(128, 128, 255));
         }
 
         private void fapmap_find_Load(object sender, EventArgs e)
@@ -127,9 +127,9 @@ namespace fapmap
                     if (cb_fileNameOnly.Checked) { text = di.Parent.Name + "\\" + di.Name; }
 
                     // set color
-                    if      (di.Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { fc = Color.MediumPurple; }
-                    else if (di.Attributes.HasFlag(FileAttributes.Hidden))                         { fc = Color.SkyBlue;                 }
-                    else                                                                           { fc = Color.PaleVioletRed;           }
+                    if      (di.Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { fc = output.ForeColor; }
+                    else if (di.Attributes.HasFlag(FileAttributes.Hidden))                         { fc = Color.SkyBlue;    }
+                    else                                                                           { fc = Color.Magenta;    }
 
                     // set image
                     imageIndex = 0;
@@ -142,16 +142,18 @@ namespace fapmap
                     if (cb_fileNameOnly.Checked) { text = fi.Directory.Name + "\\" + fi.Name; }
 
                     // set color
-                    if      (fi.Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { fc = Color.MediumPurple; }
-                    else if (fi.Attributes.HasFlag(FileAttributes.Hidden))                         { fc = Color.SkyBlue;                 }
-                    else                                                                           { fc = Color.PaleVioletRed;           }
+                    if      (fi.Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { fc = output.ForeColor; }
+                    else if (fi.Attributes.HasFlag(FileAttributes.Hidden))                         { fc = Color.SkyBlue;    }
+                    else                                                                           { fc = Color.Magenta;    }
 
                     // set image
-                    string ext = fi.Extension.ToLower();
-                    imageIndex = output_icons.Images.IndexOfKey(ext);
+                    string key = fi.Extension.ToLower();
+                    if (key == ".exe") { key = fapmap.getFileId(fi).ToString(); }
+
+                    imageIndex = output_icons.Images.IndexOfKey(key);
                     if (imageIndex == -1)
                     {
-                        output_icons.Images.Add(ext, System.Drawing.Icon.ExtractAssociatedIcon(fi.FullName));
+                        output_icons.Images.Add(key, System.Drawing.Icon.ExtractAssociatedIcon(fi.FullName));
                         imageIndex = output_icons.Images.Count - 1;
                     }
 
@@ -228,6 +230,16 @@ namespace fapmap
                 else if (Directory.Exists(text)) { if (fapmap.TrashDir(text))  { lvi.Remove(); } }
             }
         }
+        private void output_info()
+        {
+            foreach (ListViewItem lvi in output.SelectedItems)
+            {
+                if (lvi.Name == null) { continue; }
+                string text = lvi.Name;
+                if (string.IsNullOrEmpty(text)) { continue; }
+                fapmap.OpenProperties(text);
+            }
+        }
 
         #endregion
 
@@ -300,6 +312,7 @@ namespace fapmap
                     case Keys.W: output_open();                                                         e.Handled = true; e.SuppressKeyPress = true; break;
                     case Keys.E: output_explorer();                                                     e.Handled = true; e.SuppressKeyPress = true; break;
                     case Keys.S: output_explorer2();                                                    e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.D: output_info();                                                         e.Handled = true; e.SuppressKeyPress = true; break;
                     case Keys.C: output_copy();                                                         e.Handled = true; e.SuppressKeyPress = true; break;
                     case Keys.Q: if (e.Shift) { cb_showImageIcon.Checked = !cb_showImageIcon.Checked; }
                                  else         { cb_showImage.Checked     = !cb_showImage.Checked;     } e.Handled = true; e.SuppressKeyPress = true; break;
@@ -403,7 +416,7 @@ namespace fapmap
                         else if (fapmap.GlobalVariables.FileTypes.Video.Contains(fi.Extension.ToLower()))
                         {
                             string id = fapmap.getFileId(fi).ToString();
-                            string dest = fapmap.GlobalVariables.Path.Dir.Thumbnails + "\\" + id + ".tmp";
+                            string dest = fapmap.GlobalVariables.Path.Dir.Cache + "\\" + id + ".tmp";
 
                             if (File.Exists(dest))
                             {
@@ -434,15 +447,16 @@ namespace fapmap
 
         #region RMB
 
-        private void output_RMB_reload_Click  (object sender, EventArgs e)  { find();              }
-        private void output_RMB_open_Click    (object sender, EventArgs e)  { output_open();       }
-        private void output_RMB_explorer_Click(object sender, EventArgs e)  { output_explorer();   }
-        private void output_RMB_explorer2_Click(object sender, EventArgs e) { output_explorer2(); }
-        private void output_RMB_copy_Click    (object sender, EventArgs e)  { output_copy();       }
-        private void output_RMB_delete_Click  (object sender, EventArgs e)  { output_delete(); }
+        private void output_RMB_reload_Click    (object sender, EventArgs e) { find();             }
+        private void output_RMB_open_Click      (object sender, EventArgs e) { output_open();      }
+        private void output_RMB_explorer_Click  (object sender, EventArgs e) { output_explorer();  }
+        private void output_RMB_explorer2_Click (object sender, EventArgs e) { output_explorer2(); }
+        private void output_RMB_copy_Click      (object sender, EventArgs e) { output_copy();      }
+        private void output_RMB_delete_Click    (object sender, EventArgs e) { output_delete();    }
+        private void output_RMB_properties_Click(object sender, EventArgs e) { output_info();      }
 
         #endregion
 
-        
+
     }
 }

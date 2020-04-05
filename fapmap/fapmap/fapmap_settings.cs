@@ -20,7 +20,7 @@ namespace fapmap
         {
             InitializeComponent();
 
-            txt_output_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
+            txt_output_RMB.Renderer = new fapmap_res.FapMapColors.FapMapToolStripRenderer(Color.SkyBlue);
         }
 
         
@@ -83,7 +83,8 @@ namespace fapmap
             label_outputThumb.Text = "...";
 
             getInfo();
-            getInfoThumbs();
+            getThumbInfo();
+            getCacheSize();
 
             this.ActiveControl = btn_getinfo;
         }
@@ -501,22 +502,22 @@ namespace fapmap
         private void txt_wbURL_TextChanged(object sender, EventArgs e)
         {
             if (disableChangeSetting) { return; }
-            txt_wbURL.ForeColor = Color.PaleVioletRed;
+            txt_wbURL.ForeColor = Color.Magenta;
         }
         private void txt_gifDelay_TextChanged(object sender, EventArgs e)
         {
             if (disableChangeSetting) { return; }
-            txt_gifDelay.ForeColor = Color.PaleVioletRed;
+            txt_gifDelay.ForeColor = Color.Magenta;
         }
         private void txt_videoTypes_TextChanged(object sender, EventArgs e)
         {
             if (disableChangeSetting) { return; }
-            txt_videoTypes.ForeColor = Color.PaleVioletRed;
+            txt_videoTypes.ForeColor = Color.Magenta;
         }
         private void txt_imageTypes_TextChanged(object sender, EventArgs e)
         {
             if (disableChangeSetting) { return; }
-            txt_imageTypes.ForeColor = Color.PaleVioletRed;
+            txt_imageTypes.ForeColor = Color.Magenta;
         }
 
         #endregion
@@ -611,55 +612,73 @@ namespace fapmap
         #endregion
         
         #region cache
-
-        // trash
-        private void btn_trashLogs_Click(object sender, EventArgs e)
+        
+        // delete cache
+        private void btn_delCache_Click(object sender, EventArgs e)
         {
-            if (File.Exists(fapmap.GlobalVariables.Path.File.Log)
-             && fapmap.TrashFile(fapmap.GlobalVariables.Path.File.Log))
-            { fapmap.nestFiles(); }
-        }
-        private void btn_trashThumbnails_Click(object sender, EventArgs e)
-        {
-            List<string> list = Directory.GetFiles(fapmap.GlobalVariables.Path.Dir.Thumbnails).ToList();
+            if (!Directory.Exists(fapmap.GlobalVariables.Path.Dir.Cache)) { return; }
 
-            if (list.Count == 0)
+            if (MessageBox.Show("Delete cache?", "FapMap", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                MessageBox.Show("Nothing to delete...", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                if (MessageBox.Show("Trash " + list.Count.ToString() + " items?", "Send To Recycle Bin", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                try
                 {
-                    fapmap.TrashFiles(list);
+                    Directory.Delete(fapmap.GlobalVariables.Path.Dir.Cache, true);
                 }
+                catch (Exception ex) { MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error); return; }
+                fapmap.nestFiles();
+                getCacheSize();
+                getThumbInfo();
             }
         }
 
-        // thumb
-        private void btn_getThumbInfo_Click(object sender, EventArgs e)
+        private bool getCacheSize_busy = false;
+        private void getCacheSize()
         {
-            getInfoThumbs();
-        }
-        private void btn_getThumbs_Click(object sender, EventArgs e)
-        {
-            createThumbs();
-        }
+            if (getCacheSize_busy) { return; }
 
-        private bool getInfoThumbs_busy = false;
-        private void getInfoThumbs()
-        {
-            if (getInfoThumbs_busy) { return; }
-            
             // check dir
-            if (!Directory.Exists(fapmap.GlobalVariables.Path.Dir.Thumbnails)) { return; }
-            if (!Directory.Exists(fapmap.GlobalVariables.Path.Dir.MainFolder)) { return; }
+            if (!Directory.Exists(fapmap.GlobalVariables.Path.Dir.Cache))
+            {
+                label_cacheSize.Text = "SIZE:" + Environment.NewLine + "0";
+                return;
+            }
 
-            label_outputThumb.Text = "";
+            label_cacheSize.Text = "...";
 
             new Thread(() =>
             {
-                getInfoThumbs_busy = true;
+                getThumbInfo_busy = true;
+
+                try
+                {
+                    long size = fapmap.DirSize(new DirectoryInfo(fapmap.GlobalVariables.Path.Dir.Cache));
+
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        label_cacheSize.Text = "SIZE:" + Environment.NewLine + fapmap.ROund(size) + " (" + size + " bytes" + ")";
+                    });
+                }
+                catch (Exception) { }
+
+                getThumbInfo_busy = false;
+            })
+            { IsBackground = true }.Start();
+        }
+
+        private bool getThumbInfo_busy = false;
+        private void getThumbInfo()
+        {
+            if (getThumbInfo_busy) { return; }
+            
+            // check dir
+            if (!Directory.Exists(fapmap.GlobalVariables.Path.Dir.Cache)) { return; }
+            if (!Directory.Exists(fapmap.GlobalVariables.Path.Dir.MainFolder)) { return; }
+
+            label_outputThumb.Text = "...";
+
+            new Thread(() =>
+            {
+                getThumbInfo_busy = true;
 
                 try
                 {
@@ -674,36 +693,51 @@ namespace fapmap
                         { videos.Add(file); }
                     }
 
-                    FileInfo[] files = new DirectoryInfo(fapmap.GlobalVariables.Path.Dir.Thumbnails).GetFiles("*.tmp", SearchOption.AllDirectories);
+                    int found = 0;
+                    int missing = 0;
+                    foreach(FileInfo video in videos)
+                    {
+                        string id = fapmap.getFileId(video).ToString();
+                        string dest = fapmap.GlobalVariables.Path.Dir.Cache + "\\" + id + ".tmp";
+                        if (File.Exists(dest)) { found++; } else { missing++; }
 
+                    }
+                    
                     this.Invoke((MethodInvoker)delegate
                     {
-                        label_outputThumb.Text = "Thumbnails found:" + Environment.NewLine + "  " + files.Length + "/" + videos.Count;
+                        label_outputThumb.Text = "Videos........: " + videos.Count + Environment.NewLine +
+                                                 "Thumbs found..: " + found        + Environment.NewLine +
+                                                 "Thumbs missing: " + missing      + Environment.NewLine;
+
                     });
                 }
                 catch (Exception) { }
 
-                getInfoThumbs_busy = false;
+                getThumbInfo_busy = false;
             })
             { IsBackground = true }.Start();
         }
-
-        private bool createThumbs_busy = false;
-        private void createThumbs()
+        private void btn_getThumbInfo_Click(object sender, EventArgs e)
         {
-            if (createThumbs_busy) { return; }
+            getThumbInfo();
+        }
+
+        private bool getThumbs_busy = false;
+        private void getThumbs()
+        {
+            if (getThumbs_busy) { return; }
             
             if (!fapmap.checkForApp(fapmap.GlobalVariables.Path.File.Exe.FFMPEG, "https://ffmpeg.zeranoe.com/builds/")) { return; }
 
             // check dir
-            if (!Directory.Exists(fapmap.GlobalVariables.Path.Dir.Thumbnails)) { return; }
+            if (!Directory.Exists(fapmap.GlobalVariables.Path.Dir.Cache)) { return; }
             if (!Directory.Exists(fapmap.GlobalVariables.Path.Dir.MainFolder)) { return; }
 
-            label_outputThumb.Text = "";
+            label_outputThumb.Text = "...";
             
             new Thread(() =>
             {
-                createThumbs_busy = true;
+                getThumbs_busy = true;
 
                 try
                 {
@@ -719,33 +753,47 @@ namespace fapmap
                         (file.Extension.ToLower()))
                         { videos.Add(file); }
                     }
-
+                    
                     int count = 0;
+                    int failed = 0;
+                    int skipped = 0;
                     foreach (FileInfo video in videos)
                     {
-                        count++;
-
                         string id = fapmap.getFileId(video).ToString();
-                        string dest = fapmap.GlobalVariables.Path.Dir.Thumbnails + "\\" + id + ".tmp";
-                        if (File.Exists(dest)) { /*skipped*/ continue; }
-                        if (!fapmap.makeThumb(video.FullName, dest)) { /*failed*/ }
+                        string dest = fapmap.GlobalVariables.Path.Dir.Cache + "\\" + id + ".tmp";
+                        if (File.Exists(dest)) { skipped++; }
+                        else
+                        {
+                            if (fapmap.makeThumb(video.FullName, dest)) { count++; } else { failed++; }
+                        }
 
                         this.Invoke((MethodInvoker)delegate
                         {
-                            label_outputThumb.Text = "Made thumbs:" + Environment.NewLine + "  " + count + "/" + videos.Count;
+                            label_outputThumb.Text =
+                            "Videos.....: " + videos.Count + Environment.NewLine +
+                            "Made thumbs: " + count        + Environment.NewLine +
+                            "Thumb found: " + skipped      + Environment.NewLine + 
+                            "Failed.....: " + failed       + Environment.NewLine;
+
                         });
                     }
 
                     this.Invoke((MethodInvoker)delegate
                     {
-                        label_outputThumb.Text += Environment.NewLine + "Done!";
+                        label_outputThumb.Text += "Done!";
                     });
                 }
                 catch (Exception) { }
-                
-                createThumbs_busy = false;
+
+                getCacheSize();
+
+                getThumbs_busy = false;
             })
             { IsBackground = true }.Start();
+        }
+        private void btn_getThumbs_Click(object sender, EventArgs e)
+        {
+            getThumbs();
         }
 
         private void btn_help_Click(object sender, EventArgs e)

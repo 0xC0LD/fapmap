@@ -53,12 +53,12 @@
             this.treeView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.treeView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.treeView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.treeView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.treeView.ContextMenuStrip = this.treeView_RMB;
             this.treeView.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
             this.treeView.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold);
-            this.treeView.ForeColor = System.Drawing.Color.MediumPurple;
+            this.treeView.ForeColor = System.Drawing.Color.HotPink;
             this.treeView.FullRowSelect = true;
             this.treeView.HideSelection = false;
             this.treeView.HotTracking = true;
@@ -66,7 +66,7 @@
             this.treeView.ImageList = this.treeView_icons;
             this.treeView.Indent = 16;
             this.treeView.ItemHeight = 16;
-            this.treeView.LineColor = System.Drawing.Color.MediumPurple;
+            this.treeView.LineColor = System.Drawing.Color.HotPink;
             this.treeView.Location = new System.Drawing.Point(1, 1);
             this.treeView.Margin = new System.Windows.Forms.Padding(4);
             this.treeView.Name = "treeView";
@@ -96,8 +96,8 @@
             // treeView_RMB_reload
             // 
             this.treeView_RMB_reload.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.treeView_RMB_reload.ForeColor = System.Drawing.Color.MediumPurple;
-            this.treeView_RMB_reload.Image = global::fapmap.Properties.Resources.restart;
+            this.treeView_RMB_reload.ForeColor = System.Drawing.Color.HotPink;
+            this.treeView_RMB_reload.Image = global::fapmap.Properties.Resources.restart_hotpink;
             this.treeView_RMB_reload.Name = "treeView_RMB_reload";
             this.treeView_RMB_reload.Size = new System.Drawing.Size(228, 22);
             this.treeView_RMB_reload.Text = "Reload (CTRL+R/F5)";
@@ -106,8 +106,8 @@
             // treeView_RMB_select
             // 
             this.treeView_RMB_select.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.treeView_RMB_select.ForeColor = System.Drawing.Color.MediumPurple;
-            this.treeView_RMB_select.Image = global::fapmap.Properties.Resources.folder;
+            this.treeView_RMB_select.ForeColor = System.Drawing.Color.HotPink;
+            this.treeView_RMB_select.Image = global::fapmap.Properties.Resources.explorer_hotpink;
             this.treeView_RMB_select.Name = "treeView_RMB_select";
             this.treeView_RMB_select.Size = new System.Drawing.Size(228, 22);
             this.treeView_RMB_select.Text = "Select Folder (CTRL+W/SPACE)";
@@ -116,8 +116,8 @@
             // treeView_RMB_collapseTree
             // 
             this.treeView_RMB_collapseTree.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.treeView_RMB_collapseTree.ForeColor = System.Drawing.Color.MediumPurple;
-            this.treeView_RMB_collapseTree.Image = global::fapmap.Properties.Resources.arrow_up;
+            this.treeView_RMB_collapseTree.ForeColor = System.Drawing.Color.HotPink;
+            this.treeView_RMB_collapseTree.Image = global::fapmap.Properties.Resources.arrow_up_hotpink;
             this.treeView_RMB_collapseTree.Name = "treeView_RMB_collapseTree";
             this.treeView_RMB_collapseTree.Size = new System.Drawing.Size(228, 22);
             this.treeView_RMB_collapseTree.Text = "Collapse Tree (CTRL+Q)";
@@ -126,8 +126,8 @@
             // treeView_RMB_expandTree
             // 
             this.treeView_RMB_expandTree.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.treeView_RMB_expandTree.ForeColor = System.Drawing.Color.MediumPurple;
-            this.treeView_RMB_expandTree.Image = global::fapmap.Properties.Resources.arrow_down;
+            this.treeView_RMB_expandTree.ForeColor = System.Drawing.Color.HotPink;
+            this.treeView_RMB_expandTree.Image = global::fapmap.Properties.Resources.arrow_down_hotpink;
             this.treeView_RMB_expandTree.Name = "treeView_RMB_expandTree";
             this.treeView_RMB_expandTree.Size = new System.Drawing.Size(228, 22);
             this.treeView_RMB_expandTree.Text = "Expand Tree (CTRL+E)";
@@ -137,18 +137,18 @@
             // 
             this.treeView_icons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("treeView_icons.ImageStream")));
             this.treeView_icons.TransparentColor = System.Drawing.Color.Transparent;
-            this.treeView_icons.Images.SetKeyName(0, "dir.ico");
+            this.treeView_icons.Images.SetKeyName(0, "dir_hotpink.ico");
             // 
             // txt_path
             // 
             this.txt_path.AllowDrop = true;
             this.txt_path.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txt_path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.txt_path.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_path.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txt_path.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold);
-            this.txt_path.ForeColor = System.Drawing.Color.MediumPurple;
+            this.txt_path.ForeColor = System.Drawing.Color.HotPink;
             this.txt_path.Location = new System.Drawing.Point(1, 1);
             this.txt_path.Margin = new System.Windows.Forms.Padding(4);
             this.txt_path.Name = "txt_path";
@@ -159,16 +159,16 @@
             // btn_ok
             // 
             this.btn_ok.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_ok.BackColor = System.Drawing.Color.Black;
-            this.btn_ok.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_ok.BackgroundImage")));
+            this.btn_ok.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.btn_ok.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_ok.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ok.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
-            this.btn_ok.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_ok.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_ok.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_ok.FlatAppearance.BorderColor = System.Drawing.Color.HotPink;
+            this.btn_ok.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_ok.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_ok.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.btn_ok.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_ok.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_ok.ForeColor = System.Drawing.Color.HotPink;
             this.btn_ok.Location = new System.Drawing.Point(543, 416);
             this.btn_ok.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
             this.btn_ok.Name = "btn_ok";
@@ -181,16 +181,16 @@
             // btn_cancel
             // 
             this.btn_cancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_cancel.BackColor = System.Drawing.Color.Black;
-            this.btn_cancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_cancel.BackgroundImage")));
+            this.btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.btn_cancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_cancel.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
-            this.btn_cancel.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_cancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_cancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_cancel.FlatAppearance.BorderColor = System.Drawing.Color.HotPink;
+            this.btn_cancel.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_cancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_cancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_cancel.ForeColor = System.Drawing.Color.HotPink;
             this.btn_cancel.Location = new System.Drawing.Point(629, 416);
             this.btn_cancel.Margin = new System.Windows.Forms.Padding(2, 5, 2, 5);
             this.btn_cancel.Name = "btn_cancel";
@@ -207,6 +207,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeView_border.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.treeView_border.Controls.Add(this.treeView);
+            this.treeView_border.ForeColor = System.Drawing.Color.HotPink;
             this.treeView_border.Location = new System.Drawing.Point(12, 40);
             this.treeView_border.Name = "treeView_border";
             this.treeView_border.Size = new System.Drawing.Size(701, 368);
@@ -217,6 +218,7 @@
             this.txt_path_border.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_path_border.Controls.Add(this.txt_path);
+            this.txt_path_border.ForeColor = System.Drawing.Color.HotPink;
             this.txt_path_border.Location = new System.Drawing.Point(12, 12);
             this.txt_path_border.Name = "txt_path_border";
             this.txt_path_border.Size = new System.Drawing.Size(701, 22);
@@ -226,7 +228,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
             this.ClientSize = new System.Drawing.Size(725, 469);
             this.Controls.Add(this.txt_path_border);
@@ -235,7 +237,7 @@
             this.Controls.Add(this.btn_cancel);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.ForeColor = System.Drawing.Color.MediumPurple;
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.MinimumSize = new System.Drawing.Size(417, 248);

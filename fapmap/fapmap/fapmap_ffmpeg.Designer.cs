@@ -59,17 +59,16 @@
             // btn_convert
             // 
             this.btn_convert.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_convert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_convert.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.btn_convert.BackgroundImage = global::fapmap.Properties.Resources.ffmpeg;
             this.btn_convert.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_convert.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_convert.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
-            this.btn_convert.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_convert.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_convert.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_convert.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_convert.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_convert.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_convert.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.btn_convert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_convert.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_convert.ForeColor = System.Drawing.Color.MediumPurple;
+            this.btn_convert.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btn_convert.Location = new System.Drawing.Point(701, 12);
             this.btn_convert.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_convert.Name = "btn_convert";
@@ -84,7 +83,7 @@
             this.label_status.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label_status.AutoSize = true;
             this.label_status.BackColor = System.Drawing.Color.Transparent;
-            this.label_status.ForeColor = System.Drawing.Color.MediumPurple;
+            this.label_status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.label_status.Location = new System.Drawing.Point(12, 239);
             this.label_status.Name = "label_status";
             this.label_status.Size = new System.Drawing.Size(25, 13);
@@ -94,17 +93,16 @@
             // btn_openFileNew
             // 
             this.btn_openFileNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_openFileNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_openFileNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.btn_openFileNew.BackgroundImage = global::fapmap.Properties.Resources.open;
             this.btn_openFileNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_openFileNew.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_openFileNew.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
-            this.btn_openFileNew.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_openFileNew.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_openFileNew.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_openFileNew.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_openFileNew.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_openFileNew.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_openFileNew.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.btn_openFileNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_openFileNew.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_openFileNew.ForeColor = System.Drawing.Color.MediumPurple;
+            this.btn_openFileNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btn_openFileNew.Location = new System.Drawing.Point(726, 37);
             this.btn_openFileNew.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_openFileNew.Name = "btn_openFileNew";
@@ -117,17 +115,16 @@
             // btn_openFile
             // 
             this.btn_openFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_openFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_openFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.btn_openFile.BackgroundImage = global::fapmap.Properties.Resources.open;
             this.btn_openFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_openFile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_openFile.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
-            this.btn_openFile.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_openFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_openFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_openFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_openFile.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_openFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_openFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.btn_openFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_openFile.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_openFile.ForeColor = System.Drawing.Color.MediumPurple;
+            this.btn_openFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btn_openFile.Location = new System.Drawing.Point(726, 12);
             this.btn_openFile.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_openFile.Name = "btn_openFile";
@@ -139,25 +136,24 @@
             // 
             // HelpBalloon
             // 
-            this.HelpBalloon.BackColor = System.Drawing.Color.Black;
-            this.HelpBalloon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
+            this.HelpBalloon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.HelpBalloon.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.HelpBalloon.OwnerDraw = true;
             this.HelpBalloon.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.HelpBalloon_Draw);
             // 
             // btn_delFile
             // 
             this.btn_delFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_delFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_delFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.btn_delFile.BackgroundImage = global::fapmap.Properties.Resources.delete;
             this.btn_delFile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_delFile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_delFile.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
-            this.btn_delFile.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_delFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_delFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_delFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_delFile.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_delFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_delFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.btn_delFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_delFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btn_delFile.ForeColor = System.Drawing.Color.MediumPurple;
+            this.btn_delFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btn_delFile.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btn_delFile.Location = new System.Drawing.Point(751, 12);
             this.btn_delFile.Name = "btn_delFile";
@@ -170,17 +166,16 @@
             // btn_delFileNew
             // 
             this.btn_delFileNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_delFileNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_delFileNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.btn_delFileNew.BackgroundImage = global::fapmap.Properties.Resources.delete;
             this.btn_delFileNew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_delFileNew.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_delFileNew.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
-            this.btn_delFileNew.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_delFileNew.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_delFileNew.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_delFileNew.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_delFileNew.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_delFileNew.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_delFileNew.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.btn_delFileNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_delFileNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btn_delFileNew.ForeColor = System.Drawing.Color.MediumPurple;
+            this.btn_delFileNew.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btn_delFileNew.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btn_delFileNew.Location = new System.Drawing.Point(751, 37);
             this.btn_delFileNew.Name = "btn_delFileNew";
@@ -193,17 +188,16 @@
             // btn_fileNewDragOut
             // 
             this.btn_fileNewDragOut.AllowDrop = true;
-            this.btn_fileNewDragOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_fileNewDragOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.btn_fileNewDragOut.BackgroundImage = global::fapmap.Properties.Resources.dragNdrop;
             this.btn_fileNewDragOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_fileNewDragOut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_fileNewDragOut.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
-            this.btn_fileNewDragOut.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_fileNewDragOut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_fileNewDragOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_fileNewDragOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_fileNewDragOut.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_fileNewDragOut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_fileNewDragOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.btn_fileNewDragOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_fileNewDragOut.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold);
-            this.btn_fileNewDragOut.ForeColor = System.Drawing.Color.MediumPurple;
+            this.btn_fileNewDragOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btn_fileNewDragOut.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btn_fileNewDragOut.Location = new System.Drawing.Point(12, 37);
             this.btn_fileNewDragOut.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
@@ -218,17 +212,16 @@
             // btn_fileDragOut
             // 
             this.btn_fileDragOut.AllowDrop = true;
-            this.btn_fileDragOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_fileDragOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.btn_fileDragOut.BackgroundImage = global::fapmap.Properties.Resources.dragNdrop;
             this.btn_fileDragOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btn_fileDragOut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_fileDragOut.FlatAppearance.BorderColor = System.Drawing.Color.MediumPurple;
-            this.btn_fileDragOut.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_fileDragOut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.btn_fileDragOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.btn_fileDragOut.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btn_fileDragOut.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_fileDragOut.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_fileDragOut.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.btn_fileDragOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_fileDragOut.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold);
-            this.btn_fileDragOut.ForeColor = System.Drawing.Color.MediumPurple;
+            this.btn_fileDragOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.btn_fileDragOut.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btn_fileDragOut.Location = new System.Drawing.Point(12, 12);
             this.btn_fileDragOut.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
@@ -256,7 +249,7 @@
             // txt_output_RMB_copy
             // 
             this.txt_output_RMB_copy.BackgroundImage = global::fapmap.Properties.Resources.bg4;
-            this.txt_output_RMB_copy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
+            this.txt_output_RMB_copy.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txt_output_RMB_copy.Image = global::fapmap.Properties.Resources.copy;
             this.txt_output_RMB_copy.Name = "txt_output_RMB_copy";
             this.txt_output_RMB_copy.Size = new System.Drawing.Size(149, 22);
@@ -278,14 +271,14 @@
             this.txt_fileNew.AllowDrop = true;
             this.txt_fileNew.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_fileNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txt_fileNew.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.txt_fileNew.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_fileNew.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txt_fileNew.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_fileNew.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_fileNew.ForeColor = System.Drawing.Color.Turquoise;
             this.txt_fileNew.Location = new System.Drawing.Point(1, 1);
             this.txt_fileNew.Name = "txt_fileNew";
-            this.txt_fileNew.Size = new System.Drawing.Size(683, 19);
+            this.txt_fileNew.Size = new System.Drawing.Size(683, 16);
             this.txt_fileNew.TabIndex = 1;
             this.txt_fileNew.TextChanged += new System.EventHandler(this.txt_fileNew_TextChanged);
             this.txt_fileNew.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_fileNew_KeyDown);
@@ -305,14 +298,14 @@
             this.txt_file.AllowDrop = true;
             this.txt_file.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_file.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txt_file.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.txt_file.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_file.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txt_file.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_file.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_file.ForeColor = System.Drawing.Color.Turquoise;
             this.txt_file.Location = new System.Drawing.Point(1, 1);
             this.txt_file.Name = "txt_file";
-            this.txt_file.Size = new System.Drawing.Size(657, 19);
+            this.txt_file.Size = new System.Drawing.Size(657, 16);
             this.txt_file.TabIndex = 1;
             this.txt_file.TextChanged += new System.EventHandler(this.txt_file_TextChanged);
             this.txt_file.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_file_KeyDown);
@@ -331,7 +324,7 @@
             // 
             this.txt_options.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_options.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txt_options.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.txt_options.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_options.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txt_options.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold);
@@ -359,12 +352,12 @@
             this.txt_output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txt_output.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.txt_output.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_output.ContextMenuStrip = this.txt_output_RMB;
             this.txt_output.DetectUrls = false;
             this.txt_output.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_output.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.txt_output.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txt_output.Location = new System.Drawing.Point(1, 1);
             this.txt_output.Name = "txt_output";
             this.txt_output.ReadOnly = true;
@@ -378,7 +371,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
             this.ClientSize = new System.Drawing.Size(784, 261);
             this.Controls.Add(this.txt_fileNew_border);
@@ -396,7 +389,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
-            this.ForeColor = System.Drawing.Color.MediumPurple;
+            this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(400, 200);
             this.Name = "fapmap_ffmpeg";

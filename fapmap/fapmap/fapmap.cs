@@ -25,15 +25,15 @@ namespace fapmap
             InitializeComponent();
 
             // menu
-            menu.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
+            menu.Renderer = new fapmap_res.FapMapColors.FapMapToolStripRenderer(Color.FromArgb(128, 128, 255));
             menu.Cursor = Cursors.Arrow;
 
             // rmb
-            links_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
-            faftv_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
-            fileDisplay_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
-            showMedia_video_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
-            showMedia_image_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
+            links_RMB.Renderer = new fapmap_res.FapMapColors.FapMapToolStripRenderer(Color.Turquoise);
+            faftv_RMB.Renderer = new fapmap_res.FapMapColors.FapMapToolStripRenderer(Color.HotPink);
+            fileDisplay_RMB.Renderer = new fapmap_res.FapMapColors.FapMapToolStripRenderer(Color.HotPink);
+            showMedia_video_RMB.Renderer = new fapmap_res.FapMapColors.FapMapToolStripRenderer(Color.FromArgb(128, 128, 255));
+            showMedia_image_RMB.Renderer = new fapmap_res.FapMapColors.FapMapToolStripRenderer(Color.FromArgb(128, 128, 255));
         }
 
         public class GlobalVariables
@@ -120,27 +120,27 @@ namespace fapmap
                 {
                     //FILES
                     public static string Main = Directory.GetParent(Application.ExecutablePath).FullName;
-                    public static string MainFolder = Main + "\\Main Folder";
-                    public static string DataFolder = Main + "\\data";
-                    public static string FavIcons = DataFolder + "\\favicons";
-                    public static string Thumbnails = DataFolder + "\\thumbnails";
+                    public static string MainFolder = Main       + "\\Main Folder";
+                    public static string DataFolder = Main       + "\\data";
+                    public static string FavIcons   = DataFolder + "\\favicons";
+                    public static string Cache      = DataFolder + "\\cache";
                 }
 
                 public class File
                 {
                     public static string Passwords = Path.Dir.DataFolder + "\\passwords.dll";
-                    public static string Links = Path.Dir.DataFolder + "\\urls.txt";
-                    public static string Settings = Path.Dir.DataFolder + "\\fapmap.ini";
-                    public static string Board = Path.Dir.DataFolder + "\\board.ini";
-                    public static string Keywords = Path.Dir.DataFolder + "\\keywords.lst";
-                    public static string Log = Path.Dir.DataFolder + "\\fapmap.log";
+                    public static string Links     = Path.Dir.DataFolder + "\\urls.txt";
+                    public static string Settings  = Path.Dir.DataFolder + "\\fapmap.ini";
+                    public static string Board     = Path.Dir.DataFolder + "\\board.ini";
+                    public static string Keywords  = Path.Dir.DataFolder + "\\keywords.lst";
+                    public static string Log       = Path.Dir.Cache      + "\\fapmap.log";
 
                     public class Exe
                     {
-                        public static string FFMPEG = Path.Dir.Main + "\\ffmpeg.exe";
-                        public static string WEBGRAB = Path.Dir.Main + "\\webgrab.exe";
-                        public static string YOUTUBEDL = Path.Dir.Main + "\\youtube-dl.exe";
-                        public static string FSCAN = Path.Dir.Main + "\\fscan.exe";
+                        public static string FFMPEG       = Path.Dir.Main + "\\ffmpeg.exe";
+                        public static string WEBGRAB      = Path.Dir.Main + "\\webgrab.exe";
+                        public static string YOUTUBEDL    = Path.Dir.Main + "\\youtube-dl.exe";
+                        public static string FSCAN        = Path.Dir.Main + "\\fscan.exe";
                         public static string CRASHHANDLER = Path.Dir.Main + "\\CrashHandler.exe";
                     }
                 }
@@ -364,6 +364,11 @@ namespace fapmap
             catch (Win32Exception e)            { LogThis(GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + log); return false; }
             catch (InvalidOperationException e) { LogThis(GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + log); return false; }
             catch (Exception e)                 { LogThis(GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + log); return false; }
+
+            // ffmpeg failed
+            if (!File.Exists(dest))             { LogThis(GlobalVariables.LOG_TYPE.FAIL, "THUMB: " + file + " -> " + dest); return false; }
+            if (new FileInfo(dest).Length == 0) { LogThis(GlobalVariables.LOG_TYPE.FAIL, "THUMB: " + file + " -> " + dest); File.Delete(dest); return false; }
+            
             return true;
         }
 
@@ -781,7 +786,7 @@ namespace fapmap
             if (!Directory.Exists(GlobalVariables.Path.Dir.MainFolder)) { Directory.CreateDirectory(GlobalVariables.Path.Dir.MainFolder); }
             if (!Directory.Exists(GlobalVariables.Path.Dir.DataFolder)) { Directory.CreateDirectory(GlobalVariables.Path.Dir.DataFolder); }
             if (!Directory.Exists(GlobalVariables.Path.Dir.FavIcons)) { Directory.CreateDirectory(GlobalVariables.Path.Dir.FavIcons); }
-            if (!Directory.Exists(GlobalVariables.Path.Dir.Thumbnails)) { Directory.CreateDirectory(GlobalVariables.Path.Dir.Thumbnails); }
+            if (!Directory.Exists(GlobalVariables.Path.Dir.Cache)) { Directory.CreateDirectory(GlobalVariables.Path.Dir.Cache); }
 
             Directory.SetCurrentDirectory(fapmap.GlobalVariables.Path.Dir.MainFolder);
 
@@ -1010,7 +1015,7 @@ namespace fapmap
         {
             fapmap.nestFiles();
 
-            string[] lines = SafeReadLines(fapmap.GlobalVariables.Path.File.Settings);
+            string[] lines = SafeReadLines(fapmap.GlobalVariables.Path.File.Settings).ToArray();
 
             using (FileStream fs = new FileStream(fapmap.GlobalVariables.Path.File.Settings, FileMode.Open))
             {
@@ -1123,20 +1128,19 @@ namespace fapmap
             return size;
         }
 
-        public static string[] SafeReadLines(string path)
+        public static IEnumerable<string> SafeReadLines(string path)
         {
-            using (var csv = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-            using (var sr = new StreamReader(csv))
+            using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite, 0x1000, FileOptions.SequentialScan))
+            using (var sr = new StreamReader(fs, System.Text.Encoding.UTF8))
             {
-                List<string> file = new List<string>();
-                while (!sr.EndOfStream)
+                string line;
+                while ((line = sr.ReadLine()) != null)
                 {
-                    file.Add(sr.ReadLine());
+                    yield return line;
                 }
-
-                return file.ToArray();
             }
         }
+        
         public static string[] GetResourceLines(string file)
         {
             return file.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
@@ -1537,13 +1541,21 @@ namespace fapmap
             GlobalVariables.Settings.CheckBoxes.EnableFileDisplay = fapmap_cb_fileDisplay.Checked;
             fileDisplay.Enabled = fapmap_cb_fileDisplay.Checked;
         }
-
-        private void fileDisplay_EnabledChanged(object sender, EventArgs e)
+        private void fapmap_cb_faftv_CheckedChanged(object sender, EventArgs e)
         {
+            faftv.Enabled = fapmap_cb_faftv.Checked;
+        }
+
+        private void updateFileBrowserSplitContainer()
+        {
+            splitContainer_files.Visible = (!fileDisplay.Enabled && !faftv.Enabled) ? false : true;
+
+
             if (fileDisplay.Enabled)
             {
                 splitContainer_files.Panel2.Show();
                 splitContainer_files.Panel2Collapsed = false;
+                load_dir(selectedDirPath);
             }
             else
             {
@@ -1552,8 +1564,33 @@ namespace fapmap
                 load_dir_cur++; // cancel loading thumbs
                 fileDisplay.Items.Clear();
                 fileDisplay_icons.Images.Clear();
+                fileDisplay_watcher.Dispose();
+            }
+
+            if (faftv.Enabled)
+            {
+                splitContainer_files.Panel1.Show();
+                splitContainer_files.Panel1Collapsed = false;
+                faftv_reload();
+            }
+            else
+            {
+                splitContainer_files.Panel1.Hide();
+                splitContainer_files.Panel1Collapsed = true;
+                faftv.Nodes.Clear();
+                faftv_watcher.Dispose();
             }
         }
+        private void fileDisplay_EnabledChanged(object sender, EventArgs e)
+        {
+            updateFileBrowserSplitContainer();
+        }
+        private void faftv_EnabledChanged(object sender, EventArgs e)
+        {
+            updateFileBrowserSplitContainer();
+        }
+
+
 
         #endregion
 
@@ -1794,9 +1831,19 @@ namespace fapmap
 
             for (int i = 0; i < dirs.Length; i++)
             {
-                if (fileDisplay.Items.IndexOfKey(dirs[i].FullName) == -1)
+                int index = fileDisplay.Items.IndexOfKey(dirs[i].FullName);
+                if (index == -1)
                 {
                     fileDisplay.Items.Add(load_dir_dir(dirs[i]));
+                    index = fileDisplay.Items.Count - 1;
+                }
+                else
+                {
+                    Color foreColor = fileDisplay.ForeColor;
+                    if (dirs[i].Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = faftv.ForeColor; }
+                    else if (dirs[i].Attributes.HasFlag(FileAttributes.Hidden))                    { foreColor = Color.SkyBlue;   }
+                    else                                                                           { foreColor = Color.Magenta;   }
+                    fileDisplay.Items[index].ForeColor = foreColor;
                 }
             }
 
@@ -1804,19 +1851,28 @@ namespace fapmap
             {
                 if (files[i].Name == "desktop.ini") { continue; }
 
-                int LviIndex = fileDisplay.Items.IndexOfKey(files[i].FullName);
-
-                if (LviIndex == -1)
+                int index = fileDisplay.Items.IndexOfKey(files[i].FullName);
+                if (index == -1)
                 {
                     fileDisplay.Items.Add(load_dir_file(files[i]));
-                    LviIndex = fileDisplay.Items.Count - 1;
+                    index = fileDisplay.Items.Count - 1;
+                }
+                else
+                {
+                    Color foreColor = fileDisplay.ForeColor;
+                    if (files[i].Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = faftv.ForeColor; }
+                    else if (files[i].Attributes.HasFlag(FileAttributes.Hidden)) { foreColor = Color.SkyBlue; }
+                    else { foreColor = Color.Magenta; }
+                    fileDisplay.Items[index].ForeColor = foreColor;
                 }
 
-                load_dir_thumbnail(fileDisplay.Items[LviIndex], files[i]);
+                load_dir_thumbnail(fileDisplay.Items[index], files[i]);
             }
 
+            // remove stuff that doesn't exist
             List<ListViewItem> itemsToRemove = new List<ListViewItem>();
-            foreach (ListViewItem lvi in fileDisplay.Items) { if (!Directory.Exists(lvi.Name) && !File.Exists(lvi.Name)) { itemsToRemove.Add(lvi); } }
+            foreach (ListViewItem lvi in fileDisplay.Items)
+            { if (!Directory.Exists(lvi.Name) && !File.Exists(lvi.Name)) { itemsToRemove.Add(lvi); } }
             foreach (ListViewItem lvi in itemsToRemove) { fileDisplay.Items.Remove(lvi); }
         }
         private Mutex load_dir_thumbnail_mutex = new Mutex();
@@ -1840,7 +1896,11 @@ namespace fapmap
                             string id = getFileId(fi).ToString();
 
                             // get index
-                            int iIndex = fileDisplay_icons.Images.IndexOfKey(id);
+                            int iIndex = -1;
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                iIndex = fileDisplay_icons.Images.IndexOfKey(id);
+                            });
                             if (iIndex == -1)
                             {
                                 Image img = Image.FromFile(file);
@@ -1864,7 +1924,10 @@ namespace fapmap
                             else
                             {
                                 item.ImageIndex = iIndex;
-                                fileDisplay.RedrawItems(item.Index, item.Index, true);
+                                this.Invoke((MethodInvoker)delegate
+                                {
+                                    fileDisplay.RedrawItems(item.Index, item.Index, true);
+                                });
                             }
                         }
                         catch (Exception) { }
@@ -1887,10 +1950,14 @@ namespace fapmap
                         {
                             string file = fi.FullName;
                             string id = getFileId(fi).ToString();
-                            string dest = GlobalVariables.Path.Dir.Thumbnails + "\\" + id + ".tmp";
-                            
+                            string dest = GlobalVariables.Path.Dir.Cache + "\\" + id + ".tmp";
+
                             // get index
-                            int iIndex = fileDisplay_icons.Images.IndexOfKey(id);
+                            int iIndex = -1;
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                iIndex = fileDisplay_icons.Images.IndexOfKey(id);
+                            });
                             if (iIndex == -1)
                             {
                                 if (!File.Exists(dest))
@@ -1924,7 +1991,10 @@ namespace fapmap
                             else
                             {
                                 item.ImageIndex = iIndex;
-                                fileDisplay.RedrawItems(item.Index, item.Index, true);
+                                this.Invoke((MethodInvoker)delegate
+                                {
+                                    fileDisplay.RedrawItems(item.Index, item.Index, true);
+                                });
                             }
                         }
                         catch (Exception) { }
@@ -1948,19 +2018,31 @@ namespace fapmap
                 extIndex = fileDisplay_icons.Images.Count - 1;
             }
 
-            return new ListViewItem() { Name = di.FullName, Text = di.Name, ImageIndex = extIndex };
+            Color foreColor = fileDisplay.ForeColor;
+            if (di.Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = faftv.ForeColor; }
+            else if (di.Attributes.HasFlag(FileAttributes.Hidden))                    { foreColor = Color.SkyBlue;   }
+            else                                                                      { foreColor = Color.Magenta;   }
+
+            return new ListViewItem() { Name = di.FullName, Text = di.Name, ImageIndex = extIndex, ForeColor = foreColor };
         }
         private ListViewItem load_dir_file(FileInfo fi)
         {
-            string ext = fi.Extension.ToLower();
-            int extIndex = fileDisplay_icons.Images.IndexOfKey(ext);
+            string key = fi.Extension.ToLower();
+            if (key == ".exe") { key = fapmap.getFileId(fi).ToString(); }
+
+            int extIndex = fileDisplay_icons.Images.IndexOfKey(key);
             if (extIndex == -1)
             {
-                fileDisplay_icons.Images.Add(ext, System.Drawing.Icon.ExtractAssociatedIcon(fi.FullName));
+                fileDisplay_icons.Images.Add(key, System.Drawing.Icon.ExtractAssociatedIcon(fi.FullName));
                 extIndex = fileDisplay_icons.Images.Count - 1;
             }
 
-            return new ListViewItem() { Name = fi.FullName, Text = fi.Name, ImageIndex = extIndex };
+            Color foreColor = fileDisplay.ForeColor;
+            if (fi.Attributes.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = faftv.ForeColor; }
+            else if (fi.Attributes.HasFlag(FileAttributes.Hidden))                    { foreColor = Color.SkyBlue;   }
+            else                                                                      { foreColor = Color.Magenta;   }
+
+            return new ListViewItem() { Name = fi.FullName, Text = fi.Name, ImageIndex = extIndex, ForeColor = foreColor };
         }
         
         private void load_file_or_dir(string path)
@@ -2001,6 +2083,24 @@ namespace fapmap
         #region functions
 
         private FileSystemWatcher fileDisplay_watcher = new FileSystemWatcher();
+        private void fileDisplay_find()
+        {
+            string input = fapmap.OpenInputBox(this, "Find:", "", 0, 0);
+            if (!string.IsNullOrEmpty(input))
+            {
+                fileDisplay.SelectedItems.Clear();
+                foreach (ListViewItem lvi in fileDisplay.Items)
+                {
+                    if (lvi.Text.Contains(input))
+                    {
+                        lvi.Focused = true;
+                        lvi.Selected = true;
+                        lvi.EnsureVisible();
+                        fileDisplay.Select();
+                    }
+                }
+            }
+        }
         private void fileDisplay_open(bool openFiles = false, bool openDirs = false)
         {
             if (fileDisplay.SelectedItems.Count == 0) { return; }
@@ -2303,58 +2403,70 @@ namespace fapmap
         }
         private void fileDisplay_watcher_Created(object sender, FileSystemEventArgs e)
         {
-            this.Invoke((MethodInvoker)delegate
+            try
             {
-                if (Directory.Exists(e.FullPath))
+                this.Invoke((MethodInvoker)delegate
                 {
-                    fileDisplay.Items.Add(load_dir_dir(new DirectoryInfo(e.FullPath)));
-                    fileDisplay.Items[fileDisplay.Items.Count - 1].EnsureVisible();
-                }
-                else if (File.Exists(e.FullPath))
-                {
-                    // add file
-                    if (e.Name == "desktop.ini") { return; }
-                    fileDisplay.Items.Add(load_dir_file(new FileInfo(e.FullPath)));
-                    fileDisplay.Items[fileDisplay.Items.Count - 1].EnsureVisible();
-                }
-            });
+                    if (Directory.Exists(e.FullPath))
+                    {
+                        fileDisplay.Items.Add(load_dir_dir(new DirectoryInfo(e.FullPath)));
+                        fileDisplay.Items[fileDisplay.Items.Count - 1].EnsureVisible();
+                    }
+                    else if (File.Exists(e.FullPath))
+                    {
+                        // add file
+                        if (e.Name == "desktop.ini") { return; }
+                        fileDisplay.Items.Add(load_dir_file(new FileInfo(e.FullPath)));
+                        fileDisplay.Items[fileDisplay.Items.Count - 1].EnsureVisible();
+                    }
+                });
+            }
+            catch (Exception) { }
         }
         private void fileDisplay_watcher_Deleted(object sender, FileSystemEventArgs e)
         {
-            this.Invoke((MethodInvoker)delegate
+            try
             {
-                foreach(ListViewItem lvi in fileDisplay.Items.Find(e.FullPath, true))
+                this.Invoke((MethodInvoker)delegate
                 {
-                    lvi.Remove();
-                    break;
-                }
-            });
+                    foreach (ListViewItem lvi in fileDisplay.Items.Find(e.FullPath, true))
+                    {
+                        lvi.Remove();
+                        break;
+                    }
+                });
+            }
+            catch (Exception) { }
         }
         private void fileDisplay_watcher_Renamed(object sender, FileSystemEventArgs e)
         {
-            this.Invoke((MethodInvoker)delegate
+            try
             {
-                if (Directory.Exists(e.FullPath))
+                this.Invoke((MethodInvoker)delegate
                 {
-                    // remove items that don't exist
-                    List<ListViewItem> itemsToRemove = new List<ListViewItem>();
-                    foreach (ListViewItem lvi in fileDisplay.Items) { if (!File.Exists(lvi.Name) && !Directory.Exists(lvi.Name)) { itemsToRemove.Add(lvi); } }
-                    foreach (ListViewItem lvi in itemsToRemove) { fileDisplay.Items.Remove(lvi); }
-                    
-                    fileDisplay.Items.Add(load_dir_dir(new DirectoryInfo(e.FullPath)));
-                }
-                else if (File.Exists(e.FullPath))
-                {
-                    // remove items that don't exist
-                    List<ListViewItem> itemsToRemove = new List<ListViewItem>();
-                    foreach (ListViewItem lvi in fileDisplay.Items) { if (!File.Exists(lvi.Name) && !Directory.Exists(lvi.Name)) { itemsToRemove.Add(lvi); } }
-                    foreach (ListViewItem lvi in itemsToRemove) { fileDisplay.Items.Remove(lvi); }
+                    if (Directory.Exists(e.FullPath))
+                    {
+                        // remove items that don't exist
+                        List<ListViewItem> itemsToRemove = new List<ListViewItem>();
+                        foreach (ListViewItem lvi in fileDisplay.Items) { if (!File.Exists(lvi.Name) && !Directory.Exists(lvi.Name)) { itemsToRemove.Add(lvi); } }
+                        foreach (ListViewItem lvi in itemsToRemove) { fileDisplay.Items.Remove(lvi); }
 
-                    // add file
-                    if (e.Name == "desktop.ini") { return; }
-                    fileDisplay.Items.Add(load_dir_file(new FileInfo(e.FullPath)));
-                }
-            });
+                        fileDisplay.Items.Add(load_dir_dir(new DirectoryInfo(e.FullPath)));
+                    }
+                    else if (File.Exists(e.FullPath))
+                    {
+                        // remove items that don't exist
+                        List<ListViewItem> itemsToRemove = new List<ListViewItem>();
+                        foreach (ListViewItem lvi in fileDisplay.Items) { if (!File.Exists(lvi.Name) && !Directory.Exists(lvi.Name)) { itemsToRemove.Add(lvi); } }
+                        foreach (ListViewItem lvi in itemsToRemove) { fileDisplay.Items.Remove(lvi); }
+
+                        // add file
+                        if (e.Name == "desktop.ini") { return; }
+                        fileDisplay.Items.Add(load_dir_file(new FileInfo(e.FullPath)));
+                    }
+                });
+            }
+            catch (Exception) { }
         }
         
         #endregion
@@ -2392,16 +2504,16 @@ namespace fapmap
                 e.Handled = e.SuppressKeyPress = true;
                 switch (e.KeyCode)
                 {
-                    case Keys.R: load_dir_refresh();              break;
-                    case Keys.A: fileDisplay_explorer();          break;
-                    case Keys.C: fileDisplay_explorer2();         break;
-                    case Keys.W: fileDisplay_open(true, true);    break;
-                    case Keys.S: fileDisplay_createDir();         break;
-                    case Keys.D: fileDisplay_properties();        break;
-                    case Keys.X: fileDisplay_move();              break;
+                    case Keys.R: load_dir_refresh();                                                     break;
+                    case Keys.A: fileDisplay_explorer();                                                 break;
+                    case Keys.C: fileDisplay_explorer2();                                                break;
+                    case Keys.W: fileDisplay_open(true, true);                                           break;
+                    case Keys.S: fileDisplay_createDir();                                                break;
+                    case Keys.D: fileDisplay_properties();                                               break;
+                    case Keys.X: fileDisplay_move();                                                     break;
+                    case Keys.F: if (e.Shift) { new fapmap_find().Show(); } else { fileDisplay_find(); } break;
 
                     // hidden shortcuts
-                    case Keys.F: new fapmap_find().Show();     break;
                     case Keys.G: new fapmap_settings().Show(); break;
                 }
             }
@@ -2448,11 +2560,16 @@ namespace fapmap
         {
             if (e.Button == MouseButtons.Right) { Random_VOI(GlobalVariables.Path.Dir.MainFolder, true, true); }
         }
-        
+
+        private void fileDisplay_btn_info_Click(object sender, EventArgs e)
+        {
+            fapmap.OpenProperties(txt_path.Text);
+        }
+
         #endregion
 
         #region change icon size
-        
+
         private int fileDisplay_sideSize = 150;
         private int fileDisplay_sideSize_min = 50;
         private int fileDisplay_sideSize_max = 255;
@@ -2498,6 +2615,10 @@ namespace fapmap
         private void fileDisplay_RMB_reload_Click(object sender, EventArgs e)
         {
             load_dir(selectedDirPath);
+        }
+        private void fileDisplay_RMB_find_Click(object sender, EventArgs e)
+        {
+            fileDisplay_find();
         }
         private void fileDisplay_RMB_refresh_Click(object sender, EventArgs e)
         {
@@ -3808,7 +3929,7 @@ namespace fapmap
                 //no logged files
                 if (nologs)
                 {
-                    string[] logLines = fapmap.SafeReadLines(GlobalVariables.Path.File.Log);
+                    string[] logLines = fapmap.SafeReadLines(GlobalVariables.Path.File.Log).ToArray();
                     List<string> playedFiles = new List<string>();
                     foreach (string line in logLines)
                     {
@@ -3966,7 +4087,7 @@ namespace fapmap
             if (txt_path.Text.Contains("\r")) { txt_path.Text = txt_path.Text.Replace("\r", String.Empty); }
             if (txt_path.Text.Contains("\t")) { txt_path.Text = txt_path.Text.Replace("\t", String.Empty); }
 
-            txt_path.ForeColor = (File.Exists(txt_path.Text) || Directory.Exists(txt_path.Text)) ? Color.MediumPurple : Color.PaleVioletRed;
+            txt_path.ForeColor = (File.Exists(txt_path.Text) || Directory.Exists(txt_path.Text)) ? Color.HotPink : Color.Magenta;
 
             if (string.IsNullOrEmpty(txt_path.Text) || string.IsNullOrWhiteSpace(txt_path.Text) || txt_path.Text == "NULL")
             {
@@ -4050,20 +4171,24 @@ namespace fapmap
 
             return node_dir;
         }
-        private void faftv_setImage(string e, TreeNode node_file)
+        private void faftv_setImage(string ext, TreeNode node_file)
         {
-            string ext = e.ToLower();
+            string key = ext.ToLower();
 
-            if (ext == "dir") { node_file.ImageIndex = node_file.SelectedImageIndex = 0; return; }
+            if (key == "dir") { node_file.ImageIndex = node_file.SelectedImageIndex = 0; return; }
             
             if (File.Exists(node_file.Name))
             {
-                int imageIndex = faftv_icons.Images.IndexOfKey(ext);
+                FileInfo fi = new FileInfo(node_file.Name);
+                if (key == ".exe") { key = fapmap.getFileId(fi).ToString(); }
+
+                int imageIndex = faftv_icons.Images.IndexOfKey(key);
                 if (imageIndex == -1)
                 {
-                    faftv_icons.Images.Add(ext, System.Drawing.Icon.ExtractAssociatedIcon(node_file.Name));
+                    faftv_icons.Images.Add(key, System.Drawing.Icon.ExtractAssociatedIcon(node_file.Name));
                     imageIndex = faftv_icons.Images.Count - 1;
                 }
+
                 node_file.ImageIndex = node_file.SelectedImageIndex = imageIndex;
             }
         }
@@ -4330,76 +4455,88 @@ namespace fapmap
         }
         private void faftv_watcher_Created(object sender, FileSystemEventArgs e)
         {
-            this.Invoke((MethodInvoker)delegate
+            try
             {
-                if (Directory.Exists(e.FullPath))
+                this.Invoke((MethodInvoker)delegate
                 {
-                    DirectoryInfo di = new DirectoryInfo(e.FullPath);
-                    foreach (TreeNode t in faftv.Nodes.Find(di.Parent.FullName, true))
+                    if (Directory.Exists(e.FullPath))
                     {
-                        t.Nodes.Add(faftv_CreateDirectoryNode(di));
+                        DirectoryInfo di = new DirectoryInfo(e.FullPath);
+                        foreach (TreeNode t in faftv.Nodes.Find(di.Parent.FullName, true))
+                        {
+                            t.Nodes.Add(faftv_CreateDirectoryNode(di));
+                        }
                     }
-                }
-                else if(File.Exists(e.FullPath))
-                {
-                    if (e.Name == "desktop.ini") { return; }
+                    else if (File.Exists(e.FullPath))
+                    {
+                        if (e.Name == "desktop.ini") { return; }
 
-                    FileInfo fi = new FileInfo(e.FullPath);
-                    foreach (TreeNode t in faftv.Nodes.Find(fi.Directory.FullName, true))
-                    {
-                        TreeNode newNode = new TreeNode() { Text = fi.Name, Name = fi.FullName };
-                        faftv_setImage(fi.Extension, newNode);
-                        t.Nodes.Add(newNode);
+                        FileInfo fi = new FileInfo(e.FullPath);
+                        foreach (TreeNode t in faftv.Nodes.Find(fi.Directory.FullName, true))
+                        {
+                            TreeNode newNode = new TreeNode() { Text = fi.Name, Name = fi.FullName };
+                            faftv_setImage(fi.Extension, newNode);
+                            t.Nodes.Add(newNode);
+                        }
                     }
-                }
-            });
+                });
+            }
+            catch (Exception) { }
         }
         private void faftv_watcher_Deleted(object sender, FileSystemEventArgs e)
         {
-            this.Invoke((MethodInvoker)delegate
+            try
             {
-                TreeNode[] nodes = faftv.Nodes.Find(e.FullPath, true);
-                if (nodes.Length >= 1)
+                this.Invoke((MethodInvoker)delegate
                 {
-                    nodes[0].Remove();
-                }
-            });
+                    TreeNode[] nodes = faftv.Nodes.Find(e.FullPath, true);
+                    if (nodes.Length >= 1)
+                    {
+                        nodes[0].Remove();
+                    }
+                });
+            }
+            catch (Exception) { }
         }
         private void faftv_watcher_Renamed(object sender, FileSystemEventArgs e)
         {
-            this.Invoke((MethodInvoker)delegate
+            try
             {
-                if (Directory.Exists(e.FullPath))
+                this.Invoke((MethodInvoker)delegate
                 {
-                    DirectoryInfo di = new DirectoryInfo(e.FullPath);
-                    foreach (TreeNode t in faftv.Nodes.Find(di.Parent.FullName, true))
+                    if (Directory.Exists(e.FullPath))
                     {
-                        // remove nodes that don't exist
-                        List<TreeNode> nodesToRemove = new List<TreeNode>();
-                        foreach (TreeNode child in t.Nodes)
-                        { if (!File.Exists(child.Name) && !Directory.Exists(child.Name)) { nodesToRemove.Add(child); } }
-                        foreach (TreeNode tn in nodesToRemove) { t.Nodes.Remove(tn); }
-                        // add renamed node
-                        t.Nodes.Add(faftv_CreateDirectoryNode(di));
+                        DirectoryInfo di = new DirectoryInfo(e.FullPath);
+                        foreach (TreeNode t in faftv.Nodes.Find(di.Parent.FullName, true))
+                        {
+                            // remove nodes that don't exist
+                            List<TreeNode> nodesToRemove = new List<TreeNode>();
+                            foreach (TreeNode child in t.Nodes)
+                            { if (!File.Exists(child.Name) && !Directory.Exists(child.Name)) { nodesToRemove.Add(child); } }
+                            foreach (TreeNode tn in nodesToRemove) { t.Nodes.Remove(tn); }
+                            // add renamed node
+                            t.Nodes.Add(faftv_CreateDirectoryNode(di));
+                        }
                     }
-                }
-                else if (File.Exists(e.FullPath))
-                {
-                    FileInfo fi = new FileInfo(e.FullPath);
-                    foreach (TreeNode t in faftv.Nodes.Find(fi.Directory.FullName, true))
+                    else if (File.Exists(e.FullPath))
                     {
-                        // remove nodes that don't exist
-                        List<TreeNode> nodesToRemove = new List<TreeNode>();
-                        foreach(TreeNode child in t.Nodes)
-                        { if (!File.Exists(child.Name) && !Directory.Exists(child.Name)) { nodesToRemove.Add(child); } }
-                        foreach(TreeNode tn in nodesToRemove) { t.Nodes.Remove(tn); }
-                        // add rename node
-                        TreeNode newNode = new TreeNode() { Text = fi.Name, Name = fi.FullName };
-                        faftv_setImage(fi.Extension, newNode);
-                        t.Nodes.Add(newNode);
+                        FileInfo fi = new FileInfo(e.FullPath);
+                        foreach (TreeNode t in faftv.Nodes.Find(fi.Directory.FullName, true))
+                        {
+                            // remove nodes that don't exist
+                            List<TreeNode> nodesToRemove = new List<TreeNode>();
+                            foreach (TreeNode child in t.Nodes)
+                            { if (!File.Exists(child.Name) && !Directory.Exists(child.Name)) { nodesToRemove.Add(child); } }
+                            foreach (TreeNode tn in nodesToRemove) { t.Nodes.Remove(tn); }
+                            // add rename node
+                            TreeNode newNode = new TreeNode() { Text = fi.Name, Name = fi.FullName };
+                            faftv_setImage(fi.Extension, newNode);
+                            t.Nodes.Add(newNode);
+                        }
                     }
-                }
-            });
+                });
+            }
+            catch (Exception) { }
         }
 
         #endregion
@@ -4422,17 +4559,17 @@ namespace fapmap
                 {
                     //SET COLOR BY ATTRIB
                     FileAttributes attrib_dir = File.GetAttributes(path);
-                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.MediumPurple;  }
-                    else if (attrib_dir.HasFlag(FileAttributes.Hidden))                    { foreColor = Color.SkyBlue;       }
-                    else                                                                   { foreColor = Color.PaleVioletRed; }
+                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = faftv.ForeColor; }
+                    else if (attrib_dir.HasFlag(FileAttributes.Hidden))                    { foreColor = Color.SkyBlue;   }
+                    else                                                                   { foreColor = Color.Magenta;   }
                 }
                 else if (File.Exists(path))
                 {
                     //SET COLOR BY ATTRIB
                     FileAttributes attrib_dir = File.GetAttributes(path);
-                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.MediumPurple;  }
-                    else if (attrib_dir.HasFlag(FileAttributes.Hidden))                    { foreColor = Color.SkyBlue;       }
-                    else                                                                   { foreColor = Color.PaleVioletRed; }
+                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = faftv.ForeColor; }
+                    else if (attrib_dir.HasFlag(FileAttributes.Hidden))                    { foreColor = Color.SkyBlue;   }
+                    else                                                                   { foreColor = Color.Magenta;   }
                 }
                 else { e.Node.Remove(); return; }
 
@@ -4826,8 +4963,13 @@ namespace fapmap
             
             new Thread(() =>
             {
-                links.Items[index].SubItems[2].Text = get_html_title(links.Items[index].Name);
-                links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                string text = get_html_title(url);
+
+                this.Invoke((MethodInvoker)delegate
+                {
+                    links.Items[index].SubItems[2].Text = text;
+                    links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                });
             })
             { IsBackground = true }.Start();
 
@@ -4923,35 +5065,43 @@ namespace fapmap
             if (links.Length > 1) { foreach (string line in links) { links_add(line); } }
             else { links_add(text); }
         }
-        private void links_del()
+        private void links_delete()
         {
             string file = GlobalVariables.Path.File.Links;
             if (!string.IsNullOrEmpty(links_filePath)) { file = links_filePath; }
-
+            
+            List<string> linesToDelete = new List<string>();
             foreach (ListViewItem item in links.SelectedItems)
             {
-                string line = null;
-                string line_to_delete = item.Name;
+                string text = item.Name;
+                if (string.IsNullOrEmpty(text)) { continue; }
 
-                using (StreamReader reader = new StreamReader(file))
+                links.Items.Remove(item);
+                favicons.Images.RemoveByKey(item.ImageKey);
+                linesToDelete.Add(text);
+            }
+            
+            string tempFile = GlobalVariables.Path.Dir.Cache + "\\links.tmp";
+
+            using (var sr = new StreamReader(file, System.Text.Encoding.UTF8))
+            using (var sw = new StreamWriter(tempFile, false, System.Text.Encoding.UTF8))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
                 {
-                    using (StreamWriter writer = new StreamWriter(GlobalVariables.Path.Dir.Main + "\\links_inuse.dll"))
+                    if (linesToDelete.Contains(line))
                     {
-                        while ((line = reader.ReadLine()) != null)
-                        {
-                            if (String.Compare(line, line_to_delete) == 0)
-                            {
-                                links.Items.Remove(item);
-                                favicons.Images.RemoveByKey(item.ImageKey);
-                                continue;
-                            }
-                            writer.WriteLine(line);
-                        }
+                        LogThis(fapmap.GlobalVariables.LOG_TYPE.UDEL, line);
+                    }
+                    else
+                    {
+                        sw.WriteLine(line);
                     }
                 }
-                File.Replace(GlobalVariables.Path.Dir.Main + "\\links_inuse.dll", file, null);
-                LogThis(fapmap.GlobalVariables.LOG_TYPE.UDEL, line_to_delete);
             }
+
+            File.Delete(file);
+            File.Move(tempFile, file);
         }
         private void links_comment()
         {
@@ -4965,7 +5115,7 @@ namespace fapmap
                 if (string.IsNullOrEmpty(text)) { continue; }
                 if (text.StartsWith(GlobalVariables.Settings.Common.Comment)) { continue; }
 
-                string[] lines = fapmap.SafeReadLines(file);
+                string[] lines = fapmap.SafeReadLines(file).ToArray();
 
                 using (FileStream fs = new FileStream(file, FileMode.Open))
                 {
@@ -5010,7 +5160,7 @@ namespace fapmap
                     continue;
                 }
 
-                string[] lines = fapmap.SafeReadLines(links_filePath);
+                string[] lines = fapmap.SafeReadLines(links_filePath).ToArray();
 
                 using (FileStream fs = new FileStream(links_filePath, FileMode.Open))
                 {
@@ -5082,7 +5232,7 @@ namespace fapmap
             {
                 case Keys.Escape: links.SelectedItems.Clear(); links.FocusedItem.Focused = false; e.Handled = true; e.SuppressKeyPress = true; break;
                 case Keys.Enter:  links_start();                                                  e.Handled = true; e.SuppressKeyPress = true; break;
-                case Keys.Delete: links_del();                                                    e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Delete: links_delete();                                                 e.Handled = true; e.SuppressKeyPress = true; break;
                 case Keys.F5:     links_reload(GlobalVariables.Path.File.Links);                  e.Handled = true; e.SuppressKeyPress = true; break;
             }
             if (e.Control)
@@ -5100,7 +5250,7 @@ namespace fapmap
                     case Keys.F: links_find(); break;
                     case Keys.B: new fapmap_board().Show(); break;
                     case Keys.C: links_copy(); break;
-                    case Keys.X: links_copy(); links_del(); break;
+                    case Keys.X: links_copy(); links_delete(); break;
                     case Keys.V: links_paste(); break;
                     case Keys.E: links_edit(); break;
                 }
@@ -5204,7 +5354,7 @@ namespace fapmap
         private void links_RMB_cut_Click(object sender, EventArgs e)
         {
             links_copy();
-            links_del();
+            links_delete();
         }
         private void links_RMB_paste_Click(object sender, EventArgs e)
         {
@@ -5212,7 +5362,7 @@ namespace fapmap
         }
         private void links_RMB_delete_Click(object sender, EventArgs e)
         {
-            links_del();
+            links_delete();
         }
         private void links_RMB_find_Click(object sender, EventArgs e)
         {

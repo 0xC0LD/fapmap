@@ -19,7 +19,7 @@ namespace fapmap
         {
             InitializeComponent();
 
-            txt_output_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
+            txt_output_RMB.Renderer = new fapmap_res.FapMapColors.FapMapToolStripRenderer(Color.FromArgb(128, 128, 255));
         }
 
         public string pass_path = string.Empty;
@@ -97,7 +97,7 @@ namespace fapmap
                     {
                         label_status.Text = "Searching...";
                         txt_output.Text = "";
-                        btn_find.BackgroundImage = Properties.Resources.close;
+                        btn_find.BackgroundImage = Properties.Resources.close_hotpink;
                     });
 
                     // ffmpeg
@@ -120,7 +120,7 @@ namespace fapmap
                     this.Invoke((MethodInvoker)delegate
                     {
                         label_status.Text = "Done!";
-                        btn_find.BackgroundImage = Properties.Resources.find;
+                        btn_find.BackgroundImage = Properties.Resources.find_hotpink;
                     });
                     
 
@@ -165,7 +165,7 @@ namespace fapmap
         }
         private void txt_path_TextChanged(object sender, EventArgs e)
         {
-            txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.SkyBlue : Color.PaleVioletRed;
+            txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.HotPink : Color.Magenta;
         }
 
         private void txt_output_TextChanged(object sender, EventArgs e)

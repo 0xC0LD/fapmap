@@ -16,18 +16,22 @@
 #
 # ======[ SITE ]======
 #
+SITE|DuckDuckGo|https://duckduckgo.com
 SITE|Google|https://www.google.com
 SITE|xVideos|https://www.xvideos.com
 SITE|PornHub|https://www.pornhub.com
+SITE|REDTUBE|https://www.redtube.com
 SITE|xHamster|https://xhamster.com
 SITE|YouPorn|https://www.youporn.com
 SITE|YouJizz|https://www.youjizz.com
 SITE|Spankbang|https://www.spankbang.com
 SITE|nHentai|https://nhentai.net
-SITE|oHentai|https://ohentai.org/
+SITE|oHentai|https://ohentai.org
 SITE|Hentai Dude|https://hentaidude.com
-SITE|NEWGROUNDS|https://www.newgrounds.com/
+SITE|NEWGROUNDS|https://www.newgrounds.com
+SITE|The Booru Project|https://booru.org/top
 SITE|Gelbooru|https://gelbooru.com
+SITE|Danbooru|https://kagamihara.donmai.us
 SITE|Rule34 XXX|https://rule34.xxx/index.php?page=post&s=list&tags=all
 SITE|Rule34 Paheal|https://rule34.paheal.net/post/list/1
 SITE|Rule34 Hentai|https://rule34hentai.net/post/list/1
@@ -35,17 +39,17 @@ SITE|MUCHoHENTAI|https://muchohentai.com
 SITE|Sankaku Complex|https://www.sankakucomplex.com/?pg=X
 SITE|Hentai Foundry|https://www.hentai-foundry.com/?enterAgree=1
 SITE|Image Fap|https://www.imagefap.com
-SITE|3D Hentai Video|https://www.3dhentaivideo.com
 SITE|G-E Hentai Gallery|https://e-hentai.org
+SITE|G-E Hentai Gallery (Sad Panda)|https://exhentai.org
 #
 # ======[ NLIO ]======
 #
 NLIO|XNXX|https://www.xnxx.com
 NLIO|Hentai Haven|https://hentaihaven.org
-NLIO|oHentai|https://ohentai.org
 NLIO|Overwatch Porn|https://overwatchporn.xxx
 NLIO|/b/|https://boards.4chan.org/b
 NLIO|/gif/|https://boards.4chan.org/gif
+NLIO|/d/|https://boards.4chan.org/d
 NLIO|/s/|https://boards.4chan.org/s
 NLIO|/h/|https://boards.4chan.org/h
 NLIO|Hitomi|https://hitomi.la

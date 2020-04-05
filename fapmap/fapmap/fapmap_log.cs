@@ -20,7 +20,7 @@ namespace fapmap
         {
             InitializeComponent();
 
-            logs_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
+            logs_RMB.Renderer = new fapmap_res.FapMapColors.FapMapToolStripRenderer(Color.FromArgb(128, 128, 255));
         }
 
         private void fapmap_log_Load(object sender, EventArgs e)
@@ -68,7 +68,7 @@ namespace fapmap
                         case fapmap.GlobalVariables.LOG_TYPE.RMVD: lvi.ForeColor = Color.IndianRed;     break;
                         case fapmap.GlobalVariables.LOG_TYPE.UDEL: lvi.ForeColor = Color.PaleVioletRed; break;
                         case fapmap.GlobalVariables.LOG_TYPE.PASS: lvi.ForeColor = Color.Crimson;       break;
-                        case fapmap.GlobalVariables.LOG_TYPE.FAIL: lvi.ForeColor = Color.PaleVioletRed;    break;
+                        case fapmap.GlobalVariables.LOG_TYPE.FAIL: lvi.ForeColor = Color.Magenta;       break;
                         default: lvi.ForeColor = Color.Silver; break;
                     }
                     items.Add(lvi);

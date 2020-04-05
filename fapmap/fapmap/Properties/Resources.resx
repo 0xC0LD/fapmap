@@ -328,4 +328,139 @@
   <data name="gelbooru" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images\gelbooru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="arrow_down_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\arrow_down_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_left_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\arrow_left_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_right_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\arrow_right_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_up_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\arrow_up_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="close_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\close_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\delete_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="explorer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\explorer.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="explorer_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\explorer_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="home_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\home_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="newFolder_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\newFolder_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="open_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\open_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="refresh_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\refresh_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="rename_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\rename_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="restart_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\restart_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="selectFolder_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\selectFolder_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settings_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\settings_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="picture" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\picture.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_down_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\arrow_down_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="dragNdrop_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\dragNdrop_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="incognito_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\incognito_turquoise..png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="play_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\play_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow_down_skyblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\arrow_down_skyblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="copy_skyblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\copy_skyblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="picture_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\picture_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="board_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\board_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="comment_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\comment_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="copy_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\copy_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="cut_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\cut_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\delete_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="downloadFile_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\downloadFile_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="downloadVideo_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\downloadVideo_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="edit_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\edit_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="find_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\find_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="open_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\open_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="paste_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\paste_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="restart_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\restart_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="scanPage_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\scanPage_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="uncomment_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\uncomment_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="selectFolder_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\selectFolder_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="close_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\close_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="explorer_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\explorer_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="treeView_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\treeView_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="find_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\find_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="treeView_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\treeView_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settings_turquoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\settings_turquoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

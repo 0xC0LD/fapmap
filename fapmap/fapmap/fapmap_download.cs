@@ -26,7 +26,7 @@ namespace fapmap
         {
             InitializeComponent();
             
-            links_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
+            links_RMB.Renderer = new fapmap_res.FapMapColors.FapMapToolStripRenderer(Color.Turquoise);
 
             client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(client_DownloadProgressChanged);
             client.DownloadFileCompleted += new AsyncCompletedEventHandler(client_DownloadFileCompleted);
@@ -383,15 +383,15 @@ namespace fapmap
             if (download_busy) { return true; }
             download_busy = true;
             
-            info.ForeColor = Color.SteelBlue;
-            info.Text = "Checking URL...";
-
             if (links.Items.Count == 0)
             {
-                info.ForeColor = Color.SteelBlue;
-                info.Text = "No items in listbox...";
+                // info.ForeColor = Color.Turquoise;
+                // info.Text = "No items in listbox...";
                 return false;
             }
+
+            info.ForeColor = Color.Turquoise;
+            info.Text = "Checking URL...";
 
             if (listItem == null) { listItem = links.Items[0]; }
             string name = listItem.SubItems[1].Text;
@@ -420,7 +420,7 @@ namespace fapmap
                 return false;
             }
 
-            info.ForeColor = Color.SteelBlue;
+            info.ForeColor = Color.Turquoise;
             info.Text = "Checking if file already exists...";
 
             int downloadMode = 0;
@@ -467,7 +467,7 @@ namespace fapmap
                     }
                 case 3:
                     {
-                        info.ForeColor = Color.SteelBlue;
+                        info.ForeColor = Color.Turquoise;
                         info.Text = "Skipped!";
                         return false; //break;
                     }
@@ -484,13 +484,13 @@ namespace fapmap
             txt_dledURL.Text = link;
             txt_dledPATH.Text = path;
 
-            info.ForeColor = Color.SteelBlue;
+            info.ForeColor = Color.Turquoise;
             info.Text = "Downloading... ";
 
             // last setup
             pbar.Visible = true;
             updateIcon(true);
-            btn_dl.BackgroundImage = Properties.Resources.close;
+            btn_dl.BackgroundImage = Properties.Resources.close_turquoise;
             
             //LOG IT
             fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.DING, link + " -> " + path);
@@ -500,10 +500,10 @@ namespace fapmap
                 //DOWNLOAD
                 client.DownloadFileAsync(new Uri(link), path);
             }
-            catch (ArgumentException e) { info.ForeColor = Color.PaleVioletRed; info.Text = e.Message; return false; }
-            catch (WebException e) { info.ForeColor = Color.PaleVioletRed; info.Text = e.Message; return false; }
+            catch (ArgumentException e)         { info.ForeColor = Color.PaleVioletRed; info.Text = e.Message; return false; }
+            catch (WebException e)              { info.ForeColor = Color.PaleVioletRed; info.Text = e.Message; return false; }
             catch (InvalidOperationException e) { info.ForeColor = Color.PaleVioletRed; info.Text = e.Message; return false; }
-            catch (Exception e) { info.ForeColor = Color.PaleVioletRed; info.Text = e.Message; return false; }
+            catch (Exception e)                 { info.ForeColor = Color.PaleVioletRed; info.Text = e.Message; return false; }
             return true;
         }
         
@@ -515,11 +515,13 @@ namespace fapmap
 
         DateTime lastUpdate;
         long lastBytes = 0;
+        long bytes_current = 0;
+        long bytes_total   = 0;
         private void client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
             //main
-            long bytes_current = e.BytesReceived;
-            long bytes_total = e.TotalBytesToReceive;
+            bytes_current = e.BytesReceived;
+            bytes_total   = e.TotalBytesToReceive;
             
             // speed
             if (lastBytes == 0)
@@ -547,20 +549,33 @@ namespace fapmap
         }
         private void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
+            bool failed = false;
+            if (e.Cancelled || bytes_current != bytes_total) { failed = true; }
+
             fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.DLED, txt_dledURL.Text + " -> " + txt_dledPATH.Text);
             
-            info.ForeColor = Color.SpringGreen;
-            pbar.Visible = false;
-            pbar.Value = 0;
+            if (failed)
+            {
+                info.ForeColor = Color.PaleVioletRed;
+            }
+            else
+            {
+                info.ForeColor = Color.Lime;
+
+                // hide and reset bar
+                pbar.Visible = false;
+                pbar.Value = 0;
+            }
+            
             links_updateCount(links.Items.Count);
             updateIcon(false);
-            btn_dl.BackgroundImage = Properties.Resources.download;
+            btn_dl.BackgroundImage = Properties.Resources.downloadFile_turquoise;
             
-            if (!e.Cancelled && links.Items.Count == 0)
+            if (!failed && links.Items.Count == 0)
             {
-                     if (rb_shutdown.Checked) { shutdownPC(); QuitFapmap(); }
-                else if (rb_exit.Checked)     { QuitFapmap(); }
-                else if (rb_close.Checked)    { this.Close(); }
+                if (rb_shutdown.Checked) { shutdownPC(); QuitFapmap(); }
+                else if (rb_exit.Checked) { QuitFapmap(); }
+                else if (rb_close.Checked) { this.Close(); }
             }
 
             download_busy = false;
@@ -570,61 +585,6 @@ namespace fapmap
 
         #region other
         
-        private void openDownloadedFile()
-        {
-            if (!string.IsNullOrEmpty(txt_dledPATH.Text))
-            {
-                if (File.Exists(txt_dledPATH.Text))
-                {
-                    if (fapmap.Open(txt_dledPATH.Text))
-                    {
-                        info.ForeColor = Color.SpringGreen;
-                        info.Text = "File opened.";
-                    }
-                    else
-                    {
-                        info.ForeColor = Color.PaleVioletRed;
-                        info.Text = "File Not Found!";
-                    }
-                }
-            }
-        }
-        private void openDownloadedFileInExplorer()
-        {
-            if (!string.IsNullOrEmpty(txt_dledPATH.Text))
-            {
-                if (File.Exists(txt_dledPATH.Text))
-                {
-                    if (fapmap.OpenAndSelectInExplorer(txt_dledPATH.Text))
-                    {
-                        info.ForeColor = Color.SpringGreen;
-                        info.Text = "Opened explorer and selected the file.";
-                    }
-                    else
-                    {
-                        info.ForeColor = Color.PaleVioletRed;
-                        info.Text = "File Not Found!";
-                    }
-                }
-            }
-        }
-        private void openDownloadedURL()
-        {
-            if (!string.IsNullOrEmpty(txt_dledURL.Text))
-            {
-                if (fapmap.Incognito(txt_dledURL.Text))
-                {
-                    info.ForeColor = Color.SpringGreen;
-                    info.Text = "URL opened.";
-                }
-                else
-                {
-                    info.ForeColor = Color.PaleVioletRed;
-                    info.Text = "Failed to open URL.";
-                }
-            }
-        }
-
         private bool IsPathValid(string path)
         {
             Regex driveCheck = new Regex(@"^[a-zA-Z]:\\$");
@@ -706,9 +666,9 @@ namespace fapmap
 
                     this.Invoke((MethodInvoker)delegate
                     {
-                        info.ForeColor = Color.SteelBlue;
+                        info.ForeColor = Color.Turquoise;
                         info.Text = "Scanning web page for URLs...";
-                        btn_webgrabStart.BackgroundImage = Properties.Resources.close;
+                        btn_webgrabStart.BackgroundImage = Properties.Resources.close_turquoise;
                     });
                     
                     webgrab_outputLinks.Clear();
@@ -734,9 +694,9 @@ namespace fapmap
 
                     this.Invoke((MethodInvoker)delegate
                     {
-                        info.ForeColor = Color.SpringGreen;
+                        info.ForeColor = Color.Lime;
                         info.Text = "Done!";
-                        btn_webgrabStart.BackgroundImage = Properties.Resources.scanPage;
+                        btn_webgrabStart.BackgroundImage = Properties.Resources.scanPage_turquoise;
                     });
                     
                     webgrab_busy = false;
@@ -777,15 +737,14 @@ namespace fapmap
         }
         private void btn_openURL_Click(object sender, EventArgs e)
         {
-             openDownloadedURL();
-        }
-        private void btn_selectFileInExplorer_Click(object sender, EventArgs e)
-        {
-            openDownloadedFileInExplorer();
+            if (!string.IsNullOrEmpty(txt_dledURL.Text))
+            {
+                fapmap.Incognito(txt_dledURL.Text);
+            }
         }
         private void btn_openFile_Click(object sender, EventArgs e)
         {
-            openDownloadedFile();
+            fapmap.OpenProperties(txt_dledPATH.Text);
         }
 
         #endregion
@@ -848,7 +807,7 @@ namespace fapmap
             if (e.KeyCode == Keys.Enter)
             {
                 txt_filename.ReadOnly = true;
-                txt_filename.ForeColor = Color.DimGray;
+                txt_filename.ForeColor = Color.Turquoise;
 
                 e.Handled = true;
                 e.SuppressKeyPress = true;
@@ -918,7 +877,7 @@ namespace fapmap
             if (txt_dir.Text.Contains("\r")) { txt_dir.Text = txt_dir.Text.Replace("\r", String.Empty); }
             if (txt_dir.Text.Contains("\t")) { txt_dir.Text = txt_dir.Text.Replace("\t", String.Empty); }
 
-            txt_dir.ForeColor = Directory.Exists(txt_dir.Text) ? Color.MediumPurple : Color.Red;
+            txt_dir.ForeColor = Directory.Exists(txt_dir.Text) ? Color.Turquoise : Color.PaleVioletRed;
         }
         ListViewItem links_selected = null;
         private void txt_filename_TextChanged(object sender, EventArgs e)
@@ -930,7 +889,7 @@ namespace fapmap
             if (links_selected == null)
             {
                 txt_filename.ReadOnly = true;
-                txt_filename.ForeColor = Color.DimGray;
+                txt_filename.ForeColor = Color.Turquoise;
             }
             else
             {
@@ -1096,13 +1055,13 @@ namespace fapmap
             {
                 //UNSELECT
                 txt_filename.ReadOnly = true;
-                txt_filename.ForeColor = Color.SlateBlue;
+                txt_filename.ForeColor = Color.Turquoise;
             }
             else
             {
                 //SELECT
                 txt_filename.ReadOnly = false;
-                txt_filename.ForeColor = Color.CornflowerBlue;
+                txt_filename.ForeColor = Color.Turquoise;
 
                 foreach (ListViewItem item in links.SelectedItems)
                 {
@@ -1136,7 +1095,7 @@ namespace fapmap
         private void btn_dragOutURL_MouseDown(object sender, MouseEventArgs e)
         {
             if (!string.IsNullOrEmpty(txt_dledURL.Text))
-            { this.links.DoDragDrop(new DataObject(DataFormats.StringFormat, txt_dledURL.Text), DragDropEffects.Copy); }
+            { this.txt_dledURL.DoDragDrop(new DataObject(DataFormats.StringFormat, txt_dledURL.Text), DragDropEffects.Copy); }
         }
 
         private void btn_dragOutFilePath_DragOver(object sender, DragEventArgs e)
@@ -1146,7 +1105,7 @@ namespace fapmap
         private void btn_dragOutFilePath_MouseDown(object sender, MouseEventArgs e)
         {
             if (!string.IsNullOrEmpty(txt_dledPATH.Text))
-            { this.links.DoDragDrop(new DataObject(DataFormats.StringFormat, txt_dledPATH.Text), DragDropEffects.Copy); }
+            { this.txt_dledPATH.DoDragDrop(new DataObject(DataFormats.StringFormat, txt_dledPATH.Text), DragDropEffects.Copy); }
         }
 
         #endregion

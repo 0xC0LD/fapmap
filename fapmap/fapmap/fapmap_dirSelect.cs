@@ -18,7 +18,7 @@ namespace fapmap
         {
             InitializeComponent();
 
-            treeView_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
+            treeView_RMB.Renderer = new fapmap_res.FapMapColors.FapMapToolStripRenderer(Color.HotPink);
         }
         
         public string outPath = string.Empty;
@@ -55,8 +55,19 @@ namespace fapmap
         }
         private TreeNode createDirNode(DirectoryInfo di)
         {
-            TreeNode node_dir = new TreeNode() { Text = di.Name, Name = di.FullName, ImageIndex = 0, SelectedImageIndex = 0 };
-            foreach (DirectoryInfo directory in di.GetDirectories()) { node_dir.Nodes.Add(createDirNode(directory)); }
+            TreeNode node_dir = new TreeNode()
+            { Text = di.Name, Name = di.FullName, ImageIndex = 0, SelectedImageIndex = 0 };
+
+            DirectoryInfo[] dirs = di.GetDirectories();
+
+            if (fapmap.GlobalVariables.Settings.CheckBoxes.TreeViewSortByCreationDate)
+            {
+                dirs = dirs.OrderBy(p => p.CreationTime).ToArray();
+            }
+            
+            foreach (DirectoryInfo directory in dirs)
+            { node_dir.Nodes.Add(createDirNode(directory)); }
+            
             return node_dir;
         }
         
@@ -146,7 +157,7 @@ namespace fapmap
 
         private void txt_path_TextChanged(object sender, EventArgs e)
         {
-            txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.MediumPurple : Color.PaleVioletRed;
+            txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.HotPink : Color.Magenta;
         }
 
         private void treeView_DrawNode(object sender, DrawTreeNodeEventArgs e)
@@ -165,9 +176,9 @@ namespace fapmap
                 {
                     //SET COLOR BY ATTRIB
                     FileAttributes attrib_dir = File.GetAttributes(path);
-                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = Color.MediumPurple; }
-                    else if (attrib_dir.HasFlag(FileAttributes.Hidden)) { foreColor = Color.SteelBlue; }
-                    else { foreColor = Color.PaleVioletRed; }
+                    if (attrib_dir.HasFlag(FileAttributes.System | FileAttributes.Hidden)) { foreColor = treeView.ForeColor; }
+                    else if (attrib_dir.HasFlag(FileAttributes.Hidden))                    { foreColor = Color.SkyBlue;      }
+                    else                                                                   { foreColor = Color.Magenta;      }
                 }
                 else { e.Node.Remove(); return; }
 

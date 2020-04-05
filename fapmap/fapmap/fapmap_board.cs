@@ -19,7 +19,7 @@ namespace fapmap
         {
             InitializeComponent();
 
-            board_RMB.Renderer = new fapmap_res.FapMapColors.fToolStripProfessionalRenderer();
+            board_RMB.Renderer = new fapmap_res.FapMapColors.FapMapToolStripRenderer(Color.FromArgb(128, 128, 255));
         }
         
         private void fapmap_board_Load(object sender, EventArgs e)

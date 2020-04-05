@@ -70,5 +70,21 @@ namespace fapmap
         {
             cancel();
         }
+
+        private void txt_input_DragEnter(object sender, DragEventArgs e)
+        {
+            if ((e.AllowedEffect & System.Windows.Forms.DragDropEffects.All) != 0 && e.Data.GetDataPresent(typeof(string)))
+            {
+                e.Effect = System.Windows.Forms.DragDropEffects.All;
+            }
+        }
+        private void txt_input_DragDrop(object sender, DragEventArgs e)
+        {
+            string str = e.Data.GetData(typeof(string)) as string;
+            str = str.Replace("\n", String.Empty);
+            str = str.Replace("\r", String.Empty);
+            str = str.Replace("\t", String.Empty);
+            txt_input.Text = str;
+        }
     }
 }

@@ -243,6 +243,16 @@ namespace fapmap.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap browser_hotpink {
+            get {
+                object obj = ResourceManager.GetObject("browser_hotpink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap browser_opera {
             get {
                 object obj = ResourceManager.GetObject("browser_opera", resourceCulture);
@@ -256,6 +266,26 @@ namespace fapmap.Properties {
         internal static System.Drawing.Bitmap check {
             get {
                 object obj = ResourceManager.GetObject("check", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap check_hotpink {
+            get {
+                object obj = ResourceManager.GetObject("check_hotpink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap check_turquoise {
+            get {
+                object obj = ResourceManager.GetObject("check_turquoise", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -879,6 +909,16 @@ namespace fapmap.Properties {
         internal static System.Drawing.Bitmap incognito {
             get {
                 object obj = ResourceManager.GetObject("incognito", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap incognito_hotpink {
+            get {
+                object obj = ResourceManager.GetObject("incognito_hotpink", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

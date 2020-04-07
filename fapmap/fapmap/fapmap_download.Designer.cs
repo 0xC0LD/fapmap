@@ -43,12 +43,14 @@
             this.cb_auto = new System.Windows.Forms.CheckBox();
             this.rb_null = new System.Windows.Forms.RadioButton();
             this.rb_shutdown = new System.Windows.Forms.RadioButton();
-            this.cb_conflict_skip = new System.Windows.Forms.CheckBox();
             this.rb_exit = new System.Windows.Forms.RadioButton();
-            this.cb_conflict_rename = new System.Windows.Forms.CheckBox();
             this.rb_close = new System.Windows.Forms.RadioButton();
-            this.cb_conflict_replace = new System.Windows.Forms.CheckBox();
             this.cb_nonFile = new System.Windows.Forms.CheckBox();
+            this.cb_autoRetry = new System.Windows.Forms.CheckBox();
+            this.cb_conflict_skip = new System.Windows.Forms.RadioButton();
+            this.cb_conflict_rename = new System.Windows.Forms.RadioButton();
+            this.cb_conflict_replace = new System.Windows.Forms.RadioButton();
+            this.cb_conflict_ask = new System.Windows.Forms.RadioButton();
             this.links_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.links_RMB_refresh = new System.Windows.Forms.ToolStripMenuItem();
             this.links_RMB_download = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,6 +67,8 @@
             this.txt_dledURL_border = new fapmap_res.FapMapPanel();
             this.txt_dledURL = new System.Windows.Forms.TextBox();
             this.fapMapPanel1 = new fapmap_res.FapMapPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.label_linksCount = new System.Windows.Forms.Label();
             this.panel_info_border = new fapmap_res.FapMapPanel();
             this.panel_info = new System.Windows.Forms.Panel();
@@ -89,6 +93,8 @@
             this.txt_dledPATH_border.SuspendLayout();
             this.txt_dledURL_border.SuspendLayout();
             this.fapMapPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panel_info_border.SuspendLayout();
             this.panel_info.SuspendLayout();
             this.txt_filename_border.SuspendLayout();
@@ -333,19 +339,19 @@
             this.rb_null.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
             this.rb_null.Checked = true;
             this.rb_null.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rb_null.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
-            this.rb_null.FlatAppearance.CheckedBackColor = System.Drawing.Color.Teal;
-            this.rb_null.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Teal;
-            this.rb_null.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Teal;
+            this.rb_null.FlatAppearance.BorderColor = System.Drawing.Color.LawnGreen;
+            this.rb_null.FlatAppearance.CheckedBackColor = System.Drawing.Color.LawnGreen;
+            this.rb_null.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LawnGreen;
+            this.rb_null.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LawnGreen;
             this.rb_null.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rb_null.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rb_null.ForeColor = System.Drawing.Color.Teal;
-            this.rb_null.Location = new System.Drawing.Point(3, 15);
+            this.rb_null.ForeColor = System.Drawing.Color.LawnGreen;
+            this.rb_null.Location = new System.Drawing.Point(1, 1);
             this.rb_null.Name = "rb_null";
             this.rb_null.Size = new System.Drawing.Size(10, 10);
             this.rb_null.TabIndex = 11;
             this.rb_null.TabStop = true;
-            this.HelpBalloon.SetToolTip(this.rb_null, "Do nothing... After all downloads have finished");
+            this.HelpBalloon.SetToolTip(this.rb_null, "After all downloads have finished: Do nothing...");
             this.rb_null.UseCompatibleTextRendering = true;
             this.rb_null.UseVisualStyleBackColor = false;
             // 
@@ -362,35 +368,13 @@
             this.rb_shutdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rb_shutdown.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.rb_shutdown.ForeColor = System.Drawing.Color.Magenta;
-            this.rb_shutdown.Location = new System.Drawing.Point(3, 48);
+            this.rb_shutdown.Location = new System.Drawing.Point(1, 34);
             this.rb_shutdown.Name = "rb_shutdown";
             this.rb_shutdown.Size = new System.Drawing.Size(10, 10);
             this.rb_shutdown.TabIndex = 13;
-            this.HelpBalloon.SetToolTip(this.rb_shutdown, "Shutdown PC... After all downloads have finished");
+            this.HelpBalloon.SetToolTip(this.rb_shutdown, "After all downloads have finished: shutdown PC");
             this.rb_shutdown.UseCompatibleTextRendering = true;
             this.rb_shutdown.UseVisualStyleBackColor = false;
-            // 
-            // cb_conflict_skip
-            // 
-            this.cb_conflict_skip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_conflict_skip.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cb_conflict_skip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.cb_conflict_skip.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_conflict_skip.FlatAppearance.BorderColor = System.Drawing.Color.YellowGreen;
-            this.cb_conflict_skip.FlatAppearance.CheckedBackColor = System.Drawing.Color.YellowGreen;
-            this.cb_conflict_skip.FlatAppearance.MouseDownBackColor = System.Drawing.Color.YellowGreen;
-            this.cb_conflict_skip.FlatAppearance.MouseOverBackColor = System.Drawing.Color.YellowGreen;
-            this.cb_conflict_skip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_conflict_skip.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cb_conflict_skip.ForeColor = System.Drawing.Color.YellowGreen;
-            this.cb_conflict_skip.Location = new System.Drawing.Point(51, 2);
-            this.cb_conflict_skip.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.cb_conflict_skip.Name = "cb_conflict_skip";
-            this.cb_conflict_skip.Size = new System.Drawing.Size(15, 15);
-            this.cb_conflict_skip.TabIndex = 15;
-            this.HelpBalloon.SetToolTip(this.cb_conflict_skip, "Automatically skip URL, if file exists...");
-            this.cb_conflict_skip.UseVisualStyleBackColor = false;
-            this.cb_conflict_skip.CheckedChanged += new System.EventHandler(this.cb_skip_CheckedChanged);
             // 
             // rb_exit
             // 
@@ -405,35 +389,13 @@
             this.rb_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rb_exit.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.rb_exit.ForeColor = System.Drawing.Color.PaleVioletRed;
-            this.rb_exit.Location = new System.Drawing.Point(3, 37);
+            this.rb_exit.Location = new System.Drawing.Point(1, 23);
             this.rb_exit.Name = "rb_exit";
             this.rb_exit.Size = new System.Drawing.Size(10, 10);
             this.rb_exit.TabIndex = 14;
-            this.HelpBalloon.SetToolTip(this.rb_exit, "Exit FapMap... After all downloads have finished");
+            this.HelpBalloon.SetToolTip(this.rb_exit, "After all downloads have finished: exit FapMap");
             this.rb_exit.UseCompatibleTextRendering = true;
             this.rb_exit.UseVisualStyleBackColor = false;
-            // 
-            // cb_conflict_rename
-            // 
-            this.cb_conflict_rename.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_conflict_rename.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cb_conflict_rename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.cb_conflict_rename.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_conflict_rename.FlatAppearance.BorderColor = System.Drawing.Color.LightBlue;
-            this.cb_conflict_rename.FlatAppearance.CheckedBackColor = System.Drawing.Color.LightBlue;
-            this.cb_conflict_rename.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightBlue;
-            this.cb_conflict_rename.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
-            this.cb_conflict_rename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_conflict_rename.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cb_conflict_rename.ForeColor = System.Drawing.Color.LightBlue;
-            this.cb_conflict_rename.Location = new System.Drawing.Point(19, 2);
-            this.cb_conflict_rename.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.cb_conflict_rename.Name = "cb_conflict_rename";
-            this.cb_conflict_rename.Size = new System.Drawing.Size(15, 15);
-            this.cb_conflict_rename.TabIndex = 17;
-            this.HelpBalloon.SetToolTip(this.cb_conflict_rename, "Automatically rename file, if file exists...");
-            this.cb_conflict_rename.UseVisualStyleBackColor = false;
-            this.cb_conflict_rename.CheckedChanged += new System.EventHandler(this.cb_rename_CheckedChanged);
             // 
             // rb_close
             // 
@@ -448,35 +410,13 @@
             this.rb_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rb_close.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.rb_close.ForeColor = System.Drawing.Color.DeepPink;
-            this.rb_close.Location = new System.Drawing.Point(3, 26);
+            this.rb_close.Location = new System.Drawing.Point(1, 12);
             this.rb_close.Name = "rb_close";
             this.rb_close.Size = new System.Drawing.Size(10, 10);
             this.rb_close.TabIndex = 12;
-            this.HelpBalloon.SetToolTip(this.rb_close, "Close downloader... After all downloads have finished");
+            this.HelpBalloon.SetToolTip(this.rb_close, "After all downloads have finished: close downloader");
             this.rb_close.UseCompatibleTextRendering = true;
             this.rb_close.UseVisualStyleBackColor = false;
-            // 
-            // cb_conflict_replace
-            // 
-            this.cb_conflict_replace.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_conflict_replace.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cb_conflict_replace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.cb_conflict_replace.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_conflict_replace.FlatAppearance.BorderColor = System.Drawing.Color.DarkOrchid;
-            this.cb_conflict_replace.FlatAppearance.CheckedBackColor = System.Drawing.Color.DarkOrchid;
-            this.cb_conflict_replace.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkOrchid;
-            this.cb_conflict_replace.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkOrchid;
-            this.cb_conflict_replace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_conflict_replace.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.cb_conflict_replace.ForeColor = System.Drawing.Color.DarkOrchid;
-            this.cb_conflict_replace.Location = new System.Drawing.Point(35, 2);
-            this.cb_conflict_replace.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.cb_conflict_replace.Name = "cb_conflict_replace";
-            this.cb_conflict_replace.Size = new System.Drawing.Size(15, 15);
-            this.cb_conflict_replace.TabIndex = 16;
-            this.HelpBalloon.SetToolTip(this.cb_conflict_replace, "Automatically replace file, if file exists...");
-            this.cb_conflict_replace.UseVisualStyleBackColor = false;
-            this.cb_conflict_replace.CheckedChanged += new System.EventHandler(this.cb_replace_CheckedChanged);
             // 
             // cb_nonFile
             // 
@@ -491,13 +431,120 @@
             this.cb_nonFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cb_nonFile.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.cb_nonFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.cb_nonFile.Location = new System.Drawing.Point(67, 2);
+            this.cb_nonFile.Location = new System.Drawing.Point(51, 2);
             this.cb_nonFile.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.cb_nonFile.Name = "cb_nonFile";
             this.cb_nonFile.Size = new System.Drawing.Size(15, 15);
             this.cb_nonFile.TabIndex = 19;
             this.HelpBalloon.SetToolTip(this.cb_nonFile, "Allow non-file urls (may crash application)");
             this.cb_nonFile.UseVisualStyleBackColor = false;
+            // 
+            // cb_autoRetry
+            // 
+            this.cb_autoRetry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_autoRetry.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_autoRetry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.cb_autoRetry.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_autoRetry.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cb_autoRetry.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cb_autoRetry.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cb_autoRetry.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cb_autoRetry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_autoRetry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_autoRetry.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cb_autoRetry.Location = new System.Drawing.Point(67, 2);
+            this.cb_autoRetry.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.cb_autoRetry.Name = "cb_autoRetry";
+            this.cb_autoRetry.Size = new System.Drawing.Size(15, 15);
+            this.cb_autoRetry.TabIndex = 20;
+            this.HelpBalloon.SetToolTip(this.cb_autoRetry, "Automatically retry download if download fails");
+            this.cb_autoRetry.UseVisualStyleBackColor = false;
+            // 
+            // cb_conflict_skip
+            // 
+            this.cb_conflict_skip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cb_conflict_skip.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_conflict_skip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.cb_conflict_skip.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_conflict_skip.FlatAppearance.BorderColor = System.Drawing.Color.Magenta;
+            this.cb_conflict_skip.FlatAppearance.CheckedBackColor = System.Drawing.Color.Magenta;
+            this.cb_conflict_skip.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Magenta;
+            this.cb_conflict_skip.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Magenta;
+            this.cb_conflict_skip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_conflict_skip.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_conflict_skip.ForeColor = System.Drawing.Color.Magenta;
+            this.cb_conflict_skip.Location = new System.Drawing.Point(1, 34);
+            this.cb_conflict_skip.Name = "cb_conflict_skip";
+            this.cb_conflict_skip.Size = new System.Drawing.Size(10, 10);
+            this.cb_conflict_skip.TabIndex = 13;
+            this.HelpBalloon.SetToolTip(this.cb_conflict_skip, "If a file already exists: skip it");
+            this.cb_conflict_skip.UseCompatibleTextRendering = true;
+            this.cb_conflict_skip.UseVisualStyleBackColor = false;
+            // 
+            // cb_conflict_rename
+            // 
+            this.cb_conflict_rename.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cb_conflict_rename.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_conflict_rename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.cb_conflict_rename.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_conflict_rename.FlatAppearance.BorderColor = System.Drawing.Color.DeepPink;
+            this.cb_conflict_rename.FlatAppearance.CheckedBackColor = System.Drawing.Color.DeepPink;
+            this.cb_conflict_rename.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DeepPink;
+            this.cb_conflict_rename.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepPink;
+            this.cb_conflict_rename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_conflict_rename.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_conflict_rename.ForeColor = System.Drawing.Color.DeepPink;
+            this.cb_conflict_rename.Location = new System.Drawing.Point(1, 12);
+            this.cb_conflict_rename.Name = "cb_conflict_rename";
+            this.cb_conflict_rename.Size = new System.Drawing.Size(10, 10);
+            this.cb_conflict_rename.TabIndex = 12;
+            this.HelpBalloon.SetToolTip(this.cb_conflict_rename, "If a file already exists: rename it");
+            this.cb_conflict_rename.UseCompatibleTextRendering = true;
+            this.cb_conflict_rename.UseVisualStyleBackColor = false;
+            // 
+            // cb_conflict_replace
+            // 
+            this.cb_conflict_replace.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cb_conflict_replace.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_conflict_replace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.cb_conflict_replace.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_conflict_replace.FlatAppearance.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.cb_conflict_replace.FlatAppearance.CheckedBackColor = System.Drawing.Color.PaleVioletRed;
+            this.cb_conflict_replace.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PaleVioletRed;
+            this.cb_conflict_replace.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleVioletRed;
+            this.cb_conflict_replace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_conflict_replace.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_conflict_replace.ForeColor = System.Drawing.Color.PaleVioletRed;
+            this.cb_conflict_replace.Location = new System.Drawing.Point(1, 23);
+            this.cb_conflict_replace.Name = "cb_conflict_replace";
+            this.cb_conflict_replace.Size = new System.Drawing.Size(10, 10);
+            this.cb_conflict_replace.TabIndex = 14;
+            this.HelpBalloon.SetToolTip(this.cb_conflict_replace, "If a file already exists: replace it");
+            this.cb_conflict_replace.UseCompatibleTextRendering = true;
+            this.cb_conflict_replace.UseVisualStyleBackColor = false;
+            // 
+            // cb_conflict_ask
+            // 
+            this.cb_conflict_ask.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cb_conflict_ask.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_conflict_ask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.cb_conflict_ask.Checked = true;
+            this.cb_conflict_ask.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_conflict_ask.FlatAppearance.BorderColor = System.Drawing.Color.LawnGreen;
+            this.cb_conflict_ask.FlatAppearance.CheckedBackColor = System.Drawing.Color.LawnGreen;
+            this.cb_conflict_ask.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LawnGreen;
+            this.cb_conflict_ask.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LawnGreen;
+            this.cb_conflict_ask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_conflict_ask.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_conflict_ask.ForeColor = System.Drawing.Color.LawnGreen;
+            this.cb_conflict_ask.Location = new System.Drawing.Point(1, 1);
+            this.cb_conflict_ask.Name = "cb_conflict_ask";
+            this.cb_conflict_ask.Size = new System.Drawing.Size(10, 10);
+            this.cb_conflict_ask.TabIndex = 11;
+            this.cb_conflict_ask.TabStop = true;
+            this.HelpBalloon.SetToolTip(this.cb_conflict_ask, "If a file already exists: prompt me");
+            this.cb_conflict_ask.UseCompatibleTextRendering = true;
+            this.cb_conflict_ask.UseVisualStyleBackColor = false;
             // 
             // links_RMB
             // 
@@ -672,14 +719,10 @@
             // 
             this.fapMapPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.fapMapPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.fapMapPanel1.Controls.Add(this.panel2);
+            this.fapMapPanel1.Controls.Add(this.panel1);
+            this.fapMapPanel1.Controls.Add(this.cb_autoRetry);
             this.fapMapPanel1.Controls.Add(this.cb_auto);
-            this.fapMapPanel1.Controls.Add(this.rb_null);
-            this.fapMapPanel1.Controls.Add(this.rb_shutdown);
-            this.fapMapPanel1.Controls.Add(this.cb_conflict_skip);
-            this.fapMapPanel1.Controls.Add(this.rb_exit);
-            this.fapMapPanel1.Controls.Add(this.cb_conflict_rename);
-            this.fapMapPanel1.Controls.Add(this.rb_close);
-            this.fapMapPanel1.Controls.Add(this.cb_conflict_replace);
             this.fapMapPanel1.Controls.Add(this.cb_nonFile);
             this.fapMapPanel1.Controls.Add(this.label_linksCount);
             this.fapMapPanel1.ForeColor = System.Drawing.Color.Turquoise;
@@ -688,6 +731,28 @@
             this.fapMapPanel1.Size = new System.Drawing.Size(100, 60);
             this.fapMapPanel1.TabIndex = 171;
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.cb_conflict_skip);
+            this.panel2.Controls.Add(this.cb_conflict_rename);
+            this.panel2.Controls.Add(this.cb_conflict_replace);
+            this.panel2.Controls.Add(this.cb_conflict_ask);
+            this.panel2.Location = new System.Drawing.Point(16, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(12, 45);
+            this.panel2.TabIndex = 22;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rb_shutdown);
+            this.panel1.Controls.Add(this.rb_close);
+            this.panel1.Controls.Add(this.rb_exit);
+            this.panel1.Controls.Add(this.rb_null);
+            this.panel1.Location = new System.Drawing.Point(3, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(12, 45);
+            this.panel1.TabIndex = 21;
+            // 
             // label_linksCount
             // 
             this.label_linksCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -695,7 +760,7 @@
             this.label_linksCount.BackColor = System.Drawing.Color.Transparent;
             this.label_linksCount.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label_linksCount.ForeColor = System.Drawing.Color.Turquoise;
-            this.label_linksCount.Location = new System.Drawing.Point(17, 36);
+            this.label_linksCount.Location = new System.Drawing.Point(32, 35);
             this.label_linksCount.Name = "label_linksCount";
             this.label_linksCount.Size = new System.Drawing.Size(16, 18);
             this.label_linksCount.TabIndex = 0;
@@ -1002,6 +1067,8 @@
             this.txt_dledURL_border.PerformLayout();
             this.fapMapPanel1.ResumeLayout(false);
             this.fapMapPanel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.panel_info_border.ResumeLayout(false);
             this.panel_info.ResumeLayout(false);
             this.panel_info.PerformLayout();
@@ -1037,9 +1104,6 @@
         private System.Windows.Forms.ToolStripMenuItem links_RMB_cut;
         private System.Windows.Forms.Button btn_webgrabStart;
         private System.Windows.Forms.TextBox txt_webgrabURL;
-        private System.Windows.Forms.CheckBox cb_conflict_skip;
-        private System.Windows.Forms.CheckBox cb_conflict_replace;
-        private System.Windows.Forms.CheckBox cb_conflict_rename;
         private System.Windows.Forms.CheckBox cb_nonFile;
         private System.Windows.Forms.ToolStripMenuItem links_RMB_deleteAll;
         private System.Windows.Forms.ToolStripMenuItem links_RMB_deleteSome;
@@ -1076,5 +1140,12 @@
         private fapmap_res.FapMapPanel fapMapPanel1;
         private fapmap_res.FapMapPanel txt_dledURL_border;
         private fapmap_res.FapMapPanel txt_dledPATH_border;
+        private System.Windows.Forms.CheckBox cb_autoRetry;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RadioButton cb_conflict_skip;
+        private System.Windows.Forms.RadioButton cb_conflict_rename;
+        private System.Windows.Forms.RadioButton cb_conflict_replace;
+        private System.Windows.Forms.RadioButton cb_conflict_ask;
     }
 }

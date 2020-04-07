@@ -13,7 +13,10 @@ namespace fapmap
 {
     public partial class fapmap_playlist : Form
     {
-        public fapmap_playlist() { InitializeComponent(); }
+        public fapmap_playlist()
+        {
+            InitializeComponent();
+        }
 
         public bool keyword { get; set; }
         public bool rmlogs { get; set; }

@@ -49,6 +49,7 @@
             this.faftv_RMB_collapseTree = new System.Windows.Forms.ToolStripMenuItem();
             this.faftv_RMB_expandTree = new System.Windows.Forms.ToolStripMenuItem();
             this.faftv_RMB_open = new System.Windows.Forms.ToolStripMenuItem();
+            this.faftv_RMB_openInBrowser = new System.Windows.Forms.ToolStripMenuItem();
             this.faftv_RMB_explorer = new System.Windows.Forms.ToolStripMenuItem();
             this.faftv_RMB_explorer2 = new System.Windows.Forms.ToolStripMenuItem();
             this.faftv_RMB_newFolder = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,8 +65,10 @@
             this.fileDisplay_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.fileDisplay_RMB_refresh = new System.Windows.Forms.ToolStripMenuItem();
             this.fileDisplay_RMB_reload = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileDisplay_RMB_selectAll = new System.Windows.Forms.ToolStripMenuItem();
             this.fileDisplay_RMB_find = new System.Windows.Forms.ToolStripMenuItem();
             this.fileDisplay_RMB_open = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileDisplay_RMB_openInBrowser = new System.Windows.Forms.ToolStripMenuItem();
             this.fileDisplay_RMB_explorer = new System.Windows.Forms.ToolStripMenuItem();
             this.fileDisplay_RMB_explorer2 = new System.Windows.Forms.ToolStripMenuItem();
             this.fileDisplay_RMB_newFolder = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,6 +88,7 @@
             this.links_clm_title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.links_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.links_RMB_reload = new System.Windows.Forms.ToolStripMenuItem();
+            this.links_RMB_selectAll = new System.Windows.Forms.ToolStripMenuItem();
             this.links_RMB_edit = new System.Windows.Forms.ToolStripMenuItem();
             this.links_RMB_open = new System.Windows.Forms.ToolStripMenuItem();
             this.links_RMB_incognito = new System.Windows.Forms.ToolStripMenuItem();
@@ -136,6 +140,7 @@
             this.fapmap_cb_media = new System.Windows.Forms.CheckBox();
             this.fapmap_cb_fileDisplay = new System.Windows.Forms.CheckBox();
             this.fapmap_cb_faftv = new System.Windows.Forms.CheckBox();
+            this.fapmap_cb_invisibleWindow = new System.Windows.Forms.CheckBox();
             this.showMedia_video_panel = new System.Windows.Forms.Panel();
             this.showMedia_video_panel2 = new System.Windows.Forms.Panel();
             this.showMedia_video = new AxWMPLib.AxWindowsMediaPlayer();
@@ -395,6 +400,7 @@
             this.faftv_RMB_collapseTree,
             this.faftv_RMB_expandTree,
             this.faftv_RMB_open,
+            this.faftv_RMB_openInBrowser,
             this.faftv_RMB_explorer,
             this.faftv_RMB_explorer2,
             this.faftv_RMB_newFolder,
@@ -460,6 +466,15 @@
             this.faftv_RMB_open.Name = "faftv_RMB_open";
             resources.ApplyResources(this.faftv_RMB_open, "faftv_RMB_open");
             this.faftv_RMB_open.Click += new System.EventHandler(this.faftv_RMB_open_Click);
+            // 
+            // faftv_RMB_openInBrowser
+            // 
+            this.faftv_RMB_openInBrowser.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.faftv_RMB_openInBrowser.ForeColor = System.Drawing.Color.HotPink;
+            this.faftv_RMB_openInBrowser.Image = global::fapmap.Properties.Resources.incognito_hotpink;
+            this.faftv_RMB_openInBrowser.Name = "faftv_RMB_openInBrowser";
+            resources.ApplyResources(this.faftv_RMB_openInBrowser, "faftv_RMB_openInBrowser");
+            this.faftv_RMB_openInBrowser.Click += new System.EventHandler(this.faftv_RMB_openInBrowser_Click);
             // 
             // faftv_RMB_explorer
             // 
@@ -606,8 +621,10 @@
             this.fileDisplay_RMB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileDisplay_RMB_refresh,
             this.fileDisplay_RMB_reload,
+            this.fileDisplay_RMB_selectAll,
             this.fileDisplay_RMB_find,
             this.fileDisplay_RMB_open,
+            this.fileDisplay_RMB_openInBrowser,
             this.fileDisplay_RMB_explorer,
             this.fileDisplay_RMB_explorer2,
             this.fileDisplay_RMB_newFolder,
@@ -637,6 +654,15 @@
             resources.ApplyResources(this.fileDisplay_RMB_reload, "fileDisplay_RMB_reload");
             this.fileDisplay_RMB_reload.Click += new System.EventHandler(this.fileDisplay_RMB_reload_Click);
             // 
+            // fileDisplay_RMB_selectAll
+            // 
+            this.fileDisplay_RMB_selectAll.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.fileDisplay_RMB_selectAll.ForeColor = System.Drawing.Color.HotPink;
+            this.fileDisplay_RMB_selectAll.Image = global::fapmap.Properties.Resources.check_hotpink;
+            this.fileDisplay_RMB_selectAll.Name = "fileDisplay_RMB_selectAll";
+            resources.ApplyResources(this.fileDisplay_RMB_selectAll, "fileDisplay_RMB_selectAll");
+            this.fileDisplay_RMB_selectAll.Click += new System.EventHandler(this.fileDisplay_RMB_selectAll_Click);
+            // 
             // fileDisplay_RMB_find
             // 
             this.fileDisplay_RMB_find.BackgroundImage = global::fapmap.Properties.Resources.bg4;
@@ -654,6 +680,15 @@
             this.fileDisplay_RMB_open.Name = "fileDisplay_RMB_open";
             resources.ApplyResources(this.fileDisplay_RMB_open, "fileDisplay_RMB_open");
             this.fileDisplay_RMB_open.Click += new System.EventHandler(this.fileDisplay_RMB_open_Click);
+            // 
+            // fileDisplay_RMB_openInBrowser
+            // 
+            this.fileDisplay_RMB_openInBrowser.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.fileDisplay_RMB_openInBrowser.ForeColor = System.Drawing.Color.HotPink;
+            this.fileDisplay_RMB_openInBrowser.Image = global::fapmap.Properties.Resources.incognito_hotpink;
+            this.fileDisplay_RMB_openInBrowser.Name = "fileDisplay_RMB_openInBrowser";
+            resources.ApplyResources(this.fileDisplay_RMB_openInBrowser, "fileDisplay_RMB_openInBrowser");
+            this.fileDisplay_RMB_openInBrowser.Click += new System.EventHandler(this.fileDisplay_RMB_openInBrowser_Click);
             // 
             // fileDisplay_RMB_explorer
             // 
@@ -845,6 +880,7 @@
             resources.ApplyResources(this.links_RMB, "links_RMB");
             this.links_RMB.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.links_RMB_reload,
+            this.links_RMB_selectAll,
             this.links_RMB_edit,
             this.links_RMB_open,
             this.links_RMB_incognito,
@@ -873,6 +909,15 @@
             this.links_RMB_reload.Name = "links_RMB_reload";
             resources.ApplyResources(this.links_RMB_reload, "links_RMB_reload");
             this.links_RMB_reload.Click += new System.EventHandler(this.links_RMB_reload_Click);
+            // 
+            // links_RMB_selectAll
+            // 
+            this.links_RMB_selectAll.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.links_RMB_selectAll.ForeColor = System.Drawing.Color.Turquoise;
+            this.links_RMB_selectAll.Image = global::fapmap.Properties.Resources.check_turquoise;
+            this.links_RMB_selectAll.Name = "links_RMB_selectAll";
+            resources.ApplyResources(this.links_RMB_selectAll, "links_RMB_selectAll");
+            this.links_RMB_selectAll.Click += new System.EventHandler(this.links_RMB_selectAll_Click);
             // 
             // links_RMB_edit
             // 
@@ -1503,8 +1548,6 @@
             resources.ApplyResources(this.fapmap_cb_faftv, "fapmap_cb_faftv");
             this.fapmap_cb_faftv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.fapmap_cb_faftv.BackgroundImage = global::fapmap.Properties.Resources.treeView;
-            this.fapmap_cb_faftv.Checked = true;
-            this.fapmap_cb_faftv.CheckState = System.Windows.Forms.CheckState.Checked;
             this.fapmap_cb_faftv.Cursor = System.Windows.Forms.Cursors.Hand;
             this.fapmap_cb_faftv.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.fapmap_cb_faftv.FlatAppearance.CheckedBackColor = System.Drawing.Color.Blue;
@@ -1515,6 +1558,22 @@
             this.HelpBalloon.SetToolTip(this.fapmap_cb_faftv, resources.GetString("fapmap_cb_faftv.ToolTip"));
             this.fapmap_cb_faftv.UseVisualStyleBackColor = false;
             this.fapmap_cb_faftv.CheckedChanged += new System.EventHandler(this.fapmap_cb_faftv_CheckedChanged);
+            // 
+            // fapmap_cb_invisibleWindow
+            // 
+            resources.ApplyResources(this.fapmap_cb_invisibleWindow, "fapmap_cb_invisibleWindow");
+            this.fapmap_cb_invisibleWindow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.fapmap_cb_invisibleWindow.BackgroundImage = global::fapmap.Properties.Resources.hide;
+            this.fapmap_cb_invisibleWindow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.fapmap_cb_invisibleWindow.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.fapmap_cb_invisibleWindow.FlatAppearance.CheckedBackColor = System.Drawing.Color.Blue;
+            this.fapmap_cb_invisibleWindow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Blue;
+            this.fapmap_cb_invisibleWindow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Blue;
+            this.fapmap_cb_invisibleWindow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.fapmap_cb_invisibleWindow.Name = "fapmap_cb_invisibleWindow";
+            this.HelpBalloon.SetToolTip(this.fapmap_cb_invisibleWindow, resources.GetString("fapmap_cb_invisibleWindow.ToolTip"));
+            this.fapmap_cb_invisibleWindow.UseVisualStyleBackColor = false;
+            this.fapmap_cb_invisibleWindow.CheckedChanged += new System.EventHandler(this.fapmap_cb_invisibleWindow_CheckedChanged);
             // 
             // showMedia_video_panel
             // 
@@ -1888,7 +1947,7 @@
             this.menu_open_browser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.menu_open_browser.BackgroundImage = global::fapmap.Properties.Resources.bg4;
             this.menu_open_browser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.menu_open_browser.Image = global::fapmap.Properties.Resources.browser;
+            this.menu_open_browser.Image = global::fapmap.Properties.Resources.incognito;
             this.menu_open_browser.Name = "menu_open_browser";
             resources.ApplyResources(this.menu_open_browser, "menu_open_browser");
             this.menu_open_browser.Click += new System.EventHandler(this.menu_open_browser_Click);
@@ -2168,6 +2227,7 @@
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.Controls.Add(this.fapmap_cb_invisibleWindow);
             this.Controls.Add(this.fapmap_cb_faftv);
             this.Controls.Add(this.showMedia_video_panel);
             this.Controls.Add(this.showMedia_image_panel);
@@ -2389,6 +2449,11 @@
         private System.Windows.Forms.Button fileDisplay_btn_info;
         private System.Windows.Forms.ToolStripMenuItem fileDisplay_RMB_find;
         private System.Windows.Forms.CheckBox fapmap_cb_faftv;
+        private System.Windows.Forms.ToolStripMenuItem fileDisplay_RMB_selectAll;
+        private System.Windows.Forms.ToolStripMenuItem links_RMB_selectAll;
+        private System.Windows.Forms.ToolStripMenuItem fileDisplay_RMB_openInBrowser;
+        private System.Windows.Forms.ToolStripMenuItem faftv_RMB_openInBrowser;
+        private System.Windows.Forms.CheckBox fapmap_cb_invisibleWindow;
     }
 }
 

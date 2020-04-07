@@ -315,6 +315,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fapmap.ico" />
+    <None Include="Resources\images\incognito_hotpink.png" />
+    <None Include="Resources\images\browser_hotpink.png" />
+    <None Include="Resources\images\check_turquoise.png" />
+    <None Include="Resources\images\check_hotpink.png" />
     <None Include="Resources\images\settings_turquoise.png" />
     <None Include="Resources\images\settings_turquoise..png" />
     <None Include="Resources\images\treeView_hotpink.png" />

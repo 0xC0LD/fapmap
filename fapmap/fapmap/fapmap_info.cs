@@ -210,6 +210,7 @@ namespace fapmap
                             this.Invoke((MethodInvoker)delegate
                             {
                                 showImage.Image = bmp;
+                                txt_output.Text += "Image WxH: " + bmp.Width + "x" + bmp.Height + Environment.NewLine;
                             });
                         }
                         else if (fapmap.GlobalVariables.FileTypes.Video.Contains(fi.Extension.ToLower()))
@@ -225,6 +226,7 @@ namespace fapmap
                                 this.Invoke((MethodInvoker)delegate
                                 {
                                     showImage.Image = bmp;
+                                    txt_output.Text += "Image WxH: " + bmp.Width + "x" + bmp.Height + Environment.NewLine;
                                 });
                             }
                         }

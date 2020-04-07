@@ -21,7 +21,7 @@ namespace fapmap
 
             txt_output_RMB.Renderer = new fapmap_res.FapMapColors.FapMapToolStripRenderer(Color.FromArgb(128, 128, 255));
         }
-
+        
         public string pass_path = string.Empty;
         private void fapmap_ffmpeg_Load(object sender, EventArgs e)
         {

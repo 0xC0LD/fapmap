@@ -411,7 +411,13 @@
     <value>211, 22</value>
   </data>
   <data name="faftv_RMB_open.Text" xml:space="preserve">
-    <value>Open Selected (CTRL+W)</value>
+    <value>Open (CTRL+W)</value>
+  </data>
+  <data name="faftv_RMB_openInBrowser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="faftv_RMB_openInBrowser.Text" xml:space="preserve">
+    <value>Open in Browser (CTRL+B)</value>
   </data>
   <data name="faftv_RMB_explorer.Size" type="System.Drawing.Size, System.Drawing">
     <value>211, 22</value>
@@ -456,7 +462,7 @@
     <value>Properties (CTRL+D)</value>
   </data>
   <data name="faftv_RMB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>212, 290</value>
+    <value>212, 312</value>
   </data>
   <data name="&gt;&gt;faftv_RMB.Name" xml:space="preserve">
     <value>faftv_RMB</value>
@@ -478,7 +484,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAw
-        BAAAAk1TRnQBSQFMAwEBAAHQAQUB0AEFARABAAEQAQAE/wERAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
+        BAAAAk1TRnQBSQFMAwEBAAE4AQYBOAEGARABAAEQAQAE/wERAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
         ARADAAEBAQABEAYAAQgSAAEJAUgBCQFIAQkBSAEJAUgBCQFIAQkBSAEJAUgBCQFIAQkBSAEJAUgBCQFI
         AQkBSAEJAUgBCQFIAQkBSAEJAUhgAAEJAkwBVAFMAVQBbAFYAY0BWAGNAVwBrgFcAa8BYAGvAWABrgFc
         AY0BXAGNAVgBbAFYAUwBVAFMAVQBCQFIYAABCQFMAY0BWAFMAVQBbAFUAWwBWAFsAVgBbQFYAW0BWAFt
@@ -658,73 +664,85 @@
     <value>Segoe UI, 8.25pt</value>
   </data>
   <data name="fileDisplay_RMB_refresh.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
+    <value>211, 22</value>
   </data>
   <data name="fileDisplay_RMB_refresh.Text" xml:space="preserve">
     <value>Refresh (CTRL+R)</value>
   </data>
   <data name="fileDisplay_RMB_reload.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
+    <value>211, 22</value>
   </data>
   <data name="fileDisplay_RMB_reload.Text" xml:space="preserve">
     <value>Reload (F5)</value>
   </data>
+  <data name="fileDisplay_RMB_selectAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_selectAll.Text" xml:space="preserve">
+    <value>Select All (CTRL+A)</value>
+  </data>
   <data name="fileDisplay_RMB_find.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
+    <value>211, 22</value>
   </data>
   <data name="fileDisplay_RMB_find.Text" xml:space="preserve">
     <value>Find ((SHIFT)+CTRL+F)</value>
   </data>
   <data name="fileDisplay_RMB_open.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
+    <value>211, 22</value>
   </data>
   <data name="fileDisplay_RMB_open.Text" xml:space="preserve">
-    <value>Open Selected (ENTER/CTRL+W)</value>
+    <value>Open (ENTER/CTRL+W)</value>
+  </data>
+  <data name="fileDisplay_RMB_openInBrowser.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 22</value>
+  </data>
+  <data name="fileDisplay_RMB_openInBrowser.Text" xml:space="preserve">
+    <value>Open in Browser (CTRL+B)</value>
   </data>
   <data name="fileDisplay_RMB_explorer.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
+    <value>211, 22</value>
   </data>
   <data name="fileDisplay_RMB_explorer.Text" xml:space="preserve">
-    <value>Open in Explorer (CTRL+A)</value>
+    <value>Open in Explorer (CTRL+E)</value>
   </data>
   <data name="fileDisplay_RMB_explorer2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
+    <value>211, 22</value>
   </data>
   <data name="fileDisplay_RMB_explorer2.Text" xml:space="preserve">
     <value>Select in Explorer (CTRL+C)</value>
   </data>
   <data name="fileDisplay_RMB_newFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
+    <value>211, 22</value>
   </data>
   <data name="fileDisplay_RMB_newFolder.Text" xml:space="preserve">
     <value>New Folder (CTRL+S)</value>
   </data>
   <data name="fileDisplay_RMB_move.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
+    <value>211, 22</value>
   </data>
   <data name="fileDisplay_RMB_move.Text" xml:space="preserve">
     <value>Move (CTRL+X)</value>
   </data>
   <data name="fileDisplay_RMB_rename.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
+    <value>211, 22</value>
   </data>
   <data name="fileDisplay_RMB_rename.Text" xml:space="preserve">
     <value>Rename (F2)</value>
   </data>
   <data name="fileDisplay_RMB_delete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
+    <value>211, 22</value>
   </data>
   <data name="fileDisplay_RMB_delete.Text" xml:space="preserve">
     <value>Trash (DEL)</value>
   </data>
   <data name="fileDisplay_RMB_properties.Size" type="System.Drawing.Size, System.Drawing">
-    <value>239, 22</value>
+    <value>211, 22</value>
   </data>
   <data name="fileDisplay_RMB_properties.Text" xml:space="preserve">
     <value>Properties (CTRL+D)</value>
   </data>
   <data name="fileDisplay_RMB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>240, 246</value>
+    <value>212, 290</value>
   </data>
   <data name="&gt;&gt;fileDisplay_RMB.Name" xml:space="preserve">
     <value>fileDisplay_RMB</value>
@@ -1014,6 +1032,12 @@
   <data name="links_RMB_reload.Text" xml:space="preserve">
     <value>Reload (CTRL+R/F5)</value>
   </data>
+  <data name="links_RMB_selectAll.Size" type="System.Drawing.Size, System.Drawing">
+    <value>315, 22</value>
+  </data>
+  <data name="links_RMB_selectAll.Text" xml:space="preserve">
+    <value>Select All (CTRL+A)</value>
+  </data>
   <data name="links_RMB_edit.Size" type="System.Drawing.Size, System.Drawing">
     <value>315, 22</value>
   </data>
@@ -1024,7 +1048,7 @@
     <value>315, 22</value>
   </data>
   <data name="links_RMB_open.Text" xml:space="preserve">
-    <value>Open Selected (ENTER)</value>
+    <value>Open/Play (ENTER)</value>
   </data>
   <data name="links_RMB_incognito.Size" type="System.Drawing.Size, System.Drawing">
     <value>315, 22</value>
@@ -1105,7 +1129,7 @@
     <value>Delete Selected Link (DEL)</value>
   </data>
   <data name="links_RMB.Size" type="System.Drawing.Size, System.Drawing">
-    <value>316, 356</value>
+    <value>316, 378</value>
   </data>
   <data name="&gt;&gt;links_RMB.Name" xml:space="preserve">
     <value>links_RMB</value>
@@ -1420,7 +1444,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;splitContainer_main.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>13</value>
   </data>
   <metadata name="this_trayicon.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>669, 45</value>
@@ -4797,7 +4821,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fapmap_cb_hideOnX.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>12</value>
   </data>
   <data name="fapmap_cb_hideOnFocus.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -4842,7 +4866,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fapmap_cb_hideOnFocus.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>11</value>
   </data>
   <data name="fapmap_cb_media.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -4863,7 +4887,7 @@
     <value>NoControl</value>
   </data>
   <data name="fapmap_cb_media.Location" type="System.Drawing.Point, System.Drawing">
-    <value>882, 4</value>
+    <value>862, 4</value>
   </data>
   <data name="fapmap_cb_media.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 4, 2, 4</value>
@@ -4887,7 +4911,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fapmap_cb_media.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>10</value>
   </data>
   <data name="fapmap_cb_fileDisplay.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -4908,7 +4932,7 @@
     <value>NoControl</value>
   </data>
   <data name="fapmap_cb_fileDisplay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>922, 4</value>
+    <value>902, 4</value>
   </data>
   <data name="fapmap_cb_fileDisplay.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 4, 2, 4</value>
@@ -4932,7 +4956,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fapmap_cb_fileDisplay.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>9</value>
   </data>
   <data name="fapmap_cb_faftv.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -4953,7 +4977,7 @@
     <value>NoControl</value>
   </data>
   <data name="fapmap_cb_faftv.Location" type="System.Drawing.Point, System.Drawing">
-    <value>902, 4</value>
+    <value>882, 4</value>
   </data>
   <data name="fapmap_cb_faftv.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 4, 2, 4</value>
@@ -4977,6 +5001,51 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fapmap_cb_faftv.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="fapmap_cb_invisibleWindow.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="fapmap_cb_invisibleWindow.Appearance" type="System.Windows.Forms.Appearance, System.Windows.Forms">
+    <value>Button</value>
+  </data>
+  <data name="fapmap_cb_invisibleWindow.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="fapmap_cb_invisibleWindow.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="fapmap_cb_invisibleWindow.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Consolas, 8.25pt, style=Bold</value>
+  </data>
+  <data name="fapmap_cb_invisibleWindow.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="fapmap_cb_invisibleWindow.Location" type="System.Drawing.Point, System.Drawing">
+    <value>922, 4</value>
+  </data>
+  <data name="fapmap_cb_invisibleWindow.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 4, 2, 4</value>
+  </data>
+  <data name="fapmap_cb_invisibleWindow.Size" type="System.Drawing.Size, System.Drawing">
+    <value>18, 18</value>
+  </data>
+  <data name="fapmap_cb_invisibleWindow.TabIndex" type="System.Int32, mscorlib">
+    <value>208</value>
+  </data>
+  <data name="fapmap_cb_invisibleWindow.ToolTip" xml:space="preserve">
+    <value>Invisible Window</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_invisibleWindow.Name" xml:space="preserve">
+    <value>fapmap_cb_invisibleWindow</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_invisibleWindow.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_invisibleWindow.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;fapmap_cb_invisibleWindow.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
   <data name="showMedia_video_panel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
@@ -5396,7 +5465,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;showMedia_video_panel.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <metadata name="menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>30, 10</value>
@@ -5426,7 +5495,7 @@
     <value>305, 22</value>
   </data>
   <data name="menu_open_browser.Text" xml:space="preserve">
-    <value>Web Browser</value>
+    <value>Web Browser (Incognito)</value>
   </data>
   <data name="menu_open_finder.Size" type="System.Drawing.Size, System.Drawing">
     <value>305, 22</value>
@@ -5558,7 +5627,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menu.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>14</value>
   </data>
   <data name="showMedia_image_panel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -5705,7 +5774,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;showMedia_image_panel.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <metadata name="showMedia_image_gif_timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>286, 45</value>
@@ -7947,7 +8016,7 @@
 </value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>575, 350</value>
+    <value>590, 350</value>
   </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
@@ -7989,6 +8058,12 @@
     <value>faftv_RMB_open</value>
   </data>
   <data name="&gt;&gt;faftv_RMB_open.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;faftv_RMB_openInBrowser.Name" xml:space="preserve">
+    <value>faftv_RMB_openInBrowser</value>
+  </data>
+  <data name="&gt;&gt;faftv_RMB_openInBrowser.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;faftv_RMB_explorer.Name" xml:space="preserve">
@@ -8051,6 +8126,12 @@
   <data name="&gt;&gt;fileDisplay_RMB_reload.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;fileDisplay_RMB_selectAll.Name" xml:space="preserve">
+    <value>fileDisplay_RMB_selectAll</value>
+  </data>
+  <data name="&gt;&gt;fileDisplay_RMB_selectAll.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;fileDisplay_RMB_find.Name" xml:space="preserve">
     <value>fileDisplay_RMB_find</value>
   </data>
@@ -8061,6 +8142,12 @@
     <value>fileDisplay_RMB_open</value>
   </data>
   <data name="&gt;&gt;fileDisplay_RMB_open.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fileDisplay_RMB_openInBrowser.Name" xml:space="preserve">
+    <value>fileDisplay_RMB_openInBrowser</value>
+  </data>
+  <data name="&gt;&gt;fileDisplay_RMB_openInBrowser.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;fileDisplay_RMB_explorer.Name" xml:space="preserve">
@@ -8133,6 +8220,12 @@
     <value>links_RMB_reload</value>
   </data>
   <data name="&gt;&gt;links_RMB_reload.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;links_RMB_selectAll.Name" xml:space="preserve">
+    <value>links_RMB_selectAll</value>
+  </data>
+  <data name="&gt;&gt;links_RMB_selectAll.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;links_RMB_edit.Name" xml:space="preserve">

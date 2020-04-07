@@ -35,6 +35,8 @@ SITE|Danbooru|https://kagamihara.donmai.us
 SITE|Rule34 XXX|https://rule34.xxx/index.php?page=post&s=list&tags=all
 SITE|Rule34 Paheal|https://rule34.paheal.net/post/list/1
 SITE|Rule34 Hentai|https://rule34hentai.net/post/list/1
+SITE|yande.re|https://yande.re
+SITE|safebooru|https://safebooru.org/
 SITE|MUCHoHENTAI|https://muchohentai.com
 SITE|Sankaku Complex|https://www.sankakucomplex.com/?pg=X
 SITE|Hentai Foundry|https://www.hentai-foundry.com/?enterAgree=1

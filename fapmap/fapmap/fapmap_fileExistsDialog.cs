@@ -17,7 +17,7 @@ namespace fapmap
         {
             InitializeComponent();
         }
-
+        
         public string filePath = string.Empty;
         private void fapmap_fileExistsDialog_Load(object sender, EventArgs e)
         {

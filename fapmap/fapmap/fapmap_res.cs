@@ -97,13 +97,8 @@ namespace fapmap_res
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            // using (SolidBrush brush = new SolidBrush(BackColor))
-            //     e.Graphics.FillRectangle(brush, ClientRectangle);
-            // e.Graphics.DrawRectangle(new Pen(Color.FromArgb(230, 134, 206)), 0, 0, ClientSize.Width - 1, ClientSize.Height - 1);
-
             ControlPaint.DrawBorder(e.Graphics, this.ClientRectangle, ForeColor, ButtonBorderStyle.Solid);
         }
-
     }
 
     public class FapMapProgressBar : ProgressBar
@@ -206,6 +201,113 @@ namespace fapmap_res
                 base.AutoWordSelection = true;
                 base.AutoWordSelection = false;
             }
+        }
+    }
+
+    class MouseDetector
+    {
+        #region APIs
+
+        [DllImport("gdi32")]
+        public static extern uint GetPixel(IntPtr hDC, int XPos, int YPos);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern bool GetCursorPos(out POINT pt);
+
+        [DllImport("User32.dll", CharSet = CharSet.Auto)]
+        public static extern IntPtr GetWindowDC(IntPtr hWnd);
+
+        #endregion
+
+        Timer tm = new Timer() { Interval = 10 };
+        public delegate void MouseMoveDLG(object sender, Point p);
+        public event MouseMoveDLG MouseMove;
+        public MouseDetector()
+        {
+            tm.Tick += new EventHandler(tm_Tick); tm.Start();
+        }
+
+        void tm_Tick(object sender, EventArgs e)
+        {
+            GetCursorPos(out POINT p);
+            if (MouseMove != null) { this.MouseMove(this, new Point(p.X, p.Y)); }
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct POINT
+        {
+            public int X;
+            public int Y;
+            public POINT(int x, int y)
+            {
+                X = x;
+                Y = y;
+            }
+        }
+    }
+
+    public class WinAPI
+    {
+        [DllImport("kernel32.dll", SetLastError = true)]
+        public static extern bool GetFileInformationByHandle(Microsoft.Win32.SafeHandles.SafeFileHandle hFile, out BY_HANDLE_FILE_INFORMATION lpFileInformation);
+
+        public struct BY_HANDLE_FILE_INFORMATION
+        {
+            public uint FileAttributes;
+            public System.Runtime.InteropServices.ComTypes.FILETIME CreationTime;
+            public System.Runtime.InteropServices.ComTypes.FILETIME LastAccessTime;
+            public System.Runtime.InteropServices.ComTypes.FILETIME LastWriteTime;
+            public uint VolumeSerialNumber;
+            public uint FileSizeHigh;
+            public uint FileSizeLow;
+            public uint NumberOfLinks;
+            public uint FileIndexHigh;
+            public uint FileIndexLow;
+        }
+    }
+
+    public class DirectBitmap : IDisposable
+    {
+        public Bitmap Bitmap { get; private set; }
+        public Int32[] Bits { get; private set; }
+        public bool Disposed { get; private set; }
+        public int Height { get; private set; }
+        public int Width { get; private set; }
+
+        protected GCHandle BitsHandle { get; private set; }
+
+        public DirectBitmap(int width, int height)
+        {
+            Width = width;
+            Height = height;
+            Bits = new Int32[width * height];
+            BitsHandle = GCHandle.Alloc(Bits, GCHandleType.Pinned);
+            Bitmap = new Bitmap(width, height, width * 4, PixelFormat.Format32bppPArgb, BitsHandle.AddrOfPinnedObject());
+        }
+
+        public void SetPixel(int x, int y, Color colour)
+        {
+            int index = x + (y * Width);
+            int col = colour.ToArgb();
+
+            Bits[index] = col;
+        }
+
+        public Color GetPixel(int x, int y)
+        {
+            int index = x + (y * Width);
+            int col = Bits[index];
+            Color result = Color.FromArgb(col);
+
+            return result;
+        }
+
+        public void Dispose()
+        {
+            if (Disposed) return;
+            Disposed = true;
+            Bitmap.Dispose();
+            BitsHandle.Free();
         }
     }
 }

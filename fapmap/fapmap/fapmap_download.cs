@@ -378,6 +378,7 @@ namespace fapmap
         {
             if (!dl(listItem)) { download_busy = false; }
         }
+        private ListViewItem currentDownloadItem = null;
         private bool dl(ListViewItem listItem)
         {
             if (download_busy) { return true; }
@@ -396,9 +397,13 @@ namespace fapmap
             if (listItem == null) { listItem = links.Items[0]; }
             string name = listItem.SubItems[1].Text;
             string link = listItem.SubItems[2].Text;
-            links.Items.Remove(listItem);
-            links_recountAndResize();
-
+            currentDownloadItem = listItem;
+            if (links.Items.Contains(listItem))
+            {
+                links.Items.Remove(listItem);
+                links_recountAndResize();
+            }
+            
             string path = txt_dir.Text + name;
 
             if (string.IsNullOrEmpty(link) || !Uri.IsWellFormedUriString(link, UriKind.Absolute))
@@ -553,10 +558,30 @@ namespace fapmap
             if (e.Cancelled || bytes_current != bytes_total) { failed = true; }
 
             fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.DLED, txt_dledURL.Text + " -> " + txt_dledPATH.Text);
-            
+
             if (failed)
             {
                 info.ForeColor = Color.PaleVioletRed;
+
+                if (!e.Cancelled
+                 && currentDownloadItem != null
+                 && (
+                        cb_autoRetry.Checked
+                     || MessageBox.Show
+                        (
+                         "Retry download?",
+                         "Download Failed",
+                         MessageBoxButtons.YesNo,
+                         MessageBoxIcon.Error
+                        ) == DialogResult.Yes
+                    )
+                )
+                {
+                    download_busy = false;
+                    links.Items.Add(currentDownloadItem);
+                    download(currentDownloadItem);
+                    return;
+                }
             }
             else
             {
@@ -756,31 +781,6 @@ namespace fapmap
             auto.Enabled = cb_auto.Checked;
         }
         
-        private void cb_replace_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cb_conflict_replace.Checked)
-            {
-                cb_conflict_rename.Checked = false;
-                cb_conflict_skip.Checked = false;
-            }
-        }
-        private void cb_rename_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cb_conflict_rename.Checked)
-            {
-                cb_conflict_replace.Checked = false;
-                cb_conflict_skip.Checked = false;
-            }
-        }
-        private void cb_skip_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cb_conflict_skip.Checked)
-            {
-                cb_conflict_replace.Checked = false;
-                cb_conflict_rename.Checked = false;
-            }
-        }
-
         #endregion
 
         #region text boxes
@@ -879,28 +879,33 @@ namespace fapmap
 
             txt_dir.ForeColor = Directory.Exists(txt_dir.Text) ? Color.Turquoise : Color.PaleVioletRed;
         }
-        ListViewItem links_selected = null;
+
+        private bool txt_filename_dontUpdate = false;
         private void txt_filename_TextChanged(object sender, EventArgs e)
         {
+            if (txt_filename_dontUpdate) { return; }
+
             if (txt_filename.Text.Contains("\n")) { txt_filename.Text = txt_filename.Text.Replace("\n", String.Empty); }
             if (txt_filename.Text.Contains("\r")) { txt_filename.Text = txt_filename.Text.Replace("\r", String.Empty); }
             if (txt_filename.Text.Contains("\t")) { txt_filename.Text = txt_filename.Text.Replace("\t", String.Empty); }
 
-            if (links_selected == null)
+            if (links.SelectedItems.Count == 0)
             {
                 txt_filename.ReadOnly = true;
-                txt_filename.ForeColor = Color.Turquoise;
+                txt_filename.ForeColor = Color.Teal;
             }
             else
             {
                 if (string.IsNullOrEmpty(txt_filename.Text))
                 {
-                    txt_filename.Text = System.IO.Path.GetFileName(new Uri(links_selected.Name).LocalPath);
+                    txt_filename.Text = System.IO.Path.GetFileName(new Uri(links.SelectedItems[0].Name).LocalPath);
                 }
                 else
                 {
-                    links_selected.SubItems[1].Text = txt_filename.Text;
+                    links.SelectedItems[0].SubItems[1].Text = txt_filename.Text;
                 }
+
+                links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             }
         }
         private void txt_webgrabURL_TextChanged(object sender, EventArgs e)
@@ -1053,22 +1058,20 @@ namespace fapmap
         {
             if (links.SelectedItems.Count == 0)
             {
-                //UNSELECT
                 txt_filename.ReadOnly = true;
-                txt_filename.ForeColor = Color.Turquoise;
+                txt_filename.ForeColor = Color.Teal;
             }
             else
             {
-                //SELECT
                 txt_filename.ReadOnly = false;
                 txt_filename.ForeColor = Color.Turquoise;
-
-                foreach (ListViewItem item in links.SelectedItems)
-                {
-                    links_selected = item;
-                    txt_filename.Text = item.SubItems[1].Text;
-                    break;
-                }
+            }
+            
+            if (links.SelectedItems.Count > 0)
+            {
+                txt_filename_dontUpdate = true;
+                txt_filename.Text = links.SelectedItems[0].SubItems[1].Text;
+                txt_filename_dontUpdate = false;
             }
         }
         

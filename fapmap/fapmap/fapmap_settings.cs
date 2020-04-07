@@ -22,7 +22,6 @@ namespace fapmap
 
             txt_output_RMB.Renderer = new fapmap_res.FapMapColors.FapMapToolStripRenderer(Color.SkyBlue);
         }
-
         
         private void fapmap_settings_Load(object sender, EventArgs e)
         {
@@ -46,6 +45,7 @@ namespace fapmap
             cb_media.Checked       = fapmap.GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers;
             cb_trackbar.Checked    = fapmap.GlobalVariables.Settings.CheckBoxes.EnableTrackbarForGifViewer;
             cb_fileDisplay.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.EnableFileDisplay;
+            cb_faftv.Checked       = fapmap.GlobalVariables.Settings.CheckBoxes.EnableFaftv;
             cb_openOutside.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.EnableOpenOutsideFapmap;
 
             cb_autoHideMedia.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.AutoHideMediaPlayers;
@@ -57,6 +57,8 @@ namespace fapmap
 
             cb_fdSortByDate.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate;
             cb_fdThumb.Checked      = fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails;
+
+            cb_urlTitle.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.LinksGetSiteTitle;
 
             cb_dlAutoClose.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.DownloaderAutoClose;
             
@@ -534,13 +536,15 @@ namespace fapmap
 
             switch (cb.Tag.ToString())
             {
-                case "HIDEONX":   fapmap.GlobalVariables.Settings.CheckBoxes.HideOnX   = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.HideOnX_,   fapmap.bool_to_string(cb.Checked)); break;
-                case "FOCUSHIDE": fapmap.GlobalVariables.Settings.CheckBoxes.FocusHide = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.FocusHide_, fapmap.bool_to_string(cb.Checked)); break;
+                case "HIDEONX":   fapmap.GlobalVariables.Settings.CheckBoxes.HideOnX         = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.HideOnX_,         fapmap.bool_to_string(cb.Checked)); break;
+                case "FOCUSHIDE": fapmap.GlobalVariables.Settings.CheckBoxes.FocusHide       = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.FocusHide_,       fapmap.bool_to_string(cb.Checked)); break;
+                case "INVISIBLE": fapmap.GlobalVariables.Settings.CheckBoxes.InvisibleWindow = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.InvisibleWindow_, fapmap.bool_to_string(cb.Checked)); break;
 
                 case "ENABLEPLAYERS":     fapmap.GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers         = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers_,         fapmap.bool_to_string(cb.Checked)); break;
                 case "ENABLELOGS":        fapmap.GlobalVariables.Settings.CheckBoxes.EnableLogs                 = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.EnableLogs_,                 fapmap.bool_to_string(cb.Checked)); break;
                 case "ENABLETRACKBAR":    fapmap.GlobalVariables.Settings.CheckBoxes.EnableTrackbarForGifViewer = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.EnableTrackbarForGifViewer_, fapmap.bool_to_string(cb.Checked)); break;
                 case "ENABLEFILEDISPLAY": fapmap.GlobalVariables.Settings.CheckBoxes.EnableFileDisplay          = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.EnableFileDisplay_,          fapmap.bool_to_string(cb.Checked)); break;
+                case "ENABLEFAFTV":       fapmap.GlobalVariables.Settings.CheckBoxes.EnableFaftv                = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.EnableFaftv_,                fapmap.bool_to_string(cb.Checked)); break;
                 case "ENABLEOUTSIDE":     fapmap.GlobalVariables.Settings.CheckBoxes.EnableOpenOutsideFapmap    = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.EnableOpenOutsideFapmap_,    fapmap.bool_to_string(cb.Checked)); break;
 
                 case "AUTOHIDE":  fapmap.GlobalVariables.Settings.CheckBoxes.AutoHideMediaPlayers = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.AutoHideMediaPlayers_, fapmap.bool_to_string(cb.Checked)); break;
@@ -552,6 +556,9 @@ namespace fapmap
 
                 case "FDSORT":  fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate_, fapmap.bool_to_string(cb.Checked)); break;
                 case "FDTHUMB": fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails     = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails_,     fapmap.bool_to_string(cb.Checked)); break;
+
+                case "URLTITLE": fapmap.GlobalVariables.Settings.CheckBoxes.LinksGetSiteTitle = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.LinksGetSiteTitle_, fapmap.bool_to_string(cb.Checked)); break;
+
                 case "DLCLOSE": fapmap.GlobalVariables.Settings.CheckBoxes.DownloaderAutoClose           = cb.Checked; fapmap.settings_edit(fapmap.GlobalVariables.Settings.CheckBoxes.DownloaderAutoClose_,           fapmap.bool_to_string(cb.Checked)); break;
             }
         }
@@ -674,7 +681,7 @@ namespace fapmap
             if (!Directory.Exists(fapmap.GlobalVariables.Path.Dir.Cache)) { return; }
             if (!Directory.Exists(fapmap.GlobalVariables.Path.Dir.MainFolder)) { return; }
 
-            label_outputThumb.Text = "...";
+            label_outputThumb.Text = "Loading...";
 
             new Thread(() =>
             {

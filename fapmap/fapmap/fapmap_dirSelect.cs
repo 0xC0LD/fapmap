@@ -33,7 +33,6 @@ namespace fapmap
             }
 
             if (preSelectedPath.EndsWith("\\")) { preSelectedPath = preSelectedPath.Remove(preSelectedPath.Length-1); }
-
             if (!string.IsNullOrEmpty(preSelectedPath) && Directory.Exists(preSelectedPath))
             {
                 string path = new DirectoryInfo(preSelectedPath).FullName;
@@ -155,9 +154,20 @@ namespace fapmap
             treeView.ExpandAll();
         }
 
+        private bool txt_path_dontUpdate = false;
         private void txt_path_TextChanged(object sender, EventArgs e)
         {
+            if (txt_path_dontUpdate) { return; }
+
             txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.HotPink : Color.Magenta;
+
+            TreeNode[] nodes = treeView.Nodes.Find(txt_path.Text, true);
+            if (nodes.Length > 0)
+            {
+                txt_path_dontUpdate = true;
+                treeView.SelectedNode = nodes[0];
+                txt_path_dontUpdate = false;
+            }
         }
 
         private void treeView_DrawNode(object sender, DrawTreeNodeEventArgs e)

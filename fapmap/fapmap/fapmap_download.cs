@@ -383,7 +383,7 @@ namespace fapmap
         {
             if (download_busy) { return true; }
             download_busy = true;
-            
+
             if (links.Items.Count == 0)
             {
                 // info.ForeColor = Color.Turquoise;
@@ -403,7 +403,7 @@ namespace fapmap
                 links.Items.Remove(listItem);
                 links_recountAndResize();
             }
-            
+
             string path = txt_dir.Text + name;
 
             if (string.IsNullOrEmpty(link) || !Uri.IsWellFormedUriString(link, UriKind.Absolute))
@@ -429,26 +429,25 @@ namespace fapmap
             info.Text = "Checking if file already exists...";
 
             int downloadMode = 0;
-            if (!cb_conflict_replace.Checked && !cb_conflict_rename.Checked && !cb_conflict_skip.Checked)
-            {
-                if (File.Exists(path))
-                {
-                    DialogResult dialogResult = fapmap.OpenFileExistsDialog(this, path);
-                    
-                    switch (dialogResult)
-                    {
-                        case DialogResult.Yes:    downloadMode = 1; break;
-                        case DialogResult.No:     downloadMode = 2; break;
-                        case DialogResult.Cancel: downloadMode = 3; break;
-                    }
-                }
-            }
-            else
+
+            if (File.Exists(path))
             {
                 if      (cb_conflict_replace.Checked) { downloadMode = 1; }
                 else if (cb_conflict_rename.Checked)  { downloadMode = 2; }
                 else if (cb_conflict_skip.Checked)    { downloadMode = 3; }
+                else
+                {
+                    DialogResult dialogResult = fapmap.OpenFileExistsDialog(this, path);
+
+                    switch (dialogResult)
+                    {
+                        case DialogResult.Yes:    downloadMode = 1; break; // replace
+                        case DialogResult.No:     downloadMode = 2; break; // new name
+                        case DialogResult.Cancel: downloadMode = 3; break; // skip
+                    }
+                }
             }
+           
 
             switch (downloadMode)
             {

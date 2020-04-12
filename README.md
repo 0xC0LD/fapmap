@@ -27,7 +27,7 @@
 - hover over buttons to see what they do... (tooltip)
 - right click on 'Change Tabs' to see both tabs
 - tray icon: left click = hide the fapmap window, right click = close fapmap
-- You can open *.txt/*.lst files...
+- You can open .txt/.lst files...
 - fileDisplay: ctrl + scroll = zoom in/out icons
 - you can drag 'n' drop a FILE link in the address bar to open them in a fapmap media player (also works on a media players' titlebar)
 - you can drag 'n' drop a FILE link in the treeview/fileDisplay to open the link in a downloader

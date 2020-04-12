@@ -5161,6 +5161,8 @@ namespace fapmap
 
             File.Delete(file);
             File.Move(tempFile, file);
+
+            links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
         }
         private void links_comment()
         {

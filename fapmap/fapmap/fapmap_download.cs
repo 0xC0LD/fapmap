@@ -403,6 +403,10 @@ namespace fapmap
                 links.Items.Remove(listItem);
                 links_recountAndResize();
             }
+            
+            // replace invalid file chars in filename
+            foreach (char c in Path.GetInvalidFileNameChars())
+            { name = name.Replace(c, '_'); }
 
             string path = txt_dir.Text + name;
 
@@ -413,18 +417,7 @@ namespace fapmap
                 info.Text = "URL not valid!";
                 return false;
             }
-
-            bool invalidPath = false;
-            foreach (char ch in System.IO.Path.GetInvalidPathChars())
-            { if (path.Contains(ch)) { invalidPath = true; break; } }
-
-            if (invalidPath)
-            {
-                info.ForeColor = Color.PaleVioletRed;
-                info.Text = "Path not valid!";
-                return false;
-            }
-
+            
             info.ForeColor = Color.Turquoise;
             info.Text = "Checking if file already exists...";
 
@@ -543,7 +536,8 @@ namespace fapmap
             lastUpdate = now;
 
             pbar.Value = e.ProgressPercentage;
-            
+
+            info.ForeColor = Color.Turquoise;
             info.Text = e.ProgressPercentage + "% = " + fapmap.ROund(bytes_current) + " (" + bytes_current + " bytes)" + Environment.NewLine +
                                             "100% = " + fapmap.ROund(bytes_total) + " (" + bytes_total + " bytes)" + Environment.NewLine + 
                                             "speed: " + fapmap.ROund(bytesPerSecond) + " (" + bytesPerSecond + " bytes)" + " per sec";
@@ -561,6 +555,9 @@ namespace fapmap
             if (failed)
             {
                 info.ForeColor = Color.PaleVioletRed;
+
+                // delete
+                if (cb_delFail.Checked && File.Exists(txt_dledPATH.Text)) { File.Delete(txt_dledPATH.Text); }
 
                 if (!e.Cancelled
                  && currentDownloadItem != null
@@ -806,7 +803,7 @@ namespace fapmap
             if (e.KeyCode == Keys.Enter)
             {
                 txt_filename.ReadOnly = true;
-                txt_filename.ForeColor = Color.Turquoise;
+                txt_filename.ForeColor = Color.Teal;
 
                 e.Handled = true;
                 e.SuppressKeyPress = true;

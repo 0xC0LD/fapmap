@@ -127,7 +127,7 @@
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btn_cancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btn_cancel.Location = new System.Drawing.Point(392, 119);
+            this.btn_cancel.Location = new System.Drawing.Point(512, 119);
             this.btn_cancel.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(61, 29);
@@ -149,7 +149,7 @@
             this.btn_make.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_make.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btn_make.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btn_make.Location = new System.Drawing.Point(327, 119);
+            this.btn_make.Location = new System.Drawing.Point(447, 119);
             this.btn_make.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_make.Name = "btn_make";
             this.btn_make.Size = new System.Drawing.Size(61, 29);
@@ -207,7 +207,7 @@
             this.btn_openPathSelector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_openPathSelector.Font = new System.Drawing.Font("Consolas", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.btn_openPathSelector.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.btn_openPathSelector.Location = new System.Drawing.Point(436, 6);
+            this.btn_openPathSelector.Location = new System.Drawing.Point(556, 6);
             this.btn_openPathSelector.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.btn_openPathSelector.Name = "btn_openPathSelector";
             this.btn_openPathSelector.Size = new System.Drawing.Size(22, 22);
@@ -223,7 +223,7 @@
             this.txt_path_border.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txt_path_border.Location = new System.Drawing.Point(52, 6);
             this.txt_path_border.Name = "txt_path_border";
-            this.txt_path_border.Size = new System.Drawing.Size(379, 22);
+            this.txt_path_border.Size = new System.Drawing.Size(499, 22);
             this.txt_path_border.TabIndex = 164;
             // 
             // txt_path
@@ -234,12 +234,12 @@
             this.txt_path.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.txt_path.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_path.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txt_path.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_path.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_path.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txt_path.Location = new System.Drawing.Point(1, 1);
             this.txt_path.Margin = new System.Windows.Forms.Padding(4);
             this.txt_path.Name = "txt_path";
-            this.txt_path.Size = new System.Drawing.Size(377, 20);
+            this.txt_path.Size = new System.Drawing.Size(497, 16);
             this.txt_path.TabIndex = 1;
             this.txt_path.TextChanged += new System.EventHandler(this.txt_path_TextChanged);
             // 
@@ -251,7 +251,7 @@
             this.txt_keyword_border.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txt_keyword_border.Location = new System.Drawing.Point(194, 35);
             this.txt_keyword_border.Name = "txt_keyword_border";
-            this.txt_keyword_border.Size = new System.Drawing.Size(264, 22);
+            this.txt_keyword_border.Size = new System.Drawing.Size(384, 22);
             this.txt_keyword_border.TabIndex = 165;
             // 
             // txt_keyword
@@ -262,12 +262,12 @@
             this.txt_keyword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.txt_keyword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_keyword.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.txt_keyword.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_keyword.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_keyword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.txt_keyword.Location = new System.Drawing.Point(1, 1);
             this.txt_keyword.Margin = new System.Windows.Forms.Padding(4);
             this.txt_keyword.Name = "txt_keyword";
-            this.txt_keyword.Size = new System.Drawing.Size(262, 20);
+            this.txt_keyword.Size = new System.Drawing.Size(382, 16);
             this.txt_keyword.TabIndex = 1;
             this.txt_keyword.TextChanged += new System.EventHandler(this.txt_keyword_TextChanged);
             // 
@@ -277,7 +277,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
-            this.ClientSize = new System.Drawing.Size(464, 161);
+            this.ClientSize = new System.Drawing.Size(584, 161);
             this.Controls.Add(this.txt_keyword_border);
             this.Controls.Add(this.txt_path_border);
             this.Controls.Add(this.btn_openPathSelector);
@@ -291,7 +291,6 @@
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(700, 200);

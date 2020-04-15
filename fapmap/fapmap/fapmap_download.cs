@@ -37,7 +37,8 @@ namespace fapmap
         {
             // path
             txt_dir.Text = fapmap.GlobalVariables.Path.Dir.MainFolder + "\\";
-            if (!string.IsNullOrEmpty(pass_path) && Directory.Exists(pass_path)) { txt_dir.Text = new DirectoryInfo(pass_path).FullName + "\\"; }
+            if (Directory.Exists(pass_path)) { txt_dir.Text = pass_path + "\\"; }
+            else if (File.Exists(pass_path)) { txt_dir.Text = Path.GetDirectoryName(pass_path) + "\\"; }
             
             links.Focus();
             this.ActiveControl = links;

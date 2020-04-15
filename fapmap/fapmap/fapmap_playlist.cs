@@ -18,18 +18,19 @@ namespace fapmap
             InitializeComponent();
         }
 
-        public bool keyword { get; set; }
-        public bool rmlogs { get; set; }
-        public bool random { get; set; }
-        public bool reverse { get; set; }
-        public string keyword_str { get; set; }
-        public string path { get; set; }
+        public bool keyword = false;
+        public bool rmlogs = false;
+        public bool random = false;
+        public bool reverse = false;
+        public string keyword_str = string.Empty;
+        public string path = string.Empty;
 
         private void fapmap_playlist_Load(object sender, EventArgs e)
         {
-            if (File.Exists(path)) { this.txt_path.Text = path = Directory.GetParent(path).ToString(); }
-            else                   { this.txt_path.Text = path; }
-            
+            if (Directory.Exists(path)) { txt_path.Text = path; }
+            else if (File.Exists(path)) { txt_path.Text = Path.GetDirectoryName(path); }
+            else { txt_path.Text = fapmap.GlobalVariables.Path.Dir.MainFolder; }
+
             btn_cancel.Focus();
             this.ActiveControl = btn_cancel;
         }
@@ -53,10 +54,8 @@ namespace fapmap
         private void txt_keyword_TextChanged(object sender, EventArgs e) { if (keyword) { keyword_str = txt_keyword.Text; } }
         private void txt_path_TextChanged(object sender, EventArgs e)
         {
-            if (!Directory.Exists(txt_path.Text)) { txt_path.ForeColor = Color.Red;          }
-            else                                  { txt_path.ForeColor = Color.MediumPurple; }
-
-            path = this.txt_path.Text;
+            txt_path.ForeColor = Directory.Exists(txt_path.Text) ? Color.Turquoise : Color.PaleVioletRed;
+            path = txt_path.Text;
         }
         
         private void confirm()

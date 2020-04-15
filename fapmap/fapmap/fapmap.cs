@@ -4738,8 +4738,11 @@ namespace fapmap
 
             if (faftv.SelectedNode      != null
              && faftv.SelectedNode.Name != null
-             && Directory.Exists(faftv.SelectedNode.Name))
-            { path = faftv.SelectedNode.Name; }
+            )
+            {
+                if (Directory.Exists(faftv.SelectedNode.Name)) { path = faftv.SelectedNode.Name; }
+                else if (File.Exists(faftv.SelectedNode.Name)) { path = Path.GetDirectoryName(faftv.SelectedNode.Name); }
+            }
 
             string url = e.Data.GetData(DataFormats.StringFormat) as string;
             if (!string.IsNullOrEmpty(url) && Uri.IsWellFormedUriString(url, UriKind.Absolute))

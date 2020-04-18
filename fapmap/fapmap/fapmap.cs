@@ -13,6 +13,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 using WMPLib;
+using Microsoft.Win32;
 
 namespace fapmap
 {
@@ -227,7 +228,7 @@ namespace fapmap
         #endregion
 
         #region Main Window Events
-        
+
         private void fapmap_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (GlobalVariables.Settings.CheckBoxes.HideOnX)
@@ -2641,6 +2642,18 @@ namespace fapmap
             fapmap.OpenProperties(txt_path.Text);
         }
 
+        private void fileDisplay_btn_info_DragEnter(object sender, DragEventArgs e)
+        {
+            if ((e.AllowedEffect & System.Windows.Forms.DragDropEffects.All) != 0 && e.Data.GetDataPresent(typeof(string)))
+            {
+                e.Effect = System.Windows.Forms.DragDropEffects.All;
+            }
+        }
+        private void fileDisplay_btn_info_DragDrop(object sender, DragEventArgs e)
+        {
+            new fapmap_find() { pass_input = (e.Data.GetData(typeof(string)) as string) }.Show();
+        }
+        
         #endregion
 
         #region change icon size
@@ -2929,10 +2942,15 @@ namespace fapmap
             }
         }
 
-        private void playOrOpenURL(string url)
+        private void openURL(string url)
         {
             if (media_playUrl(url)) { return; }
             Incognito(url);
+        }
+
+        private void webBrowser_Navigated(object sender, WebBrowserNavigatedEventArgs e)
+        {
+            txt_url.Text = e.Url.AbsoluteUri;
         }
 
         #endregion
@@ -4838,7 +4856,7 @@ namespace fapmap
                 switch (e.KeyCode)
                 {
                     case Keys.W:
-                    case Keys.Enter: playOrOpenURL(txt_url.Text); e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.Enter: openURL(txt_url.Text); e.Handled = true; e.SuppressKeyPress = true; break;
                     case Keys.S: links_add(txt_url.Text);   e.Handled = true; e.SuppressKeyPress = true; break;
                     case Keys.Back:
                         {
@@ -4861,7 +4879,7 @@ namespace fapmap
         
         private void btn_startURL_Click(object sender, EventArgs e)
         {
-            playOrOpenURL(txt_url.Text);
+            openURL(txt_url.Text);
         }
         private void btn_openURL_Click(object sender, EventArgs e)
         {
@@ -5048,7 +5066,7 @@ namespace fapmap
                 if (item.Name == null) { continue; }
                 string text = item.Name;
                 if (string.IsNullOrEmpty(text)) { continue; }
-                if (!text.StartsWith(GlobalVariables.Settings.Common.Comment)) { playOrOpenURL(text); }
+                if (!text.StartsWith(GlobalVariables.Settings.Common.Comment)) { openURL(text); }
             }
         }
         private void links_reloadTitle()
@@ -5456,9 +5474,6 @@ namespace fapmap
         {
             links_webgrab();
         }
-
-        
-
         private void links_RMB_youtubedl_Click(object sender, EventArgs e)
         {
             links_youtubedl();
@@ -5471,6 +5486,50 @@ namespace fapmap
         #endregion
 
         #endregion
+
+        #endregion
+
+        #region split container update realtime
+
+        private void splitContainer_MouseDown(object sender, MouseEventArgs e)
+        {
+            ((SplitContainer)sender).IsSplitterFixed = true;
+        }
+
+        private void splitContainer_MouseUp(object sender, MouseEventArgs e)
+        {
+            ((SplitContainer)sender).IsSplitterFixed = false;
+        }
+        private void splitContainer_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (((SplitContainer)sender).IsSplitterFixed)
+            {
+                if (e.Button.Equals(MouseButtons.Left))
+                {
+                    if (((SplitContainer)sender).Orientation.Equals(Orientation.Vertical))
+                    {
+                        if (e.X > 0 && e.X < ((SplitContainer)sender).Width)
+                        {
+                            ((SplitContainer)sender).SplitterDistance = e.X;
+                            ((SplitContainer)sender).Refresh();
+                        }
+                    }
+                    else
+                    {
+                        if (e.Y > 0 && e.Y < ((SplitContainer)sender).Height)
+                        {
+                            // Move the splitter & force a visual refresh
+                            ((SplitContainer)sender).SplitterDistance = e.Y;
+                            ((SplitContainer)sender).Refresh();
+                        }
+                    }
+                }
+                else
+                {
+                    ((SplitContainer)sender).IsSplitterFixed = false;
+                }
+            }
+        }
 
         #endregion
     }

@@ -204,7 +204,7 @@ namespace fapmap_res
         }
     }
 
-    class MouseDetector
+    public class MouseDetector
     {
         #region APIs
 

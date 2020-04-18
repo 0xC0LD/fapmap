@@ -84,9 +84,9 @@ namespace fapmap
             txt_output.Text = "...";
             label_outputThumb.Text = "...";
 
-            getInfo();
-            getThumbInfo();
-            getCacheSize();
+            //getInfo();
+            //getThumbInfo();
+            //getCacheSize();
 
             this.ActiveControl = btn_getinfo;
         }
@@ -390,30 +390,116 @@ namespace fapmap
                 }
             }
         }
-        
+
         #endregion
 
         #region Text Settings
-        
+
+
+        private void settingApply_wbURL()
+        {
+            if (string.IsNullOrEmpty(txt_wbURL.Text)) { txt_wbURL.Text = fapmap.GlobalVariables.Settings.WebBrowser.FapMapURL; }
+
+            if (!Uri.IsWellFormedUriString(txt_wbURL.Text, UriKind.Absolute))
+            {
+                txt_wbURL.Text = "https://duckduckgo.com/?q=" + txt_wbURL.Text.Replace(" ", "+");
+            }
+
+            fapmap.GlobalVariables.Settings.WebBrowser.FapMapURL = txt_wbURL.Text;
+            fapmap.settings_edit(
+                fapmap.GlobalVariables.Settings.WebBrowser.FapMapURL_,
+                txt_wbURL.Text
+            );
+
+            txt_wbURL.ForeColor = Color.DeepPink;
+        }
+        private void settingApply_gifDelay()
+        {
+            if (!int.TryParse(txt_gifDelay.Text, out int output)) { output = 50; }
+            if (output < 5) { output = 5; }
+            if (output > 1000) { output = 1000; }
+
+            txt_gifDelay.Text = output.ToString();
+
+            fapmap.GlobalVariables.Settings.Media.GifDelay = output;
+            fapmap.settings_edit(
+                fapmap.GlobalVariables.Settings.Media.GifDelay_,
+                txt_gifDelay.Text
+            );
+
+            txt_gifDelay.ForeColor = Color.DeepPink;
+        }
+        private void settingApply_videoTypes()
+        {
+            string text = txt_videoTypes.Text.Replace("*", "");
+
+            if (string.IsNullOrEmpty(text))
+            {
+                foreach (string type in fapmap.GlobalVariables.FileTypes.Video)
+                {
+                    text += type == fapmap.GlobalVariables.FileTypes.Video.Last() ? type : type + ",";
+                }
+
+                txt_videoTypes.Text = text;
+            }
+
+            string[] types = text.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+            fapmap.GlobalVariables.Settings.Media.FileTypes.Video = types.ToList();
+
+            fapmap.settings_edit(
+                fapmap.GlobalVariables.Settings.Media.FileTypes.Video_,
+                text
+            );
+
+            txt_videoTypes.ForeColor = Color.DeepPink;
+        }
+        private void settingApply_imageTypes()
+        {
+            string text = txt_imageTypes.Text.Replace("*", "");
+
+            if (string.IsNullOrEmpty(text))
+            {
+                foreach (string type in fapmap.GlobalVariables.FileTypes.Image)
+                {
+                    text += type == fapmap.GlobalVariables.FileTypes.Image.Last() ? type : type + ",";
+                }
+
+                txt_imageTypes.Text = text;
+            }
+
+            string[] types = text.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+            fapmap.GlobalVariables.Settings.Media.FileTypes.Image = types.ToList();
+
+            fapmap.settings_edit(
+                fapmap.GlobalVariables.Settings.Media.FileTypes.Image_,
+                text
+            );
+
+            txt_imageTypes.ForeColor = Color.DeepPink;
+        }
+
+        private void label_wb_Click(object sender, EventArgs e)
+        {
+            settingApply_wbURL();
+        }
+        private void label_gifDelay_Click(object sender, EventArgs e)
+        {
+            settingApply_gifDelay();
+        }
+        private void label_videoTypes_Click(object sender, EventArgs e)
+        {
+            settingApply_videoTypes();
+        }
+        private void label_imageTypes_Click(object sender, EventArgs e)
+        {
+            settingApply_imageTypes();
+        }
+
         private void txt_wbURL_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (string.IsNullOrEmpty(txt_wbURL.Text)) { txt_wbURL.Text = fapmap.GlobalVariables.Settings.WebBrowser.FapMapURL; }
-
-                if (!Uri.IsWellFormedUriString(txt_wbURL.Text, UriKind.Absolute))
-                {
-                    txt_wbURL.Text = "https://duckduckgo.com/?q=" + txt_wbURL.Text.Replace(" ", "+");
-                }
-
-                fapmap.GlobalVariables.Settings.WebBrowser.FapMapURL = txt_wbURL.Text;
-                fapmap.settings_edit(
-                    fapmap.GlobalVariables.Settings.WebBrowser.FapMapURL_,
-                    txt_wbURL.Text
-                );
-                
-                txt_wbURL.ForeColor = Color.MediumPurple;
-
+                settingApply_wbURL();
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
@@ -422,20 +508,7 @@ namespace fapmap
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (!int.TryParse(txt_gifDelay.Text, out int output)) { output = 50; }
-                if (output < 5) { output = 5; }
-                if (output > 1000) { output = 1000; }
-
-                txt_gifDelay.Text = output.ToString();
-
-                fapmap.GlobalVariables.Settings.Media.GifDelay = output;
-                fapmap.settings_edit(
-                    fapmap.GlobalVariables.Settings.Media.GifDelay_,
-                    txt_gifDelay.Text
-                );
-                
-                txt_gifDelay.ForeColor = Color.MediumPurple;
-
+                settingApply_gifDelay();
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
@@ -444,28 +517,7 @@ namespace fapmap
         {
             if (e.KeyCode == Keys.Enter)
             {
-                string text = txt_videoTypes.Text.Replace("*", "");
-
-                if (string.IsNullOrEmpty(text))
-                {
-                    foreach (string type in fapmap.GlobalVariables.FileTypes.Video)
-                    {
-                        text += type == fapmap.GlobalVariables.FileTypes.Video.Last() ? type : type + ",";
-                    }
-
-                    txt_videoTypes.Text = text;
-                }
-
-                string[] types = text.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                fapmap.GlobalVariables.Settings.Media.FileTypes.Video = types.ToList();
-
-                fapmap.settings_edit(
-                    fapmap.GlobalVariables.Settings.Media.FileTypes.Video_,
-                    text
-                );
-
-                txt_videoTypes.ForeColor = Color.MediumPurple;
-
+                settingApply_videoTypes();
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
@@ -474,28 +526,7 @@ namespace fapmap
         {
             if (e.KeyCode == Keys.Enter)
             {
-                string text = txt_imageTypes.Text.Replace("*", "");
-
-                if (string.IsNullOrEmpty(text))
-                {
-                    foreach (string type in fapmap.GlobalVariables.FileTypes.Image)
-                    {
-                        text += type == fapmap.GlobalVariables.FileTypes.Image.Last() ? type : type + ",";
-                    }
-
-                    txt_imageTypes.Text = text;
-                }
-
-                string[] types = text.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                fapmap.GlobalVariables.Settings.Media.FileTypes.Image = types.ToList();
-
-                fapmap.settings_edit(
-                    fapmap.GlobalVariables.Settings.Media.FileTypes.Image_,
-                    text
-                );
-
-                txt_imageTypes.ForeColor = Color.MediumPurple;
-
+                settingApply_imageTypes();
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
@@ -504,22 +535,22 @@ namespace fapmap
         private void txt_wbURL_TextChanged(object sender, EventArgs e)
         {
             if (disableChangeSetting) { return; }
-            txt_wbURL.ForeColor = Color.Magenta;
+            txt_wbURL.ForeColor = Color.PaleVioletRed;
         }
         private void txt_gifDelay_TextChanged(object sender, EventArgs e)
         {
             if (disableChangeSetting) { return; }
-            txt_gifDelay.ForeColor = Color.Magenta;
+            txt_gifDelay.ForeColor = Color.PaleVioletRed;
         }
         private void txt_videoTypes_TextChanged(object sender, EventArgs e)
         {
             if (disableChangeSetting) { return; }
-            txt_videoTypes.ForeColor = Color.Magenta;
+            txt_videoTypes.ForeColor = Color.PaleVioletRed;
         }
         private void txt_imageTypes_TextChanged(object sender, EventArgs e)
         {
             if (disableChangeSetting) { return; }
-            txt_imageTypes.ForeColor = Color.Magenta;
+            txt_imageTypes.ForeColor = Color.PaleVioletRed;
         }
 
         #endregion
@@ -617,10 +648,13 @@ namespace fapmap
         }
 
         #endregion
-        
+
         #region cache
-        
-        // delete cache
+
+        private void btn_getCacheSize_Click(object sender, EventArgs e)
+        {
+            getCacheSize();
+        }
         private void btn_delCache_Click(object sender, EventArgs e)
         {
             if (!Directory.Exists(fapmap.GlobalVariables.Path.Dir.Cache)) { return; }
@@ -813,6 +847,9 @@ namespace fapmap
         }
 
 
+
         #endregion
+
+        
     }
 }

@@ -375,6 +375,9 @@
             this.splitContainer.Size = new System.Drawing.Size(958, 487);
             this.splitContainer.SplitterDistance = 471;
             this.splitContainer.TabIndex = 232;
+            this.splitContainer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainer_MouseDown);
+            this.splitContainer.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitContainer_MouseMove);
+            this.splitContainer.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitContainer_MouseUp);
             // 
             // output
             // 
@@ -397,6 +400,7 @@
             this.output.Location = new System.Drawing.Point(0, 0);
             this.output.MultiSelect = false;
             this.output.Name = "output";
+            this.output.ShowItemToolTips = true;
             this.output.Size = new System.Drawing.Size(471, 487);
             this.output.SmallImageList = this.output_icons;
             this.output.TabIndex = 3;
@@ -458,16 +462,19 @@
             // 
             // txt_searchBox
             // 
+            this.txt_searchBox.AllowDrop = true;
             this.txt_searchBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_searchBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.txt_searchBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_searchBox.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_searchBox.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_searchBox.ForeColor = System.Drawing.Color.HotPink;
             this.txt_searchBox.Location = new System.Drawing.Point(1, 1);
             this.txt_searchBox.Name = "txt_searchBox";
-            this.txt_searchBox.Size = new System.Drawing.Size(927, 23);
+            this.txt_searchBox.Size = new System.Drawing.Size(927, 19);
             this.txt_searchBox.TabIndex = 1;
+            this.txt_searchBox.DragDrop += new System.Windows.Forms.DragEventHandler(this.txt_searchBox_DragDrop);
+            this.txt_searchBox.DragEnter += new System.Windows.Forms.DragEventHandler(this.txt_searchBox_DragEnter);
             this.txt_searchBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_searchBox_KeyDown);
             // 
             // fapmap_find

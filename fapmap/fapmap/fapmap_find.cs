@@ -22,13 +22,21 @@ namespace fapmap
 
             output_RMB.Renderer = new fapmap_res.FapMapColors.FapMapToolStripRenderer(Color.FromArgb(128, 128, 255));
         }
-        
+
+        public string pass_input = string.Empty;
+
         private void fapmap_find_Load(object sender, EventArgs e)
         {
             showImage_dispose();
 
             txt_searchBox.Focus();
             this.ActiveControl = txt_searchBox;
+
+            if (!string.IsNullOrEmpty(pass_input))
+            {
+                txt_searchBox.Text = pass_input;
+                find();
+            }
         }
 
         #region fx
@@ -162,7 +170,7 @@ namespace fapmap
 
                 if (addIt)
                 {
-                    itemsToAdd.Add(new ListViewItem(new string[] { (itemsToAdd.Count + 1).ToString(), text }) { Name = item.FullName, ForeColor = fc, ImageIndex = imageIndex });
+                    itemsToAdd.Add(new ListViewItem(new string[] { (itemsToAdd.Count + 1).ToString(), text }) { ToolTipText = item.FullName, Name = item.FullName, ForeColor = fc, ImageIndex = imageIndex });
                 }
             }
 
@@ -287,6 +295,19 @@ namespace fapmap
                 e.Handled = true;
                 e.SuppressKeyPress = true;
             }
+        }
+
+        // drag n drop
+        private void txt_searchBox_DragEnter(object sender, DragEventArgs e)
+        {
+            if ((e.AllowedEffect & System.Windows.Forms.DragDropEffects.All) != 0 && e.Data.GetDataPresent(typeof(string)))
+            {
+                e.Effect = System.Windows.Forms.DragDropEffects.All;
+            }
+        }
+        private void txt_searchBox_DragDrop(object sender, DragEventArgs e)
+        {
+            txt_searchBox.Text = (e.Data.GetData(typeof(string)) as string);
         }
 
         private bool output_ctrl = false;
@@ -454,9 +475,50 @@ namespace fapmap
         private void output_RMB_copy_Click      (object sender, EventArgs e) { output_copy();      }
         private void output_RMB_delete_Click    (object sender, EventArgs e) { output_delete();    }
         private void output_RMB_properties_Click(object sender, EventArgs e) { output_info();      }
-
+        
         #endregion
 
+        #region split container update realtime
 
+        private void splitContainer_MouseDown(object sender, MouseEventArgs e)
+        {
+            ((SplitContainer)sender).IsSplitterFixed = true;
+        }
+        private void splitContainer_MouseUp(object sender, MouseEventArgs e)
+        {
+            ((SplitContainer)sender).IsSplitterFixed = false;
+        }
+        private void splitContainer_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (((SplitContainer)sender).IsSplitterFixed)
+            {
+                if (e.Button.Equals(MouseButtons.Left))
+                {
+                    if (((SplitContainer)sender).Orientation.Equals(Orientation.Vertical))
+                    {
+                        if (e.X > 0 && e.X < ((SplitContainer)sender).Width)
+                        {
+                            ((SplitContainer)sender).SplitterDistance = e.X;
+                            ((SplitContainer)sender).Refresh();
+                        }
+                    }
+                    else
+                    {
+                        if (e.Y > 0 && e.Y < ((SplitContainer)sender).Height)
+                        {
+                            // Move the splitter & force a visual refresh
+                            ((SplitContainer)sender).SplitterDistance = e.Y;
+                            ((SplitContainer)sender).Refresh();
+                        }
+                    }
+                }
+                else
+                {
+                    ((SplitContainer)sender).IsSplitterFixed = false;
+                }
+            }
+        }
+
+        #endregion
     }
 }

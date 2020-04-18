@@ -38,7 +38,6 @@
             this.txt_path = new System.Windows.Forms.TextBox();
             this.fileDisplay_btn_reload = new System.Windows.Forms.Button();
             this.splitContainer_files = new System.Windows.Forms.SplitContainer();
-            this.faftv_border = new fapmap_res.FapMapPanel();
             this.faftv_cb_index = new System.Windows.Forms.CheckBox();
             this.faftv_cb_sort = new System.Windows.Forms.CheckBox();
             this.faftv = new fapmap_res.FapMapTreeView();
@@ -58,7 +57,6 @@
             this.faftv_RMB_delete = new System.Windows.Forms.ToolStripMenuItem();
             this.faftv_RMB_properties = new System.Windows.Forms.ToolStripMenuItem();
             this.faftv_icons = new System.Windows.Forms.ImageList(this.components);
-            this.fileDisplay_border = new fapmap_res.FapMapPanel();
             this.fileDisplay_cb_thumb = new System.Windows.Forms.CheckBox();
             this.fileDisplay_cb_sort = new System.Windows.Forms.CheckBox();
             this.fileDisplay = new fapmap_res.FapMapListView();
@@ -81,7 +79,6 @@
             this.fileDisplay_btn_root = new System.Windows.Forms.Button();
             this.fileDisplay_btn_backDir = new System.Windows.Forms.Button();
             this.fileDisplay_btn_randVideo = new System.Windows.Forms.Button();
-            this.links_border = new fapmap_res.FapMapPanel();
             this.links = new fapmap_res.FapMapListView();
             this.links_clm_num = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.links_clm_url = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -206,11 +203,8 @@
             this.splitContainer_files.Panel1.SuspendLayout();
             this.splitContainer_files.Panel2.SuspendLayout();
             this.splitContainer_files.SuspendLayout();
-            this.faftv_border.SuspendLayout();
             this.faftv_RMB.SuspendLayout();
-            this.fileDisplay_border.SuspendLayout();
             this.fileDisplay_RMB.SuspendLayout();
-            this.links_border.SuspendLayout();
             this.links_RMB.SuspendLayout();
             this.txt_url_border.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.showMedia_image)).BeginInit();
@@ -230,7 +224,7 @@
             // 
             // splitContainer_main
             // 
-            this.splitContainer_main.BackColor = System.Drawing.Color.Black;
+            this.splitContainer_main.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             resources.ApplyResources(this.splitContainer_main, "splitContainer_main");
             this.splitContainer_main.Name = "splitContainer_main";
             // 
@@ -250,15 +244,19 @@
             // splitContainer_main.Panel2
             // 
             this.splitContainer_main.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.splitContainer_main.Panel2.Controls.Add(this.links_border);
+            this.splitContainer_main.Panel2.Controls.Add(this.links);
             this.splitContainer_main.Panel2.Controls.Add(this.txt_url_border);
             this.splitContainer_main.Panel2.Controls.Add(this.btn_startURL);
             this.splitContainer_main.Panel2.Controls.Add(this.btn_dragOutURL);
             this.splitContainer_main.Panel2.Controls.Add(this.btn_saveURL);
             this.splitContainer_main.Panel2.Controls.Add(this.btn_openURL);
+            this.splitContainer_main.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainer_MouseDown);
+            this.splitContainer_main.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitContainer_MouseMove);
+            this.splitContainer_main.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitContainer_MouseUp);
             // 
             // fileDisplay_btn_info
             // 
+            this.fileDisplay_btn_info.AllowDrop = true;
             resources.ApplyResources(this.fileDisplay_btn_info, "fileDisplay_btn_info");
             this.fileDisplay_btn_info.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.fileDisplay_btn_info.BackgroundImage = global::fapmap.Properties.Resources.settings_hotpink;
@@ -272,6 +270,8 @@
             this.HelpBalloon.SetToolTip(this.fileDisplay_btn_info, resources.GetString("fileDisplay_btn_info.ToolTip"));
             this.fileDisplay_btn_info.UseVisualStyleBackColor = false;
             this.fileDisplay_btn_info.Click += new System.EventHandler(this.fileDisplay_btn_info_Click);
+            this.fileDisplay_btn_info.DragDrop += new System.Windows.Forms.DragEventHandler(this.fileDisplay_btn_info_DragDrop);
+            this.fileDisplay_btn_info.DragEnter += new System.Windows.Forms.DragEventHandler(this.fileDisplay_btn_info_DragEnter);
             // 
             // txt_path_border
             // 
@@ -313,26 +313,24 @@
             // splitContainer_files
             // 
             resources.ApplyResources(this.splitContainer_files, "splitContainer_files");
-            this.splitContainer_files.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.splitContainer_files.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.splitContainer_files.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer_files.Name = "splitContainer_files";
             // 
             // splitContainer_files.Panel1
             // 
-            this.splitContainer_files.Panel1.Controls.Add(this.faftv_border);
+            this.splitContainer_files.Panel1.Controls.Add(this.faftv_cb_index);
+            this.splitContainer_files.Panel1.Controls.Add(this.faftv_cb_sort);
+            this.splitContainer_files.Panel1.Controls.Add(this.faftv);
             // 
             // splitContainer_files.Panel2
             // 
-            this.splitContainer_files.Panel2.Controls.Add(this.fileDisplay_border);
-            // 
-            // faftv_border
-            // 
-            this.faftv_border.Controls.Add(this.faftv_cb_index);
-            this.faftv_border.Controls.Add(this.faftv_cb_sort);
-            this.faftv_border.Controls.Add(this.faftv);
-            resources.ApplyResources(this.faftv_border, "faftv_border");
-            this.faftv_border.ForeColor = System.Drawing.Color.HotPink;
-            this.faftv_border.Name = "faftv_border";
+            this.splitContainer_files.Panel2.Controls.Add(this.fileDisplay_cb_thumb);
+            this.splitContainer_files.Panel2.Controls.Add(this.fileDisplay_cb_sort);
+            this.splitContainer_files.Panel2.Controls.Add(this.fileDisplay);
+            this.splitContainer_files.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainer_MouseDown);
+            this.splitContainer_files.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitContainer_MouseMove);
+            this.splitContainer_files.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitContainer_MouseUp);
             // 
             // faftv_cb_index
             // 
@@ -367,10 +365,10 @@
             // faftv
             // 
             this.faftv.AllowDrop = true;
-            resources.ApplyResources(this.faftv, "faftv");
             this.faftv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.faftv.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.faftv.ContextMenuStrip = this.faftv_RMB;
+            resources.ApplyResources(this.faftv, "faftv");
             this.faftv.DrawMode = System.Windows.Forms.TreeViewDrawMode.OwnerDrawText;
             this.faftv.ForeColor = System.Drawing.Color.HotPink;
             this.faftv.FullRowSelect = true;
@@ -544,15 +542,6 @@
             this.faftv_icons.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("faftv_icons.ImageStream")));
             this.faftv_icons.TransparentColor = System.Drawing.Color.Transparent;
             this.faftv_icons.Images.SetKeyName(0, "dir_hotpink.ico");
-            // 
-            // fileDisplay_border
-            // 
-            this.fileDisplay_border.Controls.Add(this.fileDisplay_cb_thumb);
-            this.fileDisplay_border.Controls.Add(this.fileDisplay_cb_sort);
-            this.fileDisplay_border.Controls.Add(this.fileDisplay);
-            resources.ApplyResources(this.fileDisplay_border, "fileDisplay_border");
-            this.fileDisplay_border.ForeColor = System.Drawing.Color.HotPink;
-            this.fileDisplay_border.Name = "fileDisplay_border";
             // 
             // fileDisplay_cb_thumb
             // 
@@ -822,13 +811,6 @@
             this.fileDisplay_btn_randVideo.UseVisualStyleBackColor = false;
             this.fileDisplay_btn_randVideo.Click += new System.EventHandler(this.fileDisplay_btn_randVideo_Click);
             this.fileDisplay_btn_randVideo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.fileDisplay_btn_randVideo_MouseUp);
-            // 
-            // links_border
-            // 
-            resources.ApplyResources(this.links_border, "links_border");
-            this.links_border.Controls.Add(this.links);
-            this.links_border.ForeColor = System.Drawing.Color.Turquoise;
-            this.links_border.Name = "links_border";
             // 
             // links
             // 
@@ -2254,16 +2236,13 @@
             this.txt_path_border.ResumeLayout(false);
             this.txt_path_border.PerformLayout();
             this.splitContainer_files.Panel1.ResumeLayout(false);
+            this.splitContainer_files.Panel1.PerformLayout();
             this.splitContainer_files.Panel2.ResumeLayout(false);
+            this.splitContainer_files.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_files)).EndInit();
             this.splitContainer_files.ResumeLayout(false);
-            this.faftv_border.ResumeLayout(false);
-            this.faftv_border.PerformLayout();
             this.faftv_RMB.ResumeLayout(false);
-            this.fileDisplay_border.ResumeLayout(false);
-            this.fileDisplay_border.PerformLayout();
             this.fileDisplay_RMB.ResumeLayout(false);
-            this.links_border.ResumeLayout(false);
             this.links_RMB.ResumeLayout(false);
             this.txt_url_border.ResumeLayout(false);
             this.txt_url_border.PerformLayout();
@@ -2348,9 +2327,6 @@
         private System.Windows.Forms.ToolStripMenuItem menu_open_converter;
         private System.Windows.Forms.ToolStripMenuItem faftv_RMB_delete;
         private System.Windows.Forms.ToolStripMenuItem menu_open_urlBoard;
-        private fapmap_res.FapMapListView links;
-        private System.Windows.Forms.ColumnHeader links_clm_num;
-        private System.Windows.Forms.ColumnHeader links_clm_url;
         private System.Windows.Forms.ToolStripMenuItem links_RMB_commentOut;
         private System.Windows.Forms.ToolStripMenuItem menu_open_logViewer;
         private System.Windows.Forms.ContextMenuStrip showMedia_video_RMB;
@@ -2403,7 +2379,6 @@
         private System.Windows.Forms.CheckBox showMedia_video_fit;
         private System.Windows.Forms.ToolStripMenuItem menu_hideWindow;
         private System.Windows.Forms.ToolStripMenuItem menu_restart;
-        private System.Windows.Forms.ColumnHeader links_clm_title;
         private System.Windows.Forms.TextBox txt_url;
         private AutocompleteMenuNS.AutocompleteMenu wb_url_autoCompleteMenu;
         private System.Windows.Forms.ToolStripMenuItem links_RMB_youtubedl;
@@ -2442,10 +2417,7 @@
         private System.Windows.Forms.ToolStripMenuItem faftv_RMB_unselect;
         private System.Windows.Forms.ToolStripMenuItem fileDisplay_RMB_refresh;
         private fapmap_res.FapMapPanel txt_path_border;
-        private fapmap_res.FapMapPanel faftv_border;
-        private fapmap_res.FapMapPanel fileDisplay_border;
         private fapmap_res.FapMapPanel txt_url_border;
-        private fapmap_res.FapMapPanel links_border;
         private System.Windows.Forms.Button fileDisplay_btn_info;
         private System.Windows.Forms.ToolStripMenuItem fileDisplay_RMB_find;
         private System.Windows.Forms.CheckBox fapmap_cb_faftv;
@@ -2454,6 +2426,10 @@
         private System.Windows.Forms.ToolStripMenuItem fileDisplay_RMB_openInBrowser;
         private System.Windows.Forms.ToolStripMenuItem faftv_RMB_openInBrowser;
         private System.Windows.Forms.CheckBox fapmap_cb_invisibleWindow;
+        private fapmap_res.FapMapListView links;
+        private System.Windows.Forms.ColumnHeader links_clm_num;
+        private System.Windows.Forms.ColumnHeader links_clm_url;
+        private System.Windows.Forms.ColumnHeader links_clm_title;
     }
 }
 

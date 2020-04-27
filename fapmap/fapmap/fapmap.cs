@@ -4995,7 +4995,7 @@ namespace fapmap
             if (url == "") { return; }
             if (string.IsNullOrEmpty(url)) { return; }
             if (string.IsNullOrWhiteSpace(url)) { return; }
-            foreach (ListViewItem a in links.Items) { if (a.Name == url) { fapmap_echo("Link already exists: " + url); return; } }
+            foreach (ListViewItem i in links.Items) { if (i.Name == url) { i.Selected = true; fapmap_echo("Link already exists: " + url); return; } }
             
             // add url to file
             using (TextWriter tw = new StreamWriter(links_filePath, true)) { tw.WriteLine(url); }
@@ -5006,11 +5006,13 @@ namespace fapmap
             {
                 Name = url,
                 ImageKey = index.ToString(),
-                ForeColor = url.StartsWith(GlobalVariables.Settings.Common.Comment) ? links_color_comment : links_color_normal
+                ForeColor = url.StartsWith(GlobalVariables.Settings.Common.Comment) ? links_color_comment : links_color_normal,
+                Selected = true
             };
 
             //ADD ITEM
             links.Items.Add(lvi);
+            
             
             bool noIcons = false;
             List<string> icons = new List<string>();
@@ -5149,8 +5151,8 @@ namespace fapmap
         {
             string file = GlobalVariables.Path.File.Links;
             if (!string.IsNullOrEmpty(links_filePath)) { file = links_filePath; }
-            
-            List<string> linesToDelete = new List<string>();
+            FileInfo fi = new FileInfo(file);
+
             foreach (ListViewItem item in links.SelectedItems)
             {
                 string text = item.Name;
@@ -5158,30 +5160,20 @@ namespace fapmap
 
                 links.Items.Remove(item);
                 favicons.Images.RemoveByKey(item.ImageKey);
-                linesToDelete.Add(text);
+                LogThis(fapmap.GlobalVariables.LOG_TYPE.UDEL, text);
             }
-            
-            string tempFile = GlobalVariables.Path.Dir.Cache + "\\links.tmp";
 
-            using (var sr = new StreamReader(file, System.Text.Encoding.UTF8))
-            using (var sw = new StreamWriter(tempFile, false, System.Text.Encoding.UTF8))
+
+            FileAttributes backupAttribs = fi.Attributes;
+            fi.Attributes = FileAttributes.Normal; // remove attribs so the file is writeable
+            using (var sw = new StreamWriter(fi.FullName, false, System.Text.Encoding.UTF8))
             {
-                string line;
-                while ((line = sr.ReadLine()) != null)
+                foreach(ListViewItem lvi in links.Items)
                 {
-                    if (linesToDelete.Contains(line))
-                    {
-                        LogThis(fapmap.GlobalVariables.LOG_TYPE.UDEL, line);
-                    }
-                    else
-                    {
-                        sw.WriteLine(line);
-                    }
+                    sw.WriteLine(lvi.Name);
                 }
             }
-
-            File.Delete(file);
-            File.Move(tempFile, file);
+            fi.Attributes = backupAttribs; // put back the original attribs
 
             links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
         }

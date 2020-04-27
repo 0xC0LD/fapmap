@@ -3403,12 +3403,18 @@ namespace fapmap
         private string showMedia_image_URL = string.Empty;
         private void showMedia_image_LoadProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            Bitmap bmp = new Bitmap(showMedia_image.Width, showMedia_image.Height);
-            Graphics g = Graphics.FromImage(bmp);
-            g.Clear(Color.Transparent);
-            g.DrawString(e.ProgressPercentage + "%", new Font("Consolas", 15), Brushes.SlateBlue, new PointF(10, 10));
-
-            showMedia_image.BackgroundImage = bmp;
+            try
+            {
+                Bitmap bmp = new Bitmap(100, 100);
+                using (var g = Graphics.FromImage(bmp))
+                {
+                    g.Clear(Color.Transparent);
+                    g.DrawString(e.ProgressPercentage + "%", new Font("Consolas", 15), Brushes.SlateBlue, new PointF(10, 10));
+                }
+                showMedia_image.BackgroundImage = bmp;
+                GC.Collect();
+            }
+            catch (Exception) { }
         }
         private void showMedia_image_LoadCompleted(object sender, AsyncCompletedEventArgs e)
         {

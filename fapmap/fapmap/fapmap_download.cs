@@ -8,6 +8,7 @@ using System.Threading;
 using System.IO;
 using System.Diagnostics;
 using System.Text.RegularExpressions;
+using Microsoft.WindowsAPICodePack;
 
 namespace fapmap
 {
@@ -534,12 +535,14 @@ namespace fapmap
 
             pbar.Value = e.ProgressPercentage;
 
+
             info.ForeColor = Color.Turquoise;
             info.Text = e.ProgressPercentage + "% = " + fapmap.ROund(bytes_current) + " (" + bytes_current + " bytes)" + Environment.NewLine +
                                             "100% = " + fapmap.ROund(bytes_total) + " (" + bytes_total + " bytes)" + Environment.NewLine + 
                                             "speed: " + fapmap.ROund(bytesPerSecond) + " (" + bytesPerSecond + " bytes)" + " per sec";
 
 
+            Microsoft.WindowsAPICodePack.Taskbar.TaskbarManager.Instance.SetProgressValue(e.ProgressPercentage, 100, Handle);
             this_trayicon.Text = (links.Items.Count + 1).ToString() + ": " + e.ProgressPercentage.ToString() + "%";
         }
         private void client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)

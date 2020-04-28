@@ -183,6 +183,7 @@ namespace fapmap
                 this.Invoke((MethodInvoker)delegate
                 {
                     txt_output.Text += e.Data + Environment.NewLine;
+                    this_trayicon.Text = e.Data;
                 });
             }
             catch (ObjectDisposedException) { }
@@ -257,8 +258,7 @@ namespace fapmap
             txt_url.Text = (e.Data.GetData(typeof(string)) as string);
         }
 
-        #endregion
 
-        
+        #endregion
     }
 }

@@ -1752,6 +1752,8 @@ namespace fapmap
                         return false;
                     }
 
+                    showMedia_image_pb.Visible = true;
+
                     LogThis(fapmap.GlobalVariables.LOG_TYPE.PLAY, URL);
                     media_isRemoved = false;
                     return true;
@@ -3403,21 +3405,11 @@ namespace fapmap
         private string showMedia_image_URL = string.Empty;
         private void showMedia_image_LoadProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            try
-            {
-                Bitmap bmp = new Bitmap(100, 100);
-                using (var g = Graphics.FromImage(bmp))
-                {
-                    g.Clear(Color.Transparent);
-                    g.DrawString(e.ProgressPercentage + "%", new Font("Consolas", 15), Brushes.SlateBlue, new PointF(10, 10));
-                }
-                showMedia_image.BackgroundImage = bmp;
-                GC.Collect();
-            }
-            catch (Exception) { }
+            showMedia_image_pb.Value = e.ProgressPercentage;
         }
         private void showMedia_image_LoadCompleted(object sender, AsyncCompletedEventArgs e)
         {
+            showMedia_image_pb.Visible = false;
             if (GlobalVariables.Settings.CheckBoxes.EnableTrackbarForGifViewer && showMedia_image_URL.ToLower().Contains(".gif")) //GIF VIEWER
             {
                 bool gif_is_valid = true;

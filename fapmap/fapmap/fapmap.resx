@@ -484,7 +484,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAFdTeXN0ZW0uV2luZG93cy5Gb3JtcywgVmVyc2lvbj00LjAuMC4w
         LCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPWI3N2E1YzU2MTkzNGUwODkFAQAAACZTeXN0
         ZW0uV2luZG93cy5Gb3Jtcy5JbWFnZUxpc3RTdHJlYW1lcgEAAAAERGF0YQcCAgAAAAkDAAAADwMAAAAw
-        BAAAAk1TRnQBSQFMAwEBAAHAAQYBwAEGARABAAEQAQAE/wERAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
+        BAAAAk1TRnQBSQFMAwEBAAHQAQYB0AEGARABAAEQAQAE/wERAQAI/wFCAU0BNgcAATYDAAEoAwABQAMA
         ARADAAEBAQABEAYAAQgSAAEJAUgBCQFIAQkBSAEJAUgBCQFIAQkBSAEJAUgBCQFIAQkBSAEJAUgBCQFI
         AQkBSAEJAUgBCQFIAQkBSAEJAUhgAAEJAkwBVAFMAVQBbAFYAY0BWAGNAVwBrgFcAa8BYAGvAWABrgFc
         AY0BXAGNAVgBbAFYAUwBVAFMAVQBCQFIYAABCQFMAY0BWAFMAVQBbAFUAWwBWAFsAVgBbQFYAW0BWAFt
@@ -4242,7 +4242,7 @@
     <value>showMedia_image_panel</value>
   </data>
   <data name="&gt;&gt;showMedia_image.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="showMedia_video_skip.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -4929,7 +4929,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fapmap_cb_faftv.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="fapmap_cb_invisibleWindow.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Right</value>
@@ -4974,7 +4974,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;fapmap_cb_invisibleWindow.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="showMedia_video_panel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -5393,7 +5393,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;showMedia_video_panel.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <metadata name="menu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>30, 10</value>
@@ -5560,6 +5560,33 @@
   <data name="showMedia_image_panel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
+  <data name="showMedia_image_pb.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="showMedia_image_pb.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 29</value>
+  </data>
+  <data name="showMedia_image_pb.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 25</value>
+  </data>
+  <data name="showMedia_image_pb.TabIndex" type="System.Int32, mscorlib">
+    <value>166</value>
+  </data>
+  <data name="showMedia_image_pb.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="&gt;&gt;showMedia_image_pb.Name" xml:space="preserve">
+    <value>showMedia_image_pb</value>
+  </data>
+  <data name="&gt;&gt;showMedia_image_pb.Type" xml:space="preserve">
+    <value>fapmap_res.FapMapProgressBar, fapmap, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;showMedia_image_pb.Parent" xml:space="preserve">
+    <value>showMedia_image_panel</value>
+  </data>
+  <data name="&gt;&gt;showMedia_image_pb.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="showMedia_image_gif_trackbar.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
@@ -5651,7 +5678,7 @@
     <value>showMedia_image_panel</value>
   </data>
   <data name="&gt;&gt;showMedia_image_ctrlbox.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="showMedia_image_title.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -5675,7 +5702,7 @@
     <value>showMedia_image_panel</value>
   </data>
   <data name="&gt;&gt;showMedia_image_title.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="showMedia_image_panel.Location" type="System.Drawing.Point, System.Drawing">
     <value>300, 70</value>
@@ -5702,7 +5729,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;showMedia_image_panel.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>5</value>
   </data>
   <metadata name="showMedia_image_gif_timer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>286, 45</value>
@@ -7943,6 +7970,9 @@
         AAABHwAAgJ8AAMD/AADAfwAA8D8AAA==
 </value>
   </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>590, 350</value>
   </data>
@@ -8125,24 +8155,6 @@
   </data>
   <data name="&gt;&gt;fileDisplay_icons.Type" xml:space="preserve">
     <value>System.Windows.Forms.ImageList, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;links_clm_num.Name" xml:space="preserve">
-    <value>links_clm_num</value>
-  </data>
-  <data name="&gt;&gt;links_clm_num.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;links_clm_url.Name" xml:space="preserve">
-    <value>links_clm_url</value>
-  </data>
-  <data name="&gt;&gt;links_clm_url.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;links_clm_title.Name" xml:space="preserve">
-    <value>links_clm_title</value>
-  </data>
-  <data name="&gt;&gt;links_clm_title.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;links_RMB_reload.Name" xml:space="preserve">
     <value>links_RMB_reload</value>
@@ -8545,6 +8557,24 @@
   </data>
   <data name="&gt;&gt;wb_url_autoCompleteMenu.Type" xml:space="preserve">
     <value>AutocompleteMenuNS.AutocompleteMenu, AutocompleteMenu, Version=1.3.4.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;links_clm_num.Name" xml:space="preserve">
+    <value>links_clm_num</value>
+  </data>
+  <data name="&gt;&gt;links_clm_num.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;links_clm_url.Name" xml:space="preserve">
+    <value>links_clm_url</value>
+  </data>
+  <data name="&gt;&gt;links_clm_url.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;links_clm_title.Name" xml:space="preserve">
+    <value>links_clm_title</value>
+  </data>
+  <data name="&gt;&gt;links_clm_title.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ColumnHeader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>fapmap</value>

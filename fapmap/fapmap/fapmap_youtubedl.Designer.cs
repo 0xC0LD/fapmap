@@ -200,7 +200,7 @@
             this.txt_output.ContextMenuStrip = this.txt_output_RMB;
             this.txt_output.DetectUrls = false;
             this.txt_output.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_output.ForeColor = System.Drawing.Color.Teal;
+            this.txt_output.ForeColor = System.Drawing.Color.Turquoise;
             this.txt_output.Location = new System.Drawing.Point(1, 1);
             this.txt_output.Name = "txt_output";
             this.txt_output.ReadOnly = true;

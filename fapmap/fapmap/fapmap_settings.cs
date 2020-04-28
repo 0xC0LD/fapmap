@@ -736,20 +736,18 @@ namespace fapmap
 
                     int found = 0;
                     int missing = 0;
-                    foreach(FileInfo video in videos)
+                    getThumbInfo_print(videos.Count, found, missing);
+                    foreach (FileInfo video in videos)
                     {
                         string id = fapmap.getFileId(video).ToString();
                         string dest = fapmap.GlobalVariables.Path.Dir.Cache + "\\" + id + ".tmp";
                         if (File.Exists(dest)) { found++; } else { missing++; }
-
+                        getThumbInfo_print(videos.Count, found, missing);
                     }
-                    
+
                     this.Invoke((MethodInvoker)delegate
                     {
-                        label_outputThumb.Text = "Videos........: " + videos.Count + Environment.NewLine +
-                                                 "Thumbs found..: " + found        + Environment.NewLine +
-                                                 "Thumbs missing: " + missing      + Environment.NewLine;
-
+                        label_outputThumb.Text += "Done!";
                     });
                 }
                 catch (Exception) { }
@@ -757,6 +755,17 @@ namespace fapmap
                 getThumbInfo_busy = false;
             })
             { IsBackground = true }.Start();
+        }
+        private void getThumbInfo_print(int vids, int found, int missing)
+        {
+            this.Invoke((MethodInvoker)delegate
+            {
+                label_outputThumb.Text = "Searching..." + Environment.NewLine +
+                                         "Videos........: " + vids + Environment.NewLine +
+                                         "Thumbs found..: " + found + Environment.NewLine +
+                                         "Thumbs missing: " + missing + Environment.NewLine;
+
+            });
         }
         private void btn_getThumbInfo_Click(object sender, EventArgs e)
         {

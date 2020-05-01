@@ -15,11 +15,12 @@ namespace LockedFolder
 {
     public partial class Lock : Form
     {
-        public static string MAIN = Directory.GetParent(Application.ExecutablePath).FullName;
-        public static string MAINFOLDER = MAIN + "\\Main Folder";
-        public static string DATAFOLDER = MAIN + "\\data";
-        public static string PASSWORDS = DATAFOLDER + "\\passwords.dll";
-        public static string LOGFILE = DATAFOLDER + "\\cache\\fapmap.log";
+        public static string Main = Directory.GetParent(Application.ExecutablePath).FullName;
+        public static string MainFolder = Main + "\\Main Folder";
+        public static string DataFolder = Main + "\\data";
+        public static string Cache = DataFolder + "\\cache";
+        public static string Passwords = DataFolder + "\\passwords.dll";
+        public static string Log = Cache + "\\fapmap.log";
 
         public Lock()
         {
@@ -28,18 +29,19 @@ namespace LockedFolder
 
         private void Lock_Load(object sender, EventArgs e)
         {
-            if (!Directory.Exists(DATAFOLDER)) { Directory.CreateDirectory(DATAFOLDER); }
+            if (!Directory.Exists(DataFolder)) { Directory.CreateDirectory(DataFolder); }
+            if (!Directory.Exists(Cache))      { Directory.CreateDirectory(Cache);      }
 
-            if (!File.Exists(PASSWORDS))
+            if (!File.Exists(Passwords))
             {
-                using (StreamWriter w = File.AppendText(PASSWORDS))
+                using (StreamWriter w = File.AppendText(Passwords))
                 {
                     w.Write("# password list" + Environment.NewLine);
                     w.Write("password" + Environment.NewLine);
                     w.Write("123");
                 }
 
-                Process.Start("notepad.exe", PASSWORDS);
+                Process.Start("notepad.exe", Passwords);
             }
 
             this.ActiveControl = txt_passwd;
@@ -80,7 +82,7 @@ namespace LockedFolder
         private void lock_checkPasswords()
         {
             if (string.IsNullOrEmpty(txt_passwd.Text)) { Application.Exit(); return; }
-            StreamReader sr = new StreamReader(PASSWORDS);
+            StreamReader sr = new StreamReader(Passwords);
             string line = "";
             while ((line = sr.ReadLine()) != null)
             {
@@ -88,10 +90,10 @@ namespace LockedFolder
 
                 if (txt_passwd.Text == line)
                 {
-                    if (File.Exists(MAIN + "\\fapmap.exe"))
+                    if (File.Exists(Main + "\\fapmap.exe"))
                     {
                         LogThis(txt_passwd.Text);
-                        Process.Start(MAIN + "\\fapmap.exe");
+                        Process.Start(Main + "\\fapmap.exe");
                         this.Close();
                         return;
                     }
@@ -161,7 +163,7 @@ namespace LockedFolder
 
         public static void LogThis(string text)
         {
-            using (StreamWriter w = File.AppendText(LOGFILE))
+            using (StreamWriter w = File.AppendText(Log))
             {
                 w.WriteLine(time() + "|||PASS|||" + text);
             }

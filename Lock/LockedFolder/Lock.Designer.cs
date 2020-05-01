@@ -58,7 +58,6 @@
             // 
             this.cb_show.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cb_show.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cb_show.AutoSize = true;
             this.cb_show.BackColor = System.Drawing.Color.Black;
             this.cb_show.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_show.FlatAppearance.BorderColor = System.Drawing.Color.Turquoise;
@@ -66,10 +65,11 @@
             this.cb_show.FlatAppearance.MouseDownBackColor = System.Drawing.Color.MidnightBlue;
             this.cb_show.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MidnightBlue;
             this.cb_show.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_show.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_show.ForeColor = System.Drawing.Color.Turquoise;
-            this.cb_show.Location = new System.Drawing.Point(12, 56);
+            this.cb_show.Location = new System.Drawing.Point(12, 49);
             this.cb_show.Name = "cb_show";
-            this.cb_show.Size = new System.Drawing.Size(149, 23);
+            this.cb_show.Size = new System.Drawing.Size(149, 30);
             this.cb_show.TabIndex = 4;
             this.cb_show.Text = "Show Password (CTRL+S)";
             this.cb_show.UseVisualStyleBackColor = false;
@@ -148,7 +148,6 @@
             this.txt_passwd_border.ResumeLayout(false);
             this.txt_passwd_border.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

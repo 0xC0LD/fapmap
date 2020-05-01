@@ -85,6 +85,27 @@ namespace fapmap
             this.Close();
         }
 
+        private void newFolder()
+        {
+            if (treeView.SelectedNode == null) { return; }
+            if (treeView.SelectedNode.Name == null) { return; }
+            string path = treeView.SelectedNode.Name;
+            if (string.IsNullOrEmpty(path)) { return; }
+
+            if (File.Exists(path)) { path = Directory.GetParent(path).FullName; }
+            if (!Directory.Exists(path)) { return; }
+
+            string input = fapmap.OpenInputBox(this, "Create New Folder in: " + new DirectoryInfo(path).Name, "New Folder", 0, "New Folder".Length);
+            if (!string.IsNullOrEmpty(input))
+            {
+                string p = new DirectoryInfo(path).FullName + "\\" + input;
+                if (fapmap.CreateDir(p))
+                {
+                    treeView.SelectedNode.Nodes.Add(createDirNode(new DirectoryInfo(p)));
+                }
+            }
+        }
+
         private void treeView_AfterSelect(object sender, TreeViewEventArgs e)
         {
             if (treeView.SelectedNode.Name == null) { return; }
@@ -96,9 +117,9 @@ namespace fapmap
         {
             switch (e.KeyCode)
             {
-                case Keys.F5:     load();                       e.Handled = true; e.SuppressKeyPress = true; break;
-                case Keys.Space:  confirm();                    e.Handled = true; e.SuppressKeyPress = true; break;
-                case Keys.Escape: cancel();                     e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.F5:     load();    e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Space:  confirm(); e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Escape: cancel();  e.Handled = true; e.SuppressKeyPress = true; break;
                 case Keys.Enter:
                     {
                         try
@@ -120,10 +141,11 @@ namespace fapmap
             {
                 switch (e.KeyCode)
                 {
-                    case Keys.R: load(); e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.R: load();                 e.Handled = true; e.SuppressKeyPress = true; break;
                     case Keys.W: confirm();              e.Handled = true; e.SuppressKeyPress = true; break;
                     case Keys.Q: treeView.CollapseAll(); e.Handled = true; e.SuppressKeyPress = true; break;
                     case Keys.E: treeView.ExpandAll();   e.Handled = true; e.SuppressKeyPress = true; break;
+                    case Keys.S: newFolder();            e.Handled = true; e.SuppressKeyPress = true; break;
                 }
             }
         }
@@ -141,7 +163,7 @@ namespace fapmap
         {
             load();
         }
-        private void faftv_RMB_select_Click(object sender, EventArgs e)
+        private void treeView_RMB_select_Click(object sender, EventArgs e)
         {
             confirm();
         }
@@ -152,6 +174,10 @@ namespace fapmap
         private void treeView_RMB_expandTree_Click(object sender, EventArgs e)
         {
             treeView.ExpandAll();
+        }
+        private void treeView_RMB_newFolder_Click(object sender, EventArgs e)
+        {
+            newFolder();
         }
 
         private bool txt_path_dontUpdate = false;
@@ -240,5 +266,7 @@ namespace fapmap
             }
             catch (Exception) { }
         }
+
+        
     }
 }

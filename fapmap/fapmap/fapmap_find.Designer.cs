@@ -237,8 +237,6 @@
             this.cb_fileNameOnly.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cb_fileNameOnly.Appearance = System.Windows.Forms.Appearance.Button;
             this.cb_fileNameOnly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.cb_fileNameOnly.Checked = true;
-            this.cb_fileNameOnly.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cb_fileNameOnly.Cursor = System.Windows.Forms.Cursors.Hand;
             this.cb_fileNameOnly.FlatAppearance.BorderColor = System.Drawing.Color.HotPink;
             this.cb_fileNameOnly.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));

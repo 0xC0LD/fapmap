@@ -27,6 +27,7 @@ namespace fapmap
             board_load();
         }
 
+        private Mutex faviconDownloadMutex = new Mutex();
         private void board_load()
         {
             //IF BOARD.DLL DOESN'T EXIST
@@ -38,33 +39,30 @@ namespace fapmap
             board.Items.Clear();
             favicons.Images.Clear();
             
-            List<string> lines = File.ReadAllLines(fapmap.GlobalVariables.Path.File.Board).ToList();
             List<ListViewItem> items = new List<ListViewItem>();
 
-            bool noIcons = false;
             List<string> icons = new List<string>();
             if (Directory.Exists(fapmap.GlobalVariables.Path.Dir.FavIcons))
             { icons.AddRange(Directory.GetFiles(fapmap.GlobalVariables.Path.Dir.FavIcons)); }
-            if (icons.Count == 0) { noIcons = true; }
 
-            int count = 0;
-            for (int i = 0; i < lines.Count; i++)
+            int lineCount = 0;
+            int itemCount = 0;
+            foreach (string line in File.ReadAllLines(fapmap.GlobalVariables.Path.File.Board))
             {
-                string line = lines[i];
-                
-                if (string.IsNullOrEmpty(line) || line.StartsWith(fapmap.GlobalVariables.Settings.Common.Comment)) { continue; }
+                lineCount++;
+                if (string.IsNullOrEmpty(line) || line.StartsWith(fapmap.GlobalVariables.Settings.Common.Comment2)) { continue; }
 
                 string[] BoardIndex = line.Split(fapmap.GlobalVariables.Settings.Common.Split);
 
                 if (BoardIndex.Length != 3)
                 {
-                    fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.LOAD, fapmap.GlobalVariables.Path.File.Board + " (line: " + i+1 + ")");
-                    MessageBox.Show("Something is wrong with the " + fapmap.GlobalVariables.Path.File.Board + " file on line: " + i+1, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.LOAD, fapmap.GlobalVariables.Path.File.Board + " (line: " + lineCount + ")");
+                    MessageBox.Show("Something is wrong with the " + fapmap.GlobalVariables.Path.File.Board + " file on line: " + lineCount, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     continue;
                 }
 
-                count++;
-                string number = count.ToString();
+                itemCount++;
+                string number = itemCount.ToString();
                 string type = BoardIndex[0];
                 string name = BoardIndex[1];
                 string url = BoardIndex[2];
@@ -72,40 +70,61 @@ namespace fapmap
                 ListViewItem lvi = new ListViewItem(new string[] { number, name, url })
                 {
                     Name = url,
-                    ImageKey = i.ToString()
+                    ImageKey = url,
+                    ForeColor = System.Drawing.ColorTranslator.FromHtml(type)
                 };
 
-                switch (type)
+                // get icon
+                Image img = null;
+                try
                 {
-                    default:
-                    case "SITE": lvi.ForeColor = System.Drawing.Color.MediumPurple; break;
-                    case "NLIO": lvi.ForeColor = System.Drawing.Color.Teal; break;
-                    case "DOWN": lvi.ForeColor = System.Drawing.Color.ForestGreen; break;
-                    case "USER": lvi.ForeColor = System.Drawing.Color.MediumPurple; break;
-                    case "BLOG": lvi.ForeColor = System.Drawing.Color.SteelBlue; break;
-                    case "STAR": lvi.ForeColor = System.Drawing.Color.RoyalBlue; break;
-                }
-                
-                if (!noIcons)
-                {
+                    foreach (string icon in icons)
+                    {
+                        if (url.Contains(Path.GetFileNameWithoutExtension(icon)))
+                            img = Image.FromFile(icon);
+                    }
 
-                    favicons.Images.Add(i.ToString(), ((Func<Image>)(() => {
-
-                        foreach (string icon in icons)
-                        {
-                            if (url.Contains(Path.GetFileNameWithoutExtension(icon)))
-                                return Image.FromFile(icon);
-                        }
-
+                    if (img == null)
+                    {
                         foreach (string icon in icons)
                         {
                             if (new System.Globalization.CultureInfo("").CompareInfo.IndexOf(url, Path.GetFileNameWithoutExtension(icon), System.Globalization.CompareOptions.IgnoreCase) >= 0)
-                                return Image.FromFile(icon);
+                                img = Image.FromFile(icon);
                         }
-                        
-                        return new Bitmap(16, 16);
-                    }))());
-                    
+                    }
+                }
+                catch (Exception) { }
+
+                // download icon
+                if (fapmap.GlobalVariables.Settings.CheckBoxes.LinksGetSiteFavicon && img == null)
+                {
+                    new Thread(() =>
+                    {
+                        faviconDownloadMutex.WaitOne();
+                        try
+                        {
+                            if (fapmap.downloadFavicon(url, out string path))
+                            {
+                                this.Invoke((MethodInvoker)delegate
+                                {
+                                    lvi.ImageKey = url;
+                                    Image img2 = Image.FromFile(path);
+                                    favicons.Images.Add(url, img2);
+                                    img2.Dispose();
+                                });
+                            }
+                        }
+                        catch (Exception) { }
+                        faviconDownloadMutex.ReleaseMutex();
+                    })
+                    { IsBackground = true }.Start();
+                }
+
+                // set icon
+                if (img != null)
+                {
+                    favicons.Images.Add(url, img);
+                    img.Dispose();
                 }
 
                 //ADD ITEM

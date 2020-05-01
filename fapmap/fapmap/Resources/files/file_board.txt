@@ -1,78 +1,53 @@
-#=======================================
-#
-#  FapMap -> URL BOARD
-#
-#  TYPE|NAME|URL
-#
-#  TYPES:
-#        SITE - has log-in options
-#        NLIO - site with no log-in options
-#        DOWN - media converter SITE
-#        USER - user from a SITE
-#        BLOG - blog (NLIO 2)
-#        STAR - pornstar
-#
-#=======================================
-#
-# ======[ SITE ]======
-#
-SITE|DuckDuckGo|https://duckduckgo.com
-SITE|Google|https://www.google.com
-SITE|xVideos|https://www.xvideos.com
-SITE|PornHub|https://www.pornhub.com
-SITE|REDTUBE|https://www.redtube.com
-SITE|xHamster|https://xhamster.com
-SITE|YouPorn|https://www.youporn.com
-SITE|YouJizz|https://www.youjizz.com
-SITE|Spankbang|https://www.spankbang.com
-SITE|nHentai|https://nhentai.net
-SITE|oHentai|https://ohentai.org
-SITE|Hentai Dude|https://hentaidude.com
-SITE|NEWGROUNDS|https://www.newgrounds.com
-SITE|The Booru Project|https://booru.org/top
-SITE|Gelbooru|https://gelbooru.com
-SITE|Danbooru|https://kagamihara.donmai.us
-SITE|Rule34 XXX|https://rule34.xxx/index.php?page=post&s=list&tags=all
-SITE|Rule34 Paheal|https://rule34.paheal.net/post/list/1
-SITE|Rule34 Hentai|https://rule34hentai.net/post/list/1
-SITE|yande.re|https://yande.re
-SITE|safebooru|https://safebooru.org/
-SITE|MUCHoHENTAI|https://muchohentai.com
-SITE|Sankaku Complex|https://www.sankakucomplex.com/?pg=X
-SITE|Hentai Foundry|https://www.hentai-foundry.com/?enterAgree=1
-SITE|Image Fap|https://www.imagefap.com
-SITE|G-E Hentai Gallery|https://e-hentai.org
-SITE|G-E Hentai Gallery (Sad Panda)|https://exhentai.org
-#
-# ======[ NLIO ]======
-#
-NLIO|XNXX|https://www.xnxx.com
-NLIO|Hentai Haven|https://hentaihaven.org
-NLIO|Overwatch Porn|https://overwatchporn.xxx
-NLIO|/b/|https://boards.4chan.org/b
-NLIO|/gif/|https://boards.4chan.org/gif
-NLIO|/d/|https://boards.4chan.org/d
-NLIO|/s/|https://boards.4chan.org/s
-NLIO|/h/|https://boards.4chan.org/h
-NLIO|Hitomi|https://hitomi.la
-#
-# ======[ DOWN ]======
-#
-DOWN|ClipConverter|https://www.clipconverter.cc
-DOWN|OnlineVideoConverter|https://www.onlinevideoconverter.com/video-converter
-DOWN|OnlineConvert|https://www.online-convert.com
-DOWN|Savido|https://www.savido.net/sites/pornhub
-DOWN|TubeOffline|https://www.tubeoffline.com/download-PornHub-videos.php#.WMwOiVXyuUl
-#
-# ======[ USER ]======
-#
+// the sites are defined as: HTML COLOR|SITE NAME|URL
 
-#
-# ======[ BLOG ]======
-#
-BLOG|ShadBase|http://www.shadbase.com/
-BLOG|Liang xing|https://www.artstation.com/liangxing
-BLOG|Tarakanovich|https://tarakanovich.newgrounds.com/art/
-#
-# ======[ STAR ]======
-#
+// big sites
+#40E0D0|DuckDuckGo|https://duckduckgo.com
+#40E0D0|Google|https://www.google.com
+#40E0D0|xVideos|https://www.xvideos.com
+#40E0D0|PornHub|https://www.pornhub.com
+#40E0D0|REDTUBE|https://www.redtube.com
+#40E0D0|XNXX|https://www.xnxx.com
+#40E0D0|xHamster|https://xhamster.com
+#40E0D0|YouPorn|https://www.youporn.com
+#40E0D0|YouJizz|https://www.youjizz.com
+#40E0D0|Spankbang|https://www.spankbang.com
+
+// hentai
+#FF1493|nHentai|https://nhentai.net
+#FF1493|oHentai|https://ohentai.org
+#FF1493|Hentai Haven|https://hentaihaven.org
+#FF1493|Hentai Dude|https://hentaidude.com
+#FF1493|NEWGROUNDS|https://www.newgrounds.com
+#FF1493|MUCHoHENTAI|https://muchohentai.com
+#FF1493|Hitomi|https://hitomi.la
+#FF1493|G-E Hentai Gallery|https://e-hentai.org
+#FF1493|G-E Hentai Gallery (Sad Panda)|https://exhentai.org
+
+// booru
+#7CFC00|The Booru Project|https://booru.org/top
+#7CFC00|Gelbooru|https://gelbooru.com
+#7CFC00|Danbooru|https://kagamihara.donmai.us
+#7CFC00|safebooru|https://safebooru.org/
+#7CFC00|yande.re|https://yande.re
+#7CFC00|Rule34 XXX|https://rule34.xxx/index.php?page=post&s=list&tags=all
+#7CFC00|Rule34 Paheal|https://rule34.paheal.net/post/list/1
+#7CFC00|Rule34 Hentai|https://rule34hentai.net/post/list/1
+
+// chans
+#00FF7F|/b/|https://boards.4chan.org/b
+#00FF7F|/gif/|https://boards.4chan.org/gif
+#00FF7F|/d/|https://boards.4chan.org/d
+#00FF7F|/s/|https://boards.4chan.org/s
+#00FF7F|/h/|https://boards.4chan.org/h
+
+// download
+#FFD700|ClipConverter|https://www.clipconverter.cc
+#FFD700|OnlineVideoConverter|https://www.onlinevideoconverter.com/video-converter
+#FFD700|OnlineConvert|https://www.online-convert.com
+#FFD700|Savido|https://www.savido.net/sites/pornhub
+#FFD700|TubeOffline|https://www.tubeoffline.com/download-PornHub-videos.php#.WMwOiVXyuUl
+
+// blogs
+#BA55D3|ShadBase|http://www.shadbase.com/
+#BA55D3|Liang xing|https://www.artstation.com/liangxing
+#BA55D3|Tarakanovich|https://tarakanovich.newgrounds.com/art/

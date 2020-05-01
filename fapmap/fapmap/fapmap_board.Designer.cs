@@ -59,7 +59,7 @@
             this.board_RMB.Name = "contextMenuStrip1";
             this.board_RMB.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.board_RMB.ShowItemToolTips = false;
-            this.board_RMB.Size = new System.Drawing.Size(269, 136);
+            this.board_RMB.Size = new System.Drawing.Size(269, 114);
             // 
             // board_RMB_refresh
             // 
@@ -140,7 +140,7 @@
             this.board.Location = new System.Drawing.Point(0, 0);
             this.board.MultiSelect = false;
             this.board.Name = "board";
-            this.board.Size = new System.Drawing.Size(764, 761);
+            this.board.Size = new System.Drawing.Size(784, 781);
             this.board.SmallImageList = this.favicons;
             this.board.TabIndex = 1;
             this.board.UseCompatibleStateImageBehavior = false;
@@ -174,7 +174,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.ClientSize = new System.Drawing.Size(764, 761);
+            this.ClientSize = new System.Drawing.Size(784, 781);
             this.Controls.Add(this.board);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Consolas", 8.25F);

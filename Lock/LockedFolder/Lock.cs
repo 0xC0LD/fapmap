@@ -19,7 +19,7 @@ namespace LockedFolder
         public static string MAINFOLDER = MAIN + "\\Main Folder";
         public static string DATAFOLDER = MAIN + "\\data";
         public static string PASSWORDS = DATAFOLDER + "\\passwords.dll";
-        public static string LOGFILE = DATAFOLDER + "\\fapmap.log";
+        public static string LOGFILE = DATAFOLDER + "\\cache\\fapmap.log";
 
         public Lock()
         {
@@ -68,7 +68,7 @@ namespace LockedFolder
                 //     e.Graphics.FillRectangle(brush, ClientRectangle);
                 // e.Graphics.DrawRectangle(new Pen(Color.MediumPurple), 0, 0, ClientSize.Width - 1, ClientSize.Height - 1);
 
-                ControlPaint.DrawBorder(e.Graphics, this.ClientRectangle, Color.SlateBlue, ButtonBorderStyle.Solid);
+                ControlPaint.DrawBorder(e.Graphics, this.ClientRectangle, ForeColor, ButtonBorderStyle.Solid);
             }
 
         }

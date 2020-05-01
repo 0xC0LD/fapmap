@@ -70,6 +70,7 @@ namespace fapmap
                     public const char Equal = '=';
                     public const char Split = '|';
                     public const string Comment = "#";
+                    public const string Comment2 = "//";
                 }
 
                 public class WebBrowser
@@ -94,7 +95,7 @@ namespace fapmap
                     }
                 }
 
-                public class CheckBoxes
+                public class CheckBoxes /// if a setting has a '*' it needs to be added
                 {
                     // hide
                     public static bool HideOnX                    = false; public const string HideOnX_         = "hideOnX";
@@ -123,10 +124,19 @@ namespace fapmap
                     public static bool FileDisplayShowThumbnails     = true; public const string FileDisplayShowThumbnails_     = "fileDisplay_showThumbnails";
 
                     // links
-                    public static bool LinksGetSiteTitle = true; public const string LinksGetSiteTitle_ = "links_getSiteTitle";
+                    public static bool LinksGetSiteTitle   = true; public const string LinksGetSiteTitle_   = "links_getSiteTitle";
+                    public static bool LinksGetSiteFavicon = true; public const string LinksGetSiteFavicon_ = "links_getSiteFavicon"; /// *
 
                     // downloader
-                    public static bool DownloaderAutoClose = true; public const string DownloaderAutoClose_ = "downloader_autoCloseWhenItemPassed";
+                    public static bool DownloaderAutoClose = true;  public const string DownloaderAutoClose_ = "downloader_autoCloseWhenItemPassed";
+                    public static bool DownloaderAutoRetry = false; public const string DownloaderAutoRetry_ = "downloader_autoRetry"; /// *
+
+                    // finder
+                    public static bool FinderShowImage          = true;  public const string FinderShowImage_          = "finder_showImage"; /// *
+                    public static bool FinderShowImageIcon      = true;  public const string FinderShowImageIcon_      = "finder_showImageIcon"; /// *
+                    public static bool FinderCaseSensitive      = false; public const string FinderCaseSensitive_      = "finder_caseSensitive"; /// *
+                    public static bool FinderSortByCreationDate = true;  public const string FinderSortByCreationDate_ = "finder_sortByDate"; /// *
+                    public static bool FinderJustPrintFilename  = false; public const string FinderJustPrintFilename_  = "finder_justPrintFilename"; /// *
                 }
 
                 public class Other
@@ -153,7 +163,7 @@ namespace fapmap
                     public static string Passwords = Path.Dir.DataFolder + "\\passwords.dll";
                     public static string Links     = Path.Dir.DataFolder + "\\urls.txt";
                     public static string Settings  = Path.Dir.DataFolder + "\\fapmap.ini";
-                    public static string Board     = Path.Dir.DataFolder + "\\board.ini";
+                    public static string Board     = Path.Dir.DataFolder + "\\board.txt";
                     public static string Keywords  = Path.Dir.DataFolder + "\\keywords.lst";
                     public static string Log       = Path.Dir.Cache      + "\\fapmap.log";
 
@@ -268,9 +278,14 @@ namespace fapmap
         }
         private void Quit()
         {
-            CrashHandler_stop();
-            this_trayicon.Dispose();
-            System.Environment.Exit(0);
+            try
+            {
+                CrashHandler_stop();
+                this_trayicon.Dispose();
+                System.Environment.Exit(0);
+            }
+            catch (Exception) { }
+            
         }
         
         private void this_hideOrShow(int windowState = 2)
@@ -388,6 +403,46 @@ namespace fapmap
             return true;
         }
 
+        public static bool downloadFavicon(string url, out string faviconPath)
+        {
+            faviconPath = "";
+            if (string.IsNullOrEmpty(url)) { return false; }
+            if (!Uri.IsWellFormedUriString(url, UriKind.Absolute)) { return false; }
+
+            Uri uri = new Uri(url);
+            string host = uri.Host;
+            string faviconUrl = "http://" + host + "/favicon.ico";
+
+            faviconPath = GlobalVariables.Path.Dir.FavIcons + "\\" + host + ".ico";
+            if (File.Exists(faviconPath)) { return true; }
+
+            try
+            {
+                System.Net.WebClient wc = new System.Net.WebClient();
+                wc.Headers.Add("user-agent", "fapmap.exe");
+                wc.DownloadFile(faviconUrl, faviconPath);
+            }
+            catch (Exception) { goto fail; }
+
+            if (File.Exists(faviconPath))
+            {
+                FileInfo fi = new FileInfo(faviconPath);
+                if (fi.Length == 0) { fi.Delete(); goto fail; }
+
+                // check if the file is an image
+                try
+                {
+                    Image img = Image.FromFile(fi.FullName);
+                    img.Dispose();
+                    return true;
+                }
+                catch (Exception) { fi.Delete(); goto fail; }
+            }
+
+            fail:
+            Properties.Resources.browser.Save(faviconPath, ImageFormat.Icon);
+            return true;
+        }
 
         public static string OpenPathSelector(IWin32Window th, string selectPath = "")
         {
@@ -2811,6 +2866,7 @@ namespace fapmap
                 showMedia_image.Size = new System.Drawing.Size(showMedia_image.Size.Width, showMedia_image_panel.Size.Height - 34);
                 showMedia_image_gif_frames = null;
                 showMedia_image_gif_timer.Enabled = false;
+                showMedia_image.CancelAsync();
                 showMedia_image.Image = showMedia_image.BackgroundImage = new Bitmap(16, 16);
 
                 showMedia_video.currentPlaylist.clear();
@@ -3409,6 +3465,8 @@ namespace fapmap
         }
         private void showMedia_image_LoadCompleted(object sender, AsyncCompletedEventArgs e)
         {
+            if (e.Cancelled) { return; }
+
             showMedia_image_pb.Visible = false;
             if (GlobalVariables.Settings.CheckBoxes.EnableTrackbarForGifViewer && showMedia_image_URL.ToLower().Contains(".gif")) //GIF VIEWER
             {
@@ -3442,7 +3500,7 @@ namespace fapmap
             switch (e.Button)
             {
                 case MouseButtons.Left: Random_VOI(txt_path.Text, true, true); break;
-                case MouseButtons.Right: Random_VOI(GlobalVariables.Path.Dir.MainFolder, true, true); break;
+                case MouseButtons.Right: Random_VOI(GlobalVariables.Path.Dir.MainFolder, true, true); showMedia_image_RMB.Hide();; break;
             }
         }
         /// TODO: ADD IMAGE UNDO (priv)
@@ -4941,11 +4999,9 @@ namespace fapmap
             List<ListViewItem> items = new List<ListViewItem>();
             int index = -1;
             
-            bool noIcons = false;
             List<string> icons = new List<string>();
             if (Directory.Exists(fapmap.GlobalVariables.Path.Dir.FavIcons))
             { icons.AddRange(Directory.GetFiles(fapmap.GlobalVariables.Path.Dir.FavIcons)); }
-            if (icons.Count == 0) { noIcons = true; }
 
             foreach (string url in lines)
             {
@@ -4955,28 +5011,35 @@ namespace fapmap
                 ListViewItem lvi = new ListViewItem(new string[] { number, url, "" })
                 {
                     Name = url,
-                    ImageKey = index.ToString(),
+                    ImageKey = url,
                     ForeColor = url.StartsWith(GlobalVariables.Settings.Common.Comment) ? links_color_comment : links_color_normal
                 };
 
-                if (!noIcons)
+                Image img = null;
+                try
                 {
-                    favicons.Images.Add(index.ToString(), ((Func<Image>)(() => {
+                    foreach (string icon in icons)
+                    {
+                        if (url.Contains(Path.GetFileNameWithoutExtension(icon)))
+                            img = Image.FromFile(icon);
+                    }
 
-                        foreach (string icon in icons)
-                        {
-                            if (url.Contains(Path.GetFileNameWithoutExtension(icon)))
-                                return Image.FromFile(icon);
-                        }
-
+                    if (img == null)
+                    {
                         foreach (string icon in icons)
                         {
                             if (new System.Globalization.CultureInfo("").CompareInfo.IndexOf(url, Path.GetFileNameWithoutExtension(icon), System.Globalization.CompareOptions.IgnoreCase) >= 0)
-                                return Image.FromFile(icon);
+                                img = Image.FromFile(icon);
                         }
+                    }
+                }
+                catch (Exception) { }
 
-                        return new Bitmap(16, 16);
-                    }))());
+                // set icon
+                if (img != null)
+                {
+                    favicons.Images.Add(url, img);
+                    img.Dispose();
                 }
 
                 items.Add(lvi);
@@ -4987,6 +5050,8 @@ namespace fapmap
             //auto resize
             links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
         }
+
+        private Mutex faviconDownloadMutex = new Mutex();
         private void links_add(string url)
         {
             // check url
@@ -5003,7 +5068,7 @@ namespace fapmap
             ListViewItem lvi = new ListViewItem(new string[] { (links.Items.Count + 1).ToString(), url, "" })
             {
                 Name = url,
-                ImageKey = index.ToString(),
+                ImageKey = url,
                 ForeColor = url.StartsWith(GlobalVariables.Settings.Common.Comment) ? links_color_comment : links_color_normal,
                 Selected = true
             };
@@ -5011,33 +5076,64 @@ namespace fapmap
             //ADD ITEM
             links.Items.Add(lvi);
             
-            
-            bool noIcons = false;
             List<string> icons = new List<string>();
             if (Directory.Exists(fapmap.GlobalVariables.Path.Dir.FavIcons))
             { icons.AddRange(Directory.GetFiles(fapmap.GlobalVariables.Path.Dir.FavIcons)); }
-            if (icons.Count == 0) { noIcons = true; }
 
-            if (!noIcons)
+            // get icon
+            Image img = null;
+            try
             {
-                favicons.Images.Add(index.ToString(), ((Func<Image>)(() => {
+                foreach (string icon in icons)
+                {
+                    if (url.Contains(Path.GetFileNameWithoutExtension(icon)))
+                        img = Image.FromFile(icon);
+                }
 
-                    foreach (string icon in icons)
-                    {
-                        if (url.Contains(Path.GetFileNameWithoutExtension(icon)))
-                            return Image.FromFile(icon);
-                    }
-
+                if (img == null)
+                {
                     foreach (string icon in icons)
                     {
                         if (new System.Globalization.CultureInfo("").CompareInfo.IndexOf(url, Path.GetFileNameWithoutExtension(icon), System.Globalization.CompareOptions.IgnoreCase) >= 0)
-                            return Image.FromFile(icon);
+                            img = Image.FromFile(icon);
                     }
-
-                    return new Bitmap(16, 16);
-                }))());
+                }
             }
-            
+            catch (Exception) { }
+
+            // download icon
+            if (fapmap.GlobalVariables.Settings.CheckBoxes.LinksGetSiteFavicon && img == null)
+            {
+                new Thread(() =>
+                {
+                    faviconDownloadMutex.WaitOne();
+                    try
+                    {
+                        if (fapmap.downloadFavicon(url, out string path))
+                        {
+                            this.Invoke((MethodInvoker)delegate
+                            {
+                                lvi.ImageKey = url;
+                                Image img2 = Image.FromFile(path);
+                                favicons.Images.Add(url, img2);
+                                img2.Dispose();
+                            });
+                        }
+                    }
+                    catch (Exception) { }
+                    faviconDownloadMutex.ReleaseMutex();
+                })
+                { IsBackground = true }.Start();
+            }
+
+            // set icon
+            if (img != null)
+            {
+                favicons.Images.Add(url, img);
+                img.Dispose();
+            }
+
+            // get webpage title
             if (GlobalVariables.Settings.CheckBoxes.LinksGetSiteTitle)
             {
                 new Thread(() =>
@@ -5052,11 +5148,9 @@ namespace fapmap
                 })
                 { IsBackground = true }.Start();
             }
-            
-            //SCROLL
-            links.Items[links.Items.Count - 1].EnsureVisible();
 
-            //auto resize
+            //auto resize & SCROLL
+            links.Items[links.Items.Count - 1].EnsureVisible();
             links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
         }
         private void links_start()
@@ -5075,13 +5169,23 @@ namespace fapmap
             {
                 new Thread(() =>
                 {
-                    string backup = item.SubItems[2].Text;
-                    item.SubItems[2].Text = "reloading...";
-                    links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+
+                    string backup = "";
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        backup = item.SubItems[2].Text;
+                        item.SubItems[2].Text = "reloading...";
+                        links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                    });
+
                     string title = get_html_title(item.Name);
-                    if (title == "...") { item.SubItems[2].Text = backup; }
-                    else { item.SubItems[2].Text = title; }
-                    links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+
+                    this.Invoke((MethodInvoker)delegate
+                    {
+                        if (title == "...") { item.SubItems[2].Text = backup; }
+                        else                { item.SubItems[2].Text = title;  }
+                        links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                    });
                 })
                 { IsBackground = true }.Start();
             }

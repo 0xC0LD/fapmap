@@ -36,6 +36,7 @@
             this.treeView_RMB_select = new System.Windows.Forms.ToolStripMenuItem();
             this.treeView_RMB_collapseTree = new System.Windows.Forms.ToolStripMenuItem();
             this.treeView_RMB_expandTree = new System.Windows.Forms.ToolStripMenuItem();
+            this.treeView_RMB_newFolder = new System.Windows.Forms.ToolStripMenuItem();
             this.treeView_icons = new System.Windows.Forms.ImageList(this.components);
             this.txt_path = new System.Windows.Forms.TextBox();
             this.btn_ok = new System.Windows.Forms.Button();
@@ -86,12 +87,13 @@
             this.treeView_RMB_reload,
             this.treeView_RMB_select,
             this.treeView_RMB_collapseTree,
-            this.treeView_RMB_expandTree});
+            this.treeView_RMB_expandTree,
+            this.treeView_RMB_newFolder});
             this.treeView_RMB.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Table;
             this.treeView_RMB.Name = "contextMenuStrip2";
             this.treeView_RMB.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.treeView_RMB.ShowItemToolTips = false;
-            this.treeView_RMB.Size = new System.Drawing.Size(229, 92);
+            this.treeView_RMB.Size = new System.Drawing.Size(229, 114);
             // 
             // treeView_RMB_reload
             // 
@@ -111,7 +113,7 @@
             this.treeView_RMB_select.Name = "treeView_RMB_select";
             this.treeView_RMB_select.Size = new System.Drawing.Size(228, 22);
             this.treeView_RMB_select.Text = "Select Folder (CTRL+W/SPACE)";
-            this.treeView_RMB_select.Click += new System.EventHandler(this.faftv_RMB_select_Click);
+            this.treeView_RMB_select.Click += new System.EventHandler(this.treeView_RMB_select_Click);
             // 
             // treeView_RMB_collapseTree
             // 
@@ -132,6 +134,16 @@
             this.treeView_RMB_expandTree.Size = new System.Drawing.Size(228, 22);
             this.treeView_RMB_expandTree.Text = "Expand Tree (CTRL+E)";
             this.treeView_RMB_expandTree.Click += new System.EventHandler(this.treeView_RMB_expandTree_Click);
+            // 
+            // treeView_RMB_newFolder
+            // 
+            this.treeView_RMB_newFolder.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.treeView_RMB_newFolder.ForeColor = System.Drawing.Color.HotPink;
+            this.treeView_RMB_newFolder.Image = global::fapmap.Properties.Resources.newFolder_hotpink;
+            this.treeView_RMB_newFolder.Name = "treeView_RMB_newFolder";
+            this.treeView_RMB_newFolder.Size = new System.Drawing.Size(228, 22);
+            this.treeView_RMB_newFolder.Text = "New Folder (CTRL+S)";
+            this.treeView_RMB_newFolder.Click += new System.EventHandler(this.treeView_RMB_newFolder_Click);
             // 
             // treeView_icons
             // 
@@ -268,5 +280,6 @@
         private System.Windows.Forms.ToolStripMenuItem treeView_RMB_select;
         private fapmap_res.FapMapPanel treeView_border;
         private fapmap_res.FapMapPanel txt_path_border;
+        private System.Windows.Forms.ToolStripMenuItem treeView_RMB_newFolder;
     }
 }

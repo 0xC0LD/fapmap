@@ -136,7 +136,7 @@ namespace LockedFolder
         }
         private void cb_show_CheckedChanged(object sender, EventArgs e)
         {
-            cb_show.ForeColor = cb_show.Checked ? Color.CornflowerBlue : Color.SlateBlue;
+            cb_show.ForeColor = cb_show.Checked ? Color.Yellow : Color.Turquoise;
 
             txt_passwd.PasswordChar = cb_show.Checked ? '\0' : '•';
         }

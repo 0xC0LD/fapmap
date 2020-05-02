@@ -307,9 +307,6 @@
   <data name="icon_download" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images\icon_download.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="rule34_xxx" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images\rule34.xxx.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="bg2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images\bg2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -321,12 +318,6 @@
   </data>
   <data name="dir" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images\dir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="danbooru" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images\danbooru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="gelbooru" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images\gelbooru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="arrow_down_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images\arrow_down_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -474,5 +465,20 @@
   </data>
   <data name="incognito_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images\incognito_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="booru_danbooru" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\booru_danbooru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="booru_gelbooru" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\booru_gelbooru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="booru_rule34xxx" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\booru_rule34xxx.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="booru_xbooru" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\booru_xbooru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="booru_yandere" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\booru_yandere.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

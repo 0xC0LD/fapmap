@@ -305,6 +305,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fapmap.ico" />
+    <None Include="Resources\images\booru_yandere.png" />
+    <None Include="Resources\images\booru_xbooru.png" />
+    <None Include="Resources\images\booru_rule34xxx.png" />
+    <None Include="Resources\images\booru_gelbooru.png" />
+    <None Include="Resources\images\booru_danbooru.png" />
+    <None Include="Resources\images\safebooru.png" />
+    <None Include="Resources\images\yandere.png" />
     <None Include="Resources\images\incognito_hotpink.png" />
     <None Include="Resources\images\browser_hotpink.png" />
     <None Include="Resources\images\check_turquoise.png" />

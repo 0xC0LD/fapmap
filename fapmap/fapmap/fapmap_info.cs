@@ -57,6 +57,25 @@ namespace fapmap
             e.DrawText();
         }
 
+        private string gl_fileMD5_;
+        private string gl_fileMD5
+        {
+            get { return gl_fileMD5_; }
+            set
+            {
+                bool val = !string.IsNullOrEmpty(value);
+
+                btn_booru_api.Visible       = val;
+                btn_booru_rule34xxx.Visible = val;
+                btn_booru_gelbooru.Visible  = val;
+                btn_booru_danbooru.Visible  = val;
+                btn_booru_yandere.Visible   = val;
+                btn_booru_xbooru.Visible    = val;
+
+                gl_fileMD5_ = value;
+            }
+        }
+
         private bool getInfo_busy = false;
         private void getInfo()
         {
@@ -72,15 +91,10 @@ namespace fapmap
                 {
                     this.Invoke((MethodInvoker)delegate
                     {
-                        // hide controls
-                        btn_booru_api.Visible = false;
-                        btn_booru_rule34xxx.Visible = false;
-                        btn_booru_gelbooru.Visible = false;
-                        btn_booru_danbooru.Visible = false;
-
                         txt_size.Text = "";
                         txt_output.Text = "";
                         label_info.Text = "Scanning...";
+                        gl_fileMD5 = string.Empty;
                     });
 
                     if (Directory.Exists(path))
@@ -171,32 +185,26 @@ namespace fapmap
                     }
                     else if (File.Exists(path))
                     {
-                        if (fapmap.IsMD5(Path.GetFileNameWithoutExtension(path)))
-                        {
-                            this.Invoke((MethodInvoker)delegate
-                            {
-                                btn_booru_api.Visible = true;
-                                btn_booru_rule34xxx.Visible = true;
-                                btn_booru_gelbooru.Visible = true;
-                                btn_booru_danbooru.Visible = true;
-                            });
-                        }
-
                         FileInfo fi = new FileInfo(path);
                         label_path.Text = fi.Name;
                         this.Invoke((MethodInvoker)delegate
                         {
                             txt_size.Text = fapmap.ROund(fi.Length) + " (" + fi.Length + " bytes" + ")";
-                            
+
+                            gl_fileMD5 = fapmap.CalculateMD5(fi.FullName);
+
                             txt_output.Text +=
-                            "File Name: " + fi.Name           + Environment.NewLine +
-                            "Extension: " + fi.Extension      + Environment.NewLine +
-                            "Directory: " + fi.Directory.Name + Environment.NewLine +
-                            "Attribute: " + fi.Attributes     + Environment.NewLine +
-                            "Size.....: " + fi.Length         + Environment.NewLine +
-                            "Creation.: " + fi.CreationTime   + Environment.NewLine +
-                            "Accessed.: " + fi.LastAccessTime + Environment.NewLine +
-                            "Written..: " + fi.LastWriteTime  + Environment.NewLine;
+                            "File Name: " + fi.Name              + Environment.NewLine +
+                            "Extension: " + fi.Extension         + Environment.NewLine +
+                            "Directory: " + fi.Directory.Name    + Environment.NewLine +
+                            "Attribute: " + fi.Attributes        + Environment.NewLine +
+                            "Size.....: " + fi.Length            + Environment.NewLine +
+                            "Creation.: " + fi.CreationTime      + Environment.NewLine +
+                            "Accessed.: " + fi.LastAccessTime    + Environment.NewLine +
+                            "Written..: " + fi.LastWriteTime     + Environment.NewLine +
+                            "MD5 Hash.: " + gl_fileMD5           + Environment.NewLine +
+                            "File ID..: " + fapmap.getFileId(fi) + Environment.NewLine
+                            ;
 
                             showImage.Image = Icon.ExtractAssociatedIcon(fi.FullName).ToBitmap();
                         });
@@ -269,6 +277,11 @@ namespace fapmap
         {
             if (Directory.Exists(txt_path.Text)) { fapmap.Open(txt_path.Text); }
             else if (File.Exists(txt_path.Text)) { fapmap.Open(txt_path.Text); }
+        }
+        private void btn_browser_Click(object sender, EventArgs e)
+        {
+            if (Directory.Exists(txt_path.Text)) { fapmap.OpenInBrowser(txt_path.Text); }
+            else if (File.Exists(txt_path.Text)) { fapmap.OpenInBrowser(txt_path.Text); }
         }
         private void btn_selectFileInExplorer_Click(object sender, EventArgs e)
         {
@@ -357,19 +370,27 @@ namespace fapmap
         // md5 booru search
         private void btn_booru_api_Click(object sender, EventArgs e)
         {
-            if (File.Exists(txt_path.Text)) { fapmap.Incognito(fapmap.GlobalVariables.BooruSearchMD5.API + Path.GetFileNameWithoutExtension(txt_path.Text)); }
+            if (File.Exists(txt_path.Text)) { fapmap.Incognito(fapmap.GlobalVariables.BooruSearchMD5.API + gl_fileMD5); }
         }
         private void btn_booru_rule34xxx_Click(object sender, EventArgs e)
         {
-            if (File.Exists(txt_path.Text)) { fapmap.Incognito(fapmap.GlobalVariables.BooruSearchMD5.rule34xxx + Path.GetFileNameWithoutExtension(txt_path.Text)); }
+            if (File.Exists(txt_path.Text)) { fapmap.Incognito(fapmap.GlobalVariables.BooruSearchMD5.rule34xxx + gl_fileMD5); }
         }
         private void btn_booru_gelbooru_Click(object sender, EventArgs e)
         {
-            if (File.Exists(txt_path.Text)) { fapmap.Incognito(fapmap.GlobalVariables.BooruSearchMD5.gelbooru + Path.GetFileNameWithoutExtension(txt_path.Text)); }
+            if (File.Exists(txt_path.Text)) { fapmap.Incognito(fapmap.GlobalVariables.BooruSearchMD5.gelbooru + gl_fileMD5); }
         }
         private void btn_booru_danbooru_Click(object sender, EventArgs e)
         {
-            if (File.Exists(txt_path.Text)) { fapmap.Incognito(fapmap.GlobalVariables.BooruSearchMD5.danbooru + Path.GetFileNameWithoutExtension(txt_path.Text)); }
+            if (File.Exists(txt_path.Text)) { fapmap.Incognito(fapmap.GlobalVariables.BooruSearchMD5.danbooru + gl_fileMD5); }
+        }
+        private void btn_booru_yandere_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(txt_path.Text)) { fapmap.Incognito(fapmap.GlobalVariables.BooruSearchMD5.yandere + gl_fileMD5); }
+        }
+        private void btn_booru_xbooru_Click(object sender, EventArgs e)
+        {
+            if (File.Exists(txt_path.Text)) { fapmap.Incognito(fapmap.GlobalVariables.BooruSearchMD5.xbooru + gl_fileMD5); }
         }
 
         private void btn_dragOutFilePath_DragOver(object sender, DragEventArgs e)
@@ -381,5 +402,7 @@ namespace fapmap
             if (!string.IsNullOrEmpty(txt_path.Text))
             { this.txt_path.DoDragDrop(new DataObject(DataFormats.StringFormat, txt_path.Text), DragDropEffects.Copy); }
         }
+
+        
     }
 }

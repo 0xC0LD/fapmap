@@ -19,7 +19,7 @@ namespace fapmap.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -213,6 +213,56 @@ namespace fapmap.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap booru_danbooru {
+            get {
+                object obj = ResourceManager.GetObject("booru_danbooru", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap booru_gelbooru {
+            get {
+                object obj = ResourceManager.GetObject("booru_gelbooru", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap booru_rule34xxx {
+            get {
+                object obj = ResourceManager.GetObject("booru_rule34xxx", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap booru_xbooru {
+            get {
+                object obj = ResourceManager.GetObject("booru_xbooru", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap booru_yandere {
+            get {
+                object obj = ResourceManager.GetObject("booru_yandere", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap browser {
             get {
                 object obj = ResourceManager.GetObject("browser", resourceCulture);
@@ -396,16 +446,6 @@ namespace fapmap.Properties {
         internal static System.Drawing.Bitmap cut_turquoise {
             get {
                 object obj = ResourceManager.GetObject("cut_turquoise", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap danbooru {
-            get {
-                object obj = ResourceManager.GetObject("danbooru", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -631,28 +671,22 @@ namespace fapmap.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to #=======================================
-        ///#
-        ///#  FapMap -&gt; URL BOARD
-        ///#
-        ///#  TYPE|NAME|URL
-        ///#
-        ///#  TYPES:
-        ///#        SITE - has log-in options
-        ///#        NLIO - site with no log-in options
-        ///#        DOWN - media converter SITE
-        ///#        USER - user from a SITE
-        ///#        BLOG - blog (NLIO 2)
-        ///#        STAR - pornstar
-        ///#
-        ///#=======================================
-        ///#
-        ///# ======[ SITE ]======
-        ///#
-        ///SITE|DuckDuckGo|https://duckduckgo.com
-        ///SITE|Google|https://www.google.com
-        ///SITE|xVideos|https://www.xvideos.com
-        ///SITE|Porn [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to // the sites are defined as: HTML COLOR|SITE NAME|URL
+        ///
+        ///// big sites
+        ///#40E0D0|DuckDuckGo|https://duckduckgo.com
+        ///#40E0D0|Google|https://www.google.com
+        ///#40E0D0|xVideos|https://www.xvideos.com
+        ///#40E0D0|PornHub|https://www.pornhub.com
+        ///#40E0D0|REDTUBE|https://www.redtube.com
+        ///#40E0D0|XNXX|https://www.xnxx.com
+        ///#40E0D0|xHamster|https://xhamster.com
+        ///#40E0D0|YouPorn|https://www.youporn.com
+        ///#40E0D0|YouJizz|https://www.youjizz.com
+        ///#40E0D0|Spankbang|https://www.spankbang.com
+        ///
+        ///// hentai
+        ///#FF1493|nHentai|https: [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string file_board {
             get {
@@ -769,16 +803,6 @@ namespace fapmap.Properties {
         internal static System.Drawing.Bitmap folder {
             get {
                 object obj = ResourceManager.GetObject("folder", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap gelbooru {
-            get {
-                object obj = ResourceManager.GetObject("gelbooru", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1139,16 +1163,6 @@ namespace fapmap.Properties {
         internal static System.Drawing.Bitmap restart_turquoise {
             get {
                 object obj = ResourceManager.GetObject("restart_turquoise", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap rule34_xxx {
-            get {
-                object obj = ResourceManager.GetObject("rule34_xxx", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

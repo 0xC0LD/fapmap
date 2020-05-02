@@ -206,6 +206,8 @@ namespace fapmap
                 public const string rule34xxx = @"https://rule34.xxx/index.php?page=post&s=list&tags=md5%3a";
                 public const string gelbooru  = @"https://www.gelbooru.com/index.php?page=post&s=list&tags=md5%3a";
                 public const string danbooru  = @"https://danbooru.donmai.us/posts?tags=md5%3A";
+                public const string xbooru    = @"https://xbooru.com/index.php?page=post&s=list&tags=md5%3a";
+                public const string yandere   = @"https://yande.re/post?tags=md5%3A";
             }
 
             public class CreditsImageUrls
@@ -1408,8 +1410,19 @@ namespace fapmap
             fs.Close();
             return (((ulong)objectFileInfo.FileIndexHigh << 32) + (ulong)objectFileInfo.FileIndexLow);
         }
-        
-        
+
+        public static string CalculateMD5(string path)
+        {
+            using (var md5 = System.Security.Cryptography.MD5.Create())
+            {
+                using (var stream = File.OpenRead(path))
+                {
+                    var hash = md5.ComputeHash(stream);
+                    return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+                }
+            }
+        }
+
         #endregion
 
         #endregion

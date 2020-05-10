@@ -14,6 +14,7 @@ using System.Threading;
 using System.Windows.Forms;
 using WMPLib;
 using Microsoft.Win32;
+using System.Diagnostics.Contracts;
 
 namespace fapmap
 {
@@ -170,6 +171,7 @@ namespace fapmap
                     public class Exe
                     {
                         public static string FFMPEG       = Path.Dir.Main + "\\ffmpeg.exe";
+                        public static string FFPROBE      = Path.Dir.Main + "\\ffprobe.exe";
                         public static string WEBGRAB      = Path.Dir.Main + "\\webgrab.exe";
                         public static string YOUTUBEDL    = Path.Dir.Main + "\\youtube-dl.exe";
                         public static string FSCAN        = Path.Dir.Main + "\\fscan.exe";
@@ -378,21 +380,20 @@ namespace fapmap
         {
             if (!File.Exists(GlobalVariables.Path.File.Exe.FFMPEG)) { return false; }
 
+            // mjpeg or bmp
             string args = "-itsoffset -1  -i " + '"' + file + '"' + " -vcodec mjpeg -vframes 1 -an -f rawvideo " + '"' + dest + '"';
             string log = GlobalVariables.Path.File.Exe.FFMPEG + " " + args;
 
             try
             {
-                var startInfo = new ProcessStartInfo
-                {
-                    WindowStyle = ProcessWindowStyle.Hidden,
-                    FileName = GlobalVariables.Path.File.Exe.FFMPEG, // mjpeg or bmp
-                    Arguments = args
-                };
-
-                var process = new Process { StartInfo = startInfo };
-                process.Start();
-                process.WaitForExit();
+                Process ffmpeg = new Process();
+                ffmpeg.StartInfo.UseShellExecute = false;
+                ffmpeg.StartInfo.CreateNoWindow = true;
+                ffmpeg.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                ffmpeg.StartInfo.FileName = GlobalVariables.Path.File.Exe.FFMPEG; 
+                ffmpeg.StartInfo.Arguments = args;
+                ffmpeg.Start();
+                ffmpeg.WaitForExit();
             }
             catch (Win32Exception e)            { LogThis(GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + log); return false; }
             catch (InvalidOperationException e) { LogThis(GlobalVariables.LOG_TYPE.FAIL, e.Message + " : " + log); return false; }
@@ -1401,6 +1402,43 @@ namespace fapmap
             return new Tuple<int, int, int>(visible, normal, full);
         }
 
+        public static Tuple<string, string, string> getVideoInfo(string filePath)
+        {
+            if (!File.Exists(GlobalVariables.Path.File.Exe.FFPROBE)) { goto Fail; }
+
+            Process ffprobe = new Process();
+            try
+            {
+                ffprobe.StartInfo.FileName = GlobalVariables.Path.File.Exe.FFPROBE;
+                ffprobe.StartInfo.Arguments = "\"" + filePath + "\"";
+                ffprobe.StartInfo.UseShellExecute = false;
+                ffprobe.StartInfo.CreateNoWindow = true;
+                ffprobe.StartInfo.RedirectStandardOutput = true;
+                ffprobe.StartInfo.RedirectStandardError = true;
+                ffprobe.Start();
+            }
+            catch (Win32Exception) { goto Fail; }
+            catch (Exception)      { goto Fail; }
+
+            string output = ffprobe.StandardError.ReadToEnd();
+            ffprobe.WaitForExit();
+
+            string duration = string.Empty;
+            string title = string.Empty;
+            string encoder = string.Empty;
+
+            foreach (string line in output.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                if (line.StartsWith("  Duration: "))           { duration = System.Text.RegularExpressions.Regex.Replace(line.Remove(0, "  Duration: ".Length).Split(',')[0], @"\t|\n|\r", ""); }
+                if (line.StartsWith("    title           : ")) { title    = System.Text.RegularExpressions.Regex.Replace(line.Remove(0, "    title           : ".Length),     @"\t|\n|\r", ""); }
+                if (line.StartsWith("    encoder         : ")) { encoder  = System.Text.RegularExpressions.Regex.Replace(line.Remove(0, "    encoder         : ".Length),     @"\t|\n|\r", ""); }
+            }
+
+            return new Tuple<string, string, string>(duration, title, encoder);
+
+            Fail:
+            return new Tuple<string, string, string>("", "", "");
+        }
 
         public static ulong getFileId(FileInfo fi)
         {
@@ -5416,13 +5454,13 @@ namespace fapmap
         {
             links_ctrl = e.Control;
             links_shift = e.Shift;
-            
+
             switch (e.KeyCode)
             {
-                case Keys.Escape: links.SelectedItems.Clear(); links.FocusedItem.Focused = false; e.Handled = true; e.SuppressKeyPress = true; break;
-                case Keys.Enter:  links_start();                                                  e.Handled = true; e.SuppressKeyPress = true; break;
-                case Keys.Delete: links_delete();                                                 e.Handled = true; e.SuppressKeyPress = true; break;
-                case Keys.F5:     links_reload(GlobalVariables.Path.File.Links);                  e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Escape: links.SelectedItems.Clear(); if (links.FocusedItem != null) { links.FocusedItem.Focused = false; } e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Enter:  links_start();                                                                                     e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.Delete: links_delete();                                                                                    e.Handled = true; e.SuppressKeyPress = true; break;
+                case Keys.F5:     links_reload(GlobalVariables.Path.File.Links);                                                     e.Handled = true; e.SuppressKeyPress = true; break;
             }
             if (e.Control)
             {

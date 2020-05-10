@@ -187,12 +187,10 @@ namespace fapmap
                     {
                         FileInfo fi = new FileInfo(path);
                         label_path.Text = fi.Name;
+
                         this.Invoke((MethodInvoker)delegate
                         {
                             txt_size.Text = fapmap.ROund(fi.Length) + " (" + fi.Length + " bytes" + ")";
-
-                            gl_fileMD5 = fapmap.CalculateMD5(fi.FullName);
-
                             txt_output.Text +=
                             "File Name: " + fi.Name              + Environment.NewLine +
                             "Extension: " + fi.Extension         + Environment.NewLine +
@@ -201,14 +199,28 @@ namespace fapmap
                             "Size.....: " + fi.Length            + Environment.NewLine +
                             "Creation.: " + fi.CreationTime      + Environment.NewLine +
                             "Accessed.: " + fi.LastAccessTime    + Environment.NewLine +
-                            "Written..: " + fi.LastWriteTime     + Environment.NewLine +
-                            "MD5 Hash.: " + gl_fileMD5           + Environment.NewLine +
-                            "File ID..: " + fapmap.getFileId(fi) + Environment.NewLine
-                            ;
-
+                            "Written..: " + fi.LastWriteTime     + Environment.NewLine;
+                            
                             showImage.Image = Icon.ExtractAssociatedIcon(fi.FullName).ToBitmap();
                         });
+
+                        string id = fapmap.getFileId(fi).ToString();
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            txt_output.Text += "File ID..: " + id + Environment.NewLine;
+                        });
+
+                        gl_fileMD5 = fapmap.CalculateMD5(fi.FullName);
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            txt_output.Text += "MD5 Hash.: " + gl_fileMD5 + Environment.NewLine;
+                        });
                         
+                        Tuple<string, string, string> VideoInfo = fapmap.getVideoInfo(fi.FullName);
+                        if (!string.IsNullOrEmpty(VideoInfo.Item1)) { this.Invoke((MethodInvoker)delegate { txt_output.Text += "Duration.: " + VideoInfo.Item1 + Environment.NewLine; }); }
+                        if (!string.IsNullOrEmpty(VideoInfo.Item2)) { this.Invoke((MethodInvoker)delegate { txt_output.Text += "Title....: " + VideoInfo.Item2 + Environment.NewLine; }); }
+                        if (!string.IsNullOrEmpty(VideoInfo.Item3)) { this.Invoke((MethodInvoker)delegate { txt_output.Text += "Encoder..: " + VideoInfo.Item3 + Environment.NewLine; }); }
+
                         if (fapmap.GlobalVariables.FileTypes.Image.Contains(fi.Extension.ToLower()))
                         {
                             Image img = Image.FromFile(fi.FullName);
@@ -246,7 +258,6 @@ namespace fapmap
                         txt_output.Text = "N/A";
                         label_info.Text = "Nothing found...";
                         showImage.Image = Properties.Resources.error;
-
                     }
 
                     this.Invoke((MethodInvoker)delegate
@@ -254,7 +265,7 @@ namespace fapmap
                         label_info.Text = "Done!";
                     });
                 }
-                catch (Exception) { }
+                catch (Exception e) { this.Text = e.Message; }
 
                 getInfo_busy = false;
             })

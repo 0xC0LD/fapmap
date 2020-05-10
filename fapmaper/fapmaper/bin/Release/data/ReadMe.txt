@@ -3,8 +3,9 @@
 //
 
 =====[ Programs you should have ]=====
-| Put: ffmpeg.exe, youtube-dl.exe, webgrab.exe, fscan.exe, CrashHandler.exe ... 
+| Put: ffmpeg.exe, ffprobe.exe, youtube-dl.exe, webgrab.exe, fscan.exe, CrashHandler.exe ... 
 | in the same folder as fapmap.exe for everything to work
+|
 
 =====[ Scripts ]=====
 | You can make your own script files.

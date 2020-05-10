@@ -57,12 +57,12 @@ namespace fapmap
         private string gl_fileNew = "";
         private string gl_options = "";
         
-        private Process fscanProcess = null;
+        private Process ffmpegProcess = null;
         private void ffmpeg_die()
         {
             try
             {
-                if (fscanProcess != null && !fscanProcess.HasExited) { fscanProcess.Kill(); }
+                if (ffmpegProcess != null && !ffmpegProcess.HasExited) { ffmpegProcess.Kill(); }
             }
             catch (Exception) { }
         }
@@ -167,20 +167,20 @@ namespace fapmap
                     });
 
                     // ffmpeg
-                    fscanProcess = new Process();
-                    fscanProcess.StartInfo.FileName = fapmap.GlobalVariables.Path.File.Exe.FFMPEG;
-                    fscanProcess.StartInfo.Arguments = more_opts + gl_options + " \"" + gl_file + "\" \"" + gl_fileNew + "\"";
-                    fscanProcess.StartInfo.UseShellExecute = false;
-                    fscanProcess.StartInfo.CreateNoWindow = true;
-                    fscanProcess.StartInfo.RedirectStandardOutput = true;
-                    fscanProcess.StartInfo.RedirectStandardError = true;
-                    fscanProcess.OutputDataReceived += ffmpeg_output;
-                    fscanProcess.ErrorDataReceived += ffmpeg_output;
-                    fscanProcess.Start();
-                    fscanProcess.BeginOutputReadLine();
-                    fscanProcess.BeginErrorReadLine();
-                    fscanProcess.WaitForExit();
-                    fscanProcess.Close();
+                    ffmpegProcess = new Process();
+                    ffmpegProcess.StartInfo.FileName = fapmap.GlobalVariables.Path.File.Exe.FFMPEG;
+                    ffmpegProcess.StartInfo.Arguments = more_opts + gl_options + " \"" + gl_file + "\" \"" + gl_fileNew + "\"";
+                    ffmpegProcess.StartInfo.UseShellExecute = false;
+                    ffmpegProcess.StartInfo.CreateNoWindow = true;
+                    ffmpegProcess.StartInfo.RedirectStandardOutput = true;
+                    ffmpegProcess.StartInfo.RedirectStandardError = true;
+                    ffmpegProcess.OutputDataReceived += ffmpeg_output;
+                    ffmpegProcess.ErrorDataReceived += ffmpeg_output;
+                    ffmpegProcess.Start();
+                    ffmpegProcess.BeginOutputReadLine();
+                    ffmpegProcess.BeginErrorReadLine();
+                    ffmpegProcess.WaitForExit();
+                    ffmpegProcess.Close();
 
                     this.Invoke((MethodInvoker)delegate
                     {

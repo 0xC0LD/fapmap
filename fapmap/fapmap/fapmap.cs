@@ -1496,7 +1496,8 @@ namespace fapmap
             fileDisplay_cb_sort.Checked  = GlobalVariables.Settings.CheckBoxes.FileDisplaySortByCreationDate;
             fileDisplay_cb_thumb.Checked = GlobalVariables.Settings.CheckBoxes.FileDisplayShowThumbnails;
             
-            updateFileBrowserSplitContainer();
+            updateFileBrowserSplitContainer_faftv();
+            updateFileBrowserSplitContainer_fileDisplay();
 
             // set url
             txt_url.Text = GlobalVariables.Settings.WebBrowser.FapMapURL;
@@ -1595,6 +1596,7 @@ namespace fapmap
         private void menu_open_browser_Click(object sender, EventArgs e) { Incognito(); }
         private void menu_open_finder_Click(object sender, EventArgs e) { new fapmap_find().Show(); }
         private void menu_open_fscan_Click(object sender, EventArgs e) { new fapmap_fscan() { pass_path = txt_path.Text }.Show(); }
+        private void menu_open_md5_Click(object sender, EventArgs e) { new fapmap_md5() { pass_path = txt_path.Text }.Show(); }
         private void menu_open_videoPlayer_Click(object sender, EventArgs e)
         {
             if (GlobalVariables.Settings.CheckBoxes.EnableMediaPlayers)
@@ -1693,16 +1695,15 @@ namespace fapmap
             faftv.Enabled = fapmap_cb_faftv.Checked;
         }
 
-        private void updateFileBrowserSplitContainer()
+        private void updateFileBrowserSplitContainer_fileDisplay()
         {
             splitContainer_files.Visible = (!fileDisplay.Enabled && !faftv.Enabled) ? false : true;
-
 
             if (fileDisplay.Enabled)
             {
                 splitContainer_files.Panel2.Show();
                 splitContainer_files.Panel2Collapsed = false;
-                load_dir(selectedDirPath);
+                load_dir(txt_path.Text);
             }
             else
             {
@@ -1713,6 +1714,10 @@ namespace fapmap
                 fileDisplay_icons.Images.Clear();
                 fileDisplay_watcher.Dispose();
             }
+        }
+        private void updateFileBrowserSplitContainer_faftv()
+        {
+            splitContainer_files.Visible = (!fileDisplay.Enabled && !faftv.Enabled) ? false : true;
 
             if (faftv.Enabled)
             {
@@ -1728,13 +1733,14 @@ namespace fapmap
                 faftv_watcher.Dispose();
             }
         }
+
         private void fileDisplay_EnabledChanged(object sender, EventArgs e)
         {
-            updateFileBrowserSplitContainer();
+            updateFileBrowserSplitContainer_fileDisplay();
         }
         private void faftv_EnabledChanged(object sender, EventArgs e)
         {
-            updateFileBrowserSplitContainer();
+            updateFileBrowserSplitContainer_faftv();
         }
 
 
@@ -2034,7 +2040,7 @@ namespace fapmap
                 // get image thumbs
                 if (GlobalVariables.FileTypes.Image.Contains(fi.Extension.ToLower()))
                 {
-                    new Thread(() =>
+                    ThreadPool.QueueUserWorkItem((i) =>
                     {
                         load_dir_thumbnail_mutex.WaitOne();
                         if (c_load_dir_cur != load_dir_cur) { load_dir_thumbnail_mutex.ReleaseMutex(); return; }
@@ -2058,6 +2064,7 @@ namespace fapmap
                                 int size = Math.Max(bmp.Width, bmp.Height);
                                 Bitmap bmpDrawOn = new Bitmap(size, size);
                                 using (Graphics g = Graphics.FromImage(bmpDrawOn)) { g.Clear(Color.Transparent); g.DrawImage(bmp, 0, 0); }
+
                                 if (c_load_dir_cur == load_dir_cur)
                                 {
                                     this.Invoke((MethodInvoker)delegate
@@ -2082,15 +2089,14 @@ namespace fapmap
                         catch (Exception) { }
 
                         load_dir_thumbnail_mutex.ReleaseMutex();
-                    })
-                    { IsBackground = true }.Start();
+                    });
                 }
 
                 // get video thumbs
                 if (File.Exists(GlobalVariables.Path.File.Exe.FFMPEG)
                  && GlobalVariables.FileTypes.Video.Contains(fi.Extension.ToLower()))
                 {
-                    Thread th = new Thread(() =>
+                    ThreadPool.QueueUserWorkItem((i) =>
                     {
                         load_dir_thumbnail_mutex.WaitOne();
                         if (c_load_dir_cur != load_dir_cur) { load_dir_thumbnail_mutex.ReleaseMutex(); return; }
@@ -2149,11 +2155,7 @@ namespace fapmap
                         catch (Exception) { }
 
                         load_dir_thumbnail_mutex.ReleaseMutex();
-
-                    })
-                    { IsBackground = true };
-
-                    th.Start();
+                    });
                 }
             }
         }
@@ -4407,7 +4409,6 @@ namespace fapmap
             fapmap_echo("");
             nestFiles();
             faftv.Nodes.Clear();
-            txt_path.Text = GlobalVariables.Path.Dir.MainFolder;
             faftv.Nodes.Add(faftv_CreateDirectoryNode(new DirectoryInfo(GlobalVariables.Path.Dir.MainFolder)));
 
             if (faftv_watcher != null) { faftv_watcher.Dispose(); }
@@ -5640,6 +5641,8 @@ namespace fapmap
         {
             ((SplitContainer)sender).IsSplitterFixed = true;
         }
+
+        
 
         private void splitContainer_MouseUp(object sender, MouseEventArgs e)
         {

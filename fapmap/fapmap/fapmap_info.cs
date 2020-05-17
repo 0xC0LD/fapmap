@@ -65,12 +65,16 @@ namespace fapmap
             {
                 bool val = !string.IsNullOrEmpty(value);
 
-                btn_booru_api.Visible       = val;
-                btn_booru_rule34xxx.Visible = val;
-                btn_booru_gelbooru.Visible  = val;
-                btn_booru_danbooru.Visible  = val;
-                btn_booru_yandere.Visible   = val;
-                btn_booru_xbooru.Visible    = val;
+                this.Invoke((MethodInvoker)delegate
+                {
+                    btn_booru_api.Visible       = val;
+                    btn_booru_rule34xxx.Visible = val;
+                    btn_booru_gelbooru.Visible  = val;
+                    btn_booru_danbooru.Visible  = val;
+                    btn_booru_yandere.Visible   = val;
+                    btn_booru_xbooru.Visible    = val;
+                });
+                
 
                 gl_fileMD5_ = value;
             }
@@ -216,11 +220,6 @@ namespace fapmap
                             txt_output.Text += "MD5 Hash.: " + gl_fileMD5 + Environment.NewLine;
                         });
                         
-                        Tuple<string, string, string> VideoInfo = fapmap.getVideoInfo(fi.FullName);
-                        if (!string.IsNullOrEmpty(VideoInfo.Item1)) { this.Invoke((MethodInvoker)delegate { txt_output.Text += "Duration.: " + VideoInfo.Item1 + Environment.NewLine; }); }
-                        if (!string.IsNullOrEmpty(VideoInfo.Item2)) { this.Invoke((MethodInvoker)delegate { txt_output.Text += "Title....: " + VideoInfo.Item2 + Environment.NewLine; }); }
-                        if (!string.IsNullOrEmpty(VideoInfo.Item3)) { this.Invoke((MethodInvoker)delegate { txt_output.Text += "Encoder..: " + VideoInfo.Item3 + Environment.NewLine; }); }
-
                         if (fapmap.GlobalVariables.FileTypes.Image.Contains(fi.Extension.ToLower()))
                         {
                             Image img = Image.FromFile(fi.FullName);
@@ -249,6 +248,11 @@ namespace fapmap
                                     txt_output.Text += "Image WxH: " + bmp.Width + "x" + bmp.Height + Environment.NewLine;
                                 });
                             }
+
+                            Tuple<string, string, string> VideoInfo = fapmap.getVideoInfo(fi.FullName);
+                            if (!string.IsNullOrEmpty(VideoInfo.Item1)) { this.Invoke((MethodInvoker)delegate { txt_output.Text += "Duration.: " + VideoInfo.Item1 + Environment.NewLine; }); }
+                            if (!string.IsNullOrEmpty(VideoInfo.Item2)) { this.Invoke((MethodInvoker)delegate { txt_output.Text += "Title....: " + VideoInfo.Item2 + Environment.NewLine; }); }
+                            if (!string.IsNullOrEmpty(VideoInfo.Item3)) { this.Invoke((MethodInvoker)delegate { txt_output.Text += "Encoder..: " + VideoInfo.Item3 + Environment.NewLine; }); }
                         }
                     }
                     else

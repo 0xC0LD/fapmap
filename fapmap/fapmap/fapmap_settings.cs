@@ -716,6 +716,7 @@ namespace fapmap
             if (!Directory.Exists(fapmap.GlobalVariables.Path.Dir.MainFolder)) { return; }
 
             label_outputThumb.Text = "Loading...";
+            pb_cache.Value = 0;
 
             new Thread(() =>
             {
@@ -724,25 +725,29 @@ namespace fapmap
                 try
                 {
                     // get videos
-                    FileInfo[] AllFiles = new DirectoryInfo(fapmap.GlobalVariables.Path.Dir.MainFolder)
-                    .GetFiles("*.*", SearchOption.AllDirectories);
                     List<FileInfo> videos = new List<FileInfo>();
-                    foreach (FileInfo file in AllFiles)
-                    {
-                        if (fapmap.GlobalVariables.FileTypes.Video.Contains
-                        (file.Extension.ToLower()))
-                        { videos.Add(file); }
-                    }
+                    DirectoryInfo di = new DirectoryInfo(fapmap.GlobalVariables.Path.Dir.MainFolder);
+                    foreach (string ext in fapmap.GlobalVariables.FileTypes.Video)
+                    { videos.AddRange(di.GetFiles("*" + ext, SearchOption.AllDirectories)); }
 
                     int found = 0;
                     int missing = 0;
                     getThumbInfo_print(videos.Count, found, missing);
+                    int i = 0;
                     foreach (FileInfo video in videos)
                     {
                         string id = fapmap.getFileId(video).ToString();
                         string dest = fapmap.GlobalVariables.Path.Dir.Cache + "\\" + id + ".tmp";
                         if (File.Exists(dest)) { found++; } else { missing++; }
                         getThumbInfo_print(videos.Count, found, missing);
+
+                        i++;
+                        int val = (i == 0 || videos.Count == 0) ? 0 : ((int)((float)i / (float)videos.Count * 100));
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            this.Text = val.ToString();
+                            pb_cache.Value = val;
+                        });
                     }
 
                     this.Invoke((MethodInvoker)delegate
@@ -784,7 +789,8 @@ namespace fapmap
             if (!Directory.Exists(fapmap.GlobalVariables.Path.Dir.MainFolder)) { return; }
 
             label_outputThumb.Text = "...";
-            
+            pb_cache.Value = 0;
+
             new Thread(() =>
             {
                 getThumbs_busy = true;
@@ -794,19 +800,15 @@ namespace fapmap
                     label_outputThumb.Text = "Working..." + Environment.NewLine;
 
                     // get videos
-                    FileInfo[] AllFiles = new DirectoryInfo(fapmap.GlobalVariables.Path.Dir.MainFolder)
-                    .GetFiles("*.*", SearchOption.AllDirectories);
                     List<FileInfo> videos = new List<FileInfo>();
-                    foreach (FileInfo file in AllFiles)
-                    {
-                        if (fapmap.GlobalVariables.FileTypes.Video.Contains
-                        (file.Extension.ToLower()))
-                        { videos.Add(file); }
-                    }
-                    
+                    DirectoryInfo di = new DirectoryInfo(fapmap.GlobalVariables.Path.Dir.MainFolder);
+                    foreach (string ext in fapmap.GlobalVariables.FileTypes.Video)
+                    { videos.AddRange(di.GetFiles("*" + ext, SearchOption.AllDirectories)); }
+
                     int count = 0;
                     int failed = 0;
                     int skipped = 0;
+                    int i = 0;
                     foreach (FileInfo video in videos)
                     {
                         string id = fapmap.getFileId(video).ToString();
@@ -825,6 +827,14 @@ namespace fapmap
                             "Thumb found: " + skipped      + Environment.NewLine + 
                             "Failed.....: " + failed       + Environment.NewLine;
 
+                        });
+
+                        i++;
+                        int val = (i == 0 || videos.Count == 0) ? 0 : ((int)((float)i / (float)videos.Count * 100));
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            this.Text = val.ToString();
+                            pb_cache.Value = val;
                         });
                     }
 

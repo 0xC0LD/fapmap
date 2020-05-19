@@ -52,6 +52,7 @@
             this.faftv_RMB_explorer = new System.Windows.Forms.ToolStripMenuItem();
             this.faftv_RMB_explorer2 = new System.Windows.Forms.ToolStripMenuItem();
             this.faftv_RMB_newFolder = new System.Windows.Forms.ToolStripMenuItem();
+            this.faftv_RMB_newFile = new System.Windows.Forms.ToolStripMenuItem();
             this.faftv_RMB_move = new System.Windows.Forms.ToolStripMenuItem();
             this.faftv_RMB_rename = new System.Windows.Forms.ToolStripMenuItem();
             this.faftv_RMB_delete = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,6 +71,7 @@
             this.fileDisplay_RMB_explorer = new System.Windows.Forms.ToolStripMenuItem();
             this.fileDisplay_RMB_explorer2 = new System.Windows.Forms.ToolStripMenuItem();
             this.fileDisplay_RMB_newFolder = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileDisplay_RMB_newFile = new System.Windows.Forms.ToolStripMenuItem();
             this.fileDisplay_RMB_move = new System.Windows.Forms.ToolStripMenuItem();
             this.fileDisplay_RMB_rename = new System.Windows.Forms.ToolStripMenuItem();
             this.fileDisplay_RMB_delete = new System.Windows.Forms.ToolStripMenuItem();
@@ -232,7 +234,7 @@
             // 
             // splitContainer_main.Panel1
             // 
-            this.splitContainer_main.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.splitContainer_main.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.splitContainer_main.Panel1.Controls.Add(this.fileDisplay_btn_info);
             this.splitContainer_main.Panel1.Controls.Add(this.txt_path_border);
             this.splitContainer_main.Panel1.Controls.Add(this.fileDisplay_btn_reload);
@@ -245,7 +247,7 @@
             // 
             // splitContainer_main.Panel2
             // 
-            this.splitContainer_main.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.splitContainer_main.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.splitContainer_main.Panel2.Controls.Add(this.links);
             this.splitContainer_main.Panel2.Controls.Add(this.txt_url_border);
             this.splitContainer_main.Panel2.Controls.Add(this.btn_startURL);
@@ -278,6 +280,7 @@
             // txt_path_border
             // 
             resources.ApplyResources(this.txt_path_border, "txt_path_border");
+            this.txt_path_border.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.txt_path_border.Controls.Add(this.txt_path);
             this.txt_path_border.Name = "txt_path_border";
             // 
@@ -315,18 +318,20 @@
             // splitContainer_files
             // 
             resources.ApplyResources(this.splitContainer_files, "splitContainer_files");
-            this.splitContainer_files.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.splitContainer_files.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.splitContainer_files.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer_files.Name = "splitContainer_files";
             // 
             // splitContainer_files.Panel1
             // 
+            this.splitContainer_files.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.splitContainer_files.Panel1.Controls.Add(this.faftv_cb_index);
             this.splitContainer_files.Panel1.Controls.Add(this.faftv_cb_sort);
             this.splitContainer_files.Panel1.Controls.Add(this.faftv);
             // 
             // splitContainer_files.Panel2
             // 
+            this.splitContainer_files.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.splitContainer_files.Panel2.Controls.Add(this.fileDisplay_cb_thumb);
             this.splitContainer_files.Panel2.Controls.Add(this.fileDisplay_cb_sort);
             this.splitContainer_files.Panel2.Controls.Add(this.fileDisplay);
@@ -404,6 +409,7 @@
             this.faftv_RMB_explorer,
             this.faftv_RMB_explorer2,
             this.faftv_RMB_newFolder,
+            this.faftv_RMB_newFile,
             this.faftv_RMB_move,
             this.faftv_RMB_rename,
             this.faftv_RMB_delete,
@@ -502,6 +508,15 @@
             this.faftv_RMB_newFolder.Name = "faftv_RMB_newFolder";
             resources.ApplyResources(this.faftv_RMB_newFolder, "faftv_RMB_newFolder");
             this.faftv_RMB_newFolder.Click += new System.EventHandler(this.faftv_RMB_newFolder_Click);
+            // 
+            // faftv_RMB_newFile
+            // 
+            this.faftv_RMB_newFile.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.faftv_RMB_newFile.ForeColor = System.Drawing.Color.HotPink;
+            this.faftv_RMB_newFile.Image = global::fapmap.Properties.Resources.newFile_hotpink;
+            this.faftv_RMB_newFile.Name = "faftv_RMB_newFile";
+            resources.ApplyResources(this.faftv_RMB_newFile, "faftv_RMB_newFile");
+            this.faftv_RMB_newFile.Click += new System.EventHandler(this.faftv_RMB_newFile_Click);
             // 
             // faftv_RMB_move
             // 
@@ -619,6 +634,7 @@
             this.fileDisplay_RMB_explorer,
             this.fileDisplay_RMB_explorer2,
             this.fileDisplay_RMB_newFolder,
+            this.fileDisplay_RMB_newFile,
             this.fileDisplay_RMB_move,
             this.fileDisplay_RMB_rename,
             this.fileDisplay_RMB_delete,
@@ -707,6 +723,15 @@
             this.fileDisplay_RMB_newFolder.Name = "fileDisplay_RMB_newFolder";
             resources.ApplyResources(this.fileDisplay_RMB_newFolder, "fileDisplay_RMB_newFolder");
             this.fileDisplay_RMB_newFolder.Click += new System.EventHandler(this.fileDisplay_RMB_newFolder_Click);
+            // 
+            // fileDisplay_RMB_newFile
+            // 
+            this.fileDisplay_RMB_newFile.BackgroundImage = global::fapmap.Properties.Resources.bg4;
+            this.fileDisplay_RMB_newFile.ForeColor = System.Drawing.Color.HotPink;
+            this.fileDisplay_RMB_newFile.Image = global::fapmap.Properties.Resources.newFile_hotpink;
+            this.fileDisplay_RMB_newFile.Name = "fileDisplay_RMB_newFile";
+            resources.ApplyResources(this.fileDisplay_RMB_newFile, "fileDisplay_RMB_newFile");
+            this.fileDisplay_RMB_newFile.Click += new System.EventHandler(this.fileDisplay_RMB_newFile_Click);
             // 
             // fileDisplay_RMB_move
             // 
@@ -1962,9 +1987,8 @@
             this.menu_open_md5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.menu_open_md5.BackgroundImage = global::fapmap.Properties.Resources.bg4;
             this.menu_open_md5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.menu_open_md5.Image = global::fapmap.Properties.Resources.scanFolder;
-            this.menu_open_md5.Name = "menu_open_md5";
             resources.ApplyResources(this.menu_open_md5, "menu_open_md5");
+            this.menu_open_md5.Name = "menu_open_md5";
             this.menu_open_md5.Click += new System.EventHandler(this.menu_open_md5_Click);
             // 
             // menu_open_videoPlayer
@@ -2124,8 +2148,8 @@
             // 
             // showMedia_image_pb
             // 
-            this.showMedia_image_pb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.showMedia_image_pb.ForeColor = System.Drawing.Color.Black;
+            this.showMedia_image_pb.BackColor = System.Drawing.Color.Black;
+            this.showMedia_image_pb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             resources.ApplyResources(this.showMedia_image_pb, "showMedia_image_pb");
             this.showMedia_image_pb.Name = "showMedia_image_pb";
             // 
@@ -2453,6 +2477,8 @@
         private System.Windows.Forms.ColumnHeader links_clm_title;
         private fapmap_res.FapMapProgressBar showMedia_image_pb;
         private System.Windows.Forms.ToolStripMenuItem menu_open_md5;
+        private System.Windows.Forms.ToolStripMenuItem fileDisplay_RMB_newFile;
+        private System.Windows.Forms.ToolStripMenuItem faftv_RMB_newFile;
     }
 }
 

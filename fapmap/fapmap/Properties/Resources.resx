@@ -481,4 +481,13 @@
   <data name="booru_yandere" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images\booru_yandere.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="newFile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\newFile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="newFile_hotpink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\newFile_hotpink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="hash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\hash.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

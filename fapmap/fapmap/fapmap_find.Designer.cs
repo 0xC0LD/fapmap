@@ -359,6 +359,7 @@
             this.splitContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.splitContainer.Location = new System.Drawing.Point(1, 1);
             this.splitContainer.Name = "splitContainer";
             // 
@@ -372,6 +373,7 @@
             this.splitContainer.Panel2.Controls.Add(this.showImage);
             this.splitContainer.Size = new System.Drawing.Size(958, 487);
             this.splitContainer.SplitterDistance = 471;
+            this.splitContainer.SplitterWidth = 7;
             this.splitContainer.TabIndex = 232;
             this.splitContainer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.splitContainer_MouseDown);
             this.splitContainer.MouseMove += new System.Windows.Forms.MouseEventHandler(this.splitContainer_MouseMove);
@@ -442,7 +444,7 @@
             this.showImage.Image = global::fapmap.Properties.Resources.image;
             this.showImage.Location = new System.Drawing.Point(0, 0);
             this.showImage.Name = "showImage";
-            this.showImage.Size = new System.Drawing.Size(483, 487);
+            this.showImage.Size = new System.Drawing.Size(480, 487);
             this.showImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.showImage.TabIndex = 155;
             this.showImage.TabStop = false;

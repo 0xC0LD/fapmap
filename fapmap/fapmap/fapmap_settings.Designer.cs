@@ -33,32 +33,31 @@
             this.txt_output_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.txt_output_RMB_copy = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpBalloon = new System.Windows.Forms.ToolTip(this.components);
+            this.fapMapPanel1 = new fapmap_res.FapMapPanel();
             this.hide_full = new System.Windows.Forms.Button();
+            this.label_gallery = new System.Windows.Forms.Label();
             this.hide_normal = new System.Windows.Forms.Button();
             this.hide_none = new System.Windows.Forms.Button();
+            this.panel_cache = new fapmap_res.FapMapPanel();
+            this.pb_cache = new fapmap_res.FapMapProgressBar();
+            this.btn_getCacheSize = new System.Windows.Forms.Button();
+            this.label_cacheSize = new System.Windows.Forms.Label();
             this.btn_help = new System.Windows.Forms.Button();
+            this.label_outputThumb = new System.Windows.Forms.Label();
             this.btn_getThumbs = new System.Windows.Forms.Button();
             this.btn_getThumbInfo = new System.Windows.Forms.Button();
             this.btn_delCache = new System.Windows.Forms.Button();
-            this.cb_noZero = new System.Windows.Forms.CheckBox();
-            this.btn_getinfo = new System.Windows.Forms.Button();
-            this.btn_editINI = new System.Windows.Forms.Button();
-            this.txt_passwds = new System.Windows.Forms.ListBox();
-            this.btn_addPasswd = new System.Windows.Forms.Button();
-            this.btn_getCacheSize = new System.Windows.Forms.Button();
-            this.fapMapPanel1 = new fapmap_res.FapMapPanel();
-            this.label_gallery = new System.Windows.Forms.Label();
-            this.panel_cache = new fapmap_res.FapMapPanel();
-            this.label_cacheSize = new System.Windows.Forms.Label();
-            this.label_outputThumb = new System.Windows.Forms.Label();
             this.label_cache = new System.Windows.Forms.Label();
             this.panel_gallery = new fapmap_res.FapMapPanel();
             this.label_info = new System.Windows.Forms.Label();
+            this.cb_noZero = new System.Windows.Forms.CheckBox();
             this.txt_output = new fapmap_res.FixedRichTextBox();
+            this.btn_getinfo = new System.Windows.Forms.Button();
             this.label_info_status = new System.Windows.Forms.Label();
             this.txt_size = new System.Windows.Forms.TextBox();
             this.panel_cb = new fapmap_res.FapMapPanel();
             this.panel_cb2 = new System.Windows.Forms.Panel();
+            this.btn_editINI = new System.Windows.Forms.Button();
             this.cb_faftv = new System.Windows.Forms.CheckBox();
             this.cb_logs = new System.Windows.Forms.CheckBox();
             this.cb_urlTitle = new System.Windows.Forms.CheckBox();
@@ -88,7 +87,9 @@
             this.panel_passwd = new fapmap_res.FapMapPanel();
             this.txt_newPasswd_border = new fapmap_res.FapMapPanel();
             this.txt_newPasswd = new System.Windows.Forms.TextBox();
+            this.txt_passwds = new System.Windows.Forms.ListBox();
             this.label_passwd = new System.Windows.Forms.Label();
+            this.btn_addPasswd = new System.Windows.Forms.Button();
             this.panel_browser = new fapmap_res.FapMapPanel();
             this.rb_chrome = new System.Windows.Forms.RadioButton();
             this.label_browser = new System.Windows.Forms.Label();
@@ -145,6 +146,18 @@
             this.HelpBalloon.OwnerDraw = true;
             this.HelpBalloon.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.HelpBalloon_Draw);
             // 
+            // fapMapPanel1
+            // 
+            this.fapMapPanel1.Controls.Add(this.hide_full);
+            this.fapMapPanel1.Controls.Add(this.label_gallery);
+            this.fapMapPanel1.Controls.Add(this.hide_normal);
+            this.fapMapPanel1.Controls.Add(this.hide_none);
+            this.fapMapPanel1.ForeColor = System.Drawing.Color.Plum;
+            this.fapMapPanel1.Location = new System.Drawing.Point(12, 12);
+            this.fapMapPanel1.Name = "fapMapPanel1";
+            this.fapMapPanel1.Size = new System.Drawing.Size(208, 129);
+            this.fapMapPanel1.TabIndex = 31;
+            // 
             // hide_full
             // 
             this.hide_full.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
@@ -169,6 +182,18 @@
             this.HelpBalloon.SetToolTip(this.hide_full, "RUN: attrib +s +h /d /s");
             this.hide_full.UseVisualStyleBackColor = false;
             this.hide_full.Click += new System.EventHandler(this.hide_full_Click);
+            // 
+            // label_gallery
+            // 
+            this.label_gallery.AutoSize = true;
+            this.label_gallery.BackColor = System.Drawing.Color.Transparent;
+            this.label_gallery.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_gallery.ForeColor = System.Drawing.Color.Plum;
+            this.label_gallery.Location = new System.Drawing.Point(8, 9);
+            this.label_gallery.Name = "label_gallery";
+            this.label_gallery.Size = new System.Drawing.Size(68, 23);
+            this.label_gallery.TabIndex = 0;
+            this.label_gallery.Text = "Files:";
             // 
             // hide_normal
             // 
@@ -220,6 +245,67 @@
             this.hide_none.UseVisualStyleBackColor = false;
             this.hide_none.Click += new System.EventHandler(this.hide_none_Click);
             // 
+            // panel_cache
+            // 
+            this.panel_cache.Controls.Add(this.pb_cache);
+            this.panel_cache.Controls.Add(this.btn_getCacheSize);
+            this.panel_cache.Controls.Add(this.label_cacheSize);
+            this.panel_cache.Controls.Add(this.btn_help);
+            this.panel_cache.Controls.Add(this.label_outputThumb);
+            this.panel_cache.Controls.Add(this.btn_getThumbs);
+            this.panel_cache.Controls.Add(this.btn_getThumbInfo);
+            this.panel_cache.Controls.Add(this.btn_delCache);
+            this.panel_cache.Controls.Add(this.label_cache);
+            this.panel_cache.ForeColor = System.Drawing.Color.HotPink;
+            this.panel_cache.Location = new System.Drawing.Point(12, 305);
+            this.panel_cache.Name = "panel_cache";
+            this.panel_cache.Size = new System.Drawing.Size(171, 214);
+            this.panel_cache.TabIndex = 30;
+            // 
+            // pb_cache
+            // 
+            this.pb_cache.ForeColor = System.Drawing.Color.HotPink;
+            this.pb_cache.Location = new System.Drawing.Point(49, 112);
+            this.pb_cache.Name = "pb_cache";
+            this.pb_cache.Size = new System.Drawing.Size(114, 20);
+            this.pb_cache.TabIndex = 250;
+            this.pb_cache.Tag = "pink";
+            // 
+            // btn_getCacheSize
+            // 
+            this.btn_getCacheSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_getCacheSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_getCacheSize.BackgroundImage = global::fapmap.Properties.Resources.arrow_down_hotpink;
+            this.btn_getCacheSize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_getCacheSize.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_getCacheSize.FlatAppearance.BorderColor = System.Drawing.Color.HotPink;
+            this.btn_getCacheSize.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_getCacheSize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_getCacheSize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_getCacheSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_getCacheSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_getCacheSize.ForeColor = System.Drawing.Color.HotPink;
+            this.btn_getCacheSize.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_getCacheSize.Location = new System.Drawing.Point(140, 2);
+            this.btn_getCacheSize.Name = "btn_getCacheSize";
+            this.btn_getCacheSize.Size = new System.Drawing.Size(20, 20);
+            this.btn_getCacheSize.TabIndex = 249;
+            this.HelpBalloon.SetToolTip(this.btn_getCacheSize, "Get Cache Size");
+            this.btn_getCacheSize.UseVisualStyleBackColor = false;
+            this.btn_getCacheSize.Click += new System.EventHandler(this.btn_getCacheSize_Click);
+            // 
+            // label_cacheSize
+            // 
+            this.label_cacheSize.AutoSize = true;
+            this.label_cacheSize.BackColor = System.Drawing.Color.Transparent;
+            this.label_cacheSize.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_cacheSize.ForeColor = System.Drawing.Color.HotPink;
+            this.label_cacheSize.Location = new System.Drawing.Point(8, 37);
+            this.label_cacheSize.Name = "label_cacheSize";
+            this.label_cacheSize.Size = new System.Drawing.Size(37, 26);
+            this.label_cacheSize.TabIndex = 248;
+            this.label_cacheSize.Text = "SIZE:\r\n...\r\n";
+            // 
             // btn_help
             // 
             this.btn_help.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -241,6 +327,18 @@
             this.HelpBalloon.SetToolTip(this.btn_help, "Help: Thumbnails");
             this.btn_help.UseVisualStyleBackColor = false;
             this.btn_help.Click += new System.EventHandler(this.btn_help_Click);
+            // 
+            // label_outputThumb
+            // 
+            this.label_outputThumb.AutoSize = true;
+            this.label_outputThumb.BackColor = System.Drawing.Color.Transparent;
+            this.label_outputThumb.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label_outputThumb.ForeColor = System.Drawing.Color.HotPink;
+            this.label_outputThumb.Location = new System.Drawing.Point(8, 137);
+            this.label_outputThumb.Name = "label_outputThumb";
+            this.label_outputThumb.Size = new System.Drawing.Size(25, 65);
+            this.label_outputThumb.TabIndex = 216;
+            this.label_outputThumb.Text = "...\r\n...\r\n...\r\n...\r\n...";
             // 
             // btn_getThumbs
             // 
@@ -314,203 +412,6 @@
             this.btn_delCache.UseVisualStyleBackColor = false;
             this.btn_delCache.Click += new System.EventHandler(this.btn_delCache_Click);
             // 
-            // cb_noZero
-            // 
-            this.cb_noZero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_noZero.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cb_noZero.BackColor = System.Drawing.Color.Black;
-            this.cb_noZero.Checked = true;
-            this.cb_noZero.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_noZero.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_noZero.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
-            this.cb_noZero.FlatAppearance.CheckedBackColor = System.Drawing.Color.SkyBlue;
-            this.cb_noZero.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
-            this.cb_noZero.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
-            this.cb_noZero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_noZero.Font = new System.Drawing.Font("Segoe Print", 24F);
-            this.cb_noZero.ForeColor = System.Drawing.Color.SkyBlue;
-            this.cb_noZero.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_noZero.Location = new System.Drawing.Point(521, 0);
-            this.cb_noZero.Name = "cb_noZero";
-            this.cb_noZero.Size = new System.Drawing.Size(10, 10);
-            this.cb_noZero.TabIndex = 239;
-            this.HelpBalloon.SetToolTip(this.cb_noZero, "Don\'t ouput file types with 0 count");
-            this.cb_noZero.UseVisualStyleBackColor = false;
-            // 
-            // btn_getinfo
-            // 
-            this.btn_getinfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_getinfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.btn_getinfo.BackgroundImage = global::fapmap.Properties.Resources.arrow_down_skyblue;
-            this.btn_getinfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_getinfo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_getinfo.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
-            this.btn_getinfo.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btn_getinfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.btn_getinfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.btn_getinfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_getinfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btn_getinfo.ForeColor = System.Drawing.Color.SkyBlue;
-            this.btn_getinfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_getinfo.Location = new System.Drawing.Point(505, 26);
-            this.btn_getinfo.Name = "btn_getinfo";
-            this.btn_getinfo.Size = new System.Drawing.Size(23, 23);
-            this.btn_getinfo.TabIndex = 24;
-            this.HelpBalloon.SetToolTip(this.btn_getinfo, "Get Gallery Info");
-            this.btn_getinfo.UseVisualStyleBackColor = false;
-            this.btn_getinfo.Click += new System.EventHandler(this.btn_getinfo_Click);
-            // 
-            // btn_editINI
-            // 
-            this.btn_editINI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.btn_editINI.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_editINI.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_editINI.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btn_editINI.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btn_editINI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_editINI.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btn_editINI.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_editINI.Location = new System.Drawing.Point(3, 3);
-            this.btn_editINI.Name = "btn_editINI";
-            this.btn_editINI.Size = new System.Drawing.Size(50, 22);
-            this.btn_editINI.TabIndex = 23;
-            this.btn_editINI.Text = ".ini";
-            this.HelpBalloon.SetToolTip(this.btn_editINI, "Edit Settings File");
-            this.btn_editINI.UseVisualStyleBackColor = false;
-            this.btn_editINI.Click += new System.EventHandler(this.btn_editINI_Click);
-            // 
-            // txt_passwds
-            // 
-            this.txt_passwds.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_passwds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(7)))), ((int)(((byte)(15)))));
-            this.txt_passwds.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_passwds.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.txt_passwds.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.txt_passwds.ForeColor = System.Drawing.Color.Aquamarine;
-            this.txt_passwds.FormattingEnabled = true;
-            this.txt_passwds.ItemHeight = 22;
-            this.txt_passwds.Location = new System.Drawing.Point(3, 56);
-            this.txt_passwds.Name = "txt_passwds";
-            this.txt_passwds.Size = new System.Drawing.Size(164, 264);
-            this.txt_passwds.TabIndex = 8;
-            this.HelpBalloon.SetToolTip(this.txt_passwds, "Double Click To Remove Selected Password");
-            this.txt_passwds.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.passwordsList_DrawItem);
-            this.txt_passwds.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.passwordsList_MeasureItem);
-            this.txt_passwds.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_passwds_KeyDown);
-            this.txt_passwds.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.passwordsList_MouseDoubleClick);
-            // 
-            // btn_addPasswd
-            // 
-            this.btn_addPasswd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_addPasswd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.btn_addPasswd.BackgroundImage = global::fapmap.Properties.Resources.arrow_down_turquoise;
-            this.btn_addPasswd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_addPasswd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_addPasswd.FlatAppearance.BorderColor = System.Drawing.Color.Aquamarine;
-            this.btn_addPasswd.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btn_addPasswd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.btn_addPasswd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.btn_addPasswd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_addPasswd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btn_addPasswd.ForeColor = System.Drawing.Color.Aquamarine;
-            this.btn_addPasswd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_addPasswd.Location = new System.Drawing.Point(147, 29);
-            this.btn_addPasswd.Name = "btn_addPasswd";
-            this.btn_addPasswd.Size = new System.Drawing.Size(20, 20);
-            this.btn_addPasswd.TabIndex = 7;
-            this.HelpBalloon.SetToolTip(this.btn_addPasswd, "Add A Password");
-            this.btn_addPasswd.UseVisualStyleBackColor = false;
-            this.btn_addPasswd.Click += new System.EventHandler(this.btn_addPasswd_Click);
-            // 
-            // btn_getCacheSize
-            // 
-            this.btn_getCacheSize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_getCacheSize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.btn_getCacheSize.BackgroundImage = global::fapmap.Properties.Resources.arrow_down_hotpink;
-            this.btn_getCacheSize.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btn_getCacheSize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_getCacheSize.FlatAppearance.BorderColor = System.Drawing.Color.HotPink;
-            this.btn_getCacheSize.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.btn_getCacheSize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.btn_getCacheSize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.btn_getCacheSize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_getCacheSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.btn_getCacheSize.ForeColor = System.Drawing.Color.HotPink;
-            this.btn_getCacheSize.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_getCacheSize.Location = new System.Drawing.Point(140, 2);
-            this.btn_getCacheSize.Name = "btn_getCacheSize";
-            this.btn_getCacheSize.Size = new System.Drawing.Size(20, 20);
-            this.btn_getCacheSize.TabIndex = 249;
-            this.HelpBalloon.SetToolTip(this.btn_getCacheSize, "Get Cache Size");
-            this.btn_getCacheSize.UseVisualStyleBackColor = false;
-            this.btn_getCacheSize.Click += new System.EventHandler(this.btn_getCacheSize_Click);
-            // 
-            // fapMapPanel1
-            // 
-            this.fapMapPanel1.Controls.Add(this.hide_full);
-            this.fapMapPanel1.Controls.Add(this.label_gallery);
-            this.fapMapPanel1.Controls.Add(this.hide_normal);
-            this.fapMapPanel1.Controls.Add(this.hide_none);
-            this.fapMapPanel1.ForeColor = System.Drawing.Color.Plum;
-            this.fapMapPanel1.Location = new System.Drawing.Point(12, 12);
-            this.fapMapPanel1.Name = "fapMapPanel1";
-            this.fapMapPanel1.Size = new System.Drawing.Size(208, 129);
-            this.fapMapPanel1.TabIndex = 31;
-            // 
-            // label_gallery
-            // 
-            this.label_gallery.AutoSize = true;
-            this.label_gallery.BackColor = System.Drawing.Color.Transparent;
-            this.label_gallery.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_gallery.ForeColor = System.Drawing.Color.Plum;
-            this.label_gallery.Location = new System.Drawing.Point(8, 9);
-            this.label_gallery.Name = "label_gallery";
-            this.label_gallery.Size = new System.Drawing.Size(68, 23);
-            this.label_gallery.TabIndex = 0;
-            this.label_gallery.Text = "Files:";
-            // 
-            // panel_cache
-            // 
-            this.panel_cache.Controls.Add(this.btn_getCacheSize);
-            this.panel_cache.Controls.Add(this.label_cacheSize);
-            this.panel_cache.Controls.Add(this.btn_help);
-            this.panel_cache.Controls.Add(this.label_outputThumb);
-            this.panel_cache.Controls.Add(this.btn_getThumbs);
-            this.panel_cache.Controls.Add(this.btn_getThumbInfo);
-            this.panel_cache.Controls.Add(this.btn_delCache);
-            this.panel_cache.Controls.Add(this.label_cache);
-            this.panel_cache.ForeColor = System.Drawing.Color.HotPink;
-            this.panel_cache.Location = new System.Drawing.Point(12, 305);
-            this.panel_cache.Name = "panel_cache";
-            this.panel_cache.Size = new System.Drawing.Size(171, 214);
-            this.panel_cache.TabIndex = 30;
-            // 
-            // label_cacheSize
-            // 
-            this.label_cacheSize.AutoSize = true;
-            this.label_cacheSize.BackColor = System.Drawing.Color.Transparent;
-            this.label_cacheSize.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_cacheSize.ForeColor = System.Drawing.Color.HotPink;
-            this.label_cacheSize.Location = new System.Drawing.Point(8, 37);
-            this.label_cacheSize.Name = "label_cacheSize";
-            this.label_cacheSize.Size = new System.Drawing.Size(37, 26);
-            this.label_cacheSize.TabIndex = 248;
-            this.label_cacheSize.Text = "SIZE:\r\n...\r\n";
-            // 
-            // label_outputThumb
-            // 
-            this.label_outputThumb.AutoSize = true;
-            this.label_outputThumb.BackColor = System.Drawing.Color.Transparent;
-            this.label_outputThumb.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label_outputThumb.ForeColor = System.Drawing.Color.HotPink;
-            this.label_outputThumb.Location = new System.Drawing.Point(8, 137);
-            this.label_outputThumb.Name = "label_outputThumb";
-            this.label_outputThumb.Size = new System.Drawing.Size(25, 65);
-            this.label_outputThumb.TabIndex = 216;
-            this.label_outputThumb.Text = "...\r\n...\r\n...\r\n...\r\n...";
-            // 
             // label_cache
             // 
             this.label_cache.AutoSize = true;
@@ -552,6 +453,29 @@
             this.label_info.TabIndex = 241;
             this.label_info.Text = "INFO:";
             // 
+            // cb_noZero
+            // 
+            this.cb_noZero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_noZero.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_noZero.BackColor = System.Drawing.Color.Black;
+            this.cb_noZero.Checked = true;
+            this.cb_noZero.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_noZero.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_noZero.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
+            this.cb_noZero.FlatAppearance.CheckedBackColor = System.Drawing.Color.SkyBlue;
+            this.cb_noZero.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SkyBlue;
+            this.cb_noZero.FlatAppearance.MouseOverBackColor = System.Drawing.Color.SkyBlue;
+            this.cb_noZero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_noZero.Font = new System.Drawing.Font("Segoe Print", 24F);
+            this.cb_noZero.ForeColor = System.Drawing.Color.SkyBlue;
+            this.cb_noZero.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cb_noZero.Location = new System.Drawing.Point(521, 0);
+            this.cb_noZero.Name = "cb_noZero";
+            this.cb_noZero.Size = new System.Drawing.Size(10, 10);
+            this.cb_noZero.TabIndex = 239;
+            this.HelpBalloon.SetToolTip(this.cb_noZero, "Don\'t ouput file types with 0 count");
+            this.cb_noZero.UseVisualStyleBackColor = false;
+            // 
             // txt_output
             // 
             this.txt_output.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -570,6 +494,29 @@
             this.txt_output.TabIndex = 0;
             this.txt_output.Text = "...";
             this.txt_output.WordWrap = false;
+            // 
+            // btn_getinfo
+            // 
+            this.btn_getinfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_getinfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_getinfo.BackgroundImage = global::fapmap.Properties.Resources.arrow_down_skyblue;
+            this.btn_getinfo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_getinfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_getinfo.FlatAppearance.BorderColor = System.Drawing.Color.SkyBlue;
+            this.btn_getinfo.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btn_getinfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_getinfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_getinfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_getinfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_getinfo.ForeColor = System.Drawing.Color.SkyBlue;
+            this.btn_getinfo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_getinfo.Location = new System.Drawing.Point(505, 26);
+            this.btn_getinfo.Name = "btn_getinfo";
+            this.btn_getinfo.Size = new System.Drawing.Size(23, 23);
+            this.btn_getinfo.TabIndex = 24;
+            this.HelpBalloon.SetToolTip(this.btn_getinfo, "Get Gallery Info");
+            this.btn_getinfo.UseVisualStyleBackColor = false;
+            this.btn_getinfo.Click += new System.EventHandler(this.btn_getinfo_Click);
             // 
             // label_info_status
             // 
@@ -648,6 +595,25 @@
             this.panel_cb2.Name = "panel_cb2";
             this.panel_cb2.Size = new System.Drawing.Size(274, 700);
             this.panel_cb2.TabIndex = 30;
+            // 
+            // btn_editINI
+            // 
+            this.btn_editINI.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_editINI.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_editINI.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_editINI.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btn_editINI.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btn_editINI.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_editINI.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btn_editINI.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_editINI.Location = new System.Drawing.Point(3, 3);
+            this.btn_editINI.Name = "btn_editINI";
+            this.btn_editINI.Size = new System.Drawing.Size(50, 22);
+            this.btn_editINI.TabIndex = 23;
+            this.btn_editINI.Text = ".ini";
+            this.HelpBalloon.SetToolTip(this.btn_editINI, "Edit Settings File");
+            this.btn_editINI.UseVisualStyleBackColor = false;
+            this.btn_editINI.Click += new System.EventHandler(this.btn_editINI_Click);
             // 
             // cb_faftv
             // 
@@ -1180,6 +1146,28 @@
             this.txt_newPasswd.TabIndex = 6;
             this.txt_newPasswd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.newPassword_KeyDown);
             // 
+            // txt_passwds
+            // 
+            this.txt_passwds.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_passwds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(7)))), ((int)(((byte)(15)))));
+            this.txt_passwds.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_passwds.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.txt_passwds.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.txt_passwds.ForeColor = System.Drawing.Color.Aquamarine;
+            this.txt_passwds.FormattingEnabled = true;
+            this.txt_passwds.ItemHeight = 22;
+            this.txt_passwds.Location = new System.Drawing.Point(3, 56);
+            this.txt_passwds.Name = "txt_passwds";
+            this.txt_passwds.Size = new System.Drawing.Size(164, 264);
+            this.txt_passwds.TabIndex = 8;
+            this.HelpBalloon.SetToolTip(this.txt_passwds, "Double Click To Remove Selected Password");
+            this.txt_passwds.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.passwordsList_DrawItem);
+            this.txt_passwds.MeasureItem += new System.Windows.Forms.MeasureItemEventHandler(this.passwordsList_MeasureItem);
+            this.txt_passwds.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txt_passwds_KeyDown);
+            this.txt_passwds.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.passwordsList_MouseDoubleClick);
+            // 
             // label_passwd
             // 
             this.label_passwd.AutoSize = true;
@@ -1191,6 +1179,29 @@
             this.label_passwd.Size = new System.Drawing.Size(129, 18);
             this.label_passwd.TabIndex = 0;
             this.label_passwd.Text = "PASSWORDS:";
+            // 
+            // btn_addPasswd
+            // 
+            this.btn_addPasswd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_addPasswd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_addPasswd.BackgroundImage = global::fapmap.Properties.Resources.arrow_down_turquoise;
+            this.btn_addPasswd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_addPasswd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_addPasswd.FlatAppearance.BorderColor = System.Drawing.Color.Aquamarine;
+            this.btn_addPasswd.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btn_addPasswd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_addPasswd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.btn_addPasswd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_addPasswd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.btn_addPasswd.ForeColor = System.Drawing.Color.Aquamarine;
+            this.btn_addPasswd.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btn_addPasswd.Location = new System.Drawing.Point(147, 29);
+            this.btn_addPasswd.Name = "btn_addPasswd";
+            this.btn_addPasswd.Size = new System.Drawing.Size(20, 20);
+            this.btn_addPasswd.TabIndex = 7;
+            this.HelpBalloon.SetToolTip(this.btn_addPasswd, "Add A Password");
+            this.btn_addPasswd.UseVisualStyleBackColor = false;
+            this.btn_addPasswd.Click += new System.EventHandler(this.btn_addPasswd_Click);
             // 
             // panel_browser
             // 
@@ -1555,5 +1566,6 @@
         private System.Windows.Forms.CheckBox cb_faftv;
         private System.Windows.Forms.Panel panel_cb2;
         private System.Windows.Forms.Button btn_getCacheSize;
+        private fapmap_res.FapMapProgressBar pb_cache;
     }
 }

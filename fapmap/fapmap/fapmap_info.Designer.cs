@@ -76,6 +76,7 @@
             this.label_path.Size = new System.Drawing.Size(28, 15);
             this.label_path.TabIndex = 0;
             this.label_path.Text = "...";
+            this.label_path.UseMnemonic = false;
             // 
             // btn_getInfo
             // 

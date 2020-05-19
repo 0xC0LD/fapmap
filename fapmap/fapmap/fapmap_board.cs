@@ -56,7 +56,7 @@ namespace fapmap
 
                 if (BoardIndex.Length != 3)
                 {
-                    fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.LOAD, fapmap.GlobalVariables.Path.File.Board + " (line: " + lineCount + ")");
+                    fapmap.LogThis(fapmap.GlobalVariables.LOG_TYPE.FAIL, fapmap.GlobalVariables.Path.File.Board + " (line: " + lineCount + ")");
                     MessageBox.Show("Something is wrong with the " + fapmap.GlobalVariables.Path.File.Board + " file on line: " + lineCount, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     continue;
                 }

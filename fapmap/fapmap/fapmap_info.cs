@@ -269,7 +269,7 @@ namespace fapmap
                         label_info.Text = "Done!";
                     });
                 }
-                catch (Exception e) { this.Text = e.Message; }
+                catch (Exception) { }
 
                 getInfo_busy = false;
             })

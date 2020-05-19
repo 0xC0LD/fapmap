@@ -55,20 +55,25 @@ namespace fapmap
                     ListViewItem lvi = new ListViewItem(new string[] { count.ToString(), time, action, text }) { Name = text };
                     switch (action)
                     {
-                        case fapmap.GlobalVariables.LOG_TYPE.OPEN: lvi.ForeColor = Color.Yellow;        break;
-                        case fapmap.GlobalVariables.LOG_TYPE.PLAY: lvi.ForeColor = Color.SkyBlue;       break;
-                        case fapmap.GlobalVariables.LOG_TYPE.EXEC: lvi.ForeColor = Color.Orange;        break;
-                        case fapmap.GlobalVariables.LOG_TYPE.MOVE: lvi.ForeColor = Color.Yellow;        break;
-                        case fapmap.GlobalVariables.LOG_TYPE.LOAD: lvi.ForeColor = Color.OrangeRed;     break;
-                        case fapmap.GlobalVariables.LOG_TYPE.NTFD: lvi.ForeColor = Color.Red;           break;
-                        case fapmap.GlobalVariables.LOG_TYPE.DING: lvi.ForeColor = Color.DarkGreen;     break;
-                        case fapmap.GlobalVariables.LOG_TYPE.DLED: lvi.ForeColor = Color.Lime;          break;
-                        case fapmap.GlobalVariables.LOG_TYPE.RENM: lvi.ForeColor = Color.DarkSeaGreen;  break;
-                        case fapmap.GlobalVariables.LOG_TYPE.MKDR: lvi.ForeColor = Color.SteelBlue;     break;
-                        case fapmap.GlobalVariables.LOG_TYPE.RMVD: lvi.ForeColor = Color.IndianRed;     break;
-                        case fapmap.GlobalVariables.LOG_TYPE.UDEL: lvi.ForeColor = Color.PaleVioletRed; break;
-                        case fapmap.GlobalVariables.LOG_TYPE.PASS: lvi.ForeColor = Color.Crimson;       break;
-                        case fapmap.GlobalVariables.LOG_TYPE.FAIL: lvi.ForeColor = Color.Magenta;       break;
+                        case fapmap.GlobalVariables.LOG_TYPE.OPEN: lvi.ForeColor = fapmap.GlobalVariables.LOG_TYPE.OPEN_; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.PLAY: lvi.ForeColor = fapmap.GlobalVariables.LOG_TYPE.PLAY_; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.EXEC: lvi.ForeColor = fapmap.GlobalVariables.LOG_TYPE.EXEC_; break;
+
+                        case fapmap.GlobalVariables.LOG_TYPE.MOVE: lvi.ForeColor = fapmap.GlobalVariables.LOG_TYPE.MOVE_; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.COPY: lvi.ForeColor = fapmap.GlobalVariables.LOG_TYPE.COPY_; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.RENM: lvi.ForeColor = fapmap.GlobalVariables.LOG_TYPE.RENM_; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.MKDR: lvi.ForeColor = fapmap.GlobalVariables.LOG_TYPE.MKDR_; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.MKFL: lvi.ForeColor = fapmap.GlobalVariables.LOG_TYPE.MKFL_; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.RMVD: lvi.ForeColor = fapmap.GlobalVariables.LOG_TYPE.RMVD_; break;
+
+                        case fapmap.GlobalVariables.LOG_TYPE.DING: lvi.ForeColor = fapmap.GlobalVariables.LOG_TYPE.DING_; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.DLED: lvi.ForeColor = fapmap.GlobalVariables.LOG_TYPE.DLED_; break;
+
+                        case fapmap.GlobalVariables.LOG_TYPE.NTFD: lvi.ForeColor = fapmap.GlobalVariables.LOG_TYPE.NTFD_; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.FAIL: lvi.ForeColor = fapmap.GlobalVariables.LOG_TYPE.FAIL_; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.UDEL: lvi.ForeColor = fapmap.GlobalVariables.LOG_TYPE.UDEL_; break;
+                        case fapmap.GlobalVariables.LOG_TYPE.PASS: lvi.ForeColor = fapmap.GlobalVariables.LOG_TYPE.PASS_; break;
+                        
                         default: lvi.ForeColor = Color.Silver; break;
                     }
                     items.Add(lvi);

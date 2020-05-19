@@ -40,6 +40,18 @@
             this.btn_openURL = new System.Windows.Forms.Button();
             this.btn_dragOutURL = new System.Windows.Forms.Button();
             this.btn_dragOutFilePath = new System.Windows.Forms.Button();
+            this.cb_delFail = new System.Windows.Forms.CheckBox();
+            this.cb_conflict_skip = new System.Windows.Forms.RadioButton();
+            this.cb_conflict_rename = new System.Windows.Forms.RadioButton();
+            this.cb_conflict_replace = new System.Windows.Forms.RadioButton();
+            this.cb_conflict_ask = new System.Windows.Forms.RadioButton();
+            this.rb_shutdown = new System.Windows.Forms.RadioButton();
+            this.rb_close = new System.Windows.Forms.RadioButton();
+            this.rb_exit = new System.Windows.Forms.RadioButton();
+            this.rb_null = new System.Windows.Forms.RadioButton();
+            this.cb_autoRetry = new System.Windows.Forms.CheckBox();
+            this.cb_auto = new System.Windows.Forms.CheckBox();
+            this.cb_nonFile = new System.Windows.Forms.CheckBox();
             this.links_RMB = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.links_RMB_refresh = new System.Windows.Forms.ToolStripMenuItem();
             this.links_RMB_download = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,20 +68,8 @@
             this.txt_dledURL_border = new fapmap_res.FapMapPanel();
             this.txt_dledURL = new System.Windows.Forms.TextBox();
             this.fapMapPanel1 = new fapmap_res.FapMapPanel();
-            this.cb_delFail = new System.Windows.Forms.CheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.cb_conflict_skip = new System.Windows.Forms.RadioButton();
-            this.cb_conflict_rename = new System.Windows.Forms.RadioButton();
-            this.cb_conflict_replace = new System.Windows.Forms.RadioButton();
-            this.cb_conflict_ask = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.rb_shutdown = new System.Windows.Forms.RadioButton();
-            this.rb_close = new System.Windows.Forms.RadioButton();
-            this.rb_exit = new System.Windows.Forms.RadioButton();
-            this.rb_null = new System.Windows.Forms.RadioButton();
-            this.cb_autoRetry = new System.Windows.Forms.CheckBox();
-            this.cb_auto = new System.Windows.Forms.CheckBox();
-            this.cb_nonFile = new System.Windows.Forms.CheckBox();
             this.label_linksCount = new System.Windows.Forms.Label();
             this.panel_info_border = new fapmap_res.FapMapPanel();
             this.panel_info = new System.Windows.Forms.Panel();
@@ -311,6 +311,265 @@
             this.btn_dragOutFilePath.DragOver += new System.Windows.Forms.DragEventHandler(this.btn_dragOutFilePath_DragOver);
             this.btn_dragOutFilePath.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_dragOutFilePath_MouseDown);
             // 
+            // cb_delFail
+            // 
+            this.cb_delFail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_delFail.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_delFail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.cb_delFail.Checked = true;
+            this.cb_delFail.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_delFail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_delFail.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cb_delFail.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cb_delFail.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cb_delFail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cb_delFail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_delFail.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_delFail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.cb_delFail.Location = new System.Drawing.Point(35, 2);
+            this.cb_delFail.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.cb_delFail.Name = "cb_delFail";
+            this.cb_delFail.Size = new System.Drawing.Size(15, 15);
+            this.cb_delFail.TabIndex = 23;
+            this.HelpBalloon.SetToolTip(this.cb_delFail, "If the download fails/gets canceled: delete the file");
+            this.cb_delFail.UseVisualStyleBackColor = false;
+            // 
+            // cb_conflict_skip
+            // 
+            this.cb_conflict_skip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cb_conflict_skip.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_conflict_skip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.cb_conflict_skip.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_conflict_skip.FlatAppearance.BorderColor = System.Drawing.Color.Magenta;
+            this.cb_conflict_skip.FlatAppearance.CheckedBackColor = System.Drawing.Color.Magenta;
+            this.cb_conflict_skip.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Magenta;
+            this.cb_conflict_skip.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Magenta;
+            this.cb_conflict_skip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_conflict_skip.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_conflict_skip.ForeColor = System.Drawing.Color.Magenta;
+            this.cb_conflict_skip.Location = new System.Drawing.Point(1, 34);
+            this.cb_conflict_skip.Name = "cb_conflict_skip";
+            this.cb_conflict_skip.Size = new System.Drawing.Size(10, 10);
+            this.cb_conflict_skip.TabIndex = 13;
+            this.HelpBalloon.SetToolTip(this.cb_conflict_skip, "If a file already exists: skip it");
+            this.cb_conflict_skip.UseCompatibleTextRendering = true;
+            this.cb_conflict_skip.UseVisualStyleBackColor = false;
+            // 
+            // cb_conflict_rename
+            // 
+            this.cb_conflict_rename.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cb_conflict_rename.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_conflict_rename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.cb_conflict_rename.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_conflict_rename.FlatAppearance.BorderColor = System.Drawing.Color.DeepPink;
+            this.cb_conflict_rename.FlatAppearance.CheckedBackColor = System.Drawing.Color.DeepPink;
+            this.cb_conflict_rename.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DeepPink;
+            this.cb_conflict_rename.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepPink;
+            this.cb_conflict_rename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_conflict_rename.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_conflict_rename.ForeColor = System.Drawing.Color.DeepPink;
+            this.cb_conflict_rename.Location = new System.Drawing.Point(1, 12);
+            this.cb_conflict_rename.Name = "cb_conflict_rename";
+            this.cb_conflict_rename.Size = new System.Drawing.Size(10, 10);
+            this.cb_conflict_rename.TabIndex = 12;
+            this.HelpBalloon.SetToolTip(this.cb_conflict_rename, "If a file already exists: rename it");
+            this.cb_conflict_rename.UseCompatibleTextRendering = true;
+            this.cb_conflict_rename.UseVisualStyleBackColor = false;
+            // 
+            // cb_conflict_replace
+            // 
+            this.cb_conflict_replace.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cb_conflict_replace.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_conflict_replace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.cb_conflict_replace.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_conflict_replace.FlatAppearance.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.cb_conflict_replace.FlatAppearance.CheckedBackColor = System.Drawing.Color.PaleVioletRed;
+            this.cb_conflict_replace.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PaleVioletRed;
+            this.cb_conflict_replace.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleVioletRed;
+            this.cb_conflict_replace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_conflict_replace.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_conflict_replace.ForeColor = System.Drawing.Color.PaleVioletRed;
+            this.cb_conflict_replace.Location = new System.Drawing.Point(1, 23);
+            this.cb_conflict_replace.Name = "cb_conflict_replace";
+            this.cb_conflict_replace.Size = new System.Drawing.Size(10, 10);
+            this.cb_conflict_replace.TabIndex = 14;
+            this.HelpBalloon.SetToolTip(this.cb_conflict_replace, "If a file already exists: replace it");
+            this.cb_conflict_replace.UseCompatibleTextRendering = true;
+            this.cb_conflict_replace.UseVisualStyleBackColor = false;
+            // 
+            // cb_conflict_ask
+            // 
+            this.cb_conflict_ask.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.cb_conflict_ask.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_conflict_ask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.cb_conflict_ask.Checked = true;
+            this.cb_conflict_ask.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_conflict_ask.FlatAppearance.BorderColor = System.Drawing.Color.LawnGreen;
+            this.cb_conflict_ask.FlatAppearance.CheckedBackColor = System.Drawing.Color.LawnGreen;
+            this.cb_conflict_ask.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LawnGreen;
+            this.cb_conflict_ask.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LawnGreen;
+            this.cb_conflict_ask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_conflict_ask.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_conflict_ask.ForeColor = System.Drawing.Color.LawnGreen;
+            this.cb_conflict_ask.Location = new System.Drawing.Point(1, 1);
+            this.cb_conflict_ask.Name = "cb_conflict_ask";
+            this.cb_conflict_ask.Size = new System.Drawing.Size(10, 10);
+            this.cb_conflict_ask.TabIndex = 11;
+            this.cb_conflict_ask.TabStop = true;
+            this.HelpBalloon.SetToolTip(this.cb_conflict_ask, "If a file already exists: prompt me");
+            this.cb_conflict_ask.UseCompatibleTextRendering = true;
+            this.cb_conflict_ask.UseVisualStyleBackColor = false;
+            // 
+            // rb_shutdown
+            // 
+            this.rb_shutdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.rb_shutdown.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rb_shutdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.rb_shutdown.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rb_shutdown.FlatAppearance.BorderColor = System.Drawing.Color.Magenta;
+            this.rb_shutdown.FlatAppearance.CheckedBackColor = System.Drawing.Color.Magenta;
+            this.rb_shutdown.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Magenta;
+            this.rb_shutdown.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Magenta;
+            this.rb_shutdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rb_shutdown.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rb_shutdown.ForeColor = System.Drawing.Color.Magenta;
+            this.rb_shutdown.Location = new System.Drawing.Point(1, 34);
+            this.rb_shutdown.Name = "rb_shutdown";
+            this.rb_shutdown.Size = new System.Drawing.Size(10, 10);
+            this.rb_shutdown.TabIndex = 13;
+            this.HelpBalloon.SetToolTip(this.rb_shutdown, "After all downloads have finished: shutdown PC");
+            this.rb_shutdown.UseCompatibleTextRendering = true;
+            this.rb_shutdown.UseVisualStyleBackColor = false;
+            // 
+            // rb_close
+            // 
+            this.rb_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.rb_close.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rb_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.rb_close.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rb_close.FlatAppearance.BorderColor = System.Drawing.Color.DeepPink;
+            this.rb_close.FlatAppearance.CheckedBackColor = System.Drawing.Color.DeepPink;
+            this.rb_close.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DeepPink;
+            this.rb_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepPink;
+            this.rb_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rb_close.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rb_close.ForeColor = System.Drawing.Color.DeepPink;
+            this.rb_close.Location = new System.Drawing.Point(1, 12);
+            this.rb_close.Name = "rb_close";
+            this.rb_close.Size = new System.Drawing.Size(10, 10);
+            this.rb_close.TabIndex = 12;
+            this.HelpBalloon.SetToolTip(this.rb_close, "After all downloads have finished: close downloader");
+            this.rb_close.UseCompatibleTextRendering = true;
+            this.rb_close.UseVisualStyleBackColor = false;
+            // 
+            // rb_exit
+            // 
+            this.rb_exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.rb_exit.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rb_exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.rb_exit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rb_exit.FlatAppearance.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rb_exit.FlatAppearance.CheckedBackColor = System.Drawing.Color.PaleVioletRed;
+            this.rb_exit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PaleVioletRed;
+            this.rb_exit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleVioletRed;
+            this.rb_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rb_exit.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rb_exit.ForeColor = System.Drawing.Color.PaleVioletRed;
+            this.rb_exit.Location = new System.Drawing.Point(1, 23);
+            this.rb_exit.Name = "rb_exit";
+            this.rb_exit.Size = new System.Drawing.Size(10, 10);
+            this.rb_exit.TabIndex = 14;
+            this.HelpBalloon.SetToolTip(this.rb_exit, "After all downloads have finished: exit FapMap");
+            this.rb_exit.UseCompatibleTextRendering = true;
+            this.rb_exit.UseVisualStyleBackColor = false;
+            // 
+            // rb_null
+            // 
+            this.rb_null.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.rb_null.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rb_null.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.rb_null.Checked = true;
+            this.rb_null.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rb_null.FlatAppearance.BorderColor = System.Drawing.Color.LawnGreen;
+            this.rb_null.FlatAppearance.CheckedBackColor = System.Drawing.Color.LawnGreen;
+            this.rb_null.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LawnGreen;
+            this.rb_null.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LawnGreen;
+            this.rb_null.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rb_null.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rb_null.ForeColor = System.Drawing.Color.LawnGreen;
+            this.rb_null.Location = new System.Drawing.Point(1, 1);
+            this.rb_null.Name = "rb_null";
+            this.rb_null.Size = new System.Drawing.Size(10, 10);
+            this.rb_null.TabIndex = 11;
+            this.rb_null.TabStop = true;
+            this.HelpBalloon.SetToolTip(this.rb_null, "After all downloads have finished: Do nothing...");
+            this.rb_null.UseCompatibleTextRendering = true;
+            this.rb_null.UseVisualStyleBackColor = false;
+            // 
+            // cb_autoRetry
+            // 
+            this.cb_autoRetry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_autoRetry.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_autoRetry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.cb_autoRetry.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_autoRetry.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cb_autoRetry.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cb_autoRetry.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cb_autoRetry.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cb_autoRetry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_autoRetry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_autoRetry.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.cb_autoRetry.Location = new System.Drawing.Point(67, 2);
+            this.cb_autoRetry.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.cb_autoRetry.Name = "cb_autoRetry";
+            this.cb_autoRetry.Size = new System.Drawing.Size(15, 15);
+            this.cb_autoRetry.TabIndex = 20;
+            this.HelpBalloon.SetToolTip(this.cb_autoRetry, "Automatically retry download if download fails");
+            this.cb_autoRetry.UseVisualStyleBackColor = false;
+            // 
+            // cb_auto
+            // 
+            this.cb_auto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_auto.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_auto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.cb_auto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_auto.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
+            this.cb_auto.FlatAppearance.CheckedBackColor = System.Drawing.Color.RoyalBlue;
+            this.cb_auto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
+            this.cb_auto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
+            this.cb_auto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_auto.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_auto.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.cb_auto.Location = new System.Drawing.Point(83, 2);
+            this.cb_auto.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.cb_auto.Name = "cb_auto";
+            this.cb_auto.Size = new System.Drawing.Size(15, 15);
+            this.cb_auto.TabIndex = 18;
+            this.HelpBalloon.SetToolTip(this.cb_auto, "Automatically download files in listbox");
+            this.cb_auto.UseVisualStyleBackColor = false;
+            this.cb_auto.CheckedChanged += new System.EventHandler(this.cb_auto_CheckedChanged);
+            // 
+            // cb_nonFile
+            // 
+            this.cb_nonFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_nonFile.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_nonFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
+            this.cb_nonFile.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_nonFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
+            this.cb_nonFile.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
+            this.cb_nonFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
+            this.cb_nonFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
+            this.cb_nonFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_nonFile.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cb_nonFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
+            this.cb_nonFile.Location = new System.Drawing.Point(51, 2);
+            this.cb_nonFile.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.cb_nonFile.Name = "cb_nonFile";
+            this.cb_nonFile.Size = new System.Drawing.Size(15, 15);
+            this.cb_nonFile.TabIndex = 19;
+            this.HelpBalloon.SetToolTip(this.cb_nonFile, "Allow non-file urls (may crash application)");
+            this.cb_nonFile.UseVisualStyleBackColor = false;
+            // 
             // links_RMB
             // 
             this.links_RMB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
@@ -497,29 +756,6 @@
             this.fapMapPanel1.Size = new System.Drawing.Size(100, 60);
             this.fapMapPanel1.TabIndex = 171;
             // 
-            // cb_delFail
-            // 
-            this.cb_delFail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_delFail.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cb_delFail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.cb_delFail.Checked = true;
-            this.cb_delFail.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_delFail.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_delFail.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cb_delFail.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cb_delFail.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cb_delFail.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cb_delFail.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_delFail.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cb_delFail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.cb_delFail.Location = new System.Drawing.Point(35, 2);
-            this.cb_delFail.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.cb_delFail.Name = "cb_delFail";
-            this.cb_delFail.Size = new System.Drawing.Size(15, 15);
-            this.cb_delFail.TabIndex = 23;
-            this.HelpBalloon.SetToolTip(this.cb_delFail, "If the download fails/gets canceled: delete the file");
-            this.cb_delFail.UseVisualStyleBackColor = false;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.cb_conflict_skip);
@@ -531,92 +767,6 @@
             this.panel2.Size = new System.Drawing.Size(12, 45);
             this.panel2.TabIndex = 22;
             // 
-            // cb_conflict_skip
-            // 
-            this.cb_conflict_skip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cb_conflict_skip.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cb_conflict_skip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.cb_conflict_skip.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_conflict_skip.FlatAppearance.BorderColor = System.Drawing.Color.Magenta;
-            this.cb_conflict_skip.FlatAppearance.CheckedBackColor = System.Drawing.Color.Magenta;
-            this.cb_conflict_skip.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Magenta;
-            this.cb_conflict_skip.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Magenta;
-            this.cb_conflict_skip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_conflict_skip.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cb_conflict_skip.ForeColor = System.Drawing.Color.Magenta;
-            this.cb_conflict_skip.Location = new System.Drawing.Point(1, 34);
-            this.cb_conflict_skip.Name = "cb_conflict_skip";
-            this.cb_conflict_skip.Size = new System.Drawing.Size(10, 10);
-            this.cb_conflict_skip.TabIndex = 13;
-            this.HelpBalloon.SetToolTip(this.cb_conflict_skip, "If a file already exists: skip it");
-            this.cb_conflict_skip.UseCompatibleTextRendering = true;
-            this.cb_conflict_skip.UseVisualStyleBackColor = false;
-            // 
-            // cb_conflict_rename
-            // 
-            this.cb_conflict_rename.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cb_conflict_rename.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cb_conflict_rename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.cb_conflict_rename.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_conflict_rename.FlatAppearance.BorderColor = System.Drawing.Color.DeepPink;
-            this.cb_conflict_rename.FlatAppearance.CheckedBackColor = System.Drawing.Color.DeepPink;
-            this.cb_conflict_rename.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DeepPink;
-            this.cb_conflict_rename.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepPink;
-            this.cb_conflict_rename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_conflict_rename.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cb_conflict_rename.ForeColor = System.Drawing.Color.DeepPink;
-            this.cb_conflict_rename.Location = new System.Drawing.Point(1, 12);
-            this.cb_conflict_rename.Name = "cb_conflict_rename";
-            this.cb_conflict_rename.Size = new System.Drawing.Size(10, 10);
-            this.cb_conflict_rename.TabIndex = 12;
-            this.HelpBalloon.SetToolTip(this.cb_conflict_rename, "If a file already exists: rename it");
-            this.cb_conflict_rename.UseCompatibleTextRendering = true;
-            this.cb_conflict_rename.UseVisualStyleBackColor = false;
-            // 
-            // cb_conflict_replace
-            // 
-            this.cb_conflict_replace.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cb_conflict_replace.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cb_conflict_replace.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.cb_conflict_replace.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_conflict_replace.FlatAppearance.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.cb_conflict_replace.FlatAppearance.CheckedBackColor = System.Drawing.Color.PaleVioletRed;
-            this.cb_conflict_replace.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PaleVioletRed;
-            this.cb_conflict_replace.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleVioletRed;
-            this.cb_conflict_replace.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_conflict_replace.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cb_conflict_replace.ForeColor = System.Drawing.Color.PaleVioletRed;
-            this.cb_conflict_replace.Location = new System.Drawing.Point(1, 23);
-            this.cb_conflict_replace.Name = "cb_conflict_replace";
-            this.cb_conflict_replace.Size = new System.Drawing.Size(10, 10);
-            this.cb_conflict_replace.TabIndex = 14;
-            this.HelpBalloon.SetToolTip(this.cb_conflict_replace, "If a file already exists: replace it");
-            this.cb_conflict_replace.UseCompatibleTextRendering = true;
-            this.cb_conflict_replace.UseVisualStyleBackColor = false;
-            // 
-            // cb_conflict_ask
-            // 
-            this.cb_conflict_ask.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.cb_conflict_ask.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cb_conflict_ask.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.cb_conflict_ask.Checked = true;
-            this.cb_conflict_ask.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_conflict_ask.FlatAppearance.BorderColor = System.Drawing.Color.LawnGreen;
-            this.cb_conflict_ask.FlatAppearance.CheckedBackColor = System.Drawing.Color.LawnGreen;
-            this.cb_conflict_ask.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LawnGreen;
-            this.cb_conflict_ask.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LawnGreen;
-            this.cb_conflict_ask.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_conflict_ask.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cb_conflict_ask.ForeColor = System.Drawing.Color.LawnGreen;
-            this.cb_conflict_ask.Location = new System.Drawing.Point(1, 1);
-            this.cb_conflict_ask.Name = "cb_conflict_ask";
-            this.cb_conflict_ask.Size = new System.Drawing.Size(10, 10);
-            this.cb_conflict_ask.TabIndex = 11;
-            this.cb_conflict_ask.TabStop = true;
-            this.HelpBalloon.SetToolTip(this.cb_conflict_ask, "If a file already exists: prompt me");
-            this.cb_conflict_ask.UseCompatibleTextRendering = true;
-            this.cb_conflict_ask.UseVisualStyleBackColor = false;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.rb_shutdown);
@@ -627,156 +777,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(12, 45);
             this.panel1.TabIndex = 21;
-            // 
-            // rb_shutdown
-            // 
-            this.rb_shutdown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rb_shutdown.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rb_shutdown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.rb_shutdown.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rb_shutdown.FlatAppearance.BorderColor = System.Drawing.Color.Magenta;
-            this.rb_shutdown.FlatAppearance.CheckedBackColor = System.Drawing.Color.Magenta;
-            this.rb_shutdown.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Magenta;
-            this.rb_shutdown.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Magenta;
-            this.rb_shutdown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rb_shutdown.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rb_shutdown.ForeColor = System.Drawing.Color.Magenta;
-            this.rb_shutdown.Location = new System.Drawing.Point(1, 34);
-            this.rb_shutdown.Name = "rb_shutdown";
-            this.rb_shutdown.Size = new System.Drawing.Size(10, 10);
-            this.rb_shutdown.TabIndex = 13;
-            this.HelpBalloon.SetToolTip(this.rb_shutdown, "After all downloads have finished: shutdown PC");
-            this.rb_shutdown.UseCompatibleTextRendering = true;
-            this.rb_shutdown.UseVisualStyleBackColor = false;
-            // 
-            // rb_close
-            // 
-            this.rb_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rb_close.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rb_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.rb_close.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rb_close.FlatAppearance.BorderColor = System.Drawing.Color.DeepPink;
-            this.rb_close.FlatAppearance.CheckedBackColor = System.Drawing.Color.DeepPink;
-            this.rb_close.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DeepPink;
-            this.rb_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DeepPink;
-            this.rb_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rb_close.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rb_close.ForeColor = System.Drawing.Color.DeepPink;
-            this.rb_close.Location = new System.Drawing.Point(1, 12);
-            this.rb_close.Name = "rb_close";
-            this.rb_close.Size = new System.Drawing.Size(10, 10);
-            this.rb_close.TabIndex = 12;
-            this.HelpBalloon.SetToolTip(this.rb_close, "After all downloads have finished: close downloader");
-            this.rb_close.UseCompatibleTextRendering = true;
-            this.rb_close.UseVisualStyleBackColor = false;
-            // 
-            // rb_exit
-            // 
-            this.rb_exit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rb_exit.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rb_exit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.rb_exit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rb_exit.FlatAppearance.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rb_exit.FlatAppearance.CheckedBackColor = System.Drawing.Color.PaleVioletRed;
-            this.rb_exit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.PaleVioletRed;
-            this.rb_exit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleVioletRed;
-            this.rb_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rb_exit.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rb_exit.ForeColor = System.Drawing.Color.PaleVioletRed;
-            this.rb_exit.Location = new System.Drawing.Point(1, 23);
-            this.rb_exit.Name = "rb_exit";
-            this.rb_exit.Size = new System.Drawing.Size(10, 10);
-            this.rb_exit.TabIndex = 14;
-            this.HelpBalloon.SetToolTip(this.rb_exit, "After all downloads have finished: exit FapMap");
-            this.rb_exit.UseCompatibleTextRendering = true;
-            this.rb_exit.UseVisualStyleBackColor = false;
-            // 
-            // rb_null
-            // 
-            this.rb_null.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.rb_null.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rb_null.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.rb_null.Checked = true;
-            this.rb_null.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rb_null.FlatAppearance.BorderColor = System.Drawing.Color.LawnGreen;
-            this.rb_null.FlatAppearance.CheckedBackColor = System.Drawing.Color.LawnGreen;
-            this.rb_null.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LawnGreen;
-            this.rb_null.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LawnGreen;
-            this.rb_null.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rb_null.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rb_null.ForeColor = System.Drawing.Color.LawnGreen;
-            this.rb_null.Location = new System.Drawing.Point(1, 1);
-            this.rb_null.Name = "rb_null";
-            this.rb_null.Size = new System.Drawing.Size(10, 10);
-            this.rb_null.TabIndex = 11;
-            this.rb_null.TabStop = true;
-            this.HelpBalloon.SetToolTip(this.rb_null, "After all downloads have finished: Do nothing...");
-            this.rb_null.UseCompatibleTextRendering = true;
-            this.rb_null.UseVisualStyleBackColor = false;
-            // 
-            // cb_autoRetry
-            // 
-            this.cb_autoRetry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_autoRetry.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cb_autoRetry.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.cb_autoRetry.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_autoRetry.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.cb_autoRetry.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.cb_autoRetry.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.cb_autoRetry.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.cb_autoRetry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_autoRetry.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cb_autoRetry.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.cb_autoRetry.Location = new System.Drawing.Point(67, 2);
-            this.cb_autoRetry.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.cb_autoRetry.Name = "cb_autoRetry";
-            this.cb_autoRetry.Size = new System.Drawing.Size(15, 15);
-            this.cb_autoRetry.TabIndex = 20;
-            this.HelpBalloon.SetToolTip(this.cb_autoRetry, "Automatically retry download if download fails");
-            this.cb_autoRetry.UseVisualStyleBackColor = false;
-            // 
-            // cb_auto
-            // 
-            this.cb_auto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_auto.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cb_auto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.cb_auto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_auto.FlatAppearance.BorderColor = System.Drawing.Color.RoyalBlue;
-            this.cb_auto.FlatAppearance.CheckedBackColor = System.Drawing.Color.RoyalBlue;
-            this.cb_auto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.RoyalBlue;
-            this.cb_auto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.RoyalBlue;
-            this.cb_auto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_auto.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cb_auto.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.cb_auto.Location = new System.Drawing.Point(83, 2);
-            this.cb_auto.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.cb_auto.Name = "cb_auto";
-            this.cb_auto.Size = new System.Drawing.Size(15, 15);
-            this.cb_auto.TabIndex = 18;
-            this.HelpBalloon.SetToolTip(this.cb_auto, "Automatically download files in listbox");
-            this.cb_auto.UseVisualStyleBackColor = false;
-            this.cb_auto.CheckedChanged += new System.EventHandler(this.cb_auto_CheckedChanged);
-            // 
-            // cb_nonFile
-            // 
-            this.cb_nonFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_nonFile.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cb_nonFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(5)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.cb_nonFile.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_nonFile.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.cb_nonFile.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.cb_nonFile.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.cb_nonFile.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.cb_nonFile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_nonFile.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.cb_nonFile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(179)))), ((int)(((byte)(141)))), ((int)(((byte)(235)))));
-            this.cb_nonFile.Location = new System.Drawing.Point(51, 2);
-            this.cb_nonFile.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
-            this.cb_nonFile.Name = "cb_nonFile";
-            this.cb_nonFile.Size = new System.Drawing.Size(15, 15);
-            this.cb_nonFile.TabIndex = 19;
-            this.HelpBalloon.SetToolTip(this.cb_nonFile, "Allow non-file urls (may crash application)");
-            this.cb_nonFile.UseVisualStyleBackColor = false;
             // 
             // label_linksCount
             // 
@@ -834,7 +834,7 @@
             // pbar
             // 
             this.pbar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pbar.ForeColor = System.Drawing.Color.Turquoise;
+            this.pbar.ForeColor = System.Drawing.Color.Transparent;
             this.pbar.Location = new System.Drawing.Point(0, 48);
             this.pbar.Name = "pbar";
             this.pbar.Size = new System.Drawing.Size(658, 10);

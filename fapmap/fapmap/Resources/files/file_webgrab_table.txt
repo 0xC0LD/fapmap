@@ -1,6 +1,8 @@
-4chan|@agent,@valid,@media,@nodupes,-s.,@skip_all
-xvideos|@agent,@valid,/mp4/,@nodupes
-xnxx|@agent,@valid,/mp4/,@nodupes
-xhamster|@agent,@valid,.mp4,@nodupes
-youporn|@agent,@valid,.mp4,@nodupes
-rule34.paheal|@agent,@valid,@media,@nodupes,-thumb,-/themes/,-/banner/,-/widget/,-favicon,-icon.png
+4chan|||@agent,@valid,@media,@nodupes,-s.,@skip_all
+xvideos|||@agent,@valid,/mp4/,@nodupes
+xnxx|||@agent,@valid,/mp4/,@nodupes
+xhamster|||@agent,@valid,.mp4,@nodupes
+youporn|||@agent,@valid,.mp4,@nodupes
+rule34.paheal|||@agent,@valid,@media,@nodupes,-thumb,-/themes/,-/banner/,-/widget/,-favicon,-icon.png
+rule34.xxx|||@media,@valid,@nodupes,https://img.rule34.xxx//images/
+gelbooru.com|||@media,@valid,@nodupes,https://img2.gelbooru.com/images/

@@ -913,7 +913,7 @@ namespace fapmap
             System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("");
             foreach (var line in fapmap.GlobalVariables.Settings.Other.WebGrabTableLines)
             {
-                string[] index = line.Split('|');
+                string[] index = line.Split(new string[] { "|||" }, StringSplitOptions.RemoveEmptyEntries);
 
                 if (index.Length == 2)
                 {
@@ -1149,9 +1149,6 @@ namespace fapmap
         {
             links_deleteSome();
         }
-
-
-
 
         #endregion
 

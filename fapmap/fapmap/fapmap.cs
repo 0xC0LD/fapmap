@@ -2314,6 +2314,62 @@ namespace fapmap
             fileDisplay.Refresh();
         }
 
+        private void faftv_n_fileDisplay_dragNdrop(string pathDir, System.Windows.Forms.DragEventArgs e)
+        {
+            string url = e.Data.GetData(DataFormats.StringFormat) as string;
+
+            if (!string.IsNullOrEmpty(url) && Uri.IsWellFormedUriString(url, UriKind.Absolute))
+            {
+                /*
+                if (Path.GetFileNameWithoutExtension(new Uri(url).LocalPath) == "index" && File.Exists(fapmap.GlobalVariables.Path.File.Exe.WEBGRAB))
+                {
+                    string args = string.Empty;
+                    if      (url.Contains("rule34.xxx"))   { args = "https://img.rule34.xxx//images/"; }
+                    else if (url.Contains("gelbooru.com")) { args = "https://img2.gelbooru.com/images/"; }
+                    else                                   { return; }
+
+                    Process webgrab = new Process();
+                    try
+                    {
+                        webgrab.StartInfo.UseShellExecute = false;
+                        webgrab.StartInfo.RedirectStandardOutput = true;
+                        webgrab.StartInfo.RedirectStandardError = true;
+                        webgrab.StartInfo.FileName = fapmap.GlobalVariables.Path.File.Exe.WEBGRAB;
+                        webgrab.StartInfo.Arguments = "out \"" + url + "\" \"@media,@valid,@nodupes," + args + "\"";
+                        webgrab.Start();
+                    }
+                    catch (Win32Exception) { return; }
+                    catch (Exception) { return; }
+
+                    string output = webgrab.StandardOutput.ReadToEnd();
+                    webgrab.WaitForExit();
+
+                    string[] lines = output.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string line in lines)
+                    {
+                        url = line;
+                    }
+                }
+                /**/
+
+                fapmap_download fd = new fapmap_download() { pass_path = selectedDirPath };
+                bool i = Path.GetFileNameWithoutExtension(new Uri(url).LocalPath) == "index";
+                bool f = !isURLMediaFile(url);
+                if ((i || f) && File.Exists(fapmap.GlobalVariables.Path.File.Exe.WEBGRAB))
+                     { fd.pass_webgrabURL = url;             }
+                else { fd.pass_URLs = new string[1] { url }; }
+                fd.Show();
+                return;
+            }
+
+            foreach (string src in (string[])e.Data.GetData(System.Windows.DataFormats.FileDrop, false))
+            {
+                string destDir = selectedDirPath;
+                if (Directory.Exists(src)) { fapmap.CopyDir (src, destDir + "\\" + new DirectoryInfo(src).Name); }
+                else if (File.Exists(src)) { fapmap.CopyFile(src, destDir + "\\" + new FileInfo     (src).Name); }
+            }
+        }
+
         #endregion
 
         #region fileDisplay
@@ -2936,7 +2992,45 @@ namespace fapmap
         }
         private void fileDisplay_btn_info_DragDrop(object sender, DragEventArgs e)
         {
-            new fapmap_find() { pass_input = (e.Data.GetData(typeof(string)) as string) }.Show();
+            string data = (e.Data.GetData(typeof(string)) as string);
+            string search = data;
+
+            if (Uri.IsWellFormedUriString(search, UriKind.Absolute))
+            {
+                search = Path.GetFileNameWithoutExtension(new Uri(search).LocalPath);
+
+                if (search == "index" && File.Exists(fapmap.GlobalVariables.Path.File.Exe.WEBGRAB))
+                {
+                    string args = string.Empty;
+                    if      (data.Contains("rule34.xxx"))   { args = "https://img.rule34.xxx//images/"; }
+                    else if (data.Contains("gelbooru.com")) { args = "https://img2.gelbooru.com/images/"; }
+                    else                                    { return; }
+
+                    Process webgrab = new Process();
+                    try
+                    {
+                        webgrab.StartInfo.UseShellExecute = false;
+                        webgrab.StartInfo.RedirectStandardOutput = true;
+                        webgrab.StartInfo.RedirectStandardError = true;
+                        webgrab.StartInfo.FileName = fapmap.GlobalVariables.Path.File.Exe.WEBGRAB;
+                        webgrab.StartInfo.Arguments = "out \"" + data + "\" \"@media,@valid,@nodupes," + args + "\"";
+                        webgrab.Start();
+                    }
+                    catch (Win32Exception) { return; }
+                    catch (Exception) { return; }
+
+                    string output = webgrab.StandardOutput.ReadToEnd();
+                    webgrab.WaitForExit();
+
+                    string[] lines = output.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (string line in lines)
+                    {
+                        search = Path.GetFileNameWithoutExtension(new Uri(line).LocalPath);
+                    }
+                }
+            }
+
+            new fapmap_find() { pass_input = search }.Show();
         }
 
         #endregion
@@ -3072,22 +3166,7 @@ namespace fapmap
         }
         private void fileDisplay_DragDrop(object sender, System.Windows.Forms.DragEventArgs e)
         {
-            string url = e.Data.GetData(DataFormats.StringFormat) as string;
-
-            if (!string.IsNullOrEmpty(url) && Uri.IsWellFormedUriString(url, UriKind.Absolute))
-            {
-                fapmap_download fd = new fapmap_download() { pass_path = selectedDirPath };
-                fd.pass_URLs = new string[1] { url };
-                fd.Show();
-                return;
-            }
-
-            foreach (string src in (string[])e.Data.GetData(System.Windows.DataFormats.FileDrop, false))
-            {
-                string destDir = selectedDirPath;
-                if (Directory.Exists(src)) { fapmap.CopyDir(src, destDir + "\\" + new DirectoryInfo(src).Name); }
-                else if (File.Exists(src)) { fapmap.CopyFile(src, destDir + "\\" + new FileInfo(src).Name); }
-            }
+            faftv_n_fileDisplay_dragNdrop(selectedDirPath, e);
         }
 
         #endregion
@@ -5123,30 +5202,15 @@ namespace fapmap
         }
         private void faftv_DragDrop(object sender, DragEventArgs e)
         {
-            string path = GlobalVariables.Path.Dir.MainFolder;
+            if (faftv.SelectedNode == null) { return; }
+            if (faftv.SelectedNode.Name == null) { return; }
+            string path = faftv.SelectedNode.Name;
+            if (string.IsNullOrEmpty(path)) { return; }
 
-            if (faftv.SelectedNode != null
-             && faftv.SelectedNode.Name != null
-            )
-            {
-                if (Directory.Exists(faftv.SelectedNode.Name)) { path = faftv.SelectedNode.Name; }
-                else if (File.Exists(faftv.SelectedNode.Name)) { path = Path.GetDirectoryName(faftv.SelectedNode.Name); }
-            }
+            if (File.Exists(path)) { path = Directory.GetParent(path).FullName; }
+            if (!Directory.Exists(path)) { return; }
 
-            string url = e.Data.GetData(DataFormats.StringFormat) as string;
-            if (!string.IsNullOrEmpty(url) && Uri.IsWellFormedUriString(url, UriKind.Absolute))
-            {
-                fapmap_download fd = new fapmap_download() { pass_path = path };
-                fd.pass_URLs = new string[1] { url };
-                fd.Show();
-                return;
-            }
-
-            foreach (string src in (string[])e.Data.GetData(System.Windows.DataFormats.FileDrop, false))
-            {
-                if (Directory.Exists(src)) { fapmap.CopyDir(src, path + "\\" + new DirectoryInfo(src).Name); }
-                else if (File.Exists(src)) { fapmap.CopyFile(src, path + "\\" + new FileInfo(src).Name); }
-            }
+            faftv_n_fileDisplay_dragNdrop(path, e);
         }
 
         #endregion

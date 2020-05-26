@@ -40,12 +40,14 @@
             this.output_RMB_properties = new System.Windows.Forms.ToolStripMenuItem();
             this.btn_find = new System.Windows.Forms.Button();
             this.HelpBalloon = new System.Windows.Forms.ToolTip(this.components);
-            this.cb_showImage = new System.Windows.Forms.CheckBox();
+            this.cb_showMedia = new System.Windows.Forms.CheckBox();
             this.cb_case = new System.Windows.Forms.CheckBox();
-            this.cb_fileNameOnly = new System.Windows.Forms.CheckBox();
+            this.cb_nameOnly = new System.Windows.Forms.CheckBox();
             this.cb_sort = new System.Windows.Forms.CheckBox();
             this.btn_help = new System.Windows.Forms.Button();
-            this.cb_showImageIcon = new System.Windows.Forms.CheckBox();
+            this.cb_ignoreFolders = new System.Windows.Forms.CheckBox();
+            this.output_btn_priv = new System.Windows.Forms.Button();
+            this.output_btn_next = new System.Windows.Forms.Button();
             this.resultNum = new System.Windows.Forms.Label();
             this.output_icons = new System.Windows.Forms.ImageList(this.components);
             this.output_border = new fapmap_res.FapMapPanel();
@@ -53,8 +55,8 @@
             this.output = new fapmap_res.FapMapListView();
             this.output_clm_num = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.output_clm_path = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.showImage_icon = new System.Windows.Forms.PictureBox();
-            this.showImage = new System.Windows.Forms.PictureBox();
+            this.showMedia_image = new System.Windows.Forms.PictureBox();
+            this.showMedia_video = new AxWMPLib.AxWindowsMediaPlayer();
             this.txt_searchBox_border = new fapmap_res.FapMapPanel();
             this.txt_searchBox = new System.Windows.Forms.TextBox();
             this.output_RMB.SuspendLayout();
@@ -63,8 +65,8 @@
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.Panel2.SuspendLayout();
             this.splitContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.showImage_icon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.showImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showMedia_image)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showMedia_video)).BeginInit();
             this.txt_searchBox_border.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -187,29 +189,29 @@
             this.HelpBalloon.OwnerDraw = true;
             this.HelpBalloon.Draw += new System.Windows.Forms.DrawToolTipEventHandler(this.HelpBalloon_Draw);
             // 
-            // cb_showImage
+            // cb_showMedia
             // 
-            this.cb_showImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_showImage.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cb_showImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.cb_showImage.Checked = true;
-            this.cb_showImage.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_showImage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_showImage.FlatAppearance.BorderColor = System.Drawing.Color.HotPink;
-            this.cb_showImage.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cb_showImage.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cb_showImage.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cb_showImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_showImage.Font = new System.Drawing.Font("Segoe Print", 24F);
-            this.cb_showImage.ForeColor = System.Drawing.Color.HotPink;
-            this.cb_showImage.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_showImage.Location = new System.Drawing.Point(904, 538);
-            this.cb_showImage.Name = "cb_showImage";
-            this.cb_showImage.Size = new System.Drawing.Size(12, 11);
-            this.cb_showImage.TabIndex = 4;
-            this.HelpBalloon.SetToolTip(this.cb_showImage, "Show Image Preview (CTRL+Q - in searchbox/list)");
-            this.cb_showImage.UseVisualStyleBackColor = false;
-            this.cb_showImage.CheckedChanged += new System.EventHandler(this.cb_showImage_CheckedChanged);
+            this.cb_showMedia.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_showMedia.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_showMedia.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.cb_showMedia.Checked = true;
+            this.cb_showMedia.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cb_showMedia.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_showMedia.FlatAppearance.BorderColor = System.Drawing.Color.HotPink;
+            this.cb_showMedia.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cb_showMedia.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cb_showMedia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cb_showMedia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_showMedia.Font = new System.Drawing.Font("Segoe Print", 24F);
+            this.cb_showMedia.ForeColor = System.Drawing.Color.HotPink;
+            this.cb_showMedia.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cb_showMedia.Location = new System.Drawing.Point(904, 537);
+            this.cb_showMedia.Name = "cb_showMedia";
+            this.cb_showMedia.Size = new System.Drawing.Size(12, 12);
+            this.cb_showMedia.TabIndex = 4;
+            this.HelpBalloon.SetToolTip(this.cb_showMedia, "Show Media Preview (CTRL+Q - in searchbox/list)");
+            this.cb_showMedia.UseVisualStyleBackColor = false;
+            this.cb_showMedia.CheckedChanged += new System.EventHandler(this.cb_showImage_CheckedChanged);
             // 
             // cb_case
             // 
@@ -225,33 +227,33 @@
             this.cb_case.Font = new System.Drawing.Font("Segoe Print", 24F);
             this.cb_case.ForeColor = System.Drawing.Color.HotPink;
             this.cb_case.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_case.Location = new System.Drawing.Point(932, 538);
+            this.cb_case.Location = new System.Drawing.Point(918, 537);
             this.cb_case.Name = "cb_case";
-            this.cb_case.Size = new System.Drawing.Size(12, 11);
+            this.cb_case.Size = new System.Drawing.Size(12, 12);
             this.cb_case.TabIndex = 5;
             this.HelpBalloon.SetToolTip(this.cb_case, "Case Sensitive Search (CTRL+E - in searchbox)");
             this.cb_case.UseVisualStyleBackColor = false;
             // 
-            // cb_fileNameOnly
+            // cb_nameOnly
             // 
-            this.cb_fileNameOnly.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_fileNameOnly.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cb_fileNameOnly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.cb_fileNameOnly.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_fileNameOnly.FlatAppearance.BorderColor = System.Drawing.Color.HotPink;
-            this.cb_fileNameOnly.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cb_fileNameOnly.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cb_fileNameOnly.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cb_fileNameOnly.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_fileNameOnly.Font = new System.Drawing.Font("Segoe Print", 24F);
-            this.cb_fileNameOnly.ForeColor = System.Drawing.Color.HotPink;
-            this.cb_fileNameOnly.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_fileNameOnly.Location = new System.Drawing.Point(960, 538);
-            this.cb_fileNameOnly.Name = "cb_fileNameOnly";
-            this.cb_fileNameOnly.Size = new System.Drawing.Size(12, 11);
-            this.cb_fileNameOnly.TabIndex = 6;
-            this.HelpBalloon.SetToolTip(this.cb_fileNameOnly, "Just Print File Name and Dir (CTRL+F - in searchbox)");
-            this.cb_fileNameOnly.UseVisualStyleBackColor = false;
+            this.cb_nameOnly.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_nameOnly.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_nameOnly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.cb_nameOnly.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_nameOnly.FlatAppearance.BorderColor = System.Drawing.Color.HotPink;
+            this.cb_nameOnly.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cb_nameOnly.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cb_nameOnly.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cb_nameOnly.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_nameOnly.Font = new System.Drawing.Font("Segoe Print", 24F);
+            this.cb_nameOnly.ForeColor = System.Drawing.Color.HotPink;
+            this.cb_nameOnly.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cb_nameOnly.Location = new System.Drawing.Point(946, 537);
+            this.cb_nameOnly.Name = "cb_nameOnly";
+            this.cb_nameOnly.Size = new System.Drawing.Size(12, 12);
+            this.cb_nameOnly.TabIndex = 6;
+            this.HelpBalloon.SetToolTip(this.cb_nameOnly, "Just Print Folder/File Name and Parent Folder (CTRL+F - in searchbox)");
+            this.cb_nameOnly.UseVisualStyleBackColor = false;
             // 
             // cb_sort
             // 
@@ -269,9 +271,9 @@
             this.cb_sort.Font = new System.Drawing.Font("Segoe Print", 24F);
             this.cb_sort.ForeColor = System.Drawing.Color.HotPink;
             this.cb_sort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_sort.Location = new System.Drawing.Point(946, 538);
+            this.cb_sort.Location = new System.Drawing.Point(932, 537);
             this.cb_sort.Name = "cb_sort";
-            this.cb_sort.Size = new System.Drawing.Size(12, 11);
+            this.cb_sort.Size = new System.Drawing.Size(12, 12);
             this.cb_sort.TabIndex = 233;
             this.HelpBalloon.SetToolTip(this.cb_sort, "Sort Items by Creation DateTime (Newest Files Go Up in the List) (CTRL+D - in sea" +
         "rchbox))");
@@ -291,37 +293,80 @@
             this.btn_help.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_help.ForeColor = System.Drawing.Color.HotPink;
             this.btn_help.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btn_help.Location = new System.Drawing.Point(890, 538);
+            this.btn_help.Location = new System.Drawing.Point(890, 537);
             this.btn_help.Name = "btn_help";
-            this.btn_help.Size = new System.Drawing.Size(12, 11);
+            this.btn_help.Size = new System.Drawing.Size(12, 12);
             this.btn_help.TabIndex = 234;
             this.HelpBalloon.SetToolTip(this.btn_help, "Search Help");
             this.btn_help.UseVisualStyleBackColor = false;
             this.btn_help.Click += new System.EventHandler(this.btn_help_Click);
             // 
-            // cb_showImageIcon
+            // cb_ignoreFolders
             // 
-            this.cb_showImageIcon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.cb_showImageIcon.Appearance = System.Windows.Forms.Appearance.Button;
-            this.cb_showImageIcon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.cb_showImageIcon.Checked = true;
-            this.cb_showImageIcon.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cb_showImageIcon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_showImageIcon.FlatAppearance.BorderColor = System.Drawing.Color.HotPink;
-            this.cb_showImageIcon.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cb_showImageIcon.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cb_showImageIcon.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.cb_showImageIcon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cb_showImageIcon.Font = new System.Drawing.Font("Segoe Print", 24F);
-            this.cb_showImageIcon.ForeColor = System.Drawing.Color.HotPink;
-            this.cb_showImageIcon.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cb_showImageIcon.Location = new System.Drawing.Point(918, 538);
-            this.cb_showImageIcon.Name = "cb_showImageIcon";
-            this.cb_showImageIcon.Size = new System.Drawing.Size(12, 11);
-            this.cb_showImageIcon.TabIndex = 237;
-            this.HelpBalloon.SetToolTip(this.cb_showImageIcon, "Show Image Preview Icon (CTRL+SHIFT+Q - in searchbox/list)");
-            this.cb_showImageIcon.UseVisualStyleBackColor = false;
-            this.cb_showImageIcon.CheckedChanged += new System.EventHandler(this.cb_showImageIcon_CheckedChanged);
+            this.cb_ignoreFolders.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.cb_ignoreFolders.Appearance = System.Windows.Forms.Appearance.Button;
+            this.cb_ignoreFolders.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.cb_ignoreFolders.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_ignoreFolders.FlatAppearance.BorderColor = System.Drawing.Color.HotPink;
+            this.cb_ignoreFolders.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cb_ignoreFolders.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cb_ignoreFolders.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.cb_ignoreFolders.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cb_ignoreFolders.Font = new System.Drawing.Font("Segoe Print", 24F);
+            this.cb_ignoreFolders.ForeColor = System.Drawing.Color.HotPink;
+            this.cb_ignoreFolders.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cb_ignoreFolders.Location = new System.Drawing.Point(960, 537);
+            this.cb_ignoreFolders.Name = "cb_ignoreFolders";
+            this.cb_ignoreFolders.Size = new System.Drawing.Size(12, 12);
+            this.cb_ignoreFolders.TabIndex = 238;
+            this.HelpBalloon.SetToolTip(this.cb_ignoreFolders, "Ignore Folders");
+            this.cb_ignoreFolders.UseVisualStyleBackColor = false;
+            // 
+            // output_btn_priv
+            // 
+            this.output_btn_priv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.output_btn_priv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.output_btn_priv.BackgroundImage = global::fapmap.Properties.Resources.arrow_left_hotpink;
+            this.output_btn_priv.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.output_btn_priv.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.output_btn_priv.FlatAppearance.BorderColor = System.Drawing.Color.HotPink;
+            this.output_btn_priv.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.output_btn_priv.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.output_btn_priv.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.output_btn_priv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.output_btn_priv.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.output_btn_priv.ForeColor = System.Drawing.Color.HotPink;
+            this.output_btn_priv.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.output_btn_priv.Location = new System.Drawing.Point(862, 537);
+            this.output_btn_priv.Name = "output_btn_priv";
+            this.output_btn_priv.Size = new System.Drawing.Size(12, 12);
+            this.output_btn_priv.TabIndex = 240;
+            this.HelpBalloon.SetToolTip(this.output_btn_priv, "Previous Item");
+            this.output_btn_priv.UseVisualStyleBackColor = false;
+            this.output_btn_priv.Click += new System.EventHandler(this.output_btn_priv_Click);
+            // 
+            // output_btn_next
+            // 
+            this.output_btn_next.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.output_btn_next.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.output_btn_next.BackgroundImage = global::fapmap.Properties.Resources.arrow_right_hotpink;
+            this.output_btn_next.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.output_btn_next.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.output_btn_next.FlatAppearance.BorderColor = System.Drawing.Color.HotPink;
+            this.output_btn_next.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.output_btn_next.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.output_btn_next.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.output_btn_next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.output_btn_next.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.output_btn_next.ForeColor = System.Drawing.Color.HotPink;
+            this.output_btn_next.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.output_btn_next.Location = new System.Drawing.Point(876, 537);
+            this.output_btn_next.Name = "output_btn_next";
+            this.output_btn_next.Size = new System.Drawing.Size(12, 12);
+            this.output_btn_next.TabIndex = 239;
+            this.HelpBalloon.SetToolTip(this.output_btn_next, "Next Item");
+            this.output_btn_next.UseVisualStyleBackColor = false;
+            this.output_btn_next.Click += new System.EventHandler(this.output_btn_next_Click);
             // 
             // resultNum
             // 
@@ -369,8 +414,9 @@
             // 
             // splitContainer.Panel2
             // 
-            this.splitContainer.Panel2.Controls.Add(this.showImage_icon);
-            this.splitContainer.Panel2.Controls.Add(this.showImage);
+            this.splitContainer.Panel2.AutoScroll = true;
+            this.splitContainer.Panel2.Controls.Add(this.showMedia_image);
+            this.splitContainer.Panel2.Controls.Add(this.showMedia_video);
             this.splitContainer.Size = new System.Drawing.Size(958, 487);
             this.splitContainer.SplitterDistance = 471;
             this.splitContainer.SplitterWidth = 7;
@@ -424,30 +470,32 @@
             this.output_clm_path.Text = "PATH";
             this.output_clm_path.Width = 92;
             // 
-            // showImage_icon
+            // showMedia_image
             // 
-            this.showImage_icon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.showImage_icon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.showImage_icon.Image = global::fapmap.Properties.Resources.image;
-            this.showImage_icon.Location = new System.Drawing.Point(0, 0);
-            this.showImage_icon.Name = "showImage_icon";
-            this.showImage_icon.Size = new System.Drawing.Size(32, 32);
-            this.showImage_icon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.showImage_icon.TabIndex = 156;
-            this.showImage_icon.TabStop = false;
+            this.showMedia_image.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
+            this.showMedia_image.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.showMedia_image.ContextMenuStrip = this.output_RMB;
+            this.showMedia_image.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.showMedia_image.Image = global::fapmap.Properties.Resources.image;
+            this.showMedia_image.Location = new System.Drawing.Point(0, 0);
+            this.showMedia_image.Name = "showMedia_image";
+            this.showMedia_image.Size = new System.Drawing.Size(480, 487);
+            this.showMedia_image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.showMedia_image.TabIndex = 155;
+            this.showMedia_image.TabStop = false;
+            this.showMedia_image.MouseUp += new System.Windows.Forms.MouseEventHandler(this.showMedia_image_MouseUp);
             // 
-            // showImage
+            // showMedia_video
             // 
-            this.showImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
-            this.showImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.showImage.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.showImage.Image = global::fapmap.Properties.Resources.image;
-            this.showImage.Location = new System.Drawing.Point(0, 0);
-            this.showImage.Name = "showImage";
-            this.showImage.Size = new System.Drawing.Size(480, 487);
-            this.showImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.showImage.TabIndex = 155;
-            this.showImage.TabStop = false;
+            this.showMedia_video.ContextMenuStrip = this.output_RMB;
+            this.showMedia_video.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.showMedia_video.Enabled = true;
+            this.showMedia_video.Location = new System.Drawing.Point(0, 0);
+            this.showMedia_video.Name = "showMedia_video";
+            this.showMedia_video.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("showMedia_video.OcxState")));
+            this.showMedia_video.Size = new System.Drawing.Size(480, 487);
+            this.showMedia_video.TabIndex = 157;
+            this.showMedia_video.MouseUpEvent += new AxWMPLib._WMPOCXEvents_MouseUpEventHandler(this.showMedia_video_MouseUpEvent);
             // 
             // txt_searchBox_border
             // 
@@ -484,14 +532,16 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(6)))), ((int)(((byte)(15)))));
             this.BackgroundImage = global::fapmap.Properties.Resources.bg2;
             this.ClientSize = new System.Drawing.Size(984, 561);
-            this.Controls.Add(this.cb_showImageIcon);
+            this.Controls.Add(this.output_btn_priv);
+            this.Controls.Add(this.output_btn_next);
+            this.Controls.Add(this.cb_ignoreFolders);
             this.Controls.Add(this.output_border);
             this.Controls.Add(this.txt_searchBox_border);
             this.Controls.Add(this.btn_help);
             this.Controls.Add(this.cb_sort);
-            this.Controls.Add(this.cb_fileNameOnly);
+            this.Controls.Add(this.cb_nameOnly);
             this.Controls.Add(this.cb_case);
-            this.Controls.Add(this.cb_showImage);
+            this.Controls.Add(this.cb_showMedia);
             this.Controls.Add(this.btn_find);
             this.Controls.Add(this.resultNum);
             this.DoubleBuffered = true;
@@ -510,8 +560,8 @@
             this.splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).EndInit();
             this.splitContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.showImage_icon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.showImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showMedia_image)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.showMedia_video)).EndInit();
             this.txt_searchBox_border.ResumeLayout(false);
             this.txt_searchBox_border.PerformLayout();
             this.ResumeLayout(false);
@@ -534,22 +584,24 @@
         private System.Windows.Forms.ToolStripMenuItem output_RMB_delete;
         private System.Windows.Forms.ToolStripMenuItem output_RMB_reload;
         private System.Windows.Forms.ToolStripMenuItem output_RMB_explorer;
-        private System.Windows.Forms.PictureBox showImage;
+        private System.Windows.Forms.PictureBox showMedia_image;
         private fapmap_res.FapMapListView output;
         private System.Windows.Forms.ColumnHeader output_clm_num;
         private System.Windows.Forms.ColumnHeader output_clm_path;
         private System.Windows.Forms.ToolStripMenuItem output_RMB_explorer2;
-        private System.Windows.Forms.CheckBox cb_showImage;
+        private System.Windows.Forms.CheckBox cb_showMedia;
         private System.Windows.Forms.CheckBox cb_case;
-        private System.Windows.Forms.CheckBox cb_fileNameOnly;
+        private System.Windows.Forms.CheckBox cb_nameOnly;
         private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.ImageList output_icons;
         private System.Windows.Forms.CheckBox cb_sort;
         private System.Windows.Forms.Button btn_help;
         private fapmap_res.FapMapPanel txt_searchBox_border;
         private fapmap_res.FapMapPanel output_border;
-        private System.Windows.Forms.PictureBox showImage_icon;
-        private System.Windows.Forms.CheckBox cb_showImageIcon;
         private System.Windows.Forms.ToolStripMenuItem output_RMB_properties;
+        private System.Windows.Forms.CheckBox cb_ignoreFolders;
+        public AxWMPLib.AxWindowsMediaPlayer showMedia_video;
+        private System.Windows.Forms.Button output_btn_priv;
+        private System.Windows.Forms.Button output_btn_next;
     }
 }

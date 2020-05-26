@@ -324,9 +324,11 @@ namespace fapmap
                 if (!string.IsNullOrEmpty(dir) && Directory.Exists(path) && Directory.Exists(dir))
                 {
                     string dest = new DirectoryInfo(dir).FullName + "\\" + di.Name;
-                    fapmap.MoveDir(path, dest);
-                    txt_path.Text = dest;
-                    getInfo();
+                    if (fapmap.MoveDir(path, dest))
+                    {
+                        txt_path.Text = dest;
+                        getInfo();
+                    }
                 }
             }
             else if (File.Exists(path))
@@ -336,9 +338,11 @@ namespace fapmap
                 if (!string.IsNullOrEmpty(dir) && Directory.Exists(dir))
                 {
                     string dest = new DirectoryInfo(dir).FullName + "\\" + fi.Name;
-                    fapmap.MoveFile(path, dest);
-                    txt_path.Text = dest;
-                    getInfo();
+                    if (fapmap.MoveFile(path, dest))
+                    {
+                        txt_path.Text = dest;
+                        getInfo();
+                    }
                 }
             }
         }
@@ -358,9 +362,11 @@ namespace fapmap
                 if (!string.IsNullOrEmpty(input))
                 {
                     string dest = di_src.Parent.FullName + "\\" + input;
-                    fapmap.MoveDir(di_src.FullName, dest);
-                    txt_path.Text = dest;
-                    getInfo();
+                    if (fapmap.MoveDir(di_src.FullName, dest))
+                    {
+                        txt_path.Text = dest;
+                        getInfo();
+                    }
                 }
             }
             else if (File.Exists(path))
@@ -370,9 +376,11 @@ namespace fapmap
                 if (!string.IsNullOrEmpty(input))
                 {
                     string dest = fi_src.Directory.FullName + "\\" + input;
-                    fapmap.MoveFile(fi_src.FullName, dest);
-                    txt_path.Text = dest;
-                    getInfo();
+                    if (fapmap.MoveFile(fi_src.FullName, dest))
+                    {
+                        txt_path.Text = dest;
+                        getInfo();
+                    }
                 }
             }
         }
@@ -417,7 +425,5 @@ namespace fapmap
             if (!string.IsNullOrEmpty(txt_path.Text))
             { this.txt_path.DoDragDrop(new DataObject(DataFormats.StringFormat, txt_path.Text), DragDropEffects.Copy); }
         }
-
-        
     }
 }

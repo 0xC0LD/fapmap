@@ -316,6 +316,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="fapmap.ico" />
+    <None Include="Resources\images\move.png" />
+    <None Include="Resources\images\move_hotpink.png" />
+    <None Include="Resources\images\paste_hotpink.png" />
+    <None Include="Resources\images\copy_hotpink.png" />
     <None Include="Resources\images\hash.png" />
     <None Include="Resources\images\newFile_hotpink.png" />
     <None Include="Resources\images\newFile.png" />

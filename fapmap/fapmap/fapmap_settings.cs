@@ -604,47 +604,36 @@ namespace fapmap
         #region hide files/dirs
 
         private bool gallery_hide_busy = false;
-        private void gallery_hide(int mode, object sender)
+        private void gallery_hide(fapmap.attrib_args mode, object sender)
         {
             if (gallery_hide_busy) { return; }
 
-            string args = string.Empty;
-            switch (mode)
+            new Thread(() =>
             {
-                case 0: args = "-s -h /d /s"; break;
-                case 1: args = "-s +h /d /s"; break;
-                case 2: args = "+s +h /d /s"; break;
-            }
+                gallery_hide_busy = true;
 
-            if (!string.IsNullOrEmpty(args))
-            {
-                new Thread(() =>
-                {
-                    gallery_hide_busy = true;
+                Button btn = (Button)sender;
+                string backup = btn.Text;
+                btn.Text = "...";
+                fapmap.attrib(mode);
+                btn.Text = backup;
 
-                    Button btn = (Button)sender;
-                    string backup = btn.Text;
-                    btn.Text = "...";
-                    fapmap.attrib(args);
-                    btn.Text = backup;
-
-                    gallery_hide_busy = false;
-                })
-                { IsBackground = true }.Start();
-            }
+                gallery_hide_busy = false;
+            })
+            { IsBackground = true }.Start();
         }
 
         private void hide_none_Click(object sender, EventArgs e)
         {
-            gallery_hide(0, sender);
+            gallery_hide(fapmap.attrib_args.unhide, sender);
         }
         private void hide_normal_Click(object sender, EventArgs e)
         {
-            gallery_hide(1, sender);
+            gallery_hide(fapmap.attrib_args.normal, sender);
         }
         private void hide_full_Click(object sender, EventArgs e)
         {
-            gallery_hide(2, sender);
+            gallery_hide(fapmap.attrib_args.full, sender);
         }
 
         #endregion
@@ -865,10 +854,6 @@ namespace fapmap
             , "Search Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-
-
         #endregion
-
-        
     }
 }

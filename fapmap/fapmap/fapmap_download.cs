@@ -53,6 +53,7 @@ namespace fapmap
             {
                 txt_webgrabURL.Text = pass_webgrabURL;
                 webgrab();
+                rb_close.Checked = fapmap.GlobalVariables.Settings.CheckBoxes.DownloaderAutoClose;
             }
         }
         
@@ -176,7 +177,7 @@ namespace fapmap
             string filename = System.IO.Path.GetFileName(new Uri(link).LocalPath);
             if (string.IsNullOrEmpty(filename)) { filename = fapmap.get_utc() + ".html"; }
             
-            links.Items.Add(new ListViewItem(new string[] { (links.Items.Count + 1).ToString(), filename, link }) { Name = link });
+            links.Items.Add(new ListViewItem(new string[] { (links.Items.Count + 1).ToString(), filename, link }) { Name = link, Selected = true });
             links_updateCount(links.Items.Count);
 
             // resize and scroll

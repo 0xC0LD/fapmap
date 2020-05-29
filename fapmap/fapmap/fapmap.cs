@@ -2314,45 +2314,16 @@ namespace fapmap
             fileDisplay.Refresh();
         }
 
-        private void faftv_n_fileDisplay_dragNdrop(string pathDir, System.Windows.Forms.DragEventArgs e)
+        private void faftv_n_fileDisplay_dragNdrop(string dirPath, System.Windows.Forms.DragEventArgs e)
         {
+            if (!Directory.Exists(dirPath)) { return; }
+            DirectoryInfo di = new DirectoryInfo(dirPath);
+
             string url = e.Data.GetData(DataFormats.StringFormat) as string;
 
             if (!string.IsNullOrEmpty(url) && Uri.IsWellFormedUriString(url, UriKind.Absolute))
             {
-                /*
-                if (Path.GetFileNameWithoutExtension(new Uri(url).LocalPath) == "index" && File.Exists(fapmap.GlobalVariables.Path.File.Exe.WEBGRAB))
-                {
-                    string args = string.Empty;
-                    if      (url.Contains("rule34.xxx"))   { args = "https://img.rule34.xxx//images/"; }
-                    else if (url.Contains("gelbooru.com")) { args = "https://img2.gelbooru.com/images/"; }
-                    else                                   { return; }
-
-                    Process webgrab = new Process();
-                    try
-                    {
-                        webgrab.StartInfo.UseShellExecute = false;
-                        webgrab.StartInfo.RedirectStandardOutput = true;
-                        webgrab.StartInfo.RedirectStandardError = true;
-                        webgrab.StartInfo.FileName = fapmap.GlobalVariables.Path.File.Exe.WEBGRAB;
-                        webgrab.StartInfo.Arguments = "out \"" + url + "\" \"@media,@valid,@nodupes," + args + "\"";
-                        webgrab.Start();
-                    }
-                    catch (Win32Exception) { return; }
-                    catch (Exception) { return; }
-
-                    string output = webgrab.StandardOutput.ReadToEnd();
-                    webgrab.WaitForExit();
-
-                    string[] lines = output.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
-                    foreach (string line in lines)
-                    {
-                        url = line;
-                    }
-                }
-                /**/
-
-                fapmap_download fd = new fapmap_download() { pass_path = selectedDirPath };
+                fapmap_download fd = new fapmap_download() { pass_path = di.FullName };
                 bool i = Path.GetFileNameWithoutExtension(new Uri(url).LocalPath) == "index";
                 bool f = !isURLMediaFile(url);
                 if ((i || f) && File.Exists(fapmap.GlobalVariables.Path.File.Exe.WEBGRAB))
@@ -2364,7 +2335,7 @@ namespace fapmap
 
             foreach (string src in (string[])e.Data.GetData(System.Windows.DataFormats.FileDrop, false))
             {
-                string destDir = selectedDirPath;
+                string destDir = di.FullName;
                 if (Directory.Exists(src)) { fapmap.CopyDir (src, destDir + "\\" + new DirectoryInfo(src).Name); }
                 else if (File.Exists(src)) { fapmap.CopyFile(src, destDir + "\\" + new FileInfo     (src).Name); }
             }

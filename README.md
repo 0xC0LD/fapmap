@@ -22,29 +22,36 @@
 
 ## Download Latest Version:
 \[[here](https://github.com/0xC0LD/fapmap/raw/master/fapmaper/fapmaper/bin/Release/newest.zip)\]
-#### note: I sometimes change the files in the 'data' folder (how fapmap reads them, settings, etc.), so if you're updating, and you want everything to work, make sure to remove the data folder... but don't just delete it, backup the files that you need...
+###### note: I sometimes change the files in the 'data' folder (how fapmap reads them, settings, etc.), so if you're updating, and you want everything to work, make sure to remove the data folder... but don't just delete it, backup the files that you need...
 
 ## Tips/Hints:
+#### FapMap's essential knowledge:
 - hover over buttons to see what they do (tooltip)
-- right click on 'Change Tabs' to see both tabs
 - tray icon: left click = hide the fapmap window, right click = close fapmap
+- right click on 'Change Tabs' to see both tabs
+
+#### Adding/Working with files:
 - You can open .txt/.lst files inside fapmap...
-- fileDisplay: ctrl + scroll = zoom in/out icons
-- drag 'n' drop a FILE path/link in the address bar to open them in a fapmap media player (also works on a media players' titlebar)
+- drag 'n' drop a FILE path/link in the address bar to open them in a fapmap media player<br>
+  (also works on a media players' titlebar)
 - drag 'n' drop a FILE link in the treeview/fileDisplay to open the link in a downloader
 - drag 'n' drop a SITE link in the treeview/fileDisplay to open the link in a downloader and scan the webpage with webgrab (you can edit how webgrab scans the pages with the 'wgtl' line in fapmap.ini)
 - drag 'n' drop files in the treeview/fileDisplay to copy them to a selected location
 - before opening downloader/fscan/youtube-dl/... select the working location in the treeview/fileDisplay
+
+#### Quick Searching:
+- drag 'n' drop a ___ to the 'Properties' button (next to the file path) to search the gallery for a file<br>
+___ can be a:
+  - SITE url, uses webgrab to find the the file url, and get's the filename from it<br>
+              (sites supported: rule34.xxx, gelbooru.com, ... will add more)
+  - FILE url, get's the filename from the url
+  - filename
+  
+#### Other Stuff:
+- fileDisplay: ctrl + scroll = zoom in/out icons
 - in the Video Player you can change the audio peak for the audio graph
   by holding down the mouse on the text label and moving it up & down...
   right click on the audio peak label to enable/disable auto peek change...
-
-Quicksearch:
-- drag 'n' drop a ___ to the 'Properties' button (next to the file path) to search the gallery for a file
-___ can be a:
-1. SITE url, uses webgrab to find the the file url, and get's the filename from it (sites supported: rule34.xxx, gelbooru.com, ... will add more)
-2. FILE url, get's the filename from the url
-3. filename
 
 ## Stuff Used in the Project
 - Some of the icons/images used in the GUI can be found on the web...

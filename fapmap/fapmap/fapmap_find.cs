@@ -474,11 +474,11 @@ namespace fapmap
                             showMedia_clear();
                             if (fi.Extension.ToLower() == ".gif")
                             {
-                                showMedia_image.Image = Image.FromFile(item);
+                                showMedia_image.Image = fapmap_res.ImageFast.FromFile(item);
                             }
                             else
                             {
-                                Image img = Image.FromFile(item);
+                                Image img = fapmap_res.ImageFast.FromFile(item);
                                 showMedia_image.Image = new Bitmap(img);
                                 img.Dispose();
                             }
@@ -503,7 +503,7 @@ namespace fapmap
                                     showMedia_icon.Visible = true;
                                     showMedia_icon.Image = Icon.ExtractAssociatedIcon(fi.FullName).ToBitmap();
                                 }
-                                showMedia_image.Image = Image.FromFile(dest);
+                                showMedia_image.Image = fapmap_res.ImageFast.FromFile(dest);
                                 showMedia_Show(true);
                             }
                             /**/

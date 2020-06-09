@@ -34,7 +34,7 @@ namespace fapmap
 
             if (fapmap.GlobalVariables.FileTypes.Image.Contains(fi.Extension.ToLower()))
             {
-                Image img = Image.FromFile(fi.FullName);
+                Image img = fapmap_res.ImageFast.FromFile(fi.FullName);
                 Bitmap bmp = new Bitmap(img);
                 img.Dispose();
                 showImage.Image = bmp;
@@ -47,7 +47,7 @@ namespace fapmap
 
                 if (File.Exists(dest))
                 {
-                    Image img = Image.FromFile(dest);
+                    Image img = fapmap_res.ImageFast.FromFile(dest);
                     Bitmap bmp = new Bitmap(img);
                     img.Dispose();
                     showImage.Image = bmp;

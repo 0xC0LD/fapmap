@@ -81,7 +81,7 @@ namespace fapmap
                     foreach (string icon in icons)
                     {
                         if (url.Contains(Path.GetFileNameWithoutExtension(icon)))
-                            img = Image.FromFile(icon);
+                            img = fapmap_res.ImageFast.FromFile(icon);
                     }
 
                     if (img == null)
@@ -89,7 +89,7 @@ namespace fapmap
                         foreach (string icon in icons)
                         {
                             if (new System.Globalization.CultureInfo("").CompareInfo.IndexOf(url, Path.GetFileNameWithoutExtension(icon), System.Globalization.CompareOptions.IgnoreCase) >= 0)
-                                img = Image.FromFile(icon);
+                                img = fapmap_res.ImageFast.FromFile(icon);
                         }
                     }
                 }
@@ -108,7 +108,7 @@ namespace fapmap
                                 this.Invoke((MethodInvoker)delegate
                                 {
                                     lvi.ImageKey = url;
-                                    Image img2 = Image.FromFile(path);
+                                    Image img2 = fapmap_res.ImageFast.FromFile(path);
                                     favicons.Images.Add(url, img2);
                                     img2.Dispose();
                                 });

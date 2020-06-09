@@ -456,7 +456,7 @@ namespace fapmap
                 // check if the file is an image
                 try
                 {
-                    Image img = Image.FromFile(fi.FullName);
+                    Image img = fapmap_res.ImageFast.FromFile(fi.FullName);
                     img.Dispose();
                     return true;
                 }
@@ -1356,16 +1356,22 @@ namespace fapmap
         {
             return bl ? "true" : "false";
         }
+
         public static string get_html_title(string url)
         {
             try
             {
                 if (string.IsNullOrEmpty(url)) { return ""; }
                 if (!Uri.IsWellFormedUriString(url, UriKind.Absolute)) { return ""; }
-                foreach (string type in GlobalVariables.FileTypes.Video) { if (url.Contains(type)) { return "video?"; } }
-                foreach (string type in GlobalVariables.FileTypes.Image) { if (url.Contains(type)) { return "image?"; } }
-                foreach (string type in GlobalVariables.FileTypes.Other) { if (url.Contains(type)) { return "file?"; } }
 
+                string UrlFileName = Path.GetFileName(new Uri(url).LocalPath);
+                if (UrlFileName != "index")
+                {
+                    foreach (string type in GlobalVariables.FileTypes.Video) { if (url.Contains(type)) { return string.IsNullOrEmpty(UrlFileName) ? "video?" : UrlFileName; } }
+                    foreach (string type in GlobalVariables.FileTypes.Image) { if (url.Contains(type)) { return string.IsNullOrEmpty(UrlFileName) ? "image?" : UrlFileName; } }
+                    foreach (string type in GlobalVariables.FileTypes.Other) { if (url.Contains(type)) { return string.IsNullOrEmpty(UrlFileName) ? "file?"  : UrlFileName; } }
+                }
+                
                 System.Net.WebClient wc = new System.Net.WebClient();
                 wc.Headers.Add("user-agent", "fapmap.exe");
 
@@ -1375,6 +1381,7 @@ namespace fapmap
             }
             catch (Exception) { return "..."; }
         }
+
         public static string get_string_in_between(string strBegin, string strEnd, string strSource, bool includeBegin, bool includeEnd)
         {
             string[] result = { string.Empty, string.Empty };
@@ -1816,7 +1823,7 @@ namespace fapmap
 
                     try
                     {
-                        Image img = Image.FromFile(path);
+                        Image img = fapmap_res.ImageFast.FromFile(path);
                         showMedia_image_gif_frames = getGifFrames(img);
                         img.Dispose();
                     }
@@ -1839,7 +1846,7 @@ namespace fapmap
 
                     try
                     {
-                        showMedia_image.Image = Image.FromFile(path);
+                        showMedia_image.Image = fapmap_res.ImageFast.FromFile(path);
                     }
                     catch (Exception)
                     {
@@ -2158,7 +2165,7 @@ namespace fapmap
 
                                 if (File.Exists(dest))
                                 {
-                                    Image img = Image.FromFile(dest);
+                                    Image img = fapmap_res.ImageFast.FromFile(dest);
                                     Bitmap bmp = new Bitmap(img);
                                     img.Dispose();
                                     int size = Math.Max(bmp.Width, bmp.Height);
@@ -5391,7 +5398,7 @@ namespace fapmap
                     foreach (string icon in icons)
                     {
                         if (url.Contains(Path.GetFileNameWithoutExtension(icon)))
-                            img = Image.FromFile(icon);
+                            img = fapmap_res.ImageFast.FromFile(icon);
                     }
 
                     if (img == null)
@@ -5399,7 +5406,7 @@ namespace fapmap
                         foreach (string icon in icons)
                         {
                             if (new System.Globalization.CultureInfo("").CompareInfo.IndexOf(url, Path.GetFileNameWithoutExtension(icon), System.Globalization.CompareOptions.IgnoreCase) >= 0)
-                                img = Image.FromFile(icon);
+                                img = fapmap_res.ImageFast.FromFile(icon);
                         }
                     }
                 }
@@ -5457,7 +5464,7 @@ namespace fapmap
                 foreach (string icon in icons)
                 {
                     if (url.Contains(Path.GetFileNameWithoutExtension(icon)))
-                        img = Image.FromFile(icon);
+                        img = fapmap_res.ImageFast.FromFile(icon);
                 }
 
                 if (img == null)
@@ -5465,7 +5472,7 @@ namespace fapmap
                     foreach (string icon in icons)
                     {
                         if (new System.Globalization.CultureInfo("").CompareInfo.IndexOf(url, Path.GetFileNameWithoutExtension(icon), System.Globalization.CompareOptions.IgnoreCase) >= 0)
-                            img = Image.FromFile(icon);
+                            img = fapmap_res.ImageFast.FromFile(icon);
                     }
                 }
             }
@@ -5484,7 +5491,7 @@ namespace fapmap
                             this.Invoke((MethodInvoker)delegate
                             {
                                 lvi.ImageKey = url;
-                                Image img2 = Image.FromFile(path);
+                                Image img2 = fapmap_res.ImageFast.FromFile(path);
                                 favicons.Images.Add(url, img2);
                                 img2.Dispose();
                             });
@@ -5508,13 +5515,16 @@ namespace fapmap
             {
                 new Thread(() =>
                 {
-                    string text = get_html_title(url);
-
-                    this.Invoke((MethodInvoker)delegate
+                    try
                     {
-                        links.Items[index].SubItems[2].Text = text;
-                        links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-                    });
+                        string text = get_html_title(url);
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            lvi.SubItems[2].Text = text;
+                            links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                        });
+                    }
+                    catch (Exception) { }
                 })
                 { IsBackground = true }.Start();
             }
@@ -5539,23 +5549,25 @@ namespace fapmap
             {
                 new Thread(() =>
                 {
-
-                    string backup = "";
-                    this.Invoke((MethodInvoker)delegate
+                    try
                     {
-                        backup = item.SubItems[2].Text;
-                        item.SubItems[2].Text = "reloading...";
-                        links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-                    });
+                        string backup = "";
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            backup = item.SubItems[2].Text;
+                            item.SubItems[2].Text = "reloading...";
+                            links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                        });
 
-                    string title = get_html_title(item.Name);
-
-                    this.Invoke((MethodInvoker)delegate
-                    {
-                        if (title == "...") { item.SubItems[2].Text = backup; }
-                        else { item.SubItems[2].Text = title; }
-                        links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-                    });
+                        string title = get_html_title(item.Name);
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            if (title == "...") { item.SubItems[2].Text = backup; }
+                            else { item.SubItems[2].Text = title; }
+                            links.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                        });
+                    }
+                    catch (Exception) { }
                 })
                 { IsBackground = true }.Start();
             }

@@ -258,8 +258,19 @@ namespace fapmap
                 string text = lvi.Name;
                 if (string.IsNullOrEmpty(text)) { continue; }
 
-                if      (File.Exists(text))      { if (fapmap.TrashFile(text)) { lvi.Remove(); } }
-                else if (Directory.Exists(text)) { if (fapmap.TrashDir(text))  { lvi.Remove(); } }
+                int next = lvi.Index;
+                
+                if      (File.Exists(text))      { if (fapmap.TrashFile(text)) { lvi.Remove(); goto SelectNext; } }
+                else if (Directory.Exists(text)) { if (fapmap.TrashDir(text))  { lvi.Remove(); goto SelectNext; } }
+
+                return;
+
+                SelectNext:
+                if (next <= output.Items.Count - 1)
+                {
+                    output.Items[next].Selected = true;
+                    output.Items[next].EnsureVisible();
+                }
             }
         }
         private void output_info()

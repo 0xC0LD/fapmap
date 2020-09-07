@@ -1,10 +1,9 @@
 # FapMap
-### Hidden personal gallery (of erotica) (C#, GUI - WinForms)
-- A program/project made for COOMERS!
+### Hidden personal gallery (C#, GUI - WinForms)
 - Hide your personal files with a click of a button.
 - Open/download files & bookmark URL(s) all inside the program.
 - ...
-### [ENTIRE GUI IN ONE IMAGE](https://raw.githubusercontent.com/0xC0LD/fapmap/master/screenshots/all.png) / outdated... will change this when I'm done with everything...
+### [ENTIRE GUI IN ONE IMAGE](https://raw.githubusercontent.com/0xC0LD/fapmap/master/screenshots/all.png)
 
 ## Programs in This Repository:
 - fapmaper (fapmaper is the "installation" program... all it really does is copy the contents from the "data" folder to the given location and then it hides the destination folder):

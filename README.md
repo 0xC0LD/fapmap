@@ -39,12 +39,12 @@
 - before opening downloader/fscan/youtube-dl/... select the working location in the treeview/fileDisplay
 
 #### Quick Searching:
-- drag 'n' drop a ___ to the 'Properties' button (next to the file path) to search the gallery for a file<br>
-___ can be a:
-  - SITE url, uses webgrab to find the the file url, and get's the filename from it<br>
-              (sites supported: rule34.xxx, gelbooru.com, ... will add more)
-  - FILE url, get's the filename from the url
+- drag 'n' drop a ??? to the 'Properties' button (next to the file path) to search the gallery for a file<br>
+??? can be a:
   - filename
+  - FILE url, get's the filename from the url
+  - SITE url, uses webgrab to find the file url, and get's the filename from it<br>
+              (sites supported: rule34.xxx, gelbooru.com, ... will add more)
   
 #### Other Stuff:
 - fileDisplay: ctrl + scroll = zoom in/out icons
